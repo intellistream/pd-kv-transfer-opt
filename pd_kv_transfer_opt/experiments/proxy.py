@@ -24,6 +24,18 @@ def routes(config):
     return result
 
 
+def resolve_fixture(fixture, config):
+    addresses = {f"{role}{i}": f"{config[role]['host']}:{port}"
+                 for role in ("P", "D") for i, port in enumerate(config[role]["api_ports"])}
+    resolved = {}
+    for rid, request in fixture["requests"].items():
+        prefill, decode = request["prefill"], request["decode"]
+        if prefill not in ("P0", "P1") or decode not in ("D0", "D1"):
+            raise ValueError(f"Invalid role labels in route fixture for {rid}.")
+        resolved[rid] = dict(request, prefill=addresses[prefill], decode=addresses[decode])
+    return {"requests": resolved}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, required=True)
@@ -43,7 +55,7 @@ def main():
     elif args.routing == "fixture":
         if args.route_fixture is None:
             parser.error("--routing fixture requires --route-fixture")
-        write_json(fixture_path, read_json(args.route_fixture))
+        write_json(fixture_path, resolve_fixture(read_json(args.route_fixture), config))
     elif fixture_path.exists():
         raise ValueError("Native routing requires a run directory without a route fixture.")
     os.environ.update(PD_KV_RUN_DIR=str(run_dir), PD_KV_PROXY_SOURCE=str(args.upstream.resolve()),

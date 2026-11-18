@@ -22,6 +22,7 @@ D0 API 侧 profiler 停止曾返回 HTTP 500。三档模型 worker 的捕获均�
 ## 有效的支持性对照
 
 - r13 为验证性限速实验，100→200→400→100 的回切展示吞吐随带宽往返变化。[r13 摘要](../results/2026-11-18-supporting/hard-cap-pilot.json)
+- r1/r3/r4 在 128 GiB 池上对自然会话做 P 本地 APC 回切。开启 APC 时的请求完成率为 0.762 请求/s，关闭 APC 的两轮为 0.397 和 0.483 请求/s。三轮各完成 170 条，保留实际 EOS 造成的输出量差异。[本地 APC 对照](../results/2026-11-18-supporting/natural-apc.json)
 - r9/r10 的 170 条自然会话使用 P 本地 APC。P 侧图捕获档位从 16 扩到 4096，满批 rank 0 forward p50 从约 361 ms 降到 210 ms，整轮 TTFT p99 从 97.23 秒降到 63.38 秒。实际输出量随 EOS 变化，同时保存请求完成率。[图捕获对照](../results/2026-11-18-supporting/graph-capture.json)
 - r11/r12 保持自然回放的 170 条请求、路由和逐请求输出长度一致。双向原生后台 READ 将 P→D 单 rank 有效速率 p50 从 173.34 降到 97.06 Gbps。完整集合吞吐下降 0.87%，P 同步 GET 仅占各 rank 窗口约 0.23%–0.29%。该对照体现远端等待占比对吞吐效应的影响。[自然回放带宽竞争](../results/2026-11-18-supporting/natural-rdma-competition.json)
 

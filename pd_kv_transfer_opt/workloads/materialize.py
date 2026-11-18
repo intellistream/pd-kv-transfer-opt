@@ -78,9 +78,20 @@ def main():
     parser.add_argument("--spec", type=Path, required=True)
     parser.add_argument("--traces", type=Path, required=True)
     parser.add_argument("--model", type=Path, required=True)
+    parser.add_argument("--fixed-output", type=Path, help="Use observed generation budgets from a paired replay fixture.")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    records = materialize(read_json(args.spec), args.traces, args.model)
+    spec = read_json(args.spec)
+    if args.fixed_output:
+        requests = read_json(args.fixed_output)["requests"]
+        if requests.keys() != {row["id"] for row in spec["requests"]}:
+            raise ValueError("The fixed-output fixture does not cover the same requests.")
+        for row in spec["requests"]:
+            limit = requests[row["id"]]["max_tokens"]
+            if type(limit) is not int or limit < 1:
+                raise ValueError(f"Invalid generation budget: {row['id']}")
+            row["max_tokens"] = limit
+    records = materialize(spec, args.traces, args.model)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open("x", encoding="utf-8", newline="\n") as stream:
         for row in records:

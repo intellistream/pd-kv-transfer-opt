@@ -21,6 +21,6 @@ python -m pd_kv_transfer_opt.workloads.materialize --spec configs/workload-r14.j
 
 [r10 清单](../configs/workload-natural-r10.json) 固定 30 个源任务、170 条请求及其前驱关系。保留完整历史，输入长度约 32.9K–207.7K token，外部会话起点在约 18.23 秒内释放，前驱全流结束后才释放后继。历史 tool gap 缺少实测时间，回放设置为 0。该组的输出预算按源轨迹设置，r10 允许 EOS，r11/r12 固定该组实际输出量用于带宽竞争对照。
 
-需要时用同一个 fetcher 下载完整固定版本，并将 materializer 的 `--spec` 指向 r10 清单。用 `loadgen` 的 `--workload` 参数读取物化文件，`--window-start 0` 配合覆盖全部会话起点的窗口。自然回放采用原生代理路由。配对路由可经 `--routing fixture` 提供。
+需要时用同一个 fetcher 下载完整固定版本，并将 materializer 的 `--spec` 指向 r10 清单。用 `loadgen` 的 `--workload` 参数读取物化文件，`--window-start 0` 配合覆盖全部会话起点的窗口。普通自然回放使用代理的 `--routing native`。r11/r12 配对回放使用[固定路由和输出清单](../configs/replay-natural-fixed-outputs.json)，将该文件同时传给 materializer 的 `--fixed-output` 和代理的 `--routing fixture --route-fixture`，客户端加 `--ignore-eos`。
 
 两类回放分开报告。热前缀小工作集有意让远端读取占据关键路径。自然会话保留任务、上下文和完成依赖的变化。
