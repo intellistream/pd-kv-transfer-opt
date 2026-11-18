@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RDMA lab host event v1",
+  "type": "object",
+  "required": ["type", "schema", "run_id", "name", "host", "instance_id", "pid", "rank", "monotonic_ns", "event_seq"],
+  "properties": {
+    "type": {"const": "event"},
+    "schema": {"const": "rdma-lab-events/v1"},
+    "run_id": {"type": "string", "minLength": 1},
+    "name": {"type": "string", "minLength": 1},
+    "host": {"type": "string"},
+    "instance_id": {"type": "string"},
+    "role": {"enum": ["P", "D", "router", "cache", "transport"]},
+    "pid": {"type": "integer", "minimum": 1},
+    "rank": {"type": "integer", "minimum": 0},
+    "thread_id": {"type": "integer"},
+    "monotonic_ns": {"type": "integer", "minimum": 0},
+    "event_seq": {"type": "integer", "minimum": 0},
+    "phase": {"enum": ["begin", "end"]},
+    "span_id": {"type": "string"},
+    "request_id": {"type": "string"},
+    "request_ids": {"type": "array", "items": {"type": "string"}},
+    "flow_id": {"type": "string"},
+    "iteration_id": {"type": ["integer", "string"]},
+    "allocation_id": {"type": "string"},
+    "group_id": {"type": ["integer", "string"]},
+    "bytes": {"type": "integer", "minimum": 0},
+    "logical_direction": {"enum": ["P_to_D", "D_to_P", "local"]},
+    "verb": {"enum": ["read", "write", "send", "host_copy", "h2d", "d2h"]}
+  },
+  "allOf": [
+    {"if": {"required": ["phase"]}, "then": {"required": ["span_id"]}},
+    {"if": {"properties": {"name": {"pattern": "^rdma\\."}}}, "then": {"required": ["flow_id", "logical_direction", "bytes"]}}
+  ],
+  "additionalProperties": true
+}

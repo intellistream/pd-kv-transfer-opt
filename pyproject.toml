@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pd-kv-transfer-opt"
+version = "0.1.0"
+description = "2P2D KV transfer experiments, profiling, and simulation"
+requires-python = ">=3.11"
+dependencies = []
+readme = "README.md"
+
+[project.optional-dependencies]
+workloads = ["transformers"]
+client = ["msgspec"]
+
+[tool.setuptools.packages.find]
+include = ["pd_kv_transfer_opt*"]

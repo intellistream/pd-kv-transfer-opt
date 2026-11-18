@@ -1,0 +1,2377 @@
+{
+  "run_id": "2p2d-20261118-natural-repro-r14",
+  "P": {
+    "profile-cap100": {
+      "capture": {
+        "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118111922953_ascend_pt",
+        "host_role": "P",
+        "pid": 254467,
+        "kernel_csv_sha256": "ba962d840004fbbd1c461afb7258a82fef222ba6c4a6fdb9044aa81179d5dc98",
+        "kernel_csv_bytes": 2671981,
+        "trace_json_bytes": 171306834
+      },
+      "diagnostic_client_window_unix_ns": [
+        1795000766360891576,
+        1795000792683895880
+      ],
+      "host_native_get_union_ms": 19174.325776,
+      "device_activity_union_ms": 19822.617845,
+      "device_activity_ms_by_kind": {
+        "device_compute": 192.754782,
+        "other_device_communication": 513.135572,
+        "device_batch_get": 19122.597309
+      },
+      "host_GET_overlap_ms": {
+        "device_compute": 0.021801,
+        "other_device_communication": 9.272699,
+        "device_batch_get": 19122.597309
+      },
+      "device_batch_get_fraction_of_host_GET": 0.9973022015165327,
+      "compute_fraction_of_host_GET": 1.136989130918373e-06,
+      "host_calls_ms": {
+        "n": 12,
+        "mean": 1597.8604813333334,
+        "p50": 1589.0159195,
+        "p95": 1717.582348,
+        "max": 1717.582348,
+        "p99": 1717.582348
+      },
+      "device_batch_get_overlap_per_call_ms": {
+        "n": 12,
+        "mean": 1593.54977575,
+        "p50": 1584.772563,
+        "p95": 1712.733581,
+        "max": 1712.733581,
+        "p99": 1712.733581
+      },
+      "host_methods": {
+        "issue23::batch_get_into_multi_buffers": {
+          "calls": 12,
+          "union_ms": 19173.53674,
+          "native_GET_overlap_ms": 19170.984978
+        },
+        "issue23::mooncake_backend_get": {
+          "calls": 12,
+          "union_ms": 19199.48667,
+          "native_GET_overlap_ms": 19173.929625
+        },
+        "issue23::worker_start_load_kv": {
+          "calls": 2,
+          "union_ms": 19343.13015,
+          "native_GET_overlap_ms": 19174.325776
+        }
+      },
+      "top_cann_host_apis": [
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118111922953_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "145786518.4",
+          "Count": "2652",
+          "Avg(us)": "54972.292",
+          "Min(us)": "3479.24",
+          "Max(us)": "252825.15",
+          "Variance": "1913688418.633",
+          "API Name": "hixlOpBatchRead"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118111922953_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "78635370.84",
+          "Count": "2700",
+          "Avg(us)": "29124.211",
+          "Min(us)": "1.83",
+          "Max(us)": "79944.94",
+          "Variance": "255926769.956",
+          "API Name": "aclrtSynchronizeStreamWithTimeout"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118111922953_ascend_pt",
+          "Device_id": "host",
+          "Level": "node",
+          "Time(us)": "2367027.51",
+          "Count": "5512",
+          "Avg(us)": "429.432",
+          "Min(us)": "3.09",
+          "Max(us)": "3007.79",
+          "Variance": "195961.618",
+          "API Name": "launch"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118111922953_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "2336733.36",
+          "Count": "2652",
+          "Avg(us)": "881.121",
+          "Min(us)": "730.52",
+          "Max(us)": "3007.79",
+          "Variance": "13464.841",
+          "API Name": "hccl_batchGet_"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118111922953_ascend_pt",
+          "Device_id": "host",
+          "Level": "communication",
+          "Time(us)": "1609770.83",
+          "Count": "55692",
+          "Avg(us)": "28.905",
+          "Min(us)": "20.2",
+          "Max(us)": "2220.87",
+          "Variance": "214.256",
+          "API Name": "RDMASend"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118111922953_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "343351.87",
+          "Count": "1925",
+          "Avg(us)": "178.365",
+          "Min(us)": "0.59",
+          "Max(us)": "310432.15",
+          "Variance": "50029852.272",
+          "API Name": "aclrtSynchronizeEvent"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118111922953_ascend_pt",
+          "Device_id": "host",
+          "Level": "communication",
+          "Time(us)": "76774.31",
+          "Count": "2652",
+          "Avg(us)": "28.95",
+          "Min(us)": "21.99",
+          "Max(us)": "107.61",
+          "Variance": "45.29",
+          "API Name": "Notify_Wait"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118111922953_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "75454.34",
+          "Count": "175276",
+          "Avg(us)": "0.43",
+          "Min(us)": "0.25",
+          "Max(us)": "57.87",
+          "Variance": "0.113",
+          "API Name": "aclmdlRICaptureGetInfo"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118111922953_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "31424.34",
+          "Count": "63746",
+          "Avg(us)": "0.493",
+          "Min(us)": "0.31",
+          "Max(us)": "43.29",
+          "Variance": "0.146",
+          "API Name": "aclrtStreamGetId"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118111922953_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "26794.57",
+          "Count": "63652",
+          "Avg(us)": "0.421",
+          "Min(us)": "0.26",
+          "Max(us)": "33.49",
+          "Variance": "0.103",
+          "API Name": "aclrtGetCurrentContext"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118111922953_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "20853.74",
+          "Count": "1961",
+          "Avg(us)": "10.634",
+          "Min(us)": "5.67",
+          "Max(us)": "61.12",
+          "Variance": "18.224",
+          "API Name": "aclrtRecordEvent"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118111922953_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "19887.5",
+          "Count": "1363",
+          "Avg(us)": "14.591",
+          "Min(us)": "2.62",
+          "Max(us)": "71.01",
+          "Variance": "57.836",
+          "API Name": "aclnnInplaceCopy"
+        }
+      ],
+      "top_device_kernel_names": [
+        {
+          "name": "hcom_allReduce__503_0_2",
+          "calls": 1,
+          "union_ms": 351.471622
+        },
+        {
+          "name": "hcom_allReduce__503_82_1",
+          "calls": 1,
+          "union_ms": 85.139881
+        },
+        {
+          "name": "hccl_batchGet__066_14_1",
+          "calls": 1,
+          "union_ms": 80.831855
+        },
+        {
+          "name": "hccl_batchGet__769_263_1",
+          "calls": 1,
+          "union_ms": 80.251083
+        },
+        {
+          "name": "hccl_batchGet__066_130_1",
+          "calls": 1,
+          "union_ms": 79.038939
+        },
+        {
+          "name": "hccl_batchGet__066_75_1",
+          "calls": 1,
+          "union_ms": 78.057399
+        },
+        {
+          "name": "hccl_batchGet__066_258_1",
+          "calls": 1,
+          "union_ms": 77.58091
+        },
+        {
+          "name": "hccl_batchGet__066_63_1",
+          "calls": 1,
+          "union_ms": 75.997258
+        },
+        {
+          "name": "hccl_batchGet__109_5_1",
+          "calls": 1,
+          "union_ms": 75.986478
+        },
+        {
+          "name": "FusedInferAttentionScore",
+          "calls": 20,
+          "union_ms": 74.721836
+        },
+        {
+          "name": "hccl_batchGet__672_96_1",
+          "calls": 1,
+          "union_ms": 74.57807
+        },
+        {
+          "name": "hccl_batchGet__066_197_1",
+          "calls": 1,
+          "union_ms": 73.993058
+        }
+      ],
+      "request_calls": [
+        {
+          "id": "profile-cap100-000",
+          "proxy_request_id": "c62ebd18-3486-44f8-9ff8-10bef0d54a35",
+          "GET_start_ns": 1795000766703907899,
+          "GET_end_ns": 1795000768421490247,
+          "get_bytes": 2301992960,
+          "host_ms": 1717.582348,
+          "device_batch_get_overlap_ms": 1712.733581,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap100-002",
+          "proxy_request_id": "0aa42507-4720-4173-b367-607be9836d24",
+          "GET_start_ns": 1795000769792052375,
+          "GET_end_ns": 1795000771337468350,
+          "get_bytes": 2301992960,
+          "host_ms": 1545.415975,
+          "device_batch_get_overlap_ms": 1540.99823,
+          "device_compute_overlap_ms": 0.021801,
+          "other_device_communication_overlap_ms": 9.272699
+        },
+        {
+          "id": "profile-cap100-004",
+          "proxy_request_id": "a3ee0ad7-74b9-41b0-8d9c-d052e19f1223",
+          "GET_start_ns": 1795000771345475875,
+          "GET_end_ns": 1795000772950434903,
+          "get_bytes": 2301992960,
+          "host_ms": 1604.959028,
+          "device_batch_get_overlap_ms": 1601.032348,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap100-006",
+          "proxy_request_id": "69e9585a-50b8-45aa-9cb2-33f72e918b10",
+          "GET_start_ns": 1795000772958033413,
+          "GET_end_ns": 1795000774477388669,
+          "get_bytes": 2301992960,
+          "host_ms": 1519.355256,
+          "device_batch_get_overlap_ms": 1515.271495,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap100-008",
+          "proxy_request_id": "2194f837-9370-4b20-b61a-bb4cd71b61c8",
+          "GET_start_ns": 1795000774484959418,
+          "GET_end_ns": 1795000776056408520,
+          "get_bytes": 2301992960,
+          "host_ms": 1571.449102,
+          "device_batch_get_overlap_ms": 1567.182172,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap100-010",
+          "proxy_request_id": "4bddbc1a-545d-4c0d-9e0e-f11d221bbcdd",
+          "GET_start_ns": 1795000776064103771,
+          "GET_end_ns": 1795000777742231943,
+          "get_bytes": 2301992960,
+          "host_ms": 1678.128172,
+          "device_batch_get_overlap_ms": 1673.846203,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap100-012",
+          "proxy_request_id": "9f213406-f95e-4df7-b33a-e82f061a0710",
+          "GET_start_ns": 1795000777749766512,
+          "GET_end_ns": 1795000779322839323,
+          "get_bytes": 2301992960,
+          "host_ms": 1573.072811,
+          "device_batch_get_overlap_ms": 1568.512778,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap100-014",
+          "proxy_request_id": "665d8239-9a05-4410-a462-a6255d790e59",
+          "GET_start_ns": 1795000779330417042,
+          "GET_end_ns": 1795000781022425798,
+          "get_bytes": 2301992960,
+          "host_ms": 1692.008756,
+          "device_batch_get_overlap_ms": 1687.748321,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap100-016",
+          "proxy_request_id": "b75438d0-102b-4f97-8a1b-5b03af02014c",
+          "GET_start_ns": 1795000781030003958,
+          "GET_end_ns": 1795000782673962746,
+          "get_bytes": 2301992960,
+          "host_ms": 1643.958788,
+          "device_batch_get_overlap_ms": 1639.366275,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap100-018",
+          "proxy_request_id": "603f8e78-1a92-404c-887d-1a20e1fd7b81",
+          "GET_start_ns": 1795000782681621967,
+          "GET_end_ns": 1795000784176705077,
+          "get_bytes": 2301992960,
+          "host_ms": 1495.08311,
+          "device_batch_get_overlap_ms": 1490.98991,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap100-020",
+          "proxy_request_id": "cc7db277-3152-43a6-9a28-9bc5164c1edf",
+          "GET_start_ns": 1795000784184261886,
+          "GET_end_ns": 1795000785815679416,
+          "get_bytes": 2301992960,
+          "host_ms": 1631.41753,
+          "device_batch_get_overlap_ms": 1627.421076,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap100-022",
+          "proxy_request_id": "89a3719d-3788-4db7-9831-ca6ce58fd98a",
+          "GET_start_ns": 1795000785823250006,
+          "GET_end_ns": 1795000787325144906,
+          "get_bytes": 2301992960,
+          "host_ms": 1501.8949,
+          "device_batch_get_overlap_ms": 1497.49492,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        }
+      ]
+    },
+    "profile-cap400": {
+      "capture": {
+        "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118112512622_ascend_pt",
+        "host_role": "P",
+        "pid": 254467,
+        "kernel_csv_sha256": "dba3ea2f072ba94232d80619cfa36c259618c61bb90ab67358dc73a0d2cf882b",
+        "kernel_csv_bytes": 4624295,
+        "trace_json_bytes": 185654684
+      },
+      "diagnostic_client_window_unix_ns": [
+        1795001115974699988,
+        1795001124865678065
+      ],
+      "host_native_get_union_ms": 4293.326481,
+      "device_activity_union_ms": 4749.992567,
+      "device_activity_ms_by_kind": {
+        "device_compute": 364.654393,
+        "other_device_communication": 149.952911,
+        "device_batch_get": 4235.385263
+      },
+      "host_GET_overlap_ms": {
+        "device_compute": 0.0,
+        "other_device_communication": 0.0,
+        "device_batch_get": 4235.385263
+      },
+      "device_batch_get_fraction_of_host_GET": 0.9865043531498437,
+      "compute_fraction_of_host_GET": 0.0,
+      "host_calls_ms": {
+        "n": 12,
+        "mean": 357.77720675,
+        "p50": 387.2982995,
+        "p95": 444.834874,
+        "max": 444.834874,
+        "p99": 444.834874
+      },
+      "device_batch_get_overlap_per_call_ms": {
+        "n": 12,
+        "mean": 352.94877191666666,
+        "p50": 382.662415,
+        "p95": 439.548742,
+        "max": 439.548742,
+        "p99": 439.548742
+      },
+      "host_methods": {
+        "issue23::batch_get_into_multi_buffers": {
+          "calls": 12,
+          "union_ms": 4292.7153,
+          "native_GET_overlap_ms": 4291.165963
+        },
+        "issue23::mooncake_backend_get": {
+          "calls": 12,
+          "union_ms": 4311.55924,
+          "native_GET_overlap_ms": 4293.326481
+        },
+        "issue23::worker_start_load_kv": {
+          "calls": 4,
+          "union_ms": 4476.66311,
+          "native_GET_overlap_ms": 4293.326481
+        }
+      },
+      "top_cann_host_apis": [
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118112512622_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "32163523.97",
+          "Count": "2652",
+          "Avg(us)": "12128.026",
+          "Min(us)": "791.81",
+          "Max(us)": "82656.29",
+          "Variance": "105226323.542",
+          "API Name": "hixlOpBatchRead"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118112512622_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "15435959.18",
+          "Count": "2748",
+          "Avg(us)": "5617.161",
+          "Min(us)": "1.68",
+          "Max(us)": "20478.47",
+          "Variance": "14761844.914",
+          "API Name": "aclrtSynchronizeStreamWithTimeout"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118112512622_ascend_pt",
+          "Device_id": "host",
+          "Level": "node",
+          "Time(us)": "2540517.86",
+          "Count": "8292",
+          "Avg(us)": "306.382",
+          "Min(us)": "3.01",
+          "Max(us)": "2878.07",
+          "Variance": "195453.29",
+          "API Name": "launch"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118112512622_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "2485507.22",
+          "Count": "2652",
+          "Avg(us)": "937.22",
+          "Min(us)": "747.26",
+          "Max(us)": "2878.07",
+          "Variance": "25010.892",
+          "API Name": "hccl_batchGet_"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118112512622_ascend_pt",
+          "Device_id": "host",
+          "Level": "communication",
+          "Time(us)": "1741260.66",
+          "Count": "55692",
+          "Avg(us)": "31.266",
+          "Min(us)": "20.14",
+          "Max(us)": "2049.71",
+          "Variance": "315.59",
+          "API Name": "RDMASend"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118112512622_ascend_pt",
+          "Device_id": "host",
+          "Level": "communication",
+          "Time(us)": "80686.34",
+          "Count": "2652",
+          "Avg(us)": "30.425",
+          "Min(us)": "21.89",
+          "Max(us)": "143.37",
+          "Variance": "68.968",
+          "API Name": "Notify_Wait"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118112512622_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "77415.66",
+          "Count": "175520",
+          "Avg(us)": "0.441",
+          "Min(us)": "0.25",
+          "Max(us)": "118.15",
+          "Variance": "0.225",
+          "API Name": "aclmdlRICaptureGetInfo"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118112512622_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "37210.29",
+          "Count": "2757",
+          "Avg(us)": "13.497",
+          "Min(us)": "2.57",
+          "Max(us)": "165.33",
+          "Variance": "41.665",
+          "API Name": "aclnnInplaceCopy"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118112512622_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "31807.19",
+          "Count": "63844",
+          "Avg(us)": "0.498",
+          "Min(us)": "0.31",
+          "Max(us)": "44.85",
+          "Variance": "0.173",
+          "API Name": "aclrtStreamGetId"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118112512622_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "31529.94",
+          "Count": "4624",
+          "Avg(us)": "6.819",
+          "Min(us)": "2.22",
+          "Max(us)": "160.62",
+          "Variance": "21.175",
+          "API Name": "aclrtLaunchKernelWithHostArgs"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118112512622_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "26951.54",
+          "Count": "63656",
+          "Avg(us)": "0.423",
+          "Min(us)": "0.25",
+          "Max(us)": "32.4",
+          "Variance": "0.15",
+          "API Name": "aclrtGetCurrentContext"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118112512622_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "24251.98",
+          "Count": "617",
+          "Avg(us)": "39.306",
+          "Min(us)": "0.56",
+          "Max(us)": "13686.11",
+          "Variance": "302339.225",
+          "API Name": "aclrtSynchronizeEvent"
+        }
+      ],
+      "top_device_kernel_names": [
+        {
+          "name": "FusedInferAttentionScore",
+          "calls": 40,
+          "union_ms": 142.07846
+        },
+        {
+          "name": "aclnnGroupedMatmulV5_GroupedMatmul_GroupedMatmul",
+          "calls": 320,
+          "union_ms": 51.751878
+        },
+        {
+          "name": "aclnnInplaceCopy_TransposeAiCore_Transpose",
+          "calls": 1653,
+          "union_ms": 26.536579
+        },
+        {
+          "name": "aclnnMatmul_MatMulCommon_MatMulV2",
+          "calls": 1084,
+          "union_ms": 22.342591
+        },
+        {
+          "name": "hccl_batchGet__066_263_1",
+          "calls": 1,
+          "union_ms": 21.321006
+        },
+        {
+          "name": "hccl_batchGet__066_275_1",
+          "calls": 1,
+          "union_ms": 19.824716
+        },
+        {
+          "name": "hccl_batchGet__066_141_1",
+          "calls": 1,
+          "union_ms": 18.898158
+        },
+        {
+          "name": "hccl_batchGet__066_19_1",
+          "calls": 1,
+          "union_ms": 18.822696
+        },
+        {
+          "name": "hccl_batchGet__109_402_1",
+          "calls": 1,
+          "union_ms": 18.815876
+        },
+        {
+          "name": "hccl_batchGet__090_26_1",
+          "calls": 1,
+          "union_ms": 18.189703
+        },
+        {
+          "name": "hccl_batchGet__066_37_1",
+          "calls": 1,
+          "union_ms": 18.122882
+        },
+        {
+          "name": "hccl_batchGet__066_98_1",
+          "calls": 1,
+          "union_ms": 18.01856
+        }
+      ],
+      "request_calls": [
+        {
+          "id": "profile-cap400-000",
+          "proxy_request_id": "a5e1642a-db7c-4cca-8d28-1c999d1edff2",
+          "GET_start_ns": 1795001116321613470,
+          "GET_end_ns": 1795001116726229299,
+          "get_bytes": 2301992960,
+          "host_ms": 404.615829,
+          "device_batch_get_overlap_ms": 397.296578,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap400-002",
+          "proxy_request_id": "3489592d-20c2-439a-a36e-0f79e6f9852d",
+          "GET_start_ns": 1795001117630246288,
+          "GET_end_ns": 1795001118075081162,
+          "get_bytes": 2301992960,
+          "host_ms": 444.834874,
+          "device_batch_get_overlap_ms": 439.548742,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap400-004",
+          "proxy_request_id": "b4efe490-ad3e-4b97-9087-25629b4e063a",
+          "GET_start_ns": 1795001118083111307,
+          "GET_end_ns": 1795001118503670864,
+          "get_bytes": 2301992960,
+          "host_ms": 420.559557,
+          "device_batch_get_overlap_ms": 415.89191,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap400-006",
+          "proxy_request_id": "fd724cd5-1ecb-491c-859a-aecf0908dbc6",
+          "GET_start_ns": 1795001118511442536,
+          "GET_end_ns": 1795001118921035334,
+          "get_bytes": 2301992960,
+          "host_ms": 409.592798,
+          "device_batch_get_overlap_ms": 405.212917,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap400-008",
+          "proxy_request_id": "a9f99741-a4bb-4aa4-b928-0d7574ebe93f",
+          "GET_start_ns": 1795001118928700745,
+          "GET_end_ns": 1795001119338947731,
+          "get_bytes": 2301992960,
+          "host_ms": 410.246986,
+          "device_batch_get_overlap_ms": 405.705106,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap400-010",
+          "proxy_request_id": "c815d8e3-1420-4146-936e-0133be393159",
+          "GET_start_ns": 1795001119346694002,
+          "GET_end_ns": 1795001119707654046,
+          "get_bytes": 2301992960,
+          "host_ms": 360.960044,
+          "device_batch_get_overlap_ms": 356.591605,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap400-012",
+          "proxy_request_id": "5d3bea20-1361-4997-8044-89077124ff24",
+          "GET_start_ns": 1795001119715369747,
+          "GET_end_ns": 1795001119924723310,
+          "get_bytes": 2301992960,
+          "host_ms": 209.353563,
+          "device_batch_get_overlap_ms": 204.864653,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap400-014",
+          "proxy_request_id": "9e1dd80d-e9ca-40ae-a738-5b995d7a0eb3",
+          "GET_start_ns": 1795001120259969860,
+          "GET_end_ns": 1795001120491342033,
+          "get_bytes": 2301992960,
+          "host_ms": 231.372173,
+          "device_batch_get_overlap_ms": 226.867912,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap400-016",
+          "proxy_request_id": "ab9fb506-822d-42cf-a6b8-3266fabb240a",
+          "GET_start_ns": 1795001120538851724,
+          "GET_end_ns": 1795001120821470052,
+          "get_bytes": 2301992960,
+          "host_ms": 282.618328,
+          "device_batch_get_overlap_ms": 278.218379,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap400-018",
+          "proxy_request_id": "44f5f3c9-bf64-48e5-bf9a-90a3d8a3ba9d",
+          "GET_start_ns": 1795001120828929100,
+          "GET_end_ns": 1795001121173504830,
+          "get_bytes": 2301992960,
+          "host_ms": 344.57573,
+          "device_batch_get_overlap_ms": 339.862631,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap400-020",
+          "proxy_request_id": "206f0ef1-0f1e-4dce-a7ec-ffa8418d6641",
+          "GET_start_ns": 1795001121472695794,
+          "GET_end_ns": 1795001121848831297,
+          "get_bytes": 2301992960,
+          "host_ms": 376.135503,
+          "device_batch_get_overlap_ms": 371.90449,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap400-022",
+          "proxy_request_id": "c5e67129-4d83-4dc6-925b-c0c740128ad1",
+          "GET_start_ns": 1795001121868831144,
+          "GET_end_ns": 1795001122267292240,
+          "get_bytes": 2301992960,
+          "host_ms": 398.461096,
+          "device_batch_get_overlap_ms": 393.42034,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        }
+      ]
+    },
+    "profile-cap1600": {
+      "capture": {
+        "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118112539214_ascend_pt",
+        "host_role": "P",
+        "pid": 254467,
+        "kernel_csv_sha256": "422e746d7400c3fa77f1cb932f321a105e1a8ace328a4c2eaf8c1e72b6790812",
+        "kernel_csv_bytes": 3638116,
+        "trace_json_bytes": 178111225
+      },
+      "diagnostic_client_window_unix_ns": [
+        1795001143349990192,
+        1795001150217312846
+      ],
+      "host_native_get_union_ms": 2237.116433,
+      "device_activity_union_ms": 2728.958882,
+      "device_activity_ms_by_kind": {
+        "device_compute": 279.707545,
+        "other_device_communication": 294.974059,
+        "device_batch_get": 2160.143895
+      },
+      "host_GET_overlap_ms": {
+        "device_compute": 0.01166,
+        "other_device_communication": 8.972832,
+        "device_batch_get": 2160.143895
+      },
+      "device_batch_get_fraction_of_host_GET": 0.9655929674179815,
+      "compute_fraction_of_host_GET": 5.212066671185191e-06,
+      "host_calls_ms": {
+        "n": 12,
+        "mean": 186.42636941666666,
+        "p50": 207.44343,
+        "p95": 217.822353,
+        "max": 217.822353,
+        "p99": 217.822353
+      },
+      "device_batch_get_overlap_per_call_ms": {
+        "n": 12,
+        "mean": 180.01199125,
+        "p50": 202.4237545,
+        "p95": 211.68637,
+        "max": 211.68637,
+        "p99": 211.68637
+      },
+      "host_methods": {
+        "issue23::batch_get_into_multi_buffers": {
+          "calls": 12,
+          "union_ms": 2236.54167,
+          "native_GET_overlap_ms": 2234.999701
+        },
+        "issue23::mooncake_backend_get": {
+          "calls": 12,
+          "union_ms": 2255.19097,
+          "native_GET_overlap_ms": 2237.116433
+        },
+        "issue23::worker_start_load_kv": {
+          "calls": 3,
+          "union_ms": 2399.68564,
+          "native_GET_overlap_ms": 2237.116433
+        }
+      },
+      "top_cann_host_apis": [
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118112539214_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "16032950.7",
+          "Count": "2652",
+          "Avg(us)": "6045.607",
+          "Min(us)": "791.87",
+          "Max(us)": "78944.78",
+          "Variance": "99062091.622",
+          "API Name": "hixlOpBatchRead"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118112539214_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "4125730.99",
+          "Count": "2724",
+          "Avg(us)": "1514.586",
+          "Min(us)": "1.81",
+          "Max(us)": "21584.65",
+          "Variance": "3334774.665",
+          "API Name": "aclrtSynchronizeStreamWithTimeout"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118112539214_ascend_pt",
+          "Device_id": "host",
+          "Level": "node",
+          "Time(us)": "2760219.33",
+          "Count": "6882",
+          "Avg(us)": "401.078",
+          "Min(us)": "3.2",
+          "Max(us)": "2884.19",
+          "Variance": "261830.253",
+          "API Name": "launch"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118112539214_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "2718938.72",
+          "Count": "2652",
+          "Avg(us)": "1025.241",
+          "Min(us)": "754.74",
+          "Max(us)": "2884.19",
+          "Variance": "44766.322",
+          "API Name": "hccl_batchGet_"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118112539214_ascend_pt",
+          "Device_id": "host",
+          "Level": "communication",
+          "Time(us)": "1944479.56",
+          "Count": "55692",
+          "Avg(us)": "34.915",
+          "Min(us)": "21.15",
+          "Max(us)": "1804.46",
+          "Variance": "274.659",
+          "API Name": "RDMASend"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118112539214_ascend_pt",
+          "Device_id": "host",
+          "Level": "communication",
+          "Time(us)": "89873.15",
+          "Count": "2652",
+          "Avg(us)": "33.889",
+          "Min(us)": "21.38",
+          "Max(us)": "204.17",
+          "Variance": "163.166",
+          "API Name": "Notify_Wait"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118112539214_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "78840.17",
+          "Count": "175408",
+          "Avg(us)": "0.449",
+          "Min(us)": "0.26",
+          "Max(us)": "52.23",
+          "Variance": "0.233",
+          "API Name": "aclmdlRICaptureGetInfo"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118112539214_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "39283.92",
+          "Count": "1122",
+          "Avg(us)": "35.012",
+          "Min(us)": "0.58",
+          "Max(us)": "18464.77",
+          "Variance": "303009.728",
+          "API Name": "aclrtSynchronizeEvent"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118112539214_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "31945.54",
+          "Count": "63805",
+          "Avg(us)": "0.501",
+          "Min(us)": "0.31",
+          "Max(us)": "32.01",
+          "Variance": "0.179",
+          "API Name": "aclrtStreamGetId"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118112539214_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "28353.9",
+          "Count": "2060",
+          "Avg(us)": "13.764",
+          "Min(us)": "2.52",
+          "Max(us)": "61.04",
+          "Variance": "41.048",
+          "API Name": "aclnnInplaceCopy"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118112539214_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "26771.41",
+          "Count": "63654",
+          "Avg(us)": "0.421",
+          "Min(us)": "0.25",
+          "Max(us)": "84.9",
+          "Variance": "0.289",
+          "API Name": "aclrtGetCurrentContext"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_254467_20261118112539214_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "23831.32",
+          "Count": "3468",
+          "Avg(us)": "6.872",
+          "Min(us)": "2.4",
+          "Max(us)": "63.15",
+          "Variance": "21.095",
+          "API Name": "aclrtLaunchKernelWithHostArgs"
+        }
+      ],
+      "top_device_kernel_names": [
+        {
+          "name": "FusedInferAttentionScore",
+          "calls": 30,
+          "union_ms": 108.567469
+        },
+        {
+          "name": "hcom_allReduce__503_0_3",
+          "calls": 1,
+          "union_ms": 45.05676
+        },
+        {
+          "name": "aclnnGroupedMatmulV5_GroupedMatmul_GroupedMatmul",
+          "calls": 240,
+          "union_ms": 38.695669
+        },
+        {
+          "name": "aclnnInplaceCopy_TransposeAiCore_Transpose",
+          "calls": 1232,
+          "union_ms": 19.842082
+        },
+        {
+          "name": "aclnnMatmul_MatMulCommon_MatMulV2",
+          "calls": 813,
+          "union_ms": 16.741355
+        },
+        {
+          "name": "hcom_allReduce__503_80_1",
+          "calls": 1,
+          "union_ms": 15.960599
+        },
+        {
+          "name": "hccl_batchGet__769_220_1",
+          "calls": 1,
+          "union_ms": 11.201824
+        },
+        {
+          "name": "hccl_batchGet__769_293_1",
+          "calls": 1,
+          "union_ms": 10.890738
+        },
+        {
+          "name": "hcom_allReduce__503_82_1",
+          "calls": 1,
+          "union_ms": 10.53281
+        },
+        {
+          "name": "hccl_batchGet__769_171_1",
+          "calls": 1,
+          "union_ms": 10.407088
+        },
+        {
+          "name": "hccl_batchGet__769_19_1",
+          "calls": 1,
+          "union_ms": 10.049041
+        },
+        {
+          "name": "MoeInitRoutingCustom",
+          "calls": 120,
+          "union_ms": 9.911483
+        }
+      ],
+      "request_calls": [
+        {
+          "id": "profile-cap1600-000",
+          "proxy_request_id": "4736ba36-a700-41dd-b9c6-44e7097f0b08",
+          "GET_start_ns": 1795001143685377889,
+          "GET_end_ns": 1795001143877978434,
+          "get_bytes": 2301992960,
+          "host_ms": 192.600545,
+          "device_batch_get_overlap_ms": 183.746549,
+          "device_compute_overlap_ms": 0.01166,
+          "other_device_communication_overlap_ms": 8.972832
+        },
+        {
+          "id": "profile-cap1600-002",
+          "proxy_request_id": "318678eb-6226-4e88-909f-4c120531a1f3",
+          "GET_start_ns": 1795001144501632291,
+          "GET_end_ns": 1795001144705558179,
+          "get_bytes": 2301992960,
+          "host_ms": 203.925888,
+          "device_batch_get_overlap_ms": 186.063219,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap1600-004",
+          "proxy_request_id": "3ee73b9d-eb73-4719-aaac-284aea6b5f7a",
+          "GET_start_ns": 1795001144713258010,
+          "GET_end_ns": 1795001144924941781,
+          "get_bytes": 2301992960,
+          "host_ms": 211.683771,
+          "device_batch_get_overlap_ms": 206.418463,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap1600-006",
+          "proxy_request_id": "a70547c8-dd0e-4819-9ce3-97648dff07d4",
+          "GET_start_ns": 1795001144932641332,
+          "GET_end_ns": 1795001145059913215,
+          "get_bytes": 2301992960,
+          "host_ms": 127.271883,
+          "device_batch_get_overlap_ms": 122.795753,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap1600-008",
+          "proxy_request_id": "0359a652-1649-41e2-b5f8-413e9069bfe2",
+          "GET_start_ns": 1795001145067875109,
+          "GET_end_ns": 1795001145179253805,
+          "get_bytes": 2301992960,
+          "host_ms": 111.378696,
+          "device_batch_get_overlap_ms": 106.863875,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap1600-010",
+          "proxy_request_id": "042a51aa-2a26-49eb-9d9d-4228dffa027d",
+          "GET_start_ns": 1795001146476085833,
+          "GET_end_ns": 1795001146688772935,
+          "get_bytes": 2301992960,
+          "host_ms": 212.687102,
+          "device_batch_get_overlap_ms": 207.649528,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap1600-012",
+          "proxy_request_id": "f1bc9dfa-bc7b-4aae-a459-4d323ffc7525",
+          "GET_start_ns": 1795001146028197572,
+          "GET_end_ns": 1795001146246019925,
+          "get_bytes": 2301992960,
+          "host_ms": 217.822353,
+          "device_batch_get_overlap_ms": 211.68637,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap1600-014",
+          "proxy_request_id": "6564e8ae-5473-4de5-bf78-bf16936f8f65",
+          "GET_start_ns": 1795001146253488654,
+          "GET_end_ns": 1795001146468659435,
+          "get_bytes": 2301992960,
+          "host_ms": 215.170781,
+          "device_batch_get_overlap_ms": 210.133517,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap1600-016",
+          "proxy_request_id": "394520a5-7aa5-463a-a8c3-56f9539f31e5",
+          "GET_start_ns": 1795001146696179043,
+          "GET_end_ns": 1795001146903928456,
+          "get_bytes": 2301992960,
+          "host_ms": 207.749413,
+          "device_batch_get_overlap_ms": 202.67511,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap1600-018",
+          "proxy_request_id": "3a2ff5b9-95bf-47a8-88fd-8bbde948a4b0",
+          "GET_start_ns": 1795001146911344144,
+          "GET_end_ns": 1795001147126200802,
+          "get_bytes": 2301992960,
+          "host_ms": 214.856658,
+          "device_batch_get_overlap_ms": 209.475845,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap1600-020",
+          "proxy_request_id": "6175d352-5623-448d-892c-ce9c86a4edb0",
+          "GET_start_ns": 1795001147133569408,
+          "GET_end_ns": 1795001147340706855,
+          "get_bytes": 2301992960,
+          "host_ms": 207.137447,
+          "device_batch_get_overlap_ms": 202.172399,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap1600-022",
+          "proxy_request_id": "012fd31b-4b8f-446a-83d0-6f20ba549f78",
+          "GET_start_ns": 1795001147348181824,
+          "GET_end_ns": 1795001147463013720,
+          "get_bytes": 2301992960,
+          "host_ms": 114.831896,
+          "device_batch_get_overlap_ms": 110.463267,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        }
+      ]
+    }
+  },
+  "D": {
+    "profile-cap100": {
+      "capture": {
+        "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118111922951_ascend_pt",
+        "host_role": "D",
+        "pid": 196583,
+        "kernel_csv_sha256": "6ab14272710ca1c8831d7a788910a912733e658684348aa62a290806752520cd",
+        "kernel_csv_bytes": 53945751,
+        "trace_json_bytes": 395882171
+      },
+      "diagnostic_client_window_unix_ns": [
+        1795000766360891576,
+        1795000792683895880
+      ],
+      "host_native_get_union_ms": 1973.783881,
+      "device_activity_union_ms": 2984.643382,
+      "device_activity_ms_by_kind": {
+        "device_batch_get": 1816.385288,
+        "device_compute": 1275.020668,
+        "other_device_communication": 533.50295
+      },
+      "host_GET_overlap_ms": {
+        "device_batch_get": 1816.385288,
+        "device_compute": 408.789039,
+        "other_device_communication": 255.217706
+      },
+      "device_batch_get_fraction_of_host_GET": 0.9202554066252403,
+      "compute_fraction_of_host_GET": 0.20710932080005165,
+      "host_calls_ms": {
+        "n": 12,
+        "mean": 164.48199008333333,
+        "p50": 158.252182,
+        "p95": 238.274053,
+        "max": 238.274053,
+        "p99": 238.274053
+      },
+      "device_batch_get_overlap_per_call_ms": {
+        "n": 12,
+        "mean": 151.36544066666667,
+        "p50": 147.832173,
+        "p95": 229.42348,
+        "max": 229.42348,
+        "p99": 229.42348
+      },
+      "host_methods": {},
+      "top_cann_host_apis": [
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118111922951_ascend_pt",
+          "Device_id": "host",
+          "Level": "node",
+          "Time(us)": "2074129.98",
+          "Count": "9206",
+          "Avg(us)": "225.302",
+          "Min(us)": "3.02",
+          "Max(us)": "18354.88",
+          "Variance": "1868301.816",
+          "API Name": "launch"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118111922951_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "1887060.28",
+          "Count": "12",
+          "Avg(us)": "157255.023",
+          "Min(us)": "144235.86",
+          "Max(us)": "232152.27",
+          "Variance": "517542375.014",
+          "API Name": "hixlOpBatchRead"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118111922951_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "1880992.1",
+          "Count": "214",
+          "Avg(us)": "8789.683",
+          "Min(us)": "379.73",
+          "Max(us)": "18354.88",
+          "Variance": "5063662.094",
+          "API Name": "hccl_batchGet_"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118111922951_ascend_pt",
+          "Device_id": "host",
+          "Level": "communication",
+          "Time(us)": "1316776.9",
+          "Count": "52734",
+          "Avg(us)": "24.97",
+          "Min(us)": "19.97",
+          "Max(us)": "224.42",
+          "Variance": "43.842",
+          "API Name": "RDMASend"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118111922951_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "862862.94",
+          "Count": "560",
+          "Avg(us)": "1540.827",
+          "Min(us)": "3.49",
+          "Max(us)": "14979.06",
+          "Variance": "12779995.78",
+          "API Name": "aclrtSynchronizeEvent"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118111922951_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "406473.45",
+          "Count": "112",
+          "Avg(us)": "3629.227",
+          "Min(us)": "3.36",
+          "Max(us)": "43432.78",
+          "Variance": "34510704.924",
+          "API Name": "aclrtSynchronizeStreamWithTimeout"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118111922951_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "77449.9",
+          "Count": "8692",
+          "Avg(us)": "8.91",
+          "Min(us)": "2.15",
+          "Max(us)": "127.59",
+          "Variance": "75.094",
+          "API Name": "aclrtLaunchKernelWithHostArgs"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118111922951_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "76454.14",
+          "Count": "164044",
+          "Avg(us)": "0.466",
+          "Min(us)": "0.24",
+          "Max(us)": "55.89",
+          "Variance": "0.259",
+          "API Name": "aclmdlRICaptureGetInfo"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118111922951_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "60573.96",
+          "Count": "1000",
+          "Avg(us)": "60.574",
+          "Min(us)": "33.26",
+          "Max(us)": "336.62",
+          "Variance": "701.848",
+          "API Name": "aclnnInnerFusedInferAttentionScore"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118111922951_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "56012.99",
+          "Count": "1000",
+          "Avg(us)": "56.013",
+          "Min(us)": "15.88",
+          "Max(us)": "780.6",
+          "Variance": "3876.726",
+          "API Name": "aclnnInnerFusedInferAttentionScoreGetWorkspaceSize"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118111922951_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "47998.97",
+          "Count": "100",
+          "Avg(us)": "479.99",
+          "Min(us)": "328.75",
+          "Max(us)": "1267.82",
+          "Variance": "19109.213",
+          "API Name": "hcom_allReduce_"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118111922951_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "46500.69",
+          "Count": "100",
+          "Avg(us)": "465.007",
+          "Min(us)": "357.47",
+          "Max(us)": "1090.6",
+          "Variance": "13555.224",
+          "API Name": "hcom_allGather_"
+        }
+      ],
+      "top_device_kernel_names": [
+        {
+          "name": "FusedInferAttentionScore",
+          "calls": 986,
+          "union_ms": 364.110552
+        },
+        {
+          "name": "aclnnMatmul_MatMulCommon_MatMulV2",
+          "calls": 26727,
+          "union_ms": 202.487698
+        },
+        {
+          "name": "aclnnGroupedMatmulV5_GroupedMatmul_GroupedMatmul",
+          "calls": 7888,
+          "union_ms": 159.852284
+        },
+        {
+          "name": "aclnnContiguous_TransposeAiCore_Transpose",
+          "calls": 2959,
+          "union_ms": 61.931682
+        },
+        {
+          "name": "aclnnIndex_IndexAiCore_Index",
+          "calls": 5131,
+          "union_ms": 46.135612
+        },
+        {
+          "name": "MoeInitRoutingCustom",
+          "calls": 3944,
+          "union_ms": 45.532858
+        },
+        {
+          "name": "aclnnRecurrentGatedDeltaRule_RecurrentGatedDeltaRule_RecurrentGatedDeltaRule",
+          "calls": 2959,
+          "union_ms": 43.520616
+        },
+        {
+          "name": "aclnnCat_ConcatD_ConcatD",
+          "calls": 2959,
+          "union_ms": 42.643996
+        },
+        {
+          "name": "hcom_allReduce__503_438_1",
+          "calls": 1,
+          "union_ms": 41.436228
+        },
+        {
+          "name": "hcom_allReduce__503_468_1",
+          "calls": 1,
+          "union_ms": 28.670872
+        },
+        {
+          "name": "SwiGlu",
+          "calls": 7889,
+          "union_ms": 28.497982
+        },
+        {
+          "name": "aclnnIndex_IndexCheck_IndexCheck",
+          "calls": 5131,
+          "union_ms": 25.24438
+        }
+      ],
+      "request_calls": [
+        {
+          "id": "profile-cap100-000",
+          "proxy_request_id": "c62ebd18-3486-44f8-9ff8-10bef0d54a35",
+          "GET_start_ns": 1795000769149633788,
+          "GET_end_ns": 1795000769300309421,
+          "get_bytes": 2312478720,
+          "host_ms": 150.675633,
+          "device_batch_get_overlap_ms": 142.692588,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap100-002",
+          "proxy_request_id": "0aa42507-4720-4173-b367-607be9836d24",
+          "GET_start_ns": 1795000790981072587,
+          "GET_end_ns": 1795000791147664503,
+          "get_bytes": 2312478720,
+          "host_ms": 166.591916,
+          "device_batch_get_overlap_ms": 147.822744,
+          "device_compute_overlap_ms": 66.411394,
+          "other_device_communication_overlap_ms": 31.01491
+        },
+        {
+          "id": "profile-cap100-004",
+          "proxy_request_id": "a3ee0ad7-74b9-41b0-8d9c-d052e19f1223",
+          "GET_start_ns": 1795000790316157651,
+          "GET_end_ns": 1795000790471913757,
+          "get_bytes": 2312478720,
+          "host_ms": 155.756106,
+          "device_batch_get_overlap_ms": 147.45871,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap100-006",
+          "proxy_request_id": "69e9585a-50b8-45aa-9cb2-33f72e918b10",
+          "GET_start_ns": 1795000790656624971,
+          "GET_end_ns": 1795000790809287157,
+          "get_bytes": 2312478720,
+          "host_ms": 152.662186,
+          "device_batch_get_overlap_ms": 146.156762,
+          "device_compute_overlap_ms": 43.627914,
+          "other_device_communication_overlap_ms": 34.206658
+        },
+        {
+          "id": "profile-cap100-008",
+          "proxy_request_id": "2194f837-9370-4b20-b61a-bb4cd71b61c8",
+          "GET_start_ns": 1795000791154698459,
+          "GET_end_ns": 1795000791314379530,
+          "get_bytes": 2312478720,
+          "host_ms": 159.681071,
+          "device_batch_get_overlap_ms": 151.676482,
+          "device_compute_overlap_ms": 57.379748,
+          "other_device_communication_overlap_ms": 41.234408
+        },
+        {
+          "id": "profile-cap100-010",
+          "proxy_request_id": "4bddbc1a-545d-4c0d-9e0e-f11d221bbcdd",
+          "GET_start_ns": 1795000790816450943,
+          "GET_end_ns": 1795000790973701829,
+          "get_bytes": 2312478720,
+          "host_ms": 157.250886,
+          "device_batch_get_overlap_ms": 101.852492,
+          "device_compute_overlap_ms": 39.012898,
+          "other_device_communication_overlap_ms": 7.510804
+        },
+        {
+          "id": "profile-cap100-012",
+          "proxy_request_id": "9f213406-f95e-4df7-b33a-e82f061a0710",
+          "GET_start_ns": 1795000789629207393,
+          "GET_end_ns": 1795000789790330523,
+          "get_bytes": 2312478720,
+          "host_ms": 161.12313,
+          "device_batch_get_overlap_ms": 151.89169,
+          "device_compute_overlap_ms": 52.747622,
+          "other_device_communication_overlap_ms": 15.920544
+        },
+        {
+          "id": "profile-cap100-014",
+          "proxy_request_id": "665d8239-9a05-4410-a462-a6255d790e59",
+          "GET_start_ns": 1795000790490476248,
+          "GET_end_ns": 1795000790649354934,
+          "get_bytes": 2312478720,
+          "host_ms": 158.878686,
+          "device_batch_get_overlap_ms": 149.356548,
+          "device_compute_overlap_ms": 10.578474,
+          "other_device_communication_overlap_ms": 44.74021
+        },
+        {
+          "id": "profile-cap100-016",
+          "proxy_request_id": "b75438d0-102b-4f97-8a1b-5b03af02014c",
+          "GET_start_ns": 1795000791322687784,
+          "GET_end_ns": 1795000791560961837,
+          "get_bytes": 2312478720,
+          "host_ms": 238.274053,
+          "device_batch_get_overlap_ms": 229.42348,
+          "device_compute_overlap_ms": 106.944655,
+          "other_device_communication_overlap_ms": 48.424564
+        },
+        {
+          "id": "profile-cap100-018",
+          "proxy_request_id": "603f8e78-1a92-404c-887d-1a20e1fd7b81",
+          "GET_start_ns": 1795000788568825019,
+          "GET_end_ns": 1795000788726450697,
+          "get_bytes": 2312478720,
+          "host_ms": 157.625678,
+          "device_batch_get_overlap_ms": 147.841602,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap100-020",
+          "proxy_request_id": "cc7db277-3152-43a6-9a28-9bc5164c1edf",
+          "GET_start_ns": 1795000789299847695,
+          "GET_end_ns": 1795000789455267139,
+          "get_bytes": 2312478720,
+          "host_ms": 155.419444,
+          "device_batch_get_overlap_ms": 147.591084,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap100-022",
+          "proxy_request_id": "89a3719d-3788-4db7-9831-ca6ce58fd98a",
+          "GET_start_ns": 1795000789462552306,
+          "GET_end_ns": 1795000789622397398,
+          "get_bytes": 2312478720,
+          "host_ms": 159.845092,
+          "device_batch_get_overlap_ms": 152.621106,
+          "device_compute_overlap_ms": 32.086334,
+          "other_device_communication_overlap_ms": 32.165608
+        }
+      ]
+    },
+    "profile-cap400": {
+      "capture": {
+        "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118112512623_ascend_pt",
+        "host_role": "D",
+        "pid": 196583,
+        "kernel_csv_sha256": "f2308104f9d261d9275bc7c68bee70e8199fa9a2817d50aae32eddb03a0db6ba",
+        "kernel_csv_bytes": 43987436,
+        "trace_json_bytes": 310675594
+      },
+      "diagnostic_client_window_unix_ns": [
+        1795001115974699988,
+        1795001124865678065
+      ],
+      "host_native_get_union_ms": 1589.682365,
+      "device_activity_union_ms": 2460.244848,
+      "device_activity_ms_by_kind": {
+        "device_batch_get": 1498.908494,
+        "device_compute": 1135.094778,
+        "other_device_communication": 339.722426
+      },
+      "host_GET_overlap_ms": {
+        "device_batch_get": 1498.908494,
+        "device_compute": 407.117205,
+        "other_device_communication": 124.563796
+      },
+      "device_batch_get_fraction_of_host_GET": 0.9428981078242006,
+      "compute_fraction_of_host_GET": 0.25609971775713825,
+      "host_calls_ms": {
+        "n": 12,
+        "mean": 132.47353041666668,
+        "p50": 144.18185499999998,
+        "p95": 159.51799,
+        "max": 159.51799,
+        "p99": 159.51799
+      },
+      "device_batch_get_overlap_per_call_ms": {
+        "n": 12,
+        "mean": 124.90904116666667,
+        "p50": 137.508577,
+        "p95": 151.70221,
+        "max": 151.70221,
+        "p99": 151.70221
+      },
+      "host_methods": {},
+      "top_cann_host_apis": [
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118112512623_ascend_pt",
+          "Device_id": "host",
+          "Level": "node",
+          "Time(us)": "1561551.16",
+          "Count": "7462",
+          "Avg(us)": "209.267",
+          "Min(us)": "2.82",
+          "Max(us)": "20252.18",
+          "Variance": "1817672.906",
+          "API Name": "launch"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118112512623_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "1510422.41",
+          "Count": "12",
+          "Avg(us)": "125868.534",
+          "Min(us)": "95130.94",
+          "Max(us)": "153504.99",
+          "Variance": "618826460.245",
+          "API Name": "hixlOpBatchRead"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118112512623_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "1420376.77",
+          "Count": "158",
+          "Avg(us)": "8989.726",
+          "Min(us)": "224.16",
+          "Max(us)": "20252.18",
+          "Variance": "6893867.638",
+          "API Name": "hccl_batchGet_"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118112512623_ascend_pt",
+          "Device_id": "host",
+          "Level": "communication",
+          "Time(us)": "921629.9",
+          "Count": "38778",
+          "Avg(us)": "23.767",
+          "Min(us)": "19.83",
+          "Max(us)": "806.65",
+          "Variance": "46.866",
+          "API Name": "RDMASend"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118112512623_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "794063.25",
+          "Count": "416",
+          "Avg(us)": "1908.806",
+          "Min(us)": "3.28",
+          "Max(us)": "18410.39",
+          "Variance": "18846568.376",
+          "API Name": "aclrtSynchronizeEvent"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118112512623_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "312159.14",
+          "Count": "91",
+          "Avg(us)": "3430.32",
+          "Min(us)": "6.44",
+          "Max(us)": "21683.21",
+          "Variance": "17101249.709",
+          "API Name": "aclrtSynchronizeStreamWithTimeout"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118112512623_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "57546.28",
+          "Count": "7067",
+          "Avg(us)": "8.143",
+          "Min(us)": "2.12",
+          "Max(us)": "663.8",
+          "Variance": "113.377",
+          "API Name": "aclrtLaunchKernelWithHostArgs"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118112512623_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "54744.37",
+          "Count": "120916",
+          "Avg(us)": "0.453",
+          "Min(us)": "0.24",
+          "Max(us)": "36.79",
+          "Variance": "0.09",
+          "API Name": "aclmdlRICaptureGetInfo"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118112512623_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "46979.75",
+          "Count": "790",
+          "Avg(us)": "59.468",
+          "Min(us)": "16.09",
+          "Max(us)": "338.32",
+          "Variance": "4002.679",
+          "API Name": "aclnnInnerFusedInferAttentionScoreGetWorkspaceSize"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118112512623_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "41952.62",
+          "Count": "790",
+          "Avg(us)": "53.105",
+          "Min(us)": "33.78",
+          "Max(us)": "230.08",
+          "Variance": "403.488",
+          "API Name": "aclnnInnerFusedInferAttentionScore"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118112512623_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "34154.02",
+          "Count": "79",
+          "Avg(us)": "432.329",
+          "Min(us)": "331.5",
+          "Max(us)": "1018.04",
+          "Variance": "9761.831",
+          "API Name": "hcom_allGather_"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118112512623_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "33601.92",
+          "Count": "79",
+          "Avg(us)": "425.341",
+          "Min(us)": "317.92",
+          "Max(us)": "885.43",
+          "Variance": "8310.176",
+          "API Name": "hcom_allReduce_"
+        }
+      ],
+      "top_device_kernel_names": [
+        {
+          "name": "FusedInferAttentionScore",
+          "calls": 790,
+          "union_ms": 363.63044
+        },
+        {
+          "name": "aclnnMatmul_MatMulCommon_MatMulV2",
+          "calls": 21409,
+          "union_ms": 163.320394
+        },
+        {
+          "name": "aclnnGroupedMatmulV5_GroupedMatmul_GroupedMatmul",
+          "calls": 6320,
+          "union_ms": 144.638148
+        },
+        {
+          "name": "aclnnContiguous_TransposeAiCore_Transpose",
+          "calls": 2370,
+          "union_ms": 50.43067
+        },
+        {
+          "name": "aclnnRecurrentGatedDeltaRule_RecurrentGatedDeltaRule_RecurrentGatedDeltaRule",
+          "calls": 2370,
+          "union_ms": 38.801802
+        },
+        {
+          "name": "aclnnIndex_IndexAiCore_Index",
+          "calls": 4116,
+          "union_ms": 37.542506
+        },
+        {
+          "name": "MoeInitRoutingCustom",
+          "calls": 3160,
+          "union_ms": 36.664182
+        },
+        {
+          "name": "aclnnCat_ConcatD_ConcatD",
+          "calls": 2370,
+          "union_ms": 34.829428
+        },
+        {
+          "name": "SwiGlu",
+          "calls": 6320,
+          "union_ms": 23.339524
+        },
+        {
+          "name": "aclnnIndex_IndexCheck_IndexCheck",
+          "calls": 4116,
+          "union_ms": 23.224234
+        },
+        {
+          "name": "aclnnMul_MulAiCore_Mul",
+          "calls": 7189,
+          "union_ms": 22.265864
+        },
+        {
+          "name": "CausalConv1d",
+          "calls": 2370,
+          "union_ms": 19.59634
+        }
+      ],
+      "request_calls": [
+        {
+          "id": "profile-cap400-000",
+          "proxy_request_id": "a5e1642a-db7c-4cca-8d28-1c999d1edff2",
+          "GET_start_ns": 1795001117409144730,
+          "GET_end_ns": 1795001117568662720,
+          "get_bytes": 2312478720,
+          "host_ms": 159.51799,
+          "device_batch_get_overlap_ms": 151.339448,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap400-002",
+          "proxy_request_id": "3489592d-20c2-439a-a36e-0f79e6f9852d",
+          "GET_start_ns": 1795001121609397166,
+          "GET_end_ns": 1795001121768637174,
+          "get_bytes": 2312478720,
+          "host_ms": 159.240008,
+          "device_batch_get_overlap_ms": 151.70221,
+          "device_compute_overlap_ms": 31.974616,
+          "other_device_communication_overlap_ms": 13.397966
+        },
+        {
+          "id": "profile-cap400-004",
+          "proxy_request_id": "b4efe490-ad3e-4b97-9087-25629b4e063a",
+          "GET_start_ns": 1795001121928221614,
+          "GET_end_ns": 1795001122034121945,
+          "get_bytes": 2312478720,
+          "host_ms": 105.900331,
+          "device_batch_get_overlap_ms": 95.866156,
+          "device_compute_overlap_ms": 35.620084,
+          "other_device_communication_overlap_ms": 7.865632
+        },
+        {
+          "id": "profile-cap400-006",
+          "proxy_request_id": "fd724cd5-1ecb-491c-859a-aecf0908dbc6",
+          "GET_start_ns": 1795001122197505710,
+          "GET_end_ns": 1795001122303625942,
+          "get_bytes": 2312478720,
+          "host_ms": 106.120232,
+          "device_batch_get_overlap_ms": 97.436046,
+          "device_compute_overlap_ms": 60.215852,
+          "other_device_communication_overlap_ms": 13.434648
+        },
+        {
+          "id": "profile-cap400-008",
+          "proxy_request_id": "a9f99741-a4bb-4aa4-b928-0d7574ebe93f",
+          "GET_start_ns": 1795001121775541339,
+          "GET_end_ns": 1795001121924180688,
+          "get_bytes": 2312478720,
+          "host_ms": 148.639349,
+          "device_batch_get_overlap_ms": 141.901212,
+          "device_compute_overlap_ms": 46.99823,
+          "other_device_communication_overlap_ms": 25.369317
+        },
+        {
+          "id": "profile-cap400-010",
+          "proxy_request_id": "c815d8e3-1420-4146-936e-0133be393159",
+          "GET_start_ns": 1795001122040540757,
+          "GET_end_ns": 1795001122192132935,
+          "get_bytes": 2312478720,
+          "host_ms": 151.592178,
+          "device_batch_get_overlap_ms": 144.776976,
+          "device_compute_overlap_ms": 57.756535,
+          "other_device_communication_overlap_ms": 21.086262
+        },
+        {
+          "id": "profile-cap400-012",
+          "proxy_request_id": "5d3bea20-1361-4997-8044-89077124ff24",
+          "GET_start_ns": 1795001121447807332,
+          "GET_end_ns": 1795001121603008334,
+          "get_bytes": 2312478720,
+          "host_ms": 155.201002,
+          "device_batch_get_overlap_ms": 147.824336,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap400-014",
+          "proxy_request_id": "9e1dd80d-e9ca-40ae-a738-5b995d7a0eb3",
+          "GET_start_ns": 1795001122483328753,
+          "GET_end_ns": 1795001122593131689,
+          "get_bytes": 2312478720,
+          "host_ms": 109.802936,
+          "device_batch_get_overlap_ms": 98.827516,
+          "device_compute_overlap_ms": 58.385993,
+          "other_device_communication_overlap_ms": 7.169058
+        },
+        {
+          "id": "profile-cap400-016",
+          "proxy_request_id": "ab9fb506-822d-42cf-a6b8-3266fabb240a",
+          "GET_start_ns": 1795001122327696269,
+          "GET_end_ns": 1795001122479249927,
+          "get_bytes": 2312478720,
+          "host_ms": 151.553658,
+          "device_batch_get_overlap_ms": 144.361462,
+          "device_compute_overlap_ms": 58.416203,
+          "other_device_communication_overlap_ms": 20.576764
+        },
+        {
+          "id": "profile-cap400-018",
+          "proxy_request_id": "44f5f3c9-bf64-48e5-bf9a-90a3d8a3ba9d",
+          "GET_start_ns": 1795001122597251456,
+          "GET_end_ns": 1795001122702081030,
+          "get_bytes": 2312478720,
+          "host_ms": 104.829574,
+          "device_batch_get_overlap_ms": 96.774854,
+          "device_compute_overlap_ms": 45.40077,
+          "other_device_communication_overlap_ms": 8.359024
+        },
+        {
+          "id": "profile-cap400-020",
+          "proxy_request_id": "206f0ef1-0f1e-4dce-a7ec-ffa8418d6641",
+          "GET_start_ns": 1795001123376535447,
+          "GET_end_ns": 1795001123516259808,
+          "get_bytes": 2312478720,
+          "host_ms": 139.724361,
+          "device_batch_get_overlap_ms": 133.115942,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap400-022",
+          "proxy_request_id": "c5e67129-4d83-4dc6-925b-c0c740128ad1",
+          "GET_start_ns": 1795001123520678037,
+          "GET_end_ns": 1795001123618238783,
+          "get_bytes": 2312478720,
+          "host_ms": 97.560746,
+          "device_batch_get_overlap_ms": 94.982336,
+          "device_compute_overlap_ms": 12.348922,
+          "other_device_communication_overlap_ms": 7.305125
+        }
+      ]
+    },
+    "profile-cap1600": {
+      "capture": {
+        "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118112539213_ascend_pt",
+        "host_role": "D",
+        "pid": 196583,
+        "kernel_csv_sha256": "11bfa412d53546537840a81702495599697fb46cb588ce2ae867844d1c19aa36",
+        "kernel_csv_bytes": 65404815,
+        "trace_json_bytes": 445384164
+      },
+      "diagnostic_client_window_unix_ns": [
+        1795001143349990192,
+        1795001150217312846
+      ],
+      "host_native_get_union_ms": 1802.06436,
+      "device_activity_union_ms": 3212.838854,
+      "device_activity_ms_by_kind": {
+        "device_batch_get": 1709.274578,
+        "device_compute": 1461.286782,
+        "other_device_communication": 616.104044
+      },
+      "host_GET_overlap_ms": {
+        "device_batch_get": 1709.274578,
+        "device_compute": 392.050201,
+        "other_device_communication": 216.195101
+      },
+      "device_batch_get_fraction_of_host_GET": 0.9485091742228341,
+      "compute_fraction_of_host_GET": 0.21755615931497585,
+      "host_calls_ms": {
+        "n": 12,
+        "mean": 150.17203,
+        "p50": 154.408197,
+        "p95": 172.174582,
+        "max": 172.174582,
+        "p99": 172.174582
+      },
+      "device_batch_get_overlap_per_call_ms": {
+        "n": 12,
+        "mean": 142.43954816666667,
+        "p50": 146.24709000000001,
+        "p95": 164.169602,
+        "max": 164.169602,
+        "p99": 164.169602
+      },
+      "host_methods": {},
+      "top_cann_host_apis": [
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118112539213_ascend_pt",
+          "Device_id": "host",
+          "Level": "node",
+          "Time(us)": "1921761.14",
+          "Count": "11001",
+          "Avg(us)": "174.69",
+          "Min(us)": "2.91",
+          "Max(us)": "24878.26",
+          "Variance": "1390489.494",
+          "API Name": "launch"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118112539213_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "1727033.83",
+          "Count": "12",
+          "Avg(us)": "143919.486",
+          "Min(us)": "96854.08",
+          "Max(us)": "166052.26",
+          "Variance": "277999953.151",
+          "API Name": "hixlOpBatchRead"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118112539213_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "1703260.49",
+          "Count": "196",
+          "Avg(us)": "8690.105",
+          "Min(us)": "868.37",
+          "Max(us)": "24878.26",
+          "Variance": "3977742.113",
+          "API Name": "hccl_batchGet_"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118112539213_ascend_pt",
+          "Device_id": "host",
+          "Level": "communication",
+          "Time(us)": "1161032.27",
+          "Count": "48636",
+          "Avg(us)": "23.872",
+          "Min(us)": "19.7",
+          "Max(us)": "332.4",
+          "Variance": "19.323",
+          "API Name": "RDMASend"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118112539213_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "1015122.74",
+          "Count": "557",
+          "Avg(us)": "1822.482",
+          "Min(us)": "3.31",
+          "Max(us)": "26507.4",
+          "Variance": "14488335.687",
+          "API Name": "aclrtSynchronizeEvent"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118112539213_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "491539.52",
+          "Count": "132",
+          "Avg(us)": "3723.784",
+          "Min(us)": "3.37",
+          "Max(us)": "30019.14",
+          "Variance": "19619817.177",
+          "API Name": "aclrtSynchronizeStreamWithTimeout"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118112539213_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "88323.5",
+          "Count": "10445",
+          "Avg(us)": "8.456",
+          "Min(us)": "2.15",
+          "Max(us)": "219.15",
+          "Variance": "69.974",
+          "API Name": "aclrtLaunchKernelWithHostArgs"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118112539213_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "69653.96",
+          "Count": "152736",
+          "Avg(us)": "0.456",
+          "Min(us)": "0.25",
+          "Max(us)": "87.18",
+          "Variance": "0.173",
+          "API Name": "aclmdlRICaptureGetInfo"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118112539213_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "68677.75",
+          "Count": "1200",
+          "Avg(us)": "57.231",
+          "Min(us)": "35.05",
+          "Max(us)": "392.68",
+          "Variance": "506.904",
+          "API Name": "aclnnInnerFusedInferAttentionScore"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118112539213_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "54193.03",
+          "Count": "120",
+          "Avg(us)": "451.609",
+          "Min(us)": "329.12",
+          "Max(us)": "1158.02",
+          "Variance": "8255.043",
+          "API Name": "hcom_allReduce_"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118112539213_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "52310.34",
+          "Count": "120",
+          "Avg(us)": "435.919",
+          "Min(us)": "332.09",
+          "Max(us)": "1096.03",
+          "Variance": "7631.547",
+          "API Name": "hcom_allGather_"
+        },
+        {
+          "capture": "dp0_pp0_tp0_dcp0_ep0_rank0_196583_20261118112539213_ascend_pt",
+          "Device_id": "host",
+          "Level": "acl",
+          "Time(us)": "46381.21",
+          "Count": "2616",
+          "Avg(us)": "17.73",
+          "Min(us)": "8.36",
+          "Max(us)": "135.96",
+          "Variance": "58.718",
+          "API Name": "aclnnInplaceCopy"
+        }
+      ],
+      "top_device_kernel_names": [
+        {
+          "name": "FusedInferAttentionScore",
+          "calls": 1200,
+          "union_ms": 378.791418
+        },
+        {
+          "name": "aclnnMatmul_MatMulCommon_MatMulV2",
+          "calls": 32520,
+          "union_ms": 245.990314
+        },
+        {
+          "name": "aclnnGroupedMatmulV5_GroupedMatmul_GroupedMatmul",
+          "calls": 9600,
+          "union_ms": 186.18494
+        },
+        {
+          "name": "aclnnContiguous_TransposeAiCore_Transpose",
+          "calls": 3600,
+          "union_ms": 74.55642
+        },
+        {
+          "name": "aclnnIndex_IndexAiCore_Index",
+          "calls": 6244,
+          "union_ms": 56.150738
+        },
+        {
+          "name": "MoeInitRoutingCustom",
+          "calls": 4800,
+          "union_ms": 52.288064
+        },
+        {
+          "name": "aclnnCat_ConcatD_ConcatD",
+          "calls": 3600,
+          "union_ms": 50.931302
+        },
+        {
+          "name": "aclnnRecurrentGatedDeltaRule_RecurrentGatedDeltaRule_RecurrentGatedDeltaRule",
+          "calls": 3600,
+          "union_ms": 49.847352
+        },
+        {
+          "name": "SwiGlu",
+          "calls": 9600,
+          "union_ms": 34.422652
+        },
+        {
+          "name": "hcom_allReduce__503_440_1",
+          "calls": 1,
+          "union_ms": 30.330566
+        },
+        {
+          "name": "aclnnMul_MulAiCore_Mul",
+          "calls": 10920,
+          "union_ms": 29.314966
+        },
+        {
+          "name": "aclnnIndex_IndexCheck_IndexCheck",
+          "calls": 6244,
+          "union_ms": 28.219084
+        }
+      ],
+      "request_calls": [
+        {
+          "id": "profile-cap1600-000",
+          "proxy_request_id": "4736ba36-a700-41dd-b9c6-44e7097f0b08",
+          "GET_start_ns": 1795001144629207262,
+          "GET_end_ns": 1795001144778869398,
+          "get_bytes": 2312478720,
+          "host_ms": 149.662136,
+          "device_batch_get_overlap_ms": 141.430864,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap1600-002",
+          "proxy_request_id": "318678eb-6226-4e88-909f-4c120531a1f3",
+          "GET_start_ns": 1795001145877853213,
+          "GET_end_ns": 1795001146012987024,
+          "get_bytes": 2312478720,
+          "host_ms": 135.133811,
+          "device_batch_get_overlap_ms": 128.999602,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap1600-004",
+          "proxy_request_id": "3ee73b9d-eb73-4719-aaac-284aea6b5f7a",
+          "GET_start_ns": 1795001146719145328,
+          "GET_end_ns": 1795001146869196107,
+          "get_bytes": 2312478720,
+          "host_ms": 150.050779,
+          "device_batch_get_overlap_ms": 140.310664,
+          "device_compute_overlap_ms": 54.36216,
+          "other_device_communication_overlap_ms": 12.561373
+        },
+        {
+          "id": "profile-cap1600-006",
+          "proxy_request_id": "a70547c8-dd0e-4819-9ce3-97648dff07d4",
+          "GET_start_ns": 1795001146565588227,
+          "GET_end_ns": 1795001146713107259,
+          "get_bytes": 2312478720,
+          "host_ms": 147.519032,
+          "device_batch_get_overlap_ms": 141.158724,
+          "device_compute_overlap_ms": 31.72177,
+          "other_device_communication_overlap_ms": 5.733672
+        },
+        {
+          "id": "profile-cap1600-008",
+          "proxy_request_id": "0359a652-1649-41e2-b5f8-413e9069bfe2",
+          "GET_start_ns": 1795001146450336756,
+          "GET_end_ns": 1795001146554064242,
+          "get_bytes": 2312478720,
+          "host_ms": 103.727486,
+          "device_batch_get_overlap_ms": 96.62483,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap1600-010",
+          "proxy_request_id": "042a51aa-2a26-49eb-9d9d-4228dffa027d",
+          "GET_start_ns": 1795001149299593632,
+          "GET_end_ns": 1795001149455957982,
+          "get_bytes": 2312478720,
+          "host_ms": 156.36435,
+          "device_batch_get_overlap_ms": 148.964318,
+          "device_compute_overlap_ms": 45.490024,
+          "other_device_communication_overlap_ms": 24.714774
+        },
+        {
+          "id": "profile-cap1600-012",
+          "proxy_request_id": "f1bc9dfa-bc7b-4aae-a459-4d323ffc7525",
+          "GET_start_ns": 1795001148406512240,
+          "GET_end_ns": 1795001148559777819,
+          "get_bytes": 2312478720,
+          "host_ms": 153.265579,
+          "device_batch_get_overlap_ms": 145.935336,
+          "device_compute_overlap_ms": 21.423918,
+          "other_device_communication_overlap_ms": 18.019991
+        },
+        {
+          "id": "profile-cap1600-014",
+          "proxy_request_id": "6564e8ae-5473-4de5-bf78-bf16936f8f65",
+          "GET_start_ns": 1795001148243584387,
+          "GET_end_ns": 1795001148399135202,
+          "get_bytes": 2312478720,
+          "host_ms": 155.550815,
+          "device_batch_get_overlap_ms": 146.558844,
+          "device_compute_overlap_ms": 0.0,
+          "other_device_communication_overlap_ms": 0.0
+        },
+        {
+          "id": "profile-cap1600-016",
+          "proxy_request_id": "394520a5-7aa5-463a-a8c3-56f9539f31e5",
+          "GET_start_ns": 1795001149627983214,
+          "GET_end_ns": 1795001149792401806,
+          "get_bytes": 2312478720,
+          "host_ms": 164.418592,
+          "device_batch_get_overlap_ms": 156.398766,
+          "device_compute_overlap_ms": 57.48684,
+          "other_device_communication_overlap_ms": 52.621684
+        },
+        {
+          "id": "profile-cap1600-018",
+          "proxy_request_id": "3a2ff5b9-95bf-47a8-88fd-8bbde948a4b0",
+          "GET_start_ns": 1795001148567078787,
+          "GET_end_ns": 1795001148722731541,
+          "get_bytes": 2312478720,
+          "host_ms": 155.652754,
+          "device_batch_get_overlap_ms": 148.22534,
+          "device_compute_overlap_ms": 58.891433,
+          "other_device_communication_overlap_ms": 32.277294
+        },
+        {
+          "id": "profile-cap1600-020",
+          "proxy_request_id": "6175d352-5623-448d-892c-ce9c86a4edb0",
+          "GET_start_ns": 1795001149119121256,
+          "GET_end_ns": 1795001149291295838,
+          "get_bytes": 2312478720,
+          "host_ms": 172.174582,
+          "device_batch_get_overlap_ms": 164.169602,
+          "device_compute_overlap_ms": 73.040706,
+          "other_device_communication_overlap_ms": 27.751972
+        },
+        {
+          "id": "profile-cap1600-022",
+          "proxy_request_id": "012fd31b-4b8f-446a-83d0-6f20ba549f78",
+          "GET_start_ns": 1795001149463202979,
+          "GET_end_ns": 1795001149621747423,
+          "get_bytes": 2312478720,
+          "host_ms": 158.544444,
+          "device_batch_get_overlap_ms": 150.497688,
+          "device_compute_overlap_ms": 49.63335,
+          "other_device_communication_overlap_ms": 42.514341
+        }
+      ]
+    }
+  }
+}

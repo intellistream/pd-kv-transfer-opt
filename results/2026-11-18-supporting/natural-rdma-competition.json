@@ -1,0 +1,91 @@
+{
+  "workload_sha256": "002a1c1fd6bbcfc275c93cb5d6211ad4578c37a11db900d7797ad6cf567237c0",
+  "fixed_replay_sha256": "b210940d0da66f02d241510c9ae878645e3636a99846bacd9f16d9cdafed3014",
+  "paired_identical_input_output_route": 170,
+  "B_vs_A_percent": {
+    "cohort_time_s": 0.8760082004329206,
+    "output_tokens_s": -0.8683245327068323,
+    "requests_s": -0.8683245327068212
+  },
+  "paired_P_to_D": {
+    "equal_payload_successful_requests": 170,
+    "slowest_rank_latency_ratio": {
+      "n": 170,
+      "mean": 1.5472991782340755,
+      "p50": 1.411809354618429,
+      "p95": 2.1585211702537124,
+      "max": 4.8694436564678965,
+      "p99": 3.9451527699844475
+    },
+    "slowest_rank_payload_rate_ratio": {
+      "n": 170,
+      "mean": 0.7204458049730572,
+      "p50": 0.708319574767466,
+      "p95": 1.0247171006047107,
+      "max": 2.395798937578392,
+      "p99": 1.571624193715899
+    }
+  },
+  "paired_P_GET": {
+    "n": 42,
+    "slowest_rank_latency_ratio": {
+      "n": 42,
+      "mean": 1.4065411868928561,
+      "p50": 1.3679401646905787,
+      "p95": 2.060033824788929,
+      "max": 2.20705016055507,
+      "p99": 2.20705016055507
+    }
+  },
+  "control": "Same outputs, route, replay sequence and model options. Both hosts allocate the same buffers before running. B adds duplex native traffic on the shared endpoints.",
+  "A": {
+    "run_id": "2p2d-20261118-natural-repro-r11",
+    "requests": {
+      "ok": 170
+    },
+    "output_tokens": 87291,
+    "TTFT": {
+      "n": 170,
+      "p50_s": 1.922673536464572,
+      "p90_s": 43.19294579434155,
+      "p95_s": 46.72839593142271,
+      "p99_s": 62.86486928171705
+    },
+    "cohort_time_s": 193.78585337661207,
+    "output_tokens_s": 450.4471309749682,
+    "requests_s": 0.877249799701511,
+    "cold_P_queue_s": {
+      "n": 30,
+      "mean": 29.7118055705,
+      "p50": 34.240215365,
+      "p95": 44.93831415,
+      "max": 59.12334157,
+      "p99": 59.12334157
+    }
+  },
+  "B": {
+    "run_id": "2p2d-20261118-natural-repro-r12",
+    "requests": {
+      "ok": 170
+    },
+    "output_tokens": 87291,
+    "TTFT": {
+      "n": 170,
+      "p50_s": 1.7377212159335613,
+      "p90_s": 44.326255640015006,
+      "p95_s": 47.757807946610754,
+      "p99_s": 65.41539574980031
+    },
+    "cohort_time_s": 195.4834333434701,
+    "output_tokens_s": 446.5357880298385,
+    "requests_s": 0.8696324244775813,
+    "cold_P_queue_s": {
+      "n": 30,
+      "mean": 30.9567275451,
+      "p50": 35.670030456999996,
+      "p95": 47.400811904,
+      "max": 61.571245007,
+      "p99": 61.571245007
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "model_name": "qwen35-35b-a3b",
+  "mooncake_rpc_port": 41861,
+  "mooncake_metrics_port": 41862,
+  "proxy_port": 18400,
+  "api_server_count": 4,
+  "proxy_workers": 8,
+  "P": {
+    "host": "192.0.2.10",
+    "model_path": "/models/Qwen3.5-35B-A3B",
+    "api_ports": [18200, 18201],
+    "kv_ports": [21500, 22500],
+    "devices": [[0, 1, 2, 3], [4, 5, 6, 7]],
+    "enable_prefix_caching": false
+  },
+  "D": {
+    "host": "192.0.2.20",
+    "model_path": "/models/Qwen3.5-35B-A3B",
+    "api_ports": [18300, 18301],
+    "kv_ports": [23500, 24500],
+    "devices": [[0, 1, 2, 3], [4, 5, 6, 7]],
+    "enable_prefix_caching": false
+  }
+}
