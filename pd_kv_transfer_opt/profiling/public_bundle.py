@@ -10,13 +10,15 @@ import re
 
 KEYS = {
     "scope": "run_id role",
-    "runtime_state": "run_id role stage execution_mode ready_seconds elapsed_seconds",
+    "runtime_state": "run_id role stage execution_mode ready_seconds elapsed_seconds pool_load_async pool_residency",
     "worker_rank": "instance rank pid",
     "npu": "unix_ns device aicore_percent hbm_used_mb hbm_total_mb",
     "fabric": "unix_ns device counters",
-    "proxy": "type monotonic_ns unix_ns id proxy_request_id status input_tokens max_tokens chunks",
+    "p_port_snapshot": "case edge unix_ns ports",
+    "proxy": "type monotonic_ns unix_ns id proxy_request_id status input_tokens max_tokens chunks route",
     "client_manifest": "case run_id workload_sha256 aggregate_D_egress_cap_Gbps selected_requests window_start "
-                       "prefix_ids prompt_lengths offered_rate output_tokens background_traffic profiler_enabled seconds",
+                       "prefix_ids prompt_lengths offered_rate output_tokens background_traffic profiler_enabled seconds "
+                       "fixed_replay_sha256 ignore_eos arm_mode phase",
     "client": "case type monotonic_s anchor id status http_status prompt_tokens completion_tokens offered_s ready_s "
               "dispatch_s first_s end_s all_content_chunks_have_token_ids streamed_token_ids finish_reason done_signal",
     "client_summary": "case schema run_id counts quality window finite_cohort fixed_output_deviations",
@@ -27,10 +29,10 @@ KEYS = {
     "API_stat": "capture Device_id Level Time(us) Count Avg(us) Min(us) Max(us) Variance",
 }
 EVENT_KEYS = {
-    "worker_load_begin": "request_ids load_async",
-    "worker_load_end": "request_ids load_async elapsed_ns",
-    "store_begin": "call_id operation keys payload_bytes",
-    "store_end": "call_id operation keys payload_bytes negative_returns elapsed_ns",
+    "worker_load_begin": "request_ids load_async batch worker_enter_ns tp_rank",
+    "worker_load_end": "request_ids load_async elapsed_ns batch worker_enter_ns tp_rank",
+    "store_begin": "call_id operation keys payload_bytes batch tp_rank request_id call_ordinal",
+    "store_end": "call_id operation keys payload_bytes negative_returns elapsed_ns batch tp_rank request_id call_ordinal",
     "mooncake_backend_get": "keys elapsed_ns",
     "pool_match_tokens": "request_id local_tokens external_tokens load_async elapsed_ns",
     "native_transfer_enqueue": "request_id remote_request_id shard_idx",
@@ -42,6 +44,17 @@ EVENT_KEYS = {
     "p_chunk_ready": "batch rows ready_ns",
     "p_chunk_graph": "batch runtime_mode padded_tokens aclgraph_replays",
     "p_chunk_device": "batch worker_enter_ns forward_enter_ns forward_cpu_return_ns forward_device_ms",
+    "p_chunk_rank_forward": "batch tp_rank worker_enter_ns forward_enter_ns forward_cpu_return_ns",
+    "same_head_pair_ready": "tp_rank peer_rank",
+    "same_head_local_copy": "request_ids tp_rank payload_bytes elapsed_ns device_elapsed_ms pair_wait_ns operations verify method "
+                            "batch request_id call_ordinal copy_begin_ns copy_end_ns",
+    "same_head_verify": "request_ids tp_rank sample_bytes samples method batch request_id call_ordinal extra_get_bytes run_mode",
+    "same_head_copy_layout": "request_ids tp_rank raw_segments layout_boundaries local_only_breaks peer_only_breaks both_breaks contiguous_both",
+    "r18_restore_decision": "batch tp_rank request_id call_ordinal mode native_bytes keys attention_segments",
+    "r18_packed_preflight": "batch tp_rank requests nonempty_gets same_request_order plan_ns wait_ns",
+    "r20_pipeline_batch": "batch tp_rank jobs eligible",
+    "r20_copy_wait": "batch worker_enter_ns tp_rank request_id call_ordinal next_call_ordinal probes device_elapsed_ms record_start_ns "
+                     "enqueue_end_ns wait_start_ns wait_end_ns",
 }
 HEADER = "type pid thread_id unix_ns monotonic_ns instance"
 FRAME = re.compile(r"^\s*([\w.<>]+) \(([\w./-]+\.py):(\d+)\)\s*$")
@@ -84,6 +97,10 @@ def control(row):
         value = select(raw, "requested verified restored")
     elif name.endswith("-shaping.json"):
         value = select(raw, "requested_aggregate_Gbps readback")
+    elif re.fullmatch(r"[ab]-b\d+-cap(?:100|200)(?:-prep)?-(?:pool-reset|progress|restore|master-(?:before|after))\.json", name):
+        value = select(raw, "case phase stage initial_keys remaining_keys attempts success restored requested verified "
+                            "master_key_count master_evicted_key_count master_put_end_failures_total "
+                            "master_batch_put_end_failures_total master_put_start_alloc_failures_total")
     else:
         return None
     return {"name": name, "data": value}
@@ -113,6 +130,10 @@ def sanitize(kind, data):
     if kind not in KEYS:
         return None
     result = select(data, KEYS[kind])
+    if kind == "scope" and data["run_id"].endswith(("-r19-natural-ab", "-r20-packed-overlap")):
+        result["active"] = select(data["active"], "p_local_prefix_caching d_local_prefix_caching p_batched_tokens "
+                                  "p_graph_capture_sizes max_model_len p_graph_strategy d_graph_strategy "
+                                  "pool_capacity_GiB experimental_batch_get_concurrency rdma_pressure")
     if kind == "client_manifest":
         result["request_sources"] = [select(r, "id source_id prompt_tokens offered_s max_tokens")
                                      for r in data["request_sources"]]

@@ -90,6 +90,9 @@ def launch(config, role, run_dir, run_id, state, store):
     logs.mkdir(parents=True, exist_ok=True)
     logging = copy.deepcopy(DEFAULT_LOGGING_CONFIG)
     name = "pd_kv_transfer_opt.profiling.rdma_full_observability.InstallFilter"
+    mode_file = state.get("same_head_mode_file")
+    if mode_file is not None:
+        name = "pd_kv_transfer_opt.experiments.same_head_kv.InstallFilter"
     for handler in logging["handlers"].values():
         handler.setdefault("filters", []).append("rdma_observations")
     logging.setdefault("filters", {})["rdma_observations"] = {"()": name}
@@ -101,6 +104,8 @@ def launch(config, role, run_dir, run_id, state, store):
                ACL_OP_INIT_MODE="1", MC_TRANSFER_TIMEOUT="30", ISSUE23_ROLE=role,
                ISSUE23_RUN_ID=run_id, ISSUE23_P_GRAPH_REPLAY_OBSERVABILITY="1", ISSUE23_BATCH_GET_CONCURRENCY="1",
                VLLM_LOGGING_CONFIG_PATH=str(run_dir / "logging.json"), MOONCAKE_CONFIG_PATH=str(run_dir / "store.json"))
+    if mode_file is not None:
+        env["ISSUE23_SAME_HEAD_MODE"] = mode_file
     repo = str(Path(__file__).resolve().parents[2])
     env["PYTHONPATH"] = os.pathsep.join(item for item in (repo, env.get("PYTHONPATH")) if item)
     children = []
@@ -178,12 +183,17 @@ def main():
     parser.add_argument("--role", choices=ROLES, required=True)
     parser.add_argument("--run-dir", type=Path, required=True)
     parser.add_argument("--run-id", required=True)
+    parser.add_argument("--same-head-kv", action="store_true", help="Enable the P-side same-head A/B mode file.")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
     config = read_deployment(args.config)
     run_dir = args.run_dir.resolve()
     store, commands = model_commands(config, args.role, run_dir)
     state = {"run_id": args.run_id, "role": args.role, "instances": commands, "store_config": store}
+    if args.same_head_kv:
+        if args.role != "P" or config["P"].get("enable_prefix_caching"):
+            parser.error("--same-head-kv requires P with local prefix caching disabled")
+        state["same_head_mode_file"] = str(run_dir / "same-head-mode")
     if args.dry_run:
         print(json.dumps(state, indent=2))
         return

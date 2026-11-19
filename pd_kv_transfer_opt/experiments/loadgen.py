@@ -68,6 +68,8 @@ def request_one(row: dict, endpoint: str, model: str, origin: float, timeout: fl
         payload["return_token_ids"] = True
     if ignore_eos:
         payload["ignore_eos"] = True
+    if cache_salt := row.get("cache_salt"):
+        payload["cache_salt"] = cache_salt
     request = urllib.request.Request(endpoint.rstrip("/") + "/v1/completions",
                   data=json.dumps(payload).encode(), method="POST",
                   headers={"Content-Type": "application/json", "X-Request-Id": key})

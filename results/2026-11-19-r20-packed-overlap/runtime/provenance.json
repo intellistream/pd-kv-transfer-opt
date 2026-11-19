@@ -1,0 +1,30 @@
+{
+  "run_id": "2p2d-20261119-r20-packed-overlap",
+  "filter": "same_head_kv_r20.InstallFilter",
+  "mode_environment_variable": "ISSUE23_SAME_HEAD_MODE",
+  "deployed_sha256": {
+    "same_head_kv_r20.py": "cd7904dc15eba42d30c21cc274509b61f491a69c0cf310fa8ec5b38105a59052",
+    "packed_copy_pipeline.py": "564e8b4a4ce281aeab6835641ebe09670058cea8a22bd8b707f431f7f20d452b"
+  },
+  "controller_sha256": {
+    "P": "8253ffe54fbc2befc0b77d03be2de647fe1ba98c50afeff6893a49a079c11ea5",
+    "D": "561f0ce6e46583d3522396bf23b26d3e929bfe7b561bf9b5dcf9c0f8d8a6537d"
+  },
+  "runtime_dependency_mapping": "../../2026-11-18-r19-natural-ab/runtime/provenance.json",
+  "cohort": "configs/workload-r19-natural-restore.json",
+  "case_order": [
+    "a-b1-cap100", "b-b1-cap100", "b-b1-cap200", "a-b1-cap200",
+    "a-b2-cap200", "b-b2-cap200", "b-b2-cap100", "a-b2-cap100"
+  ],
+  "case_modes": {"a": "packed", "b": "async-packed", "predecessors": "baseline"},
+  "fixed_proxy_fixtures": {
+    "b1": "2bbdc8347b5bee9e89dd196bc8ae4c5fa7e8ad1a32d95dbb9a7ed38490485026",
+    "b2": "65fc1d67726c3ec283ee6577b6f71581a2c709bcaa88ac3a19384b3b173022fd"
+  },
+  "fixture_expansion": "The b2 cases use the original per-request routes and new case IDs. Only the D proxy was restarted between blocks.",
+  "warm_targets": {
+    "packed": ["natural-financial-document-processor:60", "natural-path-tracing:22"],
+    "async-packed": ["natural-train-fasttext:69", "natural-count-dataset-tokens:45", "natural-video-processing:28",
+                     "natural-financial-document-processor:60", "natural-path-tracing:22"]
+  }
+}

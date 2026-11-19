@@ -1,0 +1,2561 @@
+{
+  "baseline_run_id": "2p2d-20261118-natural-repro-r16",
+  "prototype_run_id": "2p2d-20261118-natural-repro-r16",
+  "paired_cases": {
+    "b1-cap100": {
+      "baseline": {
+        "requests": 96,
+        "drain_s": 58.967891205102205,
+        "requests_s": 1.6280046316408476,
+        "output_tokens_s": 26.048074106253562,
+        "ttft_p99_s": 53.51688716746867,
+        "get_calls": 384,
+        "get_payload_bytes": 460172820480,
+        "get_elapsed_ms": {
+          "n": 384,
+          "mean": 575.77543796875,
+          "p50": 592.9656735,
+          "p95": 820.597088,
+          "max": 898.685379,
+          "p99": 871.849152
+        },
+        "get_layout": {
+          "classified_calls": 384,
+          "attention_bytes": 453991464960,
+          "align_state_bytes": 6181355520
+        },
+        "local_copy": {
+          "events": 384,
+          "requests_with_events": 96,
+          "method_counts": {
+            "direct": 384
+          },
+          "reported_payload_bytes": 453991464960,
+          "elapsed_ms": {
+            "n": 384,
+            "mean": 320.7666663489583,
+            "p50": 204.47758149999999,
+            "p95": 554.827983,
+            "max": 744.341088,
+            "p99": 617.33591
+          },
+          "device_elapsed_ms": {
+            "n": 384,
+            "mean": 316.57225835323334,
+            "p50": 201.52059173583984,
+            "p95": 550.5875244140625,
+            "max": 740.9756469726562,
+            "p99": 582.9304809570312
+          },
+          "pair_wait_ms": {
+            "n": 384,
+            "mean": 39.51445438541667,
+            "p50": 3.315684,
+            "p95": 191.926553,
+            "max": 386.64256,
+            "p99": 319.255816
+          },
+          "broadcast_operations": {
+            "n": 384,
+            "mean": 2480.8333333333335,
+            "p50": 1820.0,
+            "p95": 4620,
+            "max": 4660,
+            "p99": 4660
+          }
+        },
+        "P_to_D_descriptor_bytes": 918190817280,
+        "D_mac_tx_bytes": 467252342472,
+        "D_tx_sample_peak_Gbps": 82.82219791827575,
+        "D_ports": {
+          "0": {
+            "tx_bytes": 50881341518,
+            "rx_bytes": 112688258603,
+            "sample_window_s": 67.006364544
+          },
+          "1": {
+            "tx_bytes": 60826843534,
+            "rx_bytes": 112689673964,
+            "sample_window_s": 67.436372034
+          },
+          "2": {
+            "tx_bytes": 59306006798,
+            "rx_bytes": 112689517022,
+            "sample_window_s": 67.829564613
+          },
+          "3": {
+            "tx_bytes": 55467521486,
+            "rx_bytes": 112688888217,
+            "sample_window_s": 67.770618179
+          },
+          "4": {
+            "tx_bytes": 53425387460,
+            "rx_bytes": 120352837287,
+            "sample_window_s": 67.747641244
+          },
+          "5": {
+            "tx_bytes": 68243146020,
+            "rx_bytes": 120355117383,
+            "sample_window_s": 67.745852242
+          },
+          "6": {
+            "tx_bytes": 60055862980,
+            "rx_bytes": 120353780346,
+            "sample_window_s": 67.736511501
+          },
+          "7": {
+            "tx_bytes": 59046232676,
+            "rx_bytes": 120353702028,
+            "sample_window_s": 67.339582643
+          }
+        },
+        "D_port_readback_Mbps": {
+          "0": 12500,
+          "1": 12500,
+          "2": 12500,
+          "3": 12500,
+          "4": 12500,
+          "5": 12500,
+          "6": 12500,
+          "7": 12500
+        }
+      },
+      "prototype": {
+        "requests": 96,
+        "drain_s": 52.56778669543564,
+        "requests_s": 1.8262134671219759,
+        "output_tokens_s": 29.219415473951614,
+        "ttft_p99_s": 46.86720058135688,
+        "get_calls": 384,
+        "get_payload_bytes": 460172820480,
+        "get_elapsed_ms": {
+          "n": 384,
+          "mean": 621.3816758958334,
+          "p50": 657.112045,
+          "p95": 841.847459,
+          "max": 899.710331,
+          "p99": 891.012899
+        },
+        "get_layout": {
+          "classified_calls": 384,
+          "attention_bytes": 453991464960,
+          "align_state_bytes": 6181355520
+        },
+        "local_copy": {
+          "events": 384,
+          "requests_with_events": 96,
+          "method_counts": {
+            "packed": 384
+          },
+          "reported_payload_bytes": 453991464960,
+          "elapsed_ms": {
+            "n": 384,
+            "mean": 134.65902458854166,
+            "p50": 137.4860615,
+            "p95": 142.530231,
+            "max": 152.936223,
+            "p99": 152.836683
+          },
+          "device_elapsed_ms": {
+            "n": 384,
+            "mean": 127.7120662132899,
+            "p50": 130.77889251708984,
+            "p95": 132.23318481445312,
+            "max": 146.42430114746094,
+            "p99": 145.20657348632812
+          },
+          "pair_wait_ms": {
+            "n": 384,
+            "mean": 40.18777448177083,
+            "p50": 3.110727,
+            "p95": 181.292548,
+            "max": 351.820379,
+            "p99": 294.013907
+          },
+          "broadcast_operations": {
+            "n": 384,
+            "mean": 18.5,
+            "p50": 18.5,
+            "p95": 19,
+            "max": 19,
+            "p99": 19
+          }
+        },
+        "P_to_D_descriptor_bytes": 918190817280,
+        "D_mac_tx_bytes": 467265018720,
+        "D_tx_sample_peak_Gbps": 85.55570547862156,
+        "D_ports": {
+          "0": {
+            "tx_bytes": 50884249310,
+            "rx_bytes": 112688642682,
+            "sample_window_s": 62.988346406
+          },
+          "1": {
+            "tx_bytes": 60829424606,
+            "rx_bytes": 112690057791,
+            "sample_window_s": 62.990323204
+          },
+          "2": {
+            "tx_bytes": 59308687198,
+            "rx_bytes": 112689900479,
+            "sample_window_s": 62.993429968
+          },
+          "3": {
+            "tx_bytes": 55470360350,
+            "rx_bytes": 112689271610,
+            "sample_window_s": 62.994540091
+          },
+          "4": {
+            "tx_bytes": 53425864778,
+            "rx_bytes": 120352890851,
+            "sample_window_s": 62.538491201
+          },
+          "5": {
+            "tx_bytes": 68243631146,
+            "rx_bytes": 120355170883,
+            "sample_window_s": 62.023883616
+          },
+          "6": {
+            "tx_bytes": 60056308554,
+            "rx_bytes": 120353834339,
+            "sample_window_s": 61.966027333
+          },
+          "7": {
+            "tx_bytes": 59046492778,
+            "rx_bytes": 120353755651,
+            "sample_window_s": 61.982332239
+          }
+        },
+        "D_port_readback_Mbps": {
+          "0": 12500,
+          "1": 12500,
+          "2": 12500,
+          "3": 12500,
+          "4": 12500,
+          "5": 12500,
+          "6": 12500,
+          "7": 12500
+        }
+      },
+      "prototype_minus_baseline_percent": {
+        "get_payload_bytes": 0.0,
+        "D_mac_tx_bytes": 0.0027129340717558033,
+        "requests_s": 12.17495525681372,
+        "output_tokens_s": 12.17495525681372,
+        "ttft_p99_s": -12.425398669588413
+      },
+      "D_port_delta_bytes": {
+        "0": {
+          "tx_bytes": 2907792,
+          "rx_bytes": 384079
+        },
+        "1": {
+          "tx_bytes": 2581072,
+          "rx_bytes": 383827
+        },
+        "2": {
+          "tx_bytes": 2680400,
+          "rx_bytes": 383457
+        },
+        "3": {
+          "tx_bytes": 2838864,
+          "rx_bytes": 383393
+        },
+        "4": {
+          "tx_bytes": 477318,
+          "rx_bytes": 53564
+        },
+        "5": {
+          "tx_bytes": 485126,
+          "rx_bytes": 53500
+        },
+        "6": {
+          "tx_bytes": 445574,
+          "rx_bytes": 53993
+        },
+        "7": {
+          "tx_bytes": 260102,
+          "rx_bytes": 53623
+        }
+      }
+    },
+    "b1-cap200": {
+      "baseline": {
+        "requests": 96,
+        "drain_s": 42.34529493935406,
+        "requests_s": 2.2670759558408777,
+        "output_tokens_s": 36.273215293454044,
+        "ttft_p99_s": 36.74895228818059,
+        "get_calls": 384,
+        "get_payload_bytes": 460172820480,
+        "get_elapsed_ms": {
+          "n": 384,
+          "mean": 231.20050873697917,
+          "p50": 211.3411375,
+          "p95": 381.163075,
+          "max": 443.603001,
+          "p99": 422.085218
+        },
+        "get_layout": {
+          "classified_calls": 384,
+          "attention_bytes": 453991464960,
+          "align_state_bytes": 6181355520
+        },
+        "local_copy": {
+          "events": 384,
+          "requests_with_events": 96,
+          "method_counts": {
+            "direct": 384
+          },
+          "reported_payload_bytes": 453991464960,
+          "elapsed_ms": {
+            "n": 384,
+            "mean": 355.66923629166666,
+            "p50": 415.15761150000003,
+            "p95": 616.515181,
+            "max": 689.609673,
+            "p99": 666.064035
+          },
+          "device_elapsed_ms": {
+            "n": 384,
+            "mean": 351.27215751012164,
+            "p50": 412.0074005126953,
+            "p95": 603.860107421875,
+            "max": 685.7942504882812,
+            "p99": 658.0281982421875
+          },
+          "pair_wait_ms": {
+            "n": 384,
+            "mean": 16.2506823203125,
+            "p50": 2.8263185,
+            "p95": 65.155069,
+            "max": 179.235983,
+            "p99": 142.396499
+          },
+          "broadcast_operations": {
+            "n": 384,
+            "mean": 2865.2083333333335,
+            "p50": 3760.0,
+            "p95": 4580,
+            "max": 4620,
+            "p99": 4620
+          }
+        },
+        "P_to_D_descriptor_bytes": 918190817280,
+        "D_mac_tx_bytes": 467264997404,
+        "D_tx_sample_peak_Gbps": 113.01914138503018,
+        "D_ports": {
+          "0": {
+            "tx_bytes": 50883679648,
+            "rx_bytes": 112688651873,
+            "sample_window_s": 46.477376942
+          },
+          "1": {
+            "tx_bytes": 60829194784,
+            "rx_bytes": 112690067228,
+            "sample_window_s": 46.478807227
+          },
+          "2": {
+            "tx_bytes": 59308238945,
+            "rx_bytes": 112689909857,
+            "sample_window_s": 46.861606923
+          },
+          "3": {
+            "tx_bytes": 55470080736,
+            "rx_bytes": 112689280929,
+            "sample_window_s": 47.243756376
+          },
+          "4": {
+            "tx_bytes": 53426261015,
+            "rx_bytes": 120352948522,
+            "sample_window_s": 47.245731403
+          },
+          "5": {
+            "tx_bytes": 68243887286,
+            "rx_bytes": 120355228618,
+            "sample_window_s": 47.248045184
+          },
+          "6": {
+            "tx_bytes": 60056628375,
+            "rx_bytes": 120353891394,
+            "sample_window_s": 46.818802369
+          },
+          "7": {
+            "tx_bytes": 59047026615,
+            "rx_bytes": 120353812706,
+            "sample_window_s": 46.38965208
+          }
+        },
+        "D_port_readback_Mbps": {
+          "0": 25000,
+          "1": 25000,
+          "2": 25000,
+          "3": 25000,
+          "4": 25000,
+          "5": 25000,
+          "6": 25000,
+          "7": 25000
+        }
+      },
+      "prototype": {
+        "requests": 96,
+        "drain_s": 31.38123415596783,
+        "requests_s": 3.059153107964796,
+        "output_tokens_s": 48.946449727436736,
+        "ttft_p99_s": 25.430602483451366,
+        "get_calls": 384,
+        "get_payload_bytes": 460172820480,
+        "get_elapsed_ms": {
+          "n": 384,
+          "mean": 279.43264462239586,
+          "p50": 291.46788200000003,
+          "p95": 386.422598,
+          "max": 424.012721,
+          "p99": 403.871014
+        },
+        "get_layout": {
+          "classified_calls": 384,
+          "attention_bytes": 453991464960,
+          "align_state_bytes": 6181355520
+        },
+        "local_copy": {
+          "events": 384,
+          "requests_with_events": 96,
+          "method_counts": {
+            "packed": 384
+          },
+          "reported_payload_bytes": 453991464960,
+          "elapsed_ms": {
+            "n": 384,
+            "mean": 134.40053222916666,
+            "p50": 137.511277,
+            "p95": 139.497056,
+            "max": 160.174769,
+            "p99": 153.791444
+          },
+          "device_elapsed_ms": {
+            "n": 384,
+            "mean": 127.55339950323105,
+            "p50": 130.72247314453125,
+            "p95": 131.811767578125,
+            "max": 153.31202697753906,
+            "p99": 145.4338836669922
+          },
+          "pair_wait_ms": {
+            "n": 384,
+            "mean": 18.55054526822917,
+            "p50": 3.477916,
+            "p95": 79.617369,
+            "max": 203.754083,
+            "p99": 180.557299
+          },
+          "broadcast_operations": {
+            "n": 384,
+            "mean": 18.5,
+            "p50": 18.5,
+            "p95": 19,
+            "max": 19,
+            "p99": 19
+          }
+        },
+        "P_to_D_descriptor_bytes": 918190817280,
+        "D_mac_tx_bytes": 467267593334,
+        "D_tx_sample_peak_Gbps": 142.3030871227844,
+        "D_ports": {
+          "0": {
+            "tx_bytes": 50884576543,
+            "rx_bytes": 112688741179,
+            "sample_window_s": 36.485244278
+          },
+          "1": {
+            "tx_bytes": 60829964703,
+            "rx_bytes": 112690156411,
+            "sample_window_s": 36.481272726
+          },
+          "2": {
+            "tx_bytes": 59308993630,
+            "rx_bytes": 112689999163,
+            "sample_window_s": 36.444382131
+          },
+          "3": {
+            "tx_bytes": 55470859935,
+            "rx_bytes": 112689370294,
+            "sample_window_s": 36.784185247
+          },
+          "4": {
+            "tx_bytes": 53426231103,
+            "rx_bytes": 120352931398,
+            "sample_window_s": 37.156942368
+          },
+          "5": {
+            "tx_bytes": 68243788063,
+            "rx_bytes": 120355211307,
+            "sample_window_s": 37.152463199
+          },
+          "6": {
+            "tx_bytes": 60056511039,
+            "rx_bytes": 120353874886,
+            "sample_window_s": 37.147372071
+          },
+          "7": {
+            "tx_bytes": 59046668318,
+            "rx_bytes": 120353796139,
+            "sample_window_s": 36.747865001
+          }
+        },
+        "D_port_readback_Mbps": {
+          "0": 25000,
+          "1": 25000,
+          "2": 25000,
+          "3": 25000,
+          "4": 25000,
+          "5": 25000,
+          "6": 25000,
+          "7": 25000
+        }
+      },
+      "prototype_minus_baseline_percent": {
+        "get_payload_bytes": 0.0,
+        "D_mac_tx_bytes": 0.0005555584121263729,
+        "requests_s": 34.938271480636395,
+        "output_tokens_s": 34.938271480636395,
+        "ttft_p99_s": -30.799108818047845
+      },
+      "D_port_delta_bytes": {
+        "0": {
+          "tx_bytes": 896895,
+          "rx_bytes": 89306
+        },
+        "1": {
+          "tx_bytes": 769919,
+          "rx_bytes": 89183
+        },
+        "2": {
+          "tx_bytes": 754685,
+          "rx_bytes": 89306
+        },
+        "3": {
+          "tx_bytes": 779199,
+          "rx_bytes": 89365
+        },
+        "4": {
+          "tx_bytes": -29912,
+          "rx_bytes": -17124
+        },
+        "5": {
+          "tx_bytes": -99223,
+          "rx_bytes": -17311
+        },
+        "6": {
+          "tx_bytes": -117336,
+          "rx_bytes": -16508
+        },
+        "7": {
+          "tx_bytes": -358297,
+          "rx_bytes": -16567
+        }
+      }
+    },
+    "b2-cap100": {
+      "baseline": {
+        "requests": 96,
+        "drain_s": 60.742833349853754,
+        "requests_s": 1.5804333565917061,
+        "output_tokens_s": 25.2869337054673,
+        "ttft_p99_s": 55.5219019819051,
+        "get_calls": 384,
+        "get_payload_bytes": 460172820480,
+        "get_elapsed_ms": {
+          "n": 384,
+          "mean": 523.428157171875,
+          "p50": 509.375492,
+          "p95": 789.027747,
+          "max": 900.566881,
+          "p99": 874.091159
+        },
+        "get_layout": {
+          "classified_calls": 384,
+          "attention_bytes": 453991464960,
+          "align_state_bytes": 6181355520
+        },
+        "local_copy": {
+          "events": 384,
+          "requests_with_events": 96,
+          "method_counts": {
+            "direct": 384
+          },
+          "reported_payload_bytes": 453991464960,
+          "elapsed_ms": {
+            "n": 384,
+            "mean": 372.0534050651042,
+            "p50": 428.3714125,
+            "p95": 555.670128,
+            "max": 649.719526,
+            "p99": 646.826181
+          },
+          "device_elapsed_ms": {
+            "n": 384,
+            "mean": 368.48029061158496,
+            "p50": 425.18310546875,
+            "p95": 551.7025756835938,
+            "max": 646.5450439453125,
+            "p99": 643.6593627929688
+          },
+          "pair_wait_ms": {
+            "n": 384,
+            "mean": 33.140145885416665,
+            "p50": 3.213558,
+            "p95": 154.392579,
+            "max": 325.389774,
+            "p99": 247.189262
+          },
+          "broadcast_operations": {
+            "n": 384,
+            "mean": 3054.1666666666665,
+            "p50": 3860.0,
+            "p95": 4560,
+            "max": 4580,
+            "p99": 4580
+          }
+        },
+        "P_to_D_descriptor_bytes": 918190817280,
+        "D_mac_tx_bytes": 467269951895,
+        "D_tx_sample_peak_Gbps": 79.71246061135692,
+        "D_ports": {
+          "0": {
+            "tx_bytes": 50882777716,
+            "rx_bytes": 112688551025,
+            "sample_window_s": 71.288073278
+          },
+          "1": {
+            "tx_bytes": 60828413940,
+            "rx_bytes": 112689966508,
+            "sample_window_s": 71.283667269
+          },
+          "2": {
+            "tx_bytes": 59307456564,
+            "rx_bytes": 112689809753,
+            "sample_window_s": 71.769449152
+          },
+          "3": {
+            "tx_bytes": 55469341108,
+            "rx_bytes": 112689180825,
+            "sample_window_s": 72.257180673
+          },
+          "4": {
+            "tx_bytes": 53428182273,
+            "rx_bytes": 120353180631,
+            "sample_window_s": 72.132997963
+          },
+          "5": {
+            "tx_bytes": 68245904418,
+            "rx_bytes": 120355460732,
+            "sample_window_s": 71.675590091
+          },
+          "6": {
+            "tx_bytes": 60058750722,
+            "rx_bytes": 120354123996,
+            "sample_window_s": 70.846937131
+          },
+          "7": {
+            "tx_bytes": 59049125154,
+            "rx_bytes": 120354045436,
+            "sample_window_s": 69.855670641
+          }
+        },
+        "D_port_readback_Mbps": {
+          "0": 12500,
+          "1": 12500,
+          "2": 12500,
+          "3": 12500,
+          "4": 12500,
+          "5": 12500,
+          "6": 12500,
+          "7": 12500
+        }
+      },
+      "prototype": {
+        "requests": 96,
+        "drain_s": 53.11000887490809,
+        "requests_s": 1.8075688939557937,
+        "output_tokens_s": 28.9211023032927,
+        "ttft_p99_s": 47.636702271178365,
+        "get_calls": 384,
+        "get_payload_bytes": 460172820480,
+        "get_elapsed_ms": {
+          "n": 384,
+          "mean": 655.66725340625,
+          "p50": 692.1151649999999,
+          "p95": 871.959654,
+          "max": 938.968704,
+          "p99": 910.252755
+        },
+        "get_layout": {
+          "classified_calls": 384,
+          "attention_bytes": 453991464960,
+          "align_state_bytes": 6181355520
+        },
+        "local_copy": {
+          "events": 384,
+          "requests_with_events": 96,
+          "method_counts": {
+            "packed": 384
+          },
+          "reported_payload_bytes": 453991464960,
+          "elapsed_ms": {
+            "n": 384,
+            "mean": 134.66882658333333,
+            "p50": 137.444324,
+            "p95": 139.9708,
+            "max": 161.317251,
+            "p99": 160.36972
+          },
+          "device_elapsed_ms": {
+            "n": 384,
+            "mean": 127.6551432410876,
+            "p50": 130.74114227294922,
+            "p95": 131.71571350097656,
+            "max": 154.38453674316406,
+            "p99": 149.68280029296875
+          },
+          "pair_wait_ms": {
+            "n": 384,
+            "mean": 46.40916725520833,
+            "p50": 2.890584,
+            "p95": 185.178922,
+            "max": 401.096116,
+            "p99": 334.587764
+          },
+          "broadcast_operations": {
+            "n": 384,
+            "mean": 18.5,
+            "p50": 18.5,
+            "p95": 19,
+            "max": 19,
+            "p99": 19
+          }
+        },
+        "P_to_D_descriptor_bytes": 918190817280,
+        "D_mac_tx_bytes": 467269427008,
+        "D_tx_sample_peak_Gbps": 85.70461693288695,
+        "D_ports": {
+          "0": {
+            "tx_bytes": 50884292476,
+            "rx_bytes": 112688684394,
+            "sample_window_s": 60.812556921
+          },
+          "1": {
+            "tx_bytes": 60829638844,
+            "rx_bytes": 112690099941,
+            "sample_window_s": 61.17891109
+          },
+          "2": {
+            "tx_bytes": 59308689340,
+            "rx_bytes": 112689942378,
+            "sample_window_s": 61.564416454
+          },
+          "3": {
+            "tx_bytes": 55470625980,
+            "rx_bytes": 112689314066,
+            "sample_window_s": 61.131020498
+          },
+          "4": {
+            "tx_bytes": 53426879124,
+            "rx_bytes": 120353043581,
+            "sample_window_s": 60.696118067
+          },
+          "5": {
+            "tx_bytes": 68244473780,
+            "rx_bytes": 120355323426,
+            "sample_window_s": 60.69742931
+          },
+          "6": {
+            "tx_bytes": 60057288020,
+            "rx_bytes": 120353987005,
+            "sample_window_s": 60.699720775
+          },
+          "7": {
+            "tx_bytes": 59047539444,
+            "rx_bytes": 120353908815,
+            "sample_window_s": 60.700258794
+          }
+        },
+        "D_port_readback_Mbps": {
+          "0": 12500,
+          "1": 12500,
+          "2": 12500,
+          "3": 12500,
+          "4": 12500,
+          "5": 12500,
+          "6": 12500,
+          "7": 12500
+        }
+      },
+      "prototype_minus_baseline_percent": {
+        "get_payload_bytes": 0.0,
+        "D_mac_tx_bytes": -0.00011233056991388719,
+        "requests_s": 14.37172509785026,
+        "output_tokens_s": 14.37172509785026,
+        "ttft_p99_s": -14.201962521558732
+      },
+      "D_port_delta_bytes": {
+        "0": {
+          "tx_bytes": 1514760,
+          "rx_bytes": 133369
+        },
+        "1": {
+          "tx_bytes": 1224904,
+          "rx_bytes": 133433
+        },
+        "2": {
+          "tx_bytes": 1232776,
+          "rx_bytes": 132625
+        },
+        "3": {
+          "tx_bytes": 1284872,
+          "rx_bytes": 133241
+        },
+        "4": {
+          "tx_bytes": -1303149,
+          "rx_bytes": -137050
+        },
+        "5": {
+          "tx_bytes": -1430638,
+          "rx_bytes": -137306
+        },
+        "6": {
+          "tx_bytes": -1462702,
+          "rx_bytes": -136991
+        },
+        "7": {
+          "tx_bytes": -1585710,
+          "rx_bytes": -136621
+        }
+      }
+    },
+    "b2-cap200": {
+      "baseline": {
+        "requests": 96,
+        "drain_s": 42.7301869969815,
+        "requests_s": 2.246655274566936,
+        "output_tokens_s": 35.946484393070975,
+        "ttft_p99_s": 37.027817480266094,
+        "get_calls": 384,
+        "get_payload_bytes": 460172820480,
+        "get_elapsed_ms": {
+          "n": 384,
+          "mean": 259.110599453125,
+          "p50": 254.25557400000002,
+          "p95": 404.282918,
+          "max": 447.524308,
+          "p99": 435.511496
+        },
+        "get_layout": {
+          "classified_calls": 384,
+          "attention_bytes": 453991464960,
+          "align_state_bytes": 6181355520
+        },
+        "local_copy": {
+          "events": 384,
+          "requests_with_events": 96,
+          "method_counts": {
+            "direct": 384
+          },
+          "reported_payload_bytes": 453991464960,
+          "elapsed_ms": {
+            "n": 384,
+            "mean": 368.3672195,
+            "p50": 419.020332,
+            "p95": 632.282437,
+            "max": 732.861503,
+            "p99": 660.942175
+          },
+          "device_elapsed_ms": {
+            "n": 384,
+            "mean": 363.68719895680744,
+            "p50": 415.7449951171875,
+            "p95": 625.0617065429688,
+            "max": 729.23291015625,
+            "p99": 656.3209838867188
+          },
+          "pair_wait_ms": {
+            "n": 384,
+            "mean": 18.734756598958334,
+            "p50": 2.6331559999999996,
+            "p95": 89.07648,
+            "max": 180.344867,
+            "p99": 130.129744
+          },
+          "broadcast_operations": {
+            "n": 384,
+            "mean": 2907.9166666666665,
+            "p50": 3780.0,
+            "p95": 4580,
+            "max": 4620,
+            "p99": 4620
+          }
+        },
+        "P_to_D_descriptor_bytes": 918190817280,
+        "D_mac_tx_bytes": 467264354833,
+        "D_tx_sample_peak_Gbps": 105.3322080119561,
+        "D_ports": {
+          "0": {
+            "tx_bytes": 50882641262,
+            "rx_bytes": 112688542953,
+            "sample_window_s": 49.644706634
+          },
+          "1": {
+            "tx_bytes": 60828167470,
+            "rx_bytes": 112689958249,
+            "sample_window_s": 49.895636205
+          },
+          "2": {
+            "tx_bytes": 59307374382,
+            "rx_bytes": 112689800374,
+            "sample_window_s": 50.156700752
+          },
+          "3": {
+            "tx_bytes": 55469141102,
+            "rx_bytes": 112689171446,
+            "sample_window_s": 50.201920952
+          },
+          "4": {
+            "tx_bytes": 53427206311,
+            "rx_bytes": 120353071649,
+            "sample_window_s": 50.742672898
+          },
+          "5": {
+            "tx_bytes": 68244682374,
+            "rx_bytes": 120355351470,
+            "sample_window_s": 51.291919256
+          },
+          "6": {
+            "tx_bytes": 60057477158,
+            "rx_bytes": 120354014915,
+            "sample_window_s": 51.809744458
+          },
+          "7": {
+            "tx_bytes": 59047664774,
+            "rx_bytes": 120353936414,
+            "sample_window_s": 52.777516604
+          }
+        },
+        "D_port_readback_Mbps": {
+          "0": 25000,
+          "1": 25000,
+          "2": 25000,
+          "3": 25000,
+          "4": 25000,
+          "5": 25000,
+          "6": 25000,
+          "7": 25000
+        }
+      },
+      "prototype": {
+        "requests": 96,
+        "drain_s": 31.42101713642478,
+        "requests_s": 3.055279833341617,
+        "output_tokens_s": 48.884477333465874,
+        "ttft_p99_s": 25.470460690557957,
+        "get_calls": 384,
+        "get_payload_bytes": 460172820480,
+        "get_elapsed_ms": {
+          "n": 384,
+          "mean": 292.01992084895835,
+          "p50": 312.6094865,
+          "p95": 391.703169,
+          "max": 441.662469,
+          "p99": 420.978415
+        },
+        "get_layout": {
+          "classified_calls": 384,
+          "attention_bytes": 453991464960,
+          "align_state_bytes": 6181355520
+        },
+        "local_copy": {
+          "events": 384,
+          "requests_with_events": 96,
+          "method_counts": {
+            "packed": 384
+          },
+          "reported_payload_bytes": 453991464960,
+          "elapsed_ms": {
+            "n": 384,
+            "mean": 133.99841452864584,
+            "p50": 137.36240500000002,
+            "p95": 138.665006,
+            "max": 159.934336,
+            "p99": 148.981407
+          },
+          "device_elapsed_ms": {
+            "n": 384,
+            "mean": 127.35938839117686,
+            "p50": 130.73814392089844,
+            "p95": 131.7576446533203,
+            "max": 153.02516174316406,
+            "p99": 133.04930114746094
+          },
+          "pair_wait_ms": {
+            "n": 384,
+            "mean": 21.008566421875,
+            "p50": 3.152177,
+            "p95": 95.704008,
+            "max": 205.786727,
+            "p99": 177.192269
+          },
+          "broadcast_operations": {
+            "n": 384,
+            "mean": 18.5,
+            "p50": 18.5,
+            "p95": 19,
+            "max": 19,
+            "p99": 19
+          }
+        },
+        "P_to_D_descriptor_bytes": 918190817280,
+        "D_mac_tx_bytes": 467269701519,
+        "D_tx_sample_peak_Gbps": 134.40284457320317,
+        "D_ports": {
+          "0": {
+            "tx_bytes": 50883990925,
+            "rx_bytes": 112688616943,
+            "sample_window_s": 40.623007863
+          },
+          "1": {
+            "tx_bytes": 60829369101,
+            "rx_bytes": 112690032298,
+            "sample_window_s": 40.620559771
+          },
+          "2": {
+            "tx_bytes": 59308507341,
+            "rx_bytes": 112689875420,
+            "sample_window_s": 40.618696125
+          },
+          "3": {
+            "tx_bytes": 55470363597,
+            "rx_bytes": 112689246364,
+            "sample_window_s": 40.617708578
+          },
+          "4": {
+            "tx_bytes": 53427171894,
+            "rx_bytes": 120353074441,
+            "sample_window_s": 41.092110307
+          },
+          "5": {
+            "tx_bytes": 68244799447,
+            "rx_bytes": 120355354537,
+            "sample_window_s": 41.565691571
+          },
+          "6": {
+            "tx_bytes": 60057622135,
+            "rx_bytes": 120354017993,
+            "sample_window_s": 41.080639582
+          },
+          "7": {
+            "tx_bytes": 59047877079,
+            "rx_bytes": 120353939246,
+            "sample_window_s": 40.589076401
+          }
+        },
+        "D_port_readback_Mbps": {
+          "0": 25000,
+          "1": 25000,
+          "2": 25000,
+          "3": 25000,
+          "4": 25000,
+          "5": 25000,
+          "6": 25000,
+          "7": 25000
+        }
+      },
+      "prototype_minus_baseline_percent": {
+        "get_payload_bytes": 0.0,
+        "D_mac_tx_bytes": 0.0011442529148004243,
+        "requests_s": 35.99237354874353,
+        "output_tokens_s": 35.99237354874353,
+        "ttft_p99_s": -31.212633031551505
+      },
+      "D_port_delta_bytes": {
+        "0": {
+          "tx_bytes": 1349663,
+          "rx_bytes": 73990
+        },
+        "1": {
+          "tx_bytes": 1201631,
+          "rx_bytes": 74049
+        },
+        "2": {
+          "tx_bytes": 1132959,
+          "rx_bytes": 75046
+        },
+        "3": {
+          "tx_bytes": 1222495,
+          "rx_bytes": 74918
+        },
+        "4": {
+          "tx_bytes": -34417,
+          "rx_bytes": 2792
+        },
+        "5": {
+          "tx_bytes": 117073,
+          "rx_bytes": 3067
+        },
+        "6": {
+          "tx_bytes": 144977,
+          "rx_bytes": 3078
+        },
+        "7": {
+          "tx_bytes": 212305,
+          "rx_bytes": 2832
+        }
+      }
+    },
+    "b3-cap100": {
+      "baseline": {
+        "requests": 96,
+        "drain_s": 63.37362040951848,
+        "requests_s": 1.5148258751772552,
+        "output_tokens_s": 24.237214002836083,
+        "ttft_p99_s": 58.172350101172924,
+        "get_calls": 384,
+        "get_payload_bytes": 460172820480,
+        "get_elapsed_ms": {
+          "n": 384,
+          "mean": 563.1496833333333,
+          "p50": 587.3374405,
+          "p95": 808.848491,
+          "max": 894.115836,
+          "p99": 863.0772
+        },
+        "get_layout": {
+          "classified_calls": 384,
+          "attention_bytes": 453991464960,
+          "align_state_bytes": 6181355520
+        },
+        "local_copy": {
+          "events": 384,
+          "requests_with_events": 96,
+          "method_counts": {
+            "direct": 384
+          },
+          "reported_payload_bytes": 453991464960,
+          "elapsed_ms": {
+            "n": 384,
+            "mean": 378.40635200520836,
+            "p50": 413.792861,
+            "p95": 610.926419,
+            "max": 742.502959,
+            "p99": 674.329466
+          },
+          "device_elapsed_ms": {
+            "n": 384,
+            "mean": 374.2397048473358,
+            "p50": 410.7719268798828,
+            "p95": 605.864013671875,
+            "max": 739.0451049804688,
+            "p99": 660.6681518554688
+          },
+          "pair_wait_ms": {
+            "n": 384,
+            "mean": 38.70436786458333,
+            "p50": 2.8411479999999996,
+            "p95": 181.212665,
+            "max": 327.836833,
+            "p99": 273.946287
+          },
+          "broadcast_operations": {
+            "n": 384,
+            "mean": 3089.5833333333335,
+            "p50": 3700.0,
+            "p95": 4560,
+            "max": 4600,
+            "p99": 4600
+          }
+        },
+        "P_to_D_descriptor_bytes": 918190817280,
+        "D_mac_tx_bytes": 467276944709,
+        "D_tx_sample_peak_Gbps": 77.81885987265686,
+        "D_ports": {
+          "0": {
+            "tx_bytes": 50883814728,
+            "rx_bytes": 112688553496,
+            "sample_window_s": 72.317014868
+          },
+          "1": {
+            "tx_bytes": 60829366792,
+            "rx_bytes": 112689968915,
+            "sample_window_s": 72.316286273
+          },
+          "2": {
+            "tx_bytes": 59308501383,
+            "rx_bytes": 112689811480,
+            "sample_window_s": 72.31111322
+          },
+          "3": {
+            "tx_bytes": 55470348808,
+            "rx_bytes": 112689182917,
+            "sample_window_s": 71.876640666
+          },
+          "4": {
+            "tx_bytes": 53428869225,
+            "rx_bytes": 120353252162,
+            "sample_window_s": 71.447378347
+          },
+          "5": {
+            "tx_bytes": 68246671946,
+            "rx_bytes": 120355532199,
+            "sample_window_s": 71.490990341
+          },
+          "6": {
+            "tx_bytes": 60059534569,
+            "rx_bytes": 120354196143,
+            "sample_window_s": 71.535117778
+          },
+          "7": {
+            "tx_bytes": 59049837258,
+            "rx_bytes": 120354117519,
+            "sample_window_s": 71.535017554
+          }
+        },
+        "D_port_readback_Mbps": {
+          "0": 12500,
+          "1": 12500,
+          "2": 12500,
+          "3": 12500,
+          "4": 12500,
+          "5": 12500,
+          "6": 12500,
+          "7": 12500
+        }
+      },
+      "prototype": {
+        "requests": 96,
+        "drain_s": 52.081873804330826,
+        "requests_s": 1.8432516533615424,
+        "output_tokens_s": 29.49202645378468,
+        "ttft_p99_s": 46.37446960620582,
+        "get_calls": 384,
+        "get_payload_bytes": 460172820480,
+        "get_elapsed_ms": {
+          "n": 384,
+          "mean": 620.4549267239584,
+          "p50": 646.1248479999999,
+          "p95": 855.874785,
+          "max": 910.203214,
+          "p99": 890.32455
+        },
+        "get_layout": {
+          "classified_calls": 384,
+          "attention_bytes": 453991464960,
+          "align_state_bytes": 6181355520
+        },
+        "local_copy": {
+          "events": 384,
+          "requests_with_events": 96,
+          "method_counts": {
+            "packed": 384
+          },
+          "reported_payload_bytes": 453991464960,
+          "elapsed_ms": {
+            "n": 384,
+            "mean": 134.55029897135418,
+            "p50": 137.53339,
+            "p95": 139.284761,
+            "max": 160.949147,
+            "p99": 159.842714
+          },
+          "device_elapsed_ms": {
+            "n": 384,
+            "mean": 127.62358504533768,
+            "p50": 130.72721099853516,
+            "p95": 131.75564575195312,
+            "max": 153.73410034179688,
+            "p99": 145.77804565429688
+          },
+          "pair_wait_ms": {
+            "n": 384,
+            "mean": 47.899221984375,
+            "p50": 2.9944505,
+            "p95": 223.21856,
+            "max": 355.284486,
+            "p99": 324.565974
+          },
+          "broadcast_operations": {
+            "n": 384,
+            "mean": 18.5,
+            "p50": 18.5,
+            "p95": 19,
+            "max": 19,
+            "p99": 19
+          }
+        },
+        "P_to_D_descriptor_bytes": 918190817280,
+        "D_mac_tx_bytes": 467271655480,
+        "D_tx_sample_peak_Gbps": 84.45148395713416,
+        "D_ports": {
+          "0": {
+            "tx_bytes": 50884343442,
+            "rx_bytes": 112688696581,
+            "sample_window_s": 57.916129177
+          },
+          "1": {
+            "tx_bytes": 60829641554,
+            "rx_bytes": 112690111877,
+            "sample_window_s": 57.925653494
+          },
+          "2": {
+            "tx_bytes": 59308753554,
+            "rx_bytes": 112689954501,
+            "sample_window_s": 57.936709862
+          },
+          "3": {
+            "tx_bytes": 55470715218,
+            "rx_bytes": 112689325760,
+            "sample_window_s": 58.284135282
+          },
+          "4": {
+            "tx_bytes": 53427295436,
+            "rx_bytes": 120353027823,
+            "sample_window_s": 58.631240875
+          },
+          "5": {
+            "tx_bytes": 68245068012,
+            "rx_bytes": 120355308047,
+            "sample_window_s": 58.696337029
+          },
+          "6": {
+            "tx_bytes": 60057853196,
+            "rx_bytes": 120353971498,
+            "sample_window_s": 58.902590044
+          },
+          "7": {
+            "tx_bytes": 59047985068,
+            "rx_bytes": 120353892938,
+            "sample_window_s": 59.040548603
+          }
+        },
+        "D_port_readback_Mbps": {
+          "0": 12500,
+          "1": 12500,
+          "2": 12500,
+          "3": 12500,
+          "4": 12500,
+          "5": 12500,
+          "6": 12500,
+          "7": 12500
+        }
+      },
+      "prototype_minus_baseline_percent": {
+        "get_payload_bytes": 0.0,
+        "D_mac_tx_bytes": -0.001131925950956965,
+        "requests_s": 21.680761040991392,
+        "output_tokens_s": 21.680761040991392,
+        "ttft_p99_s": -20.280907466259
+      },
+      "D_port_delta_bytes": {
+        "0": {
+          "tx_bytes": 528714,
+          "rx_bytes": 143085
+        },
+        "1": {
+          "tx_bytes": 274762,
+          "rx_bytes": 142962
+        },
+        "2": {
+          "tx_bytes": 252171,
+          "rx_bytes": 143021
+        },
+        "3": {
+          "tx_bytes": 366410,
+          "rx_bytes": 142843
+        },
+        "4": {
+          "tx_bytes": -1573789,
+          "rx_bytes": -224339
+        },
+        "5": {
+          "tx_bytes": -1603934,
+          "rx_bytes": -224152
+        },
+        "6": {
+          "tx_bytes": -1681373,
+          "rx_bytes": -224645
+        },
+        "7": {
+          "tx_bytes": -1852190,
+          "rx_bytes": -224581
+        }
+      }
+    },
+    "b3-cap200": {
+      "baseline": {
+        "requests": 96,
+        "drain_s": 40.25348266214132,
+        "requests_s": 2.384886813539954,
+        "output_tokens_s": 38.15818901663926,
+        "ttft_p99_s": 34.30297650769353,
+        "get_calls": 384,
+        "get_payload_bytes": 460172820480,
+        "get_elapsed_ms": {
+          "n": 384,
+          "mean": 193.82195075,
+          "p50": 183.33636,
+          "p95": 349.344117,
+          "max": 431.656296,
+          "p99": 416.392726
+        },
+        "get_layout": {
+          "classified_calls": 384,
+          "attention_bytes": 453991464960,
+          "align_state_bytes": 6181355520
+        },
+        "local_copy": {
+          "events": 384,
+          "requests_with_events": 96,
+          "method_counts": {
+            "direct": 384
+          },
+          "reported_payload_bytes": 453991464960,
+          "elapsed_ms": {
+            "n": 384,
+            "mean": 395.8738691666667,
+            "p50": 444.9774725,
+            "p95": 572.229773,
+            "max": 665.782734,
+            "p99": 597.48639
+          },
+          "device_elapsed_ms": {
+            "n": 384,
+            "mean": 391.22710899511975,
+            "p50": 442.0234375,
+            "p95": 561.8715209960938,
+            "max": 662.6128540039062,
+            "p99": 594.1846923828125
+          },
+          "pair_wait_ms": {
+            "n": 384,
+            "mean": 17.195329033854165,
+            "p50": 2.8298435,
+            "p95": 77.175149,
+            "max": 225.408765,
+            "p99": 150.980249
+          },
+          "broadcast_operations": {
+            "n": 384,
+            "mean": 3233.3333333333335,
+            "p50": 3910.0,
+            "p95": 4540,
+            "max": 4620,
+            "p99": 4620
+          }
+        },
+        "P_to_D_descriptor_bytes": 918190817280,
+        "D_mac_tx_bytes": 467272211658,
+        "D_tx_sample_peak_Gbps": 111.7245771208249,
+        "D_ports": {
+          "0": {
+            "tx_bytes": 50883705601,
+            "rx_bytes": 112688633196,
+            "sample_window_s": 47.630136267
+          },
+          "1": {
+            "tx_bytes": 60829060160,
+            "rx_bytes": 112690048492,
+            "sample_window_s": 47.631077134
+          },
+          "2": {
+            "tx_bytes": 59308330304,
+            "rx_bytes": 112689890687,
+            "sample_window_s": 47.629865285
+          },
+          "3": {
+            "tx_bytes": 55470150528,
+            "rx_bytes": 112689261695,
+            "sample_window_s": 47.630943237
+          },
+          "4": {
+            "tx_bytes": 53428048627,
+            "rx_bytes": 120353201766,
+            "sample_window_s": 47.131797832
+          },
+          "5": {
+            "tx_bytes": 68245653778,
+            "rx_bytes": 120355481862,
+            "sample_window_s": 46.630940351
+          },
+          "6": {
+            "tx_bytes": 60058450610,
+            "rx_bytes": 120354145190,
+            "sample_window_s": 46.635750897
+          },
+          "7": {
+            "tx_bytes": 59048812050,
+            "rx_bytes": 120354066689,
+            "sample_window_s": 46.641242238
+          }
+        },
+        "D_port_readback_Mbps": {
+          "0": 25000,
+          "1": 25000,
+          "2": 25000,
+          "3": 25000,
+          "4": 25000,
+          "5": 25000,
+          "6": 25000,
+          "7": 25000
+        }
+      },
+      "prototype": {
+        "requests": 96,
+        "drain_s": 30.76425468362868,
+        "requests_s": 3.1205046566945365,
+        "output_tokens_s": 49.92807450711258,
+        "ttft_p99_s": 25.18857092782855,
+        "get_calls": 384,
+        "get_payload_bytes": 460172820480,
+        "get_elapsed_ms": {
+          "n": 384,
+          "mean": 276.6545385338542,
+          "p50": 287.28703,
+          "p95": 385.905637,
+          "max": 420.9529,
+          "p99": 402.849647
+        },
+        "get_layout": {
+          "classified_calls": 384,
+          "attention_bytes": 453991464960,
+          "align_state_bytes": 6181355520
+        },
+        "local_copy": {
+          "events": 384,
+          "requests_with_events": 96,
+          "method_counts": {
+            "packed": 384
+          },
+          "reported_payload_bytes": 453991464960,
+          "elapsed_ms": {
+            "n": 384,
+            "mean": 134.21532325520835,
+            "p50": 137.5162005,
+            "p95": 139.602465,
+            "max": 153.062384,
+            "p99": 152.780281
+          },
+          "device_elapsed_ms": {
+            "n": 384,
+            "mean": 127.4657168785731,
+            "p50": 130.73558807373047,
+            "p95": 131.7509002685547,
+            "max": 146.72523498535156,
+            "p99": 140.12872314453125
+          },
+          "pair_wait_ms": {
+            "n": 384,
+            "mean": 21.778700934895834,
+            "p50": 3.0120855,
+            "p95": 101.269193,
+            "max": 177.256309,
+            "p99": 140.444815
+          },
+          "broadcast_operations": {
+            "n": 384,
+            "mean": 18.5,
+            "p50": 18.5,
+            "p95": 19,
+            "max": 19,
+            "p99": 19
+          }
+        },
+        "P_to_D_descriptor_bytes": 918190817280,
+        "D_mac_tx_bytes": 467271416782,
+        "D_tx_sample_peak_Gbps": 140.93118182287088,
+        "D_ports": {
+          "0": {
+            "tx_bytes": 50884208609,
+            "rx_bytes": 112688685339,
+            "sample_window_s": 40.106240908
+          },
+          "1": {
+            "tx_bytes": 60829661985,
+            "rx_bytes": 112690100635,
+            "sample_window_s": 40.086556045
+          },
+          "2": {
+            "tx_bytes": 59308608673,
+            "rx_bytes": 112689943323,
+            "sample_window_s": 40.088391492
+          },
+          "3": {
+            "tx_bytes": 55470480801,
+            "rx_bytes": 112689314395,
+            "sample_window_s": 40.088605114
+          },
+          "4": {
+            "tx_bytes": 53427426338,
+            "rx_bytes": 120353067765,
+            "sample_window_s": 40.087785683
+          },
+          "5": {
+            "tx_bytes": 68245039043,
+            "rx_bytes": 120355347861,
+            "sample_window_s": 40.087622062
+          },
+          "6": {
+            "tx_bytes": 60057840034,
+            "rx_bytes": 120354011746,
+            "sample_window_s": 40.131827
+          },
+          "7": {
+            "tx_bytes": 59048151299,
+            "rx_bytes": 120353932629,
+            "sample_window_s": 40.175329979
+          }
+        },
+        "D_port_readback_Mbps": {
+          "0": 25000,
+          "1": 25000,
+          "2": 25000,
+          "3": 25000,
+          "4": 25000,
+          "5": 25000,
+          "6": 25000,
+          "7": 25000
+        }
+      },
+      "prototype_minus_baseline_percent": {
+        "get_payload_bytes": 0.0,
+        "D_mac_tx_bytes": -0.00017010983751410743,
+        "requests_s": 30.844979266025817,
+        "output_tokens_s": 30.844979266025817,
+        "ttft_p99_s": -26.57030528479295
+      },
+      "D_port_delta_bytes": {
+        "0": {
+          "tx_bytes": 503008,
+          "rx_bytes": 52143
+        },
+        "1": {
+          "tx_bytes": 601825,
+          "rx_bytes": 52143
+        },
+        "2": {
+          "tx_bytes": 278369,
+          "rx_bytes": 52636
+        },
+        "3": {
+          "tx_bytes": 330273,
+          "rx_bytes": 52700
+        },
+        "4": {
+          "tx_bytes": -622289,
+          "rx_bytes": -134001
+        },
+        "5": {
+          "tx_bytes": -614735,
+          "rx_bytes": -134001
+        },
+        "6": {
+          "tx_bytes": -610576,
+          "rx_bytes": -133444
+        },
+        "7": {
+          "tx_bytes": -660751,
+          "rx_bytes": -134060
+        }
+      }
+    }
+  },
+  "baseline_cases_excluded": [],
+  "prototype_cases_excluded": [],
+  "by_condition": [
+    {
+      "D_egress_cap_Gbps": 100,
+      "offered_requests_s": 16.0,
+      "requests_per_round": 96,
+      "cases": [
+        "b1-cap100",
+        "b2-cap100",
+        "b3-cap100"
+      ],
+      "baseline": {
+        "requests_s": 1.5744212878032697,
+        "output_tokens_s": 25.190740604852316,
+        "ttft_p99_s": 55.5219019819051,
+        "get_payload_bytes": 460172820480,
+        "D_mac_tx_bytes": 467269951895,
+        "D_ports": {
+          "0": {
+            "tx_bytes": 50882777716,
+            "rx_bytes": 112688551025
+          },
+          "1": {
+            "tx_bytes": 60828413940,
+            "rx_bytes": 112689966508
+          },
+          "2": {
+            "tx_bytes": 59307456564,
+            "rx_bytes": 112689809753
+          },
+          "3": {
+            "tx_bytes": 55469341108,
+            "rx_bytes": 112689180825
+          },
+          "4": {
+            "tx_bytes": 53428182273,
+            "rx_bytes": 120353180631
+          },
+          "5": {
+            "tx_bytes": 68245904418,
+            "rx_bytes": 120355460732
+          },
+          "6": {
+            "tx_bytes": 60058750722,
+            "rx_bytes": 120354123996
+          },
+          "7": {
+            "tx_bytes": 59049125154,
+            "rx_bytes": 120354045436
+          }
+        },
+        "median_of_round_get_p50_ms": 587.3374405,
+        "copy_median_of_round_quantiles": {
+          "elapsed_ms": {
+            "p50": 413.792861,
+            "p95": 555.670128
+          },
+          "device_elapsed_ms": {
+            "p50": 410.7719268798828,
+            "p95": 551.7025756835938
+          },
+          "pair_wait_ms": {
+            "p50": 3.213558,
+            "p95": 181.212665
+          },
+          "broadcast_operations": {
+            "p50": 3700.0,
+            "p95": 4560
+          }
+        }
+      },
+      "prototype": {
+        "requests_s": 1.825678004813104,
+        "output_tokens_s": 29.210848077009665,
+        "ttft_p99_s": 46.86720058135688,
+        "get_payload_bytes": 460172820480,
+        "D_mac_tx_bytes": 467269427008,
+        "D_ports": {
+          "0": {
+            "tx_bytes": 50884292476,
+            "rx_bytes": 112688684394
+          },
+          "1": {
+            "tx_bytes": 60829638844,
+            "rx_bytes": 112690099941
+          },
+          "2": {
+            "tx_bytes": 59308689340,
+            "rx_bytes": 112689942378
+          },
+          "3": {
+            "tx_bytes": 55470625980,
+            "rx_bytes": 112689314066
+          },
+          "4": {
+            "tx_bytes": 53426879124,
+            "rx_bytes": 120353027823
+          },
+          "5": {
+            "tx_bytes": 68244473780,
+            "rx_bytes": 120355308047
+          },
+          "6": {
+            "tx_bytes": 60057288020,
+            "rx_bytes": 120353971498
+          },
+          "7": {
+            "tx_bytes": 59047539444,
+            "rx_bytes": 120353892938
+          }
+        },
+        "median_of_round_get_p50_ms": 657.112045,
+        "copy_median_of_round_quantiles": {
+          "elapsed_ms": {
+            "p50": 137.4860615,
+            "p95": 139.9708
+          },
+          "device_elapsed_ms": {
+            "p50": 130.74114227294922,
+            "p95": 131.75564575195312
+          },
+          "pair_wait_ms": {
+            "p50": 2.9944505,
+            "p95": 185.178922
+          },
+          "broadcast_operations": {
+            "p50": 18.5,
+            "p95": 19
+          }
+        }
+      },
+      "prototype_minus_baseline_percent": {
+        "get_payload_bytes": 0.0,
+        "D_mac_tx_bytes": -0.00011233056991388719,
+        "requests_s": 15.958671224549008,
+        "output_tokens_s": 15.958671224549008,
+        "ttft_p99_s": -15.587905117819695
+      }
+    },
+    {
+      "D_egress_cap_Gbps": 200,
+      "offered_requests_s": 16.0,
+      "requests_per_round": 96,
+      "cases": [
+        "b1-cap200",
+        "b2-cap200",
+        "b3-cap200"
+      ],
+      "baseline": {
+        "requests_s": 2.299539347982589,
+        "output_tokens_s": 36.79262956772143,
+        "ttft_p99_s": 36.74895228818059,
+        "get_payload_bytes": 460172820480,
+        "D_mac_tx_bytes": 467264997404,
+        "D_ports": {
+          "0": {
+            "tx_bytes": 50883679648,
+            "rx_bytes": 112688633196
+          },
+          "1": {
+            "tx_bytes": 60829060160,
+            "rx_bytes": 112690048492
+          },
+          "2": {
+            "tx_bytes": 59308238945,
+            "rx_bytes": 112689890687
+          },
+          "3": {
+            "tx_bytes": 55470080736,
+            "rx_bytes": 112689261695
+          },
+          "4": {
+            "tx_bytes": 53427206311,
+            "rx_bytes": 120353071649
+          },
+          "5": {
+            "tx_bytes": 68244682374,
+            "rx_bytes": 120355351470
+          },
+          "6": {
+            "tx_bytes": 60057477158,
+            "rx_bytes": 120354014915
+          },
+          "7": {
+            "tx_bytes": 59047664774,
+            "rx_bytes": 120353936414
+          }
+        },
+        "median_of_round_get_p50_ms": 211.3411375,
+        "copy_median_of_round_quantiles": {
+          "elapsed_ms": {
+            "p50": 419.020332,
+            "p95": 616.515181
+          },
+          "device_elapsed_ms": {
+            "p50": 415.7449951171875,
+            "p95": 603.860107421875
+          },
+          "pair_wait_ms": {
+            "p50": 2.8263185,
+            "p95": 77.175149
+          },
+          "broadcast_operations": {
+            "p50": 3780.0,
+            "p95": 4580
+          }
+        }
+      },
+      "prototype": {
+        "requests_s": 3.0783125326669833,
+        "output_tokens_s": 49.253000522671734,
+        "ttft_p99_s": 25.430602483451366,
+        "get_payload_bytes": 460172820480,
+        "D_mac_tx_bytes": 467269701519,
+        "D_ports": {
+          "0": {
+            "tx_bytes": 50884208609,
+            "rx_bytes": 112688685339
+          },
+          "1": {
+            "tx_bytes": 60829661985,
+            "rx_bytes": 112690100635
+          },
+          "2": {
+            "tx_bytes": 59308608673,
+            "rx_bytes": 112689943323
+          },
+          "3": {
+            "tx_bytes": 55470480801,
+            "rx_bytes": 112689314395
+          },
+          "4": {
+            "tx_bytes": 53427171894,
+            "rx_bytes": 120353067765
+          },
+          "5": {
+            "tx_bytes": 68244799447,
+            "rx_bytes": 120355347861
+          },
+          "6": {
+            "tx_bytes": 60057622135,
+            "rx_bytes": 120354011746
+          },
+          "7": {
+            "tx_bytes": 59047877079,
+            "rx_bytes": 120353932629
+          }
+        },
+        "median_of_round_get_p50_ms": 291.46788200000003,
+        "copy_median_of_round_quantiles": {
+          "elapsed_ms": {
+            "p50": 137.511277,
+            "p95": 139.497056
+          },
+          "device_elapsed_ms": {
+            "p50": 130.73558807373047,
+            "p95": 131.7576446533203
+          },
+          "pair_wait_ms": {
+            "p50": 3.152177,
+            "p95": 95.704008
+          },
+          "broadcast_operations": {
+            "p50": 18.5,
+            "p95": 19
+          }
+        }
+      },
+      "prototype_minus_baseline_percent": {
+        "get_payload_bytes": 0.0,
+        "D_mac_tx_bytes": 0.0010067338718146685,
+        "requests_s": 33.86648657991525,
+        "output_tokens_s": 33.86648657991525,
+        "ttft_p99_s": -30.799108818047845
+      }
+    }
+  ],
+  "layout_profile": {
+    "layout-solo": {
+      "requests": 2,
+      "rank_events": 8,
+      "raw_segments": {
+        "n": 8,
+        "mean": 4510,
+        "p50": 4510.0,
+        "p95": 4660,
+        "max": 4660,
+        "p99": 4660
+      },
+      "layout_boundaries": {
+        "n": 8,
+        "mean": 290,
+        "p50": 290.0,
+        "p95": 300,
+        "max": 300,
+        "p99": 300
+      },
+      "local_only_breaks": {
+        "n": 8,
+        "mean": 0,
+        "p50": 0.0,
+        "p95": 0,
+        "max": 0,
+        "p99": 0
+      },
+      "peer_only_breaks": {
+        "n": 8,
+        "mean": 0,
+        "p50": 0.0,
+        "p95": 0,
+        "max": 0,
+        "p99": 0
+      },
+      "both_breaks": {
+        "n": 8,
+        "mean": 60,
+        "p50": 60.0,
+        "p95": 60,
+        "max": 60,
+        "p99": 60
+      },
+      "contiguous_both": {
+        "n": 8,
+        "mean": 4160,
+        "p50": 4160.0,
+        "p95": 4300,
+        "max": 4300,
+        "p99": 4300
+      },
+      "broadcasts": {
+        "n": 8,
+        "mean": 350,
+        "p50": 350.0,
+        "p95": 360,
+        "max": 360,
+        "p99": 360
+      },
+      "copy_ms": {
+        "n": 8,
+        "mean": 137.26263775,
+        "p50": 137.41627599999998,
+        "p95": 141.374188,
+        "max": 141.374188,
+        "p99": 141.374188
+      },
+      "address_gap_breaks": {
+        "n": 8,
+        "mean": 60,
+        "p50": 60.0,
+        "p95": 60,
+        "max": 60,
+        "p99": 60
+      }
+    },
+    "layout-load": {
+      "requests": 48,
+      "rank_events": 192,
+      "raw_segments": {
+        "n": 192,
+        "mean": 4510,
+        "p50": 4510.0,
+        "p95": 4660,
+        "max": 4660,
+        "p99": 4660
+      },
+      "layout_boundaries": {
+        "n": 192,
+        "mean": 290,
+        "p50": 290.0,
+        "p95": 300,
+        "max": 300,
+        "p99": 300
+      },
+      "local_only_breaks": {
+        "n": 192,
+        "mean": 0,
+        "p50": 0.0,
+        "p95": 0,
+        "max": 0,
+        "p99": 0
+      },
+      "peer_only_breaks": {
+        "n": 192,
+        "mean": 0,
+        "p50": 0.0,
+        "p95": 0,
+        "max": 0,
+        "p99": 0
+      },
+      "both_breaks": {
+        "n": 192,
+        "mean": 2255.4166666666665,
+        "p50": 3850.0,
+        "p95": 4340,
+        "max": 4360,
+        "p99": 4360
+      },
+      "contiguous_both": {
+        "n": 192,
+        "mean": 1964.5833333333333,
+        "p50": 340.0,
+        "p95": 4360,
+        "max": 4360,
+        "p99": 4360
+      },
+      "broadcasts": {
+        "n": 192,
+        "mean": 2545.4166666666665,
+        "p50": 4130.0,
+        "p95": 4640,
+        "max": 4660,
+        "p99": 4660
+      },
+      "copy_ms": {
+        "n": 192,
+        "mean": 353.51922897916666,
+        "p50": 462.11600999999996,
+        "p95": 585.338103,
+        "max": 624.930661,
+        "p99": 624.438044
+      },
+      "address_gap_breaks": {
+        "n": 192,
+        "mean": 2255.4166666666665,
+        "p50": 3850.0,
+        "p95": 4340,
+        "max": 4360,
+        "p99": 4360
+      }
+    }
+  },
+  "method": {
+    "model": "Qwen3.5-35B-A3B BF16",
+    "role_layout": "Two instances per side, attention TP4 and expert EP4 per instance, 16 Ascend 910B2 devices",
+    "prefix_token_lengths": [
+      223256,
+      238600
+    ],
+    "APC": false,
+    "prefill_token_budget": 4096,
+    "output_tokens_per_request": 16,
+    "same_head_owner_stripe_blocks": 16,
+    "same_head_packed_capacity_bytes_per_rank": 134217728,
+    "baseline": "r15 direct HCCL into adjacent final page ranges",
+    "prototype": "NPU batch_memcpy pack, HCCL, NPU batch_memcpy scatter",
+    "async": false
+  },
+  "smoke": {
+    "output_token_ids_match_direct_baseline": {
+      "smoke-base": [
+        true,
+        true
+      ],
+      "smoke-peer": [
+        true,
+        true
+      ],
+      "smoke-on": [
+        true,
+        true
+      ]
+    },
+    "verified_samples": {
+      "P0": {
+        "1": {
+          "samples": 8,
+          "bytes": 32768
+        },
+        "3": {
+          "samples": 8,
+          "bytes": 32768
+        },
+        "0": {
+          "samples": 8,
+          "bytes": 32768
+        },
+        "2": {
+          "samples": 8,
+          "bytes": 32768
+        }
+      },
+      "P1": {
+        "3": {
+          "samples": 8,
+          "bytes": 32768
+        },
+        "2": {
+          "samples": 8,
+          "bytes": 32768
+        },
+        "1": {
+          "samples": 8,
+          "bytes": 32768
+        },
+        "0": {
+          "samples": 8,
+          "bytes": 32768
+        }
+      }
+    },
+    "direct": {
+      "requests": 2,
+      "drain_s": 4.785319596529007,
+      "requests_s": 0.41794491666777783,
+      "output_tokens_s": 6.687118666684445,
+      "ttft_p99_s": 2.7654690369963646,
+      "get_calls": 8,
+      "get_payload_bytes": 9586933760,
+      "get_elapsed_ms": {
+        "n": 8,
+        "mean": 439.285044625,
+        "p50": 427.74575000000004,
+        "p95": 518.593106,
+        "max": 518.593106,
+        "p99": 518.593106
+      },
+      "get_layout": {
+        "classified_calls": 8,
+        "attention_bytes": 9458155520,
+        "align_state_bytes": 128778240
+      },
+      "local_copy": {
+        "events": 8,
+        "requests_with_events": 2,
+        "method_counts": {
+          "direct": 8
+        },
+        "reported_payload_bytes": 9458155520,
+        "elapsed_ms": {
+          "n": 8,
+          "mean": 525.726758,
+          "p50": 538.245273,
+          "p95": 581.099504,
+          "max": 581.099504,
+          "p99": 581.099504
+        },
+        "device_elapsed_ms": {
+          "n": 8,
+          "mean": 522.2644653320312,
+          "p50": 534.8848724365234,
+          "p95": 577.4384765625,
+          "max": 577.4384765625,
+          "p99": 577.4384765625
+        },
+        "pair_wait_ms": {
+          "n": 8,
+          "mean": 4.10847475,
+          "p50": 2.6276159999999997,
+          "p95": 9.028656,
+          "max": 9.028656,
+          "p99": 9.028656
+        },
+        "broadcast_operations": {
+          "n": 8,
+          "mean": 4160,
+          "p50": 4160.0,
+          "p95": 4660,
+          "max": 4660,
+          "p99": 4660
+        }
+      },
+      "P_to_D_descriptor_bytes": 19128975360,
+      "D_mac_tx_bytes": 9735052369,
+      "D_tx_sample_peak_Gbps": 12.851492933982003,
+      "D_ports": {
+        "0": {
+          "tx_bytes": 1060098982,
+          "rx_bytes": 2347684477,
+          "sample_window_s": 9.373292779
+        },
+        "1": {
+          "tx_bytes": 1267296262,
+          "rx_bytes": 2347713961,
+          "sample_window_s": 9.372748171
+        },
+        "2": {
+          "tx_bytes": 1235612097,
+          "rx_bytes": 2347710562,
+          "sample_window_s": 8.886235018
+        },
+        "3": {
+          "tx_bytes": 1155651662,
+          "rx_bytes": 2347697458,
+          "sample_window_s": 8.466688826
+        },
+        "4": {
+          "tx_bytes": 1113118282,
+          "rx_bytes": 2507363073,
+          "sample_window_s": 9.028913158
+        },
+        "5": {
+          "tx_bytes": 1421814808,
+          "rx_bytes": 2507410511,
+          "sample_window_s": 9.52526487
+        },
+        "6": {
+          "tx_bytes": 1251249993,
+          "rx_bytes": 2507382665,
+          "sample_window_s": 9.52688039
+        },
+        "7": {
+          "tx_bytes": 1230210283,
+          "rx_bytes": 2507380904,
+          "sample_window_s": 9.515012883
+        }
+      },
+      "D_port_readback_Mbps": {
+        "0": 12500,
+        "1": 12500,
+        "2": 12500,
+        "3": 12500,
+        "4": 12500,
+        "5": 12500,
+        "6": 12500,
+        "7": 12500
+      }
+    },
+    "packed": {
+      "requests": 2,
+      "drain_s": 4.283948889002204,
+      "requests_s": 0.46685897797110043,
+      "output_tokens_s": 7.469743647537607,
+      "ttft_p99_s": 2.261824594810605,
+      "get_calls": 8,
+      "get_payload_bytes": 9586933760,
+      "get_elapsed_ms": {
+        "n": 8,
+        "mean": 452.294356875,
+        "p50": 437.837734,
+        "p95": 529.586976,
+        "max": 529.586976,
+        "p99": 529.586976
+      },
+      "get_layout": {
+        "classified_calls": 8,
+        "attention_bytes": 9458155520,
+        "align_state_bytes": 128778240
+      },
+      "local_copy": {
+        "events": 8,
+        "requests_with_events": 2,
+        "method_counts": {
+          "packed": 8
+        },
+        "reported_payload_bytes": 9458155520,
+        "elapsed_ms": {
+          "n": 8,
+          "mean": 135.249126375,
+          "p50": 135.090198,
+          "p95": 141.507329,
+          "max": 141.507329,
+          "p99": 141.507329
+        },
+        "device_elapsed_ms": {
+          "n": 8,
+          "mean": 127.94767951965332,
+          "p50": 127.3714370727539,
+          "p95": 134.2252960205078,
+          "max": 134.2252960205078,
+          "p99": 134.2252960205078
+        },
+        "pair_wait_ms": {
+          "n": 8,
+          "mean": 6.434536,
+          "p50": 2.7614475,
+          "p95": 21.369232,
+          "max": 21.369232,
+          "p99": 21.369232
+        },
+        "broadcast_operations": {
+          "n": 8,
+          "mean": 18.5,
+          "p50": 18.5,
+          "p95": 19,
+          "max": 19,
+          "p99": 19
+        }
+      },
+      "P_to_D_descriptor_bytes": 19128975360,
+      "D_mac_tx_bytes": 9732690083,
+      "D_tx_sample_peak_Gbps": 12.106080862956247,
+      "D_ports": {
+        "0": {
+          "tx_bytes": 1059850247,
+          "rx_bytes": 2347658541,
+          "sample_window_s": 9.682328729
+        },
+        "1": {
+          "tx_bytes": 1267047272,
+          "rx_bytes": 2347687961,
+          "sample_window_s": 9.682074233
+        },
+        "2": {
+          "tx_bytes": 1235362852,
+          "rx_bytes": 2347685055,
+          "sample_window_s": 9.681466939
+        },
+        "3": {
+          "tx_bytes": 1155402544,
+          "rx_bytes": 2347671167,
+          "sample_window_s": 9.190586113
+        },
+        "4": {
+          "tx_bytes": 1112776812,
+          "rx_bytes": 2507327432,
+          "sample_window_s": 9.133633201
+        },
+        "5": {
+          "tx_bytes": 1421473338,
+          "rx_bytes": 2507374747,
+          "sample_window_s": 9.56816462
+        },
+        "6": {
+          "tx_bytes": 1250908396,
+          "rx_bytes": 2507346659,
+          "sample_window_s": 9.567801258
+        },
+        "7": {
+          "tx_bytes": 1229868622,
+          "rx_bytes": 2507344957,
+          "sample_window_s": 9.564767867
+        }
+      },
+      "D_port_readback_Mbps": {
+        "0": 12500,
+        "1": 12500,
+        "2": 12500,
+        "3": 12500,
+        "4": 12500,
+        "5": 12500,
+        "6": 12500,
+        "7": 12500
+      }
+    }
+  },
+  "P_MAC_first_block": {
+    "a-b1-cap100": {
+      "0": {
+        "mac_tx_total_oct_num": 112689280035,
+        "mac_rx_total_oct_num": 58021149608
+      },
+      "1": {
+        "mac_tx_total_oct_num": 112688808419,
+        "mac_rx_total_oct_num": 54955488051
+      },
+      "2": {
+        "mac_tx_total_oct_num": 112689279971,
+        "mac_rx_total_oct_num": 58021156846
+      },
+      "3": {
+        "mac_tx_total_oct_num": 112688808227,
+        "mac_rx_total_oct_num": 54955422234
+      },
+      "4": {
+        "mac_tx_total_oct_num": 120354251217,
+        "mac_rx_total_oct_num": 62621722825
+      },
+      "5": {
+        "mac_tx_total_oct_num": 120353543665,
+        "mac_rx_total_oct_num": 58023225321
+      },
+      "6": {
+        "mac_tx_total_oct_num": 120354251345,
+        "mac_rx_total_oct_num": 62621699440
+      },
+      "7": {
+        "mac_tx_total_oct_num": 120353543665,
+        "mac_rx_total_oct_num": 58023211300
+      }
+    },
+    "b-b1-cap100": {
+      "0": {
+        "mac_tx_total_oct_num": 112689664003,
+        "mac_rx_total_oct_num": 58024407923
+      },
+      "1": {
+        "mac_tx_total_oct_num": 112689192259,
+        "mac_rx_total_oct_num": 54958734718
+      },
+      "2": {
+        "mac_tx_total_oct_num": 112689664003,
+        "mac_rx_total_oct_num": 58024402686
+      },
+      "3": {
+        "mac_tx_total_oct_num": 112689192259,
+        "mac_rx_total_oct_num": 54958710841
+      },
+      "4": {
+        "mac_tx_total_oct_num": 120354305479,
+        "mac_rx_total_oct_num": 62622136453
+      },
+      "5": {
+        "mac_tx_total_oct_num": 120353597863,
+        "mac_rx_total_oct_num": 58023629098
+      },
+      "6": {
+        "mac_tx_total_oct_num": 120354305543,
+        "mac_rx_total_oct_num": 62622124165
+      },
+      "7": {
+        "mac_tx_total_oct_num": 120353597735,
+        "mac_rx_total_oct_num": 58023607141
+      }
+    },
+    "b-b1-cap200": {
+      "0": {
+        "mac_tx_total_oct_num": 112689763546,
+        "mac_rx_total_oct_num": 58025292270
+      },
+      "1": {
+        "mac_tx_total_oct_num": 112689291866,
+        "mac_rx_total_oct_num": 54959615858
+      },
+      "2": {
+        "mac_tx_total_oct_num": 112689763546,
+        "mac_rx_total_oct_num": 58025292786
+      },
+      "3": {
+        "mac_tx_total_oct_num": 112689291802,
+        "mac_rx_total_oct_num": 54959616178
+      },
+      "4": {
+        "mac_tx_total_oct_num": 120354346762,
+        "mac_rx_total_oct_num": 62622577005
+      },
+      "5": {
+        "mac_tx_total_oct_num": 120353639210,
+        "mac_rx_total_oct_num": 58024042258
+      },
+      "6": {
+        "mac_tx_total_oct_num": 120354346762,
+        "mac_rx_total_oct_num": 62622534834
+      },
+      "7": {
+        "mac_tx_total_oct_num": 120353639082,
+        "mac_rx_total_oct_num": 58024017234
+      }
+    },
+    "a-b1-cap200": {
+      "0": {
+        "mac_tx_total_oct_num": 112689673580,
+        "mac_rx_total_oct_num": 58024438325
+      },
+      "1": {
+        "mac_tx_total_oct_num": 112689201836,
+        "mac_rx_total_oct_num": 54958765433
+      },
+      "2": {
+        "mac_tx_total_oct_num": 112689673837,
+        "mac_rx_total_oct_num": 58024440889
+      },
+      "3": {
+        "mac_tx_total_oct_num": 112689201836,
+        "mac_rx_total_oct_num": 54958761785
+      },
+      "4": {
+        "mac_tx_total_oct_num": 120354363162,
+        "mac_rx_total_oct_num": 62622686927
+      },
+      "5": {
+        "mac_tx_total_oct_num": 120353655610,
+        "mac_rx_total_oct_num": 58024167599
+      },
+      "6": {
+        "mac_tx_total_oct_num": 120354363226,
+        "mac_rx_total_oct_num": 62622672271
+      },
+      "7": {
+        "mac_tx_total_oct_num": 120353655610,
+        "mac_rx_total_oct_num": 58024197108
+      }
+    }
+  },
+  "formal_successful_requests": 1152,
+  "event_files_sha256": {
+    "r16-P.jsonl.gz": "1a63108aa46bfca52c63fb57284c1335039a1a3558db6f5bbdb31f95ae416049",
+    "r16-D.jsonl.gz": "0cf4550b042c2c4959f02b74ae1b1a65bf91b816654454ae2bb907e02fd7548e"
+  },
+  "cleanup": {
+    "P_idle_healthy_NPUs": 8,
+    "D_idle_healthy_NPUs": 8,
+    "D_ports_verified_configured_and_current_Mbps": [
+      200000,
+      200000,
+      200000,
+      200000,
+      200000,
+      200000,
+      200000,
+      200000
+    ]
+  }
+}

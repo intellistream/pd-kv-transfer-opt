@@ -1,0 +1,52 @@
+{
+  "run_id": "2p2d-20261118-r19-natural-ab",
+  "adapter": {
+    "file": "same_head_kv_r19.py",
+    "filter": "same_head_kv_r19.InstallFilter",
+    "deployed_sha256": "6a873c1697bb00653ed57e0bc532b1b5945037166a7cfed7c46d9c368fa97820",
+    "lf_normalized_sha256": "d8e34d75ee315d6e252e6034f7e569b3caaef9c5cef6eaa72d36a464b2274e28",
+    "mode_environment_variable": "ISSUE23_SAME_HEAD_MODE"
+  },
+  "runtime_modules": [
+    {
+      "module": "same_head_kv_r16",
+      "project_file": "pd_kv_transfer_opt/experiments/same_head_kv.py",
+      "deployed_sha256": "b7ed65ef4f6994ca8ef140cc2408990e196ef2c999ad3ec4ca9d3a4e5a779bed"
+    },
+    {
+      "module": "scoped_native_observability",
+      "project_file": "pd_kv_transfer_opt/profiling/scoped_native_observability.py",
+      "deployed_sha256": "cf2c5596fa6880d7d367f3733c90968e44f599f4c1ae078ddc09a758e40d19ae"
+    },
+    {
+      "module": "prefill_chunk_observability",
+      "project_file": "pd_kv_transfer_opt/profiling/prefill_chunk_observability.py",
+      "deployed_sha256": "f4a11cadc3ecce3254f2f46ad5e14763018b1d3eb870f1a9d1ba1cc7e0cb8cd1",
+      "import_rewrite": "Import scoped_native_observability by its bare module name."
+    },
+    {
+      "module": "rdma_full_observability",
+      "project_file": "pd_kv_transfer_opt/profiling/rdma_full_observability.py",
+      "deployed_sha256": "b68893ffe13f85f337304b3f0aac0dfd0d10b7eee859b2249595ad02f12e27e4",
+      "import_rewrite": "Import scoped_native_observability and prefill_chunk_observability by their bare module names."
+    }
+  ],
+  "replay": {
+    "cohort": "configs/workload-r19-natural-restore.json",
+    "routes_and_outputs": "configs/replay-natural-fixed-outputs.json",
+    "case_order": [
+      "a-b1-cap100", "b-b1-cap100", "b-b1-cap200", "a-b1-cap200",
+      "a-b2-cap200", "b-b2-cap200", "b-b2-cap100", "a-b2-cap100"
+    ],
+    "warm_targets": ["natural-financial-document-processor:60", "natural-path-tracing:22"],
+    "cache_salt_format": "<run_id>/<arm>",
+    "request_id_format": "<arm>~natural-<stable_id>",
+    "worker_count": 32,
+    "request_timeout_s": 360,
+    "json_encoder": "msgspec",
+    "ignore_eos": true,
+    "deployed_client_sha256": "f99af77160f7702df411913b247b7158630d83ca2505abb64447f81bef01a8b8",
+    "deployed_driver_sha256": "0c870cdf12251f0e7ac7e8f1261e81b650b908470f6b33fe94f315a6794d4328",
+    "deployed_fixture_sha256": "48e0256781658408d59f8d6a2c67502abfcc46b8a71eb08017fcc87cce36f52e"
+  }
+}

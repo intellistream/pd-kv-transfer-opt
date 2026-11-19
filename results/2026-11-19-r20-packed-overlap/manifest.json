@@ -1,0 +1,304 @@
+{
+  "run_id": "2p2d-20261119-r20-packed-overlap",
+  "workload": {
+    "bytes": 4365,
+    "sha256": "3fae5452d7e85ffc107b497afa11e622f3c6e6206650edb316cbdbda55f5a023"
+  },
+  "artifacts": {
+    "r19-opportunity.json": {
+      "bytes": 25067,
+      "sha256": "5f530cfcb0c590884c2dba72e4134a4883aadbc2e69fb2b353357a4df4cac1d2"
+    },
+    "r20-D.jsonl.gz": {
+      "bytes": 315158,
+      "sha256": "405eb94e79f1547632ef115afe882cb3476d76044951f0faa42f8e307a637049"
+    },
+    "r20-P.jsonl.gz": {
+      "bytes": 960716,
+      "sha256": "0585573abaaa6a12024b9ce2df516b01903f8b55728d1dc1575eed47ef9cac57"
+    },
+    "runtime/packed_copy_pipeline.py": {
+      "bytes": 2599,
+      "sha256": "564e8b4a4ce281aeab6835641ebe09670058cea8a22bd8b707f431f7f20d452b"
+    },
+    "runtime/provenance.json": {
+      "bytes": 1584,
+      "sha256": "662ea3e545fc80e41c8d25b23a8e634d9c808782e938ef438b5c900cfb6f5673"
+    },
+    "runtime/same_head_kv_r20.py": {
+      "bytes": 11953,
+      "sha256": "cd7904dc15eba42d30c21cc274509b61f491a69c0cf310fa8ec5b38105a59052"
+    },
+    "summary.json": {
+      "bytes": 345113,
+      "sha256": "b01021521f9cc713428a4124cb5bde21eb67979c15f6b70182060056f7da0f04"
+    },
+    "stage-audit.json": {
+      "bytes": 1723241,
+      "sha256": "f14e6d315ccc7ba08c43b2c5d14808305957105a204e63b7e0d88eea80898b15"
+    },
+    "cross-batch-audit.json": {
+      "bytes": 60793,
+      "sha256": "76c1fa1f4ff888e45284c48bc1e3967a0783cad01741cac931535c8db88926ad"
+    }
+  },
+  "raw_sources": {
+    "P": {
+      "bytes": 3210809,
+      "sha256": "2674321229252f1e4f4cd20083f50794393a24b1f615f6cf8a7dd17208341eae",
+      "row_counts": {
+        "clock": 1,
+        "fabric": 1160,
+        "metrics": 671,
+        "native": 93921,
+        "npu": 1640,
+        "p_port_snapshot": 16,
+        "runtime_state": 1,
+        "scope": 1,
+        "worker_rank": 8
+      }
+    },
+    "D": {
+      "bytes": 626085,
+      "sha256": "a8a1a28afadefd4a3b280ab1856f1a8ae572aa1cc77103da21d2157292d45733",
+      "row_counts": {
+        "cap_control": 105,
+        "cap_port_sample": 274,
+        "client": 259,
+        "client_manifest": 20,
+        "client_summary": 20,
+        "clock": 1,
+        "fabric": 1184,
+        "metrics": 1104,
+        "native": 5683,
+        "npu": 1680,
+        "proxy": 1454,
+        "runtime_state": 1,
+        "scope": 1,
+        "worker_rank": 8
+      }
+    }
+  },
+  "physical_preparation": {
+    "a-b1-cap100": {
+      "reset": {
+        "success": true,
+        "attempts": 1,
+        "initial_keys": 2396.0,
+        "remaining_keys": 0
+      },
+      "keys_before_predecessors": 0.0,
+      "keys_after_predecessors": 7056.0,
+      "predecessors_completed": 18
+    },
+    "b-b1-cap100": {
+      "reset": {
+        "success": true,
+        "attempts": 1,
+        "initial_keys": 7244.0,
+        "remaining_keys": 0
+      },
+      "keys_before_predecessors": 0.0,
+      "keys_after_predecessors": 7044.0,
+      "predecessors_completed": 18
+    },
+    "a-b2-cap100": {
+      "reset": {
+        "success": true,
+        "attempts": 1,
+        "initial_keys": 7232.0,
+        "remaining_keys": 0
+      },
+      "keys_before_predecessors": 0.0,
+      "keys_after_predecessors": 7044.0,
+      "predecessors_completed": 18
+    },
+    "b-b2-cap100": {
+      "reset": {
+        "success": true,
+        "attempts": 1,
+        "initial_keys": 7244.0,
+        "remaining_keys": 0
+      },
+      "keys_before_predecessors": 0.0,
+      "keys_after_predecessors": 7044.0,
+      "predecessors_completed": 18
+    },
+    "a-b1-cap200": {
+      "reset": {
+        "success": true,
+        "attempts": 1,
+        "initial_keys": 7232.0,
+        "remaining_keys": 0
+      },
+      "keys_before_predecessors": 0.0,
+      "keys_after_predecessors": 7044.0,
+      "predecessors_completed": 18
+    },
+    "b-b1-cap200": {
+      "reset": {
+        "success": true,
+        "attempts": 1,
+        "initial_keys": 7232.0,
+        "remaining_keys": 0
+      },
+      "keys_before_predecessors": 0.0,
+      "keys_after_predecessors": 7044.0,
+      "predecessors_completed": 18
+    },
+    "a-b2-cap200": {
+      "reset": {
+        "success": true,
+        "attempts": 1,
+        "initial_keys": 7232.0,
+        "remaining_keys": 0
+      },
+      "keys_before_predecessors": 0.0,
+      "keys_after_predecessors": 7044.0,
+      "predecessors_completed": 18
+    },
+    "b-b2-cap200": {
+      "reset": {
+        "success": true,
+        "attempts": 1,
+        "initial_keys": 7232.0,
+        "remaining_keys": 0
+      },
+      "keys_before_predecessors": 0.0,
+      "keys_after_predecessors": 7044.0,
+      "predecessors_completed": 18
+    }
+  },
+  "shaper_restore_readbacks": {
+    "a-b1-cap100": {
+      "0": 200000,
+      "1": 200000,
+      "2": 200000,
+      "3": 200000,
+      "4": 200000,
+      "5": 200000,
+      "6": 200000,
+      "7": 200000
+    },
+    "b-b1-cap100": {
+      "0": 200000,
+      "1": 200000,
+      "2": 200000,
+      "3": 200000,
+      "4": 200000,
+      "5": 200000,
+      "6": 200000,
+      "7": 200000
+    },
+    "a-b2-cap100": {
+      "0": 200000,
+      "1": 200000,
+      "2": 200000,
+      "3": 200000,
+      "4": 200000,
+      "5": 200000,
+      "6": 200000,
+      "7": 200000
+    },
+    "b-b2-cap100": {
+      "0": 200000,
+      "1": 200000,
+      "2": 200000,
+      "3": 200000,
+      "4": 200000,
+      "5": 200000,
+      "6": 200000,
+      "7": 200000
+    },
+    "a-b1-cap200": {
+      "0": 200000,
+      "1": 200000,
+      "2": 200000,
+      "3": 200000,
+      "4": 200000,
+      "5": 200000,
+      "6": 200000,
+      "7": 200000
+    },
+    "b-b1-cap200": {
+      "0": 200000,
+      "1": 200000,
+      "2": 200000,
+      "3": 200000,
+      "4": 200000,
+      "5": 200000,
+      "6": 200000,
+      "7": 200000
+    },
+    "a-b2-cap200": {
+      "0": 200000,
+      "1": 200000,
+      "2": 200000,
+      "3": 200000,
+      "4": 200000,
+      "5": 200000,
+      "6": 200000,
+      "7": 200000
+    },
+    "b-b2-cap200": {
+      "0": 200000,
+      "1": 200000,
+      "2": 200000,
+      "3": 200000,
+      "4": 200000,
+      "5": 200000,
+      "6": 200000,
+      "7": 200000
+    }
+  },
+  "cleanup": {
+    "P": {
+      "npu_idle": true,
+      "controller_finished": true,
+      "active_restored_byte_exact": true
+    },
+    "D": {
+      "npu_idle": true,
+      "controller_finished": true,
+      "active_restored_byte_exact": true,
+      "original_and_final_D_port_Mbps": {
+        "0": [
+          200000,
+          200000
+        ],
+        "1": [
+          200000,
+          200000
+        ],
+        "2": [
+          200000,
+          200000
+        ],
+        "3": [
+          200000,
+          200000
+        ],
+        "4": [
+          200000,
+          200000
+        ],
+        "5": [
+          200000,
+          200000
+        ],
+        "6": [
+          200000,
+          200000
+        ],
+        "7": [
+          200000,
+          200000
+        ]
+      }
+    }
+  },
+  "warm_checks": {
+    "mode_rank_checks": 16,
+    "sample_bytes_per_check": 4096
+  }
+}

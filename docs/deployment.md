@@ -31,6 +31,24 @@ python -m pd_kv_transfer_opt.experiments.run_suite --config configs/ascend.local
 
 suite 在 D 主机对八个端口读回原值、设置每档上限并在结束或可处理的中断后恢复。保留 `hard-cap-suite/shaping-restore.json`，必要时用同一 `hccn_tool -i <port> -shaping -g` 从驱动复核。
 
+## 同头 KV 读取原型
+
+在 P 启动命令上增加 `--same-head-kv`，并使用 r14 的 TP4、两 KV head、同步 non-layerwise Store 和关闭本地 APC 的设置。D、代理与 P→D 交接保持同一配置。P 运行目录中的 `same-head-mode` 控制该原型。首次启动默认基线。用 `baseline` 或 `enabled` 在相同 P 进程中回切。等上一轮请求排空后用临时文件和原子改名更新模式文件。
+
+`verify` 模式在同头 HCCL 分发后抽样，将结果同一次独立原生 GET 对比。该模式产生额外 GET，另跑 `enabled` 检查纯原型路径的输出，再开始性能计时。r15 正式轮只用 `baseline` 和 `enabled`，从每轮前后的 D 侧端口差值计算 TX/RX。P 的 `same_head_local_copy` 记录本机收到的逻辑字节、分发墙钟、设备流计时和配对等待。配对等待可能包含对端剩余 GET。复制流计时包含两次 HCCL 提交之间的空档。原型只合并 Attention，SSM/conv 保留原有读取。
+
+r16 用 `profile` 运行直接分发并记录页连续性。`same_head_copy_layout` 分别记录条带与张量列边界、只在本 rank 断开的地址、只在对端断开的地址、两端均断开的地址，以及可在两端合并的区间。正式 r16 比较 `enabled` 与 `packed`。后者在每个 P rank 复用 128 MiB NPU 缓冲，用固定版本的批量内存复制算子打包，执行 HCCL 广播后散写到目标页。用 `verify-packed` 做独立 GET 抽样，并用 `packed` 验证纯原型前向。上述两种路径复用同一个远端选读方案，等待本机分发完成后才交给模型。
+
+### r19 的 APC 恢复实验
+
+r19 的 P 侧使用归档中的 [实际 APC 适配器](../results/2026-11-18-r19-natural-ab/runtime/same_head_kv_r19.py)。它调用 r16 的同头读与打包原语，在 APC 后核对原生目的描述符。按归档的模块映射把适配器、`same_head_kv_r16` 和观测器放在同一个 Python 加载目录，保持观测器的导入名称一致。用 `same_head_kv_r19.InstallFilter` 替换 r16 的过滤器，在 P 保留原有同步 Store 及分块观测，开启 P APC。通过 `ISSUE23_SAME_HEAD_MODE` 指定 P 上的模式文件，排空后以原子替换切换 `baseline` 和 `packed`。通用 `serve --same-head-kv` 仍启动 r16 的无 APC 实验路径。 [模块映射与原始指纹](../results/2026-11-18-r19-natural-ab/runtime/provenance.json)
+
+使用 [r19 清单](workloads.md#r19-高远端恢复的自然后继) 切出准备和计时输入，并按同一个固定映射给代理设置两阶段路由。每个实验臂使用独立 `cache_salt`，该臂的全部前驱和后继用相同值。使用专用空 Store 运行前驱，在原档等待客户流和 Store PUT 提交排空。限速只应用于计时后继，100/200 Gbps 对应 D 侧八口各 12.5/25 Gbps。正式对照前用两个不同 P 路径的样本完成首个打包校验。关闭 EOS 提前结束，保留逐条原输出预算，目标的提交间隔为 50 ms。
+
+### r20 的同批分发重叠实验
+
+沿用 r19 部署、原始数据和符号路由。P 过滤器换成 [实测 r20 适配器](../results/2026-11-19-r20-packed-overlap/runtime/same_head_kv_r20.py) 的 `same_head_kv_r20.InstallFilter`，在同一 Python 加载目录提供 [packed_copy_pipeline.py](../results/2026-11-19-r20-packed-overlap/runtime/packed_copy_pipeline.py)。正式计时在 `packed` 和 `async-packed` 之间回切，前驱准备仍使用 `baseline`。两种打包模式分别对两个 P 实例做一次独立原生 GET 对照抽样，校验读位于计时外。始终在同一 NPU 流使用原本的 128 MiB wire buffer，计时中只有一个分发可以在途，目标区间有别名时沿用同步路径。
+
 ## 采样与导出
 
 启动至 ready 后可在 P 侧运行 `python -m pd_kv_transfer_opt.profiling.cpu_snapshots --run-dir runs/r14-P`。它在诊断窗口等待 P0 原生 GET 开始后，用 `py-spy` 同时抓 EngineCore 和 worker。工具需要本机已安装 py-spy 及相应的进程采样权限。

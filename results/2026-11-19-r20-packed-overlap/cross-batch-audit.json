@@ -1,0 +1,1610 @@
+{
+  "definitions": {
+    "dispatch": "Return from the scheduler's schedule method with a concrete batch output.",
+    "scheduler_result": "Entry to scheduler update_from_output, after the previous batch result is collected.",
+    "worker_entry": "Earliest host execute_model entry among four ranks of the successor batch.",
+    "overlap": "Union of earlier same-instance formal GET windows clipped to the successor dispatch-to-worker interval.",
+    "limits": "A scheduler output can contain dependent prefill chunks. Missing a prior scheduler result cannot establish when intermediate device state became visible. A new request with its own GET can expose an earlier transfer candidate, which does not establish prefill readiness or the allocator/connector release time."
+  },
+  "runs": [
+    {
+      "run_id": "2p2d-20261118-r19-natural-ab",
+      "timed_target_requests": 80,
+      "all_joined_batches": 2200,
+      "counts": {
+        "batches": 88,
+        "batches_without_own_get": 40,
+        "batches_overlapping_older_get_while_waiting_for_worker": 48,
+        "overlapping_batches_without_own_get": 31,
+        "overlapping_batches_without_pending_predecessor_result_at_dispatch": 0,
+        "overlapping_get_free_batches_disjoint_from_all_older_get_batches": 0,
+        "overlapping_batches_with_own_get_disjoint_from_all_older_get_batches": 0,
+        "request_chunk_rows": 168,
+        "first_chunks_with_own_get": 80,
+        "first_admission_to_dispatch_intersects_older_get": 11,
+        "later_rows_without_own_get_in_overlapping_batches": 79,
+        "later_rows_with_result_delivered_before_worker_and_while_older_get_in_flight": 0,
+        "first_chunks_delayed_with_unrelated_older_get_and_own_get": 20
+      },
+      "arms": [
+        {
+          "case": "a-b1-cap100",
+          "counts": {
+            "batches": 11,
+            "batches_without_own_get": 5,
+            "batches_overlapping_older_get_while_waiting_for_worker": 6,
+            "overlapping_batches_without_own_get": 4,
+            "overlapping_batches_without_pending_predecessor_result_at_dispatch": 0,
+            "overlapping_get_free_batches_disjoint_from_all_older_get_batches": 0,
+            "overlapping_batches_with_own_get_disjoint_from_all_older_get_batches": 0,
+            "request_chunk_rows": 21,
+            "first_chunks_with_own_get": 10,
+            "first_admission_to_dispatch_intersects_older_get": 1,
+            "later_rows_without_own_get_in_overlapping_batches": 10,
+            "later_rows_with_result_delivered_before_worker_and_while_older_get_in_flight": 0,
+            "first_chunks_delayed_with_unrelated_older_get_and_own_get": 2
+          },
+          "dispatch_to_first_worker_ms": {
+            "n": 11,
+            "mean": 746.5736081818181,
+            "p50": 603.089756,
+            "p95": 3285.498313,
+            "max": 3285.498313,
+            "p99": 3285.498313
+          },
+          "dispatch_to_first_worker_without_older_get_overlap_ms": {
+            "n": 5,
+            "mean": 101.288492,
+            "p50": 92.477046,
+            "p95": 240.164962,
+            "max": 240.164962,
+            "p99": 240.164962
+          },
+          "older_get_overlap_while_waiting_ms": {
+            "n": 6,
+            "mean": 994.377285,
+            "p50": 663.7242435000001,
+            "p95": 2796.78223,
+            "max": 2796.78223,
+            "p99": 2796.78223
+          },
+          "older_get_overlap_while_waiting_for_get_free_batches_ms": {
+            "n": 4,
+            "mean": 717.100033,
+            "p50": 663.7242435000001,
+            "p95": 1216.391712,
+            "max": 1216.391712,
+            "p99": 1216.391712
+          },
+          "longest_get_free_batch_witness": {
+            "case": "a-b1-cap100",
+            "instance": "P1",
+            "batch": "9b2d53153268c449637d19ec",
+            "dispatch_to_worker_ms": 1390.383246,
+            "older_get_overlap_ms": 1216.391712,
+            "previous_chunks": {
+              "natural-gpt2-codegolf:27": {
+                "previous_offset_and_tokens": [
+                  65536,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  66560,
+                  914
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 1395.783289
+              },
+              "natural-raman-fitting:28": {
+                "previous_offset_and_tokens": [
+                  74752,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  75776,
+                  117
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 1395.783289
+              }
+            },
+            "older_get_batches": [
+              "187c571a7f2b92731cefaa3e"
+            ]
+          },
+          "longest_possible_early_transfer_witness": {
+            "case": "a-b1-cap100",
+            "instance": "P0",
+            "batch": "bf4f01213a1797d80ae8c612",
+            "request": "natural-video-processing:28",
+            "dispatch_to_worker_ms": 3285.498313,
+            "older_get_overlap_ms": 2796.78223,
+            "dispatch_to_first_own_get_ms": 3316.123483,
+            "other_requests_in_successor": [
+              "natural-count-dataset-tokens:45",
+              "natural-regex-chess:106",
+              "natural-train-fasttext:69"
+            ]
+          }
+        },
+        {
+          "case": "a-b1-cap200",
+          "counts": {
+            "batches": 11,
+            "batches_without_own_get": 5,
+            "batches_overlapping_older_get_while_waiting_for_worker": 6,
+            "overlapping_batches_without_own_get": 4,
+            "overlapping_batches_without_pending_predecessor_result_at_dispatch": 0,
+            "overlapping_get_free_batches_disjoint_from_all_older_get_batches": 0,
+            "overlapping_batches_with_own_get_disjoint_from_all_older_get_batches": 0,
+            "request_chunk_rows": 21,
+            "first_chunks_with_own_get": 10,
+            "first_admission_to_dispatch_intersects_older_get": 1,
+            "later_rows_without_own_get_in_overlapping_batches": 10,
+            "later_rows_with_result_delivered_before_worker_and_while_older_get_in_flight": 0,
+            "first_chunks_delayed_with_unrelated_older_get_and_own_get": 2
+          },
+          "dispatch_to_first_worker_ms": {
+            "n": 11,
+            "mean": 461.34899336363634,
+            "p50": 471.046884,
+            "p95": 1820.643402,
+            "max": 1820.643402,
+            "p99": 1820.643402
+          },
+          "dispatch_to_first_worker_without_older_get_overlap_ms": {
+            "n": 5,
+            "mean": 92.64903460000001,
+            "p50": 108.03816,
+            "p95": 209.707874,
+            "max": 209.707874,
+            "p99": 209.707874
+          },
+          "older_get_overlap_while_waiting_ms": {
+            "n": 6,
+            "mean": 478.823989,
+            "p50": 335.7043095,
+            "p95": 1350.482037,
+            "max": 1350.482037,
+            "p99": 1350.482037
+          },
+          "older_get_overlap_while_waiting_for_get_free_batches_ms": {
+            "n": 4,
+            "mean": 339.095279,
+            "p50": 335.7043095,
+            "p95": 509.674518,
+            "max": 509.674518,
+            "p99": 509.674518
+          },
+          "longest_get_free_batch_witness": {
+            "case": "a-b1-cap200",
+            "instance": "P1",
+            "batch": "4df5a6b0709c62f038b1cbe7",
+            "dispatch_to_worker_ms": 689.040946,
+            "older_get_overlap_ms": 509.674518,
+            "previous_chunks": {
+              "natural-gpt2-codegolf:27": {
+                "previous_offset_and_tokens": [
+                  65536,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  66560,
+                  914
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 693.266636
+              },
+              "natural-raman-fitting:28": {
+                "previous_offset_and_tokens": [
+                  74752,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  75776,
+                  117
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 693.266636
+              }
+            },
+            "older_get_batches": [
+              "28906713f1517e16b5e088e5"
+            ]
+          },
+          "longest_possible_early_transfer_witness": {
+            "case": "a-b1-cap200",
+            "instance": "P0",
+            "batch": "dc3f37af68e6863c1112d46e",
+            "request": "natural-video-processing:28",
+            "dispatch_to_worker_ms": 1820.643402,
+            "older_get_overlap_ms": 1350.482037,
+            "dispatch_to_first_own_get_ms": 1849.067206,
+            "other_requests_in_successor": [
+              "natural-count-dataset-tokens:45",
+              "natural-regex-chess:106",
+              "natural-train-fasttext:69"
+            ]
+          }
+        },
+        {
+          "case": "a-b2-cap100",
+          "counts": {
+            "batches": 11,
+            "batches_without_own_get": 5,
+            "batches_overlapping_older_get_while_waiting_for_worker": 6,
+            "overlapping_batches_without_own_get": 4,
+            "overlapping_batches_without_pending_predecessor_result_at_dispatch": 0,
+            "overlapping_get_free_batches_disjoint_from_all_older_get_batches": 0,
+            "overlapping_batches_with_own_get_disjoint_from_all_older_get_batches": 0,
+            "request_chunk_rows": 21,
+            "first_chunks_with_own_get": 10,
+            "first_admission_to_dispatch_intersects_older_get": 1,
+            "later_rows_without_own_get_in_overlapping_batches": 10,
+            "later_rows_with_result_delivered_before_worker_and_while_older_get_in_flight": 0,
+            "first_chunks_delayed_with_unrelated_older_get_and_own_get": 2
+          },
+          "dispatch_to_first_worker_ms": {
+            "n": 11,
+            "mean": 710.7159612727272,
+            "p50": 589.054865,
+            "p95": 2997.446991,
+            "max": 2997.446991,
+            "p99": 2997.446991
+          },
+          "dispatch_to_first_worker_without_older_get_overlap_ms": {
+            "n": 5,
+            "mean": 93.163909,
+            "p50": 80.589127,
+            "p95": 207.077985,
+            "max": 207.077985,
+            "p99": 207.077985
+          },
+          "older_get_overlap_while_waiting_ms": {
+            "n": 6,
+            "mean": 937.5204456666667,
+            "p50": 718.2495345,
+            "p95": 2501.48883,
+            "max": 2501.48883,
+            "p99": 2501.48883
+          },
+          "older_get_overlap_while_waiting_for_get_free_batches_ms": {
+            "n": 4,
+            "mean": 705.01690125,
+            "p50": 718.2495345,
+            "p95": 1062.839035,
+            "max": 1062.839035,
+            "p99": 1062.839035
+          },
+          "longest_get_free_batch_witness": {
+            "case": "a-b2-cap100",
+            "instance": "P1",
+            "batch": "4e2626fa7855c6967681f8a1",
+            "dispatch_to_worker_ms": 1231.191485,
+            "older_get_overlap_ms": 1062.839035,
+            "previous_chunks": {
+              "natural-gpt2-codegolf:27": {
+                "previous_offset_and_tokens": [
+                  65536,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  66560,
+                  914
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 1237.415948
+              },
+              "natural-raman-fitting:28": {
+                "previous_offset_and_tokens": [
+                  74752,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  75776,
+                  117
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 1237.415948
+              }
+            },
+            "older_get_batches": [
+              "c8828f6e1d1441041ca526cb"
+            ]
+          },
+          "longest_possible_early_transfer_witness": {
+            "case": "a-b2-cap100",
+            "instance": "P0",
+            "batch": "0b4f134321cb6abcaebde67f",
+            "request": "natural-video-processing:28",
+            "dispatch_to_worker_ms": 2997.446991,
+            "older_get_overlap_ms": 2501.48883,
+            "dispatch_to_first_own_get_ms": 3025.124617,
+            "other_requests_in_successor": [
+              "natural-count-dataset-tokens:45",
+              "natural-regex-chess:106",
+              "natural-train-fasttext:69"
+            ]
+          }
+        },
+        {
+          "case": "a-b2-cap200",
+          "counts": {
+            "batches": 11,
+            "batches_without_own_get": 5,
+            "batches_overlapping_older_get_while_waiting_for_worker": 6,
+            "overlapping_batches_without_own_get": 4,
+            "overlapping_batches_without_pending_predecessor_result_at_dispatch": 0,
+            "overlapping_get_free_batches_disjoint_from_all_older_get_batches": 0,
+            "overlapping_batches_with_own_get_disjoint_from_all_older_get_batches": 0,
+            "request_chunk_rows": 21,
+            "first_chunks_with_own_get": 10,
+            "first_admission_to_dispatch_intersects_older_get": 1,
+            "later_rows_without_own_get_in_overlapping_batches": 10,
+            "later_rows_with_result_delivered_before_worker_and_while_older_get_in_flight": 0,
+            "first_chunks_delayed_with_unrelated_older_get_and_own_get": 2
+          },
+          "dispatch_to_first_worker_ms": {
+            "n": 11,
+            "mean": 474.55815754545455,
+            "p50": 437.955389,
+            "p95": 1855.432444,
+            "max": 1855.432444,
+            "p99": 1855.432444
+          },
+          "dispatch_to_first_worker_without_older_get_overlap_ms": {
+            "n": 5,
+            "mean": 99.3858684,
+            "p50": 114.234463,
+            "p95": 232.045868,
+            "max": 232.045868,
+            "p99": 232.045868
+          },
+          "older_get_overlap_while_waiting_ms": {
+            "n": 6,
+            "mean": 493.85468783333334,
+            "p50": 352.1790055,
+            "p95": 1354.824609,
+            "max": 1354.824609,
+            "p99": 1354.824609
+          },
+          "older_get_overlap_while_waiting_for_get_free_batches_ms": {
+            "n": 4,
+            "mean": 365.81112825,
+            "p50": 352.1790055,
+            "p95": 600.51225,
+            "max": 600.51225,
+            "p99": 600.51225
+          },
+          "longest_get_free_batch_witness": {
+            "case": "a-b2-cap200",
+            "instance": "P1",
+            "batch": "8a60fb56d97c3aa1f558861a",
+            "dispatch_to_worker_ms": 776.622491,
+            "older_get_overlap_ms": 600.51225,
+            "previous_chunks": {
+              "natural-gpt2-codegolf:27": {
+                "previous_offset_and_tokens": [
+                  65536,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  66560,
+                  914
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 782.183076
+              },
+              "natural-raman-fitting:28": {
+                "previous_offset_and_tokens": [
+                  74752,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  75776,
+                  117
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 782.183076
+              }
+            },
+            "older_get_batches": [
+              "c2b5a11a619a0733d0721266"
+            ]
+          },
+          "longest_possible_early_transfer_witness": {
+            "case": "a-b2-cap200",
+            "instance": "P0",
+            "batch": "6a0410057a16615f9576f44e",
+            "request": "natural-video-processing:28",
+            "dispatch_to_worker_ms": 1855.432444,
+            "older_get_overlap_ms": 1354.824609,
+            "dispatch_to_first_own_get_ms": 1886.975855,
+            "other_requests_in_successor": [
+              "natural-count-dataset-tokens:45",
+              "natural-regex-chess:106",
+              "natural-train-fasttext:69"
+            ]
+          }
+        },
+        {
+          "case": "b-b1-cap100",
+          "counts": {
+            "batches": 11,
+            "batches_without_own_get": 5,
+            "batches_overlapping_older_get_while_waiting_for_worker": 6,
+            "overlapping_batches_without_own_get": 4,
+            "overlapping_batches_without_pending_predecessor_result_at_dispatch": 0,
+            "overlapping_get_free_batches_disjoint_from_all_older_get_batches": 0,
+            "overlapping_batches_with_own_get_disjoint_from_all_older_get_batches": 0,
+            "request_chunk_rows": 21,
+            "first_chunks_with_own_get": 10,
+            "first_admission_to_dispatch_intersects_older_get": 1,
+            "later_rows_without_own_get_in_overlapping_batches": 10,
+            "later_rows_with_result_delivered_before_worker_and_while_older_get_in_flight": 0,
+            "first_chunks_delayed_with_unrelated_older_get_and_own_get": 2
+          },
+          "dispatch_to_first_worker_ms": {
+            "n": 11,
+            "mean": 526.6446358181819,
+            "p50": 468.527535,
+            "p95": 2152.611432,
+            "max": 2152.611432,
+            "p99": 2152.611432
+          },
+          "dispatch_to_first_worker_without_older_get_overlap_ms": {
+            "n": 5,
+            "mean": 100.98037020000001,
+            "p50": 123.40062,
+            "p95": 224.157473,
+            "max": 224.157473,
+            "p99": 224.157473
+          },
+          "older_get_overlap_while_waiting_ms": {
+            "n": 6,
+            "mean": 481.72560166666665,
+            "p50": 361.88541699999996,
+            "p95": 1314.886039,
+            "max": 1314.886039,
+            "p99": 1314.886039
+          },
+          "older_get_overlap_while_waiting_for_get_free_batches_ms": {
+            "n": 4,
+            "mean": 351.90398225,
+            "p50": 361.88541699999996,
+            "p95": 537.136831,
+            "max": 537.136831,
+            "p99": 537.136831
+          },
+          "longest_get_free_batch_witness": {
+            "case": "b-b1-cap100",
+            "instance": "P1",
+            "batch": "0674b0b580975d862675c3c4",
+            "dispatch_to_worker_ms": 787.953188,
+            "older_get_overlap_ms": 537.136831,
+            "previous_chunks": {
+              "natural-raman-fitting:28": {
+                "previous_offset_and_tokens": [
+                  74752,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  75776,
+                  117
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 793.183069
+              },
+              "natural-gpt2-codegolf:27": {
+                "previous_offset_and_tokens": [
+                  65536,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  66560,
+                  914
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 793.183069
+              }
+            },
+            "older_get_batches": [
+              "8009ea083d98d222bff8f8e2"
+            ]
+          },
+          "longest_possible_early_transfer_witness": {
+            "case": "b-b1-cap100",
+            "instance": "P0",
+            "batch": "a092513e1b6650faf0bc4fd4",
+            "request": "natural-video-processing:28",
+            "dispatch_to_worker_ms": 2152.611432,
+            "older_get_overlap_ms": 1314.886039,
+            "dispatch_to_first_own_get_ms": 2185.077354,
+            "other_requests_in_successor": [
+              "natural-count-dataset-tokens:45",
+              "natural-regex-chess:106",
+              "natural-train-fasttext:69"
+            ]
+          }
+        },
+        {
+          "case": "b-b1-cap200",
+          "counts": {
+            "batches": 11,
+            "batches_without_own_get": 5,
+            "batches_overlapping_older_get_while_waiting_for_worker": 6,
+            "overlapping_batches_without_own_get": 4,
+            "overlapping_batches_without_pending_predecessor_result_at_dispatch": 0,
+            "overlapping_get_free_batches_disjoint_from_all_older_get_batches": 0,
+            "overlapping_batches_with_own_get_disjoint_from_all_older_get_batches": 0,
+            "request_chunk_rows": 21,
+            "first_chunks_with_own_get": 10,
+            "first_admission_to_dispatch_intersects_older_get": 1,
+            "later_rows_without_own_get_in_overlapping_batches": 10,
+            "later_rows_with_result_delivered_before_worker_and_while_older_get_in_flight": 0,
+            "first_chunks_delayed_with_unrelated_older_get_and_own_get": 2
+          },
+          "dispatch_to_first_worker_ms": {
+            "n": 11,
+            "mean": 395.30779309090906,
+            "p50": 397.754234,
+            "p95": 1515.205573,
+            "max": 1515.205573,
+            "p99": 1515.205573
+          },
+          "dispatch_to_first_worker_without_older_get_overlap_ms": {
+            "n": 5,
+            "mean": 90.8736378,
+            "p50": 107.20431,
+            "p95": 205.737927,
+            "max": 205.737927,
+            "p99": 205.737927
+          },
+          "older_get_overlap_while_waiting_ms": {
+            "n": 6,
+            "mean": 239.74379033333335,
+            "p50": 144.021152,
+            "p95": 648.844054,
+            "max": 648.844054,
+            "p99": 648.844054
+          },
+          "older_get_overlap_while_waiting_for_get_free_batches_ms": {
+            "n": 4,
+            "mean": 177.2407,
+            "p50": 144.021152,
+            "p95": 343.993962,
+            "max": 343.993962,
+            "p99": 343.993962
+          },
+          "longest_get_free_batch_witness": {
+            "case": "b-b1-cap200",
+            "instance": "P1",
+            "batch": "0420b97566bbcb90686870e7",
+            "dispatch_to_worker_ms": 579.484749,
+            "older_get_overlap_ms": 343.993962,
+            "previous_chunks": {
+              "natural-raman-fitting:28": {
+                "previous_offset_and_tokens": [
+                  74752,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  75776,
+                  117
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 585.634331
+              },
+              "natural-gpt2-codegolf:27": {
+                "previous_offset_and_tokens": [
+                  65536,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  66560,
+                  914
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 585.634331
+              }
+            },
+            "older_get_batches": [
+              "7ca4b2d0414bb4ae9c60bbbc"
+            ]
+          },
+          "longest_possible_early_transfer_witness": {
+            "case": "b-b1-cap200",
+            "instance": "P0",
+            "batch": "2d9c68800c04cea9e2cb9bf8",
+            "request": "natural-video-processing:28",
+            "dispatch_to_worker_ms": 1515.205573,
+            "older_get_overlap_ms": 648.844054,
+            "dispatch_to_first_own_get_ms": 1547.237009,
+            "other_requests_in_successor": [
+              "natural-count-dataset-tokens:45",
+              "natural-regex-chess:106",
+              "natural-train-fasttext:69"
+            ]
+          }
+        },
+        {
+          "case": "b-b2-cap100",
+          "counts": {
+            "batches": 11,
+            "batches_without_own_get": 5,
+            "batches_overlapping_older_get_while_waiting_for_worker": 6,
+            "overlapping_batches_without_own_get": 4,
+            "overlapping_batches_without_pending_predecessor_result_at_dispatch": 0,
+            "overlapping_get_free_batches_disjoint_from_all_older_get_batches": 0,
+            "overlapping_batches_with_own_get_disjoint_from_all_older_get_batches": 0,
+            "request_chunk_rows": 21,
+            "first_chunks_with_own_get": 10,
+            "first_admission_to_dispatch_intersects_older_get": 1,
+            "later_rows_without_own_get_in_overlapping_batches": 10,
+            "later_rows_with_result_delivered_before_worker_and_while_older_get_in_flight": 0,
+            "first_chunks_delayed_with_unrelated_older_get_and_own_get": 2
+          },
+          "dispatch_to_first_worker_ms": {
+            "n": 11,
+            "mean": 541.6690947272727,
+            "p50": 499.996129,
+            "p95": 2162.691927,
+            "max": 2162.691927,
+            "p99": 2162.691927
+          },
+          "dispatch_to_first_worker_without_older_get_overlap_ms": {
+            "n": 5,
+            "mean": 93.6451468,
+            "p50": 117.755954,
+            "p95": 201.017003,
+            "max": 201.017003,
+            "p99": 201.017003
+          },
+          "older_get_overlap_while_waiting_ms": {
+            "n": 6,
+            "mean": 520.1136735,
+            "p50": 414.219565,
+            "p95": 1339.298317,
+            "max": 1339.298317,
+            "p99": 1339.298317
+          },
+          "older_get_overlap_while_waiting_for_get_free_batches_ms": {
+            "n": 4,
+            "mean": 408.84396425,
+            "p50": 414.219565,
+            "p95": 627.205314,
+            "max": 627.205314,
+            "p99": 627.205314
+          },
+          "longest_get_free_batch_witness": {
+            "case": "b-b2-cap100",
+            "instance": "P1",
+            "batch": "3491244a602ec2f9c597cca5",
+            "dispatch_to_worker_ms": 875.775517,
+            "older_get_overlap_ms": 627.205314,
+            "previous_chunks": {
+              "natural-gpt2-codegolf:27": {
+                "previous_offset_and_tokens": [
+                  65536,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  66560,
+                  914
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 888.516076
+              },
+              "natural-raman-fitting:28": {
+                "previous_offset_and_tokens": [
+                  74752,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  75776,
+                  117
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 888.516076
+              }
+            },
+            "older_get_batches": [
+              "b942851a90a9ea2485fb83d1"
+            ]
+          },
+          "longest_possible_early_transfer_witness": {
+            "case": "b-b2-cap100",
+            "instance": "P0",
+            "batch": "ca11aef07a62544d96f74204",
+            "request": "natural-video-processing:28",
+            "dispatch_to_worker_ms": 2162.691927,
+            "older_get_overlap_ms": 1339.298317,
+            "dispatch_to_first_own_get_ms": 2202.0508,
+            "other_requests_in_successor": [
+              "natural-count-dataset-tokens:45",
+              "natural-regex-chess:106",
+              "natural-train-fasttext:69"
+            ]
+          }
+        },
+        {
+          "case": "b-b2-cap200",
+          "counts": {
+            "batches": 11,
+            "batches_without_own_get": 5,
+            "batches_overlapping_older_get_while_waiting_for_worker": 6,
+            "overlapping_batches_without_own_get": 3,
+            "overlapping_batches_without_pending_predecessor_result_at_dispatch": 0,
+            "overlapping_get_free_batches_disjoint_from_all_older_get_batches": 0,
+            "overlapping_batches_with_own_get_disjoint_from_all_older_get_batches": 0,
+            "request_chunk_rows": 21,
+            "first_chunks_with_own_get": 10,
+            "first_admission_to_dispatch_intersects_older_get": 4,
+            "later_rows_without_own_get_in_overlapping_batches": 9,
+            "later_rows_with_result_delivered_before_worker_and_while_older_get_in_flight": 0,
+            "first_chunks_delayed_with_unrelated_older_get_and_own_get": 6
+          },
+          "dispatch_to_first_worker_ms": {
+            "n": 11,
+            "mean": 388.98961509090907,
+            "p50": 427.295354,
+            "p95": 864.271721,
+            "max": 864.271721,
+            "p99": 864.271721
+          },
+          "dispatch_to_first_worker_without_older_get_overlap_ms": {
+            "n": 5,
+            "mean": 128.361953,
+            "p50": 150.455579,
+            "p95": 283.581174,
+            "max": 283.581174,
+            "p99": 283.581174
+          },
+          "older_get_overlap_while_waiting_ms": {
+            "n": 6,
+            "mean": 224.96281483333334,
+            "p50": 201.33505250000002,
+            "p95": 356.113496,
+            "max": 356.113496,
+            "p99": 356.113496
+          },
+          "older_get_overlap_while_waiting_for_get_free_batches_ms": {
+            "n": 3,
+            "mean": 183.29062866666666,
+            "p50": 179.669643,
+            "p95": 223.000462,
+            "max": 223.000462,
+            "p99": 223.000462
+          },
+          "longest_get_free_batch_witness": {
+            "case": "b-b2-cap200",
+            "instance": "P1",
+            "batch": "6a1345d87263f43765e7261c",
+            "dispatch_to_worker_ms": 490.129542,
+            "older_get_overlap_ms": 223.000462,
+            "previous_chunks": {
+              "natural-raman-fitting:28": {
+                "previous_offset_and_tokens": [
+                  74752,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  75776,
+                  117
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 495.341493
+              },
+              "natural-gpt2-codegolf:27": {
+                "previous_offset_and_tokens": [
+                  65536,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  66560,
+                  914
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 495.341493
+              }
+            },
+            "older_get_batches": [
+              "fef42b5d43835b034e44a591"
+            ]
+          },
+          "longest_possible_early_transfer_witness": {
+            "case": "b-b2-cap200",
+            "instance": "P0",
+            "batch": "e78d48497a8a5b155200ff9f",
+            "request": "natural-count-dataset-tokens:45",
+            "dispatch_to_worker_ms": 782.098725,
+            "older_get_overlap_ms": 356.113496,
+            "dispatch_to_first_own_get_ms": 1158.319359,
+            "other_requests_in_successor": [
+              "natural-regex-chess:106",
+              "natural-train-fasttext:69"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "run_id": "2p2d-20261119-r20-packed-overlap",
+      "timed_target_requests": 80,
+      "all_joined_batches": 2291,
+      "counts": {
+        "batches": 88,
+        "batches_without_own_get": 38,
+        "batches_overlapping_older_get_while_waiting_for_worker": 50,
+        "overlapping_batches_without_own_get": 29,
+        "overlapping_batches_without_pending_predecessor_result_at_dispatch": 0,
+        "overlapping_get_free_batches_disjoint_from_all_older_get_batches": 0,
+        "overlapping_batches_with_own_get_disjoint_from_all_older_get_batches": 0,
+        "request_chunk_rows": 168,
+        "first_chunks_with_own_get": 80,
+        "first_admission_to_dispatch_intersects_older_get": 14,
+        "later_rows_without_own_get_in_overlapping_batches": 79,
+        "later_rows_with_result_delivered_before_worker_and_while_older_get_in_flight": 0,
+        "first_chunks_delayed_with_unrelated_older_get_and_own_get": 24
+      },
+      "arms": [
+        {
+          "case": "a-b1-cap100",
+          "counts": {
+            "batches": 11,
+            "batches_without_own_get": 5,
+            "batches_overlapping_older_get_while_waiting_for_worker": 6,
+            "overlapping_batches_without_own_get": 4,
+            "overlapping_batches_without_pending_predecessor_result_at_dispatch": 0,
+            "overlapping_get_free_batches_disjoint_from_all_older_get_batches": 0,
+            "overlapping_batches_with_own_get_disjoint_from_all_older_get_batches": 0,
+            "request_chunk_rows": 21,
+            "first_chunks_with_own_get": 10,
+            "first_admission_to_dispatch_intersects_older_get": 1,
+            "later_rows_without_own_get_in_overlapping_batches": 10,
+            "later_rows_with_result_delivered_before_worker_and_while_older_get_in_flight": 0,
+            "first_chunks_delayed_with_unrelated_older_get_and_own_get": 2
+          },
+          "dispatch_to_first_worker_ms": {
+            "n": 11,
+            "mean": 510.8106611818182,
+            "p50": 481.710473,
+            "p95": 1979.966625,
+            "max": 1979.966625,
+            "p99": 1979.966625
+          },
+          "dispatch_to_first_worker_without_older_get_overlap_ms": {
+            "n": 5,
+            "mean": 103.2491778,
+            "p50": 95.670915,
+            "p95": 238.054288,
+            "max": 238.054288,
+            "p99": 238.054288
+          },
+          "older_get_overlap_while_waiting_ms": {
+            "n": 6,
+            "mean": 456.7301791666667,
+            "p50": 370.036025,
+            "p95": 1220.77844,
+            "max": 1220.77844,
+            "p99": 1220.77844
+          },
+          "older_get_overlap_while_waiting_for_get_free_batches_ms": {
+            "n": 4,
+            "mean": 342.69805625,
+            "p50": 370.036025,
+            "p95": 481.897916,
+            "max": 481.897916,
+            "p99": 481.897916
+          },
+          "longest_get_free_batch_witness": {
+            "case": "a-b1-cap100",
+            "instance": "P1",
+            "batch": "299d4148d5ae14c8e04f512e",
+            "dispatch_to_worker_ms": 761.889776,
+            "older_get_overlap_ms": 481.897916,
+            "previous_chunks": {
+              "natural-raman-fitting:28": {
+                "previous_offset_and_tokens": [
+                  74752,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  75776,
+                  117
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 768.934669
+              },
+              "natural-gpt2-codegolf:27": {
+                "previous_offset_and_tokens": [
+                  65536,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  66560,
+                  914
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 768.934669
+              }
+            },
+            "older_get_batches": [
+              "92e62b1366c6f308ddbf8b73"
+            ]
+          },
+          "longest_possible_early_transfer_witness": {
+            "case": "a-b1-cap100",
+            "instance": "P0",
+            "batch": "88c917c4d45d94faeeb7d7d0",
+            "request": "natural-video-processing:28",
+            "dispatch_to_worker_ms": 1979.966625,
+            "older_get_overlap_ms": 1220.77844,
+            "dispatch_to_first_own_get_ms": 2015.709215,
+            "other_requests_in_successor": [
+              "natural-count-dataset-tokens:45",
+              "natural-regex-chess:106",
+              "natural-train-fasttext:69"
+            ]
+          }
+        },
+        {
+          "case": "a-b1-cap200",
+          "counts": {
+            "batches": 11,
+            "batches_without_own_get": 5,
+            "batches_overlapping_older_get_while_waiting_for_worker": 6,
+            "overlapping_batches_without_own_get": 4,
+            "overlapping_batches_without_pending_predecessor_result_at_dispatch": 0,
+            "overlapping_get_free_batches_disjoint_from_all_older_get_batches": 0,
+            "overlapping_batches_with_own_get_disjoint_from_all_older_get_batches": 0,
+            "request_chunk_rows": 21,
+            "first_chunks_with_own_get": 10,
+            "first_admission_to_dispatch_intersects_older_get": 1,
+            "later_rows_without_own_get_in_overlapping_batches": 10,
+            "later_rows_with_result_delivered_before_worker_and_while_older_get_in_flight": 0,
+            "first_chunks_delayed_with_unrelated_older_get_and_own_get": 2
+          },
+          "dispatch_to_first_worker_ms": {
+            "n": 11,
+            "mean": 389.0177142727273,
+            "p50": 400.442129,
+            "p95": 1478.463118,
+            "max": 1478.463118,
+            "p99": 1478.463118
+          },
+          "dispatch_to_first_worker_without_older_get_overlap_ms": {
+            "n": 5,
+            "mean": 94.7375122,
+            "p50": 81.674911,
+            "p95": 206.147594,
+            "max": 206.147594,
+            "p99": 206.147594
+          },
+          "older_get_overlap_while_waiting_ms": {
+            "n": 6,
+            "mean": 237.18004433333334,
+            "p50": 178.85936850000002,
+            "p95": 665.673668,
+            "max": 665.673668,
+            "p99": 665.673668
+          },
+          "older_get_overlap_while_waiting_for_get_free_batches_ms": {
+            "n": 4,
+            "mean": 170.54564575,
+            "p50": 178.85936850000002,
+            "p95": 245.635739,
+            "max": 245.635739,
+            "p99": 245.635739
+          },
+          "longest_get_free_batch_witness": {
+            "case": "a-b1-cap200",
+            "instance": "P1",
+            "batch": "ce328f0f1f64e9ba4f67784a",
+            "dispatch_to_worker_ms": 519.792584,
+            "older_get_overlap_ms": 245.635739,
+            "previous_chunks": {
+              "natural-raman-fitting:28": {
+                "previous_offset_and_tokens": [
+                  74752,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  75776,
+                  117
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 525.985606
+              },
+              "natural-gpt2-codegolf:27": {
+                "previous_offset_and_tokens": [
+                  65536,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  66560,
+                  914
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 525.985606
+              }
+            },
+            "older_get_batches": [
+              "bc63291d223dd24c63584599"
+            ]
+          },
+          "longest_possible_early_transfer_witness": {
+            "case": "a-b1-cap200",
+            "instance": "P0",
+            "batch": "2ca6c81002049bab93f41a40",
+            "request": "natural-video-processing:28",
+            "dispatch_to_worker_ms": 1478.463118,
+            "older_get_overlap_ms": 665.673668,
+            "dispatch_to_first_own_get_ms": 1509.373822,
+            "other_requests_in_successor": [
+              "natural-count-dataset-tokens:45",
+              "natural-regex-chess:106",
+              "natural-train-fasttext:69"
+            ]
+          }
+        },
+        {
+          "case": "a-b2-cap100",
+          "counts": {
+            "batches": 11,
+            "batches_without_own_get": 5,
+            "batches_overlapping_older_get_while_waiting_for_worker": 6,
+            "overlapping_batches_without_own_get": 4,
+            "overlapping_batches_without_pending_predecessor_result_at_dispatch": 0,
+            "overlapping_get_free_batches_disjoint_from_all_older_get_batches": 0,
+            "overlapping_batches_with_own_get_disjoint_from_all_older_get_batches": 0,
+            "request_chunk_rows": 21,
+            "first_chunks_with_own_get": 10,
+            "first_admission_to_dispatch_intersects_older_get": 1,
+            "later_rows_without_own_get_in_overlapping_batches": 10,
+            "later_rows_with_result_delivered_before_worker_and_while_older_get_in_flight": 0,
+            "first_chunks_delayed_with_unrelated_older_get_and_own_get": 2
+          },
+          "dispatch_to_first_worker_ms": {
+            "n": 11,
+            "mean": 524.8775473636364,
+            "p50": 468.258501,
+            "p95": 2097.222439,
+            "max": 2097.222439,
+            "p99": 2097.222439
+          },
+          "dispatch_to_first_worker_without_older_get_overlap_ms": {
+            "n": 5,
+            "mean": 96.8088654,
+            "p50": 85.478664,
+            "p95": 204.427782,
+            "max": 204.427782,
+            "p99": 204.427782
+          },
+          "older_get_overlap_while_waiting_ms": {
+            "n": 6,
+            "mean": 484.15662283333336,
+            "p50": 350.27898,
+            "p95": 1265.884861,
+            "max": 1265.884861,
+            "p99": 1265.884861
+          },
+          "older_get_overlap_while_waiting_for_get_free_batches_ms": {
+            "n": 4,
+            "mean": 374.210659,
+            "p50": 350.27898,
+            "p95": 647.080363,
+            "max": 647.080363,
+            "p99": 647.080363
+          },
+          "longest_get_free_batch_witness": {
+            "case": "a-b2-cap100",
+            "instance": "P1",
+            "batch": "f026fe228a11326bce493a4c",
+            "dispatch_to_worker_ms": 899.578489,
+            "older_get_overlap_ms": 647.080363,
+            "previous_chunks": {
+              "natural-raman-fitting:28": {
+                "previous_offset_and_tokens": [
+                  74752,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  75776,
+                  117
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 905.272526
+              },
+              "natural-gpt2-codegolf:27": {
+                "previous_offset_and_tokens": [
+                  65536,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  66560,
+                  914
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 905.272526
+              }
+            },
+            "older_get_batches": [
+              "85a59e293f7b4e5bbb48fbc9"
+            ]
+          },
+          "longest_possible_early_transfer_witness": {
+            "case": "a-b2-cap100",
+            "instance": "P0",
+            "batch": "7bd09ba4f31e91403ffeefa0",
+            "request": "natural-video-processing:28",
+            "dispatch_to_worker_ms": 2097.222439,
+            "older_get_overlap_ms": 1265.884861,
+            "dispatch_to_first_own_get_ms": 2127.87803,
+            "other_requests_in_successor": [
+              "natural-count-dataset-tokens:45",
+              "natural-regex-chess:106",
+              "natural-train-fasttext:69"
+            ]
+          }
+        },
+        {
+          "case": "a-b2-cap200",
+          "counts": {
+            "batches": 11,
+            "batches_without_own_get": 4,
+            "batches_overlapping_older_get_while_waiting_for_worker": 7,
+            "overlapping_batches_without_own_get": 3,
+            "overlapping_batches_without_pending_predecessor_result_at_dispatch": 0,
+            "overlapping_get_free_batches_disjoint_from_all_older_get_batches": 0,
+            "overlapping_batches_with_own_get_disjoint_from_all_older_get_batches": 0,
+            "request_chunk_rows": 21,
+            "first_chunks_with_own_get": 10,
+            "first_admission_to_dispatch_intersects_older_get": 2,
+            "later_rows_without_own_get_in_overlapping_batches": 10,
+            "later_rows_with_result_delivered_before_worker_and_while_older_get_in_flight": 0,
+            "first_chunks_delayed_with_unrelated_older_get_and_own_get": 4
+          },
+          "dispatch_to_first_worker_ms": {
+            "n": 11,
+            "mean": 383.20105763636366,
+            "p50": 380.286702,
+            "p95": 1402.517825,
+            "max": 1402.517825,
+            "p99": 1402.517825
+          },
+          "dispatch_to_first_worker_without_older_get_overlap_ms": {
+            "n": 4,
+            "mean": 81.13604925,
+            "p50": 54.7896845,
+            "p95": 205.525007,
+            "max": 205.525007,
+            "p99": 205.525007
+          },
+          "older_get_overlap_while_waiting_ms": {
+            "n": 7,
+            "mean": 189.129473,
+            "p50": 108.082491,
+            "p95": 621.313887,
+            "max": 621.313887,
+            "p99": 621.313887
+          },
+          "older_get_overlap_while_waiting_for_get_free_batches_ms": {
+            "n": 3,
+            "mean": 155.74533833333334,
+            "p50": 195.041994,
+            "p95": 196.918616,
+            "max": 196.918616,
+            "p99": 196.918616
+          },
+          "longest_get_free_batch_witness": {
+            "case": "a-b2-cap200",
+            "instance": "P0",
+            "batch": "f70eb2fae5c2927b2f71e8b3",
+            "dispatch_to_worker_ms": 499.97374,
+            "older_get_overlap_ms": 196.918616,
+            "previous_chunks": {
+              "natural-extract-moves-from-video:133": {
+                "previous_offset_and_tokens": [
+                  132096,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  133120,
+                  154
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 503.468441
+              }
+            },
+            "older_get_batches": [
+              "bbf6b484e45422b79ac979dd"
+            ]
+          },
+          "longest_possible_early_transfer_witness": {
+            "case": "a-b2-cap200",
+            "instance": "P0",
+            "batch": "8c1bf1b738a1d89dec79d3b8",
+            "request": "natural-video-processing:28",
+            "dispatch_to_worker_ms": 1402.517825,
+            "older_get_overlap_ms": 621.313887,
+            "dispatch_to_first_own_get_ms": 1433.334557,
+            "other_requests_in_successor": [
+              "natural-count-dataset-tokens:45",
+              "natural-regex-chess:106",
+              "natural-train-fasttext:69"
+            ]
+          }
+        },
+        {
+          "case": "b-b1-cap100",
+          "counts": {
+            "batches": 11,
+            "batches_without_own_get": 5,
+            "batches_overlapping_older_get_while_waiting_for_worker": 6,
+            "overlapping_batches_without_own_get": 4,
+            "overlapping_batches_without_pending_predecessor_result_at_dispatch": 0,
+            "overlapping_get_free_batches_disjoint_from_all_older_get_batches": 0,
+            "overlapping_batches_with_own_get_disjoint_from_all_older_get_batches": 0,
+            "request_chunk_rows": 21,
+            "first_chunks_with_own_get": 10,
+            "first_admission_to_dispatch_intersects_older_get": 1,
+            "later_rows_without_own_get_in_overlapping_batches": 10,
+            "later_rows_with_result_delivered_before_worker_and_while_older_get_in_flight": 0,
+            "first_chunks_delayed_with_unrelated_older_get_and_own_get": 2
+          },
+          "dispatch_to_first_worker_ms": {
+            "n": 11,
+            "mean": 489.09629409090905,
+            "p50": 479.411628,
+            "p95": 1850.749887,
+            "max": 1850.749887,
+            "p99": 1850.749887
+          },
+          "dispatch_to_first_worker_without_older_get_overlap_ms": {
+            "n": 5,
+            "mean": 109.76024100000001,
+            "p50": 128.465261,
+            "p95": 239.77671,
+            "max": 239.77671,
+            "p99": 239.77671
+          },
+          "older_get_overlap_while_waiting_ms": {
+            "n": 6,
+            "mean": 458.19214883333336,
+            "p50": 339.941568,
+            "p95": 1305.883919,
+            "max": 1305.883919,
+            "p99": 1305.883919
+          },
+          "older_get_overlap_while_waiting_for_get_free_batches_ms": {
+            "n": 4,
+            "mean": 325.3124285,
+            "p50": 339.941568,
+            "p95": 462.201986,
+            "max": 462.201986,
+            "p99": 462.201986
+          },
+          "longest_get_free_batch_witness": {
+            "case": "b-b1-cap100",
+            "instance": "P1",
+            "batch": "d9315414758eea846178cbaa",
+            "dispatch_to_worker_ms": 698.802208,
+            "older_get_overlap_ms": 462.201986,
+            "previous_chunks": {
+              "natural-raman-fitting:28": {
+                "previous_offset_and_tokens": [
+                  74752,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  75776,
+                  117
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 707.298128
+              },
+              "natural-gpt2-codegolf:27": {
+                "previous_offset_and_tokens": [
+                  65536,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  66560,
+                  914
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 707.298128
+              }
+            },
+            "older_get_batches": [
+              "963db4bd63bc76eeccfa4106"
+            ]
+          },
+          "longest_possible_early_transfer_witness": {
+            "case": "b-b1-cap100",
+            "instance": "P0",
+            "batch": "943c66f7d2418a1eaed5eafc",
+            "request": "natural-video-processing:28",
+            "dispatch_to_worker_ms": 1850.749887,
+            "older_get_overlap_ms": 1305.883919,
+            "dispatch_to_first_own_get_ms": 1881.420218,
+            "other_requests_in_successor": [
+              "natural-count-dataset-tokens:45",
+              "natural-regex-chess:106",
+              "natural-train-fasttext:69"
+            ]
+          }
+        },
+        {
+          "case": "b-b1-cap200",
+          "counts": {
+            "batches": 11,
+            "batches_without_own_get": 5,
+            "batches_overlapping_older_get_while_waiting_for_worker": 6,
+            "overlapping_batches_without_own_get": 4,
+            "overlapping_batches_without_pending_predecessor_result_at_dispatch": 0,
+            "overlapping_get_free_batches_disjoint_from_all_older_get_batches": 0,
+            "overlapping_batches_with_own_get_disjoint_from_all_older_get_batches": 0,
+            "request_chunk_rows": 21,
+            "first_chunks_with_own_get": 10,
+            "first_admission_to_dispatch_intersects_older_get": 1,
+            "later_rows_without_own_get_in_overlapping_batches": 10,
+            "later_rows_with_result_delivered_before_worker_and_while_older_get_in_flight": 0,
+            "first_chunks_delayed_with_unrelated_older_get_and_own_get": 2
+          },
+          "dispatch_to_first_worker_ms": {
+            "n": 11,
+            "mean": 363.7707674545455,
+            "p50": 407.604534,
+            "p95": 1238.549256,
+            "max": 1238.549256,
+            "p99": 1238.549256
+          },
+          "dispatch_to_first_worker_without_older_get_overlap_ms": {
+            "n": 5,
+            "mean": 100.41535520000001,
+            "p50": 124.487254,
+            "p95": 202.166658,
+            "max": 202.166658,
+            "p99": 202.166658
+          },
+          "older_get_overlap_while_waiting_ms": {
+            "n": 6,
+            "mean": 220.21968166666665,
+            "p50": 164.678992,
+            "p95": 609.971643,
+            "max": 609.971643,
+            "p99": 609.971643
+          },
+          "older_get_overlap_while_waiting_for_get_free_batches_ms": {
+            "n": 4,
+            "mean": 158.5982905,
+            "p50": 164.678992,
+            "p95": 219.37864,
+            "max": 219.37864,
+            "p99": 219.37864
+          },
+          "longest_get_free_batch_witness": {
+            "case": "b-b1-cap200",
+            "instance": "P0",
+            "batch": "c449da7f14430ddfe5cb506d",
+            "dispatch_to_worker_ms": 522.005529,
+            "older_get_overlap_ms": 219.37864,
+            "previous_chunks": {
+              "natural-extract-moves-from-video:133": {
+                "previous_offset_and_tokens": [
+                  132096,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  133120,
+                  154
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 533.368813
+              }
+            },
+            "older_get_batches": [
+              "db532248a6c3490eb5b0281b"
+            ]
+          },
+          "longest_possible_early_transfer_witness": {
+            "case": "b-b1-cap200",
+            "instance": "P0",
+            "batch": "a55dbeedb3927a85ca9cd1fc",
+            "request": "natural-video-processing:28",
+            "dispatch_to_worker_ms": 1238.549256,
+            "older_get_overlap_ms": 609.971643,
+            "dispatch_to_first_own_get_ms": 1278.246073,
+            "other_requests_in_successor": [
+              "natural-count-dataset-tokens:45",
+              "natural-regex-chess:106",
+              "natural-train-fasttext:69"
+            ]
+          }
+        },
+        {
+          "case": "b-b2-cap100",
+          "counts": {
+            "batches": 11,
+            "batches_without_own_get": 5,
+            "batches_overlapping_older_get_while_waiting_for_worker": 6,
+            "overlapping_batches_without_own_get": 4,
+            "overlapping_batches_without_pending_predecessor_result_at_dispatch": 0,
+            "overlapping_get_free_batches_disjoint_from_all_older_get_batches": 0,
+            "overlapping_batches_with_own_get_disjoint_from_all_older_get_batches": 0,
+            "request_chunk_rows": 21,
+            "first_chunks_with_own_get": 10,
+            "first_admission_to_dispatch_intersects_older_get": 1,
+            "later_rows_without_own_get_in_overlapping_batches": 10,
+            "later_rows_with_result_delivered_before_worker_and_while_older_get_in_flight": 0,
+            "first_chunks_delayed_with_unrelated_older_get_and_own_get": 2
+          },
+          "dispatch_to_first_worker_ms": {
+            "n": 11,
+            "mean": 488.3012314545455,
+            "p50": 488.442578,
+            "p95": 1866.040033,
+            "max": 1866.040033,
+            "p99": 1866.040033
+          },
+          "dispatch_to_first_worker_without_older_get_overlap_ms": {
+            "n": 5,
+            "mean": 96.6931582,
+            "p50": 78.890157,
+            "p95": 218.577708,
+            "max": 218.577708,
+            "p99": 218.577708
+          },
+          "older_get_overlap_while_waiting_ms": {
+            "n": 6,
+            "mean": 472.63607783333333,
+            "p50": 313.88385800000003,
+            "p95": 1348.300851,
+            "max": 1348.300851,
+            "p99": 1348.300851
+          },
+          "older_get_overlap_while_waiting_for_get_free_batches_ms": {
+            "n": 4,
+            "mean": 332.076374,
+            "p50": 313.88385800000003,
+            "p95": 531.073609,
+            "max": 531.073609,
+            "p99": 531.073609
+          },
+          "longest_get_free_batch_witness": {
+            "case": "b-b2-cap100",
+            "instance": "P1",
+            "batch": "b3f8134c3582a44954f1dde9",
+            "dispatch_to_worker_ms": 774.312817,
+            "older_get_overlap_ms": 531.073609,
+            "previous_chunks": {
+              "natural-raman-fitting:28": {
+                "previous_offset_and_tokens": [
+                  74752,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  75776,
+                  117
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 779.930093
+              },
+              "natural-gpt2-codegolf:27": {
+                "previous_offset_and_tokens": [
+                  65536,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  66560,
+                  914
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 779.930093
+              }
+            },
+            "older_get_batches": [
+              "a1185f4088acbb386a3154bb"
+            ]
+          },
+          "longest_possible_early_transfer_witness": {
+            "case": "b-b2-cap100",
+            "instance": "P0",
+            "batch": "59ca08e66ca6f537af03e57c",
+            "request": "natural-video-processing:28",
+            "dispatch_to_worker_ms": 1866.040033,
+            "older_get_overlap_ms": 1348.300851,
+            "dispatch_to_first_own_get_ms": 1912.706872,
+            "other_requests_in_successor": [
+              "natural-count-dataset-tokens:45",
+              "natural-regex-chess:106",
+              "natural-train-fasttext:69"
+            ]
+          }
+        },
+        {
+          "case": "b-b2-cap200",
+          "counts": {
+            "batches": 11,
+            "batches_without_own_get": 4,
+            "batches_overlapping_older_get_while_waiting_for_worker": 7,
+            "overlapping_batches_without_own_get": 2,
+            "overlapping_batches_without_pending_predecessor_result_at_dispatch": 0,
+            "overlapping_get_free_batches_disjoint_from_all_older_get_batches": 0,
+            "overlapping_batches_with_own_get_disjoint_from_all_older_get_batches": 0,
+            "request_chunk_rows": 21,
+            "first_chunks_with_own_get": 10,
+            "first_admission_to_dispatch_intersects_older_get": 6,
+            "later_rows_without_own_get_in_overlapping_batches": 9,
+            "later_rows_with_result_delivered_before_worker_and_while_older_get_in_flight": 0,
+            "first_chunks_delayed_with_unrelated_older_get_and_own_get": 8
+          },
+          "dispatch_to_first_worker_ms": {
+            "n": 11,
+            "mean": 372.86010063636365,
+            "p50": 346.813769,
+            "p95": 853.376766,
+            "max": 853.376766,
+            "p99": 853.376766
+          },
+          "dispatch_to_first_worker_without_older_get_overlap_ms": {
+            "n": 4,
+            "mean": 122.42054474999999,
+            "p50": 106.27079499999999,
+            "p95": 266.902089,
+            "max": 266.902089,
+            "p99": 266.902089
+          },
+          "older_get_overlap_while_waiting_ms": {
+            "n": 7,
+            "mean": 194.6009887142857,
+            "p50": 159.054791,
+            "p95": 373.954348,
+            "max": 373.954348,
+            "p99": 373.954348
+          },
+          "older_get_overlap_while_waiting_for_get_free_batches_ms": {
+            "n": 2,
+            "mean": 135.009748,
+            "p50": 135.009748,
+            "p95": 159.054791,
+            "max": 159.054791,
+            "p99": 159.054791
+          },
+          "longest_get_free_batch_witness": {
+            "case": "b-b2-cap200",
+            "instance": "P0",
+            "batch": "4ef2ca88cb4b38de298ddf4f",
+            "dispatch_to_worker_ms": 568.88606,
+            "older_get_overlap_ms": 159.054791,
+            "previous_chunks": {
+              "natural-video-processing:28": {
+                "previous_offset_and_tokens": [
+                  65536,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  66560,
+                  754
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 576.755933
+              },
+              "natural-financial-document-processor:60": {
+                "previous_offset_and_tokens": [
+                  65536,
+                  2048
+                ],
+                "current_offset_and_tokens": [
+                  67584,
+                  2048
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 576.755933
+              },
+              "natural-regex-chess:106": {
+                "previous_offset_and_tokens": [
+                  200704,
+                  1024
+                ],
+                "current_offset_and_tokens": [
+                  201728,
+                  495
+                ],
+                "previous_scheduler_result_from_dispatch_ms": 576.755933
+              }
+            },
+            "older_get_batches": [
+              "fdb7878200c3b1d9dc1570e8"
+            ]
+          },
+          "longest_possible_early_transfer_witness": {
+            "case": "b-b2-cap200",
+            "instance": "P0",
+            "batch": "ea03e005418281742e4b4b0a",
+            "request": "natural-count-dataset-tokens:45",
+            "dispatch_to_worker_ms": 675.343313,
+            "older_get_overlap_ms": 373.954348,
+            "dispatch_to_first_own_get_ms": 1011.179602,
+            "other_requests_in_successor": [
+              "natural-regex-chess:106",
+              "natural-train-fasttext:69"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

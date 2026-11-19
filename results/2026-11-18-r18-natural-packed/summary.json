@@ -1,0 +1,3661 @@
+{
+  "workload_sha256": "002a1c1fd6bbcfc275c93cb5d6211ad4578c37a11db900d7797ad6cf567237c0",
+  "fixed_replay_sha256": "b210940d0da66f02d241510c9ae878645e3636a99846bacd9f16d9cdafed3014",
+  "selected_requests": 170,
+  "complete_client_rows": 168,
+  "proxy_decode_ends": 170,
+  "scheduler_batches": 875,
+  "four_rank_forward_batches": 875,
+  "scheduler_pairing_errors": [],
+  "unmatched_worker_loads": 0,
+  "requests_with_restore": 49,
+  "native_calibration_samples": 192,
+  "observed_get_payload_bytes_excluding_verification": 33920286720,
+  "native_descriptor_bytes_for_same_restores": 64685506560,
+  "copy_rank_events": 196,
+  "packed_pair_operations": 98,
+  "synchronous_copy_overlaps": {
+    "same_instance": 37,
+    "cross_instance": 2
+  },
+  "copy_instance_union_ms": {
+    "P0": 730.861194,
+    "P1": 484.776449
+  },
+  "copy_wall_ms": {
+    "n": 196,
+    "mean": 19.352527775510204,
+    "p50": 4.254925500000001,
+    "p95": 66.411601,
+    "max": 119.433274,
+    "p99": 119.376983
+  },
+  "eligible_copy_wall_ms": {
+    "n": 188,
+    "mean": 18.25206070212766,
+    "p50": 3.657583,
+    "p95": 66.411601,
+    "max": 119.433274,
+    "p99": 119.376983
+  },
+  "pair_wait_ms": {
+    "n": 196,
+    "mean": 1.688515219387755,
+    "p50": 1.2846549999999999,
+    "p95": 3.914796,
+    "max": 9.339479,
+    "p99": 8.672692
+  },
+  "restore_rank_modes": {
+    "packed": 196
+  },
+  "preflight_plan_ms": {
+    "n": 192,
+    "mean": 2.8829335729166665,
+    "p50": 1.451282,
+    "p95": 11.372114,
+    "max": 22.174041,
+    "p99": 22.173671
+  },
+  "preflight_pair_wait_ms": {
+    "n": 192,
+    "mean": 3.70646453125,
+    "p50": 1.449567,
+    "p95": 17.198372,
+    "max": 28.156161,
+    "p99": 28.12831
+  },
+  "eligible_packed_batches": 46,
+  "excluded_packed_batches": {
+    "includes_validation_get": 2
+  },
+  "multi_restore_packed_batches": 1,
+  "positive_zero_copy_launch_gain_batches": 46,
+  "zero_copy_launch_gain_ms": {
+    "n": 46,
+    "mean": 18.651811173913043,
+    "p50": 4.0128375,
+    "p95": 64.908533,
+    "max": 119.312942,
+    "p99": 119.312942
+  },
+  "possible_choices": 94,
+  "matched_choices": 78,
+  "all_choices_matched_batches": 38,
+  "only_completed_client_rows_nominal": {
+    "batches": 45,
+    "additional_launch_gain_ms": 0.02855
+  },
+  "policy_comparison": {
+    "0.75": {
+      "communication_finish": {
+        "changed_batches": 38,
+        "extra_D_bytes": 9531555840,
+        "launch_gain_sum_ms": 188.146116,
+        "communication_gain_sum_ms": 188.300537
+      },
+      "batch_ready": {
+        "changed_batches": 38,
+        "extra_D_bytes": 9531555840,
+        "launch_gain_sum_ms": 188.174666,
+        "communication_gain_sum_ms": 188.286917
+      },
+      "different_actions": 1,
+      "additional_launch_gain_ms": 0.028549999999995634
+    },
+    "1.0": {
+      "communication_finish": {
+        "changed_batches": 38,
+        "extra_D_bytes": 9531555840,
+        "launch_gain_sum_ms": 158.396489,
+        "communication_gain_sum_ms": 158.712653
+      },
+      "batch_ready": {
+        "changed_batches": 38,
+        "extra_D_bytes": 9531555840,
+        "launch_gain_sum_ms": 158.425039,
+        "communication_gain_sum_ms": 158.699033
+      },
+      "different_actions": 1,
+      "additional_launch_gain_ms": 0.028549999999995634
+    },
+    "1.25": {
+      "communication_finish": {
+        "changed_batches": 38,
+        "extra_D_bytes": 9531555840,
+        "launch_gain_sum_ms": 109.77673800000001,
+        "communication_gain_sum_ms": 110.065158
+      },
+      "batch_ready": {
+        "changed_batches": 38,
+        "extra_D_bytes": 9531555840,
+        "launch_gain_sum_ms": 109.805288,
+        "communication_gain_sum_ms": 110.051538
+      },
+      "different_actions": 1,
+      "additional_launch_gain_ms": 0.028549999999995634
+    }
+  },
+  "batches": [
+    {
+      "instance": "P0",
+      "batch": "d88656bef63c605fab98794d",
+      "dispatch_ns": 652043079250485,
+      "requests_in_batch": 4,
+      "restore_requests": [
+        "natural-mailman:23"
+      ],
+      "scheduler_waiting": 3,
+      "dispatch_to_result_ms": 529.834739,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 20.568932,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-mailman:23",
+              0
+            ],
+            "extra_D_bytes": 335544320,
+            "communication_gain_ms": 15.131828,
+            "launch_gain_ms": 15.069247
+          },
+          "batch_ready": {
+            "action": [
+              "natural-mailman:23",
+              0
+            ],
+            "extra_D_bytes": 335544320,
+            "communication_gain_ms": 15.131828,
+            "launch_gain_ms": 15.069247
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-mailman:23",
+              0
+            ],
+            "extra_D_bytes": 335544320,
+            "communication_gain_ms": 11.003311,
+            "launch_gain_ms": 11.005251
+          },
+          "batch_ready": {
+            "action": [
+              "natural-mailman:23",
+              0
+            ],
+            "extra_D_bytes": 335544320,
+            "communication_gain_ms": 11.003311,
+            "launch_gain_ms": 11.005251
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-mailman:23",
+              0
+            ],
+            "extra_D_bytes": 335544320,
+            "communication_gain_ms": 5.902776,
+            "launch_gain_ms": 5.904716
+          },
+          "batch_ready": {
+            "action": [
+              "natural-mailman:23",
+              0
+            ],
+            "extra_D_bytes": 335544320,
+            "communication_gain_ms": 5.902776,
+            "launch_gain_ms": 5.904716
+          }
+        }
+      }
+    },
+    {
+      "instance": "P0",
+      "batch": "64fd1560da845a38543ae2ff",
+      "dispatch_ns": 652043335072693,
+      "requests_in_batch": 4,
+      "restore_requests": [
+        "natural-build-pov-ray:28"
+      ],
+      "scheduler_waiting": 1,
+      "dispatch_to_result_ms": 556.838356,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 21.209129,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-build-pov-ray:28",
+              0
+            ],
+            "extra_D_bytes": 346030080,
+            "communication_gain_ms": 13.259686,
+            "launch_gain_ms": 13.276046
+          },
+          "batch_ready": {
+            "action": [
+              "natural-build-pov-ray:28",
+              0
+            ],
+            "extra_D_bytes": 346030080,
+            "communication_gain_ms": 13.259686,
+            "launch_gain_ms": 13.276046
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-build-pov-ray:28",
+              0
+            ],
+            "extra_D_bytes": 346030080,
+            "communication_gain_ms": 11.102401,
+            "launch_gain_ms": 11.05434
+          },
+          "batch_ready": {
+            "action": [
+              "natural-build-pov-ray:28",
+              0
+            ],
+            "extra_D_bytes": 346030080,
+            "communication_gain_ms": 11.102401,
+            "launch_gain_ms": 11.05434
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-build-pov-ray:28",
+              0
+            ],
+            "extra_D_bytes": 346030080,
+            "communication_gain_ms": 5.750126,
+            "launch_gain_ms": 5.702065
+          },
+          "batch_ready": {
+            "action": [
+              "natural-build-pov-ray:28",
+              0
+            ],
+            "extra_D_bytes": 346030080,
+            "communication_gain_ms": 5.750126,
+            "launch_gain_ms": 5.702065
+          }
+        }
+      }
+    },
+    {
+      "instance": "P0",
+      "batch": "46576e172f1e0b9f23294709",
+      "dispatch_ns": 652046293260561,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-count-dataset-tokens:45"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 274.541377,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 39.781408,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-count-dataset-tokens:45",
+              2
+            ],
+            "extra_D_bytes": 681574400,
+            "communication_gain_ms": 2.244147,
+            "launch_gain_ms": 2.268717
+          },
+          "batch_ready": {
+            "action": [
+              "natural-count-dataset-tokens:45",
+              2
+            ],
+            "extra_D_bytes": 681574400,
+            "communication_gain_ms": 2.244147,
+            "launch_gain_ms": 2.268717
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-count-dataset-tokens:45",
+              2
+            ],
+            "extra_D_bytes": 681574400,
+            "communication_gain_ms": 2.244147,
+            "launch_gain_ms": 2.268717
+          },
+          "batch_ready": {
+            "action": [
+              "natural-count-dataset-tokens:45",
+              2
+            ],
+            "extra_D_bytes": 681574400,
+            "communication_gain_ms": 2.244147,
+            "launch_gain_ms": 2.268717
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-count-dataset-tokens:45",
+              2
+            ],
+            "extra_D_bytes": 681574400,
+            "communication_gain_ms": 2.244147,
+            "launch_gain_ms": 2.268717
+          },
+          "batch_ready": {
+            "action": [
+              "natural-count-dataset-tokens:45",
+              2
+            ],
+            "extra_D_bytes": 681574400,
+            "communication_gain_ms": 2.244147,
+            "launch_gain_ms": 2.268717
+          }
+        }
+      }
+    },
+    {
+      "instance": "P0",
+      "batch": "8a31bc05b156781a18201480",
+      "dispatch_ns": 652050963889431,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-feal-linear-cryptanalysis:15"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 307.713767,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 21.376262,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-feal-linear-cryptanalysis:15",
+              0
+            ],
+            "extra_D_bytes": 346030080,
+            "communication_gain_ms": 16.33672,
+            "launch_gain_ms": 16.33672
+          },
+          "batch_ready": {
+            "action": [
+              "natural-feal-linear-cryptanalysis:15",
+              0
+            ],
+            "extra_D_bytes": 346030080,
+            "communication_gain_ms": 16.33672,
+            "launch_gain_ms": 16.33672
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-feal-linear-cryptanalysis:15",
+              0
+            ],
+            "extra_D_bytes": 346030080,
+            "communication_gain_ms": 10.624846,
+            "launch_gain_ms": 10.624846
+          },
+          "batch_ready": {
+            "action": [
+              "natural-feal-linear-cryptanalysis:15",
+              0
+            ],
+            "extra_D_bytes": 346030080,
+            "communication_gain_ms": 10.624846,
+            "launch_gain_ms": 10.624846
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-feal-linear-cryptanalysis:15",
+              0
+            ],
+            "extra_D_bytes": 346030080,
+            "communication_gain_ms": 4.912972,
+            "launch_gain_ms": 4.912972
+          },
+          "batch_ready": {
+            "action": [
+              "natural-feal-linear-cryptanalysis:15",
+              0
+            ],
+            "extra_D_bytes": 346030080,
+            "communication_gain_ms": 4.912972,
+            "launch_gain_ms": 4.912972
+          }
+        }
+      }
+    },
+    {
+      "instance": "P1",
+      "batch": "9d47966219fc449cd7a22630",
+      "dispatch_ns": 652055643340584,
+      "requests_in_batch": 4,
+      "restore_requests": [
+        "natural-mteb-leaderboard:36"
+      ],
+      "scheduler_waiting": 5,
+      "dispatch_to_result_ms": 1184.925881,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 20.515541,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-mteb-leaderboard:36",
+              0
+            ],
+            "extra_D_bytes": 335544320,
+            "communication_gain_ms": 11.277382,
+            "launch_gain_ms": 11.294343
+          },
+          "batch_ready": {
+            "action": [
+              "natural-mteb-leaderboard:36",
+              0
+            ],
+            "extra_D_bytes": 335544320,
+            "communication_gain_ms": 11.277382,
+            "launch_gain_ms": 11.294343
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-mteb-leaderboard:36",
+              0
+            ],
+            "extra_D_bytes": 335544320,
+            "communication_gain_ms": 11.277382,
+            "launch_gain_ms": 11.294343
+          },
+          "batch_ready": {
+            "action": [
+              "natural-mteb-leaderboard:36",
+              0
+            ],
+            "extra_D_bytes": 335544320,
+            "communication_gain_ms": 11.277382,
+            "launch_gain_ms": 11.294343
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-mteb-leaderboard:36",
+              0
+            ],
+            "extra_D_bytes": 335544320,
+            "communication_gain_ms": 8.261438,
+            "launch_gain_ms": 8.329859
+          },
+          "batch_ready": {
+            "action": [
+              "natural-mteb-leaderboard:36",
+              0
+            ],
+            "extra_D_bytes": 335544320,
+            "communication_gain_ms": 8.261438,
+            "launch_gain_ms": 8.329859
+          }
+        }
+      }
+    },
+    {
+      "instance": "P1",
+      "batch": "a2ddb1bcb700cacf69d79306",
+      "dispatch_ns": 652056514543957,
+      "requests_in_batch": 4,
+      "restore_requests": [
+        "natural-gpt2-codegolf:27"
+      ],
+      "scheduler_waiting": 3,
+      "dispatch_to_result_ms": 755.996208,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 39.241261,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-gpt2-codegolf:27",
+              2
+            ],
+            "extra_D_bytes": 671088640,
+            "communication_gain_ms": 5.551485,
+            "launch_gain_ms": 5.572315
+          },
+          "batch_ready": {
+            "action": [
+              "natural-gpt2-codegolf:27",
+              2
+            ],
+            "extra_D_bytes": 671088640,
+            "communication_gain_ms": 5.551485,
+            "launch_gain_ms": 5.572315
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-gpt2-codegolf:27",
+              2
+            ],
+            "extra_D_bytes": 671088640,
+            "communication_gain_ms": 5.551485,
+            "launch_gain_ms": 5.572315
+          },
+          "batch_ready": {
+            "action": [
+              "natural-gpt2-codegolf:27",
+              2
+            ],
+            "extra_D_bytes": 671088640,
+            "communication_gain_ms": 5.551485,
+            "launch_gain_ms": 5.572315
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-gpt2-codegolf:27",
+              2
+            ],
+            "extra_D_bytes": 671088640,
+            "communication_gain_ms": 0.855305,
+            "launch_gain_ms": 0.855305
+          },
+          "batch_ready": {
+            "action": [
+              "natural-gpt2-codegolf:27",
+              2
+            ],
+            "extra_D_bytes": 671088640,
+            "communication_gain_ms": 0.855305,
+            "launch_gain_ms": 0.855305
+          }
+        }
+      }
+    },
+    {
+      "instance": "P0",
+      "batch": "ff0552be828f22bd941b383b",
+      "dispatch_ns": 652061014483460,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-video-processing:28"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 266.317491,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 39.602885,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-video-processing:28",
+              0
+            ],
+            "extra_D_bytes": 671088640,
+            "communication_gain_ms": 1.405606,
+            "launch_gain_ms": 1.487748
+          },
+          "batch_ready": {
+            "action": [
+              "natural-video-processing:28",
+              0
+            ],
+            "extra_D_bytes": 671088640,
+            "communication_gain_ms": 1.405606,
+            "launch_gain_ms": 1.487748
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-video-processing:28",
+              0
+            ],
+            "extra_D_bytes": 671088640,
+            "communication_gain_ms": 1.405606,
+            "launch_gain_ms": 1.487748
+          },
+          "batch_ready": {
+            "action": [
+              "natural-video-processing:28",
+              0
+            ],
+            "extra_D_bytes": 671088640,
+            "communication_gain_ms": 1.405606,
+            "launch_gain_ms": 1.487748
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-video-processing:28",
+              0
+            ],
+            "extra_D_bytes": 671088640,
+            "communication_gain_ms": 1.405606,
+            "launch_gain_ms": 1.487748
+          },
+          "batch_ready": {
+            "action": [
+              "natural-video-processing:28",
+              0
+            ],
+            "extra_D_bytes": 671088640,
+            "communication_gain_ms": 1.405606,
+            "launch_gain_ms": 1.487748
+          }
+        }
+      }
+    },
+    {
+      "instance": "P0",
+      "batch": "c2bdaa370c420a1260dcfce0",
+      "dispatch_ns": 652061660892009,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-train-fasttext:69"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 270.545461,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 39.764088,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-train-fasttext:69",
+              2
+            ],
+            "extra_D_bytes": 681574400,
+            "communication_gain_ms": 17.513396,
+            "launch_gain_ms": 17.503506
+          },
+          "batch_ready": {
+            "action": [
+              "natural-train-fasttext:69",
+              2
+            ],
+            "extra_D_bytes": 681574400,
+            "communication_gain_ms": 17.513396,
+            "launch_gain_ms": 17.503506
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-train-fasttext:69",
+              2
+            ],
+            "extra_D_bytes": 681574400,
+            "communication_gain_ms": 17.513396,
+            "launch_gain_ms": 17.503506
+          },
+          "batch_ready": {
+            "action": [
+              "natural-train-fasttext:69",
+              2
+            ],
+            "extra_D_bytes": 681574400,
+            "communication_gain_ms": 17.513396,
+            "launch_gain_ms": 17.503506
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-train-fasttext:69",
+              2
+            ],
+            "extra_D_bytes": 681574400,
+            "communication_gain_ms": 14.591471,
+            "launch_gain_ms": 14.591471
+          },
+          "batch_ready": {
+            "action": [
+              "natural-train-fasttext:69",
+              2
+            ],
+            "extra_D_bytes": 681574400,
+            "communication_gain_ms": 14.591471,
+            "launch_gain_ms": 14.591471
+          }
+        }
+      }
+    },
+    {
+      "instance": "P0",
+      "batch": "d44dbd25cffdf5c81fd710a0",
+      "dispatch_ns": 652062306616621,
+      "requests_in_batch": 2,
+      "restore_requests": [
+        "natural-path-tracing:23"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 481.900655,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 3.066575,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-path-tracing:23",
+              0
+            ],
+            "extra_D_bytes": 31457280,
+            "communication_gain_ms": 1.64235,
+            "launch_gain_ms": 1.647659
+          },
+          "batch_ready": {
+            "action": [
+              "natural-path-tracing:23",
+              0
+            ],
+            "extra_D_bytes": 31457280,
+            "communication_gain_ms": 1.64235,
+            "launch_gain_ms": 1.647659
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-path-tracing:23",
+              0
+            ],
+            "extra_D_bytes": 31457280,
+            "communication_gain_ms": 1.64235,
+            "launch_gain_ms": 1.647659
+          },
+          "batch_ready": {
+            "action": [
+              "natural-path-tracing:23",
+              0
+            ],
+            "extra_D_bytes": 31457280,
+            "communication_gain_ms": 1.64235,
+            "launch_gain_ms": 1.647659
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-path-tracing:23",
+              0
+            ],
+            "extra_D_bytes": 31457280,
+            "communication_gain_ms": 1.227904,
+            "launch_gain_ms": 1.227904
+          },
+          "batch_ready": {
+            "action": [
+              "natural-path-tracing:23",
+              0
+            ],
+            "extra_D_bytes": 31457280,
+            "communication_gain_ms": 1.227904,
+            "launch_gain_ms": 1.227904
+          }
+        }
+      }
+    },
+    {
+      "instance": "P1",
+      "batch": "dc020a89203691cfb61e7b94",
+      "dispatch_ns": 652063200265107,
+      "requests_in_batch": 2,
+      "restore_requests": [
+        "natural-count-dataset-tokens:47"
+      ],
+      "scheduler_waiting": 2,
+      "dispatch_to_result_ms": 573.32302,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 2.211326,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-count-dataset-tokens:47",
+              2
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 1.955563,
+            "launch_gain_ms": 1.963173
+          },
+          "batch_ready": {
+            "action": [
+              "natural-count-dataset-tokens:47",
+              2
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 1.955563,
+            "launch_gain_ms": 1.963173
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-count-dataset-tokens:47",
+              2
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 1.955563,
+            "launch_gain_ms": 1.963173
+          },
+          "batch_ready": {
+            "action": [
+              "natural-count-dataset-tokens:47",
+              2
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 1.955563,
+            "launch_gain_ms": 1.963173
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-count-dataset-tokens:47",
+              2
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 1.955563,
+            "launch_gain_ms": 1.955806
+          },
+          "batch_ready": {
+            "action": [
+              "natural-count-dataset-tokens:47",
+              2
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 1.955563,
+            "launch_gain_ms": 1.955806
+          }
+        }
+      }
+    },
+    {
+      "instance": "P0",
+      "batch": "a92a925d34dddec1a9102a30",
+      "dispatch_ns": 652063329621968,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-extract-moves-from-video:133"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 363.20237,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 77.340569,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-extract-moves-from-video:133",
+              0
+            ],
+            "extra_D_bytes": 1352663040,
+            "communication_gain_ms": 13.274526,
+            "launch_gain_ms": 13.306437
+          },
+          "batch_ready": {
+            "action": [
+              "natural-extract-moves-from-video:133",
+              0
+            ],
+            "extra_D_bytes": 1352663040,
+            "communication_gain_ms": 13.274526,
+            "launch_gain_ms": 13.306437
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-extract-moves-from-video:133",
+              0
+            ],
+            "extra_D_bytes": 1352663040,
+            "communication_gain_ms": 13.274526,
+            "launch_gain_ms": 13.306437
+          },
+          "batch_ready": {
+            "action": [
+              "natural-extract-moves-from-video:133",
+              0
+            ],
+            "extra_D_bytes": 1352663040,
+            "communication_gain_ms": 13.274526,
+            "launch_gain_ms": 13.306437
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-extract-moves-from-video:133",
+              0
+            ],
+            "extra_D_bytes": 1352663040,
+            "communication_gain_ms": 13.274526,
+            "launch_gain_ms": 13.306437
+          },
+          "batch_ready": {
+            "action": [
+              "natural-extract-moves-from-video:133",
+              0
+            ],
+            "extra_D_bytes": 1352663040,
+            "communication_gain_ms": 13.274526,
+            "launch_gain_ms": 13.306437
+          }
+        }
+      }
+    },
+    {
+      "instance": "P1",
+      "batch": "7b02077ddf55c8e735e17850",
+      "dispatch_ns": 652063500064242,
+      "requests_in_batch": 3,
+      "restore_requests": [
+        "natural-make-doom-for-mips:118"
+      ],
+      "scheduler_waiting": 2,
+      "dispatch_to_result_ms": 665.921508,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 50.815097,
+      "possible_choices": 2,
+      "matched_choices": 0,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          },
+          "batch_ready": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          },
+          "batch_ready": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          },
+          "batch_ready": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          }
+        }
+      }
+    },
+    {
+      "instance": "P0",
+      "batch": "d5d46456401a7b209850d3c5",
+      "dispatch_ns": 652065636412177,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-train-fasttext:70"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 356.551562,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 35.243465,
+      "possible_choices": 2,
+      "matched_choices": 0,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          },
+          "batch_ready": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          },
+          "batch_ready": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          },
+          "batch_ready": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          }
+        }
+      }
+    },
+    {
+      "instance": "P0",
+      "batch": "105ef6b0edc524084c86da6f",
+      "dispatch_ns": 652067100366678,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-mteb-leaderboard:37"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 387.528506,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 2.417998,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-mteb-leaderboard:37",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 3.558134,
+            "launch_gain_ms": 3.551765
+          },
+          "batch_ready": {
+            "action": [
+              "natural-mteb-leaderboard:37",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 3.558134,
+            "launch_gain_ms": 3.551765
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-mteb-leaderboard:37",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 2.777832,
+            "launch_gain_ms": 2.771463
+          },
+          "batch_ready": {
+            "action": [
+              "natural-mteb-leaderboard:37",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 2.777832,
+            "launch_gain_ms": 2.771463
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-mteb-leaderboard:37",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 1.99753,
+            "launch_gain_ms": 1.991161
+          },
+          "batch_ready": {
+            "action": [
+              "natural-mteb-leaderboard:37",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 1.99753,
+            "launch_gain_ms": 1.991161
+          }
+        }
+      }
+    },
+    {
+      "instance": "P0",
+      "batch": "452b73b03ed30781464ac3b0",
+      "dispatch_ns": 652067768731616,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-regex-chess:106"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 458.352888,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 64.908533,
+      "possible_choices": 2,
+      "matched_choices": 0,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          },
+          "batch_ready": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          },
+          "batch_ready": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          },
+          "batch_ready": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          }
+        }
+      }
+    },
+    {
+      "instance": "P1",
+      "batch": "b3b7857f5af9ca860288c81b",
+      "dispatch_ns": 652069032376642,
+      "requests_in_batch": 2,
+      "restore_requests": [
+        "natural-path-tracing:24"
+      ],
+      "scheduler_waiting": 2,
+      "dispatch_to_result_ms": 502.121893,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 1.903942,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-path-tracing:24",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 0.124711,
+            "launch_gain_ms": 0.101011
+          },
+          "batch_ready": {
+            "action": [
+              "natural-path-tracing:24",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 0.124711,
+            "launch_gain_ms": 0.101011
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-path-tracing:24",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 0.124711,
+            "launch_gain_ms": 0.101011
+          },
+          "batch_ready": {
+            "action": [
+              "natural-path-tracing:24",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 0.124711,
+            "launch_gain_ms": 0.101011
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-path-tracing:24",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 0.124711,
+            "launch_gain_ms": 0.101011
+          },
+          "batch_ready": {
+            "action": [
+              "natural-path-tracing:24",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 0.124711,
+            "launch_gain_ms": 0.101011
+          }
+        }
+      }
+    },
+    {
+      "instance": "P0",
+      "batch": "fe3645412d1e9c4d4d639269",
+      "dispatch_ns": 652078357836846,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-make-doom-for-mips:119"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 274.968933,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 2.017013,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-make-doom-for-mips:119",
+              2
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 3.005021,
+            "launch_gain_ms": 2.99293
+          },
+          "batch_ready": {
+            "action": [
+              "natural-make-doom-for-mips:119",
+              2
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 3.005021,
+            "launch_gain_ms": 2.99293
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-make-doom-for-mips:119",
+              2
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 2.073695,
+            "launch_gain_ms": 2.061604
+          },
+          "batch_ready": {
+            "action": [
+              "natural-make-doom-for-mips:119",
+              2
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 2.073695,
+            "launch_gain_ms": 2.061604
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-make-doom-for-mips:119",
+              2
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 1.142369,
+            "launch_gain_ms": 1.130278
+          },
+          "batch_ready": {
+            "action": [
+              "natural-make-doom-for-mips:119",
+              2
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 1.142369,
+            "launch_gain_ms": 1.130278
+          }
+        }
+      }
+    },
+    {
+      "instance": "P1",
+      "batch": "ec14cef66fb62d6c9333c7bd",
+      "dispatch_ns": 652080232623587,
+      "requests_in_batch": 2,
+      "restore_requests": [
+        "natural-extract-elf:15"
+      ],
+      "scheduler_waiting": 8,
+      "dispatch_to_result_ms": 523.024179,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 21.908008,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-extract-elf:15",
+              2
+            ],
+            "extra_D_bytes": 356515840,
+            "communication_gain_ms": 0.86098,
+            "launch_gain_ms": 0.8732
+          },
+          "batch_ready": {
+            "action": [
+              "natural-extract-elf:15",
+              2
+            ],
+            "extra_D_bytes": 356515840,
+            "communication_gain_ms": 0.86098,
+            "launch_gain_ms": 0.8732
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-extract-elf:15",
+              2
+            ],
+            "extra_D_bytes": 356515840,
+            "communication_gain_ms": 0.86098,
+            "launch_gain_ms": 0.8732
+          },
+          "batch_ready": {
+            "action": [
+              "natural-extract-elf:15",
+              2
+            ],
+            "extra_D_bytes": 356515840,
+            "communication_gain_ms": 0.86098,
+            "launch_gain_ms": 0.8732
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-extract-elf:15",
+              2
+            ],
+            "extra_D_bytes": 356515840,
+            "communication_gain_ms": 0.86098,
+            "launch_gain_ms": 0.8732
+          },
+          "batch_ready": {
+            "action": [
+              "natural-extract-elf:15",
+              2
+            ],
+            "extra_D_bytes": 356515840,
+            "communication_gain_ms": 0.86098,
+            "launch_gain_ms": 0.8732
+          }
+        }
+      }
+    },
+    {
+      "instance": "P1",
+      "batch": "58b39ef9150c4ce06ed521e2",
+      "dispatch_ns": 652081635701392,
+      "requests_in_batch": 2,
+      "restore_requests": [
+        "natural-train-fasttext:71"
+      ],
+      "scheduler_waiting": 6,
+      "dispatch_to_result_ms": 931.4377,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 3.723734,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-train-fasttext:71",
+              0
+            ],
+            "extra_D_bytes": 41943040,
+            "communication_gain_ms": 4.798372,
+            "launch_gain_ms": 4.798372
+          },
+          "batch_ready": {
+            "action": [
+              "natural-train-fasttext:71",
+              0
+            ],
+            "extra_D_bytes": 41943040,
+            "communication_gain_ms": 4.798372,
+            "launch_gain_ms": 4.798372
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-train-fasttext:71",
+              0
+            ],
+            "extra_D_bytes": 41943040,
+            "communication_gain_ms": 3.533632,
+            "launch_gain_ms": 3.533632
+          },
+          "batch_ready": {
+            "action": [
+              "natural-train-fasttext:71",
+              0
+            ],
+            "extra_D_bytes": 41943040,
+            "communication_gain_ms": 3.533632,
+            "launch_gain_ms": 3.533632
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-train-fasttext:71",
+              0
+            ],
+            "extra_D_bytes": 41943040,
+            "communication_gain_ms": 2.268892,
+            "launch_gain_ms": 2.268892
+          },
+          "batch_ready": {
+            "action": [
+              "natural-train-fasttext:71",
+              0
+            ],
+            "extra_D_bytes": 41943040,
+            "communication_gain_ms": 2.268892,
+            "launch_gain_ms": 2.268892
+          }
+        }
+      }
+    },
+    {
+      "instance": "P1",
+      "batch": "87e29fdf6a0e2326adcd199c",
+      "dispatch_ns": 652082133628656,
+      "requests_in_batch": 3,
+      "restore_requests": [
+        "natural-install-windows-3.11:22"
+      ],
+      "scheduler_waiting": 6,
+      "dispatch_to_result_ms": 767.638635,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 23.045131,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-install-windows-3.11:22",
+              0
+            ],
+            "extra_D_bytes": 377487360,
+            "communication_gain_ms": 14.725343,
+            "launch_gain_ms": 14.868405
+          },
+          "batch_ready": {
+            "action": [
+              "natural-install-windows-3.11:22",
+              0
+            ],
+            "extra_D_bytes": 377487360,
+            "communication_gain_ms": 14.725343,
+            "launch_gain_ms": 14.868405
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-install-windows-3.11:22",
+              0
+            ],
+            "extra_D_bytes": 377487360,
+            "communication_gain_ms": 10.236301,
+            "launch_gain_ms": 10.236301
+          },
+          "batch_ready": {
+            "action": [
+              "natural-install-windows-3.11:22",
+              0
+            ],
+            "extra_D_bytes": 377487360,
+            "communication_gain_ms": 10.236301,
+            "launch_gain_ms": 10.236301
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-install-windows-3.11:22",
+              0
+            ],
+            "extra_D_bytes": 377487360,
+            "communication_gain_ms": 4.049959,
+            "launch_gain_ms": 4.049959
+          },
+          "batch_ready": {
+            "action": [
+              "natural-install-windows-3.11:22",
+              0
+            ],
+            "extra_D_bytes": 377487360,
+            "communication_gain_ms": 4.049959,
+            "launch_gain_ms": 4.049959
+          }
+        }
+      }
+    },
+    {
+      "instance": "P1",
+      "batch": "888089999e8f5f736d61a1d0",
+      "dispatch_ns": 652082578705458,
+      "requests_in_batch": 3,
+      "restore_requests": [
+        "natural-build-pmars:27"
+      ],
+      "scheduler_waiting": 5,
+      "dispatch_to_result_ms": 625.260891,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 21.682245,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-build-pmars:27",
+              0
+            ],
+            "extra_D_bytes": 356515840,
+            "communication_gain_ms": 18.013129,
+            "launch_gain_ms": 17.925207
+          },
+          "batch_ready": {
+            "action": [
+              "natural-build-pmars:27",
+              0
+            ],
+            "extra_D_bytes": 356515840,
+            "communication_gain_ms": 18.013129,
+            "launch_gain_ms": 17.925207
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-build-pmars:27",
+              0
+            ],
+            "extra_D_bytes": 356515840,
+            "communication_gain_ms": 12.657321,
+            "launch_gain_ms": 12.569399
+          },
+          "batch_ready": {
+            "action": [
+              "natural-build-pmars:27",
+              0
+            ],
+            "extra_D_bytes": 356515840,
+            "communication_gain_ms": 12.657321,
+            "launch_gain_ms": 12.569399
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-build-pmars:27",
+              0
+            ],
+            "extra_D_bytes": 356515840,
+            "communication_gain_ms": 7.301513,
+            "launch_gain_ms": 7.213591
+          },
+          "batch_ready": {
+            "action": [
+              "natural-build-pmars:27",
+              0
+            ],
+            "extra_D_bytes": 356515840,
+            "communication_gain_ms": 7.301513,
+            "launch_gain_ms": 7.213591
+          }
+        }
+      }
+    },
+    {
+      "instance": "P1",
+      "batch": "3b74c887dd442509d0c7c261",
+      "dispatch_ns": 652082937626478,
+      "requests_in_batch": 4,
+      "restore_requests": [
+        "natural-db-wal-recovery:19"
+      ],
+      "scheduler_waiting": 2,
+      "dispatch_to_result_ms": 585.503023,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 22.913049,
+      "possible_choices": 2,
+      "matched_choices": 0,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          },
+          "batch_ready": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          },
+          "batch_ready": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          },
+          "batch_ready": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          }
+        }
+      }
+    },
+    {
+      "instance": "P1",
+      "batch": "4bc489c7f28e3643a0df2315",
+      "dispatch_ns": 652084767433620,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-make-mips-interpreter:91"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 278.731877,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 2.447449,
+      "possible_choices": 2,
+      "matched_choices": 0,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          },
+          "batch_ready": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          },
+          "batch_ready": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          },
+          "batch_ready": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          }
+        }
+      }
+    },
+    {
+      "instance": "P1",
+      "batch": "ecd1b9eb66c8c21b83311657",
+      "dispatch_ns": 652086534536925,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-extract-moves-from-video:135"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 226.22806,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 1.927203,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-extract-moves-from-video:135",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 0.519606,
+            "launch_gain_ms": 0.511156
+          },
+          "batch_ready": {
+            "action": [
+              "natural-extract-moves-from-video:135",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 0.519606,
+            "launch_gain_ms": 0.511156
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-extract-moves-from-video:135",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 0.519606,
+            "launch_gain_ms": 0.511156
+          },
+          "batch_ready": {
+            "action": [
+              "natural-extract-moves-from-video:135",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 0.519606,
+            "launch_gain_ms": 0.511156
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-extract-moves-from-video:135",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 0.519606,
+            "launch_gain_ms": 0.511156
+          },
+          "batch_ready": {
+            "action": [
+              "natural-extract-moves-from-video:135",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 0.519606,
+            "launch_gain_ms": 0.511156
+          }
+        }
+      }
+    },
+    {
+      "instance": "P0",
+      "batch": "3bcd9102056dd05cfb4f788f",
+      "dispatch_ns": 652089287833504,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-path-tracing:26"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 298.103915,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 4.301941,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-path-tracing:26",
+              2
+            ],
+            "extra_D_bytes": 52428800,
+            "communication_gain_ms": 1.156234,
+            "launch_gain_ms": 1.150214
+          },
+          "batch_ready": {
+            "action": [
+              "natural-path-tracing:26",
+              2
+            ],
+            "extra_D_bytes": 52428800,
+            "communication_gain_ms": 1.156234,
+            "launch_gain_ms": 1.150214
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-path-tracing:26",
+              2
+            ],
+            "extra_D_bytes": 52428800,
+            "communication_gain_ms": 1.156234,
+            "launch_gain_ms": 1.150214
+          },
+          "batch_ready": {
+            "action": [
+              "natural-path-tracing:26",
+              2
+            ],
+            "extra_D_bytes": 52428800,
+            "communication_gain_ms": 1.156234,
+            "launch_gain_ms": 1.150214
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-path-tracing:26",
+              2
+            ],
+            "extra_D_bytes": 52428800,
+            "communication_gain_ms": 1.156234,
+            "launch_gain_ms": 1.150214
+          },
+          "batch_ready": {
+            "action": [
+              "natural-path-tracing:26",
+              2
+            ],
+            "extra_D_bytes": 52428800,
+            "communication_gain_ms": 1.156234,
+            "launch_gain_ms": 1.150214
+          }
+        }
+      }
+    },
+    {
+      "instance": "P1",
+      "batch": "4ce9b3d246b03750f6e52ca7",
+      "dispatch_ns": 652091533203061,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-raman-fitting:28"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 365.210154,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 41.633328,
+      "possible_choices": 2,
+      "matched_choices": 0,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          },
+          "batch_ready": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          },
+          "batch_ready": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          },
+          "batch_ready": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          }
+        }
+      }
+    },
+    {
+      "instance": "P0",
+      "batch": "87474d9e4240119f822b1714",
+      "dispatch_ns": 652094709088559,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-build-pmars:28"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 220.650144,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 2.48005,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-build-pmars:28",
+              0
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 2.302697,
+            "launch_gain_ms": 2.312517
+          },
+          "batch_ready": {
+            "action": [
+              "natural-build-pmars:28",
+              0
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 2.302697,
+            "launch_gain_ms": 2.312517
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-build-pmars:28",
+              0
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 2.302697,
+            "launch_gain_ms": 2.312517
+          },
+          "batch_ready": {
+            "action": [
+              "natural-build-pmars:28",
+              0
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 2.302697,
+            "launch_gain_ms": 2.312517
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-build-pmars:28",
+              0
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 2.302697,
+            "launch_gain_ms": 2.312517
+          },
+          "batch_ready": {
+            "action": [
+              "natural-build-pmars:28",
+              0
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 2.302697,
+            "launch_gain_ms": 2.312517
+          }
+        }
+      }
+    },
+    {
+      "instance": "P0",
+      "batch": "dbddd548927e5cdfbbfb3722",
+      "dispatch_ns": 652094939770141,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-build-cython-ext:39"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 388.052322,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 22.273431,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-build-cython-ext:39",
+              2
+            ],
+            "extra_D_bytes": 367001600,
+            "communication_gain_ms": 2.338737,
+            "launch_gain_ms": 2.345478
+          },
+          "batch_ready": {
+            "action": [
+              "natural-build-cython-ext:39",
+              2
+            ],
+            "extra_D_bytes": 367001600,
+            "communication_gain_ms": 2.338737,
+            "launch_gain_ms": 2.345478
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-build-cython-ext:39",
+              2
+            ],
+            "extra_D_bytes": 367001600,
+            "communication_gain_ms": 2.338737,
+            "launch_gain_ms": 2.345478
+          },
+          "batch_ready": {
+            "action": [
+              "natural-build-cython-ext:39",
+              2
+            ],
+            "extra_D_bytes": 367001600,
+            "communication_gain_ms": 2.338737,
+            "launch_gain_ms": 2.345478
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-build-cython-ext:39",
+              2
+            ],
+            "extra_D_bytes": 367001600,
+            "communication_gain_ms": 2.338737,
+            "launch_gain_ms": 2.345478
+          },
+          "batch_ready": {
+            "action": [
+              "natural-build-cython-ext:39",
+              2
+            ],
+            "extra_D_bytes": 367001600,
+            "communication_gain_ms": 2.338737,
+            "launch_gain_ms": 2.345478
+          }
+        }
+      }
+    },
+    {
+      "instance": "P0",
+      "batch": "71a493f5581fedae9cbf66c1",
+      "dispatch_ns": 652095108293672,
+      "requests_in_batch": 2,
+      "restore_requests": [
+        "natural-extract-moves-from-video:136"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 419.878136,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 1.951504,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-extract-moves-from-video:136",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 0.87134,
+            "launch_gain_ms": 0.902851
+          },
+          "batch_ready": {
+            "action": [
+              "natural-extract-moves-from-video:136",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 0.87134,
+            "launch_gain_ms": 0.902851
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-extract-moves-from-video:136",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 0.87134,
+            "launch_gain_ms": 0.902851
+          },
+          "batch_ready": {
+            "action": [
+              "natural-extract-moves-from-video:136",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 0.87134,
+            "launch_gain_ms": 0.902851
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-extract-moves-from-video:136",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 0.87134,
+            "launch_gain_ms": 0.902851
+          },
+          "batch_ready": {
+            "action": [
+              "natural-extract-moves-from-video:136",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 0.87134,
+            "launch_gain_ms": 0.902851
+          }
+        }
+      }
+    },
+    {
+      "instance": "P0",
+      "batch": "04c22e56431c73b98f1c24e4",
+      "dispatch_ns": 652095874161646,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-db-wal-recovery:20"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 192.417322,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 2.48721,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-db-wal-recovery:20",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 0.438125,
+            "launch_gain_ms": 0.381915
+          },
+          "batch_ready": {
+            "action": [
+              "natural-db-wal-recovery:20",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 0.438125,
+            "launch_gain_ms": 0.381915
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-db-wal-recovery:20",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 0.438125,
+            "launch_gain_ms": 0.381915
+          },
+          "batch_ready": {
+            "action": [
+              "natural-db-wal-recovery:20",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 0.438125,
+            "launch_gain_ms": 0.381915
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-db-wal-recovery:20",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 0.438125,
+            "launch_gain_ms": 0.381915
+          },
+          "batch_ready": {
+            "action": [
+              "natural-db-wal-recovery:20",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 0.438125,
+            "launch_gain_ms": 0.381915
+          }
+        }
+      }
+    },
+    {
+      "instance": "P0",
+      "batch": "13823368afdf984a2ba97982",
+      "dispatch_ns": 652096262936486,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-gpt2-codegolf:29"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 224.309637,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 3.008815,
+      "possible_choices": 2,
+      "matched_choices": 0,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          },
+          "batch_ready": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          },
+          "batch_ready": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          },
+          "batch_ready": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          }
+        }
+      }
+    },
+    {
+      "instance": "P1",
+      "batch": "9258d4b20374b35e233c3d0e",
+      "dispatch_ns": 652101386604262,
+      "requests_in_batch": 4,
+      "restore_requests": [
+        "natural-video-processing:30",
+        "natural-fix-ocaml-gc:31"
+      ],
+      "scheduler_waiting": 1,
+      "dispatch_to_result_ms": 746.167303,
+      "copy_ms_before_later_get": {
+        "n": 4,
+        "mean": 2.025419,
+        "p50": 2.003424,
+        "p95": 2.121085,
+        "max": 2.121085,
+        "p99": 2.121085
+      },
+      "zero_copy_launch_gain_ms": 23.589898,
+      "possible_choices": 4,
+      "matched_choices": 4,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-video-processing:30",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 0.749939,
+            "launch_gain_ms": 0.727868
+          },
+          "batch_ready": {
+            "action": [
+              "natural-video-processing:30",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 0.749939,
+            "launch_gain_ms": 0.727868
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-video-processing:30",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 0.749939,
+            "launch_gain_ms": 0.727868
+          },
+          "batch_ready": {
+            "action": [
+              "natural-video-processing:30",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 0.749939,
+            "launch_gain_ms": 0.727868
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-video-processing:30",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 0.749939,
+            "launch_gain_ms": 0.727868
+          },
+          "batch_ready": {
+            "action": [
+              "natural-video-processing:30",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 0.749939,
+            "launch_gain_ms": 0.727868
+          }
+        }
+      }
+    },
+    {
+      "instance": "P1",
+      "batch": "3a1eb6df9b492081c5ad4990",
+      "dispatch_ns": 652101709920253,
+      "requests_in_batch": 4,
+      "restore_requests": [
+        "natural-mteb-leaderboard:39"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 706.337394,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 2.614281,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-mteb-leaderboard:39",
+              0
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 4.704331,
+            "launch_gain_ms": 4.66234
+          },
+          "batch_ready": {
+            "action": [
+              "natural-mteb-leaderboard:39",
+              0
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 4.704331,
+            "launch_gain_ms": 4.66234
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-mteb-leaderboard:39",
+              0
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 4.067829,
+            "launch_gain_ms": 4.025838
+          },
+          "batch_ready": {
+            "action": [
+              "natural-mteb-leaderboard:39",
+              0
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 4.067829,
+            "launch_gain_ms": 4.025838
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-mteb-leaderboard:39",
+              0
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 3.431327,
+            "launch_gain_ms": 3.389336
+          },
+          "batch_ready": {
+            "action": [
+              "natural-mteb-leaderboard:39",
+              0
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 3.431327,
+            "launch_gain_ms": 3.389336
+          }
+        }
+      }
+    },
+    {
+      "instance": "P1",
+      "batch": "6ede8f779ba6e1806c168d79",
+      "dispatch_ns": 652103673726351,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-chess-best-move:26"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 297.932112,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 24.639049,
+      "possible_choices": 2,
+      "matched_choices": 0,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          },
+          "batch_ready": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          },
+          "batch_ready": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          },
+          "batch_ready": {
+            "action": null,
+            "extra_D_bytes": 0,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.0
+          }
+        }
+      }
+    },
+    {
+      "instance": "P1",
+      "batch": "6971cadc36c39f8ca59b7c57",
+      "dispatch_ns": 652104170697813,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-make-doom-for-mips:121"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 324.140141,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 2.430098,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-make-doom-for-mips:121",
+              0
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 4.151974,
+            "launch_gain_ms": 4.099743
+          },
+          "batch_ready": {
+            "action": [
+              "natural-make-doom-for-mips:121",
+              0
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 4.151974,
+            "launch_gain_ms": 4.099743
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-make-doom-for-mips:121",
+              0
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 3.38892,
+            "launch_gain_ms": 3.336689
+          },
+          "batch_ready": {
+            "action": [
+              "natural-make-doom-for-mips:121",
+              0
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 3.38892,
+            "launch_gain_ms": 3.336689
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-make-doom-for-mips:121",
+              0
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 2.625866,
+            "launch_gain_ms": 2.573635
+          },
+          "batch_ready": {
+            "action": [
+              "natural-make-doom-for-mips:121",
+              0
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 2.625866,
+            "launch_gain_ms": 2.573635
+          }
+        }
+      }
+    },
+    {
+      "instance": "P0",
+      "batch": "db300e857c689694edeee68a",
+      "dispatch_ns": 652104878894019,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-install-windows-3.11:23"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 220.586124,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 2.667941,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-install-windows-3.11:23",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 3.763727,
+            "launch_gain_ms": 3.763727
+          },
+          "batch_ready": {
+            "action": [
+              "natural-install-windows-3.11:23",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 3.763727,
+            "launch_gain_ms": 3.763727
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-install-windows-3.11:23",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 2.764653,
+            "launch_gain_ms": 2.764653
+          },
+          "batch_ready": {
+            "action": [
+              "natural-install-windows-3.11:23",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 2.764653,
+            "launch_gain_ms": 2.764653
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-install-windows-3.11:23",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 1.765579,
+            "launch_gain_ms": 1.765579
+          },
+          "batch_ready": {
+            "action": [
+              "natural-install-windows-3.11:23",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 1.765579,
+            "launch_gain_ms": 1.765579
+          }
+        }
+      }
+    },
+    {
+      "instance": "P0",
+      "batch": "42fafde8cfd6dfaff0e51e17",
+      "dispatch_ns": 652109942969245,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-make-mips-interpreter:92"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 257.368745,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 2.50358,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-make-mips-interpreter:92",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 0.409465,
+            "launch_gain_ms": 0.445605
+          },
+          "batch_ready": {
+            "action": [
+              "natural-make-mips-interpreter:92",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 0.409465,
+            "launch_gain_ms": 0.445605
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-make-mips-interpreter:92",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 0.409465,
+            "launch_gain_ms": 0.445605
+          },
+          "batch_ready": {
+            "action": [
+              "natural-make-mips-interpreter:92",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 0.409465,
+            "launch_gain_ms": 0.445605
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-make-mips-interpreter:92",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 0.409465,
+            "launch_gain_ms": 0.445605
+          },
+          "batch_ready": {
+            "action": [
+              "natural-make-mips-interpreter:92",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 0.409465,
+            "launch_gain_ms": 0.445605
+          }
+        }
+      }
+    },
+    {
+      "instance": "P0",
+      "batch": "b618e9769d3596357183fc7f",
+      "dispatch_ns": 652113253787898,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-make-doom-for-mips:122"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 228.082532,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 3.146096,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-make-doom-for-mips:122",
+              2
+            ],
+            "extra_D_bytes": 31457280,
+            "communication_gain_ms": 3.796224,
+            "launch_gain_ms": 3.789855
+          },
+          "batch_ready": {
+            "action": [
+              "natural-make-doom-for-mips:122",
+              2
+            ],
+            "extra_D_bytes": 31457280,
+            "communication_gain_ms": 3.796224,
+            "launch_gain_ms": 3.789855
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-make-doom-for-mips:122",
+              2
+            ],
+            "extra_D_bytes": 31457280,
+            "communication_gain_ms": 3.796224,
+            "launch_gain_ms": 3.789855
+          },
+          "batch_ready": {
+            "action": [
+              "natural-make-doom-for-mips:122",
+              2
+            ],
+            "extra_D_bytes": 31457280,
+            "communication_gain_ms": 3.796224,
+            "launch_gain_ms": 3.789855
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-make-doom-for-mips:122",
+              2
+            ],
+            "extra_D_bytes": 31457280,
+            "communication_gain_ms": 3.338209,
+            "launch_gain_ms": 3.338209
+          },
+          "batch_ready": {
+            "action": [
+              "natural-make-doom-for-mips:122",
+              2
+            ],
+            "extra_D_bytes": 31457280,
+            "communication_gain_ms": 3.338209,
+            "launch_gain_ms": 3.338209
+          }
+        }
+      }
+    },
+    {
+      "instance": "P0",
+      "batch": "67637dbc996bd4fd49e2e2f7",
+      "dispatch_ns": 652113707023757,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-gcode-to-text:102"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 218.305456,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 3.552022,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-gcode-to-text:102",
+              2
+            ],
+            "extra_D_bytes": 41943040,
+            "communication_gain_ms": 0.01362,
+            "launch_gain_ms": 0.0
+          },
+          "batch_ready": {
+            "action": [
+              "natural-gcode-to-text:102",
+              0
+            ],
+            "extra_D_bytes": 41943040,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.02855
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-gcode-to-text:102",
+              2
+            ],
+            "extra_D_bytes": 41943040,
+            "communication_gain_ms": 0.01362,
+            "launch_gain_ms": 0.0
+          },
+          "batch_ready": {
+            "action": [
+              "natural-gcode-to-text:102",
+              0
+            ],
+            "extra_D_bytes": 41943040,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.02855
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-gcode-to-text:102",
+              2
+            ],
+            "extra_D_bytes": 41943040,
+            "communication_gain_ms": 0.01362,
+            "launch_gain_ms": 0.0
+          },
+          "batch_ready": {
+            "action": [
+              "natural-gcode-to-text:102",
+              0
+            ],
+            "extra_D_bytes": 41943040,
+            "communication_gain_ms": 0.0,
+            "launch_gain_ms": 0.02855
+          }
+        }
+      }
+    },
+    {
+      "instance": "P0",
+      "batch": "404ca90a5864b6ee81797b93",
+      "dispatch_ns": 652114308251835,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-mteb-leaderboard:40"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 212.139714,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 1.904734,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-mteb-leaderboard:40",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 3.363649,
+            "launch_gain_ms": 3.363649
+          },
+          "batch_ready": {
+            "action": [
+              "natural-mteb-leaderboard:40",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 3.363649,
+            "launch_gain_ms": 3.363649
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-mteb-leaderboard:40",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 2.805413,
+            "launch_gain_ms": 2.805413
+          },
+          "batch_ready": {
+            "action": [
+              "natural-mteb-leaderboard:40",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 2.805413,
+            "launch_gain_ms": 2.805413
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-mteb-leaderboard:40",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 2.247177,
+            "launch_gain_ms": 2.247177
+          },
+          "batch_ready": {
+            "action": [
+              "natural-mteb-leaderboard:40",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 2.247177,
+            "launch_gain_ms": 2.247177
+          }
+        }
+      }
+    },
+    {
+      "instance": "P0",
+      "batch": "a08c3145ccccb9629c1d199c",
+      "dispatch_ns": 652117349194436,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-raman-fitting:29"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 295.610685,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 1.859841,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-raman-fitting:29",
+              2
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 2.785163,
+            "launch_gain_ms": 2.766192
+          },
+          "batch_ready": {
+            "action": [
+              "natural-raman-fitting:29",
+              2
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 2.785163,
+            "launch_gain_ms": 2.766192
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-raman-fitting:29",
+              2
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 2.785163,
+            "launch_gain_ms": 2.724851
+          },
+          "batch_ready": {
+            "action": [
+              "natural-raman-fitting:29",
+              2
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 2.785163,
+            "launch_gain_ms": 2.724851
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-raman-fitting:29",
+              2
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 2.127677,
+            "launch_gain_ms": 2.060896
+          },
+          "batch_ready": {
+            "action": [
+              "natural-raman-fitting:29",
+              2
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 2.127677,
+            "launch_gain_ms": 2.060896
+          }
+        }
+      }
+    },
+    {
+      "instance": "P1",
+      "batch": "9d7cebfa87b7a14aa92cc8bf",
+      "dispatch_ns": 652120245367434,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-regex-chess:109"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 347.720538,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 5.092149,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-regex-chess:109",
+              0
+            ],
+            "extra_D_bytes": 62914560,
+            "communication_gain_ms": 1.76467,
+            "launch_gain_ms": 1.7288
+          },
+          "batch_ready": {
+            "action": [
+              "natural-regex-chess:109",
+              0
+            ],
+            "extra_D_bytes": 62914560,
+            "communication_gain_ms": 1.76467,
+            "launch_gain_ms": 1.7288
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-regex-chess:109",
+              0
+            ],
+            "extra_D_bytes": 62914560,
+            "communication_gain_ms": 1.76467,
+            "launch_gain_ms": 1.7288
+          },
+          "batch_ready": {
+            "action": [
+              "natural-regex-chess:109",
+              0
+            ],
+            "extra_D_bytes": 62914560,
+            "communication_gain_ms": 1.76467,
+            "launch_gain_ms": 1.7288
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-regex-chess:109",
+              0
+            ],
+            "extra_D_bytes": 62914560,
+            "communication_gain_ms": 1.76467,
+            "launch_gain_ms": 1.7288
+          },
+          "batch_ready": {
+            "action": [
+              "natural-regex-chess:109",
+              0
+            ],
+            "extra_D_bytes": 62914560,
+            "communication_gain_ms": 1.76467,
+            "launch_gain_ms": 1.7288
+          }
+        }
+      }
+    },
+    {
+      "instance": "P0",
+      "batch": "65b0c5ac946657337f5ff2cd",
+      "dispatch_ns": 652121884174701,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-fix-ocaml-gc:32"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 196.854724,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 2.002693,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-fix-ocaml-gc:32",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 4.167102,
+            "launch_gain_ms": 4.180792
+          },
+          "batch_ready": {
+            "action": [
+              "natural-fix-ocaml-gc:32",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 4.167102,
+            "launch_gain_ms": 4.180792
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-fix-ocaml-gc:32",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 3.575442,
+            "launch_gain_ms": 3.589132
+          },
+          "batch_ready": {
+            "action": [
+              "natural-fix-ocaml-gc:32",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 3.575442,
+            "launch_gain_ms": 3.589132
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-fix-ocaml-gc:32",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 2.983782,
+            "launch_gain_ms": 2.997472
+          },
+          "batch_ready": {
+            "action": [
+              "natural-fix-ocaml-gc:32",
+              0
+            ],
+            "extra_D_bytes": 10485760,
+            "communication_gain_ms": 2.983782,
+            "launch_gain_ms": 2.997472
+          }
+        }
+      }
+    },
+    {
+      "instance": "P0",
+      "batch": "b46f980889c566be919f518e",
+      "dispatch_ns": 652127362887771,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-chess-best-move:27"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 192.140819,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 2.47017,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-chess-best-move:27",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 2.157535,
+            "launch_gain_ms": 2.089725
+          },
+          "batch_ready": {
+            "action": [
+              "natural-chess-best-move:27",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 2.157535,
+            "launch_gain_ms": 2.089725
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-chess-best-move:27",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 1.347836,
+            "launch_gain_ms": 1.295186
+          },
+          "batch_ready": {
+            "action": [
+              "natural-chess-best-move:27",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 1.347836,
+            "launch_gain_ms": 1.295186
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-chess-best-move:27",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 0.187168,
+            "launch_gain_ms": 0.134518
+          },
+          "batch_ready": {
+            "action": [
+              "natural-chess-best-move:27",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 0.187168,
+            "launch_gain_ms": 0.134518
+          }
+        }
+      }
+    },
+    {
+      "instance": "P0",
+      "batch": "892540556e732a67b8b0c4d9",
+      "dispatch_ns": 652134918888603,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-regex-chess:110"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 266.103688,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 2.430698,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-regex-chess:110",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 2.342158,
+            "launch_gain_ms": 2.301747
+          },
+          "batch_ready": {
+            "action": [
+              "natural-regex-chess:110",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 2.342158,
+            "launch_gain_ms": 2.301747
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-regex-chess:110",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 1.931393,
+            "launch_gain_ms": 1.898382
+          },
+          "batch_ready": {
+            "action": [
+              "natural-regex-chess:110",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 1.931393,
+            "launch_gain_ms": 1.898382
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-regex-chess:110",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 0.84029,
+            "launch_gain_ms": 0.807279
+          },
+          "batch_ready": {
+            "action": [
+              "natural-regex-chess:110",
+              2
+            ],
+            "extra_D_bytes": 20971520,
+            "communication_gain_ms": 0.84029,
+            "launch_gain_ms": 0.807279
+          }
+        }
+      }
+    },
+    {
+      "instance": "P0",
+      "batch": "3aa6e60779e66e40c4d9559d",
+      "dispatch_ns": 652149463844049,
+      "requests_in_batch": 1,
+      "restore_requests": [
+        "natural-winning-avg-corewars:131"
+      ],
+      "scheduler_waiting": 0,
+      "dispatch_to_result_ms": 433.437536,
+      "copy_ms_before_later_get": {
+        "n": 0
+      },
+      "zero_copy_launch_gain_ms": 119.312942,
+      "possible_choices": 2,
+      "matched_choices": 2,
+      "sensitivity": {
+        "0.75": {
+          "communication_finish": {
+            "action": [
+              "natural-winning-avg-corewars:131",
+              2
+            ],
+            "extra_D_bytes": 2107637760,
+            "communication_gain_ms": 1.825862,
+            "launch_gain_ms": 1.785141
+          },
+          "batch_ready": {
+            "action": [
+              "natural-winning-avg-corewars:131",
+              2
+            ],
+            "extra_D_bytes": 2107637760,
+            "communication_gain_ms": 1.825862,
+            "launch_gain_ms": 1.785141
+          }
+        },
+        "1.0": {
+          "communication_finish": {
+            "action": [
+              "natural-winning-avg-corewars:131",
+              2
+            ],
+            "extra_D_bytes": 2107637760,
+            "communication_gain_ms": 1.825862,
+            "launch_gain_ms": 1.785141
+          },
+          "batch_ready": {
+            "action": [
+              "natural-winning-avg-corewars:131",
+              2
+            ],
+            "extra_D_bytes": 2107637760,
+            "communication_gain_ms": 1.825862,
+            "launch_gain_ms": 1.785141
+          }
+        },
+        "1.25": {
+          "communication_finish": {
+            "action": [
+              "natural-winning-avg-corewars:131",
+              2
+            ],
+            "extra_D_bytes": 2107637760,
+            "communication_gain_ms": 1.825862,
+            "launch_gain_ms": 1.785141
+          },
+          "batch_ready": {
+            "action": [
+              "natural-winning-avg-corewars:131",
+              2
+            ],
+            "extra_D_bytes": 2107637760,
+            "communication_gain_ms": 1.825862,
+            "launch_gain_ms": 1.785141
+          }
+        }
+      }
+    }
+  ],
+  "protocol": {
+    "run_id": "2p2d-20261118-r18-natural-packed",
+    "source_native_run": "2p2d-20261118-natural-repro-r11",
+    "prefill_local_APC": true,
+    "P_token_budget": 4096,
+    "D_port_configured_current_Mbps_before_after": 200000,
+    "D_port_count": 8,
+    "traffic_injected": false,
+    "same_head_guard": true,
+    "r18_capture_sha256": "d409442ad85227c43644e172f10df7038bb4b8de9b636cc70947984021eb100f",
+    "counts_source": "P trace and D proxy complete; 168 client completion records persisted",
+    "client_endpoint_status": "SSH interruption triggered cleanup; use P trace only for screening",
+    "both_controllers_finished_and_active_restored": true,
+    "idle_cards_after": 16,
+    "calibration": "same stable request, P instance, rank and original GET descriptor bytes",
+    "candidate_limit": "one same-head restore demoted to direct read per observed batch",
+    "timestamp_objective": "last host rank forward entry; predictions hold observed release times, unaffected service, and local gaps fixed"
+  },
+  "event_files_sha256": {
+    "r18-P.jsonl.gz": "32acc396be9b692de0b9154fb2b83c97cabce756ed6f257b0b7be871cc07c6d4",
+    "r18-D.jsonl.gz": "f629f8e39f5c8dd89f4ed64d25611ecae06a8cb9233e1c6155f5ce69ce0be35a",
+    "r11-native-P.jsonl.gz": "5124e81fc31298ad9240158c329993dcf183856490d7d7a4946acc876531c5f7",
+    "r11-native-D.jsonl.gz": "2488cf9f841e8dffe97e3e08c1069851ddb33674606f5864c16de736dd7e7d4d"
+  }
+}

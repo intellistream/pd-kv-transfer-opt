@@ -2,6 +2,7 @@
 
 本文件随项目进展更新。实验目标、已验证结果和后续假设分别见 [结果](docs/results.md) 与 [模拟器](docs/simulator.md)。
 
+- 按 [研究七步法](docs/research-seven-steps.md) 维护问题、证据、现有方法局限、唯一 key idea、设计、对照及结论。得到反例时更新主张和实验优先级。把机制代理、支持范围和同平台实测分开记录。
 - 当前研究 P/D 分离推理中的同步远端 KV GET，以及由此引发的 EngineCore 取件等待、批次等待和排队。系统改造、调度方案和组合策略应建立各自可比较的对照。
 - 优先用已发布的 r14 事件重算，核对同一请求在客户端、代理、调度器、worker、原生 API 和设备事件里的关联。避免重复计入有包含关系的阶段。
 - 实机主路线为两台 8 卡 910B2 上的官方 vLLM、vLLM-Ascend 与 Mooncake NPU wheel。Attention TP4 和 expert EP4 共用每实例四张卡。高命中诊断关闭 P 本地 APC，原会话另有启用 APC 的对照。
