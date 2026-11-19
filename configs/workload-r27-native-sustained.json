@@ -1,0 +1,28 @@
+{
+  "source_plan": "workload-r26-native-pressure.json",
+  "source_plan_sha256": "9eec2404c43f0d9c5285a10b535ba665a2f0260af09d81aef98b85dcb0557a30",
+  "mode": "native",
+  "repeat_count": 12,
+  "p_local_prefix_caching": false,
+  "wave_period_s": 0.25,
+  "preparation_interval_s": 2,
+  "pool_capacity_GiB": 128,
+  "max_num_seqs_per_D": 16,
+  "analysis_windows_s": {
+    "arrival": [0, 32.8],
+    "startup": [0, 10],
+    "fill": [10, 18],
+    "steady_candidate": [18, 32],
+    "pending_after_arrivals": [34, 48]
+  },
+  "steady_output": {
+    "window": "steady_candidate",
+    "bin_s": 2,
+    "max_rate_cv": 0.10,
+    "max_half_rate_change": 0.10
+  },
+  "cases": {
+    "a-b1-cap100": {"cap": 100, "mode": "native"},
+    "b-b1-cap200": {"cap": 200, "mode": "native"}
+  }
+}

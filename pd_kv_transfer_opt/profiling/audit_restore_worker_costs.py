@@ -15,13 +15,17 @@ def ms(ns):
 
 
 def get_case_nodes(prefill, decode):
-    names = client_ids(decode)
     cases = {row["id"]: manifest["case"] for manifest in decode["client_manifest"]
              if manifest["phase"] == "target" and manifest["case"].startswith(("a-", "b-"))
              for row in manifest["request_sources"]}
     batches, nodes, errors, unmatched = join_forwards(prefill)
     if errors or unmatched or len(batches) != len(nodes):
         raise ValueError("Incomplete scheduler/worker join")
+    return group_case_nodes(nodes, client_ids(decode), cases)
+
+
+def group_case_nodes(nodes, names, cases):
+    """Attach measured restore order to joined nodes for the selected request cases."""
     by_case = defaultdict(list)
     seen = set()
     for node in nodes:

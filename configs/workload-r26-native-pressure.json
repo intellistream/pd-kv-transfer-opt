@@ -1,0 +1,19 @@
+{
+  "source_plan": "workload-r25-multiwave.json",
+  "source_plan_sha256": "1c7d676f78b03c3d4e318f8fcb5db1b8091eeea4ea4872e35f9fe602e09bd6b7",
+  "mode": "native",
+  "wave_period_s": 0.25,
+  "analysis_windows_s": {
+    "arrival": [0, 2.55],
+    "early_handoff": [1, 6],
+    "prefill_and_handoff": [0, 10],
+    "decode_fill": [10, 35],
+    "after_handoff": [35, 70]
+  },
+  "cases": {
+    "a-b1-cap100": {"cap": 100, "mode": "native"},
+    "b-b1-cap200": {"cap": 200, "mode": "native"},
+    "b-b2-cap200": {"cap": 200, "mode": "native"},
+    "a-b2-cap100": {"cap": 100, "mode": "native"}
+  }
+}

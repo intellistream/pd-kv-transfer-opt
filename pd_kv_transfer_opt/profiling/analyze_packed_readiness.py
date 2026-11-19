@@ -175,7 +175,7 @@ def join_forwards(prefill):
     return batches, joined, errors, unmatched
 
 
-def replay(node, direct=None, remove_copy=False):
+def replay(node, direct=None, remove_copy=False, staged=None):
     """Replay this batch with fixed releases, observed gaps and GET service."""
     states = {}
     for pair in ((0, 1), (2, 3)):
@@ -188,7 +188,11 @@ def replay(node, direct=None, remove_copy=False):
             if min(gap) < 0:
                 raise ValueError("GET begins before the preceding phase completed")
             begin = [t + g for t, g in zip(cursor, gap, strict=True)]
-            stop = [t + read.end - read.begin for t, read in zip(begin, reads, strict=True)]
+            if staged is not None and staged[0] == index:
+                _, completed, scatter_ns = staged
+                stop = [max(t, completed[rank]) + scatter_ns for rank, t in zip(pair, begin, strict=True)]
+            else:
+                stop = [t + read.end - read.begin for t, read in zip(begin, reads, strict=True)]
             if direct is not None and direct[0] == (a, index):
                 cursor = [t + duration for t, duration in zip(begin, direct[1], strict=True)]
             elif reads[0].copy is not None and reads[1].copy is not None:

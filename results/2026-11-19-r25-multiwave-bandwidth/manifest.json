@@ -1,0 +1,148 @@
+{
+  "run_id": "2p2d-20261119-r25-multiwave-bandwidth",
+  "workload": {
+    "path": "configs/workload-r25-multiwave.json",
+    "bytes": 17362,
+    "sha256": "1c7d676f78b03c3d4e318f8fcb5db1b8091eeea4ea4872e35f9fe602e09bd6b7",
+    "source_revision": "3f5b93ff1c5ea84b2c94cf479d0c942227191b4a",
+    "materialized_workload_sha256": "002a1c1fd6bbcfc275c93cb5d6211ad4578c37a11db900d7797ad6cf567237c0",
+    "target_requests_per_arm": 22,
+    "predecessor_requests_per_arm": 22,
+    "target_tokens_per_arm": 59906
+  },
+  "case_order": [
+    "a-b1-cap100",
+    "b-b1-cap200",
+    "b-b2-cap200",
+    "a-b2-cap100"
+  ],
+  "closed_raw_sources": {
+    "P": {
+      "bytes": 2205298,
+      "sha256": "54bce009d3c5ee1e7c2fdcb86f38c4965c3cb42a33c288ddf27bc61cc60cf19c",
+      "rows": {
+        "scope": 1,
+        "runtime_state": 1,
+        "clock": 1,
+        "native": 69750,
+        "worker_rank": 8
+      }
+    },
+    "D": {
+      "bytes": 958941,
+      "sha256": "9647e341b67b482f1de17bf80d825c607c9fab6098175ab98db0a4efd51c8b2d",
+      "rows": {
+        "scope": 1,
+        "runtime_state": 1,
+        "clock": 1,
+        "native": 4240,
+        "worker_rank": 8,
+        "cap_control": 43,
+        "cap_port_sample": 3246,
+        "decode_supply_sample": 1934,
+        "proxy": 1064,
+        "client_manifest": 8,
+        "client": 184,
+        "client_token_bin": 2417,
+        "client_summary": 8
+      }
+    }
+  },
+  "runtime_inheritance": "r21 synchronous same-head pack on P and the existing FULL_DECODE_ONLY setup on D.",
+  "restore_decisions_by_mode": {
+    "packed": 352
+  },
+  "alternative_execution_events": {
+    "p_admission_early_add": 0,
+    "r20_pipeline_batch": 0,
+    "r21_early_get": 0
+  },
+  "site_harness_sha256": {
+    "P/r25-active.json": "19e85ccec82bb2f5ccaf97eeaf90017551448160534a1f28232ed2516ee18200",
+    "P/export_r25.py": "3a3c004ac5a7ddf8a82a5dbb8dd81f0b5131b80d88198799b214639f42b5c117",
+    "D/r25-active.json": "c673968395a46f774aa2d36a5446962071d1e70cebec0dd3d018aaa653897880",
+    "D/load_r25.py": "d171ef430731ea2acfa1cc1368c80f920996fc686317f2ed397199897c3219c5",
+    "D/metrics_r25.py": "282b896b161ad748e8d1a599fe2dcf2f8157eb81441311cb62a45e09b00e7ab1",
+    "D/run_stage_r25.py": "cd85b13504d80e0d5d131ea683e844458751118842f76bd9a84cf31dff1a623a",
+    "D/reset_r25_pool.py": "1d70582d265506000ad471eafd8b9940c2552d228ef46956ba9de05ed177d288",
+    "D/start_proxy_r25.py": "91ba2ecb5dcc773ce681ff6adde988fd94e55676bcf774c5990364f2e5ca6279",
+    "D/export_r25.py": "3a3c004ac5a7ddf8a82a5dbb8dd81f0b5131b80d88198799b214639f42b5c117",
+    "D/r19_loadgen.py": "f99af77160f7702df411913b247b7158630d83ca2505abb64447f81bef01a8b8",
+    "drive_r25.py": "694f2f45d52807ba92fedbce17b64cd64c19c4d9207fb40fd1aa0579128b0340",
+    "cleanup_r25.py": "d1d1381cc15f78075a425f9b5e73ee69f68f6d35602ca22d1e95934a965793e2"
+  },
+  "analysis_sha256": {
+    "analyze_multiwave.py": "9c0c2af5fa818c1a9adbbb364a4e617d6fd4b46f7acb9ac504fdff2c1309a6f0",
+    "public_bundle.py": "78f5cc49251a77838eac465bf5bfbbe6b8e38cf7ca395090d07e76e3b3ed50f6"
+  },
+  "cleanup": {
+    "P": {
+      "controller_finished": true,
+      "original_active_config_sha256": "344ee7cfb5f096f8fc15bc5cc3a26b498e7d6529c24e7820e14005bb475c8bd4",
+      "active_config_unchanged": true,
+      "idle_cards": 8
+    },
+    "D": {
+      "controller_finished": true,
+      "original_active_config_sha256": "5c787cdb511bd6761374b6a57daafbe34dfdc97a7a99058ff08d5e3695cebe16",
+      "active_config_unchanged": true,
+      "idle_cards": 8,
+      "D_port_readback": {
+        "0": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        },
+        "1": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        },
+        "2": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        },
+        "3": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        },
+        "4": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        },
+        "5": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        },
+        "6": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        },
+        "7": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        }
+      }
+    }
+  },
+  "artifacts": {
+    "r25-D.jsonl.gz": {
+      "bytes": 838608,
+      "sha256": "b8ca60d612ff9db48c5e00eb9c3aad1bba2d4ed2f48a0400a47133fe1035a155"
+    },
+    "r25-P.jsonl.gz": {
+      "bytes": 1867558,
+      "sha256": "0f6433aa17de9e35c1d91288f436aba9017a0905b4451933873f5f8570001789"
+    },
+    "summary.json": {
+      "bytes": 166071,
+      "sha256": "b6bcea38c62625aeac3eae68a191f5eabfbea2b7cf9675fa79486aea2be9b3f0"
+    }
+  }
+}

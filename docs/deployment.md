@@ -6,27 +6,29 @@ r14 使用两台各八卡的 910B2、CANN 9.1、Python 3.12、vLLM 0.23.0、vLLM
 
 每个角色两个 vLLM 实例，每实例四卡，attention TP4、expert EP4、DP1。P 使用平台默认图模式，捕获尺寸扩至 4096。D 使用 `FULL_DECODE_ONLY`。两侧分块预算 4096，最大上下文 262,144，`mamba-cache-mode=align`。r14 关闭两侧本地 APC。D 侧八个 worker 每个贡献 16 GiB 池容量，P 贡献零，D 保存 KV。P 使用同步 GET。原生 P→D 交接和跨机 Store 恢复分别经过 `MooncakeConnectorV1` 和 `AscendStoreConnector`，两者用 `MultiConnector` 组合。
 
-复制 [配置示例](../configs/ascend-2p2d.example.json) 到 `configs/ascend.local.json` 后设置两侧地址、模型路径和需要的 CPU 亲和性。示例 IP 是文档地址。P 与 D 在各自启动环境内使用相同的已编辑配置。下面的命令从仓库根目录执行。
+复制 [配置示例](../configs/ascend-2p2d.example.json) 到 `configs/ascend.local.json` 后设置两侧地址、模型路径和 CPU 亲和性。示例是开启 P APC 的实验室 2P2D 配置，D APC 保留已有兼容配置。`max_num_seqs`、`max_num_batched_tokens`、`gpu_memory_utilization` 和 `compilation_config` 可按角色配置。对照现场时使用目标部署的实际参数。省略 `enable_prefix_caching` 时由引擎版本决定。每个实例使用自己的 API 端口号作为本地 Store lookup IPC 标识。先用 `serve --dry-run` 检查两侧生成命令，运行后用 `state.json` 和启动日志核对。[部署代表性复查](experiment-audit.md)
 
-## 启动和回放
+常规回放的 `proxy` 默认使用上游调度并保留上游 HTTP 连接复用。`--routing fixture --route-fixture` 用于重放已记录路由，`--no-upstream-keepalive` 用于复现关闭复用的诊断。`serve --observe` 开启逐方法事件与按需 CANN 入口。整轮吞吐计时可用默认启动模式，详细 profiling 用同配置的独立轮。
 
-先生成命令预览。配置正确后，在两台主机分别执行对应角色的启动命令，移除 `--dry-run`。
+## r14 硬限速诊断复现
+
+将示例另存为 `configs/ascend-r14.local.json`，把 P、D 的 `enable_prefix_caching` 都设为 `false`。从仓库根目录预览命令，再在对应主机分别移除 `--dry-run` 启动。
 
 ```bash
-python -m pd_kv_transfer_opt.experiments.serve --config configs/ascend.local.json --role P --run-id r14-repro --run-dir runs/r14-P --dry-run
-python -m pd_kv_transfer_opt.experiments.serve --config configs/ascend.local.json --role D --run-id r14-repro --run-dir runs/r14-D --dry-run
+python -m pd_kv_transfer_opt.experiments.serve --config configs/ascend-r14.local.json --role P --run-id r14-repro --run-dir runs/r14-P --observe --dry-run
+python -m pd_kv_transfer_opt.experiments.serve --config configs/ascend-r14.local.json --role D --run-id r14-repro --run-dir runs/r14-D --observe --dry-run
 ```
 
 D 角色启动时会起 Mooncake master。两边控制器记录 `state.json` 和每个实例的日志。在 D 侧另起代理。参数指向与安装版本一致的官方示例脚本。
 
 ```bash
-python -m pd_kv_transfer_opt.experiments.proxy --config configs/ascend.local.json --run-dir runs/r14-D --upstream /path/to/vllm-ascend/examples/disaggregated_prefill_v1/load_balance_proxy_server_example.py
+python -m pd_kv_transfer_opt.experiments.proxy --config configs/ascend-r14.local.json --run-dir runs/r14-D --routing r14 --upstream /path/to/vllm-ascend/examples/disaggregated_prefill_v1/load_balance_proxy_server_example.py
 ```
 
 按 [工作负载说明](workloads.md) 物化输入。四个 API 健康后，从 D 侧运行实验。省略 `--apply` 可预览顺序。加入 `--profiles` 会在全部计时轮之后采三个诊断窗口。根据驱动权限使用 `--sudo` 或管理员环境，`--hccn-tool` 可以覆盖工具路径。
 
 ```bash
-python -m pd_kv_transfer_opt.experiments.run_suite --config configs/ascend.local.json --run-dir runs/r14-D --workload data/r14-pair.jsonl --sudo --profiles --apply
+python -m pd_kv_transfer_opt.experiments.run_suite --config configs/ascend-r14.local.json --run-dir runs/r14-D --workload data/r14-pair.jsonl --sudo --profiles --apply
 ```
 
 suite 在 D 主机对八个端口读回原值、设置每档上限并在结束或可处理的中断后恢复。保留 `hard-cap-suite/shaping-restore.json`，必要时用同一 `hccn_tool -i <port> -shaping -g` 从驱动复核。
@@ -48,6 +50,32 @@ r19 的 P 侧使用归档中的 [实际 APC 适配器](../results/2026-11-18-r19
 ### r20 的同批分发重叠实验
 
 沿用 r19 部署、原始数据和符号路由。P 过滤器换成 [实测 r20 适配器](../results/2026-11-19-r20-packed-overlap/runtime/same_head_kv_r20.py) 的 `same_head_kv_r20.InstallFilter`，在同一 Python 加载目录提供 [packed_copy_pipeline.py](../results/2026-11-19-r20-packed-overlap/runtime/packed_copy_pipeline.py)。正式计时在 `packed` 和 `async-packed` 之间回切，前驱准备仍使用 `baseline`。两种打包模式分别对两个 P 实例做一次独立原生 GET 对照抽样，校验读位于计时外。始终在同一 NPU 流使用原本的 128 MiB wire buffer，计时中只有一个分发可以在途，目标区间有别名时沿用同步路径。
+
+### r21 的跨批读取实验
+
+沿用 r20 负载及路由。P 在同一加载目录配置 `same_head_kv_r21c.InstallFilter`、`r21_prefetch_c.py`、`r21_stage.py` 及 r20 下层观测与同头打包模块。保持 P 本地 APC 和同步 Store 配置。前驱准备使用 `baseline`，计时切到 `packed`、`prepare-only` 或 `early-get`。C 只把单恢复批内确定的 `video-processing:28` 提前读到 staging，保持原有 KV 发布位置。准备阶段先做原生对照小样，核对正式期物理调用和字节一致。该实验使用固定的 P0 和目标请求长度进行诊断选择。[实测源文件指纹](../results/2026-11-19-r21-cross-batch/runtime/provenance.json) · [r21 结果与时间定义](results.md#r21-固定字节的跨批提前读)
+
+### r24 的 P 请求接纳实验
+
+在 r21 同步打包日志过滤器安装完成后调用 `prefill_admission_observability.install_admission()`。将仓库包路径加入 P 的现有 Python 搜索路径，保留容器的 Ascend 模块路径。P 设置 `ISSUE23_P_ADMISSION_OBSERVABILITY=1` 和 `ISSUE23_P_ADMISSION_MODE_FILE`，后者指向 P 同主机控制文件。原分块事件继续记录调度器接纳、派发和设备事件。新事件记录 ASGI 请求体、API render、IPC `ADD` 发送和接收、引擎输入队列入取、worker future 等待与结果更新。同一 P 主机的进程通过单调时钟对齐。
+
+保持 r21 原组的准备和固定路由回放。前驱置 `baseline` 与 `blocked`，计时两臂都置同步 `packed`。A 使用 `blocked`，B 使用 `drain`。排空后用原子替换更新模式，D 进程和原生配置持续复用。B 只在既有的本地 worker 响应等待中由 EngineCore 主线程处理可接纳的队首 `ADD`，实际批派发、结果更新顺序和批队列深度沿用原实现。以 `p_admission_early_add` 区分实际处理与仅开启模式。按八口读回和恢复回执核对 D 的 100/200 Gbps。
+
+```bash
+python -B -m pd_kv_transfer_opt.profiling.analyze_live_prefill_admission \
+  runs/r24-P.jsonl.gz runs/r24-D.jsonl.gz runs/r24-summary.json \
+  --workload configs/workload-r19-natural-restore.json
+```
+
+### r26 的原生高压实验
+
+使用原生 `rdma_full_observability.InstallFilter` 启动两侧。两台机器的可编辑安装指向干净的上游 `0fc695f` 和 `5cb98ca`，安装元数据分别为 `vllm 0.23.0+empty`、`vllm-ascend 0.23.0`，Mooncake NPU wheel 为 `0.3.11.post1`。模型参数复用 r25 的已核对配置，包括 P APC 开启、4096 token 分块、D APC 关闭和 `FULL_DECODE_ONLY`。固定路由代理只用于重放，P worker 调用原生同步 Store 方法，每次 GET 调用并发度为 1。
+
+[高压计划](../configs/workload-r26-native-pressure.json) 从 r25 清单展开。四个臂各用独立缓存命名域，从完整提示和源输出计数准备直接前驱，等待 Store 提交后限速并回放目标。D 的 100/200 Gbps 分别由八口各 12.5/25 Gbps 的读回确认。正式轮保存主机阶段事件、短间隔端口计数、D 引擎状态和客户端输出计数，CANN 设备 profiler 保持关闭。每臂退出后恢复该轮打开时的端口设置。[负载和指标](results.md#r26-原生-baseline-的高压带宽对照)
+
+### r27c 的持续高压实验
+
+先尝试为独立命名域扩大原生 D 主机池。r27 的 1,152 GiB 和 r27b 的 512 GiB 均能挂载，随后都在不限速预热发生 HCCL 建连错误，两次均在应用带宽档位前终止。两次控制器均已停止，D 端口读回每口 200 Gbps。这两次在本节保留故障记录。r27c 使用 r26 的完整 D 配置及每 rank 16 GiB、共 128 GiB 的原生 D 主机池。P 使用原有模型参数，采用原生开关关闭本地 APC。每档独立准备完整前驱并等 Store 提交。固定高压到达期间持续复用该臂的外部前缀，正式轮记录同步 GET、短采样端口计数、D 工作量和客户端实际输出。[持续高压负载](workloads.md#r27c-持续投放的原生高压负载)
 
 ## 采样与导出
 

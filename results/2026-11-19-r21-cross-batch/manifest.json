@@ -1,0 +1,175 @@
+{
+  "run_id": "2p2d-20261119-r21-cross-batch",
+  "scope": "b3 matched six arms and b2 two activation rechecks in the same transport epoch. The separate baseline P/D snapshots record the earlier synchronous D egress check.",
+  "workload": {
+    "bytes": 4365,
+    "sha256": "3fae5452d7e85ffc107b497afa11e622f3c6e6206650edb316cbdbda55f5a023"
+  },
+  "artifacts": {
+    "activation-recheck.json": {
+      "bytes": 4393,
+      "sha256": "597feb106754a1363105dbed934252a4485f91e9a87695ef28c1eb679f924870"
+    },
+    "baseline-D.jsonl.gz": {
+      "bytes": 223722,
+      "sha256": "83f3d1e07c673a98a23ad1a890ff8b40a185b53f5061b1ad6f5ffef86810d8ab"
+    },
+    "baseline-headroom.json": {
+      "bytes": 7347,
+      "sha256": "88a8ef865cbcfae53ab64dbfa37a5d0791d416c307911dff2f5f1e5d20cba104"
+    },
+    "baseline-P.jsonl.gz": {
+      "bytes": 759923,
+      "sha256": "be81506694dc4dac6b86c5f542a5e8669885bc8ea5f5026cb272c6def6d93b7c"
+    },
+    "r21-D.jsonl.gz": {
+      "bytes": 635713,
+      "sha256": "c47bf433c7dd4bb4da6b6bf2ab56415769b485ed8e2f6a465dd4d11ba821c10b"
+    },
+    "r21-P.jsonl.gz": {
+      "bytes": 2529896,
+      "sha256": "ddb73a3248b2b8af015bfaf1272c894a19834ae99b1620739e8e27734ae20fec"
+    },
+    "runtime/provenance.json": {
+      "bytes": 1301,
+      "sha256": "106eea832d03f46df32b9810642223180461c4e35858e7cb89aa2144744ad117"
+    },
+    "runtime/r21_prefetch_c.py": {
+      "bytes": 10232,
+      "sha256": "557f71d744d91bd1c9adcad18808b8065b1b8e24ad0471d033db1c85415a8a7a"
+    },
+    "runtime/r21_stage.py": {
+      "bytes": 5965,
+      "sha256": "cd3978a3f695a74178f3795fc3da05a17a83fb5fa98e8e783c2b749ab685fc25"
+    },
+    "runtime/same_head_kv_r21c.py": {
+      "bytes": 13242,
+      "sha256": "bdc096aa2e872e9a0aeea975aa40562dcc3444acff4c05330c4e873eb629a2c0"
+    },
+    "summary.json": {
+      "bytes": 868897,
+      "sha256": "83903020a4a68915dad2907ebdcc27a1e166d4cd28c7efbcde12c424a0eb2ef1"
+    }
+  },
+  "closed_raw_sources": {
+    "P": {
+      "bytes": 3114223,
+      "sha256": "b594958c537783ea4aea9fb1324fcf3f16381dab6e6d66d8ba06bb94b87b9a67",
+      "row_counts": {
+        "scope": 1,
+        "runtime_state": 1,
+        "clock": 1,
+        "native": 90864,
+        "worker_rank": 8,
+        "npu": 1648,
+        "metrics": 668,
+        "fabric": 1160,
+        "p_port_snapshot": 16
+      }
+    },
+    "D": {
+      "bytes": 929227,
+      "sha256": "9a9805fabd23eb63c9fcf844139e5273e17e57198fcd310a3c9de15bdce4c1fd",
+      "row_counts": {
+        "scope": 1,
+        "runtime_state": 1,
+        "clock": 1,
+        "native": 5474,
+        "worker_rank": 8,
+        "npu": 1640,
+        "metrics": 1068,
+        "fabric": 1160,
+        "cap_control": 112,
+        "cap_port_sample": 1640,
+        "proxy": 1424,
+        "client_manifest": 18,
+        "client": 248,
+        "client_summary": 18
+      }
+    }
+  },
+  "cleanup": {
+    "P": {
+      "run_id": "2p2d-20261119-r21-cross-batch",
+      "role": "P",
+      "npu_idle": true,
+      "controller_finished": true,
+      "active_restored_byte_exact": true
+    },
+    "D": {
+      "run_id": "2p2d-20261119-r21-cross-batch",
+      "role": "D",
+      "npu_idle": true,
+      "controller_finished": true,
+      "D_port_caps_before": {
+        "0": [
+          200000,
+          200000
+        ],
+        "1": [
+          200000,
+          200000
+        ],
+        "2": [
+          200000,
+          200000
+        ],
+        "3": [
+          200000,
+          200000
+        ],
+        "4": [
+          200000,
+          200000
+        ],
+        "5": [
+          200000,
+          200000
+        ],
+        "6": [
+          200000,
+          200000
+        ],
+        "7": [
+          200000,
+          200000
+        ]
+      },
+      "D_port_caps_after": {
+        "0": [
+          200000,
+          200000
+        ],
+        "1": [
+          200000,
+          200000
+        ],
+        "2": [
+          200000,
+          200000
+        ],
+        "3": [
+          200000,
+          200000
+        ],
+        "4": [
+          200000,
+          200000
+        ],
+        "5": [
+          200000,
+          200000
+        ],
+        "6": [
+          200000,
+          200000
+        ],
+        "7": [
+          200000,
+          200000
+        ]
+      },
+      "active_restored_byte_exact": true
+    }
+  }
+}

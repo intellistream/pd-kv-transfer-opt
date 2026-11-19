@@ -41,9 +41,14 @@ def main():
     parser.add_argument("--config", type=Path, required=True)
     parser.add_argument("--run-dir", type=Path, required=True)
     parser.add_argument("--upstream", type=Path, required=True, help="Pinned vLLM-Ascend example proxy file.")
-    parser.add_argument("--routing", choices=("r14", "native", "fixture"), default="r14")
+    parser.add_argument("--routing", choices=("native", "fixture", "r14"), default="native",
+                        help="Use the upstream scheduler unless explicitly replaying routes (default: native).")
     parser.add_argument("--route-fixture", type=Path)
+    parser.add_argument("--no-upstream-keepalive", action="store_true",
+                        help="Disable proxy-to-engine connection reuse for diagnostic reproduction.")
     args = parser.parse_args()
+    if (args.routing == "fixture") != (args.route_fixture is not None):
+        parser.error("--route-fixture is required with --routing fixture and only used in that mode")
     config = read_deployment(args.config)
     run_dir = args.run_dir.resolve()
     if not args.upstream.is_file():
@@ -53,13 +58,12 @@ def main():
     if args.routing == "r14":
         write_json(fixture_path, {"requests": routes(config)})
     elif args.routing == "fixture":
-        if args.route_fixture is None:
-            parser.error("--routing fixture requires --route-fixture")
         write_json(fixture_path, resolve_fixture(read_json(args.route_fixture), config))
     elif fixture_path.exists():
         raise ValueError("Native routing requires a run directory without a route fixture.")
     os.environ.update(PD_KV_RUN_DIR=str(run_dir), PD_KV_PROXY_SOURCE=str(args.upstream.resolve()),
-                      ISSUE23_HTTP_NO_KEEPALIVE="1", ISSUE23_LIGHT_PROXY_OBSERVATIONS="1")
+                      ISSUE23_HTTP_NO_KEEPALIVE="1" if args.no_upstream_keepalive else "0",
+                      ISSUE23_LIGHT_PROXY_OBSERVATIONS="1")
     sys.argv = [sys.argv[0], "--host", "127.0.0.1", "--port", str(config["proxy_port"]),
                 "--prefiller-hosts", *([config["P"]["host"]] * 2),
                 "--prefiller-ports", *map(str, config["P"]["api_ports"]),

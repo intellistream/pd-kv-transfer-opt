@@ -2,7 +2,7 @@
 
 研究 Prefill/Decode 分离推理中的远端 KV 恢复、RDMA 带宽瓶颈和引擎排队，配套实机实验、分阶段 profiling 与 CPU 模拟组件。
 
-双机 2P2D、Qwen3.5-35B-A3B、223K/239K 热前缀下，每请求同步从远端读取约 9.52 GB，固定输出 16 token。D→P 八口发送上限从 100 提升到 200 Gbps，三轮平均吞吐从 16.85 提升到 33.11 token/s。P 的批量 GET 占用计算前的关键路径，并使 EngineCore 取件及后续请求排队。完整吞吐、弱效应对照和适用范围见 [实验报告](docs/results.md)。
+硬限速诊断 r14 用双机 2P2D、Qwen3.5-35B-A3B 和两条 223K/239K 热前缀。每请求同步从远端读取约 9.52 GB，固定输出 16 token。D→P 八口发送上限从 100 提升到 200 Gbps，三轮平均吞吐从 16.85 提升到 33.11 token/s。具有自然缓存命中构成与部署生成条件的高压吞吐验收仍待实测。[适用范围](docs/experiment-audit.md) · [实验报告](docs/results.md)
 
 ## 项目路径
 

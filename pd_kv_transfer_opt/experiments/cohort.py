@@ -48,7 +48,8 @@ def run_cohort(case, run_id, source_path, endpoint, model, directory):
     manifest = {"run_id": run_id, "case": case, "workload_sha256": sha256(source_path),
                 "aggregate_D_egress_cap_Gbps": cap, "selected_requests": count, "window_start": 0,
                 "prefix_ids": PREFIXES, "prompt_lengths": PROMPT_LENGTHS, "offered_rate": rate,
-                "output_tokens": OUTPUT_TOKENS, "background_traffic": False, "profiler_enabled": case.startswith("profile-"),
+                "output_tokens": OUTPUT_TOKENS, "ignore_eos": True, "background_traffic": False,
+                "profiler_enabled": case.startswith("profile-"),
                 "request_sources": [{k: v for k, v in row.items() if k != "prompt"} for row in work]}
     write_json(directory / "manifest.json", manifest)
     rows = []

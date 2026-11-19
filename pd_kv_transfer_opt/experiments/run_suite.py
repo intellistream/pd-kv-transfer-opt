@@ -121,8 +121,10 @@ def run(args, cases, config):
     state = read_json(args.run_dir / "state.json")
     if state["role"] != "D" or state["stage"] != "ready":
         raise RuntimeError("Run on the ready D host with a D-side run directory.")
-    if config["P"].get("enable_prefix_caching") or config["D"].get("enable_prefix_caching"):
-        raise ValueError("The r14 matrix requires local APC disabled for both roles.")
+    if any(config[role].get("enable_prefix_caching") is not False for role in ("P", "D")):
+        raise ValueError("Set enable_prefix_caching to false on both roles for the r14 matrix.")
+    if args.profiles and state.get("observations_enabled") is False:
+        raise ValueError("Start both roles with --observe before requesting r14 profiler windows.")
     fixed_sources(args.workload)
     check_health([url + "/health" for url in endpoints(config).values()] +
                  [f"http://127.0.0.1:{config['proxy_port']}/docs"])

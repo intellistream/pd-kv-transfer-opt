@@ -34,7 +34,7 @@ def summarize(rows: list[dict], manifest: dict, ttft_slo_s=None, e2e_slo_s=None)
         e2e.append(row["end_s"] - row["ready_s"])
         client_queue.append(row["dispatch_s"] - row["ready_s"])
         usage = row.get("completion_tokens")
-        if not isinstance(usage, int) or usage < 0:
+        if type(usage) is not int or usage < 0:
             errors.append(f"No exact completion usage: {row['id']}")
         if row.get("all_content_chunks_have_token_ids") and usage != row.get("streamed_token_ids"):
             errors.append(f"Usage/token-ID count mismatch: {row['id']}")
@@ -45,6 +45,11 @@ def summarize(rows: list[dict], manifest: dict, ttft_slo_s=None, e2e_slo_s=None)
     usage_total = sum(row["completion_tokens"] for row in window_completed
                       if isinstance(row.get("completion_tokens"), int))
     duration = max([row["end_s"] for row in ends] + [0.0])
+    first_offered = min((row["offered_s"] for row in successful), default=None)
+    offer_to_last_end = duration - first_offered if first_offered is not None else None
+    if offer_to_last_end is not None and offer_to_last_end <= 0:
+        errors.append("Non-positive finite cohort duration")
+    cohort_tokens = sum(row["completion_tokens"] for row in successful) if not errors else None
     offered_cohort = [row for row in ends if start <= row["offered_s"] < stop]
     ready_cohort = [row for row in successful if start <= row["ready_s"] < stop]
     passed = completed_passed = None
@@ -76,6 +81,9 @@ def summarize(rows: list[dict], manifest: dict, ttft_slo_s=None, e2e_slo_s=None)
             "finite_cohort": {"ttft_from_ready": distribution(timings), "e2e_from_ready": distribution(e2e),
                               "first_from_offered": distribution([row["first_s"] - row["offered_s"] for row in successful]),
                               "client_queue": distribution(client_queue), "drain_included_s": duration,
+                              "first_offered_s": first_offered, "offer_to_last_end_s": offer_to_last_end,
+                              "output_tokens": cohort_tokens,
+                              "output_tokens_per_s": cohort_tokens / offer_to_last_end if cohort_tokens is not None else None,
                               "completed_requests_per_drain_s": len(successful) / duration if duration else None},
             "note": "Client TTFT includes client queue. Unknown token counts stay null. p99 is nearest-rank."}
 

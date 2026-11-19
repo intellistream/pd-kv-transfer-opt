@@ -24,6 +24,8 @@ def read_deployment(path):
         raise ValueError("The two roles require different hosts.")
     for role in ROLES:
         item = config[role]
+        if "enable_prefix_caching" in item and type(item["enable_prefix_caching"]) is not bool:
+            raise ValueError(f"{role}.enable_prefix_caching must be a boolean when specified.")
         if sorted(device for group in item["devices"] for device in group) != list(range(8)):
             raise ValueError(f"{role} must use each device 0–7 exactly once.")
         if [len(group) for group in item["devices"]] != [4, 4]:
@@ -41,7 +43,7 @@ def endpoints(config):
             for role in ROLES for idx, port in enumerate(config[role]["api_ports"])}
 
 
-def model_commands(config, role, run_dir):
+def model_commands(config, role, run_dir, *, observe=False):
     local = config[role]
     producer = role == "P"
     kv_role = "kv_producer" if producer else "kv_consumer"
@@ -50,6 +52,11 @@ def model_commands(config, role, run_dir):
              "global_segment_size": 0 if producer else 16 * 1024**3,
              "local_buffer_size": 32 * 1024**2, "preferred_segment": not producer,
              "prefer_alloc_in_same_node": not producer}
+    graph = local.get("compilation_config", {
+        "cudagraph_capture_sizes": [1, 2, 4, 8, 16, 1024, 2048, 3072, 4096],
+    } if producer else {
+        "cudagraph_capture_sizes": [1, 2, 4, 8, 16], "cudagraph_mode": "FULL_DECODE_ONLY",
+    })
     commands = []
     for idx, (api_port, kv_port, devices) in enumerate(zip(local["api_ports"], local["kv_ports"], local["devices"], strict=True)):
         label = f"{role}{idx}"
@@ -57,25 +64,29 @@ def model_commands(config, role, run_dir):
               "kv_port": kv_port, "kv_parallel_size": 1, "kv_rank": 0 if producer else 1,
               "kv_connector_extra_config": {"prefill": {"dp_size": 1, "tp_size": 4},
                                             "decode": {"dp_size": 1, "tp_size": 4}}}
-        extra = {"backend": "mooncake", "lookup_rpc_port": "0", "load_async": False}
+        # The lookup socket is local IPC, but independently launched instances on a host need different IDs.
+        extra = {"backend": "mooncake", "lookup_rpc_port": str(api_port), "load_async": False}
         if not producer:
             extra["consumer_is_to_put"] = True
         pool = {"kv_connector": "AscendStoreConnector", "kv_role": kv_role, "kv_connector_extra_config": extra}
         transfer = {"kv_connector": "MultiConnector", "kv_role": kv_role, "kv_load_failure_policy": "fail",
                     "kv_connector_extra_config": {"connectors": [pd, pool]}}
-        graph = ({"cudagraph_capture_sizes": [1, 2, 4, 8, 16, 1024, 2048, 3072, 4096]} if producer
-                 else {"cudagraph_capture_sizes": [1, 2, 4, 8, 16], "cudagraph_mode": "FULL_DECODE_ONLY"})
         argv = ["vllm", "serve", local["model_path"], "--host", local["host"], "--port", str(api_port),
                 "--api-server-count", str(config["api_server_count"]), "--served-model-name", config["model_name"],
                 "--dtype", "bfloat16", "--tensor-parallel-size", "4", "--data-parallel-size", "1",
                 "--enable-expert-parallel", "--distributed-executor-backend", "mp",
-                "--max-model-len", "262144", "--max-num-seqs", "16", "--max-num-batched-tokens", "4096",
-                "--gpu-memory-utilization", "0.8", "--seed", "20261117", "--generation-config", "vllm",
+                "--max-model-len", "262144", "--max-num-seqs", str(local.get("max_num_seqs", 16)),
+                "--max-num-batched-tokens", str(local.get("max_num_batched_tokens", 4096)),
+                "--gpu-memory-utilization", str(local.get("gpu_memory_utilization", 0.8)),
+                "--seed", "20261117", "--generation-config", "vllm",
                 "--block-size", "128", "--mamba-cache-mode", "align",
                 "--additional-config", json.dumps({"enable_cpu_binding": False}),
-                "--enable-prefix-caching" if local.get("enable_prefix_caching") else "--no-enable-prefix-caching",
-                "--kv-transfer-config", json.dumps(transfer), "--compilation-config", json.dumps(graph),
-                "--profiler-config", json.dumps(dict(PROFILE_CONFIG, torch_profiler_dir=str(run_dir / "native-process-profile" / label)))]
+                "--kv-transfer-config", json.dumps(transfer), "--compilation-config", json.dumps(graph)]
+        if "enable_prefix_caching" in local:
+            argv.append("--enable-prefix-caching" if local["enable_prefix_caching"] else "--no-enable-prefix-caching")
+        if observe:
+            profiler = dict(PROFILE_CONFIG, torch_profiler_dir=str(run_dir / "native-process-profile" / label))
+            argv.extend(["--profiler-config", json.dumps(profiler)])
         cpu_sets = local.get("cpu_sets")
         if cpu_sets:
             argv = ["taskset", "-c", cpu_sets[idx], *argv]
@@ -89,20 +100,21 @@ def launch(config, role, run_dir, run_id, state, store):
     logs = run_dir / "logs"
     logs.mkdir(parents=True, exist_ok=True)
     logging = copy.deepcopy(DEFAULT_LOGGING_CONFIG)
-    name = "pd_kv_transfer_opt.profiling.rdma_full_observability.InstallFilter"
     mode_file = state.get("same_head_mode_file")
-    if mode_file is not None:
-        name = "pd_kv_transfer_opt.experiments.same_head_kv.InstallFilter"
-    for handler in logging["handlers"].values():
-        handler.setdefault("filters", []).append("rdma_observations")
-    logging.setdefault("filters", {})["rdma_observations"] = {"()": name}
+    if state["observations_enabled"]:
+        name = ("pd_kv_transfer_opt.experiments.same_head_kv.InstallFilter" if mode_file is not None
+                else "pd_kv_transfer_opt.profiling.rdma_full_observability.InstallFilter")
+        for handler in logging["handlers"].values():
+            handler.setdefault("filters", []).append("rdma_observations")
+        logging.setdefault("filters", {})["rdma_observations"] = {"()": name}
     write_json(run_dir / "logging.json", logging)
     write_json(run_dir / "store.json", store)
     local = config[role]
     env = dict(os.environ, OMP_NUM_THREADS="1", PYTHONHASHSEED="0", VLLM_HOST_IP=local["host"],
                HCCL_INTRA_ROCE_ENABLE="1", ASCEND_CONNECT_TIMEOUT="10000", ASCEND_TRANSFER_TIMEOUT="10000",
                ACL_OP_INIT_MODE="1", MC_TRANSFER_TIMEOUT="30", ISSUE23_ROLE=role,
-               ISSUE23_RUN_ID=run_id, ISSUE23_P_GRAPH_REPLAY_OBSERVABILITY="1", ISSUE23_BATCH_GET_CONCURRENCY="1",
+               ISSUE23_RUN_ID=run_id, ISSUE23_P_GRAPH_REPLAY_OBSERVABILITY="1" if state["observations_enabled"] else "0",
+               ISSUE23_BATCH_GET_CONCURRENCY="1",
                VLLM_LOGGING_CONFIG_PATH=str(run_dir / "logging.json"), MOONCAKE_CONFIG_PATH=str(run_dir / "store.json"))
     if mode_file is not None:
         env["ISSUE23_SAME_HEAD_MODE"] = mode_file
@@ -183,15 +195,18 @@ def main():
     parser.add_argument("--role", choices=ROLES, required=True)
     parser.add_argument("--run-dir", type=Path, required=True)
     parser.add_argument("--run-id", required=True)
+    parser.add_argument("--observe", action="store_true", help="Enable method and NPU event observations for profiling runs.")
     parser.add_argument("--same-head-kv", action="store_true", help="Enable the P-side same-head A/B mode file.")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
     config = read_deployment(args.config)
     run_dir = args.run_dir.resolve()
-    store, commands = model_commands(config, args.role, run_dir)
-    state = {"run_id": args.run_id, "role": args.role, "instances": commands, "store_config": store}
+    observe = args.observe or args.same_head_kv
+    store, commands = model_commands(config, args.role, run_dir, observe=observe)
+    state = {"run_id": args.run_id, "role": args.role, "instances": commands, "store_config": store,
+             "observations_enabled": observe}
     if args.same_head_kv:
-        if args.role != "P" or config["P"].get("enable_prefix_caching"):
+        if args.role != "P" or config["P"].get("enable_prefix_caching") is not False:
             parser.error("--same-head-kv requires P with local prefix caching disabled")
         state["same_head_mode_file"] = str(run_dir / "same-head-mode")
     if args.dry_run:

@@ -1,0 +1,136 @@
+{
+  "run_id": "2p2d-20261119-r24-prefill-admission",
+  "workload": {
+    "path": "configs/workload-r19-natural-restore.json",
+    "sha256": "3fae5452d7e85ffc107b497afa11e622f3c6e6206650edb316cbdbda55f5a023",
+    "target_requests_per_arm": 10,
+    "preceding_requests_per_arm": 18,
+    "target_interval_s": 0.05
+  },
+  "case_order": [
+    "a-b1-cap100",
+    "a-b1-cap200",
+    "b-b1-cap200",
+    "b-b1-cap100",
+    "b-b2-cap100",
+    "b-b2-cap200",
+    "a-b2-cap200",
+    "a-b2-cap100"
+  ],
+  "closed_raw_sources": {
+    "P": {
+      "bytes": 3113024,
+      "sha256": "27c8e0906df199515dab273a478739338757421637a9f94696724b4636eb2de6",
+      "rows": {
+        "scope": 1,
+        "runtime_state": 1,
+        "clock": 1,
+        "native": 97087,
+        "worker_rank": 8
+      }
+    },
+    "D": {
+      "bytes": 639460,
+      "sha256": "f74dfaaf1d196b88e82ea705c51cdbfffea0c751e2f1ef94dbe8f867509d75de",
+      "rows": {
+        "scope": 1,
+        "runtime_state": 1,
+        "clock": 1,
+        "native": 5474,
+        "worker_rank": 8,
+        "cap_control": 94,
+        "cap_port_sample": 1702,
+        "proxy": 1399,
+        "client_manifest": 18,
+        "client": 248,
+        "client_summary": 18
+      }
+    }
+  },
+  "profiling_runtime": {
+    "pd_kv_transfer_opt/profiling/prefill_admission_observability.py": "63ede1dd5d018154fc155a191d1b7d6d04bbed3295ce7c85671b02df132bea6e",
+    "pd_kv_transfer_opt/profiling/prefill_admission_drain.py": "96e825745495d74601dcc9ea10423f1a8a78b1c6d71f8b03391e769c53ef7036"
+  },
+  "runtime_inheritance": "r21 same-head packed sync transfer and unchanged D FULL_DECODE_ONLY process.",
+  "site_harness_sha256": {
+    "P/serve_2p2d_r24_P.py": "d02a330eafd6a209c5c8478b5fe4187d13e30f327c6640204b51506f6fd3b5b7",
+    "P/r24-overlay/r24_logging.py": "1b9a21e3c00dba91c4e36bd327282ea84cbaf7f0f9c1ffa49a89506c0c9868b8",
+    "D/serve_2p2d_full_rdma_profile_D.py": "561f0ce6e46583d3522396bf23b26d3e929bfe7b561bf9b5dcf9c0f8d8a6537d",
+    "D/cohort-r24.json": "8fcb29d5d80c4ac7001f473d2bc19c88638bffb04fad5aee9d523aa941e99017",
+    "D/load_r24.py": "54fed0c5d94a7c2a1ad7b9dfbf59f2831ddba2951b977f987632d025fe557b93",
+    "D/run_stage_r24.py": "285f90718cce9104ae454123dc0fb0a20b07fd35d175c38f284a07a4e1cb484f",
+    "D/reset_r24_pool.py": "c0f9668d1d1b4981dc0fb5fdd85bcdeebde1466a243a9448b6563a515d8fec45"
+  },
+  "cleanup": {
+    "P": {
+      "controller_finished": true,
+      "original_active_config_sha256": "344ee7cfb5f096f8fc15bc5cc3a26b498e7d6529c24e7820e14005bb475c8bd4",
+      "active_config_unchanged": true,
+      "idle_cards": 8
+    },
+    "D": {
+      "controller_finished": true,
+      "original_active_config_sha256": "5c787cdb511bd6761374b6a57daafbe34dfdc97a7a99058ff08d5e3695cebe16",
+      "active_config_unchanged": true,
+      "idle_cards": 8,
+      "D_port_readback": {
+        "0": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        },
+        "1": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        },
+        "2": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        },
+        "3": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        },
+        "4": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        },
+        "5": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        },
+        "6": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        },
+        "7": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        }
+      }
+    }
+  },
+  "artifacts": {
+    "r24-P.jsonl.gz": {
+      "bytes": 2652711,
+      "sha256": "418c7e4aa69f2034497ab18cc2bafc3adfd79b7aec39ed6e099abbc9f08c5c4a"
+    },
+    "r24-D.jsonl.gz": {
+      "bytes": 544747,
+      "sha256": "94ab19d968458ec3ed31f756cb94d1becd1d02807d86bb4ec9026a0ce69d5166"
+    },
+    "summary.json": {
+      "bytes": 693821,
+      "sha256": "96a26ceb6d4176fd93160aa2a5ebab4bcc39564d5a4e66498d99262c2b513043"
+    }
+  },
+  "analysis_module": "pd_kv_transfer_opt.profiling.analyze_live_prefill_admission",
+  "startup_notes": "P overlay path and prebuilt ASGI stack integration were corrected before the single formal P/D epoch. Unsuccessful startups are excluded."
+}

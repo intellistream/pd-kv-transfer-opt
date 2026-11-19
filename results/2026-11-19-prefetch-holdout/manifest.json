@@ -1,0 +1,70 @@
+{
+  "scope": "Offline replay and request attribution using retained public traces. No new hardware runs.",
+  "workload": "Terminal-Bench 2.1 DeepSeek-V4-Flash source sessions and the matched high-restore cohort.",
+  "analysis_paths": {
+    "choice-screen.json": "pd_kv_transfer_opt.profiling.audit_prefetch_holdout",
+    "admission-audit.json": "pd_kv_transfer_opt.profiling.audit_prefill_admission"
+  },
+  "sources": {
+    "r18": {
+      "P": {
+        "path": "results/2026-11-18-r18-natural-packed/r18-P.jsonl.gz",
+        "sha256": "32acc396be9b692de0b9154fb2b83c97cabce756ed6f257b0b7be871cc07c6d4"
+      },
+      "D": {
+        "path": "results/2026-11-18-r18-natural-packed/r18-D.jsonl.gz",
+        "sha256": "f629f8e39f5c8dd89f4ed64d25611ecae06a8cb9233e1c6155f5ce69ce0be35a"
+      }
+    },
+    "r19": {
+      "P": {
+        "path": "results/2026-11-18-r19-natural-ab/r19-P.jsonl.gz",
+        "sha256": "87b281d22f9aecc961c056edd1b2867e9ee8dc3a4b21b96467c551ae5130539d"
+      },
+      "D": {
+        "path": "results/2026-11-18-r19-natural-ab/r19-D.jsonl.gz",
+        "sha256": "99beb19436bc7947d0fa7c3e95fa0b095354542befb1cd02107d27fa85c578bb"
+      }
+    },
+    "r20": {
+      "P": {
+        "path": "results/2026-11-19-r20-packed-overlap/r20-P.jsonl.gz",
+        "sha256": "0585573abaaa6a12024b9ce2df516b01903f8b55728d1dc1575eed47ef9cac57"
+      },
+      "D": {
+        "path": "results/2026-11-19-r20-packed-overlap/r20-D.jsonl.gz",
+        "sha256": "405eb94e79f1547632ef115afe882cb3476d76044951f0faa42f8e307a637049"
+      }
+    },
+    "r21": {
+      "P": {
+        "path": "results/2026-11-19-r21-cross-batch/r21-P.jsonl.gz",
+        "sha256": "ddb73a3248b2b8af015bfaf1272c894a19834ae99b1620739e8e27734ae20fec"
+      },
+      "D": {
+        "path": "results/2026-11-19-r21-cross-batch/r21-D.jsonl.gz",
+        "sha256": "c47bf433c7dd4bb4da6b6bf2ab56415769b485ed8e2f6a465dd4d11ba821c10b"
+      }
+    },
+    "r21_earlier": {
+      "P": {
+        "path": "results/2026-11-19-r21-cross-batch/baseline-P.jsonl.gz",
+        "sha256": "be81506694dc4dac6b86c5f542a5e8669885bc8ea5f5026cb272c6def6d93b7c"
+      },
+      "D": {
+        "path": "results/2026-11-19-r21-cross-batch/baseline-D.jsonl.gz",
+        "sha256": "83f3d1e07c673a98a23ad1a890ff8b40a185b53f5061b1ad6f5ffef86810d8ab"
+      }
+    }
+  },
+  "artifacts": {
+    "choice-screen.json": {
+      "bytes": 593036,
+      "sha256": "829aeb1087412b5187ed6b74ef682a707b032db184e0b11bbe98883d5f28e55c"
+    },
+    "admission-audit.json": {
+      "bytes": 111921,
+      "sha256": "5932917b302e2946796f3077db6403261882a7c69a870c3d32401fce7e541d70"
+    }
+  }
+}

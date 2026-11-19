@@ -11,7 +11,11 @@
     "api_ports": [18200, 18201],
     "kv_ports": [21500, 22500],
     "devices": [[0, 1, 2, 3], [4, 5, 6, 7]],
-    "enable_prefix_caching": false
+    "enable_prefix_caching": true,
+    "max_num_seqs": 16,
+    "max_num_batched_tokens": 4096,
+    "gpu_memory_utilization": 0.8,
+    "compilation_config": {"cudagraph_capture_sizes": [1, 2, 4, 8, 16, 1024, 2048, 3072, 4096]}
   },
   "D": {
     "host": "192.0.2.20",
@@ -19,6 +23,10 @@
     "api_ports": [18300, 18301],
     "kv_ports": [23500, 24500],
     "devices": [[0, 1, 2, 3], [4, 5, 6, 7]],
-    "enable_prefix_caching": false
+    "enable_prefix_caching": false,
+    "max_num_seqs": 16,
+    "max_num_batched_tokens": 4096,
+    "gpu_memory_utilization": 0.8,
+    "compilation_config": {"cudagraph_mode": "FULL_DECODE_ONLY", "cudagraph_capture_sizes": [1, 2, 4, 8, 16]}
   }
 }

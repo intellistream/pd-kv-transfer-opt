@@ -1,0 +1,210 @@
+{
+  "run_id": "2p2d-20261119-r26-native-pressure",
+  "workload": {
+    "path": "configs/workload-r26-native-pressure.json",
+    "bytes": 590,
+    "sha256": "9eec2404c43f0d9c5285a10b535ba665a2f0260af09d81aef98b85dcb0557a30",
+    "source_plan": "workload-r25-multiwave.json",
+    "source_plan_sha256": "1c7d676f78b03c3d4e318f8fcb5db1b8091eeea4ea4872e35f9fe602e09bd6b7",
+    "source_revision": "3f5b93ff1c5ea84b2c94cf479d0c942227191b4a",
+    "materialized_workload_sha256": "002a1c1fd6bbcfc275c93cb5d6211ad4578c37a11db900d7797ad6cf567237c0",
+    "target_requests_per_arm": 22,
+    "predecessor_requests_per_arm": 22,
+    "target_tokens_per_arm": 59906
+  },
+  "case_order": [
+    "a-b1-cap100",
+    "b-b1-cap200",
+    "b-b2-cap200",
+    "a-b2-cap100"
+  ],
+  "closed_raw_sources": {
+    "P": {
+      "bytes": 1802472,
+      "sha256": "bc2b8019ff55667c80e04ec735569d50da1c7a11c902d6d09af9fd9116321c31",
+      "rows": {
+        "scope": 1,
+        "runtime_state": 1,
+        "clock": 1,
+        "native": 61570,
+        "worker_rank": 8
+      }
+    },
+    "D": {
+      "bytes": 865989,
+      "sha256": "2b689b786d80fea264712815a23f11aeb40e49c3a0c5f7ca60b639625d2eb0e0",
+      "rows": {
+        "scope": 1,
+        "runtime_state": 1,
+        "clock": 1,
+        "native": 4240,
+        "worker_rank": 8,
+        "cap_control": 51,
+        "cap_port_sample": 2841,
+        "decode_supply_sample": 1672,
+        "proxy": 1064,
+        "client_manifest": 8,
+        "client": 184,
+        "client_token_bin": 2151,
+        "client_summary": 8
+      }
+    }
+  },
+  "runtime_inheritance": "Native synchronous per-rank GET with the pinned upstream vLLM and vLLM-Ascend trees and Mooncake NPU wheel.",
+  "runtime": {
+    "P": {
+      "role": "P",
+      "run_id": "2p2d-20261119-r26-native-pressure",
+      "controller": "serve_2p2d_r26_native_P.py",
+      "controller_sha256": "5b0526cd96fcaf0154d9307cd0e9fa4c44c442a21558a8a19aaae788518f89fb",
+      "versions": {
+        "vllm": "0.23.0+empty",
+        "vllm-ascend": "0.23.0",
+        "mooncake-transfer-engine-npu": "0.3.11.post1"
+      },
+      "git_revisions": {
+        "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+        "vllm_ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd"
+      }
+    },
+    "D": {
+      "role": "D",
+      "run_id": "2p2d-20261119-r26-native-pressure",
+      "controller": "serve_2p2d_r26_native_D.py",
+      "controller_sha256": "561f0ce6e46583d3522396bf23b26d3e929bfe7b561bf9b5dcf9c0f8d8a6537d",
+      "versions": {
+        "vllm": "0.23.0+empty",
+        "vllm-ascend": "0.23.0",
+        "mooncake-transfer-engine-npu": "0.3.11.post1"
+      },
+      "git_revisions": {
+        "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+        "vllm_ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd"
+      }
+    }
+  },
+  "runtime_checks": {
+    "P": {
+      "observer": "rdma_full_observability.InstallFilter",
+      "graph": "vllm_ascend_default_4096_capture",
+      "local_apc": true,
+      "pool_load_async": false,
+      "batch_get_concurrency": 1,
+      "model_arguments_match_r25": true
+    },
+    "D": {
+      "observer": "rdma_full_observability.InstallFilter",
+      "graph": "FULL_DECODE_ONLY",
+      "local_apc": false,
+      "pool_load_async": false,
+      "batch_get_concurrency": 1,
+      "model_arguments_match_r25": true
+    }
+  },
+  "alternative_execution_events": {
+    "p_admission_early_add": 0,
+    "r18_packed_preflight": 0,
+    "r18_restore_decision": 0,
+    "r20_pipeline_batch": 0,
+    "r21_early_get": 0,
+    "r21_plan": 0,
+    "same_head_local_copy": 0
+  },
+  "site_harness_sha256": {
+    "P/r26-active.json": "0c2d21fbd28b04acff4c23806341d5e8eb7f20e6dc306f80e4cb1f9d7abcc4b4",
+    "P/export_r26.py": "96642e216085fdfd311ad20780ca23d95e998ebdc9c7dddaaf2a341747c55393",
+    "D/r26-active.json": "6f39ae1268362a66bdda47494788abdfce95e4b6e04dd85ae38430a4695030c8",
+    "D/load_r26.py": "ec6e4bfbb0b8200d395f1ea5565e0a47789113e375cb1d7e4386a6cd83632c7d",
+    "D/metrics_r26.py": "282b896b161ad748e8d1a599fe2dcf2f8157eb81441311cb62a45e09b00e7ab1",
+    "D/run_stage_r26.py": "0ccdaca4068d6cc08ec7bd5c50dedd9675f8eea9acf0479d690d22592ac1cd51",
+    "D/reset_r26_pool.py": "f61b6245f1ccbcf3bb73332c9b43dcbf8cf8e1a411835d21ad6cef6788bf488e",
+    "D/start_proxy_r26.py": "4f28433c643151bd320a3c8b99a61e1a69301abaa2369e12e1ac3f3e301db89d",
+    "D/export_r26.py": "96642e216085fdfd311ad20780ca23d95e998ebdc9c7dddaaf2a341747c55393",
+    "drive_r26.py": "67fd5f2c0265c729afec5b6e09d63c8778c0198b0fcb07d7b7434f89f525c49b",
+    "cleanup_r26.py": "5b71b8ad43b004eaa9f9e594c686a914c2ea0c298b789d82015ed5821aa9c8de",
+    "P/serve_2p2d_r26_native_P.py": "5b0526cd96fcaf0154d9307cd0e9fa4c44c442a21558a8a19aaae788518f89fb",
+    "D/serve_2p2d_r26_native_D.py": "561f0ce6e46583d3522396bf23b26d3e929bfe7b561bf9b5dcf9c0f8d8a6537d",
+    "start_r26.py": "0fdcbdb76d5f112b25490cb65e23a926d46a11e52b0c06e99a1484b86e2a5b91",
+    "deploy_r26.py": "2d905c12c731ad8db186f4ea1d07a4287f8010aad706802eddd613da6d99a791"
+  },
+  "analysis_sha256": {
+    "analyze_multiwave.py": "3f3bf8e6cd8a1bf247f4c799b24a249e51c1928abb42fd8566d7d91de513fb98",
+    "public_bundle.py": "354cd93c2108b3d22aa8421f74a7916f2c5306f6499254fbaa10019c699cee4e"
+  },
+  "pressure_plan_reader_sha256": "86e8fd0119c000e8ed7e1ef589404d83cc2737bc236433b0d25ea5ed332f6c3f",
+  "cleanup": {
+    "P": {
+      "controller_finished": true,
+      "original_active_config_sha256": "344ee7cfb5f096f8fc15bc5cc3a26b498e7d6529c24e7820e14005bb475c8bd4",
+      "active_config_unchanged": true,
+      "idle_cards": 8
+    },
+    "D": {
+      "controller_finished": true,
+      "original_active_config_sha256": "5c787cdb511bd6761374b6a57daafbe34dfdc97a7a99058ff08d5e3695cebe16",
+      "active_config_unchanged": true,
+      "idle_cards": 8,
+      "D_port_readback": {
+        "0": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        },
+        "1": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        },
+        "2": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        },
+        "3": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        },
+        "4": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        },
+        "5": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        },
+        "6": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        },
+        "7": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        }
+      }
+    }
+  },
+  "artifacts": {
+    "r26-D.jsonl.gz": {
+      "bytes": 756245,
+      "sha256": "298f68ddfb2647b9f6c3e7d294c1fd688fe71a791f3a9395a3c200aaaab15cec"
+    },
+    "r26-P.jsonl.gz": {
+      "bytes": 1534610,
+      "sha256": "562d4870b8296a18f5557e2c6df6032e791a60ced399c02d35a13a68a1254df6"
+    },
+    "summary.json": {
+      "bytes": 153473,
+      "sha256": "e8847e8b914ca64fca3cfcec167429b5fd92b0c646fc792ec0d358cf1f19a3f6"
+    }
+  },
+  "summary_reanalysis": {
+    "reason": "Use each port's own monotonic counter timestamps for MAC TX windows and distinguish P handoff from D KV-ready slot deficits.",
+    "previous_summary_sha256": "df543caa4e84b3aeefdb82b7f636f761915522b177278e48808ab2a1db627dd6",
+    "previous_analyze_multiwave_sha256": "8e960d375d09534d0a438e0c7e489632b43ec752d4c82e04371191b7a12722ef"
+  }
+}

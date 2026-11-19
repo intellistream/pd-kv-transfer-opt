@@ -1,0 +1,215 @@
+{
+  "run_id": "2p2d-20261119-r27c-native-sustained",
+  "workload": {
+    "path": "configs/workload-r27-native-sustained.json",
+    "bytes": 767,
+    "sha256": "6787ec232f65835d1ca402d8b0afbbdb65691793dd4fdac569569c0e1a8aa974",
+    "source_plan": "workload-r26-native-pressure.json",
+    "source_plan_sha256": "9eec2404c43f0d9c5285a10b535ba665a2f0260af09d81aef98b85dcb0557a30",
+    "source_revision": "3f5b93ff1c5ea84b2c94cf479d0c942227191b4a",
+    "materialized_workload_sha256": "002a1c1fd6bbcfc275c93cb5d6211ad4578c37a11db900d7797ad6cf567237c0",
+    "repeated_target_cohorts": 12,
+    "pool_capacity_GiB": 128,
+    "target_requests_per_arm": 264,
+    "predecessor_requests_per_arm": 22,
+    "target_tokens_per_arm": 718872
+  },
+  "case_order": [
+    "a-b1-cap100",
+    "b-b1-cap200"
+  ],
+  "closed_raw_sources": {
+    "P": {
+      "bytes": 2405743,
+      "sha256": "d034143c05610a01be2db1d5f6f9b555755cc57438d5cc4fffe8058bc8657375",
+      "rows": {
+        "scope": 1,
+        "runtime_state": 1,
+        "clock": 1,
+        "native": 94363,
+        "worker_rank": 8
+      }
+    },
+    "D": {
+      "bytes": 1920265,
+      "sha256": "1003e3209287fe315ff8bd60b35ad7a4ce1825abc375b9ed4864f1095972596a",
+      "rows": {
+        "scope": 1,
+        "runtime_state": 1,
+        "clock": 1,
+        "native": 10430,
+        "worker_rank": 8,
+        "cap_control": 25,
+        "cap_port_sample": 5965,
+        "decode_supply_sample": 3808,
+        "proxy": 3436,
+        "client_manifest": 4,
+        "client": 576,
+        "client_token_bin": 5507,
+        "client_summary": 4
+      }
+    }
+  },
+  "runtime_inheritance": "Native synchronous per-rank GET with the pinned upstream vLLM and vLLM-Ascend trees and Mooncake NPU wheel.",
+  "runtime": {
+    "P": {
+      "role": "P",
+      "run_id": "2p2d-20261119-r27c-native-sustained",
+      "controller": "serve_2p2d_r27c_native_P.py",
+      "controller_sha256": "8253ffe54fbc2befc0b77d03be2de647fe1ba98c50afeff6893a49a079c11ea5",
+      "versions": {
+        "vllm": "0.23.0+empty",
+        "vllm-ascend": "0.23.0",
+        "mooncake-transfer-engine-npu": "0.3.11.post1"
+      },
+      "git_revisions": {
+        "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+        "vllm_ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd"
+      }
+    },
+    "D": {
+      "role": "D",
+      "run_id": "2p2d-20261119-r27c-native-sustained",
+      "controller": "serve_2p2d_r27c_native_D.py",
+      "controller_sha256": "561f0ce6e46583d3522396bf23b26d3e929bfe7b561bf9b5dcf9c0f8d8a6537d",
+      "versions": {
+        "vllm": "0.23.0+empty",
+        "vllm-ascend": "0.23.0",
+        "mooncake-transfer-engine-npu": "0.3.11.post1"
+      },
+      "git_revisions": {
+        "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+        "vllm_ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd"
+      }
+    }
+  },
+  "runtime_checks": {
+    "P": {
+      "observer": "rdma_full_observability.InstallFilter",
+      "graph": "vllm_ascend_default_4096_capture",
+      "local_apc": false,
+      "pool_load_async": false,
+      "batch_get_concurrency": 1,
+      "max_num_seqs_per_instance": 16,
+      "mounted_capacity_GiB_per_rank": 0,
+      "model_arguments_match_r26_except_P_APC": true
+    },
+    "D": {
+      "observer": "rdma_full_observability.InstallFilter",
+      "graph": "FULL_DECODE_ONLY",
+      "local_apc": false,
+      "pool_load_async": false,
+      "batch_get_concurrency": 1,
+      "max_num_seqs_per_instance": 16,
+      "mounted_capacity_GiB_per_rank": 16,
+      "model_arguments_match_r26_except_P_APC": true
+    }
+  },
+  "alternative_execution_events": {
+    "p_admission_early_add": 0,
+    "r18_packed_preflight": 0,
+    "r18_restore_decision": 0,
+    "r20_pipeline_batch": 0,
+    "r21_early_get": 0,
+    "r21_plan": 0,
+    "same_head_local_copy": 0
+  },
+  "site_harness_sha256": {
+    "P/r27c-active.json": "c4e990bf40049cb298da980f10c307bcd01f3a27c254c4f09020e9abc6eecb1e",
+    "P/export_r27c.py": "11476f0ed5f4386161114b3ec47bac9182d45ff3556865a9e899978c04b933f6",
+    "D/r27c-active.json": "2e4c1f429e501e46f8097f3f29b25b3232a47d08a07dfebee29eab7e4511d3f8",
+    "D/load_r27c.py": "0396f32e703ebff15c3b8c7c052c1e442da2b79edbd0a39945de6086018d8ad0",
+    "D/metrics_r27c.py": "282b896b161ad748e8d1a599fe2dcf2f8157eb81441311cb62a45e09b00e7ab1",
+    "D/run_stage_r27c.py": "ab17c8a7ad5fa114988279443cbf8bafb799f8aa1dcd86da3ff7538b57fb9601",
+    "D/reset_r27c_pool.py": "ab3f15690a4795e314d0ee0436fc19944dfc2aafdb51bdbfa04f501f10e5469e",
+    "D/start_proxy_r27c.py": "8b872a7f6facbd0405504233cf9cfc99ef7ca30af1c10188d6e9abe353e43796",
+    "D/export_r27c.py": "11476f0ed5f4386161114b3ec47bac9182d45ff3556865a9e899978c04b933f6",
+    "drive_r27c.py": "d12a1944c7f1eb76aad7692b2475aa08571bd360033ea73d5d5f5dce8fbe0a50",
+    "cleanup_r27c.py": "95a4f598090bdef407a5215ce0c34ac57b572c2d19affe36f67d263b9889996a",
+    "P/serve_2p2d_r27c_native_P.py": "8253ffe54fbc2befc0b77d03be2de647fe1ba98c50afeff6893a49a079c11ea5",
+    "D/serve_2p2d_r27c_native_D.py": "561f0ce6e46583d3522396bf23b26d3e929bfe7b561bf9b5dcf9c0f8d8a6537d",
+    "start_r27c.py": "9ca6b0143e7ecac38b10fe23dcd8f100cb1e236b27cd60f70cf36ba861b7e170",
+    "deploy_r27c.py": "8aebe0a1375061aa692774b20026e7250d060fc6cf5a841e32d6bb1ae2973b16",
+    "D/cohort-r27c.json": "b3baf8db9f4ca29d2a68a991ff404fc8d1d1a50f2dd6976728d351cf774586de"
+  },
+  "analysis_sha256": {
+    "analyze_multiwave.py": "3f3bf8e6cd8a1bf247f4c799b24a249e51c1928abb42fd8566d7d91de513fb98",
+    "public_bundle.py": "d5faecc1d2643cc102ab766b8dc1c2d0be740b2e4dae1e2a18a3e96bc01e09a8"
+  },
+  "pressure_plan_reader_sha256": "3dbe04b4e5f09c1029ac0e56bcb54c9931b3d564e049b586adc10cf679875d4f",
+  "cleanup": {
+    "P": {
+      "controller_finished": true,
+      "original_active_config_sha256": "344ee7cfb5f096f8fc15bc5cc3a26b498e7d6529c24e7820e14005bb475c8bd4",
+      "active_config_unchanged": true,
+      "idle_cards": 8
+    },
+    "D": {
+      "controller_finished": true,
+      "original_active_config_sha256": "5c787cdb511bd6761374b6a57daafbe34dfdc97a7a99058ff08d5e3695cebe16",
+      "active_config_unchanged": true,
+      "idle_cards": 8,
+      "D_port_readback": {
+        "0": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        },
+        "1": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        },
+        "2": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        },
+        "3": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        },
+        "4": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        },
+        "5": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        },
+        "6": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        },
+        "7": {
+          "configured_Mbps": 200000,
+          "maximum_Mbps": 200000,
+          "current_Mbps": 200000
+        }
+      }
+    }
+  },
+  "artifacts": {
+    "r27c-D.jsonl.gz": {
+      "bytes": 1673526,
+      "sha256": "3eeafeb419bbf306c657fb1acdf1459365964eb6edeab1f048e21410d1528f0f"
+    },
+    "r27c-P.jsonl.gz": {
+      "bytes": 2149147,
+      "sha256": "80d9d026f88ef6747ce206599ac77077f160eedc3b1b473b9f1b8301153adcf8"
+    },
+    "summary.json": {
+      "bytes": 622498,
+      "sha256": "c8e3fbc35a9ef92115177f0101874d5959f8769b8145a7cd4360011c836adfb6"
+    }
+  },
+  "summary_reanalysis": {
+    "reason": "Use each port's own monotonic counter timestamps for MAC TX windows and distinguish P handoff from D KV-ready slot deficits.",
+    "previous_summary_sha256": "2fb6ddb9ea0a778c221b02391e85cd581eb90eef4e6d10599635c883e156ba68",
+    "previous_analyze_multiwave_sha256": "14acde168e59f7da2d06c8d61cdd3154f581b649837af103149c1de2627c04ef"
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "scope": "Same workload and clean epoch, fresh namespaces, separate block for treatment activation.",
+  "block": "b2",
+  "arms": [
+    {
+      "D_egress_cap_Gbps": 100,
+      "mode": "prepare-only",
+      "requests": 10,
+      "output_tokens": 3971,
+      "get_bytes": 21237923840,
+      "P_to_D_descriptor_bytes": 42964418560,
+      "ttft_p99_s": 5.399443722888828,
+      "output_tokens_s": 193.2352284437105,
+      "scheduler_releases": [
+        {
+          "only_restore": false,
+          "mode": "prepare-only",
+          "zero_block_count": 0,
+          "prior_used_block_overlap": 0,
+          "since_P_arrival_ms": 1000.954085
+        }
+      ],
+      "successor_restore_jobs_by_rank": {
+        "0": [
+          {
+            "request": "natural-count-dataset-tokens:45",
+            "bytes": 362127360
+          },
+          {
+            "request": "natural-video-processing:28",
+            "bytes": 351641600
+          },
+          {
+            "request": "natural-financial-document-processor:60",
+            "bytes": 351641600
+          }
+        ],
+        "1": [
+          {
+            "request": "natural-count-dataset-tokens:45",
+            "bytes": 351641600
+          },
+          {
+            "request": "natural-video-processing:28",
+            "bytes": 351641600
+          },
+          {
+            "request": "natural-financial-document-processor:60",
+            "bytes": 351641600
+          }
+        ],
+        "2": [
+          {
+            "request": "natural-count-dataset-tokens:45",
+            "bytes": 362127360
+          },
+          {
+            "request": "natural-video-processing:28",
+            "bytes": 351641600
+          },
+          {
+            "request": "natural-financial-document-processor:60",
+            "bytes": 351641600
+          }
+        ],
+        "3": [
+          {
+            "request": "natural-count-dataset-tokens:45",
+            "bytes": 351641600
+          },
+          {
+            "request": "natural-video-processing:28",
+            "bytes": 351641600
+          },
+          {
+            "request": "natural-financial-document-processor:60",
+            "bytes": 351641600
+          }
+        ]
+      },
+      "prepared_plan_reused_ranks": [],
+      "early_ranks": []
+    },
+    {
+      "D_egress_cap_Gbps": 200,
+      "mode": "early-get",
+      "requests": 10,
+      "output_tokens": 3971,
+      "get_bytes": 21237923840,
+      "P_to_D_descriptor_bytes": 42964418560,
+      "ttft_p99_s": 4.3190339706838135,
+      "output_tokens_s": 198.11260201540895,
+      "scheduler_releases": [
+        {
+          "only_restore": false,
+          "mode": "early-get",
+          "zero_block_count": 0,
+          "prior_used_block_overlap": 0,
+          "since_P_arrival_ms": 707.899202
+        }
+      ],
+      "successor_restore_jobs_by_rank": {
+        "0": [
+          {
+            "request": "natural-count-dataset-tokens:45",
+            "bytes": 362127360
+          },
+          {
+            "request": "natural-video-processing:28",
+            "bytes": 351641600
+          },
+          {
+            "request": "natural-financial-document-processor:60",
+            "bytes": 351641600
+          }
+        ],
+        "1": [
+          {
+            "request": "natural-count-dataset-tokens:45",
+            "bytes": 351641600
+          },
+          {
+            "request": "natural-video-processing:28",
+            "bytes": 351641600
+          },
+          {
+            "request": "natural-financial-document-processor:60",
+            "bytes": 351641600
+          }
+        ],
+        "2": [
+          {
+            "request": "natural-count-dataset-tokens:45",
+            "bytes": 362127360
+          },
+          {
+            "request": "natural-video-processing:28",
+            "bytes": 351641600
+          },
+          {
+            "request": "natural-financial-document-processor:60",
+            "bytes": 351641600
+          }
+        ],
+        "3": [
+          {
+            "request": "natural-count-dataset-tokens:45",
+            "bytes": 351641600
+          },
+          {
+            "request": "natural-video-processing:28",
+            "bytes": 351641600
+          },
+          {
+            "request": "natural-financial-document-processor:60",
+            "bytes": 351641600
+          }
+        ]
+      },
+      "prepared_plan_reused_ranks": [],
+      "early_ranks": []
+    }
+  ]
+}

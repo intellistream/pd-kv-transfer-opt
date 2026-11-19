@@ -49,6 +49,12 @@
 | 路由、准入和模拟 | **Nebula** 用同款 Qwen3.5-35B-A3B，在 H20 7P1D TP1 上做 position-independent cache 的分段放置，以排队、计算和传输预测完成时间。**NetKV** 模拟 P→D 的带宽感知 D 选择。**ServeTwin** 校准分布式服务的闭环反馈。[Nebula §7.2、§9.1](https://arxiv.org/html/2611.09474v1#S7.SS2) · [NetKV](https://arxiv.org/abs/2606.03910) · [ServeTwin](https://arxiv.org/abs/2610.02732) | 适合比较后续路由或模拟证据。r15/r16 路由固定，直接比较同头读和 NPU 本机分发。 |
 | 读取与重算校准、负载放大 | **py-kvcache** 按存储 tier 离线标定读取和重算的交叉点，并让相同前缀的读取共享在途操作。**FlatCake** 从生产 trace 找到长会话高并发下的碎片和恢复缓冲竞争。**Fairway** 在 P 的等待队列中结合复用收益和相对等待时间，缓解短时过载下的尾延迟。[py-kvcache §6.5–6.6](https://arxiv.org/html/2609.11744v1#S6.SS5) · [FlatCake §2.2、§3.4](https://arxiv.org/html/2610.38355v1#S2.SS2) · [Fairway §4](https://arxiv.org/html/2611.02082v1#S4) | py-kvcache 和 FlatCake 主要看本地 NVMe 与 host tier，Fairway 主要调度 P 计算。可分别用作恢复门槛、长会话负载和排队策略的参照。 |
 
+## 跨批提前恢复与通信调度
+
+AMPD 已在多轮 P/D 的 D→P 历史 KV 路径重叠前一任务的计算，并实现 prefill 重排。Nuska 已在 vLLM 上根据下游层依赖、批次可行性和期限分配 KV 检索、collective 与 P→D 优先级。r21 观测的空档出现在 connector 提交 GET 之前。仅在低层网络原语仲裁时，这笔尚未提交的工作不在可选集合中。该接口边界说明提前暴露 GET 可能与传输优先级互补。论文 §6 的单 token 输出也覆盖不到本机约 17 s 的 D 排空尾段。两套完整系统在本平台的端到端效果尚待实机比较。[AMPD 实现](https://arxiv.org/html/2602.14516v2#S6) · [Nuska 设计与实现](https://arxiv.org/html/2603.17456v2#S4.SS4) · [Nuska 评测设置](https://arxiv.org/html/2603.17456v2#S6.SS1)
+
+SGLang Direct Linker 已实现入队预取、私有 GPU slot 和全 TP 完成后发布。Cascade 按剩余 SLO 预算和路径带宽决定预取的前缀字节数，在预算不足时考虑重算。通用异步、临时空间、发布屏障和基于 slack 的恢复选择都有对应先例。当前候选的证伪重点是固定消费批与跨机字节下，四 rank 就绪门槛能否给出比同预算先发、最长可行 GET 和期限代理更好的早发准入。当前 r20 重放中，最晚就绪分数与最长可行读的选择一致。[Direct Linker](https://github.com/sgl-project/sglang/blob/main/python/sglang/srt/mem_cache/storage/mooncake_store/README.md#direct-linker-prefetch) · [Cascade §IV-C](https://arxiv.org/html/2608.06557v1#S4) · [实证、候选贡献与对照草案](prefetch-selection-claim.md)
+
 ## 当前贡献边界和可区分对照
 
 - **r14 的实证**是同一 2P2D 长前缀回放中，固定源、目的和载荷，仅改变 D→P 八口的有效服务上限，追踪到同步 GET、P 取件和批队列等待的变化。已查到同类带宽敏感、远端恢复阻塞和队列放大的先例。自然会话 r11/r12 的前台读取占比小，吞吐效应也小，应保留这一对照的适用边界。[r14 与 r11/r12](results.md)

@@ -13,14 +13,70 @@ ROOT = Path(__file__).resolve().parents[1]
 
 from pd_kv_transfer_opt.experiments.analyze import summarize
 from pd_kv_transfer_opt.experiments.build_matrix import build
+from pd_kv_transfer_opt.profiling.analyze_multiwave import aligned_tx_intervals, cap_pressure, supply_time
 from pd_kv_transfer_opt.profiling.check_trace import audit
 from pd_kv_transfer_opt.common import read_json, read_jsonl
 from pd_kv_transfer_opt.experiments.compare import compare
+from pd_kv_transfer_opt.experiments.serve import model_commands, read_deployment
 from pd_kv_transfer_opt.simulator.geometry import geometry
 from pd_kv_transfer_opt.experiments.loadgen import drive, request_one, validate_workload
 from pd_kv_transfer_opt.simulator.lifecycle import Registry
 from pd_kv_transfer_opt.simulator.network_sim import Flow, max_min_rates, simulate
 from pd_kv_transfer_opt.profiling.telemetry import TraceWriter
+
+
+class MultiwaveProfilingTests(unittest.TestCase):
+    def test_port_rates_follow_each_ports_own_timestamps(self):
+        def port(number, second, gigabytes):
+            return {"port": number, "monotonic_ns": second * 10**9,
+                    "counters": {"mac_tx_total_oct_num": gigabytes * 10**9}}
+
+        samples = [
+            {"monotonic_ns": 0, "ports": [port(0, 0, 0), port(1, 2, 0)]},
+            {"monotonic_ns": 3 * 10**9, "ports": [port(0, 5, 50), port(1, 7, 0)]},
+            {"monotonic_ns": 8 * 10**9, "ports": [port(0, 10, 50), port(1, 12, 50)]},
+        ]
+        intervals = list(aligned_tx_intervals(samples, 0))
+        self.assertEqual(intervals, [(2, 5, 80, (80, 0)), (5, 7, 0, (0, 0)), (7, 10, 80, (0, 80))])
+        self.assertEqual(cap_pressure(intervals, 9, 90), {
+            "D_cap_measurement_window_s": 7,
+            "D_MAC_TX_at_least_85pct_cap_s": 5,
+        })
+
+    def test_ready_slot_deficit_distinguishes_handoff_from_d_wait(self):
+        requests = [
+            {"P_begin_s": 0, "P_HTTP_return_s": 4, "D_KV_ready_s": 5, "D_end_s": 8},
+            {"P_begin_s": 0, "P_HTTP_return_s": 2, "D_KV_ready_s": 3, "D_end_s": 6},
+        ]
+        result = supply_time(requests, 0, 8, decode_slots=1)
+        self.assertEqual(result["D_below_slots_while_P_pending_s"], 3)
+        self.assertEqual(result["D_handoff_below_slots_while_P_pending_s"], 2)
+
+
+class DeploymentTests(unittest.TestCase):
+    def test_deployment_uses_separate_lookup_ids_and_opt_in_profiling(self):
+        config = read_deployment(ROOT / "configs" / "ascend-2p2d.example.json")
+        for role in ("P", "D"):
+            _, commands = model_commands(config, role, ROOT / "runs")
+            lookup_ids = []
+            for command in commands:
+                argv = command["argv"]
+                transfer = json.loads(argv[argv.index("--kv-transfer-config") + 1])
+                store = transfer["kv_connector_extra_config"]["connectors"][1]
+                lookup_ids.append(store["kv_connector_extra_config"]["lookup_rpc_port"])
+                prefix_flag = "--enable-prefix-caching" if role == "P" else "--no-enable-prefix-caching"
+                self.assertIn(prefix_flag, argv)
+                self.assertNotIn("--profiler-config", argv)
+                self.assertNotIn("--enforce-eager", argv)
+            self.assertEqual(lookup_ids, list(map(str, config[role]["api_ports"])))
+
+        config["P"]["max_num_seqs"] = 32
+        del config["P"]["enable_prefix_caching"]
+        _, commands = model_commands(config, "P", ROOT / "runs", observe=True)
+        argv = commands[0]["argv"]
+        self.assertEqual(argv[argv.index("--max-num-seqs") + 1], "32")
+        self.assertNotIn("--no-enable-prefix-caching", argv)
+        self.assertIn("--profiler-config", argv)
 
 
 class NetworkTests(unittest.TestCase):
@@ -132,6 +188,17 @@ class ClientTests(unittest.TestCase):
 
 
 class AccountingTests(unittest.TestCase):
+    def test_finite_throughput_uses_planned_arrival_and_drain(self):
+        manifest = {"run_id": "unit", "window_start": 0, "seconds": 6, "selected_requests": 2}
+        first = {"type": "request_end", "id": "a", "status": "ok", "offered_s": 5,
+                 "ready_s": 5, "dispatch_s": 5.5, "first_s": 6, "end_s": 7, "completion_tokens": 3}
+        last = dict(first, id="b", offered_s=5.1, ready_s=5.1, end_s=9, completion_tokens=9)
+        result = summarize([last, first], manifest)["finite_cohort"]
+        self.assertEqual(result["offer_to_last_end_s"], 4)
+        self.assertEqual(result["output_tokens"], 12)
+        self.assertEqual(result["output_tokens_per_s"], 3)
+        self.assertIsNone(summarize([last], manifest)["finite_cohort"]["output_tokens_per_s"])
+
     def test_window_boundaries_and_unknown_token_counts(self):
         manifest = {"run_id": "unit", "window_start": 0, "seconds": 1, "selected_requests": 1}
         end = {"type": "request_end", "id": "a", "status": "ok", "offered_s": 0,

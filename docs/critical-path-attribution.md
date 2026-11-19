@@ -1,4 +1,4 @@
-# r14–r20 关键路径归因
+# r14–r24 关键路径归因
 
 归因基于两台八卡 910B2 的 2P2D 实验。r14–r17 固定两个约 223K/239K 的长前缀、关闭 P 本地 APC、每条输出 16 token。r18 使用 Terminal-Bench 2.1 原有 30 个长会话、170 条请求，开启 P 本地 APC。r19/r20 在同一数据里挑选 10 条高恢复量后继，保留 18 条真实前驱、P/D 路由和逐请求输出预算。计时臂固定输出 3,971 token，其中两条各输出 1,024 token。100/200 Gbps 均指 D 八口合计发送上限。r17 的原档指八口各 200 Gbps 的配置。 [负载与固定数据版本](workloads.md)
 
@@ -61,9 +61,119 @@ r15–r17 的代理发起到 worker 区间含引擎接纳前、引擎排队和�
 
 下次实机先采 RPC 入队和取件、源对象版本或 pin、生效的目标页归属和清零、描述符可用、后端提交及端口额度、GET 完成、同头补齐、页发布、前向和批结果。重点核对待写页与 `new_block_ids_to_zero` 的交集和设备清零完成时刻。固定版 Ascend runner 引用上游的清零路径，需在运行时确认它覆盖哪些实际目标。以这些事件的最晚合法时点作为最早可提交时刻，同时保留实际原批次的计算和发布依赖。 [调度输出与清零列表](https://github.com/vllm-project/vllm/blob/0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665/vllm/v1/core/sched/scheduler.py#L851-L889) · [Ascend 状态更新](https://github.com/vllm-project/vllm-ascend/blob/5cb98caaadeff42b5b62b996e34bb2aaa29d20fd/vllm_ascend/worker/model_runner_v1.py#L681-L695) · [上游清零](https://github.com/vllm-project/vllm/blob/0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665/vllm/v1/worker/gpu_model_runner.py#L1071-L1074)
 
-1. 同步打包是基线。准备对照只提前构造可复用的描述符，原时点才提交 GET。两组在真正提交前都获取当时有效的目标地址。
+1. 同步打包是这次时序实验的优化对照。准备对照只提前构造可复用的描述符，原时点才提交 GET。两组在真正提交前都获取当时有效的目标地址。
 2. 若一笔读已具备合法目标、旧批 GET 已返回、相关端口有额度，在相同负载与字节下提前提交这笔读，计算与发布仍由原批次依赖控制。在 100/200 Gbps 分别比较 GET 提前量、后续批结果、最慢 TTFT、前批前向和 D TPOT。若需要 staging，单独计其 HBM 占用和额外 copy，以免把重叠收益转为本机成本。
 3. 若耗时集中在准备对照，继续拆页初始化与描述符。若只在提前提交后改善，继续验证 connector 与 executor 的串行耦合。若端口已经忙或早发拖慢前批，回到可执行路径的完成时刻，测等待读取、异步读取与重算的交叉点。重算应使用相同前缀的实际恢复起点和额外 prefill 批次测量，计入它挤占的 P 计算。r14–r20 尚无同形状重算对照，不能从 GET 字节直接推断选择阈值。 [重算对照与建模](bottleneck-and-validation.md) · [七步法](research-seven-steps.md)
+
+## 多恢复批选读的扩展重放
+
+重放覆盖 Terminal-Bench 2.1 的 r18 原始 30 会话、170 请求，以及同一数据集高恢复组的 r19、r20 和 r21 同步 trace。r21 正式组包含同步 A 和未触发干预的臂，排除四 rank 实际早发的 `c-b3-cap100`。保留原批次、每 rank 字节、GET 发布顺序和同头 rendezvous。每次只早发一笔，比较最早可行、最长可行和让后继四 rank 最晚 host forward 入口提前最多的选择。主要口径使用观测 GET 时长、4 ms 准备、每 rank 384 MiB 有界暂存和 8.56 ms 回填。窗口扣除两 P 实例已经观测到的 GET。字节上限按有效载荷筛选，实际页租约、对齐填充和 D 源端口分布仍需通过运行时验证。
+
+| 同步 trace | P 批 | 多恢复批 | 后继 worker 前至少两笔可选 | 最早原始 GET 前至少两笔可选 |
+|---|---:|---:|---:|---:|
+| r18 原长会话，原带宽配置 | 875 | 1 | 1 | 1 |
+| r19，100/200 Gbps | 44 | 10 | 2 | 3 |
+| r20，100/200 Gbps | 44 | 7 | 0 | 1 |
+| r21 正式与补轮，100/200 Gbps | 77 | 18 | 6 | 6 |
+| r21 较早独立同步记录，100/200 Gbps | 22 | 4 | 0 | 0 |
+| 合计 | 1,062 | 40 | 9 | 11 |
+
+9 批中有 3 批在前批四 rank 共享 host forward 窗口内也有双候选。后继 worker 前的全部 9 批里，两种选择没有增量差异。r18 唯一多恢复批在原配置下有两笔可选，两种策略都选择 `fix-ocaml-gc:31`，相对同步局部提前 1.53 ms。
+
+r21 的 `count-dataset-tokens:45 → video-processing:28 → financial-document-processor:60` 三恢复批在同一回放负载下重复出现。补轮 100 和 200 Gbps 样本各有约 399 ms 后继 worker 前空档，三笔均通过时间及载荷筛选。100 Gbps 样本 D 八口各有至少 274.8 ms 计数覆盖，窗口内计数增量为零，两策略均选 `video-processing:28`，模型相对同步提前 161.00 ms。200 Gbps 样本各有至少 293.8 ms 覆盖，八口总 TX 约 1.26 MB，两策略均选 `count-dataset-tokens:45`，模型提前 73.99 ms。端口计数按两端各留 42 ms 后取完整区间。这些局部提前量支持流水的潜在收益，两种选择的增量均为 0 ms。
+
+放宽到后继首笔原始 GET 前，在 r19 `b-b1-cap100` 的 `6eee9c5a…` 出现一次差异。最长选 `train-fasttext:69`，观测四 rank GET 跨度 156.04 ms。关键路径选 `count-dataset-tokens:45`，跨度 155.95 ms。前者的跨度包含非关键组约 29 ms 的更早发起点。最后到达的是 rank 1，关键同头组上的两笔 GET 分别约 126.68 和 141.28 ms。模型中两选项相对同步分别提前 118.12 和 132.72 ms，差 **14.60 ms**。后继 worker 前原空档仅 102.23 ms，扣准备后约 98.23 ms，低于两笔约 1.43 GB 有效载荷的 100 Gbps 总速率下界 114 ms。放宽窗也只剩约 5.4 ms 完成余量。同档第二轮关键 rank 变为 3，Count 的观测跨度约 166.19 ms，超出 163.91 ms 的放宽净空档，失去第二个候选。将服务时间乐观缩短 25% 时，r21 的 200 Gbps 样本只在约 70 ms 共享 host 窗口内出现一次 1.87 ms 额外收益，该窗口无计数覆盖。
+
+重放固定前批进度，前批延迟若一对一传给后批，14.60 ms 额外前批延迟就会抵消唯一的名义选读收益。r21 已运行的单笔早发对照曾观察到前批 rank 0 设备时长多 5.35 ms、派发到结果多 35.44 ms，这两个观测口径提供量级参照，无法估计新选择的扰动。本轮止于离线，未得到选择策略的实机 TTFT、吞吐或前批影响。[逐批重放](../results/2026-11-19-prefetch-holdout/choice-screen.json) · [r20 重放](../results/2026-11-19-r20-packed-overlap/cross-batch-choice-audit.json)
+
+## P 侧请求接纳等待
+
+现有 `p_chunk_arrival` 记录进入 `Scheduler.add_request`，`p_chunk_ready` 记录进入 `Scheduler.update_from_output`。先用 D 单调时钟算 P HTTP 往返时长，再扣掉 P 同机的调度等待和首个派发到末块结果的时长，得到调度器区间之外的残差。用两端 Unix 锚点把该残差估计分为代理发起到接纳、末块结果到 HTTP 回复。前批结果开始更新到接纳的间隔直接用 P 同机单调时钟。
+
+| 请求集 | 估计接纳等待超过 300 ms | 其中在同实例前批结果开始更新后 10 ms 内接纳 | 结果更新到接纳中位数 | 同实例 GET 覆盖接纳等待的中位比例 |
+|---|---:|---:|---:|---:|
+| r20 四对 A/B | 54/80 | 54/54 | 0.512 ms | 45.4% |
+| r21 正式六臂 | 44/60 | 44/44 | 0.533 ms | 43.5% |
+
+对长等待的两端各裁掉 42 ms 后，与同实例批从派发到结果更新区间的重叠比例中位数仍为 100%。`winning-avg-corewars:131` 在 100 Gbps 同步 A 和未触发的 B 间，估计接纳等待由 869.44 降到 147.39 ms，前批 GET 重叠由 410.29 降到 0 ms。200 Gbps 同步 A 和未触发的 C 间分别为 651.72 到 143.58 ms、191.92 到 0 ms。两例的慢臂都在前批结果开始更新后约 0.3 ms 接纳该请求。前批 GET 的变化会和组批、其他完成事件共同改变等待，140 条请求的时间对齐给出应查的边界。
+
+这批旧 trace 的近邻时间关系用于定位采样边界。r24 用 P 同机时钟实测队列入取与前批结果，再独立对照提前接纳。[逐请求接纳审计](../results/2026-11-19-prefetch-holdout/admission-audit.json)
+
+## r24 同机时钟确认接纳阻塞
+
+沿用 r21 计时负载。原数据集的 18 个前驱先按原会话关系完成，再按 50 ms 间隔发相同 10 个后继。每臂在新缓存命名域准备，逐请求路由、输入与输出预算一致，计时输出合计 3,971 token。P 仍启用 APC、4096 分块和同步同头打包。A 保持原输入队列取件。对每条请求用同一个 P 单调时钟串起 HTTP 请求体、API render、IPC ADD 发出至反序列化、入队与取出、调度器接纳、派发和 rank 0 实际进入 worker。前批的 future 结果等待和 scheduler 更新在同一 P 上配对，D 的客户端和限速独立计时。[负载](workloads.md#r19-高远端恢复的自然后继) · [采样方法](deployment.md#r24-的-p-请求接纳实验)
+
+| 第一组 A 臂的逐请求阶段 | 100 Gbps | 200 Gbps |
+|---|---:|---:|
+| HTTP 进入到 ADD 入队中位数 | 33.28 ms | 38.26 ms |
+| 其中 API render 中位数 | 0.303 ms | 0.302 ms |
+| IPC 调用进入到接收端反序列化完成中位数 | 3.93 ms | 3.90 ms |
+| ADD 在输入队列的中位数 | 520.25 ms | 326.31 ms |
+| 取出到 Scheduler.add_request 中位数 | 0.056 ms | 0.049 ms |
+| 接纳到首块派发中位数 | 40.77 ms | 157.84 ms |
+| 首块派发到 rank 0 进入 worker 中位数 | 758.80 ms | 83.35 ms |
+| 证实在前批 future 等待时已入队，更新结束后才取出的请求 | 7/10 | 8/10 |
+
+15 个确认样本的前批等待开始时，最老 future 已从 deque 取出，仍在回收结果，另外一个 future 在 deque，两个槽均占用。两档在结果更新结束到 ADD 取出的间隔中位数分别为 0.352/0.393 ms，最大均低于 1 ms。队列等待与 P 同实例 GET 区间重叠的比例中位数为 53.3%/30.9%。该比例表示实际同时发生的时间，前批还包含设备执行、RPC 回传和其他处理。
+
+100 Gbps 的尾请求 `regex-chess:106` 在 P 接到 HTTP 后 88.28 ms 入队，前批 future 在 127.49–771.31 ms 等待，771.67 ms 完成结果更新，772.01 ms 取出 ADD，772.05 ms 接纳。首块在 812.76 ms 派发，rank 0 到 1,672.99 ms 才进入 worker。单请求清楚地暴露了输入队列与派发和 worker 入口三道不同的等待。
+
+同为 100 Gbps，第一组 B 让该尾请求的输入排队少 652.63 ms，最早 worker 晚 110.95 ms，D 首步多 120.70 ms，最终 TTFT 多 166.20 ms。反序 B 的同形首批晚 316.91 ms 入 worker，GET 包络短 290.88 ms，最晚 host forward 仅晚 8.11 ms，D 首步多 71.94 ms，TTFT 多 105.37 ms。同形及同字节的批仍有明显的执行时序波动。
+
+200 Gbps 第一对的尾请求也为 `regex-chess:106`。B 把其输入队列时间从 431.60 ms 减到 6.41 ms，HTTP 进入到首块派发缩短 51.71 ms，首块最早 worker 进入却晚 2.16 ms。此后首批 11.247 GB GET 包络缩短 89.67 ms，最晚 rank 的 host forward 提前 87.51 ms。同一 D 时钟上的 P HTTP 和 D 首步各缩短 61.22/63.34 ms，解释了该请求 TTFT 缩短 122.92 ms 的主要部分。
+
+反序 200 Gbps 的 `regex-chess:106` 首批形状变化。最早 worker 比 A 晚 252.18 ms，P HTTP 多 37.55 ms，D 首步少 95.64 ms，TTFT 仍少 53.49 ms。两次实现的 p99 都下降，首块更早开始执行的机制在这两个尾请求上均未出现。
+
+第一对 200 Gbps 的排空请求 `winning-avg-corewars:131` 与该尾请求共首批。首 token 提前 172.61 ms，随后 D 输出多用 216.73 ms，整轮排空多用 44.12 ms。前端接纳、首步和排空在相同负载下沿不同的关键路径。
+
+前批分阶段对比中，100 Gbps 反序的 P0 `extract-moves-from-video:133` 同形前批变化最大。GET 字节保持 2,769,715,200 B，派发到最早 worker 从 28.10 变为 27.87 ms，worker 到最晚 host forward 从 486.80 变为 533.18 ms，最晚 host forward 到结果更新从 181.96 变为 456.17 ms。GET 包络由 352.05 变为 396.97 ms，rank 0 设备前向由 168.73 变为 210.46 ms。主要变化出现在最晚 host forward 之后。该窗口仍包含各 rank 的设备执行、收取结果及其他收尾，现有事件能够定位区间。[逐请求及逐前批数据](../results/2026-11-19-r24-prefill-admission/summary.json) · [四对端到端结果](results.md#r24-p-接纳与首块实际启动)
+
+## r27c 原生路径的带宽与排空归因
+
+r27c 两档均为各 rank 同步直读的原生路径。每档在同一到达计划和路由下完成 264 条请求及 718,872 个输出 token。以下时间以各档第一条计划投放为零点。端口和 D 阶段用 D 主机的单调时钟，P 方法耗时用 P 主机的单调时钟。跨机事件的先后对齐用归档的时钟锚点，时钟误差影响毫秒级差值。[负载与配置](results.md#r27c-原生持续高压的输出平台) · [P 事件](../results/2026-11-19-r27c-native-sustained/r27c-P.jsonl.gz) · [D 事件](../results/2026-11-19-r27c-native-sustained/r27c-D.jsonl.gz)
+
+### 同进度对齐的带宽压力
+
+| 指标 | 100 Gbps | 200 Gbps |
+|---|---:|---:|
+| D 驱动读回（每口） | 12.5 Gbps | 25.0 Gbps |
+| 0–10 秒 D 八口 MAC TX 均值 | 75.90 Gbps | 130.13 Gbps |
+| 10–18 秒 D 八口 MAC TX 均值 | 78.69 Gbps | 154.64 Gbps |
+| 发送首 400 GB 的时刻 | 39.36 s | 22.03 s |
+| P 同步 GET 活跃并集 | 78.39 s | 40.28 s |
+| 最慢单次 GET 的逐请求 p50 | 389.60 ms | 188.41 ms |
+| 0–18 秒已完成的 P 返回 | 57 条 | 101 条 |
+
+首 400 GB 的时刻由各端口累计 TX 字节按该口采样时刻插值，求八口增量之和首次达到 400 GB 的时刻。窗口均值也按各口时间轴积分。修正前把各口估出的速率放进了采样组的时间区间，轮询耗时变化时会使窗口均值偏低。GET 配对剔除一条字节不同的请求后，263 条的最慢调用配对中位数减少 226.18 ms。D 全量端口快照中，两档 RDMA 重试和发出 CNP 增量均为零，接收 PFC 为 0/7 帧，发出 PFC 为 436,768/242,684 帧。证据定位到硬限速下 D→P 同步恢复变慢。P 侧和交换机的拥塞计数时序仍缺采样。[修正后的窗口与逐请求](../results/2026-11-19-r27c-native-sustained/summary.json) · [限速与计数](../results/2026-11-19-r27c-native-sustained/r27c-D.jsonl.gz)
+
+到达时的远端 GET 需求按整批平均为 190.6 Gbps，足以给 100 Gbps 档施压。每输出 token 只需约 1.09 MB 远端净载荷，按双 D 的输出平台约 1,154 token/s 折算，相当于两侧每秒消费约 10.1 Gbps 的恢复载荷。这个量级只用来判断工作比，瞬时就绪和热点端口由事件决定。作为对照，r14 每条只输出 16 token，远端载荷约 595 MB/输出 token，因此远端读取的提速可以持续传到整轮吞吐。[r14 原生对照](results.md#r14-远端恢复限速)
+
+### P 页持有与 D 供给
+
+高档 34–48 秒同时出现 101 条 P 在途、零 P 返回、零 D KV 就绪和零 MAC TX。P0、P1 各对同一待派发请求成功匹配外部前缀 649 次，零非空批次派发，也没有任何同步 GET 区间穿过该窗口。D0、D1 的 16 个运行位置全部占用，输出仍有 1,158.4 token/s。这段 P 等待发生在发 GET 前。
+
+P 原始日志的 572 条 `Delaying free` 与准备及正式的 572 条 P 返回请求逐条匹配。用 P 已返回且 D 最后一 rank 尚未完成接收筛选。200 Gbps 档 34、41、48 秒三次快照均为 P0 的 31 条、11,724 个交接块和 P1 的 52 条、11,616 个交接块。对应的输入规模约 299 万和 294 万 token，量级接近两实例启动日志各自的 309 万 token KV 容量。输入长度与交接块数是持有压力的观测，精确空闲块数仍需 allocator 事件。约 67.30 秒，两个 P 各有一条此类请求在 D1 就绪，随后约 67.38 秒恢复非空批次派发。[清洗事件](../results/2026-11-19-r27c-native-sustained/r27c-P.jsonl.gz)
+
+原生 `request_finished()` 会保留 P 上尚需交接的块，scheduler 收到 `finished_sending` 才释放。等待队列在匹配外部前缀之后还要通过 `allocate_slots()`，成功后才能派发。日志、持有量和恢复时序支持 D 接纳较慢引起的 P 页持有回压。现有观测记录了未派发和恢复时点，具体阻断分支及各缓存组的空闲块仍待记录。[Mooncake 固定版本的延迟释放](https://github.com/vllm-project/vllm-ascend/blob/5cb98caaadeff42b5b62b996e34bb2aaa29d20fd/vllm_ascend/distributed/kv_transfer/kv_p2p/mooncake_connector.py#L1882-L1928) · [vLLM 固定版本的释放](https://github.com/vllm-project/vllm/blob/0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665/vllm/v1/core/sched/scheduler.py#L2221-L2248)
+
+从 18 秒到最后 P 返回，针对仍有 P 工作的路由，D0 已交付未结束的请求少于 16 的时间为 69.16→24.16 秒。两档这些区间的 D 八口发送均没有达到各自上限的 85%，平均仅 1.31→3.02 Gbps。D1 的该项缺口两档均为零。两路各 132 条，但 D1 负责 422,496 个输出 token，占全轮 58.77%。D0 最后一条在 575.53→559.69 秒结束，D1 在 810.62→809.26 秒结束。D0 的供给改善发生在全轮结束前已排空的一路。[逐请求和解码槽采样](../results/2026-11-19-r27c-native-sustained/summary.json)
+
+### 决定整轮吞吐的尾请求
+
+两档最后完成的都是 P0→D1 的 `rep12-natural-mailman:23`，原输出 4,811 token。客户端测得的结束时刻只提前 1.36 秒。下表用秒列出代理和 D 方法边界。
+
+| 阶段 | 100 Gbps | 200 Gbps | 变化 |
+|---|---:|---:|---:|
+| P 开始到 P 返回 | 484.545 | 445.193 | −39.352 |
+| P 返回到 D 入口 | 0.012 | 0.021 | +0.010 |
+| D 入口到首 rank 交接入队 | 111.881 | 223.020 | +111.139 |
+| 首 rank 入队到最后 rank KV 就绪 | 0.810 | 0.030 | −0.779 |
+| KV 就绪到客户端首 token | 77.841 | 0.171 | −77.670 |
+| 首 token 到请求结束 | 103.226 | 108.515 | +5.289 |
+
+尾请求的 P 首块排队为 478.01→444.45 秒，自身最慢 GET 为 190.27→95.98 ms。P 侧获得的大部分提前量出现在首块派发前。D 入队前等待期间，D1 有效采样中运行数一直是 16，完成了其他 21→36 条请求。四个 rank 的 `enqueue→handler_begin` 为 755–779→0.87–1.26 ms，原生 `submit→handle_end` 为 17.19–20.29→17.76–22.08 ms，每 rank 发送载荷均为 372,613,120 B。两档真正提交后的耗时接近。P 提前交付后，D 入口到首 token 的净等待增加约 32.69 秒，生成增加约 5.29 秒，最终整轮吞吐仅从 886.81 增至 888.31 token/s。本轮是一对带宽干预，D 队列顺序和输出时间仍有运行间变动。[逐请求与 rank 方法事件](../results/2026-11-19-r27c-native-sustained/r27c-D.jsonl.gz) · [汇总](../results/2026-11-19-r27c-native-sustained/summary.json)
+
+50 Gbps 八口均分需每口 6.25 Gbps。实机 `hccn_tool -shaping` 帮助和当前控制器均给出每口 10 Gbps 的下限，现有同拓扑均分硬限速最低 80 Gbps。复核时两机 16 卡被其他任务使用，更低带宽尚无实测。[控制器范围](../pd_kv_transfer_opt/experiments/hardware.py)
 
 ## 重算
 
@@ -74,4 +184,12 @@ python -B -m pd_kv_transfer_opt.profiling.audit_restore_worker_costs \
   results/2026-11-19-r20-packed-overlap/r20-P.jsonl.gz \
   results/2026-11-19-r20-packed-overlap/r20-D.jsonl.gz \
   runs/restore-worker-costs.json
+
+python -B -m pd_kv_transfer_opt.profiling.audit_prefetch_holdout \
+  results/2026-11-18-r18-natural-packed results/2026-11-18-r19-natural-ab \
+  results/2026-11-19-r21-cross-batch runs/prefetch-holdout.json
+
+python -B -m pd_kv_transfer_opt.profiling.audit_prefill_admission \
+  results/2026-11-19-r20-packed-overlap results/2026-11-19-r21-cross-batch \
+  runs/prefill-admission.json
 ```
