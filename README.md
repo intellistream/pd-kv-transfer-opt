@@ -28,4 +28,4 @@ python -B -m pd_kv_transfer_opt.profiling.analyze_full_rdma_profiler runs/r14-an
 
 实机操作见 [2P2D 复现](docs/deployment.md)，输入来源和准备见 [工作负载](docs/workloads.md)。[数据契约](docs/data.md) 说明带宽、吞吐和时间边界。[模拟器](docs/simulator.md) 记录当前实现与校准范围。[AGENTS.md](AGENTS.md) 提供可随研究更新的 AI 开发说明。
 
-研究进度和当前设计见 [七步法](docs/research-seven-steps.md)。证据与细节见 [瓶颈定位与补测](docs/bottleneck-and-validation.md)、[问题建模](docs/problem-model.md)、[直接相关工作核查](docs/related-work.md) 和 [优化机制](docs/optimization-research.md)。
+研究进度和当前设计见 [七步法](docs/research-seven-steps.md)。证据与细节见 [关键路径归因](docs/critical-path-attribution.md)、[瓶颈定位与补测](docs/bottleneck-and-validation.md)、[问题建模](docs/problem-model.md)、[直接相关工作核查](docs/related-work.md) 和 [优化机制](docs/optimization-research.md)。
