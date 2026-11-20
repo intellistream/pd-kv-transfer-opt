@@ -8,6 +8,8 @@ r14 使用两台各八卡的 910B2、CANN 9.1、Python 3.12、vLLM 0.23.0、vLLM
 
 复制 [配置示例](../configs/ascend-2p2d.example.json) 到 `configs/ascend.local.json` 后设置两侧地址、模型路径和 CPU 亲和性。示例是开启 P APC 的实验室 2P2D 配置，D APC 保留已有兼容配置。`max_num_seqs`、`max_num_batched_tokens`、`gpu_memory_utilization` 和 `compilation_config` 可按角色配置。对照现场时使用目标部署的实际参数。省略 `enable_prefix_caching` 时由引擎版本决定。每个实例使用自己的 API 端口号作为本地 Store lookup IPC 标识。先用 `serve --dry-run` 检查两侧生成命令，运行后用 `state.json` 和启动日志核对。[部署代表性复查](experiment-audit.md)
 
+r43 的 [双侧 APC 配置](decode-apc-baseline.md) 在相同实验室拓扑使用 D 侧原生重算调度器。回放、带宽及有效缓存命中按该轮清单核对。
+
 常规回放的 `proxy` 默认使用上游调度并保留上游 HTTP 连接复用。`--routing fixture --route-fixture` 用于重放已记录路由，`--no-upstream-keepalive` 用于复现关闭复用的诊断。`serve --observe` 开启逐方法事件与按需 CANN 入口。整轮吞吐计时可用默认启动模式，详细 profiling 用同配置的独立轮。
 
 ## r14 硬限速诊断复现

@@ -1,0 +1,33 @@
+{
+  "model_name": "qwen35-35b-a3b",
+  "mooncake_rpc_port": 41861,
+  "mooncake_metrics_port": 41862,
+  "proxy_port": 18400,
+  "api_server_count": 4,
+  "proxy_workers": 8,
+  "P": {
+    "host": "192.0.2.10",
+    "model_path": "/models/Qwen3.5-35B-A3B",
+    "api_ports": [18200, 18201],
+    "kv_ports": [21500, 22500],
+    "devices": [[0, 1, 2, 3], [4, 5, 6, 7]],
+    "enable_prefix_caching": true,
+    "max_num_seqs": 16,
+    "max_num_batched_tokens": 4096,
+    "gpu_memory_utilization": 0.8,
+    "compilation_config": {"cudagraph_capture_sizes": [1, 2, 4, 8, 16, 1024, 2048, 3072, 4096]}
+  },
+  "D": {
+    "host": "192.0.2.20",
+    "model_path": "/models/Qwen3.5-35B-A3B",
+    "api_ports": [18300, 18301],
+    "kv_ports": [23500, 24500],
+    "devices": [[0, 1, 2, 3], [4, 5, 6, 7]],
+    "enable_prefix_caching": true,
+    "recompute_scheduler_enable": true,
+    "max_num_seqs": 16,
+    "max_num_batched_tokens": 4096,
+    "gpu_memory_utilization": 0.8,
+    "compilation_config": {"cudagraph_mode": "FULL_DECODE_ONLY", "cudagraph_capture_sizes": [1, 2, 4, 8, 16]}
+  }
+}

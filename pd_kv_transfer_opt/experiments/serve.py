@@ -26,6 +26,9 @@ def read_deployment(path):
         item = config[role]
         if "enable_prefix_caching" in item and type(item["enable_prefix_caching"]) is not bool:
             raise ValueError(f"{role}.enable_prefix_caching must be a boolean when specified.")
+        recompute = item.get("recompute_scheduler_enable", False)
+        if type(recompute) is not bool or (recompute and role != "D"):
+            raise ValueError("recompute_scheduler_enable must be a boolean and may only be enabled on D.")
         if sorted(device for group in item["devices"] for device in group) != list(range(8)):
             raise ValueError(f"{role} must use each device 0–7 exactly once.")
         if [len(group) for group in item["devices"]] != [4, 4]:
@@ -57,6 +60,9 @@ def model_commands(config, role, run_dir, *, observe=False):
     } if producer else {
         "cudagraph_capture_sizes": [1, 2, 4, 8, 16], "cudagraph_mode": "FULL_DECODE_ONLY",
     })
+    additional_config = {"enable_cpu_binding": False}
+    if "recompute_scheduler_enable" in local:
+        additional_config["recompute_scheduler_enable"] = local["recompute_scheduler_enable"]
     commands = []
     for idx, (api_port, kv_port, devices) in enumerate(zip(local["api_ports"], local["kv_ports"], local["devices"], strict=True)):
         label = f"{role}{idx}"
@@ -80,7 +86,7 @@ def model_commands(config, role, run_dir, *, observe=False):
                 "--gpu-memory-utilization", str(local.get("gpu_memory_utilization", 0.8)),
                 "--seed", "20261117", "--generation-config", "vllm",
                 "--block-size", "128", "--mamba-cache-mode", "align",
-                "--additional-config", json.dumps({"enable_cpu_binding": False}),
+                "--additional-config", json.dumps(additional_config),
                 "--kv-transfer-config", json.dumps(transfer), "--compilation-config", json.dumps(graph)]
         if "enable_prefix_caching" in local:
             argv.append("--enable-prefix-caching" if local["enable_prefix_caching"] else "--no-enable-prefix-caching")
