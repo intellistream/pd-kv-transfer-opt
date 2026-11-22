@@ -1,0 +1,299 @@
+{
+  "serving_run": "2p2d-20261120-r29-weighted-ports",
+  "scope": "retuned",
+  "test": "100 Gbps equal/weighted/equal on the r14/r15 native fixed-work diagnostic",
+  "case_order": [
+    "b1-cap100",
+    "b2-cap100",
+    "b3-cap100"
+  ],
+  "workload_sha256": "84edc8dad9c7704184c9ace8d0088b8758c6b5197536641b31c4e306140ed021",
+  "runtime_sha256": "062cb0c1e77563d0c3a8e2eb036707dc9072716d7d9278ef28583feab24b5b7f",
+  "host_controller_sha256": "1059197093255eab4a0f2ca0fc3d5d39109588262dec6fd6c6190a591cc106bc",
+  "software": {
+    "P": {
+      "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+      "ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd",
+      "mooncake": "0.3.11.post1",
+      "model_hashes": {
+        "config.json": "5e4d7f74fec2f360eb9cfbfcd6ec0c4c76e684d3a11caaed259d9fd9bfbc7944",
+        "tokenizer.json": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+        "model.safetensors.index.json": "d8d0b7ca4e61ae107e3e87a3ff21136b3ac7c789e64bb24267227ca804e04205"
+      }
+    },
+    "D": {
+      "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+      "ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd",
+      "mooncake": "0.3.11.post1",
+      "model_hashes": {
+        "config.json": "5e4d7f74fec2f360eb9cfbfcd6ec0c4c76e684d3a11caaed259d9fd9bfbc7944",
+        "tokenizer.json": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+        "model.safetensors.index.json": "d8d0b7ca4e61ae107e3e87a3ff21136b3ac7c789e64bb24267227ca804e04205"
+      }
+    }
+  },
+  "engines": {
+    "P": {
+      "devices": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "enable_prefix_caching": false,
+      "max_num_seqs": 16,
+      "max_num_batched_tokens": 4096,
+      "gpu_memory_utilization": 0.8,
+      "compilation_config": {
+        "cudagraph_capture_sizes": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          1024,
+          2048,
+          3072,
+          4096
+        ]
+      }
+    },
+    "D": {
+      "devices": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "enable_prefix_caching": false,
+      "max_num_seqs": 16,
+      "max_num_batched_tokens": 4096,
+      "gpu_memory_utilization": 0.8,
+      "compilation_config": {
+        "cudagraph_mode": "FULL_DECODE_ONLY",
+        "cudagraph_capture_sizes": [
+          1,
+          2,
+          4,
+          8,
+          16
+        ]
+      }
+    }
+  },
+  "routing": "fixed r14 routes; native transfer; host method observations; CANN profiler off",
+  "warmup_recovery": "Container could read but could not persist the cap before formal timing. Restored, then used D host shaper.",
+  "release": {
+    "roles": {
+      "P": {
+        "stage": "finished",
+        "idle_at_verification": true
+      },
+      "D": {
+        "stage": "finished",
+        "idle_at_verification": true
+      }
+    },
+    "D_ports_Mbps": [
+      200000,
+      200000,
+      200000,
+      200000,
+      200000,
+      200000,
+      200000,
+      200000
+    ],
+    "utc": "2026-11-19T16:33:55.853806+00:00"
+  },
+  "restore": {
+    "requested": {
+      "0": {
+        "configured_Mbps": 200000,
+        "maximum_Mbps": 200000,
+        "current_Mbps": 200000
+      },
+      "1": {
+        "configured_Mbps": 200000,
+        "maximum_Mbps": 200000,
+        "current_Mbps": 200000
+      },
+      "2": {
+        "configured_Mbps": 200000,
+        "maximum_Mbps": 200000,
+        "current_Mbps": 200000
+      },
+      "3": {
+        "configured_Mbps": 200000,
+        "maximum_Mbps": 200000,
+        "current_Mbps": 200000
+      },
+      "4": {
+        "configured_Mbps": 200000,
+        "maximum_Mbps": 200000,
+        "current_Mbps": 200000
+      },
+      "5": {
+        "configured_Mbps": 200000,
+        "maximum_Mbps": 200000,
+        "current_Mbps": 200000
+      },
+      "6": {
+        "configured_Mbps": 200000,
+        "maximum_Mbps": 200000,
+        "current_Mbps": 200000
+      },
+      "7": {
+        "configured_Mbps": 200000,
+        "maximum_Mbps": 200000,
+        "current_Mbps": 200000
+      }
+    },
+    "verified": {
+      "0": {
+        "configured_Mbps": 200000,
+        "maximum_Mbps": 200000,
+        "current_Mbps": 200000
+      },
+      "1": {
+        "configured_Mbps": 200000,
+        "maximum_Mbps": 200000,
+        "current_Mbps": 200000
+      },
+      "2": {
+        "configured_Mbps": 200000,
+        "maximum_Mbps": 200000,
+        "current_Mbps": 200000
+      },
+      "3": {
+        "configured_Mbps": 200000,
+        "maximum_Mbps": 200000,
+        "current_Mbps": 200000
+      },
+      "4": {
+        "configured_Mbps": 200000,
+        "maximum_Mbps": 200000,
+        "current_Mbps": 200000
+      },
+      "5": {
+        "configured_Mbps": 200000,
+        "maximum_Mbps": 200000,
+        "current_Mbps": 200000
+      },
+      "6": {
+        "configured_Mbps": 200000,
+        "maximum_Mbps": 200000,
+        "current_Mbps": 200000
+      },
+      "7": {
+        "configured_Mbps": 200000,
+        "maximum_Mbps": 200000,
+        "current_Mbps": 200000
+      }
+    },
+    "restored": true
+  },
+  "export": {
+    "P": {
+      "sha256": "36271c6444dc29353a84e64cb43e4e5e74d52ec6dfecf6710ba16c7d1638cc56",
+      "rows": {
+        "scope": 1,
+        "runtime_state": 1,
+        "clock": 1,
+        "native": 13768,
+        "worker_rank": 8
+      },
+      "remote_client_trace_sha256": {}
+    },
+    "D": {
+      "sha256": "b365450b3b97a209ddd95e7a9eb5ec25a5a5d520de8a9ba01f8933072b8e7203",
+      "rows": {
+        "scope": 1,
+        "runtime_state": 1,
+        "clock": 1,
+        "native": 9990,
+        "worker_rank": 8,
+        "cap_control": 6,
+        "cap_port_sample": 54,
+        "proxy": 1742,
+        "client_manifest": 4,
+        "client": 294,
+        "client_summary": 4
+      },
+      "remote_client_trace_sha256": {
+        "natural-sessions-b1-cap100/client.jsonl": "963512396cc7e7b1f5f37ce936d9561eb2b829e1bbfa6cddd490ec55647d0f0e",
+        "natural-sessions-b2-cap100/client.jsonl": "d07a254a285c3c0996c3525310c1c94326e048db5604ad98a9a7d4ea055bc727",
+        "natural-sessions-b3-cap100/client.jsonl": "c05be34c5c14479a7f3a49bbeecba064200f6b6f2fda09c549877b548dd75840",
+        "natural-sessions-warm/client.jsonl": "7707878213317f4df280651b51dadf6e25a80b39fc05d055f6239898dc97ad8c"
+      }
+    }
+  },
+  "artifacts": {
+    "r30-D.jsonl.gz": "b7727acebdf20894c0592dac5eae14eaa38dfb83e78cd4d8bbecfdcaa115acbe",
+    "r30-P.jsonl.gz": "7650373c414f18eccd97fbceaa52b171b9f2badf5e10cf1587493c229dccea7a",
+    "summary.json": "4bbae70c6582ccf7353f46e81081d379cd34b03ae1cdaa7375b461b820b81bb9"
+  },
+  "training": {
+    "serving_run": "2p2d-20261120-r29-weighted-ports",
+    "source": "first original equal arm",
+    "port_Mbps": [
+      12830,
+      13437,
+      13493,
+      11508,
+      11839,
+      12801,
+      11401,
+      12691
+    ],
+    "original_port_TX_bytes": {
+      "b1-cap100": [
+        119074621371,
+        124707622971,
+        125230020603,
+        106812157371,
+        109878445651,
+        118813528371,
+        105814585043,
+        117791650867
+      ],
+      "b2-cap100": [
+        119076421313,
+        124709357888,
+        125231863041,
+        106813878337,
+        109879908339,
+        118814956178,
+        105815892659,
+        117792921171
+      ],
+      "b3-cap100": [
+        119077636895,
+        124710944735,
+        125233104799,
+        106815609631,
+        109881131319,
+        118815998231,
+        105816983543,
+        117793787991
+      ]
+    },
+    "runner_sha256": "1059197093255eab4a0f2ca0fc3d5d39109588262dec6fd6c6190a591cc106bc"
+  }
+}

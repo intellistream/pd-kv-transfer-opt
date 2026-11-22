@@ -1,0 +1,2416 @@
+{
+  "plan": {
+    "objective": "只在本地 CPU 上筛选有持续回读压力的原 Terminal-Bench 自然长会话，按已发布的双 APC 原生配置和相同工作量对比 100/200 Gbps 含排空总吞吐。用实测回读、P 交付和 D 供给解释差距并与 r28 比较。",
+    "baseline_commit": "5d591893ca8c7adc03c797068b44ad43dad27398",
+    "source_revision": "3f5b93ff1c5ea84b2c94cf479d0c942227191b4a",
+    "manifest_pattern": "*/manifest.json",
+    "decode_calibration": [
+      "2026-11-22-r73-terminal-source-restore-expanded",
+      "2026-11-22-r75-terminal-source-restore-pilot"
+    ],
+    "same_inputs_arrival_control": "2026-11-22-r70-terminal-source-restore-short-earlier",
+    "historical_comparison": "2026-11-19-r28-natural-bandwidth",
+    "screening_window_s": 20
+  },
+  "selection": {
+    "archive": "2026-11-22-r69-terminal-source-restore-short-guard",
+    "trace_sha256": "77f44ceabf862d97fc6e49f7de27ceea369108271d13867f0c39079f3be5b4a5",
+    "requests": 106,
+    "session_windows": 53,
+    "high_references": {
+      "b1": {
+        "peak_window_average_Gbps": 77.1590875448788,
+        "D_TX_GB_in_P_span": 192.97327568889253,
+        "D_TX_GB_by_port": [
+          22.06890134569365,
+          23.908655227837937,
+          25.308416255419598,
+          24.899642412596425,
+          23.773571118600128,
+          24.48351629271244,
+          23.03254067516811,
+          25.498032360864247
+        ],
+        "D_TX_GB_before_first_planned_successor": 1.197107648407262,
+        "aggregate_at_least_100_Gbps_s": 6.885230108000002,
+        "longest_contiguous_at_least_100_Gbps_s": 3.099816908000001,
+        "aggregate_near_applied_cap_s": 1.3289862740000018,
+        "any_port_near_applied_cap_s": 2.220791147,
+        "finish_reasons": {
+          "stop": 106
+        }
+      },
+      "b2": {
+        "peak_window_average_Gbps": 76.97011995687855,
+        "D_TX_GB_in_P_span": 192.50235096283674,
+        "D_TX_GB_by_port": [
+          21.93408582046007,
+          23.477468020412438,
+          24.76904076268289,
+          24.650368231184824,
+          22.877841258037968,
+          21.53261690231217,
+          26.45366213238371,
+          26.807267835362683
+        ],
+        "D_TX_GB_before_first_planned_successor": 1.6425917588155603,
+        "aggregate_at_least_100_Gbps_s": 8.799847774999982,
+        "longest_contiguous_at_least_100_Gbps_s": 3.818946634999989,
+        "aggregate_near_applied_cap_s": 0.0,
+        "any_port_near_applied_cap_s": 1.7243864609999946,
+        "finish_reasons": {
+          "stop": 106
+        }
+      }
+    },
+    "natural_EOS_with_predecessors": true,
+    "conservative_peak_window_Gbps": 76.97011995687855
+  },
+  "screened": [
+    {
+      "archive": "2026-11-22-r58-terminal-restore-bursts-dense-d-egress",
+      "trace_sha256": "f2f1e0de2c6be50dfe36d54fde0ea6749465f278468188cbaf95ffa85dc9e876",
+      "requests": 36,
+      "session_windows": 18,
+      "high_references": {
+        "b1": {
+          "peak_window_average_Gbps": 4.658685616982461,
+          "D_TX_GB_in_P_span": 11.6878754266265,
+          "D_TX_GB_by_port": [
+            1.7352430503848888,
+            1.6395672221855557,
+            1.4169538371578203,
+            1.3916491151760124,
+            1.19432546553782,
+            1.3765324327157178,
+            1.6108783843655958,
+            1.3227259191030885
+          ],
+          "D_TX_GB_before_first_planned_successor": 0.04116696713237941,
+          "aggregate_at_least_100_Gbps_s": 0,
+          "longest_contiguous_at_least_100_Gbps_s": 0.0,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 0.0,
+          "finish_reasons": {
+            "stop": 36
+          }
+        },
+        "b2": {
+          "peak_window_average_Gbps": 5.74676742751596,
+          "D_TX_GB_in_P_span": 14.408187219462596,
+          "D_TX_GB_by_port": [
+            1.857975401240667,
+            1.8348977407061104,
+            1.7663481063594395,
+            1.9949940368132069,
+            1.886839438198338,
+            1.6846683236393938,
+            1.6180773318945492,
+            1.7643868406108907
+          ],
+          "D_TX_GB_before_first_planned_successor": 1.4991380840049235,
+          "aggregate_at_least_100_Gbps_s": 0,
+          "longest_contiguous_at_least_100_Gbps_s": 0.0,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 0.0,
+          "finish_reasons": {
+            "stop": 36
+          }
+        }
+      },
+      "natural_EOS_with_predecessors": true,
+      "conservative_peak_window_Gbps": 4.658685616982461
+    },
+    {
+      "archive": "2026-11-22-r59-terminal-restore-order",
+      "trace_sha256": "ce28e8dcbc7ac989a05e6ddaef7dd681bf14cb48f6d22233b407d65d7c21883d",
+      "requests": 36,
+      "session_windows": 18,
+      "high_references": {
+        "b1": {
+          "peak_window_average_Gbps": 14.8082716912347,
+          "D_TX_GB_in_P_span": 37.06488587840375,
+          "D_TX_GB_by_port": [
+            5.125131856931094,
+            4.425237095392205,
+            4.995041480150227,
+            4.401356231788059,
+            4.482239994319908,
+            4.7012053356381385,
+            4.283010784209223,
+            4.651663099974894
+          ],
+          "D_TX_GB_before_first_planned_successor": 2.7548391385524127,
+          "aggregate_at_least_100_Gbps_s": 0.9081288599999979,
+          "longest_contiguous_at_least_100_Gbps_s": 0.9081288599999979,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 0.0,
+          "finish_reasons": {
+            "stop": 36
+          }
+        },
+        "b2": {
+          "peak_window_average_Gbps": 15.436117646139943,
+          "D_TX_GB_in_P_span": 38.637751731264714,
+          "D_TX_GB_by_port": [
+            4.910731841141427,
+            4.644463002466967,
+            5.3611682962166585,
+            5.151142603019609,
+            4.735270664836798,
+            4.823668091969725,
+            4.446534010380919,
+            4.5647732212326115
+          ],
+          "D_TX_GB_before_first_planned_successor": 2.1740141257535974,
+          "aggregate_at_least_100_Gbps_s": 1.0144795419999966,
+          "longest_contiguous_at_least_100_Gbps_s": 1.0144795419999966,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 1.0129285010000046,
+          "finish_reasons": {
+            "stop": 36
+          }
+        }
+      },
+      "natural_EOS_with_predecessors": true,
+      "conservative_peak_window_Gbps": 14.8082716912347
+    },
+    {
+      "archive": "2026-11-22-r60-terminal-source-restore-pairs",
+      "trace_sha256": "da361989f663c02a63983512be6727e9a8445ea76da3e2c2a83841130e79f74f",
+      "requests": 38,
+      "session_windows": 19,
+      "high_references": {
+        "b1": {
+          "peak_window_average_Gbps": 0.6108578512862572,
+          "D_TX_GB_in_P_span": 1.5930328833715688,
+          "D_TX_GB_by_port": [
+            0.23438903560027552,
+            0.17724650537348505,
+            0.33296436259763185,
+            0.14391026136354326,
+            0.16746448660130117,
+            0.21172156625773864,
+            0.1493359648288219,
+            0.17600070074877144
+          ],
+          "D_TX_GB_before_first_planned_successor": 0.11877529510652732,
+          "aggregate_at_least_100_Gbps_s": 0,
+          "longest_contiguous_at_least_100_Gbps_s": 0.0,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 0.0,
+          "finish_reasons": {
+            "stop": 38
+          }
+        },
+        "b2": {
+          "peak_window_average_Gbps": 0.7260873146586072,
+          "D_TX_GB_in_P_span": 1.8854900254027462,
+          "D_TX_GB_by_port": [
+            0.20597558670590654,
+            0.2925212966352489,
+            0.25378584651890157,
+            0.2768126949259451,
+            0.26426628339006714,
+            0.1694919441836234,
+            0.33898144820897924,
+            0.08365492483407436
+          ],
+          "D_TX_GB_before_first_planned_successor": 0.07036251357986853,
+          "aggregate_at_least_100_Gbps_s": 0,
+          "longest_contiguous_at_least_100_Gbps_s": 0.0,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 0.0,
+          "finish_reasons": {
+            "stop": 38
+          }
+        }
+      },
+      "natural_EOS_with_predecessors": true,
+      "conservative_peak_window_Gbps": 0.6108578512862572
+    },
+    {
+      "archive": "2026-11-22-r61-terminal-source-restore-gap",
+      "trace_sha256": "ff7ca58f3260e7e073cc79df9a448cbacc9ed65c085b244bd357e2c446d6b773",
+      "requests": 38,
+      "session_windows": 19,
+      "high_references": {
+        "b1": {
+          "peak_window_average_Gbps": 24.129840440945436,
+          "D_TX_GB_in_P_span": 60.39736836144982,
+          "D_TX_GB_by_port": [
+            7.799346054284799,
+            7.538099454756597,
+            7.089789134521689,
+            7.261502884867107,
+            7.679329900070793,
+            8.079003504633759,
+            7.650432316567755,
+            7.2998651117473266
+          ],
+          "D_TX_GB_before_first_planned_successor": 0.7454393233427715,
+          "aggregate_at_least_100_Gbps_s": 2.875269566,
+          "longest_contiguous_at_least_100_Gbps_s": 2.875269566,
+          "aggregate_near_applied_cap_s": 0.8553761340000108,
+          "any_port_near_applied_cap_s": 2.0416584609999973,
+          "finish_reasons": {
+            "stop": 38
+          }
+        },
+        "b2": {
+          "peak_window_average_Gbps": 24.129755730983845,
+          "D_TX_GB_in_P_span": 60.40214420326932,
+          "D_TX_GB_by_port": [
+            7.495493430374208,
+            8.332121265997461,
+            6.946800130000929,
+            8.030378536938862,
+            7.280634482580828,
+            7.653879419908452,
+            7.149665306822091,
+            7.513171630646495
+          ],
+          "D_TX_GB_before_first_planned_successor": 0.6288957916745059,
+          "aggregate_at_least_100_Gbps_s": 3.7641410450000024,
+          "longest_contiguous_at_least_100_Gbps_s": 3.7641410450000024,
+          "aggregate_near_applied_cap_s": 0.8486895500000031,
+          "any_port_near_applied_cap_s": 0.8635817480000014,
+          "finish_reasons": {
+            "stop": 38
+          }
+        }
+      },
+      "natural_EOS_with_predecessors": true,
+      "conservative_peak_window_Gbps": 24.129755730983845
+    },
+    {
+      "archive": "2026-11-22-r62-terminal-source-restore-scale",
+      "trace_sha256": "f8c1c7c8c3d6efab522b9a987801708892204c687f862f165f48382b06fa67b4",
+      "requests": 52,
+      "session_windows": 26,
+      "high_references": {
+        "b1": {
+          "peak_window_average_Gbps": 23.335013237758794,
+          "D_TX_GB_in_P_span": 59.47284882444394,
+          "D_TX_GB_by_port": [
+            7.504668885481279,
+            7.775048776627688,
+            7.558868335463009,
+            7.242428825836109,
+            7.193272528239919,
+            7.687109265793338,
+            7.284017383007894,
+            7.227434823994704
+          ],
+          "D_TX_GB_before_first_planned_successor": 1.7031300392502826,
+          "aggregate_at_least_100_Gbps_s": 2.0841212999999925,
+          "longest_contiguous_at_least_100_Gbps_s": 1.048341660999995,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 1.4359601519999927,
+          "finish_reasons": {
+            "stop": 52
+          }
+        },
+        "b2": {
+          "peak_window_average_Gbps": 19.01116785768422,
+          "D_TX_GB_in_P_span": 50.36062775736592,
+          "D_TX_GB_by_port": [
+            6.470911818805658,
+            6.230670485652544,
+            5.971572386265191,
+            6.5506913155871755,
+            6.35257368060213,
+            7.061443460224279,
+            6.151663692690996,
+            5.571100917537946
+          ],
+          "D_TX_GB_before_first_planned_successor": 4.555951832922005,
+          "aggregate_at_least_100_Gbps_s": 1.0752606279999952,
+          "longest_contiguous_at_least_100_Gbps_s": 1.0752606279999952,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 0.0,
+          "finish_reasons": {
+            "stop": 52
+          }
+        }
+      },
+      "natural_EOS_with_predecessors": true,
+      "conservative_peak_window_Gbps": 19.01116785768422
+    },
+    {
+      "archive": "2026-11-22-r63-terminal-source-restore-paced",
+      "trace_sha256": "97d4959861e5c05b85a7df97fe29554981cb29368405ff494e9601eb361ab723",
+      "requests": 52,
+      "session_windows": 26,
+      "high_references": {
+        "b1": {
+          "peak_window_average_Gbps": 3.1929032906171155,
+          "D_TX_GB_in_P_span": 9.706475152123856,
+          "D_TX_GB_by_port": [
+            1.3180557791777348,
+            0.8864503446154334,
+            1.2703643253337602,
+            1.429450715107219,
+            2.0736274768655347,
+            0.9406505247595636,
+            0.9517208127552208,
+            0.8361551735093892
+          ],
+          "D_TX_GB_before_first_planned_successor": 1.885729602674989,
+          "aggregate_at_least_100_Gbps_s": 0,
+          "longest_contiguous_at_least_100_Gbps_s": 0.0,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 0.0,
+          "finish_reasons": {
+            "stop": 52
+          }
+        },
+        "b2": {
+          "peak_window_average_Gbps": 3.1958301208092577,
+          "D_TX_GB_in_P_span": 8.940495297345132,
+          "D_TX_GB_by_port": [
+            1.3664043176993597,
+            1.4682451830198122,
+            1.1636393812344852,
+            1.0045954747705492,
+            1.0348212595199244,
+            0.9032904129970715,
+            0.9277341249576361,
+            1.0717651431462945
+          ],
+          "D_TX_GB_before_first_planned_successor": 0.9509242449674489,
+          "aggregate_at_least_100_Gbps_s": 0,
+          "longest_contiguous_at_least_100_Gbps_s": 0.0,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 0.0,
+          "finish_reasons": {
+            "stop": 51,
+            "length": 1
+          }
+        }
+      },
+      "natural_EOS_with_predecessors": false,
+      "conservative_peak_window_Gbps": 3.1929032906171155
+    },
+    {
+      "archive": "2026-11-22-r64-terminal-source-restore-priority",
+      "trace_sha256": "bcd5bac0f9e8576bba7967cb98ac2f812590135d133cf74edcddf3c5a486ef85",
+      "requests": 51,
+      "session_windows": 26,
+      "high_references": {
+        "b1": {
+          "peak_window_average_Gbps": 33.26665889315989,
+          "D_TX_GB_in_P_span": 83.29038855180042,
+          "D_TX_GB_by_port": [
+            10.109984547177795,
+            10.262451442202668,
+            10.257669509029084,
+            10.227077555999157,
+            10.639556986246435,
+            10.465282811406556,
+            11.036175871117507,
+            10.29218982862121
+          ],
+          "D_TX_GB_before_first_planned_successor": 0.12374463888386082,
+          "aggregate_at_least_100_Gbps_s": 4.943603414999998,
+          "longest_contiguous_at_least_100_Gbps_s": 4.943603414999998,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 2.0286695949999967,
+          "finish_reasons": {
+            "stop": 51
+          }
+        },
+        "b2": {
+          "peak_window_average_Gbps": 33.30574672999245,
+          "D_TX_GB_in_P_span": 86.38322756514006,
+          "D_TX_GB_by_port": [
+            10.662492346948342,
+            11.227778262670734,
+            11.05731017821943,
+            11.616856464159607,
+            9.938285924709904,
+            10.017447352416099,
+            10.743449190082892,
+            11.11960784593305
+          ],
+          "D_TX_GB_before_first_planned_successor": 4.259940259431739,
+          "aggregate_at_least_100_Gbps_s": 3.859964513999998,
+          "longest_contiguous_at_least_100_Gbps_s": 3.859964513999998,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 1.2746092690000097,
+          "finish_reasons": {
+            "stop": 51
+          }
+        }
+      },
+      "natural_EOS_with_predecessors": true,
+      "conservative_peak_window_Gbps": 33.26665889315989
+    },
+    {
+      "archive": "2026-11-22-r65-terminal-source-restore-overlap",
+      "trace_sha256": "83e9c143cf962c99d65f0d220ddfb97fcafb287f0b4d67f80fab22b95459e80d",
+      "requests": 51,
+      "session_windows": 26,
+      "high_references": {
+        "b1": {
+          "peak_window_average_Gbps": 15.755040375507145,
+          "D_TX_GB_in_P_span": 57.853036900550535,
+          "D_TX_GB_by_port": [
+            6.999402372802832,
+            6.763576851000589,
+            7.056123121573411,
+            7.0389413517773605,
+            8.39387842205239,
+            7.202179270643932,
+            7.377397049825811,
+            7.021538460874211
+          ],
+          "D_TX_GB_before_first_planned_successor": 0.0870988780913353,
+          "aggregate_at_least_100_Gbps_s": 0,
+          "longest_contiguous_at_least_100_Gbps_s": 0.0,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 0.0,
+          "finish_reasons": {
+            "stop": 51
+          }
+        },
+        "b2": {
+          "peak_window_average_Gbps": 22.36900138146883,
+          "D_TX_GB_in_P_span": 72.6661075956476,
+          "D_TX_GB_by_port": [
+            9.032128525744458,
+            9.245462945211106,
+            8.300338700006652,
+            8.941030392263723,
+            9.826599525660946,
+            9.200986611531867,
+            9.052098466576526,
+            9.06746242865233
+          ],
+          "D_TX_GB_before_first_planned_successor": 0.09001959812379619,
+          "aggregate_at_least_100_Gbps_s": 2.573296864999975,
+          "longest_contiguous_at_least_100_Gbps_s": 1.7399755609999943,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 0.0,
+          "finish_reasons": {
+            "stop": 51
+          }
+        }
+      },
+      "natural_EOS_with_predecessors": true,
+      "conservative_peak_window_Gbps": 15.755040375507145
+    },
+    {
+      "archive": "2026-11-22-r67-terminal-source-restore-checkpoint-scale",
+      "trace_sha256": "09e76a5c66fada6bd9842e3149c576bf2eba7a904012a6ce2c31c823aeb49a5e",
+      "requests": 226,
+      "session_windows": 113,
+      "high_references": {
+        "b1": {
+          "peak_window_average_Gbps": 122.24076237099538,
+          "D_TX_GB_in_P_span": 342.30766664561736,
+          "D_TX_GB_by_port": [
+            45.81224303337962,
+            42.30006901420228,
+            40.32724010760159,
+            39.97153484761752,
+            45.82966135542979,
+            40.944048103017494,
+            47.97300432736908,
+            39.149865856999966
+          ],
+          "D_TX_GB_before_first_planned_successor": 14.198465290999243,
+          "aggregate_at_least_100_Gbps_s": 15.597688402000003,
+          "longest_contiguous_at_least_100_Gbps_s": 11.605910906999995,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 6.868871834999993,
+          "finish_reasons": {
+            "stop": 224,
+            "length": 2
+          }
+        },
+        "b2": {
+          "peak_window_average_Gbps": 89.42495392149719,
+          "D_TX_GB_in_P_span": 269.07237548667456,
+          "D_TX_GB_by_port": [
+            32.971481965318674,
+            29.936010966423428,
+            32.103852903344226,
+            36.58703221001628,
+            35.73568558199999,
+            30.508083150583914,
+            34.733914876988116,
+            36.49631383199995
+          ],
+          "D_TX_GB_before_first_planned_successor": 37.77279058037004,
+          "aggregate_at_least_100_Gbps_s": 8.75958991600001,
+          "longest_contiguous_at_least_100_Gbps_s": 4.700314024999997,
+          "aggregate_near_applied_cap_s": 1.072154642000001,
+          "any_port_near_applied_cap_s": 1.9706152229999958,
+          "finish_reasons": {
+            "stop": 223,
+            "length": 3
+          }
+        }
+      },
+      "natural_EOS_with_predecessors": false,
+      "conservative_peak_window_Gbps": 89.42495392149719
+    },
+    {
+      "archive": "2026-11-22-r68-terminal-source-restore-short-eos",
+      "trace_sha256": "bc487bece2eb89ddbb695b52981a0bed6a8d4f3c47b806042082cc7ca5f2b34b",
+      "requests": 110,
+      "session_windows": 55,
+      "high_references": {
+        "b1": {
+          "peak_window_average_Gbps": 33.290833705324836,
+          "D_TX_GB_in_P_span": 95.28558608537479,
+          "D_TX_GB_by_port": [
+            12.942716920726633,
+            9.919378967942755,
+            11.900745103681103,
+            12.489867667314003,
+            12.349410001811462,
+            12.136010243549931,
+            10.38481374137137,
+            13.162643438977524
+          ],
+          "D_TX_GB_before_first_planned_successor": 12.56262348498731,
+          "aggregate_at_least_100_Gbps_s": 3.0331265669999965,
+          "longest_contiguous_at_least_100_Gbps_s": 2.1089730169999967,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 0.9275663020000025,
+          "finish_reasons": {
+            "stop": 110
+          }
+        },
+        "b2": {
+          "peak_window_average_Gbps": 21.722912637724544,
+          "D_TX_GB_in_P_span": 80.04756437815267,
+          "D_TX_GB_by_port": [
+            9.819704512778559,
+            10.05984065778653,
+            9.857660933404855,
+            10.476490125042877,
+            9.698135304385458,
+            10.747227511481258,
+            9.74694589413328,
+            9.641559439139854
+          ],
+          "D_TX_GB_before_first_planned_successor": 28.76060161078785,
+          "aggregate_at_least_100_Gbps_s": 2.0165529080000084,
+          "longest_contiguous_at_least_100_Gbps_s": 2.0165529080000084,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 0.0,
+          "finish_reasons": {
+            "stop": 110
+          }
+        }
+      },
+      "natural_EOS_with_predecessors": true,
+      "conservative_peak_window_Gbps": 21.722912637724544
+    },
+    {
+      "archive": "2026-11-22-r69-terminal-source-restore-short-guard",
+      "trace_sha256": "77f44ceabf862d97fc6e49f7de27ceea369108271d13867f0c39079f3be5b4a5",
+      "requests": 106,
+      "session_windows": 53,
+      "high_references": {
+        "b1": {
+          "peak_window_average_Gbps": 77.1590875448788,
+          "D_TX_GB_in_P_span": 192.97327568889253,
+          "D_TX_GB_by_port": [
+            22.06890134569365,
+            23.908655227837937,
+            25.308416255419598,
+            24.899642412596425,
+            23.773571118600128,
+            24.48351629271244,
+            23.03254067516811,
+            25.498032360864247
+          ],
+          "D_TX_GB_before_first_planned_successor": 1.197107648407262,
+          "aggregate_at_least_100_Gbps_s": 6.885230108000002,
+          "longest_contiguous_at_least_100_Gbps_s": 3.099816908000001,
+          "aggregate_near_applied_cap_s": 1.3289862740000018,
+          "any_port_near_applied_cap_s": 2.220791147,
+          "finish_reasons": {
+            "stop": 106
+          }
+        },
+        "b2": {
+          "peak_window_average_Gbps": 76.97011995687855,
+          "D_TX_GB_in_P_span": 192.50235096283674,
+          "D_TX_GB_by_port": [
+            21.93408582046007,
+            23.477468020412438,
+            24.76904076268289,
+            24.650368231184824,
+            22.877841258037968,
+            21.53261690231217,
+            26.45366213238371,
+            26.807267835362683
+          ],
+          "D_TX_GB_before_first_planned_successor": 1.6425917588155603,
+          "aggregate_at_least_100_Gbps_s": 8.799847774999982,
+          "longest_contiguous_at_least_100_Gbps_s": 3.818946634999989,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 1.7243864609999946,
+          "finish_reasons": {
+            "stop": 106
+          }
+        }
+      },
+      "natural_EOS_with_predecessors": true,
+      "conservative_peak_window_Gbps": 76.97011995687855
+    },
+    {
+      "archive": "2026-11-22-r70-terminal-source-restore-short-earlier",
+      "trace_sha256": "3e57e2f27c29832cffbddd871a1a0af8d47aabcb21908fbb4385fd47facd4089",
+      "requests": 106,
+      "session_windows": 53,
+      "high_references": {
+        "b1": {
+          "peak_window_average_Gbps": 52.090559274630095,
+          "D_TX_GB_in_P_span": 183.03084512153225,
+          "D_TX_GB_by_port": [
+            22.648819960605906,
+            24.33503591194112,
+            20.337553753218305,
+            25.203934062513234,
+            24.15064997512,
+            21.527636762619643,
+            21.251986002166944,
+            23.575228693347107
+          ],
+          "D_TX_GB_before_first_planned_successor": 0.06044724772612012,
+          "aggregate_at_least_100_Gbps_s": 1.9741552040000059,
+          "longest_contiguous_at_least_100_Gbps_s": 1.0783342450000006,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 0.8950971900000013,
+          "finish_reasons": {
+            "stop": 106
+          }
+        },
+        "b2": {
+          "peak_window_average_Gbps": 51.77207258932324,
+          "D_TX_GB_in_P_span": 183.9881517950245,
+          "D_TX_GB_by_port": [
+            23.093613742398755,
+            22.86762656551428,
+            22.95536939093247,
+            22.469370806555602,
+            21.75579487656023,
+            21.749793775910053,
+            24.05327152501954,
+            25.04331111213357
+          ],
+          "D_TX_GB_before_first_planned_successor": 0.0625454439633332,
+          "aggregate_at_least_100_Gbps_s": 4.518201389000005,
+          "longest_contiguous_at_least_100_Gbps_s": 1.2852746140000022,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 0.0,
+          "finish_reasons": {
+            "stop": 106
+          }
+        }
+      },
+      "natural_EOS_with_predecessors": true,
+      "conservative_peak_window_Gbps": 51.77207258932324
+    },
+    {
+      "archive": "2026-11-22-r71-terminal-source-restore-short-pruned",
+      "trace_sha256": "71b0e3936dd6a598619a91858d705792ca3a5b4859c58f506742e650fcbfbb72",
+      "requests": 100,
+      "session_windows": 50,
+      "high_references": {
+        "b1": {
+          "peak_window_average_Gbps": 63.129756289455756,
+          "D_TX_GB_in_P_span": 157.87443295423535,
+          "D_TX_GB_by_port": [
+            20.304366672260937,
+            18.754001177061994,
+            18.948281158875638,
+            19.964451020059666,
+            21.308385175772077,
+            20.56541382851461,
+            19.141718747794314,
+            18.88781517389611
+          ],
+          "D_TX_GB_before_first_planned_successor": 0.5790918607420482,
+          "aggregate_at_least_100_Gbps_s": 3.825152447999997,
+          "longest_contiguous_at_least_100_Gbps_s": 1.1576393140000008,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 0.8649524650000018,
+          "finish_reasons": {
+            "stop": 99,
+            "length": 1
+          }
+        },
+        "b2": {
+          "peak_window_average_Gbps": 66.40772226696647,
+          "D_TX_GB_in_P_span": 166.0715216859411,
+          "D_TX_GB_by_port": [
+            17.445180001333693,
+            21.267162661570875,
+            18.839317982727334,
+            23.0215654654864,
+            21.306881320672566,
+            26.102431410428327,
+            21.402557010507245,
+            16.686425833214653
+          ],
+          "D_TX_GB_before_first_planned_successor": 2.677726608831441,
+          "aggregate_at_least_100_Gbps_s": 3.939008861000005,
+          "longest_contiguous_at_least_100_Gbps_s": 1.2403118920000011,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 1.7475838460000048,
+          "finish_reasons": {
+            "stop": 100
+          }
+        }
+      },
+      "natural_EOS_with_predecessors": false,
+      "conservative_peak_window_Gbps": 63.129756289455756
+    },
+    {
+      "archive": "2026-11-22-r72-terminal-source-restore-root-batches",
+      "trace_sha256": "6f8304bc7e56d8795466f9ba9e030676943ed827b24c4fb11f63dc7960a818f1",
+      "requests": 102,
+      "session_windows": 51,
+      "high_references": {
+        "b1": {
+          "peak_window_average_Gbps": 30.86001562143567,
+          "D_TX_GB_in_P_span": 77.28010599945087,
+          "D_TX_GB_by_port": [
+            10.198419807208014,
+            10.537131755099669,
+            9.623158253931372,
+            11.112288762383512,
+            8.089634533361611,
+            9.8684088697765,
+            8.748794730746944,
+            9.10226928694324
+          ],
+          "D_TX_GB_before_first_planned_successor": 56.69439959806336,
+          "aggregate_at_least_100_Gbps_s": 1.165691239000001,
+          "longest_contiguous_at_least_100_Gbps_s": 1.165691239000001,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 0.0,
+          "finish_reasons": {
+            "stop": 100,
+            "length": 2
+          }
+        },
+        "b2": {
+          "peak_window_average_Gbps": 25.851026888545597,
+          "D_TX_GB_in_P_span": 64.65240287363808,
+          "D_TX_GB_by_port": [
+            8.04879980144263,
+            7.855806125994142,
+            7.215931969121936,
+            8.360968685631784,
+            8.370863170088986,
+            8.350715634942372,
+            7.317359163293224,
+            9.131958323123007
+          ],
+          "D_TX_GB_before_first_planned_successor": 54.43193477337062,
+          "aggregate_at_least_100_Gbps_s": 2.0203097470000024,
+          "longest_contiguous_at_least_100_Gbps_s": 1.1812001300000006,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 0.0,
+          "finish_reasons": {
+            "stop": 102
+          }
+        }
+      },
+      "natural_EOS_with_predecessors": false,
+      "conservative_peak_window_Gbps": 25.851026888545597
+    },
+    {
+      "archive": "2026-11-22-r73-terminal-source-restore-expanded",
+      "trace_sha256": "457a056addf78417069ada059ff56760cd6cee8f487b07408d3bfc1f84e34ed0",
+      "requests": 96,
+      "session_windows": 48,
+      "high_references": {
+        "b1": {
+          "peak_window_average_Gbps": 63.17640442709895,
+          "D_TX_GB_in_P_span": 157.97132343184776,
+          "D_TX_GB_by_port": [
+            19.80069818045636,
+            22.406102563165785,
+            18.401054095303913,
+            20.952401146179643,
+            22.35417521778917,
+            15.574364223541467,
+            17.676159904993053,
+            20.806368100418375
+          ],
+          "D_TX_GB_before_first_planned_successor": 0.031548421394531165,
+          "aggregate_at_least_100_Gbps_s": 7.451815625999998,
+          "longest_contiguous_at_least_100_Gbps_s": 7.451815625999998,
+          "aggregate_near_applied_cap_s": 1.172047556999999,
+          "any_port_near_applied_cap_s": 4.199421859999994,
+          "finish_reasons": {
+            "stop": 96
+          }
+        },
+        "b2": {
+          "peak_window_average_Gbps": 57.58094042779491,
+          "D_TX_GB_in_P_span": 143.9858644675775,
+          "D_TX_GB_by_port": [
+            17.032740247504808,
+            20.946686295615102,
+            17.355016464472037,
+            16.07899254498581,
+            17.09394602793705,
+            17.975229811880926,
+            15.452202663595635,
+            22.05105041158613
+          ],
+          "D_TX_GB_before_first_planned_successor": 0.485104375037887,
+          "aggregate_at_least_100_Gbps_s": 6.377975802999998,
+          "longest_contiguous_at_least_100_Gbps_s": 3.7920004730000016,
+          "aggregate_near_applied_cap_s": 1.1657599910000016,
+          "any_port_near_applied_cap_s": 2.9247666380000084,
+          "finish_reasons": {
+            "stop": 96
+          }
+        }
+      },
+      "natural_EOS_with_predecessors": true,
+      "conservative_peak_window_Gbps": 57.58094042779491
+    },
+    {
+      "archive": "2026-11-22-r75-terminal-source-restore-pilot",
+      "trace_sha256": "607dcde89bc4eb0d14a5a6646d769a4eaefbf270b55a83110b5f386b6d9c004d",
+      "requests": 180,
+      "session_windows": 90,
+      "high_references": {
+        "b1": {
+          "peak_window_average_Gbps": 58.70249592429961,
+          "D_TX_GB_in_P_span": 160.11912951413711,
+          "D_TX_GB_by_port": [
+            21.16476333680327,
+            19.250617099702747,
+            21.47615813321202,
+            19.156587486807922,
+            22.94361693116699,
+            21.743922550792888,
+            18.000001254587115,
+            16.38346272106416
+          ],
+          "D_TX_GB_before_first_planned_successor": 10.165172069957894,
+          "aggregate_at_least_100_Gbps_s": 5.931504111999992,
+          "longest_contiguous_at_least_100_Gbps_s": 3.7052239159999942,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 1.2276493660000014,
+          "finish_reasons": {
+            "stop": 177,
+            "length": 3
+          }
+        },
+        "b2": {
+          "peak_window_average_Gbps": 26.413094955811555,
+          "D_TX_GB_in_P_span": 76.72930150015053,
+          "D_TX_GB_by_port": [
+            10.226500583412378,
+            8.316425793915217,
+            8.104779231063192,
+            9.400231340258333,
+            10.750266733520691,
+            9.496922893764358,
+            11.193612159287992,
+            9.24056276492837
+          ],
+          "D_TX_GB_before_first_planned_successor": 10.457096334240235,
+          "aggregate_at_least_100_Gbps_s": 1.700991129000002,
+          "longest_contiguous_at_least_100_Gbps_s": 1.700991129000002,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 0.0,
+          "finish_reasons": {
+            "stop": 177,
+            "length": 3
+          }
+        }
+      },
+      "natural_EOS_with_predecessors": false,
+      "conservative_peak_window_Gbps": 26.413094955811555
+    },
+    {
+      "archive": "2026-11-22-r76-terminal-source-restore-density-measured",
+      "trace_sha256": "587483e962ed049e9b60d5830e307541e1abfc92786feaacd45000574ed636a4",
+      "requests": 100,
+      "session_windows": 50,
+      "high_references": {
+        "b1": {
+          "peak_window_average_Gbps": 68.78604935342862,
+          "D_TX_GB_in_P_span": 172.003170114091,
+          "D_TX_GB_by_port": [
+            23.984731195288543,
+            21.51468083215396,
+            21.39102810226253,
+            18.059373329197378,
+            22.257619512443437,
+            21.96075078963121,
+            22.263477311465955,
+            20.571509041647992
+          ],
+          "D_TX_GB_before_first_planned_successor": 1.705042252129609,
+          "aggregate_at_least_100_Gbps_s": 9.578993757,
+          "longest_contiguous_at_least_100_Gbps_s": 9.578993757,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 6.300045580999999,
+          "finish_reasons": {
+            "stop": 99,
+            "length": 1
+          }
+        },
+        "b2": {
+          "peak_window_average_Gbps": 64.31358395363223,
+          "D_TX_GB_in_P_span": 160.82400371514393,
+          "D_TX_GB_by_port": [
+            18.293953474654284,
+            19.51853578387135,
+            20.588738290205463,
+            19.92660120215305,
+            21.210001751598593,
+            22.62004238138066,
+            20.011023358605506,
+            18.655107472675038
+          ],
+          "D_TX_GB_before_first_planned_successor": 0.04004616030201818,
+          "aggregate_at_least_100_Gbps_s": 7.406006558000001,
+          "longest_contiguous_at_least_100_Gbps_s": 4.182721700000002,
+          "aggregate_near_applied_cap_s": 1.1568265689999961,
+          "any_port_near_applied_cap_s": 2.914849478000008,
+          "finish_reasons": {
+            "stop": 100
+          }
+        }
+      },
+      "natural_EOS_with_predecessors": false,
+      "conservative_peak_window_Gbps": 64.31358395363223
+    },
+    {
+      "archive": "2026-11-22-r77-terminal-source-restore-shared-prefix",
+      "trace_sha256": "f80d19ef5181924716c098ecc11087df4ef97d371498178e293dc51633b17599",
+      "requests": 76,
+      "session_windows": 76,
+      "high_references": {
+        "b1": {
+          "peak_window_average_Gbps": 8.673690991233714,
+          "D_TX_GB_in_P_span": 21.700808576471108,
+          "D_TX_GB_by_port": [
+            2.8373812372157188,
+            2.464254403302873,
+            2.8440423228672573,
+            2.870008622830689,
+            2.4977947161292473,
+            2.9586760954983613,
+            2.971538056396306,
+            2.257113122230654
+          ],
+          "D_TX_GB_before_first_planned_successor": null,
+          "aggregate_at_least_100_Gbps_s": 0,
+          "longest_contiguous_at_least_100_Gbps_s": 0.0,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 0.0,
+          "finish_reasons": {
+            "stop": 76
+          }
+        },
+        "b2": {
+          "peak_window_average_Gbps": 6.8207443005272195,
+          "D_TX_GB_in_P_span": 17.06867228770442,
+          "D_TX_GB_by_port": [
+            2.182562291503328,
+            2.0998521764375933,
+            2.1449246927030825,
+            2.1936888990672525,
+            1.8900786459572845,
+            2.4024414104402947,
+            1.949990789797908,
+            2.205133381797677
+          ],
+          "D_TX_GB_before_first_planned_successor": null,
+          "aggregate_at_least_100_Gbps_s": 0,
+          "longest_contiguous_at_least_100_Gbps_s": 0.0,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 0.0,
+          "finish_reasons": {
+            "stop": 76
+          }
+        }
+      },
+      "natural_EOS_with_predecessors": false,
+      "conservative_peak_window_Gbps": 6.8207443005272195
+    },
+    {
+      "archive": "2026-11-22-r78-terminal-source-restore-stable-tail",
+      "trace_sha256": "485b9745af532f9f83700c43461d85247ec888e11aa0f069f7b250919f8e1e92",
+      "requests": 90,
+      "session_windows": 45,
+      "high_references": {
+        "b1": {
+          "peak_window_average_Gbps": 80.41095460691668,
+          "D_TX_GB_in_P_span": 201.06791183997228,
+          "D_TX_GB_by_port": [
+            23.474468919848245,
+            28.13860426542688,
+            28.21613218918924,
+            23.98366281734871,
+            24.286981385881084,
+            25.22083436674387,
+            22.88428147877077,
+            24.862946416763492
+          ],
+          "D_TX_GB_before_first_planned_successor": 3.3311333313300118,
+          "aggregate_at_least_100_Gbps_s": 10.023900795000003,
+          "longest_contiguous_at_least_100_Gbps_s": 10.023900795000003,
+          "aggregate_near_applied_cap_s": 1.997124982999999,
+          "any_port_near_applied_cap_s": 4.942878730000004,
+          "finish_reasons": {
+            "stop": 90
+          }
+        },
+        "b2": {
+          "peak_window_average_Gbps": 61.79460520048205,
+          "D_TX_GB_in_P_span": 154.52692276609392,
+          "D_TX_GB_by_port": [
+            16.9190679950914,
+            21.326242001166225,
+            20.7155733867028,
+            17.728354943161513,
+            19.352843921500206,
+            17.44679407378293,
+            20.97744582980219,
+            20.06060061488665
+          ],
+          "D_TX_GB_before_first_planned_successor": 0.04041179157714427,
+          "aggregate_at_least_100_Gbps_s": 6.621911771000001,
+          "longest_contiguous_at_least_100_Gbps_s": 3.7270054680000015,
+          "aggregate_near_applied_cap_s": 1.6323909019999974,
+          "any_port_near_applied_cap_s": 4.794591486999998,
+          "finish_reasons": {
+            "stop": 90
+          }
+        }
+      },
+      "natural_EOS_with_predecessors": true,
+      "conservative_peak_window_Gbps": 61.79460520048205
+    }
+  ],
+  "selected_workload_sha256": "2c3302d9114cd87fcdf80dc7929e4485c858075685acd622abecc7f3c418fd3c",
+  "decode_calibration_traces": {
+    "2026-11-22-r73-terminal-source-restore-expanded": "457a056addf78417069ada059ff56760cd6cee8f487b07408d3bfc1f84e34ed0",
+    "2026-11-22-r75-terminal-source-restore-pilot": "607dcde89bc4eb0d14a5a6646d769a4eaefbf270b55a83110b5f386b6d9c004d"
+  },
+  "prompt_tokens_min_p50_max": [
+    65650,
+    103837,
+    192315
+  ],
+  "decode_service_fit": {
+    "first_sequence_period_s": 0.01426776009227218,
+    "additional_sequence_period_s": 0.0012402825765041243,
+    "samples": 439,
+    "observed_mean_width": [
+      0.9060623519280832,
+      16.0
+    ],
+    "median_fit_error_ms": 0.6741736978994181
+  },
+  "selected_bandwidth_pairs": {
+    "b1": {
+      "requests": 106,
+      "same_observed_P": 106,
+      "same_observed_D": 52,
+      "comparable_P_routes_wire_bytes_and_EOS": true,
+      "hardware": {
+        "100": {
+          "output_tokens": 19732,
+          "duration_s": 87.59191382699646,
+          "throughput_tokens_s": 225.2719359343243,
+          "last_P_reply_s": 81.66332887698081,
+          "all_natural_EOS": true,
+          "D_TX_GB_in_P_span": 190.2810371162348,
+          "supply": {
+            "window_s": [
+              56.0,
+              66.0
+            ],
+            "successor_P_delivered_by_window_end": 16,
+            "successor_D_first_token_by_window_end": 14,
+            "last_successor_P_reply_s": 81.66332887698081
+          },
+          "pressure": {
+            "peak_window_average_Gbps": 67.23087103543492,
+            "D_TX_GB_in_P_span": 190.28103711623478,
+            "D_TX_GB_by_port": [
+              24.51828973233389,
+              20.984624741526154,
+              22.31622789231634,
+              23.929725703224783,
+              23.840291878447637,
+              23.44718880432835,
+              26.203521008755736,
+              25.041167355301905
+            ],
+            "D_TX_GB_before_first_planned_successor": 0.9036766975334776,
+            "aggregate_at_least_100_Gbps_s": 0,
+            "longest_contiguous_at_least_100_Gbps_s": 0.0,
+            "aggregate_near_applied_cap_s": 4.560056063000005,
+            "any_port_near_applied_cap_s": 10.294731460999998,
+            "finish_reasons": {
+              "stop": 106
+            }
+          }
+        },
+        "200": {
+          "output_tokens": 19583,
+          "duration_s": 79.87940324901138,
+          "throughput_tokens_s": 245.1570643179832,
+          "last_P_reply_s": 75.16532290898613,
+          "all_natural_EOS": true,
+          "D_TX_GB_in_P_span": 192.97327568889253,
+          "supply": {
+            "window_s": [
+              56.0,
+              66.0
+            ],
+            "successor_P_delivered_by_window_end": 24,
+            "successor_D_first_token_by_window_end": 22,
+            "last_successor_P_reply_s": 75.16532290898613
+          },
+          "pressure": {
+            "peak_window_average_Gbps": 77.1590875448788,
+            "D_TX_GB_in_P_span": 192.97327568889253,
+            "D_TX_GB_by_port": [
+              22.06890134569365,
+              23.908655227837937,
+              25.308416255419598,
+              24.899642412596425,
+              23.773571118600128,
+              24.48351629271244,
+              23.03254067516811,
+              25.498032360864247
+            ],
+            "D_TX_GB_before_first_planned_successor": 1.197107648407262,
+            "aggregate_at_least_100_Gbps_s": 6.885230108000002,
+            "longest_contiguous_at_least_100_Gbps_s": 3.099816908000001,
+            "aggregate_near_applied_cap_s": 1.3289862740000018,
+            "any_port_near_applied_cap_s": 2.220791147,
+            "finish_reasons": {
+              "stop": 106
+            }
+          }
+        }
+      },
+      "hardware_low_throughput_loss_fraction": 0.0811117902679187,
+      "hardware_finish_gap_s": 7.7125105779850855,
+      "prediction": {
+        "pressure_window_length_multiple": 1.0,
+        "100": {
+          "finish_s": 84.20640072108705,
+          "tail_id": "caffe-cifar-10:79",
+          "output_tokens": 19583,
+          "drained_throughput_tokens_s": 232.5595184250169,
+          "median_finish_delta_from_observation_s": 0.16402654052020438,
+          "duration_s": 84.20640072108705,
+          "last_P_reply_s": 76.64891858611391,
+          "drain_after_last_P_reply_s": 7.557482134973142,
+          "P_HTTP_added_s_p50_p95_max": [
+            0.0,
+            4.834969752049708,
+            4.964064295659798
+          ],
+          "D_not_generating_with_P_inflight_s": {
+            "D0": 21.631795198685907,
+            "D1": 20.226639173888813
+          },
+          "D_port_TX_bytes": [
+            22068901345.69364,
+            23908655227.83795,
+            25308416255.41959,
+            24899642412.59643,
+            23773571118.600105,
+            24483516292.712437,
+            23032540675.168118,
+            25498032360.864258
+          ],
+          "D_TX_GB_in_P_span": 192.97327568889253,
+          "reference_pressure_s": 10.421675043,
+          "D_any_port_near_cap_s": 16.79735528603771,
+          "capacity_wait_on_shared_egress_clock_s": 5.0552444230377045,
+          "supply": {
+            "window_s": [
+              56.0,
+              66.0
+            ],
+            "successor_P_delivered_by_window_end": 17,
+            "successor_D_first_token_by_window_end": 17,
+            "last_successor_P_reply_s": 76.64891858611391
+          }
+        },
+        "200": {
+          "finish_s": 80.10475172519894,
+          "tail_id": "caffe-cifar-10:79",
+          "output_tokens": 19583,
+          "drained_throughput_tokens_s": 244.46739523243141,
+          "median_finish_delta_from_observation_s": -0.027062312615047546,
+          "duration_s": 80.10475172519894,
+          "last_P_reply_s": 73.99485462293325,
+          "drain_after_last_P_reply_s": 6.109897102265691,
+          "P_HTTP_added_s_p50_p95_max": [
+            0.0,
+            0.10121174181061596,
+            0.10121174181061596
+          ],
+          "D_not_generating_with_P_inflight_s": {
+            "D0": 21.41011892375961,
+            "D1": 20.004962898962518
+          },
+          "D_port_TX_bytes": [
+            22068901345.69364,
+            23908655227.83795,
+            25308416255.41959,
+            24899642412.59643,
+            23773571118.600105,
+            24483516292.712437,
+            23032540675.168118,
+            25498032360.864258
+          ],
+          "D_TX_GB_in_P_span": 192.97327568889253,
+          "reference_pressure_s": 10.421675043,
+          "D_any_port_near_cap_s": 2.3220028888106157,
+          "capacity_wait_on_shared_egress_clock_s": 0.10121174181061596,
+          "supply": {
+            "window_s": [
+              56.0,
+              66.0
+            ],
+            "successor_P_delivered_by_window_end": 23,
+            "successor_D_first_token_by_window_end": 22,
+            "last_successor_P_reply_s": 73.99485462293325
+          }
+        },
+        "low_throughput_loss_fraction": 0.048709468173017134,
+        "finish_gap_s": 4.101648995888112
+      },
+      "short_burst_sensitivity": {
+        "pressure_window_length_multiple": 1.0,
+        "100": {
+          "finish_s": 87.42910719018437,
+          "tail_id": "caffe-cifar-10:79",
+          "output_tokens": 19583,
+          "drained_throughput_tokens_s": 223.98718949972962,
+          "median_finish_delta_from_observation_s": 0.34495232432506207,
+          "duration_s": 87.42910719018437,
+          "last_P_reply_s": 79.92132550705018,
+          "drain_after_last_P_reply_s": 7.5077816831341835,
+          "P_HTTP_added_s_p50_p95_max": [
+            0.18479890768248394,
+            8.185656969435277,
+            8.552822361765763
+          ],
+          "D_not_generating_with_P_inflight_s": {
+            "D0": 22.42494644271931,
+            "D1": 21.090336515582443
+          },
+          "D_port_TX_bytes": [
+            22068901345.69364,
+            23908655227.83795,
+            25308416255.41959,
+            24899642412.59643,
+            23773571118.600105,
+            24483516292.712437,
+            23032540675.168118,
+            25498032360.864258
+          ],
+          "D_TX_GB_in_P_span": 192.97327568889253,
+          "reference_pressure_s": 10.421675043,
+          "D_any_port_near_cap_s": 18.775424872645065,
+          "capacity_wait_on_shared_egress_clock_s": 9.488924178133148,
+          "supply": {
+            "window_s": [
+              56.0,
+              66.0
+            ],
+            "successor_P_delivered_by_window_end": 14,
+            "successor_D_first_token_by_window_end": 14,
+            "last_successor_P_reply_s": 79.92132550705018
+          }
+        },
+        "200": {
+          "finish_s": 80.10475172519894,
+          "tail_id": "caffe-cifar-10:79",
+          "output_tokens": 19583,
+          "drained_throughput_tokens_s": 244.46739523243141,
+          "median_finish_delta_from_observation_s": -0.027062312615047546,
+          "duration_s": 80.10475172519894,
+          "last_P_reply_s": 73.99485462293325,
+          "drain_after_last_P_reply_s": 6.109897102265691,
+          "P_HTTP_added_s_p50_p95_max": [
+            0.0,
+            0.10121174181061596,
+            0.10121174181061596
+          ],
+          "D_not_generating_with_P_inflight_s": {
+            "D0": 21.41011892375961,
+            "D1": 20.004962898962518
+          },
+          "D_port_TX_bytes": [
+            22068901345.69364,
+            23908655227.83795,
+            25308416255.41959,
+            24899642412.59643,
+            23773571118.600105,
+            24483516292.712437,
+            23032540675.168118,
+            25498032360.864258
+          ],
+          "D_TX_GB_in_P_span": 192.97327568889253,
+          "reference_pressure_s": 10.421675043,
+          "D_any_port_near_cap_s": 9.387712436322532,
+          "capacity_wait_on_shared_egress_clock_s": 0.10121174181061596,
+          "supply": {
+            "window_s": [
+              56.0,
+              66.0
+            ],
+            "successor_P_delivered_by_window_end": 23,
+            "successor_D_first_token_by_window_end": 22,
+            "last_successor_P_reply_s": 73.99485462293325
+          }
+        },
+        "low_throughput_loss_fraction": 0.0837747942347481,
+        "finish_gap_s": 7.32435546498543
+      },
+      "longer_pressure_windows": [],
+      "predicted_finish_gap_minus_hardware_gap_s": -3.610861582096973,
+      "measured_P_only_fixed_reference_output_and_D_finish_gap_s": 8.75625470768236,
+      "predicted_finish_gap_minus_measured_P_only_gap_s": -4.654605711794247,
+      "seconds_needed_at_same_output_for_r28_loss": 23.421625001397036
+    },
+    "b2": {
+      "requests": 106,
+      "same_observed_P": 106,
+      "same_observed_D": 62,
+      "comparable_P_routes_wire_bytes_and_EOS": true,
+      "hardware": {
+        "100": {
+          "output_tokens": 18705,
+          "duration_s": 84.67132707999554,
+          "throughput_tokens_s": 220.91303685754144,
+          "last_P_reply_s": 80.56071265999344,
+          "all_natural_EOS": true,
+          "D_TX_GB_in_P_span": 195.4672665672621,
+          "supply": {
+            "window_s": [
+              56.0,
+              66.0
+            ],
+            "successor_P_delivered_by_window_end": 14,
+            "successor_D_first_token_by_window_end": 12,
+            "last_successor_P_reply_s": 80.56071265999344
+          },
+          "pressure": {
+            "peak_window_average_Gbps": 72.97252974869288,
+            "D_TX_GB_in_P_span": 195.4672665672621,
+            "D_TX_GB_by_port": [
+              22.365849562144,
+              26.799116412758735,
+              24.73671674570727,
+              23.60724763680607,
+              24.479766737730174,
+              24.088932165489666,
+              23.47055658904942,
+              25.919080717576776
+            ],
+            "D_TX_GB_before_first_planned_successor": 0.07697157539463154,
+            "aggregate_at_least_100_Gbps_s": 1.4867246120000033,
+            "longest_contiguous_at_least_100_Gbps_s": 1.4867246120000033,
+            "aggregate_near_applied_cap_s": 5.2341978079999905,
+            "any_port_near_applied_cap_s": 11.421311054,
+            "finish_reasons": {
+              "stop": 106
+            }
+          }
+        },
+        "200": {
+          "output_tokens": 19352,
+          "duration_s": 79.42261326199514,
+          "throughput_tokens_s": 243.65856530258756,
+          "last_P_reply_s": 75.25336021301337,
+          "all_natural_EOS": true,
+          "D_TX_GB_in_P_span": 192.50235096283672,
+          "supply": {
+            "window_s": [
+              56.0,
+              66.0
+            ],
+            "successor_P_delivered_by_window_end": 24,
+            "successor_D_first_token_by_window_end": 20,
+            "last_successor_P_reply_s": 75.25336021301337
+          },
+          "pressure": {
+            "peak_window_average_Gbps": 76.97011995687855,
+            "D_TX_GB_in_P_span": 192.50235096283674,
+            "D_TX_GB_by_port": [
+              21.93408582046007,
+              23.477468020412438,
+              24.76904076268289,
+              24.650368231184824,
+              22.877841258037968,
+              21.53261690231217,
+              26.45366213238371,
+              26.807267835362683
+            ],
+            "D_TX_GB_before_first_planned_successor": 1.6425917588155603,
+            "aggregate_at_least_100_Gbps_s": 8.799847774999982,
+            "longest_contiguous_at_least_100_Gbps_s": 3.818946634999989,
+            "aggregate_near_applied_cap_s": 0.0,
+            "any_port_near_applied_cap_s": 1.7243864609999946,
+            "finish_reasons": {
+              "stop": 106
+            }
+          }
+        }
+      },
+      "hardware_low_throughput_loss_fraction": 0.09335000563924178,
+      "hardware_finish_gap_s": 5.248713818000397,
+      "prediction": {
+        "pressure_window_length_multiple": 1.0,
+        "100": {
+          "finish_s": 82.64031444169184,
+          "tail_id": "caffe-cifar-10:79",
+          "output_tokens": 19352,
+          "drained_throughput_tokens_s": 234.17142263724207,
+          "median_finish_delta_from_observation_s": 0.25650793229441504,
+          "duration_s": 82.64031444169184,
+          "last_P_reply_s": 77.43044951497774,
+          "drain_after_last_P_reply_s": 5.209864926714104,
+          "P_HTTP_added_s_p50_p95_max": [
+            0.0,
+            4.694733960969242,
+            4.785665604910162
+          ],
+          "D_not_generating_with_P_inflight_s": {
+            "D0": 16.080167302963815,
+            "D1": 27.1825991712561
+          },
+          "D_port_TX_bytes": [
+            21934085820.460064,
+            23477468020.412426,
+            24769040762.68287,
+            24650368231.184826,
+            22877841258.037983,
+            21532616902.312172,
+            26453662132.38373,
+            26807267835.362675
+          ],
+          "D_TX_GB_in_P_span": 192.50235096283674,
+          "reference_pressure_s": 11.837966561999991,
+          "D_any_port_near_cap_s": 18.0983098988539,
+          "capacity_wait_on_shared_egress_clock_s": 5.061742623853899,
+          "supply": {
+            "window_s": [
+              56.0,
+              66.0
+            ],
+            "successor_P_delivered_by_window_end": 14,
+            "successor_D_first_token_by_window_end": 14,
+            "last_successor_P_reply_s": 77.43044951497774
+          }
+        },
+        "200": {
+          "finish_s": 78.9050634096806,
+          "tail_id": "winning-avg-corewars:117",
+          "output_tokens": 19352,
+          "drained_throughput_tokens_s": 245.25675747224315,
+          "median_finish_delta_from_observation_s": -0.10242318879383916,
+          "duration_s": 78.9050634096806,
+          "last_P_reply_s": 74.39955901114396,
+          "drain_after_last_P_reply_s": 4.50550439853663,
+          "P_HTTP_added_s_p50_p95_max": [
+            0,
+            0,
+            0
+          ],
+          "D_not_generating_with_P_inflight_s": {
+            "D0": 15.713158640079158,
+            "D1": 26.437053795421818
+          },
+          "D_port_TX_bytes": [
+            21934085820.460064,
+            23477468020.412426,
+            24769040762.68287,
+            24650368231.184826,
+            22877841258.037983,
+            21532616902.312172,
+            26453662132.38373,
+            26807267835.362675
+          ],
+          "D_TX_GB_in_P_span": 192.50235096283674,
+          "reference_pressure_s": 11.837966561999991,
+          "D_any_port_near_cap_s": 1.7243864609999946,
+          "capacity_wait_on_shared_egress_clock_s": 0.0,
+          "supply": {
+            "window_s": [
+              56.0,
+              66.0
+            ],
+            "successor_P_delivered_by_window_end": 24,
+            "successor_D_first_token_by_window_end": 20,
+            "last_successor_P_reply_s": 74.39955901114396
+          }
+        },
+        "low_throughput_loss_fraction": 0.04519889665529664,
+        "finish_gap_s": 3.7352510320112486
+      },
+      "short_burst_sensitivity": {
+        "pressure_window_length_multiple": 1.0,
+        "100": {
+          "finish_s": 85.99310800824982,
+          "tail_id": "caffe-cifar-10:79",
+          "output_tokens": 19352,
+          "drained_throughput_tokens_s": 225.04129049671573,
+          "median_finish_delta_from_observation_s": 0.31954199004417916,
+          "duration_s": 85.99310800824982,
+          "last_P_reply_s": 80.99606596711581,
+          "drain_after_last_P_reply_s": 4.997042041134009,
+          "P_HTTP_added_s_p50_p95_max": [
+            0.3001707060705701,
+            8.314523223436298,
+            8.590845266673345
+          ],
+          "D_not_generating_with_P_inflight_s": {
+            "D0": 16.86830987577725,
+            "D1": 28.62124236487101
+          },
+          "D_port_TX_bytes": [
+            21934085820.460064,
+            23477468020.412426,
+            24769040762.68287,
+            24650368231.184826,
+            22877841258.037983,
+            21532616902.312172,
+            26453662132.38373,
+            26807267835.362675
+          ],
+          "D_TX_GB_in_P_span": 192.50235096283674,
+          "reference_pressure_s": 11.837966561999991,
+          "D_any_port_near_cap_s": 19.65167713623248,
+          "capacity_wait_on_shared_egress_clock_s": 9.82583856811624,
+          "supply": {
+            "window_s": [
+              56.0,
+              66.0
+            ],
+            "successor_P_delivered_by_window_end": 14,
+            "successor_D_first_token_by_window_end": 14,
+            "last_successor_P_reply_s": 80.99606596711581
+          }
+        },
+        "200": {
+          "finish_s": 78.9050634096806,
+          "tail_id": "winning-avg-corewars:117",
+          "output_tokens": 19352,
+          "drained_throughput_tokens_s": 245.25675747224315,
+          "median_finish_delta_from_observation_s": -0.10242318879383916,
+          "duration_s": 78.9050634096806,
+          "last_P_reply_s": 74.39955901114396,
+          "drain_after_last_P_reply_s": 4.50550439853663,
+          "P_HTTP_added_s_p50_p95_max": [
+            0,
+            0,
+            0
+          ],
+          "D_not_generating_with_P_inflight_s": {
+            "D0": 15.713158640079158,
+            "D1": 26.437053795421818
+          },
+          "D_port_TX_bytes": [
+            21934085820.460064,
+            23477468020.412426,
+            24769040762.68287,
+            24650368231.184826,
+            22877841258.037983,
+            21532616902.312172,
+            26453662132.38373,
+            26807267835.362675
+          ],
+          "D_TX_GB_in_P_span": 192.50235096283674,
+          "reference_pressure_s": 11.837966561999991,
+          "D_any_port_near_cap_s": 9.82583856811624,
+          "capacity_wait_on_shared_egress_clock_s": 0.0,
+          "supply": {
+            "window_s": [
+              56.0,
+              66.0
+            ],
+            "successor_P_delivered_by_window_end": 24,
+            "successor_D_first_token_by_window_end": 20,
+            "last_successor_P_reply_s": 74.39955901114396
+          }
+        },
+        "low_throughput_loss_fraction": 0.08242572879083787,
+        "finish_gap_s": 7.088044598569226
+      },
+      "longer_pressure_windows": [],
+      "predicted_finish_gap_minus_hardware_gap_s": -1.513462785989148,
+      "measured_P_only_fixed_reference_output_and_D_finish_gap_s": 6.473468685201425,
+      "predicted_finish_gap_minus_measured_P_only_gap_s": -2.7382176531901763,
+      "seconds_needed_at_same_output_for_r28_loss": 20.44637416583296
+    }
+  },
+  "independent_method_replay": {
+    "archive": "2026-11-22-r69-terminal-source-restore-short-guard-methods",
+    "event_trace_sha256": "11f7f6a99169dcd58d532bbf20a9f6d8650cbce25f68922b9f25d5c29ea6d84e",
+    "method_events_sha256": "923b337448944487d150d018d8f275b4833cb9d74a4bc772b89a18c28a885cc7",
+    "matches_four_rank": [
+      {
+        "P": "P0",
+        "request_ids": [
+          "caffe-cifar-10:65",
+          "caffe-cifar-10:72",
+          "path-tracing-reverse:90"
+        ],
+        "bytes": 13111623680,
+        "rank_bytes": [
+          3277905920,
+          3277905920,
+          3277905920,
+          3277905920
+        ],
+        "100_Gbps": {
+          "slowest_GET_sum_s": 2.400569521,
+          "slowest_worker_load_s": 2.441000045
+        },
+        "200_Gbps": {
+          "slowest_GET_sum_s": 0.877078848,
+          "slowest_worker_load_s": 0.905779472
+        }
+      },
+      {
+        "P": "P0",
+        "request_ids": [
+          "caffe-cifar-10:77",
+          "path-tracing:46"
+        ],
+        "bytes": 8894873600,
+        "rank_bytes": [
+          2223718400,
+          2223718400,
+          2223718400,
+          2223718400
+        ],
+        "100_Gbps": {
+          "slowest_GET_sum_s": 1.253681399,
+          "slowest_worker_load_s": 1.261593123
+        },
+        "200_Gbps": {
+          "slowest_GET_sum_s": 0.653858142,
+          "slowest_worker_load_s": 0.661972239
+        }
+      },
+      {
+        "P": "P0",
+        "request_ids": [
+          "financial-document-processor:64",
+          "path-tracing:48",
+          "path-tracing:50",
+          "path-tracing:52"
+        ],
+        "bytes": 17789747200,
+        "rank_bytes": [
+          4447436800,
+          4447436800,
+          4447436800,
+          4447436800
+        ],
+        "100_Gbps": {
+          "slowest_GET_sum_s": 2.133486121,
+          "slowest_worker_load_s": 2.167013851
+        },
+        "200_Gbps": {
+          "slowest_GET_sum_s": 1.27300984,
+          "slowest_worker_load_s": 1.304367364
+        }
+      },
+      {
+        "P": "P0",
+        "request_ids": [
+          "financial-document-processor:67",
+          "financial-document-processor:70",
+          "financial-document-processor:73",
+          "gcode-to-text:87",
+          "make-mips-interpreter:83"
+        ],
+        "bytes": 19364085760,
+        "rank_bytes": [
+          4841021440,
+          4841021440,
+          4841021440,
+          4841021440
+        ],
+        "100_Gbps": {
+          "slowest_GET_sum_s": 1.964987977,
+          "slowest_worker_load_s": 2.000060566
+        },
+        "200_Gbps": {
+          "slowest_GET_sum_s": 0.957214007,
+          "slowest_worker_load_s": 0.993661712
+        }
+      },
+      {
+        "P": "P0",
+        "request_ids": [
+          "financial-document-processor:80",
+          "financial-document-processor:84",
+          "gcode-to-text:93",
+          "make-mips-interpreter:81"
+        ],
+        "bytes": 16615342080,
+        "rank_bytes": [
+          4153835520,
+          4153835520,
+          4153835520,
+          4153835520
+        ],
+        "100_Gbps": {
+          "slowest_GET_sum_s": 1.632832229,
+          "slowest_worker_load_s": 1.660674352
+        },
+        "200_Gbps": {
+          "slowest_GET_sum_s": 0.87297595,
+          "slowest_worker_load_s": 0.887393813
+        }
+      },
+      {
+        "P": "P0",
+        "request_ids": [
+          "gcode-to-text:60",
+          "make-mips-interpreter:61"
+        ],
+        "bytes": 7342981120,
+        "rank_bytes": [
+          1835745280,
+          1835745280,
+          1835745280,
+          1835745280
+        ],
+        "100_Gbps": {
+          "slowest_GET_sum_s": 0.730099863,
+          "slowest_worker_load_s": 0.736758723
+        },
+        "200_Gbps": {
+          "slowest_GET_sum_s": 0.352145637,
+          "slowest_worker_load_s": 0.358766077
+        }
+      },
+      {
+        "P": "P0",
+        "request_ids": [
+          "gcode-to-text:63",
+          "make-mips-interpreter:68"
+        ],
+        "bytes": 7762411520,
+        "rank_bytes": [
+          1940602880,
+          1940602880,
+          1940602880,
+          1940602880
+        ],
+        "100_Gbps": {
+          "slowest_GET_sum_s": 0.749964551,
+          "slowest_worker_load_s": 0.757035715
+        },
+        "200_Gbps": {
+          "slowest_GET_sum_s": 0.35401101,
+          "slowest_worker_load_s": 0.361067454
+        }
+      },
+      {
+        "P": "P0",
+        "request_ids": [
+          "make-mips-interpreter:51"
+        ],
+        "bytes": 3042344960,
+        "rank_bytes": [
+          760586240,
+          760586240,
+          760586240,
+          760586240
+        ],
+        "100_Gbps": {
+          "slowest_GET_sum_s": 0.305038155,
+          "slowest_worker_load_s": 0.307868889
+        },
+        "200_Gbps": {
+          "slowest_GET_sum_s": 0.15146055,
+          "slowest_worker_load_s": 0.154329194
+        }
+      },
+      {
+        "P": "P0",
+        "request_ids": [
+          "make-mips-interpreter:88"
+        ],
+        "bytes": 5139496960,
+        "rank_bytes": [
+          1284874240,
+          1284874240,
+          1284874240,
+          1284874240
+        ],
+        "100_Gbps": {
+          "slowest_GET_sum_s": 0.538346262,
+          "slowest_worker_load_s": 0.547231039
+        },
+        "200_Gbps": {
+          "slowest_GET_sum_s": 0.234115447,
+          "slowest_worker_load_s": 0.242824842
+        }
+      },
+      {
+        "P": "P0",
+        "request_ids": [
+          "path-tracing-reverse:31",
+          "path-tracing-reverse:52"
+        ],
+        "bytes": 6923550720,
+        "rank_bytes": [
+          1730887680,
+          1730887680,
+          1730887680,
+          1730887680
+        ],
+        "100_Gbps": {
+          "slowest_GET_sum_s": 1.250321938,
+          "slowest_worker_load_s": 1.256975888
+        },
+        "200_Gbps": {
+          "slowest_GET_sum_s": 0.579831838,
+          "slowest_worker_load_s": 0.586219374
+        }
+      },
+      {
+        "P": "P0",
+        "request_ids": [
+          "winning-avg-corewars:117"
+        ],
+        "bytes": 7446364160,
+        "rank_bytes": [
+          1861591040,
+          1861591040,
+          1861591040,
+          1861591040
+        ],
+        "100_Gbps": {
+          "slowest_GET_sum_s": 1.502899196,
+          "slowest_worker_load_s": 1.509224942
+        },
+        "200_Gbps": {
+          "slowest_GET_sum_s": 0.405717817,
+          "slowest_worker_load_s": 0.41179992
+        }
+      },
+      {
+        "P": "P1",
+        "request_ids": [
+          "extract-moves-from-video:105"
+        ],
+        "bytes": 4426465280,
+        "rank_bytes": [
+          1106616320,
+          1106616320,
+          1106616320,
+          1106616320
+        ],
+        "100_Gbps": {
+          "slowest_GET_sum_s": 0.906413879,
+          "slowest_worker_load_s": 0.910726951
+        },
+        "200_Gbps": {
+          "slowest_GET_sum_s": 0.467096101,
+          "slowest_worker_load_s": 0.470981867
+        }
+      },
+      {
+        "P": "P1",
+        "request_ids": [
+          "extract-moves-from-video:154"
+        ],
+        "bytes": 6020300800,
+        "rank_bytes": [
+          1505075200,
+          1505075200,
+          1505075200,
+          1505075200
+        ],
+        "100_Gbps": {
+          "slowest_GET_sum_s": 0.921129675,
+          "slowest_worker_load_s": 0.926667442
+        },
+        "200_Gbps": {
+          "slowest_GET_sum_s": 0.51641675,
+          "slowest_worker_load_s": 0.521783824
+        }
+      }
+    ],
+    "measured": {
+      "100": {
+        "output_tokens": 19284,
+        "duration_s": 86.11193024599925,
+        "throughput_tokens_s": 223.94109555912473,
+        "last_P_reply_s": 81.50871367301443,
+        "all_natural_EOS": true,
+        "synchronous_GET_wall_union_s": 19.047629849,
+        "GET_descriptor_GB": 192.46055424,
+        "supply": {
+          "window_s": [
+            56.0,
+            66.0
+          ],
+          "successor_P_delivered_by_window_end": 14,
+          "successor_D_first_token_by_window_end": 14,
+          "last_successor_P_reply_s": 81.50871367301443
+        }
+      },
+      "200": {
+        "output_tokens": 18390,
+        "duration_s": 78.13326261701877,
+        "throughput_tokens_s": 235.36710722219786,
+        "last_P_reply_s": 73.77731336699799,
+        "all_natural_EOS": true,
+        "synchronous_GET_wall_union_s": 8.987954858,
+        "GET_descriptor_GB": 173.83784448,
+        "supply": {
+          "window_s": [
+            56.0,
+            66.0
+          ],
+          "successor_P_delivered_by_window_end": 23,
+          "successor_D_first_token_by_window_end": 20,
+          "last_successor_P_reply_s": 73.77731336699799
+        }
+      }
+    },
+    "same_P_GET_exposure": {
+      "100": {
+        "finish_s": 80.99719439813536,
+        "tail_id": "caffe-cifar-10:74",
+        "output_tokens": 18390,
+        "drained_throughput_tokens_s": 227.04490120491576,
+        "median_finish_delta_from_observation_s": 0.46067611655906404,
+        "duration_s": 80.99719439813536,
+        "last_P_reply_s": 75.2084574559837,
+        "drain_after_last_P_reply_s": 5.788736942151658,
+        "P_HTTP_added_s_p50_p95_max": [
+          0.10757063460021286,
+          4.503640336159842,
+          4.554188303760667
+        ],
+        "D_not_generating_with_P_inflight_s": {
+          "D0": 23.919283718716606,
+          "D1": 23.406074792941638
+        },
+        "supply": {
+          "window_s": [
+            56.0,
+            66.0
+          ],
+          "successor_P_delivered_by_window_end": 14,
+          "successor_D_first_token_by_window_end": 14,
+          "last_successor_P_reply_s": 75.2084574559837
+        }
+      },
+      "200": {
+        "finish_s": 77.55486532630964,
+        "tail_id": "winning-avg-corewars:117",
+        "output_tokens": 18390,
+        "drained_throughput_tokens_s": 237.122454182915,
+        "median_finish_delta_from_observation_s": -0.01011962818657608,
+        "duration_s": 77.55486532630964,
+        "last_P_reply_s": 72.94936944027977,
+        "drain_after_last_P_reply_s": 4.605495886029871,
+        "P_HTTP_added_s_p50_p95_max": [
+          0.0,
+          0.07071796440370562,
+          0.07071796440370562
+        ],
+        "D_not_generating_with_P_inflight_s": {
+          "D0": 22.585641137756525,
+          "D1": 22.41735379533631
+        },
+        "supply": {
+          "window_s": [
+            56.0,
+            66.0
+          ],
+          "successor_P_delivered_by_window_end": 21,
+          "successor_D_first_token_by_window_end": 20,
+          "last_successor_P_reply_s": 72.94936944027977
+        }
+      }
+    },
+    "shared_GET_exposure": {
+      "100": {
+        "finish_s": 83.38652805331004,
+        "tail_id": "caffe-cifar-10:74",
+        "output_tokens": 18390,
+        "drained_throughput_tokens_s": 220.53922173427156,
+        "median_finish_delta_from_observation_s": 0.6173147878324468,
+        "duration_s": 83.38652805331004,
+        "last_P_reply_s": 77.89749047427907,
+        "drain_after_last_P_reply_s": 5.4890375790309776,
+        "P_HTTP_added_s_p50_p95_max": [
+          0.10757063460021286,
+          6.591992137819655,
+          7.1495057316515975
+        ],
+        "D_not_generating_with_P_inflight_s": {
+          "D0": 23.919283718716606,
+          "D1": 23.406074792941638
+        },
+        "supply": {
+          "window_s": [
+            56.0,
+            66.0
+          ],
+          "successor_P_delivered_by_window_end": 14,
+          "successor_D_first_token_by_window_end": 14,
+          "last_successor_P_reply_s": 77.89749047427907
+        }
+      },
+      "200": {
+        "finish_s": 77.57584473582507,
+        "tail_id": "caffe-cifar-10:74",
+        "output_tokens": 18390,
+        "drained_throughput_tokens_s": 237.0583274036508,
+        "median_finish_delta_from_observation_s": -0.008527852073321185,
+        "duration_s": 77.57584473582507,
+        "last_P_reply_s": 72.94962438493125,
+        "drain_after_last_P_reply_s": 4.626220350893817,
+        "P_HTTP_added_s_p50_p95_max": [
+          0.0,
+          0.0892344661200004,
+          0.0892344661200004
+        ],
+        "D_not_generating_with_P_inflight_s": {
+          "D0": 22.585641137756525,
+          "D1": 22.41735379533631
+        },
+        "supply": {
+          "window_s": [
+            56.0,
+            66.0
+          ],
+          "successor_P_delivered_by_window_end": 21,
+          "successor_D_first_token_by_window_end": 20,
+          "last_successor_P_reply_s": 72.94962438493125
+        }
+      }
+    }
+  },
+  "same_inputs_different_arrivals": {
+    "archive": "2026-11-22-r70-terminal-source-restore-short-earlier",
+    "trace_sha256": "3e57e2f27c29832cffbddd871a1a0af8d47aabcb21908fbb4385fd47facd4089",
+    "arms": {
+      "b1-cap100": {
+        "first_planned_successor_s": 43.0,
+        "output_tokens": 18761,
+        "duration_s": 81.5268072890176,
+        "throughput_tokens_s": 230.12062686928348,
+        "last_P_reply_s": 77.82683284801897,
+        "all_natural_EOS": true,
+        "pressure": {
+          "peak_window_average_Gbps": 24.38921180499633,
+          "D_TX_GB_in_P_span": 91.76627678097478,
+          "D_TX_GB_by_port": [
+            11.583819733459531,
+            12.456961555314287,
+            11.862502266782323,
+            11.418026879469036,
+            11.438213200078785,
+            10.601598250259743,
+            11.224241902480099,
+            11.180912993130967
+          ],
+          "D_TX_GB_before_first_planned_successor": 0.05363133746604996,
+          "aggregate_at_least_100_Gbps_s": 0,
+          "longest_contiguous_at_least_100_Gbps_s": 0.0,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 0.8477722969999988,
+          "finish_reasons": {
+            "stop": 106
+          }
+        }
+      },
+      "b1-cap200": {
+        "first_planned_successor_s": 43.0,
+        "output_tokens": 19419,
+        "duration_s": 79.50831736001419,
+        "throughput_tokens_s": 244.23859848612616,
+        "last_P_reply_s": 72.51023759899545,
+        "all_natural_EOS": true,
+        "pressure": {
+          "peak_window_average_Gbps": 52.090559274630095,
+          "D_TX_GB_in_P_span": 183.03084512153225,
+          "D_TX_GB_by_port": [
+            22.648819960605906,
+            24.33503591194112,
+            20.337553753218305,
+            25.203934062513234,
+            24.15064997512,
+            21.527636762619643,
+            21.251986002166944,
+            23.575228693347107
+          ],
+          "D_TX_GB_before_first_planned_successor": 0.06044724772612012,
+          "aggregate_at_least_100_Gbps_s": 1.9741552040000059,
+          "longest_contiguous_at_least_100_Gbps_s": 1.0783342450000006,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 0.8950971900000013,
+          "finish_reasons": {
+            "stop": 106
+          }
+        }
+      },
+      "b2-cap200": {
+        "first_planned_successor_s": 43.0,
+        "output_tokens": 18648,
+        "duration_s": 78.06738148600562,
+        "throughput_tokens_s": 238.87057110200175,
+        "last_P_reply_s": 73.800896301982,
+        "all_natural_EOS": true,
+        "pressure": {
+          "peak_window_average_Gbps": 51.77207258932324,
+          "D_TX_GB_in_P_span": 183.9881517950245,
+          "D_TX_GB_by_port": [
+            23.093613742398755,
+            22.86762656551428,
+            22.95536939093247,
+            22.469370806555602,
+            21.75579487656023,
+            21.749793775910053,
+            24.05327152501954,
+            25.04331111213357
+          ],
+          "D_TX_GB_before_first_planned_successor": 0.0625454439633332,
+          "aggregate_at_least_100_Gbps_s": 4.518201389000005,
+          "longest_contiguous_at_least_100_Gbps_s": 1.2852746140000022,
+          "aggregate_near_applied_cap_s": 0.0,
+          "any_port_near_applied_cap_s": 0.0,
+          "finish_reasons": {
+            "stop": 106
+          }
+        }
+      },
+      "b2-cap100": {
+        "first_planned_successor_s": 43.0,
+        "output_tokens": 19028,
+        "duration_s": 80.61664426498464,
+        "throughput_tokens_s": 236.0306630657498,
+        "last_P_reply_s": 75.7044672119955,
+        "all_natural_EOS": true,
+        "pressure": {
+          "peak_window_average_Gbps": 43.85424826068498,
+          "D_TX_GB_in_P_span": 173.12285901671027,
+          "D_TX_GB_by_port": [
+            21.50360743285817,
+            23.26405707842177,
+            21.54497097720462,
+            22.274947863319706,
+            21.30515582838587,
+            21.616811701813344,
+            21.051782353757968,
+            20.561525780948823
+          ],
+          "D_TX_GB_before_first_planned_successor": 0.06414998470648274,
+          "aggregate_at_least_100_Gbps_s": 1.1591466360000027,
+          "longest_contiguous_at_least_100_Gbps_s": 1.1591466360000027,
+          "aggregate_near_applied_cap_s": 2.318322773999995,
+          "any_port_near_applied_cap_s": 4.505103038999991,
+          "finish_reasons": {
+            "stop": 106
+          }
+        }
+      }
+    }
+  },
+  "historical_r28": {
+    "archive": "2026-11-19-r28-natural-bandwidth",
+    "summary_sha256": "0d568da5fa85756bb458ea6d2ab47179b1d30701c9296cf43bdece0efc9f0382",
+    "orders": {
+      "b1": {
+        "100": {
+          "ttft_from_ready": {
+            "n": 170,
+            "p50_s": 1.605336083099246,
+            "p90_s": 50.21342377136315,
+            "p95_s": 55.40504927876316,
+            "p99_s": 70.4487209474188
+          },
+          "e2e_from_ready": {
+            "n": 170,
+            "p50_s": 16.721736937317203,
+            "p90_s": 66.67829937692638,
+            "p95_s": 89.05035726407374,
+            "p99_s": 180.48782896064222
+          },
+          "first_from_offered": {
+            "n": 170,
+            "p50_s": 99.02419451099851,
+            "p90_s": 178.47597087970792,
+            "p95_s": 231.4631640415521,
+            "p99_s": 357.7860295724006
+          },
+          "client_queue": {
+            "n": 170,
+            "p50_s": 0.0006121043115854263,
+            "p90_s": 0.0012912431942653235,
+            "p95_s": 0.0017629018107832017,
+            "p99_s": 0.1082143893182518
+          },
+          "drain_included_s": 474.3047384992242,
+          "first_offered_s": 0.0,
+          "offer_to_last_end_s": 474.3047384992242,
+          "output_tokens": 148164,
+          "output_tokens_per_s": 312.3814458797408,
+          "completed_requests_per_drain_s": 0.35841935827566707
+        },
+        "200": {
+          "ttft_from_ready": {
+            "n": 170,
+            "p50_s": 1.3890878167003393,
+            "p90_s": 46.00136577597573,
+            "p95_s": 51.59819889627397,
+            "p99_s": 67.00593307986856
+          },
+          "e2e_from_ready": {
+            "n": 170,
+            "p50_s": 16.97432050295174,
+            "p90_s": 69.80770093727486,
+            "p95_s": 119.73800708726048,
+            "p99_s": 227.6172403700532
+          },
+          "first_from_offered": {
+            "n": 170,
+            "p50_s": 89.85943337135913,
+            "p90_s": 227.0886993315071,
+            "p95_s": 262.89622045137094,
+            "p99_s": 387.0534110696884
+          },
+          "client_queue": {
+            "n": 170,
+            "p50_s": 0.0007098354399204254,
+            "p90_s": 0.001681807149656711,
+            "p95_s": 0.06544560380280018,
+            "p99_s": 0.482035539829755
+          },
+          "drain_included_s": 474.4229006525129,
+          "first_offered_s": 0.0,
+          "offer_to_last_end_s": 474.4229006525129,
+          "output_tokens": 191533,
+          "output_tokens_per_s": 403.71786382269676,
+          "completed_requests_per_drain_s": 0.3583300885479706
+        },
+        "X_200_div_X_100_minus_one": 0.2923874613798869,
+        "loss_100_relative_to_200": 0.2262382374614682,
+        "output_tokens_200_minus_100": 43369,
+        "output_tokens_200_div_100_minus_one": 0.29270943009098027,
+        "elapsed_200_minus_100_s": 0.11816215328872204,
+        "same_output_token_count_requests": 20,
+        "same_P_instance_requests": 107,
+        "same_D_instance_requests": 82
+      },
+      "b2": {
+        "100": {
+          "ttft_from_ready": {
+            "n": 170,
+            "p50_s": 1.4767408911138773,
+            "p90_s": 46.068340595961665,
+            "p95_s": 52.738826838516516,
+            "p99_s": 67.04736415112215
+          },
+          "e2e_from_ready": {
+            "n": 170,
+            "p50_s": 16.27038726210594,
+            "p90_s": 65.56300339475274,
+            "p95_s": 83.00775168649852,
+            "p99_s": 207.85641267895699
+          },
+          "first_from_offered": {
+            "n": 170,
+            "p50_s": 91.60127410931038,
+            "p90_s": 162.60149578381956,
+            "p95_s": 210.78093058875515,
+            "p99_s": 272.2413002272706
+          },
+          "client_queue": {
+            "n": 170,
+            "p50_s": 0.0006080940365791321,
+            "p90_s": 0.0013699927818686675,
+            "p95_s": 0.0016966307433685657,
+            "p99_s": 0.10814198457601089
+          },
+          "drain_included_s": 547.4453316442668,
+          "first_offered_s": 0.0,
+          "offer_to_last_end_s": 547.4453316442668,
+          "output_tokens": 154259,
+          "output_tokens_per_s": 281.7797341273857,
+          "completed_requests_per_drain_s": 0.31053329012670616
+        },
+        "200": {
+          "ttft_from_ready": {
+            "n": 170,
+            "p50_s": 1.3693408947438002,
+            "p90_s": 44.27564056361879,
+            "p95_s": 50.316621142801864,
+            "p99_s": 65.8945014822153
+          },
+          "e2e_from_ready": {
+            "n": 170,
+            "p50_s": 16.943079002201557,
+            "p90_s": 61.69623910856465,
+            "p95_s": 76.09009540082711,
+            "p99_s": 221.33505464418545
+          },
+          "first_from_offered": {
+            "n": 170,
+            "p50_s": 91.65537799808534,
+            "p90_s": 224.83935571275651,
+            "p95_s": 261.6872649934478,
+            "p99_s": 354.0970078905942
+          },
+          "client_queue": {
+            "n": 170,
+            "p50_s": 0.0008101165294647217,
+            "p90_s": 0.0016369676014234003,
+            "p95_s": 0.003621583804488182,
+            "p99_s": 0.10133151874842662
+          },
+          "drain_included_s": 463.6745562069118,
+          "first_offered_s": 0.0,
+          "offer_to_last_end_s": 463.6745562069118,
+          "output_tokens": 164510,
+          "output_tokens_per_s": 354.7962634520503,
+          "completed_requests_per_drain_s": 0.3666364645726616
+        },
+        "X_200_div_X_100_minus_one": 0.2591262624006012,
+        "loss_100_relative_to_200": 0.20579847322583922,
+        "output_tokens_200_minus_100": 10251,
+        "output_tokens_200_div_100_minus_one": 0.06645317291049468,
+        "elapsed_200_minus_100_s": -83.77077543735504,
+        "same_output_token_count_requests": 21,
+        "same_P_instance_requests": 74,
+        "same_D_instance_requests": 84
+      }
+    }
+  },
+  "scope": "Selection uses only the two measured 200 Gbps references. Exact archived request bodies are identified by hashes. Every pair reuses reference native placements, observed cache/egress, natural EOS output, offers and dependencies. There is no traffic or arrival multiplier. The method replay uses real GET activity as a pacing constraint and exposes delay on each request's local P or on either P. It holds the 200 Gbps trace's group shape and does not predict changes in scheduling, placement or caching caused by a different bandwidth."
+}

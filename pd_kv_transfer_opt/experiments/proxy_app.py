@@ -85,6 +85,8 @@ if disable_keepalive:
     module.httpx.AsyncClient=ExperimentAsyncClient
 original_prefill=module.send_request_to_service
 original_decode=module.stream_service_response_with_retry
+prefill_order_path = os.environ.get("PDKV_PREFILL_ORDER_PLAN")
+prefill_order = json.loads(Path(prefill_order_path).read_bytes()) if prefill_order_path else None
 
 def descriptors(blocks):
     if not isinstance(blocks,list):return None
@@ -96,6 +98,12 @@ async def prefill(client,endpoint,req_data,request_id,*args,**kwargs):
     emit('prefill_begin',id=cid,proxy_request_id=request_id,url=str(client.base_url),
          input_tokens=len(req_data['prompt']) if isinstance(req_data.get('prompt'),list) else None)
     try:
+        if prefill_order is not None and cid in prefill_order["root_suffix_s"]:
+            from pd_kv_transfer_opt.experiments.prefill_order import HINT_CASE, HINT_MODE, HINT_ROOT, HINT_SUFFIX
+
+            hints = {HINT_CASE: prefill_order["case"], HINT_MODE: prefill_order["mode"], HINT_ROOT: cid,
+                     HINT_SUFFIX: prefill_order["root_suffix_s"][cid]}
+            req_data = {**req_data, "vllm_xargs": {**(req_data.get("vllm_xargs") or {}), **hints}}
         response=await original_prefill(client,endpoint,req_data,request_id,*args,**kwargs)
         if os.environ.get('ISSUE23_LIGHT_PROXY_OBSERVATIONS')=='1':
             emit('prefill_end',id=cid,proxy_request_id=request_id,status=response.status_code,

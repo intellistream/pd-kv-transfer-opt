@@ -1,0 +1,58 @@
+{
+  "case_wall_time_UTC_seconds": {
+    "b1-cap100": [
+      "11-20 14:02:15",
+      "11-20 14:21:36"
+    ],
+    "b1-cap200": [
+      "11-20 14:22:17",
+      "11-20 14:41:39"
+    ]
+  },
+  "native_logs": {
+    "P": {
+      "b1-cap100": {
+        "P0": {
+          "positive_lookup_logs": 17,
+          "worker_batch_put_no_space_logs": 441,
+          "worker_put_no_space_keys": 666,
+          "positive_load_plan_logs": 3,
+          "planned_restore_tokens": 57344
+        },
+        "P1": {
+          "positive_lookup_logs": 4,
+          "worker_batch_put_no_space_logs": 391,
+          "worker_put_no_space_keys": 495
+        }
+      },
+      "b1-cap200": {
+        "P0": {
+          "positive_lookup_logs": 9,
+          "worker_batch_put_no_space_logs": 418,
+          "worker_put_no_space_keys": 542
+        },
+        "P1": {
+          "positive_lookup_logs": 4,
+          "worker_batch_put_no_space_logs": 417,
+          "worker_put_no_space_keys": 607
+        }
+      }
+    },
+    "D": {
+      "b1-cap100": {
+        "master": {
+          "evict_due_to_memory_log_count": 228,
+          "min_memory_ratio_at_trigger": 0.9247,
+          "max_memory_ratio_at_trigger": 0.963728
+        }
+      },
+      "b1-cap200": {
+        "master": {
+          "evict_due_to_memory_log_count": 238,
+          "min_memory_ratio_at_trigger": 0.925198,
+          "max_memory_ratio_at_trigger": 0.953158
+        }
+      }
+    }
+  }
+}

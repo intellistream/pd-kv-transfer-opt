@@ -2,6 +2,8 @@
 
 数据源是 `openguardrails/terminal-bench-2.1-deepseek-v4-flash-trajectories`，固定 revision `3f5b93ff1c5ea84b2c94cf479d0c942227191b4a`。从 ATIF 的可见历史还原 system、user、assistant、已观察的工具调用与返回，使用 Qwen3.5-35B-A3B 的模板开启 thinking 并加生成提示。历史里的命令与工具结果只作为文本输入。[固定数据版本](https://huggingface.co/datasets/openguardrails/terminal-bench-2.1-deepseek-v4-flash-trajectories/tree/3f5b93ff1c5ea84b2c94cf479d0c942227191b4a)
 
+固定源快照的离线长度表覆盖 88 个源任务和 2,952 个记录步骤。正式系统实验从中筛选原始请求窗口，例如 r67 的 113 个窗口和 r68 的 55 个窗口，测量原生部署的含排空输出吞吐。Terminal-Bench 官方用 Harbor 运行全部任务并按任务解决率计分，榜单提交要求每任务至少 5 次试跑。系统实验的规模按实际回读字节、到达率、输出工作量和冷首轮时间确定。 [官方榜单口径](https://github.com/harbor-framework/terminal-bench-2-1/blob/main/leaderboard/SUBMIT.md) · [本地原始窗口筛选](restore-workload-screen.md)
+
 ## 硬限速诊断
 
 [固定输入清单](../configs/workload-r14.json) 记录源文件、分词器、原始 JSONL 与 token IDs 的哈希。两个完整前缀分别是 `regex-chess:120` 的 223,256 token 与 `winning-avg-corewars:145` 的 238,600 token。源任务按长度和 1024 token 对齐余量筛出，保留完整前缀，每条请求固定 16 输出 token。两条前缀各预热一次，交替固定到 P0/D0 与 P1/D1。

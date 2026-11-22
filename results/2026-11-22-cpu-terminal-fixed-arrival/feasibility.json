@@ -1,0 +1,2418 @@
+{
+  "baseline_revision": "5d591893ca8c7adc03c797068b44ad43dad27398",
+  "fixed_arrival_summary_sha256": "cc7a7369284a2d8fc25be9c75d691c3bfaab58a4a86ef286bc4778bc5e07cb1d",
+  "fixed_workload_sha256": "3515245e705571e4836215d295841791c6b528595ef88c875dfa8a77dd6080bf",
+  "trace_sha256": "fd30f9edd8cfff527cc53ce919ef5425e378bd62a6a258effd43e438450015c2",
+  "target_100_loss_relative_to_200": 0.3,
+  "regular_waves": 27,
+  "regular_period_s": 17.07217848714893,
+  "last_offer_s": 641.7746406658722,
+  "D_ready_windows_s": [
+    196.65,
+    256.65,
+    316.65,
+    376.65,
+    436.65,
+    496.65,
+    556.65,
+    616.65,
+    657.598819153021
+  ],
+  "construction_envelope": {
+    "P_complete_pages": 3021,
+    "dense_Store_bytes_per_complete_page": 42434560,
+    "store_bytes": 137438953472,
+    "dense_Store_max_complete_pages": 3238,
+    "current_complete_pages": 3209,
+    "unused_Store_GiB_in_current_ring": 1.179473876953125,
+    "minimum_new_domain_pages": 108,
+    "worst_intervening_pages_in_full_current_ring": 3066,
+    "maximum_worst_intervening_pages_after_one_skip_with_all_seven_sources": 2967,
+    "minimum_Store_GiB_for_one_skip_tolerant_full_ring_with_all_seven_sources": 130.1007080078125,
+    "minimum_Store_GiB_for_one_skip_tolerant_full_ring_with_two_longest_original_domains": 130.69351196289062,
+    "optimistic_GB_per_new_page_with_one_restore_on_each_P": 0.08507847111111111,
+    "favorable_regular_period_s_for_full_once_per_role_domain_reads": [
+      15.194238853562545,
+      19.524445210256772
+    ],
+    "smaller_peak_D_output_tokens_s": 973.7180704137402,
+    "one_copy_output_tokens_per_wave": 3382,
+    "uniform_copies_upper_bound_by_D_at_current_period": 4,
+    "uniform_copies_upper_bound_by_D_even_at_optimistic_steady_state_period": 5
+  },
+  "cases": {
+    "nominal/forward": {
+      "100_loss_relative_to_200": 0.02773145636588681,
+      "arms": {
+        "100": {
+          "output_tokens": 192774,
+          "finish_s": 676.6128895395506,
+          "throughput_tokens_s": 284.910327574733,
+          "actual_GET_GB": 4354.10714624,
+          "actual_regular_GET_GB": 4207.72364288,
+          "actual_regular_GB_per_planned_s": 9.128396620283265,
+          "effective_GB_s": 8.972724656624326,
+          "last_GET_to_EOS_s": 2.5704656666584924,
+          "wire_GB_after_last_offer": 284.25013678195756,
+          "wire_GB_after_last_period": 142.26414029949282,
+          "not_yet_D_ready_at_last_period_output_tokens": 9763,
+          "D_ready_output_tokens_by_fixed_window": [
+            13348,
+            15260,
+            28442,
+            35830,
+            18802,
+            20576,
+            28017,
+            12590
+          ],
+          "waves_all_D_KV_ready_before_next_offer": 1,
+          "max_port_Gbps_averaged_over_regular_phase": 10.803355717331337,
+          "max_aggregate_30s_Gbps": 71.78179725299464,
+          "routing": {
+            "regular_waves": [
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  29,
+                  25
+                ],
+                "unavoidable_missing_role_domain_visits": 2,
+                "missing_adjacent_pair_visits": 2,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 4
+              },
+              {
+                "P_admissions": [
+                  25,
+                  29
+                ],
+                "unavoidable_missing_role_domain_visits": 2,
+                "missing_adjacent_pair_visits": 2,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 2
+              },
+              {
+                "P_admissions": [
+                  29,
+                  25
+                ],
+                "unavoidable_missing_role_domain_visits": 2,
+                "missing_adjacent_pair_visits": 6,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 6
+              },
+              {
+                "P_admissions": [
+                  30,
+                  24
+                ],
+                "unavoidable_missing_role_domain_visits": 3,
+                "missing_adjacent_pair_visits": 7,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 7
+              },
+              {
+                "P_admissions": [
+                  30,
+                  24
+                ],
+                "unavoidable_missing_role_domain_visits": 3,
+                "missing_adjacent_pair_visits": 3,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 3
+              },
+              {
+                "P_admissions": [
+                  25,
+                  29
+                ],
+                "unavoidable_missing_role_domain_visits": 2,
+                "missing_adjacent_pair_visits": 6,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 6
+              },
+              {
+                "P_admissions": [
+                  32,
+                  22
+                ],
+                "unavoidable_missing_role_domain_visits": 5,
+                "missing_adjacent_pair_visits": 9,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 9
+              },
+              {
+                "P_admissions": [
+                  31,
+                  23
+                ],
+                "unavoidable_missing_role_domain_visits": 4,
+                "missing_adjacent_pair_visits": 4,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 4
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  25,
+                  29
+                ],
+                "unavoidable_missing_role_domain_visits": 2,
+                "missing_adjacent_pair_visits": 2,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 24
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  40,
+                  14
+                ],
+                "unavoidable_missing_role_domain_visits": 13,
+                "missing_adjacent_pair_visits": 13,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 13
+              },
+              {
+                "P_admissions": [
+                  29,
+                  25
+                ],
+                "unavoidable_missing_role_domain_visits": 2,
+                "missing_adjacent_pair_visits": 2,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 2
+              },
+              {
+                "P_admissions": [
+                  11,
+                  43
+                ],
+                "unavoidable_missing_role_domain_visits": 16,
+                "missing_adjacent_pair_visits": 16,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 16
+              },
+              {
+                "P_admissions": [
+                  28,
+                  26
+                ],
+                "unavoidable_missing_role_domain_visits": 1,
+                "missing_adjacent_pair_visits": 3,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 3
+              },
+              {
+                "P_admissions": [
+                  25,
+                  29
+                ],
+                "unavoidable_missing_role_domain_visits": 2,
+                "missing_adjacent_pair_visits": 2,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 2
+              },
+              {
+                "P_admissions": [
+                  38,
+                  16
+                ],
+                "unavoidable_missing_role_domain_visits": 11,
+                "missing_adjacent_pair_visits": 11,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 11
+              },
+              {
+                "P_admissions": [
+                  29,
+                  25
+                ],
+                "unavoidable_missing_role_domain_visits": 2,
+                "missing_adjacent_pair_visits": 2,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 2
+              },
+              {
+                "P_admissions": [
+                  3,
+                  51
+                ],
+                "unavoidable_missing_role_domain_visits": 24,
+                "missing_adjacent_pair_visits": 24,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 24
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  29,
+                  25
+                ],
+                "unavoidable_missing_role_domain_visits": 2,
+                "missing_adjacent_pair_visits": 8,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 20
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              }
+            ],
+            "skew_over_request_score_p50_p90_p95_p99_max": [
+              0.36135458376738777,
+              4.49817989029619,
+              13.580847221048336,
+              31.2696977089961,
+              40.331335592106875
+            ],
+            "unavoidable_missing_role_domain_visits": 98,
+            "missing_adjacent_pair_visits": 122,
+            "missing_two_consecutive_pass_visits_with_frozen_roles": 158,
+            "full_once_per_role_domain_GB": 7362.0209664,
+            "optimistic_once_per_role_domain_ceiling_GB_at_frozen_role_counts": 6896.93786112,
+            "archived_extra_read_upper_bound_GB": 345.69437184
+          }
+        },
+        "200": {
+          "output_tokens": 192774,
+          "finish_s": 657.849428716688,
+          "throughput_tokens_s": 293.0366609515151,
+          "actual_GET_GB": 7454.76407296,
+          "actual_regular_GET_GB": 7308.3805696,
+          "actual_regular_GB_per_planned_s": 15.855080360177338,
+          "effective_GB_s": 17.945449313248652,
+          "last_GET_to_EOS_s": 1.9935165651428406,
+          "wire_GB_after_last_offer": 247.04265078539325,
+          "wire_GB_after_last_period": 0.0,
+          "not_yet_D_ready_at_last_period_output_tokens": 0,
+          "D_ready_output_tokens_by_fixed_window": [
+            23930,
+            23418,
+            23930,
+            23746,
+            24470,
+            22878,
+            24470,
+            15786
+          ],
+          "waves_all_D_KV_ready_before_next_offer": 26,
+          "max_port_Gbps_averaged_over_regular_phase": 19.50899490332553,
+          "max_aggregate_30s_Gbps": 134.19295945988011,
+          "routing": {
+            "regular_waves": [
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              }
+            ],
+            "skew_over_request_score_p50_p90_p95_p99_max": [
+              0.0,
+              0.0,
+              4.76442955065158e-16,
+              8.945980507255695e-16,
+              8.945980507255695e-16
+            ],
+            "unavoidable_missing_role_domain_visits": 0,
+            "missing_adjacent_pair_visits": 0,
+            "missing_two_consecutive_pass_visits_with_frozen_roles": 0,
+            "full_once_per_role_domain_GB": 7362.0209664,
+            "optimistic_once_per_role_domain_ceiling_GB_at_frozen_role_counts": 7362.0209664,
+            "archived_extra_read_upper_bound_GB": 0.0
+          }
+        }
+      },
+      "read_budget": {
+        "target_100_finish_s_with_same_EOS": 939.7848981666972,
+        "additional_completion_s": 263.1720086271466,
+        "additional_GET_GB_at_unit_exposure": 2361.3699707421483,
+        "additional_GET_GB_per_wave_at_unit_exposure": 87.45814706452401,
+        "target_regular_GET_GB_at_unit_exposure": 6569.093613622148,
+        "target_GB_per_wave": 243.29976346748697,
+        "target_GB_per_planned_s": 14.251242959451877,
+        "steady_state_30pct_min_GB_s_with_equal_read_mix": 12.818178080891895,
+        "target_fraction_of_full_regular_reads": 0.8922948798438982,
+        "minimum_exposure_even_with_full_regular_reads": 0.7486199709629799,
+        "target_busy_wire_debt_GB_at_last_offer_with_observed_post_GET_tail": 2650.899904738384,
+        "target_minus_oracle_once_per_role_domain_ceiling_GB": -327.84424749785194,
+        "target_minus_oracle_plus_archived_repeat_upper_GB": -673.538619337852,
+        "minimum_cold_prefill_s_if_new_domains_supply_the_extra_reads": 1139.9728641171089
+      }
+    },
+    "nominal/reverse": {
+      "100_loss_relative_to_200": -0.004375247481477551,
+      "arms": {
+        "100": {
+          "output_tokens": 192774,
+          "finish_s": 654.0226292921926,
+          "throughput_tokens_s": 294.7512690938953,
+          "actual_GET_GB": 4535.3336832,
+          "actual_regular_GET_GB": 4388.95017984,
+          "actual_regular_GB_per_planned_s": 9.52155640165118,
+          "effective_GB_s": 9.775807106658874,
+          "last_GET_to_EOS_s": 1.5591419614479491,
+          "wire_GB_after_last_offer": 101.5818296453643,
+          "wire_GB_after_last_period": 0.0,
+          "not_yet_D_ready_at_last_period_output_tokens": 0,
+          "D_ready_output_tokens_by_fixed_window": [
+            15606,
+            27434,
+            17338,
+            26743,
+            23569,
+            22120,
+            30002,
+            19816
+          ],
+          "waves_all_D_KV_ready_before_next_offer": 2,
+          "max_port_Gbps_averaged_over_regular_phase": 10.833431903046803,
+          "max_aggregate_30s_Gbps": 78.20645685327102,
+          "routing": {
+            "regular_waves": [
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  28,
+                  26
+                ],
+                "unavoidable_missing_role_domain_visits": 1,
+                "missing_adjacent_pair_visits": 1,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 1
+              },
+              {
+                "P_admissions": [
+                  30,
+                  24
+                ],
+                "unavoidable_missing_role_domain_visits": 3,
+                "missing_adjacent_pair_visits": 3,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 3
+              },
+              {
+                "P_admissions": [
+                  26,
+                  28
+                ],
+                "unavoidable_missing_role_domain_visits": 1,
+                "missing_adjacent_pair_visits": 3,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 11
+              },
+              {
+                "P_admissions": [
+                  14,
+                  40
+                ],
+                "unavoidable_missing_role_domain_visits": 13,
+                "missing_adjacent_pair_visits": 15,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 13
+              },
+              {
+                "P_admissions": [
+                  23,
+                  31
+                ],
+                "unavoidable_missing_role_domain_visits": 4,
+                "missing_adjacent_pair_visits": 6,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 6
+              },
+              {
+                "P_admissions": [
+                  45,
+                  9
+                ],
+                "unavoidable_missing_role_domain_visits": 18,
+                "missing_adjacent_pair_visits": 18,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 18
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  23,
+                  31
+                ],
+                "unavoidable_missing_role_domain_visits": 4,
+                "missing_adjacent_pair_visits": 6,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 20
+              },
+              {
+                "P_admissions": [
+                  26,
+                  28
+                ],
+                "unavoidable_missing_role_domain_visits": 1,
+                "missing_adjacent_pair_visits": 1,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 3
+              },
+              {
+                "P_admissions": [
+                  39,
+                  15
+                ],
+                "unavoidable_missing_role_domain_visits": 12,
+                "missing_adjacent_pair_visits": 12,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 12
+              },
+              {
+                "P_admissions": [
+                  30,
+                  24
+                ],
+                "unavoidable_missing_role_domain_visits": 3,
+                "missing_adjacent_pair_visits": 3,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 3
+              },
+              {
+                "P_admissions": [
+                  28,
+                  26
+                ],
+                "unavoidable_missing_role_domain_visits": 1,
+                "missing_adjacent_pair_visits": 5,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 11
+              },
+              {
+                "P_admissions": [
+                  0,
+                  54
+                ],
+                "unavoidable_missing_role_domain_visits": 27,
+                "missing_adjacent_pair_visits": 27,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 27
+              },
+              {
+                "P_admissions": [
+                  25,
+                  29
+                ],
+                "unavoidable_missing_role_domain_visits": 2,
+                "missing_adjacent_pair_visits": 2,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 2
+              },
+              {
+                "P_admissions": [
+                  34,
+                  20
+                ],
+                "unavoidable_missing_role_domain_visits": 7,
+                "missing_adjacent_pair_visits": 7,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 7
+              },
+              {
+                "P_admissions": [
+                  39,
+                  15
+                ],
+                "unavoidable_missing_role_domain_visits": 12,
+                "missing_adjacent_pair_visits": 12,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 14
+              },
+              {
+                "P_admissions": [
+                  16,
+                  38
+                ],
+                "unavoidable_missing_role_domain_visits": 11,
+                "missing_adjacent_pair_visits": 13,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 13
+              },
+              {
+                "P_admissions": [
+                  19,
+                  35
+                ],
+                "unavoidable_missing_role_domain_visits": 8,
+                "missing_adjacent_pair_visits": 8,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 8
+              },
+              {
+                "P_admissions": [
+                  26,
+                  28
+                ],
+                "unavoidable_missing_role_domain_visits": 1,
+                "missing_adjacent_pair_visits": 5,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 5
+              },
+              {
+                "P_admissions": [
+                  29,
+                  25
+                ],
+                "unavoidable_missing_role_domain_visits": 2,
+                "missing_adjacent_pair_visits": 6,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 10
+              },
+              {
+                "P_admissions": [
+                  40,
+                  14
+                ],
+                "unavoidable_missing_role_domain_visits": 13,
+                "missing_adjacent_pair_visits": 15,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 13
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  29,
+                  25
+                ],
+                "unavoidable_missing_role_domain_visits": 2,
+                "missing_adjacent_pair_visits": 4,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 22
+              },
+              {
+                "P_admissions": [
+                  21,
+                  33
+                ],
+                "unavoidable_missing_role_domain_visits": 6,
+                "missing_adjacent_pair_visits": 10,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 18
+              },
+              {
+                "P_admissions": [
+                  19,
+                  35
+                ],
+                "unavoidable_missing_role_domain_visits": 8,
+                "missing_adjacent_pair_visits": 8,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 16
+              }
+            ],
+            "skew_over_request_score_p50_p90_p95_p99_max": [
+              0.6588887780913156,
+              11.700573502885915,
+              23.919012092912656,
+              51.78934386242189,
+              68.25908874580962
+            ],
+            "unavoidable_missing_role_domain_visits": 160,
+            "missing_adjacent_pair_visits": 190,
+            "missing_two_consecutive_pass_visits_with_frozen_roles": 256,
+            "full_once_per_role_domain_GB": 7362.0209664,
+            "optimistic_once_per_role_domain_ceiling_GB_at_frozen_role_counts": 6598.58948096,
+            "archived_extra_read_upper_bound_GB": 541.33374976
+          }
+        },
+        "200": {
+          "output_tokens": 192774,
+          "finish_s": 656.8841401538326,
+          "throughput_tokens_s": 293.4672771287417,
+          "actual_GET_GB": 7487.7206528,
+          "actual_regular_GET_GB": 7341.33714944,
+          "actual_regular_GB_per_planned_s": 15.926577625102665,
+          "effective_GB_s": 19.551614213317748,
+          "last_GET_to_EOS_s": 1.7996255768513265,
+          "wire_GB_after_last_offer": 250.0287805707275,
+          "wire_GB_after_last_period": 0.0,
+          "not_yet_D_ready_at_last_period_output_tokens": 0,
+          "D_ready_output_tokens_by_fixed_window": [
+            24596,
+            22752,
+            24596,
+            23080,
+            24268,
+            23080,
+            24874,
+            15382
+          ],
+          "waves_all_D_KV_ready_before_next_offer": 26,
+          "max_port_Gbps_averaged_over_regular_phase": 18.01734156900395,
+          "max_aggregate_30s_Gbps": 138.94587460183405,
+          "routing": {
+            "regular_waves": [
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              }
+            ],
+            "skew_over_request_score_p50_p90_p95_p99_max": [
+              3.33410331704873e-15,
+              3.811543640521264e-15,
+              3.811543640521264e-15,
+              3.811543640521264e-15,
+              3.811543640521264e-15
+            ],
+            "unavoidable_missing_role_domain_visits": 0,
+            "missing_adjacent_pair_visits": 0,
+            "missing_two_consecutive_pass_visits_with_frozen_roles": 0,
+            "full_once_per_role_domain_GB": 7362.0209664,
+            "optimistic_once_per_role_domain_ceiling_GB_at_frozen_role_counts": 7362.0209664,
+            "archived_extra_read_upper_bound_GB": 0.0
+          }
+        }
+      },
+      "read_budget": {
+        "target_100_finish_s_with_same_EOS": 938.4059145054753,
+        "additional_completion_s": 284.38328521328265,
+        "additional_GET_GB_at_unit_exposure": 2780.076140603006,
+        "additional_GET_GB_per_wave_at_unit_exposure": 102.96578298529651,
+        "target_regular_GET_GB_at_unit_exposure": 7169.026320443006,
+        "target_GB_per_wave": 265.51949334974097,
+        "target_GB_per_planned_s": 15.552759921623979,
+        "steady_state_30pct_min_GB_s_with_equal_read_mix": 13.965438723798393,
+        "target_fraction_of_full_regular_reads": 0.9737850996570351,
+        "minimum_exposure_even_with_full_regular_reads": 0.935085754826477,
+        "target_busy_wire_debt_GB_at_last_offer_with_observed_post_GET_tail": 2884.5682437914534,
+        "target_minus_oracle_once_per_role_domain_ceiling_GB": 570.4368394830053,
+        "target_minus_oracle_plus_archived_repeat_upper_GB": 29.10308972300527,
+        "minimum_cold_prefill_s_if_new_domains_supply_the_extra_reads": 1357.9014007035648
+      }
+    },
+    "archive_ingress/forward": {
+      "100_loss_relative_to_200": 0.01624753868632034,
+      "arms": {
+        "100": {
+          "output_tokens": 192774,
+          "finish_s": 669.0792689304517,
+          "throughput_tokens_s": 288.1183276058702,
+          "actual_GET_GB": 4204.14865408,
+          "actual_regular_GET_GB": 4055.6904448,
+          "actual_regular_GB_per_planned_s": 8.798569984954518,
+          "effective_GB_s": 8.972724656624326,
+          "last_GET_to_EOS_s": 1.6709328474827316,
+          "wire_GB_after_last_offer": 229.574484062318,
+          "wire_GB_after_last_period": 88.01809442691732,
+          "not_yet_D_ready_at_last_period_output_tokens": 2258,
+          "D_ready_output_tokens_by_fixed_window": [
+            13348,
+            15260,
+            28339,
+            37749,
+            18544,
+            24358,
+            29166,
+            13606
+          ],
+          "waves_all_D_KV_ready_before_next_offer": 3,
+          "max_port_Gbps_averaged_over_regular_phase": 10.560613507648668,
+          "max_aggregate_30s_Gbps": 71.78179725299464,
+          "routing": {
+            "regular_waves": [
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  29,
+                  25
+                ],
+                "unavoidable_missing_role_domain_visits": 2,
+                "missing_adjacent_pair_visits": 2,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 2
+              },
+              {
+                "P_admissions": [
+                  25,
+                  29
+                ],
+                "unavoidable_missing_role_domain_visits": 2,
+                "missing_adjacent_pair_visits": 2,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 2
+              },
+              {
+                "P_admissions": [
+                  29,
+                  25
+                ],
+                "unavoidable_missing_role_domain_visits": 2,
+                "missing_adjacent_pair_visits": 6,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 6
+              },
+              {
+                "P_admissions": [
+                  30,
+                  24
+                ],
+                "unavoidable_missing_role_domain_visits": 3,
+                "missing_adjacent_pair_visits": 7,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 7
+              },
+              {
+                "P_admissions": [
+                  30,
+                  24
+                ],
+                "unavoidable_missing_role_domain_visits": 3,
+                "missing_adjacent_pair_visits": 3,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 3
+              },
+              {
+                "P_admissions": [
+                  25,
+                  29
+                ],
+                "unavoidable_missing_role_domain_visits": 2,
+                "missing_adjacent_pair_visits": 4,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 20
+              },
+              {
+                "P_admissions": [
+                  23,
+                  31
+                ],
+                "unavoidable_missing_role_domain_visits": 4,
+                "missing_adjacent_pair_visits": 4,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 24
+              },
+              {
+                "P_admissions": [
+                  38,
+                  16
+                ],
+                "unavoidable_missing_role_domain_visits": 11,
+                "missing_adjacent_pair_visits": 13,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 11
+              },
+              {
+                "P_admissions": [
+                  32,
+                  22
+                ],
+                "unavoidable_missing_role_domain_visits": 5,
+                "missing_adjacent_pair_visits": 7,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 7
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 4,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 4
+              },
+              {
+                "P_admissions": [
+                  29,
+                  25
+                ],
+                "unavoidable_missing_role_domain_visits": 2,
+                "missing_adjacent_pair_visits": 2,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 2
+              },
+              {
+                "P_admissions": [
+                  10,
+                  44
+                ],
+                "unavoidable_missing_role_domain_visits": 17,
+                "missing_adjacent_pair_visits": 17,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 17
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  29,
+                  25
+                ],
+                "unavoidable_missing_role_domain_visits": 2,
+                "missing_adjacent_pair_visits": 2,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 2
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 4,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 4
+              },
+              {
+                "P_admissions": [
+                  8,
+                  46
+                ],
+                "unavoidable_missing_role_domain_visits": 19,
+                "missing_adjacent_pair_visits": 19,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 19
+              },
+              {
+                "P_admissions": [
+                  32,
+                  22
+                ],
+                "unavoidable_missing_role_domain_visits": 5,
+                "missing_adjacent_pair_visits": 5,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 5
+              },
+              {
+                "P_admissions": [
+                  25,
+                  29
+                ],
+                "unavoidable_missing_role_domain_visits": 2,
+                "missing_adjacent_pair_visits": 4,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 4
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              }
+            ],
+            "skew_over_request_score_p50_p90_p95_p99_max": [
+              0.2878763081124232,
+              3.364510188774921,
+              9.364510188774961,
+              30.31615356639532,
+              43.080264178549534
+            ],
+            "unavoidable_missing_role_domain_visits": 81,
+            "missing_adjacent_pair_visits": 105,
+            "missing_two_consecutive_pass_visits_with_frozen_roles": 139,
+            "full_once_per_role_domain_GB": 7362.0209664,
+            "optimistic_once_per_role_domain_ceiling_GB_at_frozen_role_counts": 6980.32472064,
+            "archived_extra_read_upper_bound_GB": 157.8369024
+          }
+        },
+        "200": {
+          "output_tokens": 192774,
+          "finish_s": 658.2083776242893,
+          "throughput_tokens_s": 292.87685564834453,
+          "actual_GET_GB": 7324.36381696,
+          "actual_regular_GET_GB": 7175.90560768,
+          "actual_regular_GB_per_planned_s": 15.567684110495174,
+          "effective_GB_s": 17.945449313248652,
+          "last_GET_to_EOS_s": 1.9483260097717903,
+          "wire_GB_after_last_offer": 251.8074820446332,
+          "wire_GB_after_last_period": 0.0,
+          "not_yet_D_ready_at_last_period_output_tokens": 0,
+          "D_ready_output_tokens_by_fixed_window": [
+            24364,
+            22984,
+            23930,
+            23746,
+            24470,
+            22878,
+            24470,
+            15786
+          ],
+          "waves_all_D_KV_ready_before_next_offer": 26,
+          "max_port_Gbps_averaged_over_regular_phase": 19.1385245026131,
+          "max_aggregate_30s_Gbps": 134.21551196060196,
+          "routing": {
+            "regular_waves": [
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 2
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 2
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 2
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              }
+            ],
+            "skew_over_request_score_p50_p90_p95_p99_max": [
+              5.884097069412104e-15,
+              1.0361114310467797e-14,
+              1.0958187966498634e-14,
+              0.8747383295322234,
+              0.8747383295322301
+            ],
+            "unavoidable_missing_role_domain_visits": 0,
+            "missing_adjacent_pair_visits": 0,
+            "missing_two_consecutive_pass_visits_with_frozen_roles": 6,
+            "full_once_per_role_domain_GB": 7362.0209664,
+            "optimistic_once_per_role_domain_ceiling_GB_at_frozen_role_counts": 7362.0209664,
+            "archived_extra_read_upper_bound_GB": 0.0
+          }
+        }
+      },
+      "read_budget": {
+        "target_100_finish_s_with_same_EOS": 940.2976823204133,
+        "additional_completion_s": 271.2184133899616,
+        "additional_GET_GB_at_unit_exposure": 2433.5681451546375,
+        "additional_GET_GB_per_wave_at_unit_exposure": 90.13215352424584,
+        "target_regular_GET_GB_at_unit_exposure": 6489.2585899546375,
+        "target_GB_per_wave": 240.34291073906064,
+        "target_GB_per_planned_s": 14.078045805342219,
+        "steady_state_30pct_min_GB_s_with_equal_read_mix": 12.818178080891895,
+        "target_fraction_of_full_regular_reads": 0.8814507075667647,
+        "minimum_exposure_even_with_full_regular_reads": 0.7360329311471814,
+        "target_busy_wire_debt_GB_at_last_offer_with_observed_post_GET_tail": 2663.5722360640198,
+        "target_minus_oracle_once_per_role_domain_ceiling_GB": -491.0661306853626,
+        "target_minus_oracle_plus_archived_repeat_upper_GB": -648.9030330853626,
+        "minimum_cold_prefill_s_if_new_domains_supply_the_extra_reads": 1174.8271904991643
+      }
+    },
+    "archive_ingress/reverse": {
+      "100_loss_relative_to_200": 0.013158342370599874,
+      "arms": {
+        "100": {
+          "output_tokens": 192774,
+          "finish_s": 665.6274824351419,
+          "throughput_tokens_s": 289.61244102294665,
+          "actual_GET_GB": 4286.38650368,
+          "actual_regular_GET_GB": 4137.9282944,
+          "actual_regular_GB_per_planned_s": 8.97697992155249,
+          "effective_GB_s": 9.775807106658874,
+          "last_GET_to_EOS_s": 1.5540126977280124,
+          "wire_GB_after_last_offer": 212.30213359775996,
+          "wire_GB_after_last_period": 60.43393487426226,
+          "not_yet_D_ready_at_last_period_output_tokens": 1452,
+          "D_ready_output_tokens_by_fixed_window": [
+            15606,
+            30391,
+            28407,
+            21472,
+            21956,
+            22194,
+            27114,
+            14036
+          ],
+          "waves_all_D_KV_ready_before_next_offer": 8,
+          "max_port_Gbps_averaged_over_regular_phase": 9.960688408221767,
+          "max_aggregate_30s_Gbps": 78.20645685327108,
+          "routing": {
+            "regular_waves": [
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  29,
+                  25
+                ],
+                "unavoidable_missing_role_domain_visits": 2,
+                "missing_adjacent_pair_visits": 6,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 22
+              },
+              {
+                "P_admissions": [
+                  29,
+                  25
+                ],
+                "unavoidable_missing_role_domain_visits": 2,
+                "missing_adjacent_pair_visits": 2,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 10
+              },
+              {
+                "P_admissions": [
+                  13,
+                  41
+                ],
+                "unavoidable_missing_role_domain_visits": 14,
+                "missing_adjacent_pair_visits": 14,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 14
+              },
+              {
+                "P_admissions": [
+                  24,
+                  30
+                ],
+                "unavoidable_missing_role_domain_visits": 3,
+                "missing_adjacent_pair_visits": 5,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 21
+              },
+              {
+                "P_admissions": [
+                  34,
+                  20
+                ],
+                "unavoidable_missing_role_domain_visits": 7,
+                "missing_adjacent_pair_visits": 7,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 7
+              },
+              {
+                "P_admissions": [
+                  21,
+                  33
+                ],
+                "unavoidable_missing_role_domain_visits": 6,
+                "missing_adjacent_pair_visits": 6,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 8
+              },
+              {
+                "P_admissions": [
+                  31,
+                  23
+                ],
+                "unavoidable_missing_role_domain_visits": 4,
+                "missing_adjacent_pair_visits": 8,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 14
+              },
+              {
+                "P_admissions": [
+                  39,
+                  15
+                ],
+                "unavoidable_missing_role_domain_visits": 12,
+                "missing_adjacent_pair_visits": 12,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 16
+              },
+              {
+                "P_admissions": [
+                  26,
+                  28
+                ],
+                "unavoidable_missing_role_domain_visits": 1,
+                "missing_adjacent_pair_visits": 1,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 19
+              },
+              {
+                "P_admissions": [
+                  23,
+                  31
+                ],
+                "unavoidable_missing_role_domain_visits": 4,
+                "missing_adjacent_pair_visits": 8,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 8
+              },
+              {
+                "P_admissions": [
+                  21,
+                  33
+                ],
+                "unavoidable_missing_role_domain_visits": 6,
+                "missing_adjacent_pair_visits": 8,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 10
+              },
+              {
+                "P_admissions": [
+                  30,
+                  24
+                ],
+                "unavoidable_missing_role_domain_visits": 3,
+                "missing_adjacent_pair_visits": 3,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 15
+              },
+              {
+                "P_admissions": [
+                  26,
+                  28
+                ],
+                "unavoidable_missing_role_domain_visits": 1,
+                "missing_adjacent_pair_visits": 3,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 15
+              },
+              {
+                "P_admissions": [
+                  29,
+                  25
+                ],
+                "unavoidable_missing_role_domain_visits": 2,
+                "missing_adjacent_pair_visits": 2,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 12
+              },
+              {
+                "P_admissions": [
+                  26,
+                  28
+                ],
+                "unavoidable_missing_role_domain_visits": 1,
+                "missing_adjacent_pair_visits": 1,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 21
+              },
+              {
+                "P_admissions": [
+                  28,
+                  26
+                ],
+                "unavoidable_missing_role_domain_visits": 1,
+                "missing_adjacent_pair_visits": 1,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 1
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 4,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 24
+              },
+              {
+                "P_admissions": [
+                  41,
+                  13
+                ],
+                "unavoidable_missing_role_domain_visits": 14,
+                "missing_adjacent_pair_visits": 14,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 14
+              },
+              {
+                "P_admissions": [
+                  16,
+                  38
+                ],
+                "unavoidable_missing_role_domain_visits": 11,
+                "missing_adjacent_pair_visits": 11,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 15
+              },
+              {
+                "P_admissions": [
+                  34,
+                  20
+                ],
+                "unavoidable_missing_role_domain_visits": 7,
+                "missing_adjacent_pair_visits": 9,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 11
+              },
+              {
+                "P_admissions": [
+                  21,
+                  33
+                ],
+                "unavoidable_missing_role_domain_visits": 6,
+                "missing_adjacent_pair_visits": 6,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 12
+              },
+              {
+                "P_admissions": [
+                  32,
+                  22
+                ],
+                "unavoidable_missing_role_domain_visits": 5,
+                "missing_adjacent_pair_visits": 5,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 9
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 2
+              },
+              {
+                "P_admissions": [
+                  25,
+                  29
+                ],
+                "unavoidable_missing_role_domain_visits": 2,
+                "missing_adjacent_pair_visits": 2,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 2
+              }
+            ],
+            "skew_over_request_score_p50_p90_p95_p99_max": [
+              0.4885311507367886,
+              3.6868520243319463,
+              10.108041730778853,
+              22.568860584880994,
+              29.054987671737546
+            ],
+            "unavoidable_missing_role_domain_visits": 114,
+            "missing_adjacent_pair_visits": 138,
+            "missing_two_consecutive_pass_visits_with_frozen_roles": 302,
+            "full_once_per_role_domain_GB": 7362.0209664,
+            "optimistic_once_per_role_domain_ceiling_GB_at_frozen_role_counts": 6827.24687872,
+            "archived_extra_read_upper_bound_GB": 302.48124416
+          }
+        },
+        "200": {
+          "output_tokens": 192774,
+          "finish_s": 656.8689281299798,
+          "throughput_tokens_s": 293.47407335707356,
+          "actual_GET_GB": 7484.94946304,
+          "actual_regular_GET_GB": 7336.49125376,
+          "actual_regular_GB_per_planned_s": 15.916064753654368,
+          "effective_GB_s": 19.551614213317748,
+          "last_GET_to_EOS_s": 1.7998004940001238,
+          "wire_GB_after_last_offer": 249.9404606711539,
+          "wire_GB_after_last_period": 0.0,
+          "not_yet_D_ready_at_last_period_output_tokens": 0,
+          "D_ready_output_tokens_by_fixed_window": [
+            24596,
+            22752,
+            24596,
+            23080,
+            24268,
+            23080,
+            24874,
+            15382
+          ],
+          "waves_all_D_KV_ready_before_next_offer": 26,
+          "max_port_Gbps_averaged_over_regular_phase": 18.006052909958424,
+          "max_aggregate_30s_Gbps": 139.22220704265757,
+          "routing": {
+            "regular_waves": [
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              },
+              {
+                "P_admissions": [
+                  27,
+                  27
+                ],
+                "unavoidable_missing_role_domain_visits": 0,
+                "missing_adjacent_pair_visits": 0,
+                "missing_two_consecutive_pass_visits_with_frozen_roles": 0
+              }
+            ],
+            "skew_over_request_score_p50_p90_p95_p99_max": [
+              0.0,
+              4.76442955065158e-16,
+              1.789196101451139e-15,
+              0.8747383295322201,
+              0.8747383295322217
+            ],
+            "unavoidable_missing_role_domain_visits": 0,
+            "missing_adjacent_pair_visits": 0,
+            "missing_two_consecutive_pass_visits_with_frozen_roles": 0,
+            "full_once_per_role_domain_GB": 7362.0209664,
+            "optimistic_once_per_role_domain_ceiling_GB_at_frozen_role_counts": 7362.0209664,
+            "archived_extra_read_upper_bound_GB": 0.0
+          }
+        }
+      },
+      "read_budget": {
+        "target_100_finish_s_with_same_EOS": 938.3841830428285,
+        "additional_completion_s": 272.7567006076865,
+        "additional_GET_GB_at_unit_exposure": 2666.416892189449,
+        "additional_GET_GB_per_wave_at_unit_exposure": 98.75618119220181,
+        "target_regular_GET_GB_at_unit_exposure": 6804.3451865894485,
+        "target_GB_per_wave": 252.0127846884981,
+        "target_GB_per_planned_s": 14.761606720442886,
+        "steady_state_30pct_min_GB_s_with_equal_read_mix": 13.965438723798393,
+        "target_fraction_of_full_regular_reads": 0.9242496343930879,
+        "minimum_exposure_even_with_full_regular_reads": 0.8270286134596098,
+        "target_busy_wire_debt_GB_at_last_offer_with_observed_post_GET_tail": 2884.4059438971976,
+        "target_minus_oracle_once_per_role_domain_ceiling_GB": -22.901692130551055,
+        "target_minus_oracle_plus_archived_repeat_upper_GB": -325.3829362905511,
+        "minimum_cold_prefill_s_if_new_domains_supply_the_extra_reads": 1302.3856360920936
+      }
+    }
+  },
+  "scope": "Unit-exposure budgets hold the archived high-cap finish and non-wire costs fixed. Route visit bounds condition on the archived allocation counts rather than claiming an invariant under new clocks. Ring robustness calculations count released complete pages, without an allowance for temporary HBM leases. The optimistic guard and cadence envelope assumes at most one distinct useful restore per (P, domain, wave)."
+}

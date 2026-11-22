@@ -1,0 +1,78 @@
+{
+  "decode_service_fit": {
+    "first_sequence_period_s": 0.01426776009227218,
+    "additional_sequence_period_s": 0.0012402825765041243,
+    "samples": 439,
+    "observed_mean_width": [
+      0.9060623519280832,
+      16.0
+    ],
+    "median_fit_error_ms": 0.6741736978994181
+  },
+  "training_trace_sha256": {
+    "2026-11-22-r73-terminal-source-restore-expanded": "457a056addf78417069ada059ff56760cd6cee8f487b07408d3bfc1f84e34ed0",
+    "2026-11-22-r75-terminal-source-restore-pilot": "607dcde89bc4eb0d14a5a6646d769a4eaefbf270b55a83110b5f386b6d9c004d"
+  },
+  "holdout_trace_sha256": "485b9745af532f9f83700c43461d85247ec888e11aa0f069f7b250919f8e1e92",
+  "heldout_validation": {
+    "b1-cap100": {
+      "finish_s": 75.13666522278871,
+      "tail_id": "regex-chess:40",
+      "output_tokens": 24248,
+      "drained_throughput_tokens_s": 322.71860786078196,
+      "median_finish_delta_from_observation_s": -0.09528929988684709,
+      "observed_finish_s": 74.89442766297725,
+      "finish_error_s": 0.242237559811457
+    },
+    "b1-cap200": {
+      "finish_s": 69.5786091296323,
+      "tail_id": "regex-chess:67",
+      "output_tokens": 24900,
+      "drained_throughput_tokens_s": 357.86860806039783,
+      "median_finish_delta_from_observation_s": -0.12589528038336262,
+      "observed_finish_s": 69.79876180298743,
+      "finish_error_s": -0.22015267335513045
+    },
+    "b2-cap200": {
+      "finish_s": 68.89841151680858,
+      "tail_id": "regex-chess:55",
+      "output_tokens": 23252,
+      "drained_throughput_tokens_s": 337.48238149623234,
+      "median_finish_delta_from_observation_s": -0.0989789554741698,
+      "observed_finish_s": 68.03188368101837,
+      "finish_error_s": 0.8665278357902082
+    },
+    "b2-cap100": {
+      "finish_s": 79.4690631220656,
+      "tail_id": "regex-chess:34",
+      "output_tokens": 24012,
+      "drained_throughput_tokens_s": 302.15531751163627,
+      "median_finish_delta_from_observation_s": -0.05366878458945479,
+      "observed_finish_s": 78.72454315298819,
+      "finish_error_s": 0.744519969077416
+    }
+  },
+  "prefill_delivery_sensitivity": {
+    "b1": {
+      "fixed_low_cap_output_and_D_routes": {
+        "finish_s": 68.15204637836193,
+        "tail_id": "regex-chess:59",
+        "output_tokens": 24248,
+        "drained_throughput_tokens_s": 355.792691321132,
+        "median_finish_delta_from_observation_s": -4.125550373351366
+      },
+      "conditional_advance_s": 6.984618844426777
+    },
+    "b2": {
+      "fixed_low_cap_output_and_D_routes": {
+        "finish_s": 69.12252442912256,
+        "tail_id": "regex-chess:55",
+        "output_tokens": 24012,
+        "drained_throughput_tokens_s": 347.3831460629252,
+        "median_finish_delta_from_observation_s": -0.5234710769151931
+      },
+      "conditional_advance_s": 10.346538692943042
+    }
+  },
+  "assumptions": "Fixed natural output and selected D. Hold observed time to D first token before emitting one output token. Gate each successor on its modeled predecessor. Calibrate a shared decode step period from engine counters and streaming lifetimes. The P delivery substitution can include route and cache effects."
+}

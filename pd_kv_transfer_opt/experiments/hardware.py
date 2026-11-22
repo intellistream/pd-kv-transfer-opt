@@ -11,6 +11,13 @@ COUNTERS = ("mac_tx_total_oct_num", "mac_rx_total_oct_num", "mac_rx_pfc_pkt_num"
             "mac_tx_pfc_pkt_num", "roce_tx_cnp_pkt_num", "roce_new_pkt_rty_num")
 
 
+def validate_port_rates(rates):
+    rates = tuple(rates)
+    if len(rates) != len(PORTS) or any(type(rate) is not int or not 10000 <= rate <= 200000 for rate in rates):
+        raise ValueError("Specify eight integer port rates in the range 10000–200000 Mbps.")
+    return rates
+
+
 class Shaper:
     def __init__(self, path, sudo=False):
         self.command = (["sudo", "-n"] if sudo else []) + [str(path)]
@@ -40,11 +47,16 @@ class Shaper:
         per_port, remainder = divmod(gbps * 1000, len(PORTS))
         if remainder:
             raise ValueError("Aggregate cap must divide equally across eight ports.")
-        for port in PORTS:
-            self.set(port, per_port)
+        return self.apply_ports([per_port] * len(PORTS))
+
+    def apply_ports(self, rates):
+        requested = dict(zip(PORTS, validate_port_rates(rates), strict=True))
+        for port, rate in requested.items():
+            self.set(port, rate)
         actual = self.read()
-        if any(item["configured_Mbps"] != per_port or item["current_Mbps"] != per_port for item in actual.values()):
-            raise RuntimeError(f"Shaper readback differs from requested cap: {actual}")
+        if any(actual[port]["configured_Mbps"] != rate or actual[port]["current_Mbps"] != rate
+               for port, rate in requested.items()):
+            raise RuntimeError(f"Shaper readback differs from requested port caps: {actual}")
         return actual
 
     def restore(self, before):

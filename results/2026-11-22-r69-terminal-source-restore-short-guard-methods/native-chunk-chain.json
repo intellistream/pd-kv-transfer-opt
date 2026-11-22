@@ -1,0 +1,74 @@
+{
+  "method_events_sha256": "923b337448944487d150d018d8f275b4833cb9d74a4bc772b89a18c28a885cc7",
+  "matched_batches": 13,
+  "joined_engine_chunks": 11,
+  "joined_payload_bytes": 105628467200,
+  "median_joined_phases_s": {
+    "100_Gbps": {
+      "dispatch_to_ready_s": 2.530768938,
+      "dispatch_to_last_rank_load_start_s": 1.079510048,
+      "last_rank_GET_inside_load_s": 1.229208396,
+      "last_rank_other_load_s": 0.007071164,
+      "last_rank_load_to_ready_s": 0.29956783
+    },
+    "200_Gbps": {
+      "dispatch_to_ready_s": 1.67142102,
+      "dispatch_to_last_rank_load_start_s": 0.66456018,
+      "last_rank_GET_inside_load_s": 0.51641675,
+      "last_rank_other_load_s": 0.00662044,
+      "last_rank_load_to_ready_s": 0.292316242
+    }
+  },
+  "longest_matched_payload": {
+    "P": "P0",
+    "request_ids": [
+      "financial-document-processor:67",
+      "financial-document-processor:70",
+      "financial-document-processor:73",
+      "gcode-to-text:87",
+      "make-mips-interpreter:83"
+    ],
+    "bytes": 19364085760,
+    "rank_bytes": [
+      4841021440,
+      4841021440,
+      4841021440,
+      4841021440
+    ],
+    "100_Gbps": {
+      "slowest_GET_sum_s": 1.964987977,
+      "slowest_worker_load_s": 2.000060566,
+      "engine_chunk_using_same_P_clock": {
+        "dispatch_to_ready_s": 2.691739201,
+        "dispatch_to_last_rank_load_start_s": 0.356991086,
+        "last_rank_GET_inside_load_s": 1.963123375,
+        "last_rank_other_load_s": 0.035424324,
+        "last_rank_load_to_ready_s": 0.336132626
+      }
+    },
+    "200_Gbps": {
+      "slowest_GET_sum_s": 0.957214007,
+      "slowest_worker_load_s": 0.993661712,
+      "engine_chunk_using_same_P_clock": {
+        "dispatch_to_ready_s": 1.67142102,
+        "dispatch_to_last_rank_load_start_s": 0.363749816,
+        "last_rank_GET_inside_load_s": 0.951554397,
+        "last_rank_other_load_s": 0.034853819,
+        "last_rank_load_to_ready_s": 0.321182417
+      }
+    }
+  },
+  "arm_outputs": {
+    "b1-cap100": {
+      "output_tokens": 19284,
+      "duration_s": 86.11193024599925,
+      "throughput_tokens_s": 223.94109555912473
+    },
+    "b1-cap200": {
+      "output_tokens": 18390,
+      "duration_s": 78.13326261701877,
+      "throughput_tokens_s": 235.36710722219786
+    }
+  },
+  "join": "Match P role, complete four distinct workers, same restore request IDs and sorted rank bytes. The uniquely containing engine dispatch/ready interval must cover the worker intervals on the same P host clock. Use the last finishing worker for the critical path decomposition. Timers have independent event emission overhead."
+}

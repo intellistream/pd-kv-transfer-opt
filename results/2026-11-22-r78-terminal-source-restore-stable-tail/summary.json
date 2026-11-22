@@ -1,0 +1,2438 @@
+{
+  "arms": {
+    "b1-cap100": {
+      "request_count": 90,
+      "output_tokens": 24248,
+      "duration_s": 74.89442766297725,
+      "throughput_tokens_s": 323.76240471607974,
+      "last_P_reply_s": 65.2485101709899,
+      "last_D_start_s": 65.26361486999667,
+      "after_last_P_reply_s": 9.645917491987348,
+      "next_request_end_s": 74.54677564799204,
+      "P_D_resource_samples": {
+        "P0": {
+          "covered_s": 71.51957653197725,
+          "running_request_s": 135.677324586,
+          "waiting_request_s": 429.154606286,
+          "full_slots_s": 0.0,
+          "peak_kv_fraction": 0.3629893238434164,
+          "peak_waiting": 21.0,
+          "mean_running": 1.8970655471559883
+        },
+        "P1": {
+          "covered_s": 71.52365870897725,
+          "running_request_s": 121.675853045,
+          "waiting_request_s": 400.265161609,
+          "full_slots_s": 0.0,
+          "peak_kv_fraction": 0.28955030734390164,
+          "peak_waiting": 18.0,
+          "mean_running": 1.7011972715222399
+        },
+        "D0": {
+          "covered_s": 65.55471761497725,
+          "running_request_s": 252.77483008993173,
+          "waiting_request_s": 5.053392412999997,
+          "full_slots_s": 0.0,
+          "peak_kv_fraction": 0.15367195082497576,
+          "peak_waiting": 1.0,
+          "mean_running": 3.8559365257975027,
+          "no_D_work_with_P_outstanding_s": 5.319225503024704,
+          "overlap_with_aggregate_hot_s": 2.2950467309999993,
+          "overlap_with_any_hot_port_s": 4.044756204999999
+        },
+        "D1": {
+          "covered_s": 65.55906803297725,
+          "running_request_s": 255.79957092890896,
+          "waiting_request_s": 0.0,
+          "full_slots_s": 0.0,
+          "peak_kv_fraction": 0.14752507279197669,
+          "peak_waiting": 0.0,
+          "mean_running": 3.9018182930885734,
+          "no_D_work_with_P_outstanding_s": 9.578997114018755,
+          "overlap_with_aggregate_hot_s": 4.395044556000002,
+          "overlap_with_any_hot_port_s": 6.174752045999995
+        }
+      },
+      "D_TX_GB": 201.24668102824745,
+      "D_TX_peak_1s_Gbps": 109.32623601911024,
+      "D_aggregate_above_85pct_s": 8.44733302400001,
+      "D_any_port_above_85pct_s": 12.779420362999993,
+      "route_outcomes": {
+        "D0": {
+          "requests": 42,
+          "tokens": 12119,
+          "last_end_s": 74.89442766297725
+        },
+        "D1": {
+          "requests": 48,
+          "tokens": 12129,
+          "last_end_s": 74.01320660699275
+        }
+      },
+      "windows": {
+        "0-10": {
+          "D_MAC_TX_Gbps": 0.00847029922080589,
+          "P_returns": 4,
+          "client_output_tokens_s": 14.0
+        },
+        "10-30": {
+          "D_MAC_TX_Gbps": 0.010648242806543017,
+          "P_returns": 37,
+          "client_output_tokens_s": 438.7
+        },
+        "30-90": {
+          "D_MAC_TX_Gbps": 26.82792967296068,
+          "P_returns": 49,
+          "client_output_tokens_s": 255.56666666666666
+        },
+        "66-74": {
+          "D_MAC_TX_Gbps": 3.354820769251316e-05,
+          "P_returns": 0,
+          "client_output_tokens_s": 614.75
+        }
+      },
+      "phases": {
+        "roots": {
+          "ready_to_P": {
+            "p50": 0.029902784778479408,
+            "p95": 0.05152461283433696,
+            "max": 0.174417320988141
+          },
+          "P_HTTP": {
+            "p50": 16.01563254802022,
+            "p95": 28.88836852199165,
+            "max": 29.243586686992785
+          },
+          "P_return_to_D": {
+            "p50": 0.024251177994301543,
+            "p95": 0.03908466501161456,
+            "max": 0.03985581098822877
+          },
+          "D_to_first": {
+            "p50": 0.4423708640097175,
+            "p95": 0.7627255400002468,
+            "max": 0.9482457940175664
+          },
+          "first_to_end": {
+            "p50": 4.109230655973079,
+            "p95": 8.391010800987715,
+            "max": 11.91772803600179
+          }
+        },
+        "successors": {
+          "ready_to_P": {
+            "p50": 0.02801283660843268,
+            "p95": 0.04678016506942129,
+            "max": 0.052621680981246755
+          },
+          "P_HTTP": {
+            "p50": 14.24871582799824,
+            "p95": 19.684126189997187,
+            "max": 19.736686084012035
+          },
+          "P_return_to_D": {
+            "p50": 0.02340042300056666,
+            "p95": 0.045428826997522265,
+            "max": 0.053846582013648
+          },
+          "D_to_first": {
+            "p50": 0.3612806540040765,
+            "p95": 0.5119017689721659,
+            "max": 0.5805835889768787
+          },
+          "first_to_end": {
+            "p50": 5.654017813998507,
+            "p95": 11.033044748008251,
+            "max": 12.598988873010967
+          }
+        }
+      },
+      "observed_dependencies": {
+        "max_error_s": 0.0,
+        "tail": "regex-chess:40",
+        "tail_chain": [
+          "regex-chess:40"
+        ],
+        "tail_chain_phase_sum_s": {
+          "ready_to_P": 0.020992508140423638,
+          "P_HTTP": 19.684126189997187,
+          "P_return_to_D": 0.018151499010855332,
+          "D_to_first": 0.3616924670059234,
+          "first_to_end": 9.363554233976174
+        },
+        "tail_chain_root_offer_s": 45.44591076484669,
+        "tail_chain_tool_wait_s": 0,
+        "next_session_end_s": 74.54677564799204,
+        "P_HTTP_sensitivity": {
+          "0.9x": {
+            "finish_s": 72.92601504397753,
+            "save_s": 1.9684126189997215
+          },
+          "0.5x": {
+            "finish_s": 66.14553460999741,
+            "save_s": 8.748893052979838
+          },
+          "0x": {
+            "finish_s": 58.27786261300207,
+            "save_s": 16.61656504997518
+          }
+        }
+      },
+      "cap_Gbps": 100,
+      "D_egress_cap_Gbps": 100,
+      "P_egress_cap_Gbps": null,
+      "total": {
+        "ttft_from_ready": {
+          "n": 90,
+          "p50_s": 14.636167999222423,
+          "p90_s": 22.66730005516186,
+          "p95_s": 24.659935252325724,
+          "p99_s": 29.942809417581604
+        },
+        "e2e_from_ready": {
+          "n": 90,
+          "p50_s": 20.596861990370943,
+          "p90_s": 29.28123956102234,
+          "p95_s": 31.714165648792623,
+          "p99_s": 37.24344052475727
+        },
+        "first_from_offered": {
+          "n": 90,
+          "p50_s": 14.636167999222423,
+          "p90_s": 22.66730005516186,
+          "p95_s": 24.659935252325724,
+          "p99_s": 29.942809417581604
+        },
+        "client_queue": {
+          "n": 90,
+          "p50_s": 0.001038750772679009,
+          "p90_s": 0.0019995773990988397,
+          "p95_s": 0.0024686293333271436,
+          "p99_s": 0.1290687639848329
+        },
+        "drain_included_s": 74.89442766297725,
+        "first_offered_s": 0.0,
+        "offer_to_last_end_s": 74.89442766297725,
+        "output_tokens": 24248,
+        "output_tokens_per_s": 323.76240471607974,
+        "completed_requests_per_drain_s": 1.2016915384546016
+      },
+      "P_prompt_token_sources": {
+        "local_compute": 738746.0,
+        "local_cache_hit": 4776960.0,
+        "external_kv_transfer": 4772864.0
+      },
+      "D_prompt_token_sources": {
+        "local_compute": 90.0,
+        "local_cache_hit": 8882176.0,
+        "external_kv_transfer": 1406394.0
+      },
+      "prefix_cache_hits_tokens": {
+        "P0": 5047296.0,
+        "P1": 5556224.0,
+        "D0": 4307968.0,
+        "D1": 4574208.0
+      },
+      "engine_prompt_counts": {
+        "P0": 5216515.0,
+        "P1": 5072055.0,
+        "D0": 5068210.0,
+        "D1": 5220450.0
+      },
+      "store_counter_delta": {
+        "master_successful_evictions_total": 0.0,
+        "master_evicted_key_count": 0.0,
+        "master_evicted_size_bytes": 0.0,
+        "master_put_start_alloc_failures_total": 0.0,
+        "master_batch_put_start_failures_total": 0.0,
+        "master_batch_exist_key_failures_total": 0.0
+      },
+      "D_RX_GB": 93.92873212157714,
+      "D_TX_peak_Gbps_by_port": [
+        {
+          "1": 13.716489102353208,
+          "5": 11.120400237906555,
+          "10": 10.621614232823115,
+          "30": 6.495580354068634
+        },
+        {
+          "1": 14.253702519042431,
+          "5": 12.069290482500437,
+          "10": 11.33372794261145,
+          "30": 7.076104595466666
+        },
+        {
+          "1": 15.267082023509445,
+          "5": 12.102315523566935,
+          "10": 11.522272734600001,
+          "30": 7.40274918861173
+        },
+        {
+          "1": 14.465077455387586,
+          "5": 9.748540138396326,
+          "10": 9.36972352296677,
+          "30": 5.669481578518615
+        },
+        {
+          "1": 13.485469305217933,
+          "5": 10.583106872526818,
+          "10": 10.2913797539901,
+          "30": 6.524005270755184
+        },
+        {
+          "1": 14.147769462548439,
+          "5": 11.262700159896255,
+          "10": 10.885998328451105,
+          "30": 6.987635943733334
+        },
+        {
+          "1": 16.927829034197728,
+          "5": 12.13996328384797,
+          "10": 11.356627571091103,
+          "30": 6.875449355893512
+        },
+        {
+          "1": 15.46888398380311,
+          "5": 11.137462637942923,
+          "10": 10.546869659878553,
+          "30": 6.624485886133333
+        }
+      ],
+      "D_TX_MB_per_output_token": 8.299516703573387,
+      "observed_arrival_window": {
+        "start_s": 44.5,
+        "end_s": 84.5,
+        "port_coverage_s": 32.456991427999995,
+        "D_MAC_TX_Gbps": 49.5937764348904,
+        "aggregate_near_cap": {
+          "seconds": 8.44733302400001,
+          "longest_s": 3.004849505000003
+        },
+        "each_port_near_cap": [
+          {
+            "seconds": 8.728843241999996,
+            "longest_s": 2.874558983
+          },
+          {
+            "seconds": 10.758031312,
+            "longest_s": 3.783537255000006
+          },
+          {
+            "seconds": 11.231328905999995,
+            "longest_s": 3.815278117999995
+          },
+          {
+            "seconds": 2.3669525019999895,
+            "longest_s": 1.1942925639999942
+          },
+          {
+            "seconds": 7.369409624000006,
+            "longest_s": 3.0056679350000053
+          },
+          {
+            "seconds": 10.184194297999994,
+            "longest_s": 3.8079636099999945
+          },
+          {
+            "seconds": 8.297925897000013,
+            "longest_s": 3.046500668
+          },
+          {
+            "seconds": 7.953969486999995,
+            "longest_s": 2.999560871
+          }
+        ],
+        "actual_root_dispatches": 0,
+        "actual_dispatches": 45,
+        "P_HTTP_returns": 45,
+        "D_HTTP_dispatches": 45,
+        "client_first_tokens": 45,
+        "output_tokens_per_s_of_full_seconds": 322.0769230769231
+      },
+      "P_egress": {
+        "P_MAC_TX_GB": 93.92869384223317,
+        "P_MAC_RX_GB": 201.24042747943162,
+        "P_1s_peak_Gbps": 73.68780584462503,
+        "P_aggregate_hot_s": 0,
+        "P_any_port_hot_s": 0,
+        "P_hot_port_during_any_D_ingress_to_first_s": 0,
+        "P_wall_mapping_span_ns": 2595,
+        "P_port_coverage_s": 74.89442766297725,
+        "primary_window": {
+          "start_s": 44.5,
+          "end_s": 84.5,
+          "port_coverage_s": 40.0,
+          "aggregate_near_cap": {
+            "seconds": 0,
+            "longest_s": 0
+          },
+          "each_port_near_cap": [
+            {
+              "seconds": 0,
+              "longest_s": 0
+            },
+            {
+              "seconds": 0,
+              "longest_s": 0
+            },
+            {
+              "seconds": 0,
+              "longest_s": 0
+            },
+            {
+              "seconds": 0,
+              "longest_s": 0
+            },
+            {
+              "seconds": 0,
+              "longest_s": 0
+            },
+            {
+              "seconds": 0,
+              "longest_s": 0
+            },
+            {
+              "seconds": 0,
+              "longest_s": 0
+            },
+            {
+              "seconds": 0,
+              "longest_s": 0
+            }
+          ],
+          "actual_root_dispatches": 0,
+          "actual_dispatches": 45,
+          "P_HTTP_returns": 45,
+          "D_HTTP_dispatches": 45,
+          "client_first_tokens": 45,
+          "output_tokens_per_s_of_full_seconds": 322.0769230769231,
+          "P_MAC_TX_Gbps": 1.8327966924449945
+        },
+        "P_TX_peak_Gbps_by_port": [
+          {
+            "1": 7.896572617224145,
+            "5": 4.592249999125764,
+            "10": 3.4914080807784833,
+            "30": 2.4853578344000007
+          },
+          {
+            "1": 7.996882830634156,
+            "5": 4.564255480789747,
+            "10": 3.501514111964913,
+            "30": 2.4796805168164133
+          },
+          {
+            "1": 7.932818570107756,
+            "5": 4.642507159950058,
+            "10": 3.4914889270243066,
+            "30": 2.4853578217074195
+          },
+          {
+            "1": 7.798401347930664,
+            "5": 4.768176951469516,
+            "10": 3.6589241694032304,
+            "30": 2.4796806440437007
+          },
+          {
+            "1": 15.568547400912799,
+            "5": 5.93563032600871,
+            "10": 4.360740667131285,
+            "30": 3.15025268134109
+          },
+          {
+            "1": 12.14538308499315,
+            "5": 5.969691152565494,
+            "10": 4.376434478385555,
+            "30": 3.1523447440553847
+          },
+          {
+            "1": 19.004381580558878,
+            "5": 5.932865383323997,
+            "10": 4.2727585511237685,
+            "30": 3.1550450029677597
+          },
+          {
+            "1": 15.276952784229358,
+            "5": 5.95745198832965,
+            "10": 4.375811157588696,
+            "30": 3.1573269864043287
+          }
+        ],
+        "pending_first_token_D_supply": {
+          "D0": {
+            "no_reported_running_with_pending_first_token_s": 0.33005514898104593,
+            "overlap_with_P_hot_port_s": 0
+          },
+          "D1": {
+            "no_reported_running_with_pending_first_token_s": 1.6274637689930387,
+            "overlap_with_P_hot_port_s": 0
+          }
+        }
+      },
+      "finish_reasons": {
+        "stop": 90
+      },
+      "final_request": {
+        "session_id": "regex-chess:39",
+        "predecessor": "regex-chess:39",
+        "offered_s": 45.44591076484669,
+        "tool_gap_s": 0,
+        "ready_s": 45.44591076484669,
+        "dispatch_s": 45.44653914999799,
+        "P_start_s": 45.46690327298711,
+        "P_end_s": 65.1510294629843,
+        "D_start_s": 65.16918096199515,
+        "first_s": 65.53087342900108,
+        "end_s": 74.89442766297725,
+        "P": "P0",
+        "D": "D0",
+        "output_tokens": 484,
+        "finish_reason": "stop",
+        "effective_TPOT_ms": 19.38624065005419,
+        "phases_s": {
+          "ready_to_P": 0.020992508140423638,
+          "P_HTTP": 19.684126189997187,
+          "P_return_to_D": 0.018151499010855332,
+          "D_to_first": 0.3616924670059234,
+          "first_to_end": 9.363554233976174
+        }
+      },
+      "tail_chain_requests": {
+        "regex-chess:40": {
+          "session_id": "regex-chess:39",
+          "predecessor": "regex-chess:39",
+          "offered_s": 45.44591076484669,
+          "tool_gap_s": 0,
+          "ready_s": 45.44591076484669,
+          "dispatch_s": 45.44653914999799,
+          "P_start_s": 45.46690327298711,
+          "P_end_s": 65.1510294629843,
+          "D_start_s": 65.16918096199515,
+          "first_s": 65.53087342900108,
+          "end_s": 74.89442766297725,
+          "P": "P0",
+          "D": "D0",
+          "output_tokens": 484,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 19.38624065005419,
+          "phases_s": {
+            "ready_to_P": 0.020992508140423638,
+            "P_HTTP": 19.684126189997187,
+            "P_return_to_D": 0.018151499010855332,
+            "D_to_first": 0.3616924670059234,
+            "first_to_end": 9.363554233976174
+          }
+        }
+      },
+      "throughput_at_90pct_of_observed_P_HTTP": {
+        "modeled_s": 72.92601504397753,
+        "saved_s": 1.9684126189997215,
+        "new_tail": "regex-chess:40",
+        "modeled_output_tokens_s": 332.50137122366294
+      },
+      "throughput_at_90pct_of_observed_post_first_token": {
+        "modeled_s": 73.95807223957964,
+        "saved_s": 0.9363554233976146,
+        "new_tail": "regex-chess:40",
+        "modeled_output_tokens_s": 327.8614391333927
+      },
+      "throughput_without_sampled_hot_overlap": {
+        "assumption": "remove the entire measured P HTTP overlap with any D port >=85% of cap; freeze all other stages",
+        "modeled_s": 62.840510471964365,
+        "saved_s": 12.053917191012886,
+        "new_tail": "regex-chess:40",
+        "modeled_output_tokens_s": 385.86573880264694
+      },
+      "upstream_proxy_digest": [
+        "e7f46058c5dbb846212a834c443d9986dddec78b9e8dab431eeb5e0df7c0f0e6"
+      ]
+    },
+    "b1-cap200": {
+      "request_count": 90,
+      "output_tokens": 24900,
+      "duration_s": 69.79876180298743,
+      "throughput_tokens_s": 356.7398526392522,
+      "last_P_reply_s": 57.12893849599641,
+      "last_D_start_s": 57.14435081699048,
+      "after_last_P_reply_s": 12.66982330699102,
+      "next_request_end_s": 68.94490526599111,
+      "P_D_resource_samples": {
+        "P0": {
+          "covered_s": 69.79876180298743,
+          "running_request_s": 80.24802720900003,
+          "waiting_request_s": 296.48842010500005,
+          "full_slots_s": 0.0,
+          "peak_kv_fraction": 0.3629893238434164,
+          "peak_waiting": 21.0,
+          "mean_running": 1.1497055984389306
+        },
+        "P1": {
+          "covered_s": 69.79876180298743,
+          "running_request_s": 86.75144377299998,
+          "waiting_request_s": 333.4442509550001,
+          "full_slots_s": 0.0,
+          "peak_kv_fraction": 0.2656098350048528,
+          "peak_waiting": 18.0,
+          "mean_running": 1.2428794083462804
+        },
+        "D0": {
+          "covered_s": 69.79876180298743,
+          "running_request_s": 281.550896388,
+          "waiting_request_s": 0.0,
+          "full_slots_s": 0.0,
+          "peak_kv_fraction": 0.19961177612423164,
+          "peak_waiting": 0.0,
+          "mean_running": 4.033752019594558,
+          "no_D_work_with_P_outstanding_s": 9.869012010999487,
+          "overlap_with_aggregate_hot_s": 1.1452990089999986,
+          "overlap_with_any_hot_port_s": 2.0408708480000044
+        },
+        "D1": {
+          "covered_s": 69.79876180298743,
+          "running_request_s": 294.39474078792455,
+          "waiting_request_s": 0.0,
+          "full_slots_s": 0.0,
+          "peak_kv_fraction": 0.1963765771594953,
+          "peak_waiting": 0.0,
+          "mean_running": 4.21776451592189,
+          "no_D_work_with_P_outstanding_s": 9.297043429005228,
+          "overlap_with_aggregate_hot_s": 1.1452990089999986,
+          "overlap_with_any_hot_port_s": 2.0384017720000003
+        }
+      },
+      "D_TX_GB": 201.24919422488355,
+      "D_TX_peak_1s_Gbps": 172.29966421954026,
+      "D_aggregate_above_85pct_s": 1.997124982999999,
+      "D_any_port_above_85pct_s": 4.942878730000004,
+      "route_outcomes": {
+        "D0": {
+          "requests": 47,
+          "tokens": 12147,
+          "last_end_s": 65.82098446699092
+        },
+        "D1": {
+          "requests": 43,
+          "tokens": 12753,
+          "last_end_s": 69.79876180298743
+        }
+      },
+      "windows": {
+        "0-10": {
+          "D_MAC_TX_Gbps": 0.012636664311349988,
+          "P_returns": 18,
+          "client_output_tokens_s": 149.0
+        },
+        "10-30": {
+          "D_MAC_TX_Gbps": 0.00990605380896083,
+          "P_returns": 27,
+          "client_output_tokens_s": 446.35
+        },
+        "30-90": {
+          "D_MAC_TX_Gbps": 26.82781776799626,
+          "P_returns": 45,
+          "client_output_tokens_s": 241.38333333333333
+        },
+        "58-69": {
+          "D_MAC_TX_Gbps": 4.619065714807273e-05,
+          "P_returns": 0,
+          "client_output_tokens_s": 591.4545454545455
+        }
+      },
+      "phases": {
+        "roots": {
+          "ready_to_P": {
+            "p50": 0.028978100767816484,
+            "p95": 0.04735758093896303,
+            "max": 0.1907654879905749
+          },
+          "P_HTTP": {
+            "p50": 11.982040216011228,
+            "p95": 25.18521507299738,
+            "max": 25.477735916996608
+          },
+          "P_return_to_D": {
+            "p50": 0.023713504982879385,
+            "p95": 0.04374999599531293,
+            "max": 0.06963275501038879
+          },
+          "D_to_first": {
+            "p50": 0.4033240489952732,
+            "p95": 0.663601362000918,
+            "max": 1.0037105370138306
+          },
+          "first_to_end": {
+            "p50": 4.562976933986647,
+            "p95": 10.386201525019715,
+            "max": 12.73964522400638
+          }
+        },
+        "successors": {
+          "ready_to_P": {
+            "p50": 0.02749959740368979,
+            "p95": 0.04916407108531473,
+            "max": 0.05240320001030341
+          },
+          "P_HTTP": {
+            "p50": 7.953911310993135,
+            "p95": 11.548463370010722,
+            "max": 11.619563745014602
+          },
+          "P_return_to_D": {
+            "p50": 0.02334038299159147,
+            "p95": 0.04286133998539299,
+            "max": 0.046446213993476704
+          },
+          "D_to_first": {
+            "p50": 0.3736186650057789,
+            "p95": 0.528193836013088,
+            "max": 0.6806074740015902
+          },
+          "first_to_end": {
+            "p50": 6.345871919998899,
+            "p95": 13.18409596098354,
+            "max": 17.27232128000469
+          }
+        }
+      },
+      "observed_dependencies": {
+        "max_error_s": 0.0,
+        "tail": "regex-chess:67",
+        "tail_chain": [
+          "regex-chess:67"
+        ],
+        "tail_chain_phase_sum_s": {
+          "ready_to_P": 0.03388523236681351,
+          "P_HTTP": 8.997286818019347,
+          "P_return_to_D": 0.027048427000408992,
+          "D_to_first": 0.4177332329854835,
+          "first_to_end": 15.347294114995748
+        },
+        "tail_chain_root_offer_s": 44.97551397761963,
+        "tail_chain_tool_wait_s": 0,
+        "next_session_end_s": 68.94490526599111,
+        "P_HTTP_sensitivity": {
+          "0.9x": {
+            "finish_s": 68.8990331211855,
+            "save_s": 0.8997286818019319
+          },
+          "0.5x": {
+            "finish_s": 65.30011839397775,
+            "save_s": 4.498643409009674
+          },
+          "0x": {
+            "finish_s": 62.73726197099313,
+            "save_s": 7.061499831994297
+          }
+        }
+      },
+      "cap_Gbps": 200,
+      "D_egress_cap_Gbps": 200,
+      "P_egress_cap_Gbps": null,
+      "total": {
+        "ttft_from_ready": {
+          "n": 90,
+          "p50_s": 8.952993841777172,
+          "p90_s": 18.88851668116152,
+          "p95_s": 20.647684362802174,
+          "p99_s": 26.060490846604527
+        },
+        "e2e_from_ready": {
+          "n": 90,
+          "p50_s": 16.175094312344704,
+          "p90_s": 23.847499214257844,
+          "p95_s": 31.417591304360805,
+          "p99_s": 34.09565013975453
+        },
+        "first_from_offered": {
+          "n": 90,
+          "p50_s": 8.952993841777172,
+          "p90_s": 18.88851668116152,
+          "p95_s": 20.647684362802174,
+          "p99_s": 26.060490846604527
+        },
+        "client_queue": {
+          "n": 90,
+          "p50_s": 0.0008872368000751862,
+          "p90_s": 0.0017353631367289513,
+          "p95_s": 0.0021975242575678067,
+          "p99_s": 0.14250036200974137
+        },
+        "drain_included_s": 69.79876180298743,
+        "first_offered_s": 0.0,
+        "offer_to_last_end_s": 69.79876180298743,
+        "output_tokens": 24900,
+        "output_tokens_per_s": 356.7398526392522,
+        "completed_requests_per_drain_s": 1.289421154117779
+      },
+      "P_prompt_token_sources": {
+        "local_compute": 738746.0,
+        "local_cache_hit": 4776960.0,
+        "external_kv_transfer": 4772864.0
+      },
+      "D_prompt_token_sources": {
+        "local_compute": 90.0,
+        "local_cache_hit": 8971264.0,
+        "external_kv_transfer": 1317306.0
+      },
+      "prefix_cache_hits_tokens": {
+        "P0": 5047296.0,
+        "P1": 5556224.0,
+        "D0": 4515840.0,
+        "D1": 4455424.0
+      },
+      "engine_prompt_counts": {
+        "P0": 5216515.0,
+        "P1": 5072055.0,
+        "D0": 5180345.0,
+        "D1": 5108315.0
+      },
+      "store_counter_delta": {
+        "master_successful_evictions_total": 0.0,
+        "master_evicted_key_count": 0.0,
+        "master_evicted_size_bytes": 0.0,
+        "master_put_start_alloc_failures_total": 0.0,
+        "master_batch_put_start_failures_total": 0.0,
+        "master_batch_exist_key_failures_total": 0.0
+      },
+      "D_RX_GB": 90.28884788706846,
+      "D_TX_peak_Gbps_by_port": [
+        {
+          "1": 22.674697830184456,
+          "5": 20.12994833229742,
+          "10": 16.947135399260965,
+          "30": 6.25854386873938
+        },
+        {
+          "1": 24.288474085534844,
+          "5": 22.644919091208955,
+          "10": 19.8644369897306,
+          "30": 7.502120445991561
+        },
+        {
+          "1": 31.799111581371,
+          "5": 21.74748760835934,
+          "10": 19.887750573742437,
+          "30": 7.522973047185141
+        },
+        {
+          "1": 25.219894611178134,
+          "5": 19.65002265054114,
+          "10": 16.84277319684622,
+          "30": 6.394519598285112
+        },
+        {
+          "1": 21.573421454206652,
+          "5": 20.132216596056686,
+          "10": 17.243973649901847,
+          "30": 6.47531570826626
+        },
+        {
+          "1": 23.02532334915996,
+          "5": 19.868902015444224,
+          "10": 18.054382125495337,
+          "30": 6.7726480774579505
+        },
+        {
+          "1": 24.203721016860825,
+          "5": 18.167205457262504,
+          "10": 16.28344834418721,
+          "30": 6.101164497408329
+        },
+        {
+          "1": 22.349446450301627,
+          "5": 19.177662786390723,
+          "10": 17.61012994622288,
+          "30": 6.62874955816954
+        }
+      ],
+      "D_TX_MB_per_output_token": 8.082296956822631,
+      "observed_arrival_window": {
+        "start_s": 44.5,
+        "end_s": 84.5,
+        "port_coverage_s": 26.054767529000003,
+        "D_MAC_TX_Gbps": 60.769842797187756,
+        "aggregate_near_cap": {
+          "seconds": 1.997124982999999,
+          "longest_s": 1.1452990089999986
+        },
+        "each_port_near_cap": [
+          {
+            "seconds": 0.8600957879999953,
+            "longest_s": 0.8600957879999953
+          },
+          {
+            "seconds": 4.8126220480000015,
+            "longest_s": 4.8126220480000015
+          },
+          {
+            "seconds": 2.2072265860000044,
+            "longest_s": 1.362718835999999
+          },
+          {
+            "seconds": 0.9823321370000002,
+            "longest_s": 0.9823321370000002
+          },
+          {
+            "seconds": 0.8515708569999987,
+            "longest_s": 0.8515708569999987
+          },
+          {
+            "seconds": 0.8514078310000031,
+            "longest_s": 0.8514078310000031
+          },
+          {
+            "seconds": 1.1912969400000009,
+            "longest_s": 1.1912969400000009
+          },
+          {
+            "seconds": 0.8521808599999972,
+            "longest_s": 0.8521808599999972
+          }
+        ],
+        "actual_root_dispatches": 0,
+        "actual_dispatches": 45,
+        "P_HTTP_returns": 45,
+        "D_HTTP_dispatches": 45,
+        "client_first_tokens": 45,
+        "output_tokens_per_s_of_full_seconds": 323.87179487179486
+      },
+      "P_egress": {
+        "P_MAC_TX_GB": 90.2591383770727,
+        "P_MAC_RX_GB": 201.2436456450664,
+        "P_1s_peak_Gbps": 49.396758580671566,
+        "P_aggregate_hot_s": 0,
+        "P_any_port_hot_s": 0,
+        "P_hot_port_during_any_D_ingress_to_first_s": 0,
+        "P_wall_mapping_span_ns": 1670,
+        "P_port_coverage_s": 69.79876180298743,
+        "primary_window": {
+          "start_s": 44.5,
+          "end_s": 84.5,
+          "port_coverage_s": 34.886598531000004,
+          "aggregate_near_cap": {
+            "seconds": 0,
+            "longest_s": 0
+          },
+          "each_port_near_cap": [
+            {
+              "seconds": 0,
+              "longest_s": 0
+            },
+            {
+              "seconds": 0,
+              "longest_s": 0
+            },
+            {
+              "seconds": 0,
+              "longest_s": 0
+            },
+            {
+              "seconds": 0,
+              "longest_s": 0
+            },
+            {
+              "seconds": 0,
+              "longest_s": 0
+            },
+            {
+              "seconds": 0,
+              "longest_s": 0
+            },
+            {
+              "seconds": 0,
+              "longest_s": 0
+            },
+            {
+              "seconds": 0,
+              "longest_s": 0
+            }
+          ],
+          "actual_root_dispatches": 0,
+          "actual_dispatches": 45,
+          "P_HTTP_returns": 45,
+          "D_HTTP_dispatches": 45,
+          "client_first_tokens": 45,
+          "output_tokens_per_s_of_full_seconds": 323.87179487179486,
+          "P_MAC_TX_Gbps": 1.9407442337889589
+        },
+        "P_TX_peak_Gbps_by_port": [
+          {
+            "1": 9.95968385054573,
+            "5": 4.944200870942456,
+            "10": 3.6783325680815464,
+            "30": 2.4918310927397416
+          },
+          {
+            "1": 8.96186966186749,
+            "5": 4.980817565817992,
+            "10": 3.6869514855378447,
+            "30": 2.4861510539234546
+          },
+          {
+            "1": 9.895240957410731,
+            "5": 4.808845697420321,
+            "10": 3.678249282245629,
+            "30": 2.491839838879629
+          },
+          {
+            "1": 8.183128442366346,
+            "5": 5.026943413630631,
+            "10": 3.659293515712007,
+            "30": 2.487716540839587
+          },
+          {
+            "1": 9.275515227297767,
+            "5": 4.799748106179872,
+            "10": 4.1365735520953795,
+            "30": 2.962605326924885
+          },
+          {
+            "1": 10.17833793753993,
+            "5": 4.811929390202207,
+            "10": 4.1786820295487885,
+            "30": 2.9654439781261224
+          },
+          {
+            "1": 8.839243686325208,
+            "5": 4.76289177989254,
+            "10": 4.148474362051581,
+            "30": 2.9547054146169818
+          },
+          {
+            "1": 8.934654658353159,
+            "5": 4.790020660851565,
+            "10": 4.156596116958261,
+            "30": 2.9654439517333313
+          }
+        ],
+        "pending_first_token_D_supply": {
+          "D0": {
+            "no_reported_running_with_pending_first_token_s": 1.3459503070043866,
+            "overlap_with_P_hot_port_s": 0
+          },
+          "D1": {
+            "no_reported_running_with_pending_first_token_s": 1.0751730549964122,
+            "overlap_with_P_hot_port_s": 0
+          }
+        }
+      },
+      "finish_reasons": {
+        "stop": 90
+      },
+      "final_request": {
+        "session_id": "regex-chess:66",
+        "predecessor": "regex-chess:66",
+        "offered_s": 44.97551397761963,
+        "tool_gap_s": 0,
+        "ready_s": 44.97551397761963,
+        "dispatch_s": 44.97632758299005,
+        "P_start_s": 45.00939920998644,
+        "P_end_s": 54.00668602800579,
+        "D_start_s": 54.0337344550062,
+        "first_s": 54.45146768799168,
+        "end_s": 69.79876180298743,
+        "P": "P0",
+        "D": "D1",
+        "output_tokens": 690,
+        "finish_reason": "stop",
+        "effective_TPOT_ms": 22.274737467337804,
+        "phases_s": {
+          "ready_to_P": 0.03388523236681351,
+          "P_HTTP": 8.997286818019347,
+          "P_return_to_D": 0.027048427000408992,
+          "D_to_first": 0.4177332329854835,
+          "first_to_end": 15.347294114995748
+        }
+      },
+      "tail_chain_requests": {
+        "regex-chess:67": {
+          "session_id": "regex-chess:66",
+          "predecessor": "regex-chess:66",
+          "offered_s": 44.97551397761963,
+          "tool_gap_s": 0,
+          "ready_s": 44.97551397761963,
+          "dispatch_s": 44.97632758299005,
+          "P_start_s": 45.00939920998644,
+          "P_end_s": 54.00668602800579,
+          "D_start_s": 54.0337344550062,
+          "first_s": 54.45146768799168,
+          "end_s": 69.79876180298743,
+          "P": "P0",
+          "D": "D1",
+          "output_tokens": 690,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 22.274737467337804,
+          "phases_s": {
+            "ready_to_P": 0.03388523236681351,
+            "P_HTTP": 8.997286818019347,
+            "P_return_to_D": 0.027048427000408992,
+            "D_to_first": 0.4177332329854835,
+            "first_to_end": 15.347294114995748
+          }
+        }
+      },
+      "throughput_at_90pct_of_observed_P_HTTP": {
+        "modeled_s": 68.8990331211855,
+        "saved_s": 0.8997286818019319,
+        "new_tail": "regex-chess:67",
+        "modeled_output_tokens_s": 361.3983951879812
+      },
+      "throughput_at_90pct_of_observed_post_first_token": {
+        "modeled_s": 68.26403239148786,
+        "saved_s": 1.534729411499569,
+        "new_tail": "regex-chess:67",
+        "modeled_output_tokens_s": 364.7601691209922
+      },
+      "throughput_without_sampled_hot_overlap": {
+        "assumption": "remove the entire measured P HTTP overlap with any D port >=85% of cap; freeze all other stages",
+        "modeled_s": 64.85588307298742,
+        "saved_s": 4.942878730000004,
+        "new_tail": "regex-chess:67",
+        "modeled_output_tokens_s": 383.9281622605936
+      },
+      "upstream_proxy_digest": [
+        "e7f46058c5dbb846212a834c443d9986dddec78b9e8dab431eeb5e0df7c0f0e6"
+      ]
+    },
+    "b2-cap200": {
+      "request_count": 90,
+      "output_tokens": 23252,
+      "duration_s": 68.03188368101837,
+      "throughput_tokens_s": 341.7809230304696,
+      "last_P_reply_s": 55.133629124000436,
+      "last_D_start_s": 55.148280830006115,
+      "after_last_P_reply_s": 12.898254557017935,
+      "next_request_end_s": 66.8962977140036,
+      "P_D_resource_samples": {
+        "P0": {
+          "covered_s": 68.03188368101837,
+          "running_request_s": 78.11386408800001,
+          "waiting_request_s": 325.83970009899997,
+          "full_slots_s": 0.0,
+          "peak_kv_fraction": 0.3506955677774183,
+          "peak_waiting": 21.0,
+          "mean_running": 1.1481949324562746
+        },
+        "P1": {
+          "covered_s": 68.03188368101837,
+          "running_request_s": 90.28510778399999,
+          "waiting_request_s": 333.117949727,
+          "full_slots_s": 0.0,
+          "peak_kv_fraction": 0.3254610158524749,
+          "peak_waiting": 18.0,
+          "mean_running": 1.3270999257836293
+        },
+        "D0": {
+          "covered_s": 68.03188368101837,
+          "running_request_s": 283.83809407703677,
+          "waiting_request_s": 9.426238170000005,
+          "full_slots_s": 5.2912522810000056,
+          "peak_kv_fraction": 0.18861209964412806,
+          "peak_waiting": 1.0,
+          "mean_running": 4.172133398626307,
+          "no_D_work_with_P_outstanding_s": 7.953910350965286,
+          "overlap_with_aggregate_hot_s": 0.7512769120000016,
+          "overlap_with_any_hot_port_s": 1.956038821
+        },
+        "D1": {
+          "covered_s": 68.03188368101837,
+          "running_request_s": 243.56690675199997,
+          "waiting_request_s": 8.228147174000004,
+          "full_slots_s": 0.0,
+          "peak_kv_fraction": 0.18828857974765445,
+          "peak_waiting": 1.0,
+          "mean_running": 3.5801876057704654,
+          "no_D_work_with_P_outstanding_s": 7.385173987961985,
+          "overlap_with_aggregate_hot_s": 0.7534612469999971,
+          "overlap_with_any_hot_port_s": 1.9582231559999954
+        }
+      },
+      "D_TX_GB": 154.5418565816559,
+      "D_TX_peak_1s_Gbps": 185.18695481280176,
+      "D_aggregate_above_85pct_s": 1.6323909019999974,
+      "D_any_port_above_85pct_s": 4.794591486999998,
+      "route_outcomes": {
+        "D0": {
+          "requests": 45,
+          "tokens": 12542,
+          "last_end_s": 68.03188368101837
+        },
+        "D1": {
+          "requests": 45,
+          "tokens": 10710,
+          "last_end_s": 64.6515046620043
+        }
+      },
+      "windows": {
+        "0-10": {
+          "D_MAC_TX_Gbps": 0.012826419540493562,
+          "P_returns": 18,
+          "client_output_tokens_s": 153.5
+        },
+        "10-30": {
+          "D_MAC_TX_Gbps": 0.009702494729276465,
+          "P_returns": 27,
+          "client_output_tokens_s": 418.1
+        },
+        "30-90": {
+          "D_MAC_TX_Gbps": 20.600208976054276,
+          "P_returns": 45,
+          "client_output_tokens_s": 222.58333333333334
+        },
+        "56-68": {
+          "D_MAC_TX_Gbps": 2.459893429295016e-05,
+          "P_returns": 0,
+          "client_output_tokens_s": 594.75
+        }
+      },
+      "phases": {
+        "roots": {
+          "ready_to_P": {
+            "p50": 0.029397702292400574,
+            "p95": 0.0577466462873053,
+            "max": 0.1815889160207007
+          },
+          "P_HTTP": {
+            "p50": 11.783706687972881,
+            "p95": 25.346927367994795,
+            "max": 25.68510316600441
+          },
+          "P_return_to_D": {
+            "p50": 0.02371424500597641,
+            "p95": 0.0400586019968614,
+            "max": 0.04425636900123209
+          },
+          "D_to_first": {
+            "p50": 0.3827948100224603,
+            "p95": 0.7064692450221628,
+            "max": 0.967841301986482
+          },
+          "first_to_end": {
+            "p50": 4.023507259989856,
+            "p95": 9.31985124401399,
+            "max": 11.176911474001827
+          }
+        },
+        "successors": {
+          "ready_to_P": {
+            "p50": 0.028170278139072025,
+            "p95": 0.04953102101794826,
+            "max": 0.05397268102387898
+          },
+          "P_HTTP": {
+            "p50": 7.588119533000281,
+            "p95": 9.554173594980966,
+            "max": 9.645750113006216
+          },
+          "P_return_to_D": {
+            "p50": 0.023753864981699735,
+            "p95": 0.04120211899862625,
+            "max": 0.07360223098658025
+          },
+          "D_to_first": {
+            "p50": 0.3871870889852289,
+            "p95": 0.8428124850033782,
+            "max": 2.090029881015653
+          },
+          "first_to_end": {
+            "p50": 6.449948678986402,
+            "p95": 11.820386826992035,
+            "max": 13.249303010001313
+          }
+        }
+      },
+      "observed_dependencies": {
+        "max_error_s": 0.0,
+        "tail": "regex-chess:55",
+        "tail_chain": [
+          "regex-chess:55"
+        ],
+        "tail_chain_phase_sum_s": {
+          "ready_to_P": 0.0450201160407957,
+          "P_HTTP": 9.08408092398895,
+          "P_return_to_D": 0.023174632020527497,
+          "D_to_first": 0.36476891199708916,
+          "first_to_end": 13.249303010001313
+        },
+        "tail_chain_root_offer_s": 45.265536086969696,
+        "tail_chain_tool_wait_s": 0,
+        "next_session_end_s": 66.8962977140036,
+        "P_HTTP_sensitivity": {
+          "0.9x": {
+            "finish_s": 67.12347558861947,
+            "save_s": 0.9084080923989006
+          },
+          "0.5x": {
+            "finish_s": 63.489843219023896,
+            "save_s": 4.542040461994475
+          },
+          "0x": {
+            "finish_s": 58.94780275702942,
+            "save_s": 9.08408092398895
+          }
+        }
+      },
+      "cap_Gbps": 200,
+      "D_egress_cap_Gbps": 200,
+      "P_egress_cap_Gbps": null,
+      "total": {
+        "ttft_from_ready": {
+          "n": 90,
+          "p50_s": 8.423424835212515,
+          "p90_s": 19.0527669421663,
+          "p95_s": 20.687233616799567,
+          "p99_s": 26.329407669603544
+        },
+        "e2e_from_ready": {
+          "n": 90,
+          "p50_s": 15.28860563295322,
+          "p90_s": 22.809098810336458,
+          "p95_s": 27.45340017080678,
+          "p99_s": 33.908195233782415
+        },
+        "first_from_offered": {
+          "n": 90,
+          "p50_s": 8.423424835212515,
+          "p90_s": 19.0527669421663,
+          "p95_s": 20.687233616799567,
+          "p99_s": 26.329407669603544
+        },
+        "client_queue": {
+          "n": 90,
+          "p50_s": 0.0010337437380982806,
+          "p90_s": 0.002135712021164693,
+          "p95_s": 0.002441072358897678,
+          "p99_s": 0.13666561202262528
+        },
+        "drain_included_s": 68.03188368101837,
+        "first_offered_s": 0.0,
+        "offer_to_last_end_s": 68.03188368101837,
+        "output_tokens": 23252,
+        "output_tokens_per_s": 341.7809230304696,
+        "completed_requests_per_drain_s": 1.3229091292251103
+      },
+      "P_prompt_token_sources": {
+        "local_compute": 738746.0,
+        "local_cache_hit": 5879808.0,
+        "external_kv_transfer": 3670016.0
+      },
+      "D_prompt_token_sources": {
+        "local_compute": 90.0,
+        "local_cache_hit": 8975360.0,
+        "external_kv_transfer": 1313210.0
+      },
+      "prefix_cache_hits_tokens": {
+        "P0": 5794816.0,
+        "P1": 6230016.0,
+        "D0": 4399104.0,
+        "D1": 4576256.0
+      },
+      "engine_prompt_counts": {
+        "P0": 5215576.0,
+        "P1": 5072994.0,
+        "D0": 5056266.0,
+        "D1": 5232394.0
+      },
+      "store_counter_delta": {
+        "master_successful_evictions_total": 0.0,
+        "master_evicted_key_count": 0.0,
+        "master_evicted_size_bytes": 0.0,
+        "master_put_start_alloc_failures_total": 0.0,
+        "master_batch_put_start_failures_total": 0.0,
+        "master_batch_exist_key_failures_total": 0.0
+      },
+      "D_RX_GB": 90.11113932000319,
+      "D_TX_peak_Gbps_by_port": [
+        {
+          "1": 20.174207297091893,
+          "5": 16.238721095315643,
+          "10": 13.499986597211526,
+          "30": 4.510520250190724
+        },
+        {
+          "1": 25.033683700483124,
+          "5": 20.700613372569247,
+          "10": 17.017757525685337,
+          "30": 5.685577695899203
+        },
+        {
+          "1": 23.95044638112043,
+          "5": 19.96852099384992,
+          "10": 16.52755937019989,
+          "30": 5.522907628543026
+        },
+        {
+          "1": 22.27143701076966,
+          "5": 17.751150712249096,
+          "10": 14.161455354782243,
+          "30": 4.726490333715807
+        },
+        {
+          "1": 26.728340803869415,
+          "5": 18.692096879291377,
+          "10": 15.47844027177201,
+          "30": 5.159586714302318
+        },
+        {
+          "1": 22.913270995831045,
+          "5": 16.956510207963014,
+          "10": 13.92350969902235,
+          "30": 4.655368481444384
+        },
+        {
+          "1": 23.384804184391626,
+          "5": 19.39950725161708,
+          "10": 16.731320034918024,
+          "30": 5.592506983493168
+        },
+        {
+          "1": 24.613916113502697,
+          "5": 20.313377470244404,
+          "10": 16.01734437602888,
+          "30": 5.348092062803773
+        }
+      ],
+      "D_TX_MB_per_output_token": 6.646389840945119,
+      "observed_arrival_window": {
+        "start_s": 44.5,
+        "end_s": 84.5,
+        "port_coverage_s": 24.451160450000003,
+        "D_MAC_TX_Gbps": 50.55022078057994,
+        "aggregate_near_cap": {
+          "seconds": 1.6323909019999974,
+          "longest_s": 1.6323909019999974
+        },
+        "each_port_near_cap": [
+          {
+            "seconds": 0,
+            "longest_s": 0
+          },
+          {
+            "seconds": 3.591875185999996,
+            "longest_s": 1.9516508279999982
+          },
+          {
+            "seconds": 2.6037234560000044,
+            "longest_s": 1.5501422849999997
+          },
+          {
+            "seconds": 1.634917754,
+            "longest_s": 1.634917754
+          },
+          {
+            "seconds": 1.633189133000002,
+            "longest_s": 1.633189133000002
+          },
+          {
+            "seconds": 1.632510707999998,
+            "longest_s": 1.632510707999998
+          },
+          {
+            "seconds": 3.902896663,
+            "longest_s": 2.8413830189999985
+          },
+          {
+            "seconds": 2.69397309,
+            "longest_s": 1.632582868
+          }
+        ],
+        "actual_root_dispatches": 0,
+        "actual_dispatches": 45,
+        "P_HTTP_returns": 45,
+        "D_HTTP_dispatches": 45,
+        "client_first_tokens": 45,
+        "output_tokens_per_s_of_full_seconds": 300.8974358974359
+      },
+      "P_egress": {
+        "P_MAC_TX_GB": 90.03255913533181,
+        "P_MAC_RX_GB": 154.53572083930496,
+        "P_1s_peak_Gbps": 58.014731060412714,
+        "P_aggregate_hot_s": 0,
+        "P_any_port_hot_s": 0,
+        "P_hot_port_during_any_D_ingress_to_first_s": 0,
+        "P_wall_mapping_span_ns": 1720,
+        "P_port_coverage_s": 68.03188368101837,
+        "primary_window": {
+          "start_s": 44.5,
+          "end_s": 84.5,
+          "port_coverage_s": 34.346135274999995,
+          "aggregate_near_cap": {
+            "seconds": 0,
+            "longest_s": 0
+          },
+          "each_port_near_cap": [
+            {
+              "seconds": 0,
+              "longest_s": 0
+            },
+            {
+              "seconds": 0,
+              "longest_s": 0
+            },
+            {
+              "seconds": 0,
+              "longest_s": 0
+            },
+            {
+              "seconds": 0,
+              "longest_s": 0
+            },
+            {
+              "seconds": 0,
+              "longest_s": 0
+            },
+            {
+              "seconds": 0,
+              "longest_s": 0
+            },
+            {
+              "seconds": 0,
+              "longest_s": 0
+            },
+            {
+              "seconds": 0,
+              "longest_s": 0
+            }
+          ],
+          "actual_root_dispatches": 0,
+          "actual_dispatches": 45,
+          "P_HTTP_returns": 45,
+          "D_HTTP_dispatches": 45,
+          "client_first_tokens": 45,
+          "output_tokens_per_s_of_full_seconds": 300.8974358974359,
+          "P_MAC_TX_Gbps": 2.118268702010716
+        },
+        "P_TX_peak_Gbps_by_port": [
+          {
+            "1": 11.013278366023492,
+            "5": 4.880534254556194,
+            "10": 3.5814527971088603,
+            "30": 2.4909953602105395
+          },
+          {
+            "1": 10.086905146709025,
+            "5": 5.095321487052543,
+            "10": 3.6689933204460687,
+            "30": 2.4853180613416037
+          },
+          {
+            "1": 9.928478338525178,
+            "5": 5.1039266380392885,
+            "10": 3.663722564946022,
+            "30": 2.4909953219073775
+          },
+          {
+            "1": 10.039115618458254,
+            "5": 5.151535628358009,
+            "10": 3.7115561778010866,
+            "30": 2.464375810921752
+          },
+          {
+            "1": 9.85152152376741,
+            "5": 4.915750405076994,
+            "10": 4.277614030250704,
+            "30": 2.9026883185180026
+          },
+          {
+            "1": 9.881114903717567,
+            "5": 5.409404294373461,
+            "10": 4.294582387629549,
+            "30": 2.914350714506398
+          },
+          {
+            "1": 9.855821410234903,
+            "5": 4.978863119883459,
+            "10": 4.279049795919716,
+            "30": 2.8949123054018124
+          },
+          {
+            "1": 9.87793229030725,
+            "5": 4.927169099733423,
+            "10": 4.294792553987608,
+            "30": 2.9018585966247463
+          }
+        ],
+        "pending_first_token_D_supply": {
+          "D0": {
+            "no_reported_running_with_pending_first_token_s": 1.1121435339704107,
+            "overlap_with_P_hot_port_s": 0
+          },
+          "D1": {
+            "no_reported_running_with_pending_first_token_s": 0.7204297360037764,
+            "overlap_with_P_hot_port_s": 0
+          }
+        }
+      },
+      "finish_reasons": {
+        "stop": 90
+      },
+      "final_request": {
+        "session_id": "regex-chess:54",
+        "predecessor": "regex-chess:54",
+        "offered_s": 45.265536086969696,
+        "tool_gap_s": 0,
+        "ready_s": 45.265536086969696,
+        "dispatch_s": 45.265968592022546,
+        "P_start_s": 45.31055620301049,
+        "P_end_s": 54.39463712699944,
+        "D_start_s": 54.41781175901997,
+        "first_s": 54.78258067101706,
+        "end_s": 68.03188368101837,
+        "P": "P0",
+        "D": "D0",
+        "output_tokens": 610,
+        "finish_reason": "stop",
+        "effective_TPOT_ms": 21.755834170773912,
+        "phases_s": {
+          "ready_to_P": 0.0450201160407957,
+          "P_HTTP": 9.08408092398895,
+          "P_return_to_D": 0.023174632020527497,
+          "D_to_first": 0.36476891199708916,
+          "first_to_end": 13.249303010001313
+        }
+      },
+      "tail_chain_requests": {
+        "regex-chess:55": {
+          "session_id": "regex-chess:54",
+          "predecessor": "regex-chess:54",
+          "offered_s": 45.265536086969696,
+          "tool_gap_s": 0,
+          "ready_s": 45.265536086969696,
+          "dispatch_s": 45.265968592022546,
+          "P_start_s": 45.31055620301049,
+          "P_end_s": 54.39463712699944,
+          "D_start_s": 54.41781175901997,
+          "first_s": 54.78258067101706,
+          "end_s": 68.03188368101837,
+          "P": "P0",
+          "D": "D0",
+          "output_tokens": 610,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 21.755834170773912,
+          "phases_s": {
+            "ready_to_P": 0.0450201160407957,
+            "P_HTTP": 9.08408092398895,
+            "P_return_to_D": 0.023174632020527497,
+            "D_to_first": 0.36476891199708916,
+            "first_to_end": 13.249303010001313
+          }
+        }
+      },
+      "throughput_at_90pct_of_observed_P_HTTP": {
+        "modeled_s": 67.12347558861947,
+        "saved_s": 0.9084080923989006,
+        "new_tail": "regex-chess:55",
+        "modeled_output_tokens_s": 346.40637714448576
+      },
+      "throughput_at_90pct_of_observed_post_first_token": {
+        "modeled_s": 66.70695338001823,
+        "saved_s": 1.324930301000137,
+        "new_tail": "regex-chess:55",
+        "modeled_output_tokens_s": 348.5693592920859
+      },
+      "throughput_without_sampled_hot_overlap": {
+        "assumption": "remove the entire measured P HTTP overlap with any D port >=85% of cap; freeze all other stages",
+        "modeled_s": 63.23729219401837,
+        "saved_s": 4.794591486999998,
+        "new_tail": "regex-chess:55",
+        "modeled_output_tokens_s": 367.69442829178274
+      },
+      "upstream_proxy_digest": [
+        "e7f46058c5dbb846212a834c443d9986dddec78b9e8dab431eeb5e0df7c0f0e6"
+      ]
+    },
+    "b2-cap100": {
+      "request_count": 90,
+      "output_tokens": 24012,
+      "duration_s": 78.72454315298819,
+      "throughput_tokens_s": 305.01288465195194,
+      "last_P_reply_s": 66.62513124299585,
+      "last_D_start_s": 66.64284769899677,
+      "after_last_P_reply_s": 12.099411909992341,
+      "next_request_end_s": 78.07332682897686,
+      "P_D_resource_samples": {
+        "P0": {
+          "covered_s": 78.72454315298819,
+          "running_request_s": 121.00131839000004,
+          "waiting_request_s": 363.63929879400007,
+          "full_slots_s": 0.0,
+          "peak_kv_fraction": 0.3506955677774183,
+          "peak_waiting": 22.0,
+          "mean_running": 1.5370215379320005
+        },
+        "P1": {
+          "covered_s": 78.72454315298819,
+          "running_request_s": 135.98284996299995,
+          "waiting_request_s": 445.914805023,
+          "full_slots_s": 0.0,
+          "peak_kv_fraction": 0.28955030734390164,
+          "peak_waiting": 18.0,
+          "mean_running": 1.727324726403806
+        },
+        "D0": {
+          "covered_s": 78.72454315298819,
+          "running_request_s": 226.329426053,
+          "waiting_request_s": 0.0,
+          "full_slots_s": 0.0,
+          "peak_kv_fraction": 0.14655451310255585,
+          "peak_waiting": 0.0,
+          "mean_running": 2.874953819842003,
+          "no_D_work_with_P_outstanding_s": 8.01307206900487,
+          "overlap_with_aggregate_hot_s": 1.1540542380000005,
+          "overlap_with_any_hot_port_s": 1.5879586169999982
+        },
+        "D1": {
+          "covered_s": 78.72454315298819,
+          "running_request_s": 248.53740685497638,
+          "waiting_request_s": 0.0,
+          "full_slots_s": 0.0,
+          "peak_kv_fraction": 0.14493691362018768,
+          "peak_waiting": 0.0,
+          "mean_running": 3.1570511164731037,
+          "no_D_work_with_P_outstanding_s": 16.47453714600406,
+          "overlap_with_aggregate_hot_s": 3.034515964999997,
+          "overlap_with_any_hot_port_s": 5.222068732999993
+        }
+      },
+      "D_TX_GB": 201.24752837815234,
+      "D_TX_peak_1s_Gbps": 97.17356413097728,
+      "D_aggregate_above_85pct_s": 4.305862233999996,
+      "D_any_port_above_85pct_s": 13.510018306999996,
+      "route_outcomes": {
+        "D0": {
+          "requests": 42,
+          "tokens": 11232,
+          "last_end_s": 74.64404543998535
+        },
+        "D1": {
+          "requests": 48,
+          "tokens": 12780,
+          "last_end_s": 78.72454315298819
+        }
+      },
+      "windows": {
+        "0-10": {
+          "D_MAC_TX_Gbps": 0.011857612972068122,
+          "P_returns": 18,
+          "client_output_tokens_s": 149.3
+        },
+        "10-30": {
+          "D_MAC_TX_Gbps": 0.009736754219279952,
+          "P_returns": 27,
+          "client_output_tokens_s": 415.95
+        },
+        "30-90": {
+          "D_MAC_TX_Gbps": 26.827781930185207,
+          "P_returns": 45,
+          "client_output_tokens_s": 236.66666666666666
+        },
+        "67-78": {
+          "D_MAC_TX_Gbps": 3.831863929877e-05,
+          "P_returns": 0,
+          "client_output_tokens_s": 482.09090909090907
+        }
+      },
+      "phases": {
+        "roots": {
+          "ready_to_P": {
+            "p50": 0.031135171559250496,
+            "p95": 0.057373707394569706,
+            "max": 0.26884984600474127
+          },
+          "P_HTTP": {
+            "p50": 11.995104618021287,
+            "p95": 25.453341102984268,
+            "max": 25.740892361005535
+          },
+          "P_return_to_D": {
+            "p50": 0.02505182402092032,
+            "p95": 0.04257607800536789,
+            "max": 0.04466757201589644
+          },
+          "D_to_first": {
+            "p50": 0.39391850301763043,
+            "p95": 0.5701938839920331,
+            "max": 0.7761473589926027
+          },
+          "first_to_end": {
+            "p50": 4.209385894006118,
+            "p95": 9.49248323100619,
+            "max": 12.540967082983116
+          }
+        },
+        "successors": {
+          "ready_to_P": {
+            "p50": 0.028680111163474464,
+            "p95": 0.046377892070367466,
+            "max": 0.05664905899902806
+          },
+          "P_HTTP": {
+            "p50": 15.607774925010744,
+            "p95": 21.049510987999383,
+            "max": 21.13679328901344
+          },
+          "P_return_to_D": {
+            "p50": 0.025284595001721755,
+            "p95": 0.04705633700359613,
+            "max": 0.051858969003660604
+          },
+          "D_to_first": {
+            "p50": 0.3660120109852869,
+            "p95": 0.5556987199815921,
+            "max": 0.6220608229923528
+          },
+          "first_to_end": {
+            "p50": 4.754279943997972,
+            "p95": 11.853977866994683,
+            "max": 12.197952763002831
+          }
+        }
+      },
+      "observed_dependencies": {
+        "max_error_s": 0.0,
+        "tail": "regex-chess:34",
+        "tail_chain": [
+          "regex-chess:34"
+        ],
+        "tail_chain_phase_sum_s": {
+          "ready_to_P": 0.020342329208958176,
+          "P_HTTP": 21.047397774993442,
+          "P_return_to_D": 0.0187280320096761,
+          "D_to_first": 0.2923067189985886,
+          "first_to_end": 11.853977866994683
+        },
+        "tail_chain_root_offer_s": 45.49179043078284,
+        "tail_chain_tool_wait_s": 0,
+        "next_session_end_s": 78.07332682897686,
+        "P_HTTP_sensitivity": {
+          "0.9x": {
+            "finish_s": 76.61980337548884,
+            "save_s": 2.104739777499347
+          },
+          "0.5x": {
+            "finish_s": 68.20084426549147,
+            "save_s": 10.523698887496721
+          },
+          "0x": {
+            "finish_s": 57.76780703099212,
+            "save_s": 20.956736121996073
+          }
+        }
+      },
+      "cap_Gbps": 100,
+      "D_egress_cap_Gbps": 100,
+      "P_egress_cap_Gbps": null,
+      "total": {
+        "ttft_from_ready": {
+          "n": 90,
+          "p50_s": 14.6826928980689,
+          "p90_s": 20.844374863807097,
+          "p95_s": 21.509727297020866,
+          "p99_s": 26.36486696259789
+        },
+        "e2e_from_ready": {
+          "n": 90,
+          "p50_s": 19.607429805076073,
+          "p90_s": 28.714857123374898,
+          "p95_s": 32.09837097159443,
+          "p99_s": 34.421995670762506
+        },
+        "first_from_offered": {
+          "n": 90,
+          "p50_s": 14.6826928980689,
+          "p90_s": 20.844374863807097,
+          "p95_s": 21.509727297020866,
+          "p99_s": 26.36486696259789
+        },
+        "client_queue": {
+          "n": 90,
+          "p50_s": 0.0009618405512672457,
+          "p90_s": 0.0020035319983904287,
+          "p95_s": 0.00903255895773214,
+          "p99_s": 0.21883575999527238
+        },
+        "drain_included_s": 78.72454315298819,
+        "first_offered_s": 0.0,
+        "offer_to_last_end_s": 78.72454315298819,
+        "output_tokens": 24012,
+        "output_tokens_per_s": 305.01288465195194,
+        "completed_requests_per_drain_s": 1.1432267040927735
+      },
+      "P_prompt_token_sources": {
+        "local_compute": 738746.0,
+        "local_cache_hit": 4776960.0,
+        "external_kv_transfer": 4772864.0
+      },
+      "D_prompt_token_sources": {
+        "local_compute": 90.0,
+        "local_cache_hit": 8963072.0,
+        "external_kv_transfer": 1325498.0
+      },
+      "prefix_cache_hits_tokens": {
+        "P0": 5047296.0,
+        "P1": 5556224.0,
+        "D0": 4200448.0,
+        "D1": 4762624.0
+      },
+      "engine_prompt_counts": {
+        "P0": 5216515.0,
+        "P1": 5072055.0,
+        "D0": 4865147.0,
+        "D1": 5423513.0
+      },
+      "store_counter_delta": {
+        "master_successful_evictions_total": 0.0,
+        "master_evicted_key_count": 0.0,
+        "master_evicted_size_bytes": 0.0,
+        "master_put_start_alloc_failures_total": 0.0,
+        "master_batch_put_start_failures_total": 0.0,
+        "master_batch_exist_key_failures_total": 0.0
+      },
+      "D_RX_GB": 90.33248698236618,
+      "D_TX_peak_Gbps_by_port": [
+        {
+          "1": 14.59368750966948,
+          "5": 11.782651434973323,
+          "10": 11.222185808784364,
+          "30": 7.218033602600625
+        },
+        {
+          "1": 11.304299521091465,
+          "5": 9.358766899035427,
+          "10": 9.007677698210605,
+          "30": 6.083670239733339
+        },
+        {
+          "1": 12.54468181486746,
+          "5": 10.466167686141983,
+          "10": 9.665656644426269,
+          "30": 6.5354657885333305
+        },
+        {
+          "1": 11.302940224431026,
+          "5": 9.760007149600773,
+          "10": 9.243129799447146,
+          "30": 6.184527090228247
+        },
+        {
+          "1": 11.98686189263453,
+          "5": 10.570733336179245,
+          "10": 9.981622146738676,
+          "30": 6.846017600144067
+        },
+        {
+          "1": 14.706752904136948,
+          "5": 12.27966790694413,
+          "10": 11.902025618841439,
+          "30": 8.031323950130494
+        },
+        {
+          "1": 12.25494528229872,
+          "5": 9.98384699380723,
+          "10": 9.488480381181713,
+          "30": 6.186041524664938
+        },
+        {
+          "1": 12.411726709872454,
+          "5": 10.241905579895198,
+          "10": 9.66396205971843,
+          "30": 6.570482866723852
+        }
+      ],
+      "D_TX_MB_per_output_token": 8.381123120862583,
+      "observed_arrival_window": {
+        "start_s": 44.5,
+        "end_s": 84.5,
+        "port_coverage_s": 35.076628113,
+        "D_MAC_TX_Gbps": 45.67700359312014,
+        "aggregate_near_cap": {
+          "seconds": 4.305862233999996,
+          "longest_s": 1.8804617269999966
+        },
+        "each_port_near_cap": [
+          {
+            "seconds": 7.605530382999994,
+            "longest_s": 1.8857872529999966
+          },
+          {
+            "seconds": 2.7812760619999892,
+            "longest_s": 1.890055665999995
+          },
+          {
+            "seconds": 5.868900626999988,
+            "longest_s": 1.886744378000003
+          },
+          {
+            "seconds": 1.8803531260000028,
+            "longest_s": 1.8803531260000028
+          },
+          {
+            "seconds": 7.5401735410000015,
+            "longest_s": 2.618531227999995
+          },
+          {
+            "seconds": 13.486515405000006,
+            "longest_s": 3.960476518
+          },
+          {
+            "seconds": 1.803686515999999,
+            "longest_s": 1.803686515999999
+          },
+          {
+            "seconds": 1.877234265999995,
+            "longest_s": 1.877234265999995
+          }
+        ],
+        "actual_root_dispatches": 0,
+        "actual_dispatches": 45,
+        "P_HTTP_returns": 45,
+        "D_HTTP_dispatches": 45,
+        "client_first_tokens": 45,
+        "output_tokens_per_s_of_full_seconds": 318.9230769230769
+      },
+      "P_egress": {
+        "P_MAC_TX_GB": 90.55340104181873,
+        "P_MAC_RX_GB": 201.2421887054779,
+        "P_1s_peak_Gbps": 44.32355627344494,
+        "P_aggregate_hot_s": 0,
+        "P_any_port_hot_s": 0,
+        "P_hot_port_during_any_D_ingress_to_first_s": 0,
+        "P_wall_mapping_span_ns": 2580,
+        "P_port_coverage_s": 78.72454315298819,
+        "primary_window": {
+          "start_s": 44.5,
+          "end_s": 84.5,
+          "port_coverage_s": 40.0,
+          "aggregate_near_cap": {
+            "seconds": 0,
+            "longest_s": 0
+          },
+          "each_port_near_cap": [
+            {
+              "seconds": 0,
+              "longest_s": 0
+            },
+            {
+              "seconds": 0,
+              "longest_s": 0
+            },
+            {
+              "seconds": 0,
+              "longest_s": 0
+            },
+            {
+              "seconds": 0,
+              "longest_s": 0
+            },
+            {
+              "seconds": 0,
+              "longest_s": 0
+            },
+            {
+              "seconds": 0,
+              "longest_s": 0
+            },
+            {
+              "seconds": 0,
+              "longest_s": 0
+            },
+            {
+              "seconds": 0,
+              "longest_s": 0
+            }
+          ],
+          "actual_root_dispatches": 0,
+          "actual_dispatches": 45,
+          "P_HTTP_returns": 45,
+          "D_HTTP_dispatches": 45,
+          "client_first_tokens": 45,
+          "output_tokens_per_s_of_full_seconds": 318.9230769230769,
+          "P_MAC_TX_Gbps": 1.8628822981768263
+        },
+        "P_TX_peak_Gbps_by_port": [
+          {
+            "1": 10.77988888848327,
+            "5": 5.0138273925526935,
+            "10": 3.6304626090035925,
+            "30": 2.4972552891366475
+          },
+          {
+            "1": 9.404416011873472,
+            "5": 5.109796517337485,
+            "10": 3.5499381566744277,
+            "30": 2.4853561198956973
+          },
+          {
+            "1": 8.123692726011143,
+            "5": 4.7870760219102335,
+            "10": 3.6079614705140783,
+            "30": 2.497303736924046
+          },
+          {
+            "1": 9.413623285860538,
+            "5": 4.975988436654522,
+            "10": 3.650175404770342,
+            "30": 2.4916388668744722
+          },
+          {
+            "1": 11.265917603843121,
+            "5": 5.0744432096349925,
+            "10": 4.108428089254856,
+            "30": 2.9119542258681936
+          },
+          {
+            "1": 11.254322830219238,
+            "5": 5.0835168160164725,
+            "10": 4.126881844596881,
+            "30": 2.913632447851087
+          },
+          {
+            "1": 11.255080456404642,
+            "5": 5.019174610405915,
+            "10": 4.141290138401834,
+            "30": 2.911340108961393
+          },
+          {
+            "1": 11.254966514698381,
+            "5": 5.060701523862312,
+            "10": 3.4701410089450504,
+            "30": 2.894969617714223
+          }
+        ],
+        "pending_first_token_D_supply": {
+          "D0": {
+            "no_reported_running_with_pending_first_token_s": 0.7827439380389194,
+            "overlap_with_P_hot_port_s": 0
+          },
+          "D1": {
+            "no_reported_running_with_pending_first_token_s": 4.172202660992111,
+            "overlap_with_P_hot_port_s": 0
+          }
+        }
+      },
+      "finish_reasons": {
+        "stop": 90
+      },
+      "final_request": {
+        "session_id": "regex-chess:33",
+        "predecessor": "regex-chess:33",
+        "offered_s": 45.49179043078284,
+        "tool_gap_s": 0,
+        "ready_s": 45.49179043078284,
+        "dispatch_s": 45.49229107098654,
+        "P_start_s": 45.5121327599918,
+        "P_end_s": 66.55953053498524,
+        "D_start_s": 66.57825856699492,
+        "first_s": 66.87056528599351,
+        "end_s": 78.72454315298819,
+        "P": "P0",
+        "D": "D1",
+        "output_tokens": 633,
+        "finish_reason": "stop",
+        "effective_TPOT_ms": 18.756294093346018,
+        "phases_s": {
+          "ready_to_P": 0.020342329208958176,
+          "P_HTTP": 21.047397774993442,
+          "P_return_to_D": 0.0187280320096761,
+          "D_to_first": 0.2923067189985886,
+          "first_to_end": 11.853977866994683
+        }
+      },
+      "tail_chain_requests": {
+        "regex-chess:34": {
+          "session_id": "regex-chess:33",
+          "predecessor": "regex-chess:33",
+          "offered_s": 45.49179043078284,
+          "tool_gap_s": 0,
+          "ready_s": 45.49179043078284,
+          "dispatch_s": 45.49229107098654,
+          "P_start_s": 45.5121327599918,
+          "P_end_s": 66.55953053498524,
+          "D_start_s": 66.57825856699492,
+          "first_s": 66.87056528599351,
+          "end_s": 78.72454315298819,
+          "P": "P0",
+          "D": "D1",
+          "output_tokens": 633,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 18.756294093346018,
+          "phases_s": {
+            "ready_to_P": 0.020342329208958176,
+            "P_HTTP": 21.047397774993442,
+            "P_return_to_D": 0.0187280320096761,
+            "D_to_first": 0.2923067189985886,
+            "first_to_end": 11.853977866994683
+          }
+        }
+      },
+      "throughput_at_90pct_of_observed_P_HTTP": {
+        "modeled_s": 76.61980337548884,
+        "saved_s": 2.104739777499347,
+        "new_tail": "regex-chess:34",
+        "modeled_output_tokens_s": 313.39156382749985
+      },
+      "throughput_at_90pct_of_observed_post_first_token": {
+        "modeled_s": 77.53914536628872,
+        "saved_s": 1.1853977866994683,
+        "new_tail": "regex-chess:34",
+        "modeled_output_tokens_s": 309.6758403328955
+      },
+      "throughput_without_sampled_hot_overlap": {
+        "assumption": "remove the entire measured P HTTP overlap with any D port >=85% of cap; freeze all other stages",
+        "modeled_s": 65.71907226098,
+        "saved_s": 13.00547089200819,
+        "new_tail": "regex-chess:34",
+        "modeled_output_tokens_s": 365.3733866577552
+      },
+      "upstream_proxy_digest": [
+        "e7f46058c5dbb846212a834c443d9986dddec78b9e8dab431eeb5e0df7c0f0e6"
+      ]
+    }
+  },
+  "pairs": {
+    "b1": {
+      "log_throughput_ratio": 0.09699688404896661,
+      "log_volume_term": 0.02653366371515985,
+      "log_elapsed_term": 0.07046322033380677,
+      "elapsed_100_minus_200_s": 5.095665859989822,
+      "stage_swap_attribution_s": {
+        "ready_to_P": -0.002511916507501155,
+        "P_HTTP": 7.246046607154616,
+        "P_return_to_D": -0.008434800324418271,
+        "D_to_first": 0.028599455996300094,
+        "first_to_end": -2.168033486329174
+      },
+      "only_P_HTTP_swapped_from_200_into_100": {
+        "finish_s": 67.15575563095626,
+        "tail": "regex-chess:59"
+      },
+      "only_decode_span_swapped_from_200_into_100": {
+        "finish_s": 76.61285116596264,
+        "tail": "regex-chess:55"
+      },
+      "matched_route_requests": 41,
+      "matched_output_lengths": 19,
+      "matched_route_but_different_output_length": 35,
+      "largest_token_volume_changes": [
+        {
+          "id": "make-mips-interpreter:68",
+          "tokens_100": 592,
+          "tokens_200": 306
+        },
+        {
+          "id": "regex-chess:54",
+          "tokens_100": 432,
+          "tokens_200": 710
+        },
+        {
+          "id": "make-mips-interpreter:80",
+          "tokens_100": 335,
+          "tokens_200": 59
+        },
+        {
+          "id": "regex-chess:67",
+          "tokens_100": 430,
+          "tokens_200": 690
+        },
+        {
+          "id": "regex-chess:99",
+          "tokens_100": 469,
+          "tokens_200": 700
+        }
+      ],
+      "generation_work_and_cadence_s": {
+        "before_first": 6.9789823286409955,
+        "output_tokens": -0.13393665673765298,
+        "residence_per_output_token": -1.7493798119135204
+      },
+      "throughput_change_pct": 10.185694028338999,
+      "cases": [
+        "b1-cap100",
+        "b1-cap200"
+      ]
+    },
+    "b2": {
+      "log_throughput_ratio": 0.11381593539625733,
+      "log_volume_term": -0.032162555550492564,
+      "log_elapsed_term": 0.1459784909467499,
+      "elapsed_100_minus_200_s": 10.692659471969819,
+      "stage_swap_attribution_s": {
+        "ready_to_P": -0.012046161350250866,
+        "P_HTTP": 11.566780885167343,
+        "P_return_to_D": 0.0005878873247032362,
+        "D_to_first": -0.007364308316027738,
+        "first_to_end": -0.8552988308559482
+      },
+      "only_P_HTTP_swapped_from_200_into_100": {
+        "finish_s": 66.85188795498107,
+        "tail": "regex-chess:55"
+      },
+      "only_decode_span_swapped_from_200_into_100": {
+        "finish_s": 79.27396767100436,
+        "tail": "regex-chess:55"
+      },
+      "matched_route_requests": 44,
+      "matched_output_lengths": 12,
+      "matched_route_but_different_output_length": 40,
+      "largest_token_volume_changes": [
+        {
+          "id": "regex-chess:34",
+          "tokens_100": 633,
+          "tokens_200": 231
+        },
+        {
+          "id": "regex-chess:99",
+          "tokens_100": 624,
+          "tokens_200": 407
+        },
+        {
+          "id": "make-doom-for-mips:71",
+          "tokens_100": 300,
+          "tokens_200": 481
+        },
+        {
+          "id": "regex-chess:41",
+          "tokens_100": 215,
+          "tokens_200": 394
+        },
+        {
+          "id": "regex-chess:67",
+          "tokens_100": 608,
+          "tokens_200": 439
+        }
+      ],
+      "generation_work_and_cadence_s": {
+        "before_first": 11.744700436325122,
+        "output_tokens": 2.8828052706626552,
+        "residence_per_output_token": -3.9348462350179596
+      },
+      "throughput_change_pct": 12.054585307264443,
+      "cases": [
+        "b2-cap100",
+        "b2-cap200"
+      ]
+    },
+    "repeat_100": {
+      "log_throughput_ratio": -0.059655907529436746,
+      "log_volume_term": -0.009780434365905406,
+      "log_elapsed_term": -0.04987547316353134,
+      "elapsed_100_minus_200_s": -3.8301154900109395,
+      "stage_swap_attribution_s": {
+        "ready_to_P": -0.001377390493871644,
+        "P_HTTP": -1.3993602404952976,
+        "P_return_to_D": -0.0013707035104744139,
+        "D_to_first": -0.004832627499126829,
+        "first_to_end": -2.4231745280121686
+      },
+      "only_P_HTTP_swapped_from_200_into_100": {
+        "finish_s": 76.25981246097945,
+        "tail": "regex-chess:40"
+      },
+      "only_decode_span_swapped_from_200_into_100": {
+        "finish_s": 77.2818791619793,
+        "tail": "regex-chess:34"
+      },
+      "matched_route_requests": 50,
+      "matched_output_lengths": 12,
+      "matched_route_but_different_output_length": 44,
+      "largest_token_volume_changes": [
+        {
+          "id": "make-mips-interpreter:68",
+          "tokens_100": 592,
+          "tokens_200": 312
+        },
+        {
+          "id": "make-mips-interpreter:80",
+          "tokens_100": 335,
+          "tokens_200": 59
+        },
+        {
+          "id": "regex-chess:34",
+          "tokens_100": 365,
+          "tokens_200": 633
+        },
+        {
+          "id": "make-mips-interpreter:97",
+          "tokens_100": 438,
+          "tokens_200": 257
+        },
+        {
+          "id": "regex-chess:41",
+          "tokens_100": 394,
+          "tokens_200": 215
+        }
+      ],
+      "generation_work_and_cadence_s": {
+        "before_first": -1.5218013933335897,
+        "output_tokens": -2.9072584668941275,
+        "residence_per_output_token": 0.5989443702167776
+      },
+      "throughput_change_pct": -5.7911356572020845,
+      "cases": [
+        "b1-cap100",
+        "b2-cap100"
+      ]
+    },
+    "repeat_200": {
+      "log_throughput_ratio": -0.042836856182146,
+      "log_volume_term": -0.06847665363155783,
+      "log_elapsed_term": 0.025639797449411833,
+      "elapsed_100_minus_200_s": 1.7668781219690572,
+      "stage_swap_attribution_s": {
+        "ready_to_P": -0.006944380016648211,
+        "P_HTTP": 1.2945150735176867,
+        "P_return_to_D": 0.00015632597205694787,
+        "D_to_first": -0.013934991482528854,
+        "first_to_end": 0.4930860939784907
+      },
+      "only_P_HTTP_swapped_from_200_into_100": {
+        "finish_s": 69.311991052964,
+        "tail": "regex-chess:67"
+      },
+      "only_decode_span_swapped_from_200_into_100": {
+        "finish_s": 70.13016249300563,
+        "tail": "regex-chess:55"
+      },
+      "matched_route_requests": 41,
+      "matched_output_lengths": 18,
+      "matched_route_but_different_output_length": 32,
+      "largest_token_volume_changes": [
+        {
+          "id": "regex-chess:99",
+          "tokens_100": 700,
+          "tokens_200": 407
+        },
+        {
+          "id": "regex-chess:67",
+          "tokens_100": 690,
+          "tokens_200": 439
+        },
+        {
+          "id": "regex-chess:54",
+          "tokens_100": 710,
+          "tokens_200": 493
+        },
+        {
+          "id": "make-doom-for-mips:102",
+          "tokens_100": 292,
+          "tokens_200": 104
+        },
+        {
+          "id": "caffe-cifar-10:63",
+          "tokens_100": 461,
+          "tokens_200": 274
+        }
+      ],
+      "generation_work_and_cadence_s": {
+        "before_first": 1.2737920279905666,
+        "output_tokens": 0.5958558632447648,
+        "residence_per_output_token": -0.10276976926627415
+      },
+      "throughput_change_pct": -4.193231986309531,
+      "cases": [
+        "b1-cap200",
+        "b2-cap200"
+      ]
+    }
+  }
+}

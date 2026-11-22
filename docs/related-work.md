@@ -1,8 +1,8 @@
-# r14–r16 的直接相关工作
+# 远端恢复与 D 交接的直接相关工作
 
 核查截至 2026-11-19。比较以已实测的两机 16 卡 910B2、Qwen3.5-35B-A3B BF16、2P2D、每实例 attention TP4 / expert EP4 为准。D 侧 Mooncake Store 中的历史前缀经 D→P 恢复，P→D 是另一条请求交接路径。r14 固定字节改变 D→P 端口限速，隔离网络服务对同步 GET 和 P 排队的影响。r15 改同头 Attention 的实际跨机读次数，SSM/conv 按 rank 保留。r16 固定 r15 的远端读选取和载荷，改两个 P rank 间离散页的分发。两类前缀分别为 223,256 和 238,600 token，诊断轮关闭 APC。r19 和 r20 进一步在 APC 开启的真实长会话后继上回切。[实测](results.md) · [版本](deployment.md#运行域) · [数据集](workloads.md#硬限速诊断)
 
-现有方法的可证伪局限、最强固定基线和新设计的适用边界，随 [七步法](research-seven-steps.md) 更新。
+现有方法的可证伪局限、最强固定基线和新设计的适用边界随七步法更新。张书豪及合作者的有状态流计算、资源回压、进度感知批处理和流水机制有独立的源码与实验判据。[七步法](research-seven-steps.md) · [流计算相关工作](stream-processing-related-work.md)
 
 ## 最接近的已合并实现
 
@@ -61,3 +61,21 @@ SGLang Direct Linker 已实现入队预取、私有 GPU slot 和全 TP 完成后
 - **r15 的实证**是对已共享的对象，按 GQA 同头组把消费端的跨机读取合并，并保持各 rank 的 SSM/conv 状态与原数据路径。跨机 GET 914.164→460.173 GB，D MAC TX 的下降与之吻合。SGLang Linker 已有全组复制时的直接读取与分发，vLLM canonical layout 已有 GQA 同头 CPU 单副本，Ascend KVPP 已有按层 owner。当前原型在一个混合模型中按状态组选择恢复方式，同头组内每 16 个逻辑块轮换读者，使用现有的目的页和设备直读。r15 与原生各 rank 读取配对，固定组长与轮换读者的独立收益还有待测量。[r15](results.md#r15-同头-attention-kv-单次跨机读取)
 - **r16 的实证**是按相邻描述符把双端地址断点与结构边界分开记账。在远端读取和 P→D 交接字节完全相同的配对轮内，将本机广播约 3,700–3,780 次降到 18–19 次。分发 p50 降约 67%，100/200 Gbps 吞吐分别增 15.96%/33.87%。记录了高并发地址碎片如何把小提交成本传给服务指标。通用打包、散写和按 owner 合批都有前述先例。候选的条件性收益可用低碎片直接分发、高碎片直接分发、同字节打包三种控制解释。[r16](results.md#r16-同头-kv-的打包分发)
 - **读取/重算属于独立比较。** r19 已在 APC 开启的真实后继受控波次中确认高 D→P 恢复时的消重收益。要测读取与重算的交叉点，匹配基线包括固定远端读、主动跳过并正常重算、NIXL 式 token 阈值、MemServe 式最大带宽与重算成本比较。若允许 D 保留会话状态，再纳入 AMPD 式 D 本地增量和增量回传，记录 D TPOT/ITL。Evolving Infra 和 Nebula 已计队列与传输，后续模型可着重校准每口服务竞争、页连续性导致的本机分发变化以及 Hybrid checkpoint 就绪。[r19](results.md#r19-apc-开启的高远端恢复-ab) · [判断模型](problem-model.md#远端读取与重算) · [待测协议](bottleneck-and-validation.md#远端读与重算对照)
+
+## 与 D 消费窗口有关的直接对照
+
+| 工作 | 已覆盖的机制 | 在当前平台的判别试验 |
+|---|---|---|
+| **Dual-Memory Request Scheduling** | 在 P 内存预算中包含已完成 prefill 且等待交接的 KV，并在代理按 D 预算准入。离线分组与顺序基于整批已知请求，理论设传输瞬时，实测包含传输。 | 用同路由的 D 页数与槽数准入作为强对照。再加入实测的 D→P Hybrid 恢复路径选择、可接纳时点与 P 侧实际交接页释放，看能否更早完成同一组会话。仅凭计入 P 页持有做不了贡献区分。[原文 §H.2](https://arxiv.org/html/2610.15579v1) |
+| **Nuska 与 Cascade** | Nuska 依据阶段、计算依赖和期限协调已提交的通信。Cascade 按剩余 SLO 预算、路径带宽和缓存估算选择恢复或重算。 | 将通信优先级和单请求预算选择保留为控制。r27c 高带宽下存在 P 持页、D 满槽且零 GET 的窗口。更高的网络优先级在窗口内无法推进尚未提交的工作。该次观察属于机制边界，整套系统在本机的性能需另测。[Nuska §4–5](https://arxiv.org/html/2603.17456v2#S5) · [Cascade §IV](https://arxiv.org/html/2608.06557v1#S4) · [r27c 证据](critical-path-attribution.md#p-页持有与-d-供给) |
+| **When the KV Cache Is Slower Than the GPU** | 量化远端读取、排队和重算的交叉点，并实现异步及分片。核心成本模型决定 P 的服务路径。 | 用同请求最快读或重算作为对照。若两条路径都在 D 下一次可接纳之前完成，比较 P 资源和端口竞争对其他会话完工的影响，并记录每资源的实际消耗。[原文 §4](https://arxiv.org/html/2610.21500v1#S4) |
+| **AMPD、PPD 与负载感知 Prefill Deflection** | 利用 D 本地前缀或 D 的可用容量执行后继 prefill，并考虑 D 输出受额外计算干扰。AMPD 还改变 P→D 增量回传。 | 目前在指定的 2P2D 路由和合法前缀下做路径和准入对照。若增加 D 本地计算选项，应并列比较已有方案，计其 D 迭代时长和占页。[AMPD §3–4](https://arxiv.org/html/2602.14516v2#S3) · [PPD §4.4](https://arxiv.org/html/2603.13358v1#S4.SS4) · [Prefill Deflection](https://arxiv.org/abs/2607.02043) |
+| **Parrot、Agentix 与 ServeTwin** | 前两者以应用依赖或已完成调用优化程序级调度。ServeTwin 显式建模 P/D KV 生命周期、会话释放与组批。 | 使用同会话前驱的条件重放和独立整轮留出。需要单独验证实际 D 准入与 P 恢复路径联动的收益，单独使用会话关键路径、驻留或阶段分解已有先例。[Parrot](https://www.usenix.org/conference/osdi24/presentation/lin-chaofan) · [Agentix](https://www.usenix.org/conference/nsdi26/presentation/luo) · [ServeTwin §3.3–3.5](https://arxiv.org/html/2610.02732v1#S3) |
+
+候选贡献聚焦在可检验的联动效果。比较同一路由下，用 D 可接纳时点约束 APC 后读取或重算，并在 P 分配前控制持有期，是否能让同一自然长会话负载比固定打包、按当前 D 槽准入及只选最快 P 路径更早排空。r26 与 r27c 方法数据证明两类准入等待的量级相差两个数量级。当前证据尚未覆盖完整对照或自然负载上的组合收益。[重新归因](critical-path-attribution.md#r26-与-r27c-的交接准入机会)
+
+跨领域的补充比较覆盖 Flink 信用和 Hybrid Shuffle、SQL Server RNIC 缓冲、MPI 分片、Varys、OpenUCX 与 RDMA 批提交。固定版 layerwise 及较新版 D2RH 的兼容域单独核对。[跨领域来源与实测判据](cross-domain-transport.md)
+
+## 冷首轮顺序与会话排空
+
+CAAS 已在 Hybrid 模型的整批 makespan 目标下用会话进展引导工具调度，Basin 已用 P/D 共通的会话优先级和容量控制减少缓存压力，SMetric 已以首轮路由与后续亲和提高会话负载吞吐，TailRoll 已用剩余服务和迁移成本解释多个 D engine 的尾部。与这组先例相比，待测的增量是原生路由、自然 EOS 下的 P 冷根重排能否比标准 SJF 稳定缩短两侧中最后的实际完工。r33 同模型下 SJF 405.21→446.65 token/s，事后最优两次提前到 450.49，历史后缀评分没有提前。该结果给出简单排序的强度及在线预测差距。[按机制对齐的先例与结果](cold-prefill-order.md#调研如何进入设计) · [CAAS](https://arxiv.org/html/2611.16661v1#S4.SS2) · [Basin](https://arxiv.org/html/2611.02543v1#S6.SS3) · [SMetric](https://arxiv.org/html/2607.08565v1#S4) · [TailRoll](https://arxiv.org/html/2611.22206v1#S7)

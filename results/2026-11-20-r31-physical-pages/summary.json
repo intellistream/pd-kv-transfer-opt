@@ -1,0 +1,3759 @@
+{
+  "cases": {
+    "b1-cap200": {
+      "whole_replay": {
+        "requests": 170,
+        "output_tokens": 152412,
+        "drain_s": 419.9371098149568,
+        "output_tokens_per_s": 362.9400603989478
+      },
+      "allocator_checkpoints": {
+        "P0": {
+          "observed_calls_lower_bound": 420,
+          "unobserved_checks_in_sample_range": 0,
+          "min_free_at_observed_check": 2499,
+          "min_slack_at_observed_check": 2460,
+          "peak_sampled_reclaimable_held_blocks": 366,
+          "peak_sampled_held_requests": 3
+        },
+        "P1": {
+          "observed_calls_lower_bound": 528,
+          "unobserved_checks_in_sample_range": 0,
+          "min_free_at_observed_check": 2606,
+          "min_slack_at_observed_check": 2532,
+          "peak_sampled_reclaimable_held_blocks": 244,
+          "peak_sampled_held_requests": 4
+        }
+      },
+      "releases": {
+        "P0": {
+          "requests": 74,
+          "held_s": {
+            "n": 74,
+            "mean": 0.3538088992162162,
+            "p50": 0.29098510099999997,
+            "p95": 0.662296011,
+            "max": 1.238482465
+          },
+          "returned_physical_block_refs": 5682
+        },
+        "P1": {
+          "requests": 96,
+          "held_s": {
+            "n": 96,
+            "mean": 0.3506388701875,
+            "p50": 0.265917992,
+            "p95": 0.696008356,
+            "max": 0.754128487
+          },
+          "returned_physical_block_refs": 7848
+        }
+      },
+      "sampled_denials": [],
+      "requests_with_denials": 0,
+      "requests_with_fitting_detach_before_D_allocation": 0,
+      "matched_receive_phase_s": {
+        "D_arrival_to_alloc_s": {
+          "n": 170,
+          "mean": 0.0026905092470588237,
+          "p50": 0.0010053865,
+          "p95": 0.002039373,
+          "max": 0.197877258
+        },
+        "D_alloc_to_KV_ready_s": {
+          "n": 170,
+          "mean": 0.09580243615882353,
+          "p50": 0.081297829,
+          "p95": 0.165363566,
+          "max": 0.360122834
+        }
+      },
+      "D_arrival_to_alloc_over_5s": 0,
+      "counterfactuals": {
+        "remove_observed_attributable_allocator_episodes": {
+          "original_finish_s": 419.9371098149568,
+          "counterfactual_finish_s": 419.9371098149568,
+          "advance_s": 0.0,
+          "resulting_tail_chain": [
+            "natural-winning-avg-corewars:126",
+            "natural-winning-avg-corewars:127",
+            "natural-winning-avg-corewars:128",
+            "natural-winning-avg-corewars:129",
+            "natural-winning-avg-corewars:130",
+            "natural-winning-avg-corewars:131"
+          ],
+          "fixed_service_and_EOS": true
+        },
+        "remove_entire_D_alloc_to_ready_at_fixed_admission": {
+          "original_finish_s": 419.9371098149568,
+          "counterfactual_finish_s": 419.17896007595675,
+          "advance_s": 0.7581497390000322,
+          "resulting_tail_chain": [
+            "natural-winning-avg-corewars:126",
+            "natural-winning-avg-corewars:127",
+            "natural-winning-avg-corewars:128",
+            "natural-winning-avg-corewars:129",
+            "natural-winning-avg-corewars:130",
+            "natural-winning-avg-corewars:131"
+          ],
+          "fixed_service_and_EOS": true
+        }
+      },
+      "observed_tail_chain": [
+        "natural-winning-avg-corewars:126",
+        "natural-winning-avg-corewars:127",
+        "natural-winning-avg-corewars:128",
+        "natural-winning-avg-corewars:129",
+        "natural-winning-avg-corewars:130",
+        "natural-winning-avg-corewars:131"
+      ],
+      "per_request": {
+        "natural-install-windows-3.11:19": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.639408119,
+          "P_referenced_blocks": 39,
+          "P_just_this_reference_blocks_on_retain": 39,
+          "P_physically_returned_blocks": 39,
+          "D_arrival_to_alloc_s": 0.000530074,
+          "D_alloc_to_KV_ready_s": 0.321879834
+        },
+        "natural-financial-document-processor:59": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.434758652,
+          "P_referenced_blocks": 68,
+          "P_just_this_reference_blocks_on_retain": 68,
+          "P_physically_returned_blocks": 68,
+          "D_arrival_to_alloc_s": 0.000532213,
+          "D_alloc_to_KV_ready_s": 0.063721065
+        },
+        "natural-make-mips-interpreter:87": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.895198165,
+          "P_referenced_blocks": 132,
+          "P_just_this_reference_blocks_on_retain": 132,
+          "P_physically_returned_blocks": 132,
+          "D_arrival_to_alloc_s": 0.000581373,
+          "D_alloc_to_KV_ready_s": 0.360122834
+        },
+        "natural-path-tracing:21": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.223513638,
+          "P_referenced_blocks": 68,
+          "P_just_this_reference_blocks_on_retain": 68,
+          "P_physically_returned_blocks": 68,
+          "D_arrival_to_alloc_s": 0.000445323,
+          "D_alloc_to_KV_ready_s": 0.041193488
+        },
+        "natural-dna-assembly:21": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.206940804,
+          "P_referenced_blocks": 40,
+          "P_just_this_reference_blocks_on_retain": 40,
+          "P_physically_returned_blocks": 40,
+          "D_arrival_to_alloc_s": 0.000297262,
+          "D_alloc_to_KV_ready_s": 0.038061148
+        },
+        "natural-gcode-to-text:97": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.657949946,
+          "P_referenced_blocks": 132,
+          "P_just_this_reference_blocks_on_retain": 132,
+          "P_physically_returned_blocks": 132,
+          "D_arrival_to_alloc_s": 0.000610464,
+          "D_alloc_to_KV_ready_s": 0.096986681
+        },
+        "natural-db-wal-recovery:16": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.237641774,
+          "P_referenced_blocks": 36,
+          "P_just_this_reference_blocks_on_retain": 36,
+          "P_physically_returned_blocks": 36,
+          "D_arrival_to_alloc_s": 0.000556594,
+          "D_alloc_to_KV_ready_s": 0.04760614
+        },
+        "natural-chess-best-move:22": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.20658605,
+          "P_referenced_blocks": 38,
+          "P_just_this_reference_blocks_on_retain": 38,
+          "P_physically_returned_blocks": 38,
+          "D_arrival_to_alloc_s": 0.000605784,
+          "D_alloc_to_KV_ready_s": 0.05680451
+        },
+        "natural-mteb-leaderboard:35": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.215061449,
+          "P_referenced_blocks": 36,
+          "P_just_this_reference_blocks_on_retain": 36,
+          "P_physically_returned_blocks": 36,
+          "D_arrival_to_alloc_s": 0.000681085,
+          "D_alloc_to_KV_ready_s": 0.050167306
+        },
+        "natural-gpt2-codegolf:26": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.419085699,
+          "P_referenced_blocks": 68,
+          "P_just_this_reference_blocks_on_retain": 68,
+          "P_physically_returned_blocks": 68,
+          "D_arrival_to_alloc_s": 0.000595064,
+          "D_alloc_to_KV_ready_s": 0.063174721
+        },
+        "natural-train-fasttext:67": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.416303252,
+          "P_referenced_blocks": 68,
+          "P_just_this_reference_blocks_on_retain": 68,
+          "P_physically_returned_blocks": 68,
+          "D_arrival_to_alloc_s": 0.000593664,
+          "D_alloc_to_KV_ready_s": 0.062063074
+        },
+        "natural-raman-fitting:25": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.431994496,
+          "P_referenced_blocks": 70,
+          "P_just_this_reference_blocks_on_retain": 70,
+          "P_physically_returned_blocks": 70,
+          "D_arrival_to_alloc_s": 0.000472203,
+          "D_alloc_to_KV_ready_s": 0.129712884
+        },
+        "natural-crack-7z-hash:31": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.218587339,
+          "P_referenced_blocks": 38,
+          "P_just_this_reference_blocks_on_retain": 38,
+          "P_physically_returned_blocks": 38,
+          "D_arrival_to_alloc_s": 0.000705285,
+          "D_alloc_to_KV_ready_s": 0.045401745
+        },
+        "natural-build-pmars:24": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.206037211,
+          "P_referenced_blocks": 36,
+          "P_just_this_reference_blocks_on_retain": 36,
+          "P_physically_returned_blocks": 36,
+          "D_arrival_to_alloc_s": 0.000758465,
+          "D_alloc_to_KV_ready_s": 0.054631326
+        },
+        "natural-extract-elf:11": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.203765385,
+          "P_referenced_blocks": 36,
+          "P_just_this_reference_blocks_on_retain": 36,
+          "P_physically_returned_blocks": 36,
+          "D_arrival_to_alloc_s": 0.000459673,
+          "D_alloc_to_KV_ready_s": 0.044383669
+        },
+        "natural-regex-chess:105": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.64165988,
+          "P_referenced_blocks": 197,
+          "P_just_this_reference_blocks_on_retain": 197,
+          "P_physically_returned_blocks": 197,
+          "D_arrival_to_alloc_s": 0.000752345,
+          "D_alloc_to_KV_ready_s": 0.150990233
+        },
+        "natural-install-windows-3.11:20": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.291238709,
+          "P_referenced_blocks": 40,
+          "P_just_this_reference_blocks_on_retain": 40,
+          "P_physically_returned_blocks": 40,
+          "D_arrival_to_alloc_s": 0.000667484,
+          "D_alloc_to_KV_ready_s": 0.052846484
+        },
+        "natural-circuit-fibsqrt:37": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.6552281,
+          "P_referenced_blocks": 72,
+          "P_just_this_reference_blocks_on_retain": 72,
+          "P_physically_returned_blocks": 72,
+          "D_arrival_to_alloc_s": 0.000512854,
+          "D_alloc_to_KV_ready_s": 0.111660416
+        },
+        "natural-make-mips-interpreter:88": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 1.238482465,
+          "P_referenced_blocks": 133,
+          "P_just_this_reference_blocks_on_retain": 133,
+          "P_physically_returned_blocks": 133,
+          "D_arrival_to_alloc_s": 0.000672304,
+          "D_alloc_to_KV_ready_s": 0.092849364
+        },
+        "natural-path-tracing:22": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.349019265,
+          "P_referenced_blocks": 71,
+          "P_just_this_reference_blocks_on_retain": 71,
+          "P_physically_returned_blocks": 71,
+          "D_arrival_to_alloc_s": 0.000810366,
+          "D_alloc_to_KV_ready_s": 0.081681481
+        },
+        "natural-dna-assembly:22": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.269852118,
+          "P_referenced_blocks": 43,
+          "P_just_this_reference_blocks_on_retain": 43,
+          "P_physically_returned_blocks": 43,
+          "D_arrival_to_alloc_s": 0.000727245,
+          "D_alloc_to_KV_ready_s": 0.060173221
+        },
+        "natural-gcode-to-text:98": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.388206564,
+          "P_referenced_blocks": 132,
+          "P_just_this_reference_blocks_on_retain": 132,
+          "P_physically_returned_blocks": 132,
+          "D_arrival_to_alloc_s": 0.000856996,
+          "D_alloc_to_KV_ready_s": 0.102504477
+        },
+        "natural-path-tracing-reverse:125": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.662296011,
+          "P_referenced_blocks": 197,
+          "P_just_this_reference_blocks_on_retain": 197,
+          "P_physically_returned_blocks": 197,
+          "D_arrival_to_alloc_s": 0.000947276,
+          "D_alloc_to_KV_ready_s": 0.149894256
+        },
+        "natural-cobol-modernization:18": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.515426132,
+          "P_referenced_blocks": 37,
+          "P_just_this_reference_blocks_on_retain": 37,
+          "P_physically_returned_blocks": 37,
+          "D_arrival_to_alloc_s": 0.002089204,
+          "D_alloc_to_KV_ready_s": 0.061656561
+        },
+        "natural-extract-elf:12": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.156582533,
+          "P_referenced_blocks": 37,
+          "P_just_this_reference_blocks_on_retain": 37,
+          "P_physically_returned_blocks": 37,
+          "D_arrival_to_alloc_s": 0.000670875,
+          "D_alloc_to_KV_ready_s": 0.06303218
+        },
+        "natural-count-dataset-tokens:45": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.288869561,
+          "P_referenced_blocks": 69,
+          "P_just_this_reference_blocks_on_retain": 66,
+          "P_physically_returned_blocks": 69,
+          "D_arrival_to_alloc_s": 0.000874376,
+          "D_alloc_to_KV_ready_s": 0.130486289
+        },
+        "natural-path-tracing:23": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.455875036,
+          "P_referenced_blocks": 72,
+          "P_just_this_reference_blocks_on_retain": 72,
+          "P_physically_returned_blocks": 72,
+          "D_arrival_to_alloc_s": 0.001167498,
+          "D_alloc_to_KV_ready_s": 0.150358608
+        },
+        "natural-video-processing:28": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.222644396,
+          "P_referenced_blocks": 69,
+          "P_just_this_reference_blocks_on_retain": 69,
+          "P_physically_returned_blocks": 69,
+          "D_arrival_to_alloc_s": 0.001278429,
+          "D_alloc_to_KV_ready_s": 0.100862296
+        },
+        "natural-train-fasttext:69": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.445537085,
+          "P_referenced_blocks": 70,
+          "P_just_this_reference_blocks_on_retain": 70,
+          "P_physically_returned_blocks": 70,
+          "D_arrival_to_alloc_s": 0.001066087,
+          "D_alloc_to_KV_ready_s": 0.129703714
+        },
+        "natural-path-tracing:24": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.31534052,
+          "P_referenced_blocks": 74,
+          "P_just_this_reference_blocks_on_retain": 74,
+          "P_physically_returned_blocks": 74,
+          "D_arrival_to_alloc_s": 0.001149207,
+          "D_alloc_to_KV_ready_s": 0.082211415
+        },
+        "natural-gpt2-codegolf:28": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.239135389,
+          "P_referenced_blocks": 71,
+          "P_just_this_reference_blocks_on_retain": 71,
+          "P_physically_returned_blocks": 71,
+          "D_arrival_to_alloc_s": 0.002039373,
+          "D_alloc_to_KV_ready_s": 0.093210066
+        },
+        "natural-feal-linear-cryptanalysis:15": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.215691744,
+          "P_referenced_blocks": 45,
+          "P_just_this_reference_blocks_on_retain": 45,
+          "P_physically_returned_blocks": 45,
+          "D_arrival_to_alloc_s": 0.001024296,
+          "D_alloc_to_KV_ready_s": 0.078044718
+        },
+        "natural-extract-moves-from-video:133": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.642234237,
+          "P_referenced_blocks": 134,
+          "P_just_this_reference_blocks_on_retain": 134,
+          "P_physically_returned_blocks": 134,
+          "D_arrival_to_alloc_s": 0.001084977,
+          "D_alloc_to_KV_ready_s": 0.110399578
+        },
+        "natural-build-pov-ray:30": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.126146087,
+          "P_referenced_blocks": 38,
+          "P_just_this_reference_blocks_on_retain": 38,
+          "P_physically_returned_blocks": 38,
+          "D_arrival_to_alloc_s": 0.001293129,
+          "D_alloc_to_KV_ready_s": 0.082725028
+        },
+        "natural-regex-chess:106": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.644460363,
+          "P_referenced_blocks": 201,
+          "P_just_this_reference_blocks_on_retain": 201,
+          "P_physically_returned_blocks": 201,
+          "D_arrival_to_alloc_s": 0.00142645,
+          "D_alloc_to_KV_ready_s": 0.129882825
+        },
+        "natural-mailman:25": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.290731493,
+          "P_referenced_blocks": 38,
+          "P_just_this_reference_blocks_on_retain": 35,
+          "P_physically_returned_blocks": 38,
+          "D_arrival_to_alloc_s": 0.001108007,
+          "D_alloc_to_KV_ready_s": 0.080471454
+        },
+        "natural-train-fasttext:70": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.296831494,
+          "P_referenced_blocks": 70,
+          "P_just_this_reference_blocks_on_retain": 70,
+          "P_physically_returned_blocks": 70,
+          "D_arrival_to_alloc_s": 0.005070123,
+          "D_alloc_to_KV_ready_s": 0.078485481
+        },
+        "natural-build-pov-ray:31": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.314927966,
+          "P_referenced_blocks": 39,
+          "P_just_this_reference_blocks_on_retain": 39,
+          "P_physically_returned_blocks": 39,
+          "D_arrival_to_alloc_s": 0.001688171,
+          "D_alloc_to_KV_ready_s": 0.105398146
+        },
+        "natural-count-dataset-tokens:47": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.409821836,
+          "P_referenced_blocks": 71,
+          "P_just_this_reference_blocks_on_retain": 71,
+          "P_physically_returned_blocks": 71,
+          "D_arrival_to_alloc_s": 0.001331729,
+          "D_alloc_to_KV_ready_s": 0.083527464
+        },
+        "natural-extract-elf:14": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.346435024,
+          "P_referenced_blocks": 38,
+          "P_just_this_reference_blocks_on_retain": 38,
+          "P_physically_returned_blocks": 38,
+          "D_arrival_to_alloc_s": 0.197877258,
+          "D_alloc_to_KV_ready_s": 0.108890959
+        },
+        "natural-extract-moves-from-video:134": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.405520606,
+          "P_referenced_blocks": 134,
+          "P_just_this_reference_blocks_on_retain": 134,
+          "P_physically_returned_blocks": 134,
+          "D_arrival_to_alloc_s": 0.001147847,
+          "D_alloc_to_KV_ready_s": 0.109514313
+        },
+        "natural-build-pov-ray:32": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.251478563,
+          "P_referenced_blocks": 39,
+          "P_just_this_reference_blocks_on_retain": 36,
+          "P_physically_returned_blocks": 39,
+          "D_arrival_to_alloc_s": 0.001216958,
+          "D_alloc_to_KV_ready_s": 0.080049331
+        },
+        "natural-path-tracing:25": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.401290667,
+          "P_referenced_blocks": 77,
+          "P_just_this_reference_blocks_on_retain": 77,
+          "P_physically_returned_blocks": 77,
+          "D_arrival_to_alloc_s": 0.001053037,
+          "D_alloc_to_KV_ready_s": 0.105612997
+        },
+        "natural-circuit-fibsqrt:39": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.239971689,
+          "P_referenced_blocks": 75,
+          "P_just_this_reference_blocks_on_retain": 75,
+          "P_physically_returned_blocks": 75,
+          "D_arrival_to_alloc_s": 0.001307288,
+          "D_alloc_to_KV_ready_s": 0.082669218
+        },
+        "natural-make-doom-for-mips:118": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.392082749,
+          "P_referenced_blocks": 134,
+          "P_just_this_reference_blocks_on_retain": 134,
+          "P_physically_returned_blocks": 134,
+          "D_arrival_to_alloc_s": 0.001105397,
+          "D_alloc_to_KV_ready_s": 0.108492696
+        },
+        "natural-db-wal-recovery:18": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.156265479,
+          "P_referenced_blocks": 40,
+          "P_just_this_reference_blocks_on_retain": 40,
+          "P_physically_returned_blocks": 40,
+          "D_arrival_to_alloc_s": 0.001351889,
+          "D_alloc_to_KV_ready_s": 0.082016034
+        },
+        "natural-path-tracing-reverse:128": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.656716607,
+          "P_referenced_blocks": 203,
+          "P_just_this_reference_blocks_on_retain": 203,
+          "P_physically_returned_blocks": 203,
+          "D_arrival_to_alloc_s": 0.001294299,
+          "D_alloc_to_KV_ready_s": 0.216002875
+        },
+        "natural-dna-assembly:23": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.216502864,
+          "P_referenced_blocks": 47,
+          "P_just_this_reference_blocks_on_retain": 47,
+          "P_physically_returned_blocks": 47,
+          "D_arrival_to_alloc_s": 0.001273518,
+          "D_alloc_to_KV_ready_s": 0.081883953
+        },
+        "natural-path-tracing-reverse:129": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.916685149,
+          "P_referenced_blocks": 205,
+          "P_just_this_reference_blocks_on_retain": 205,
+          "P_physically_returned_blocks": 205,
+          "D_arrival_to_alloc_s": 0.0014655,
+          "D_alloc_to_KV_ready_s": 0.330781833
+        },
+        "natural-cobol-modernization:20": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.150500301,
+          "P_referenced_blocks": 41,
+          "P_just_this_reference_blocks_on_retain": 41,
+          "P_physically_returned_blocks": 41,
+          "D_arrival_to_alloc_s": 0.001064687,
+          "D_alloc_to_KV_ready_s": 0.080282203
+        },
+        "natural-extract-moves-from-video:136": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.514549973,
+          "P_referenced_blocks": 135,
+          "P_just_this_reference_blocks_on_retain": 132,
+          "P_physically_returned_blocks": 135,
+          "D_arrival_to_alloc_s": 0.001100688,
+          "D_alloc_to_KV_ready_s": 0.135099779
+        },
+        "natural-path-tracing:26": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.485962128,
+          "P_referenced_blocks": 81,
+          "P_just_this_reference_blocks_on_retain": 81,
+          "P_physically_returned_blocks": 81,
+          "D_arrival_to_alloc_s": 0.001330049,
+          "D_alloc_to_KV_ready_s": 0.11528597
+        },
+        "natural-mteb-leaderboard:38": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.183012552,
+          "P_referenced_blocks": 40,
+          "P_just_this_reference_blocks_on_retain": 37,
+          "P_physically_returned_blocks": 40,
+          "D_arrival_to_alloc_s": 0.001009506,
+          "D_alloc_to_KV_ready_s": 0.081145718
+        },
+        "natural-raman-fitting:27": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.285681633,
+          "P_referenced_blocks": 77,
+          "P_just_this_reference_blocks_on_retain": 77,
+          "P_physically_returned_blocks": 77,
+          "D_arrival_to_alloc_s": 0.001161097,
+          "D_alloc_to_KV_ready_s": 0.080306703
+        },
+        "natural-circuit-fibsqrt:40": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.293664537,
+          "P_referenced_blocks": 77,
+          "P_just_this_reference_blocks_on_retain": 77,
+          "P_physically_returned_blocks": 77,
+          "D_arrival_to_alloc_s": 0.001211078,
+          "D_alloc_to_KV_ready_s": 0.080579904
+        },
+        "natural-build-pmars:28": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.183870542,
+          "P_referenced_blocks": 42,
+          "P_just_this_reference_blocks_on_retain": 42,
+          "P_physically_returned_blocks": 42,
+          "D_arrival_to_alloc_s": 0.001102057,
+          "D_alloc_to_KV_ready_s": 0.079494877
+        },
+        "natural-make-mips-interpreter:90": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.422581396,
+          "P_referenced_blocks": 134,
+          "P_just_this_reference_blocks_on_retain": 134,
+          "P_physically_returned_blocks": 134,
+          "D_arrival_to_alloc_s": 0.001263568,
+          "D_alloc_to_KV_ready_s": 0.135933685
+        },
+        "natural-db-wal-recovery:20": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.146356893,
+          "P_referenced_blocks": 43,
+          "P_just_this_reference_blocks_on_retain": 43,
+          "P_physically_returned_blocks": 43,
+          "D_arrival_to_alloc_s": 0.000958157,
+          "D_alloc_to_KV_ready_s": 0.079125985
+        },
+        "natural-make-mips-interpreter:91": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.455461651,
+          "P_referenced_blocks": 135,
+          "P_just_this_reference_blocks_on_retain": 135,
+          "P_physically_returned_blocks": 135,
+          "D_arrival_to_alloc_s": 0.001297249,
+          "D_alloc_to_KV_ready_s": 0.130047996
+        },
+        "natural-fix-ocaml-gc:31": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.18713319,
+          "P_referenced_blocks": 39,
+          "P_just_this_reference_blocks_on_retain": 39,
+          "P_physically_returned_blocks": 39,
+          "D_arrival_to_alloc_s": 0.000896326,
+          "D_alloc_to_KV_ready_s": 0.074611476
+        },
+        "natural-install-windows-3.11:23": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.188926531,
+          "P_referenced_blocks": 44,
+          "P_just_this_reference_blocks_on_retain": 44,
+          "P_physically_returned_blocks": 44,
+          "D_arrival_to_alloc_s": 0.000982996,
+          "D_alloc_to_KV_ready_s": 0.076063575
+        },
+        "natural-make-doom-for-mips:121": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.448743642,
+          "P_referenced_blocks": 139,
+          "P_just_this_reference_blocks_on_retain": 139,
+          "P_physically_returned_blocks": 139,
+          "D_arrival_to_alloc_s": 0.000923316,
+          "D_alloc_to_KV_ready_s": 0.129538923
+        },
+        "natural-raman-fitting:28": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.29989829,
+          "P_referenced_blocks": 78,
+          "P_just_this_reference_blocks_on_retain": 78,
+          "P_physically_returned_blocks": 78,
+          "D_arrival_to_alloc_s": 0.000919586,
+          "D_alloc_to_KV_ready_s": 0.088021472
+        },
+        "natural-db-wal-recovery:21": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.184355598,
+          "P_referenced_blocks": 44,
+          "P_just_this_reference_blocks_on_retain": 44,
+          "P_physically_returned_blocks": 44,
+          "D_arrival_to_alloc_s": 0.000787355,
+          "D_alloc_to_KV_ready_s": 0.063489154
+        },
+        "natural-gcode-to-text:101": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.426767465,
+          "P_referenced_blocks": 136,
+          "P_just_this_reference_blocks_on_retain": 136,
+          "P_physically_returned_blocks": 136,
+          "D_arrival_to_alloc_s": 0.000850456,
+          "D_alloc_to_KV_ready_s": 0.107140357
+        },
+        "natural-raman-fitting:29": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.28367624,
+          "P_referenced_blocks": 82,
+          "P_just_this_reference_blocks_on_retain": 82,
+          "P_physically_returned_blocks": 82,
+          "D_arrival_to_alloc_s": 0.000893706,
+          "D_alloc_to_KV_ready_s": 0.106584654
+        },
+        "natural-gpt2-codegolf:29": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.210028978,
+          "P_referenced_blocks": 72,
+          "P_just_this_reference_blocks_on_retain": 72,
+          "P_physically_returned_blocks": 72,
+          "D_arrival_to_alloc_s": 0.000912886,
+          "D_alloc_to_KV_ready_s": 0.064595411
+        },
+        "natural-video-processing:30": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.235215353,
+          "P_referenced_blocks": 70,
+          "P_just_this_reference_blocks_on_retain": 70,
+          "P_physically_returned_blocks": 70,
+          "D_arrival_to_alloc_s": 0.000896446,
+          "D_alloc_to_KV_ready_s": 0.084139547
+        },
+        "natural-chess-best-move:23": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.154113374,
+          "P_referenced_blocks": 40,
+          "P_just_this_reference_blocks_on_retain": 40,
+          "P_physically_returned_blocks": 40,
+          "D_arrival_to_alloc_s": 0.000585944,
+          "D_alloc_to_KV_ready_s": 0.060442303
+        },
+        "natural-crack-7z-hash:32": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.150034556,
+          "P_referenced_blocks": 43,
+          "P_just_this_reference_blocks_on_retain": 43,
+          "P_physically_returned_blocks": 43,
+          "D_arrival_to_alloc_s": 0.000529234,
+          "D_alloc_to_KV_ready_s": 0.052465241
+        },
+        "natural-crack-7z-hash:33": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.142835502,
+          "P_referenced_blocks": 43,
+          "P_just_this_reference_blocks_on_retain": 40,
+          "P_physically_returned_blocks": 43,
+          "D_arrival_to_alloc_s": 0.000582714,
+          "D_alloc_to_KV_ready_s": 0.054376044
+        },
+        "natural-crack-7z-hash:34": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.145065728,
+          "P_referenced_blocks": 43,
+          "P_just_this_reference_blocks_on_retain": 40,
+          "P_physically_returned_blocks": 43,
+          "D_arrival_to_alloc_s": 0.000553594,
+          "D_alloc_to_KV_ready_s": 0.060788575
+        },
+        "natural-crack-7z-hash:35": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.15037412,
+          "P_referenced_blocks": 45,
+          "P_just_this_reference_blocks_on_retain": 45,
+          "P_physically_returned_blocks": 45,
+          "D_arrival_to_alloc_s": 0.000496603,
+          "D_alloc_to_KV_ready_s": 0.055164769
+        },
+        "natural-chess-best-move:24": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.181028009,
+          "P_referenced_blocks": 42,
+          "P_just_this_reference_blocks_on_retain": 42,
+          "P_physically_returned_blocks": 42,
+          "D_arrival_to_alloc_s": 0.000575774,
+          "D_alloc_to_KV_ready_s": 0.071248303
+        },
+        "natural-circuit-fibsqrt:36": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.646942427,
+          "P_referenced_blocks": 69,
+          "P_just_this_reference_blocks_on_retain": 69,
+          "P_physically_returned_blocks": 69,
+          "D_arrival_to_alloc_s": 0.000562593,
+          "D_alloc_to_KV_ready_s": 0.274446897
+        },
+        "natural-extract-moves-from-video:131": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.63949418,
+          "P_referenced_blocks": 132,
+          "P_just_this_reference_blocks_on_retain": 132,
+          "P_physically_returned_blocks": 132,
+          "D_arrival_to_alloc_s": 0.000474103,
+          "D_alloc_to_KV_ready_s": 0.292807386
+        },
+        "natural-path-tracing-reverse:124": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.642773218,
+          "P_referenced_blocks": 196,
+          "P_just_this_reference_blocks_on_retain": 196,
+          "P_physically_returned_blocks": 196,
+          "D_arrival_to_alloc_s": 0.000553964,
+          "D_alloc_to_KV_ready_s": 0.108636497
+        },
+        "natural-winning-avg-corewars:126": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.644377532,
+          "P_referenced_blocks": 198,
+          "P_just_this_reference_blocks_on_retain": 198,
+          "P_physically_returned_blocks": 198,
+          "D_arrival_to_alloc_s": 0.000719575,
+          "D_alloc_to_KV_ready_s": 0.117385954
+        },
+        "natural-mailman:22": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.222175761,
+          "P_referenced_blocks": 36,
+          "P_just_this_reference_blocks_on_retain": 36,
+          "P_physically_returned_blocks": 36,
+          "D_arrival_to_alloc_s": 0.000808056,
+          "D_alloc_to_KV_ready_s": 0.045056303
+        },
+        "natural-cobol-modernization:17": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.230172554,
+          "P_referenced_blocks": 36,
+          "P_just_this_reference_blocks_on_retain": 36,
+          "P_physically_returned_blocks": 36,
+          "D_arrival_to_alloc_s": 0.000465773,
+          "D_alloc_to_KV_ready_s": 0.040920177
+        },
+        "natural-filter-js-from-html:12": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.421733396,
+          "P_referenced_blocks": 38,
+          "P_just_this_reference_blocks_on_retain": 38,
+          "P_physically_returned_blocks": 38,
+          "D_arrival_to_alloc_s": 0.000549914,
+          "D_alloc_to_KV_ready_s": 0.047192717
+        },
+        "natural-fix-ocaml-gc:28": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.208023665,
+          "P_referenced_blocks": 36,
+          "P_just_this_reference_blocks_on_retain": 36,
+          "P_physically_returned_blocks": 36,
+          "D_arrival_to_alloc_s": 0.000642004,
+          "D_alloc_to_KV_ready_s": 0.054014491
+        },
+        "natural-feal-linear-cryptanalysis:14": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.20587746,
+          "P_referenced_blocks": 37,
+          "P_just_this_reference_blocks_on_retain": 37,
+          "P_physically_returned_blocks": 37,
+          "D_arrival_to_alloc_s": 0.000486263,
+          "D_alloc_to_KV_ready_s": 0.047960022
+        },
+        "natural-build-cython-ext:36": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.208698143,
+          "P_referenced_blocks": 37,
+          "P_just_this_reference_blocks_on_retain": 37,
+          "P_physically_returned_blocks": 37,
+          "D_arrival_to_alloc_s": 0.000828925,
+          "D_alloc_to_KV_ready_s": 0.054730007
+        },
+        "natural-build-pov-ray:27": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.213246976,
+          "P_referenced_blocks": 37,
+          "P_just_this_reference_blocks_on_retain": 37,
+          "P_physically_returned_blocks": 37,
+          "D_arrival_to_alloc_s": 0.000721805,
+          "D_alloc_to_KV_ready_s": 0.056069935
+        },
+        "natural-count-dataset-tokens:44": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.410115631,
+          "P_referenced_blocks": 69,
+          "P_just_this_reference_blocks_on_retain": 69,
+          "P_physically_returned_blocks": 69,
+          "D_arrival_to_alloc_s": 0.000702075,
+          "D_alloc_to_KV_ready_s": 0.062524277
+        },
+        "natural-make-doom-for-mips:117": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.722424016,
+          "P_referenced_blocks": 133,
+          "P_just_this_reference_blocks_on_retain": 133,
+          "P_physically_returned_blocks": 133,
+          "D_arrival_to_alloc_s": 0.000679114,
+          "D_alloc_to_KV_ready_s": 0.129163001
+        },
+        "natural-video-processing:27": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.406437487,
+          "P_referenced_blocks": 68,
+          "P_just_this_reference_blocks_on_retain": 68,
+          "P_physically_returned_blocks": 68,
+          "D_arrival_to_alloc_s": 0.000921086,
+          "D_alloc_to_KV_ready_s": 0.065391216
+        },
+        "natural-financial-document-processor:60": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.596931277,
+          "P_referenced_blocks": 73,
+          "P_just_this_reference_blocks_on_retain": 73,
+          "P_physically_returned_blocks": 73,
+          "D_arrival_to_alloc_s": 0.000991857,
+          "D_alloc_to_KV_ready_s": 0.074663376
+        },
+        "natural-extract-moves-from-video:132": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.592664666,
+          "P_referenced_blocks": 133,
+          "P_just_this_reference_blocks_on_retain": 133,
+          "P_physically_returned_blocks": 133,
+          "D_arrival_to_alloc_s": 0.001273728,
+          "D_alloc_to_KV_ready_s": 0.110909712
+        },
+        "natural-mteb-leaderboard:36": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.588882242,
+          "P_referenced_blocks": 38,
+          "P_just_this_reference_blocks_on_retain": 38,
+          "P_physically_returned_blocks": 38,
+          "D_arrival_to_alloc_s": 0.001000076,
+          "D_alloc_to_KV_ready_s": 0.073132736
+        },
+        "natural-db-wal-recovery:17": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.52886307,
+          "P_referenced_blocks": 39,
+          "P_just_this_reference_blocks_on_retain": 39,
+          "P_physically_returned_blocks": 39,
+          "D_arrival_to_alloc_s": 0.001085197,
+          "D_alloc_to_KV_ready_s": 0.085887919
+        },
+        "natural-train-fasttext:68": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.265326945,
+          "P_referenced_blocks": 69,
+          "P_just_this_reference_blocks_on_retain": 69,
+          "P_physically_returned_blocks": 69,
+          "D_arrival_to_alloc_s": 0.001087037,
+          "D_alloc_to_KV_ready_s": 0.077711636
+        },
+        "natural-mailman:23": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.266509039,
+          "P_referenced_blocks": 37,
+          "P_just_this_reference_blocks_on_retain": 37,
+          "P_physically_returned_blocks": 37,
+          "D_arrival_to_alloc_s": 0.000984536,
+          "D_alloc_to_KV_ready_s": 0.075415731
+        },
+        "natural-gpt2-codegolf:27": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.525841455,
+          "P_referenced_blocks": 69,
+          "P_just_this_reference_blocks_on_retain": 69,
+          "P_physically_returned_blocks": 69,
+          "D_arrival_to_alloc_s": 0.001189278,
+          "D_alloc_to_KV_ready_s": 0.110760731
+        },
+        "natural-raman-fitting:26": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.504270012,
+          "P_referenced_blocks": 72,
+          "P_just_this_reference_blocks_on_retain": 72,
+          "P_physically_returned_blocks": 72,
+          "D_arrival_to_alloc_s": 0.001115247,
+          "D_alloc_to_KV_ready_s": 0.079579428
+        },
+        "natural-fix-ocaml-gc:29": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.245478053,
+          "P_referenced_blocks": 37,
+          "P_just_this_reference_blocks_on_retain": 37,
+          "P_physically_returned_blocks": 37,
+          "D_arrival_to_alloc_s": 0.001281379,
+          "D_alloc_to_KV_ready_s": 0.080046081
+        },
+        "natural-filter-js-from-html:13": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.246005419,
+          "P_referenced_blocks": 40,
+          "P_just_this_reference_blocks_on_retain": 40,
+          "P_physically_returned_blocks": 40,
+          "D_arrival_to_alloc_s": 0.001234218,
+          "D_alloc_to_KV_ready_s": 0.080848316
+        },
+        "natural-build-pov-ray:28": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.505278544,
+          "P_referenced_blocks": 37,
+          "P_just_this_reference_blocks_on_retain": 34,
+          "P_physically_returned_blocks": 37,
+          "D_arrival_to_alloc_s": 0.001187298,
+          "D_alloc_to_KV_ready_s": 0.100052511
+        },
+        "natural-build-cython-ext:37": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.145283171,
+          "P_referenced_blocks": 38,
+          "P_just_this_reference_blocks_on_retain": 38,
+          "P_physically_returned_blocks": 38,
+          "D_arrival_to_alloc_s": 0.001184428,
+          "D_alloc_to_KV_ready_s": 0.082008844
+        },
+        "natural-build-pmars:25": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.156692774,
+          "P_referenced_blocks": 38,
+          "P_just_this_reference_blocks_on_retain": 38,
+          "P_physically_returned_blocks": 38,
+          "D_arrival_to_alloc_s": 0.001869552,
+          "D_alloc_to_KV_ready_s": 0.081689631
+        },
+        "natural-build-pov-ray:29": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.169073809,
+          "P_referenced_blocks": 37,
+          "P_just_this_reference_blocks_on_retain": 34,
+          "P_physically_returned_blocks": 37,
+          "D_arrival_to_alloc_s": 0.001293609,
+          "D_alloc_to_KV_ready_s": 0.082672038
+        },
+        "natural-count-dataset-tokens:46": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.312871732,
+          "P_referenced_blocks": 70,
+          "P_just_this_reference_blocks_on_retain": 70,
+          "P_physically_returned_blocks": 70,
+          "D_arrival_to_alloc_s": 0.001094677,
+          "D_alloc_to_KV_ready_s": 0.08144994
+        },
+        "natural-circuit-fibsqrt:38": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.691273041,
+          "P_referenced_blocks": 74,
+          "P_just_this_reference_blocks_on_retain": 74,
+          "P_physically_returned_blocks": 74,
+          "D_arrival_to_alloc_s": 0.001312659,
+          "D_alloc_to_KV_ready_s": 0.080892926
+        },
+        "natural-mailman:24": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.692630757,
+          "P_referenced_blocks": 38,
+          "P_just_this_reference_blocks_on_retain": 38,
+          "P_physically_returned_blocks": 38,
+          "D_arrival_to_alloc_s": 0.007085116,
+          "D_alloc_to_KV_ready_s": 0.093846581
+        },
+        "natural-path-tracing-reverse:126": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.591629295,
+          "P_referenced_blocks": 200,
+          "P_just_this_reference_blocks_on_retain": 200,
+          "P_physically_returned_blocks": 200,
+          "D_arrival_to_alloc_s": 0.002325805,
+          "D_alloc_to_KV_ready_s": 0.136512259
+        },
+        "natural-make-mips-interpreter:89": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.407616511,
+          "P_referenced_blocks": 133,
+          "P_just_this_reference_blocks_on_retain": 130,
+          "P_physically_returned_blocks": 133,
+          "D_arrival_to_alloc_s": 0.001143737,
+          "D_alloc_to_KV_ready_s": 0.111960899
+        },
+        "natural-extract-elf:13": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.313305127,
+          "P_referenced_blocks": 37,
+          "P_just_this_reference_blocks_on_retain": 37,
+          "P_physically_returned_blocks": 37,
+          "D_arrival_to_alloc_s": 0.001311238,
+          "D_alloc_to_KV_ready_s": 0.079550728
+        },
+        "natural-path-tracing-reverse:127": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.569525056,
+          "P_referenced_blocks": 202,
+          "P_just_this_reference_blocks_on_retain": 202,
+          "P_physically_returned_blocks": 202,
+          "D_arrival_to_alloc_s": 0.001414169,
+          "D_alloc_to_KV_ready_s": 0.135156889
+        },
+        "natural-gcode-to-text:99": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.416532596,
+          "P_referenced_blocks": 133,
+          "P_just_this_reference_blocks_on_retain": 133,
+          "P_physically_returned_blocks": 133,
+          "D_arrival_to_alloc_s": 0.001119637,
+          "D_alloc_to_KV_ready_s": 0.111274884
+        },
+        "natural-build-pmars:26": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.148392097,
+          "P_referenced_blocks": 38,
+          "P_just_this_reference_blocks_on_retain": 35,
+          "P_physically_returned_blocks": 38,
+          "D_arrival_to_alloc_s": 0.001040306,
+          "D_alloc_to_KV_ready_s": 0.080623375
+        },
+        "natural-install-windows-3.11:21": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.225946595,
+          "P_referenced_blocks": 41,
+          "P_just_this_reference_blocks_on_retain": 41,
+          "P_physically_returned_blocks": 41,
+          "D_arrival_to_alloc_s": 0.001213458,
+          "D_alloc_to_KV_ready_s": 0.081516211
+        },
+        "natural-financial-document-processor:61": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.266698012,
+          "P_referenced_blocks": 75,
+          "P_just_this_reference_blocks_on_retain": 75,
+          "P_physically_returned_blocks": 75,
+          "D_arrival_to_alloc_s": 0.001293888,
+          "D_alloc_to_KV_ready_s": 0.10139568
+        },
+        "natural-build-cython-ext:38": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.243271097,
+          "P_referenced_blocks": 39,
+          "P_just_this_reference_blocks_on_retain": 39,
+          "P_physically_returned_blocks": 39,
+          "D_arrival_to_alloc_s": 0.004067616,
+          "D_alloc_to_KV_ready_s": 0.079617559
+        },
+        "natural-train-fasttext:71": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.284978225,
+          "P_referenced_blocks": 71,
+          "P_just_this_reference_blocks_on_retain": 71,
+          "P_physically_returned_blocks": 71,
+          "D_arrival_to_alloc_s": 0.001128947,
+          "D_alloc_to_KV_ready_s": 0.081959764
+        },
+        "natural-mteb-leaderboard:37": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.217483505,
+          "P_referenced_blocks": 40,
+          "P_just_this_reference_blocks_on_retain": 40,
+          "P_physically_returned_blocks": 40,
+          "D_arrival_to_alloc_s": 0.001261448,
+          "D_alloc_to_KV_ready_s": 0.081700352
+        },
+        "natural-gcode-to-text:100": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.395717072,
+          "P_referenced_blocks": 135,
+          "P_just_this_reference_blocks_on_retain": 135,
+          "P_physically_returned_blocks": 135,
+          "D_arrival_to_alloc_s": 0.001203988,
+          "D_alloc_to_KV_ready_s": 0.10607204
+        },
+        "natural-cobol-modernization:19": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.232295559,
+          "P_referenced_blocks": 40,
+          "P_just_this_reference_blocks_on_retain": 40,
+          "P_physically_returned_blocks": 40,
+          "D_arrival_to_alloc_s": 0.080668365,
+          "D_alloc_to_KV_ready_s": 0.070145547
+        },
+        "natural-financial-document-processor:62": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.297385661,
+          "P_referenced_blocks": 75,
+          "P_just_this_reference_blocks_on_retain": 72,
+          "P_physically_returned_blocks": 75,
+          "D_arrival_to_alloc_s": 0.001158577,
+          "D_alloc_to_KV_ready_s": 0.165363566
+        },
+        "natural-train-fasttext:72": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.754128487,
+          "P_referenced_blocks": 72,
+          "P_just_this_reference_blocks_on_retain": 72,
+          "P_physically_returned_blocks": 72,
+          "D_arrival_to_alloc_s": 0.001305508,
+          "D_alloc_to_KV_ready_s": 0.105123744
+        },
+        "natural-extract-moves-from-video:135": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.432501702,
+          "P_referenced_blocks": 135,
+          "P_just_this_reference_blocks_on_retain": 135,
+          "P_physically_returned_blocks": 135,
+          "D_arrival_to_alloc_s": 0.001084617,
+          "D_alloc_to_KV_ready_s": 0.132490713
+        },
+        "natural-extract-elf:15": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.17597371,
+          "P_referenced_blocks": 39,
+          "P_just_this_reference_blocks_on_retain": 39,
+          "P_physically_returned_blocks": 39,
+          "D_arrival_to_alloc_s": 0.004414849,
+          "D_alloc_to_KV_ready_s": 0.079707228
+        },
+        "natural-financial-document-processor:63": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.279404011,
+          "P_referenced_blocks": 75,
+          "P_just_this_reference_blocks_on_retain": 72,
+          "P_physically_returned_blocks": 75,
+          "D_arrival_to_alloc_s": 0.001020557,
+          "D_alloc_to_KV_ready_s": 0.080866366
+        },
+        "natural-regex-chess:107": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.744483203,
+          "P_referenced_blocks": 202,
+          "P_just_this_reference_blocks_on_retain": 202,
+          "P_physically_returned_blocks": 202,
+          "D_arrival_to_alloc_s": 0.0015196,
+          "D_alloc_to_KV_ready_s": 0.160450955
+        },
+        "natural-build-pmars:27": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.164377714,
+          "P_referenced_blocks": 40,
+          "P_just_this_reference_blocks_on_retain": 40,
+          "P_physically_returned_blocks": 40,
+          "D_arrival_to_alloc_s": 0.001169848,
+          "D_alloc_to_KV_ready_s": 0.078187639
+        },
+        "natural-financial-document-processor:64": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.308886306,
+          "P_referenced_blocks": 76,
+          "P_just_this_reference_blocks_on_retain": 76,
+          "P_physically_returned_blocks": 76,
+          "D_arrival_to_alloc_s": 0.001025006,
+          "D_alloc_to_KV_ready_s": 0.10751889
+        },
+        "natural-extract-elf:16": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.143802974,
+          "P_referenced_blocks": 41,
+          "P_just_this_reference_blocks_on_retain": 41,
+          "P_physically_returned_blocks": 41,
+          "D_arrival_to_alloc_s": 0.000997056,
+          "D_alloc_to_KV_ready_s": 0.078530841
+        },
+        "natural-install-windows-3.11:22": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.236604899,
+          "P_referenced_blocks": 42,
+          "P_just_this_reference_blocks_on_retain": 42,
+          "P_physically_returned_blocks": 42,
+          "D_arrival_to_alloc_s": 0.001171577,
+          "D_alloc_to_KV_ready_s": 0.132675254
+        },
+        "natural-db-wal-recovery:19": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.180640015,
+          "P_referenced_blocks": 42,
+          "P_just_this_reference_blocks_on_retain": 42,
+          "P_physically_returned_blocks": 42,
+          "D_arrival_to_alloc_s": 0.001067677,
+          "D_alloc_to_KV_ready_s": 0.081006597
+        },
+        "natural-build-cython-ext:39": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.165876492,
+          "P_referenced_blocks": 41,
+          "P_just_this_reference_blocks_on_retain": 41,
+          "P_physically_returned_blocks": 41,
+          "D_arrival_to_alloc_s": 0.001175708,
+          "D_alloc_to_KV_ready_s": 0.081025847
+        },
+        "natural-make-doom-for-mips:119": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.459107724,
+          "P_referenced_blocks": 136,
+          "P_just_this_reference_blocks_on_retain": 136,
+          "P_physically_returned_blocks": 136,
+          "D_arrival_to_alloc_s": 0.001101088,
+          "D_alloc_to_KV_ready_s": 0.131310504
+        },
+        "natural-feal-linear-cryptanalysis:16": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.177092812,
+          "P_referenced_blocks": 46,
+          "P_just_this_reference_blocks_on_retain": 46,
+          "P_physically_returned_blocks": 46,
+          "D_arrival_to_alloc_s": 0.001100917,
+          "D_alloc_to_KV_ready_s": 0.080764475
+        },
+        "natural-fix-ocaml-gc:30": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.38270386,
+          "P_referenced_blocks": 38,
+          "P_just_this_reference_blocks_on_retain": 38,
+          "P_physically_returned_blocks": 38,
+          "D_arrival_to_alloc_s": 0.001046217,
+          "D_alloc_to_KV_ready_s": 0.07695805
+        },
+        "natural-video-processing:29": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.22211591,
+          "P_referenced_blocks": 69,
+          "P_just_this_reference_blocks_on_retain": 69,
+          "P_physically_returned_blocks": 69,
+          "D_arrival_to_alloc_s": 0.001141298,
+          "D_alloc_to_KV_ready_s": 0.078657061
+        },
+        "natural-regex-chess:108": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.735980164,
+          "P_referenced_blocks": 203,
+          "P_just_this_reference_blocks_on_retain": 203,
+          "P_physically_returned_blocks": 203,
+          "D_arrival_to_alloc_s": 0.001139267,
+          "D_alloc_to_KV_ready_s": 0.179315517
+        },
+        "natural-build-pmars:29": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.156119737,
+          "P_referenced_blocks": 43,
+          "P_just_this_reference_blocks_on_retain": 43,
+          "P_physically_returned_blocks": 43,
+          "D_arrival_to_alloc_s": 0.001194068,
+          "D_alloc_to_KV_ready_s": 0.08157045
+        },
+        "natural-feal-linear-cryptanalysis:17": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.1452402,
+          "P_referenced_blocks": 46,
+          "P_just_this_reference_blocks_on_retain": 43,
+          "P_physically_returned_blocks": 46,
+          "D_arrival_to_alloc_s": 0.001099097,
+          "D_alloc_to_KV_ready_s": 0.079221256
+        },
+        "natural-make-doom-for-mips:120": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.409376332,
+          "P_referenced_blocks": 136,
+          "P_just_this_reference_blocks_on_retain": 133,
+          "P_physically_returned_blocks": 136,
+          "D_arrival_to_alloc_s": 0.001204037,
+          "D_alloc_to_KV_ready_s": 0.130079837
+        },
+        "natural-dna-assembly:24": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.170435125,
+          "P_referenced_blocks": 49,
+          "P_just_this_reference_blocks_on_retain": 49,
+          "P_physically_returned_blocks": 49,
+          "D_arrival_to_alloc_s": 0.001001267,
+          "D_alloc_to_KV_ready_s": 0.064099207
+        },
+        "natural-mteb-leaderboard:39": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.159468487,
+          "P_referenced_blocks": 41,
+          "P_just_this_reference_blocks_on_retain": 41,
+          "P_physically_returned_blocks": 41,
+          "D_arrival_to_alloc_s": 0.000961127,
+          "D_alloc_to_KV_ready_s": 0.075438671
+        },
+        "natural-regex-chess:109": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.644840828,
+          "P_referenced_blocks": 205,
+          "P_just_this_reference_blocks_on_retain": 205,
+          "P_physically_returned_blocks": 205,
+          "D_arrival_to_alloc_s": 0.001187237,
+          "D_alloc_to_KV_ready_s": 0.169550294
+        },
+        "natural-make-mips-interpreter:92": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.460032934,
+          "P_referenced_blocks": 137,
+          "P_just_this_reference_blocks_on_retain": 137,
+          "P_physically_returned_blocks": 137,
+          "D_arrival_to_alloc_s": 0.001095387,
+          "D_alloc_to_KV_ready_s": 0.12755847
+        },
+        "natural-build-cython-ext:40": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.166330607,
+          "P_referenced_blocks": 43,
+          "P_just_this_reference_blocks_on_retain": 43,
+          "P_physically_returned_blocks": 43,
+          "D_arrival_to_alloc_s": 0.001136447,
+          "D_alloc_to_KV_ready_s": 0.074499805
+        },
+        "natural-mteb-leaderboard:40": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.144037175,
+          "P_referenced_blocks": 42,
+          "P_just_this_reference_blocks_on_retain": 42,
+          "P_physically_returned_blocks": 42,
+          "D_arrival_to_alloc_s": 0.001060557,
+          "D_alloc_to_KV_ready_s": 0.076255927
+        },
+        "natural-make-doom-for-mips:122": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.425365099,
+          "P_referenced_blocks": 140,
+          "P_just_this_reference_blocks_on_retain": 140,
+          "P_physically_returned_blocks": 140,
+          "D_arrival_to_alloc_s": 0.001216038,
+          "D_alloc_to_KV_ready_s": 0.125744959
+        },
+        "natural-build-cython-ext:41": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.245291461,
+          "P_referenced_blocks": 44,
+          "P_just_this_reference_blocks_on_retain": 44,
+          "P_physically_returned_blocks": 44,
+          "D_arrival_to_alloc_s": 0.000817366,
+          "D_alloc_to_KV_ready_s": 0.06152762
+        },
+        "natural-fix-ocaml-gc:32": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.179315569,
+          "P_referenced_blocks": 40,
+          "P_just_this_reference_blocks_on_retain": 40,
+          "P_physically_returned_blocks": 40,
+          "D_arrival_to_alloc_s": 0.000962776,
+          "D_alloc_to_KV_ready_s": 0.062426157
+        },
+        "natural-dna-assembly:25": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.209233339,
+          "P_referenced_blocks": 50,
+          "P_just_this_reference_blocks_on_retain": 50,
+          "P_physically_returned_blocks": 50,
+          "D_arrival_to_alloc_s": 0.001150847,
+          "D_alloc_to_KV_ready_s": 0.084041327
+        },
+        "natural-regex-chess:110": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.618386918,
+          "P_referenced_blocks": 206,
+          "P_just_this_reference_blocks_on_retain": 206,
+          "P_physically_returned_blocks": 206,
+          "D_arrival_to_alloc_s": 0.000938366,
+          "D_alloc_to_KV_ready_s": 0.1566844
+        },
+        "natural-gpt2-codegolf:30": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.22041893,
+          "P_referenced_blocks": 72,
+          "P_just_this_reference_blocks_on_retain": 69,
+          "P_physically_returned_blocks": 72,
+          "D_arrival_to_alloc_s": 0.000959886,
+          "D_alloc_to_KV_ready_s": 0.084894662
+        },
+        "natural-gcode-to-text:102": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.406577639,
+          "P_referenced_blocks": 137,
+          "P_just_this_reference_blocks_on_retain": 137,
+          "P_physically_returned_blocks": 137,
+          "D_arrival_to_alloc_s": 0.000959437,
+          "D_alloc_to_KV_ready_s": 0.126918456
+        },
+        "natural-install-windows-3.11:24": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.186735355,
+          "P_referenced_blocks": 46,
+          "P_just_this_reference_blocks_on_retain": 46,
+          "P_physically_returned_blocks": 46,
+          "D_arrival_to_alloc_s": 0.000868045,
+          "D_alloc_to_KV_ready_s": 0.064080957
+        },
+        "natural-video-processing:31": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.215394271,
+          "P_referenced_blocks": 72,
+          "P_just_this_reference_blocks_on_retain": 72,
+          "P_physically_returned_blocks": 72,
+          "D_arrival_to_alloc_s": 0.000981147,
+          "D_alloc_to_KV_ready_s": 0.076947741
+        },
+        "natural-circuit-fibsqrt:41": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.236336277,
+          "P_referenced_blocks": 78,
+          "P_just_this_reference_blocks_on_retain": 78,
+          "P_physically_returned_blocks": 78,
+          "D_arrival_to_alloc_s": 0.000916676,
+          "D_alloc_to_KV_ready_s": 0.07678545
+        },
+        "natural-dna-assembly:26": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.190779843,
+          "P_referenced_blocks": 52,
+          "P_just_this_reference_blocks_on_retain": 52,
+          "P_physically_returned_blocks": 52,
+          "D_arrival_to_alloc_s": 0.000893606,
+          "D_alloc_to_KV_ready_s": 0.077101752
+        },
+        "natural-video-processing:32": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.222775257,
+          "P_referenced_blocks": 73,
+          "P_just_this_reference_blocks_on_retain": 73,
+          "P_physically_returned_blocks": 73,
+          "D_arrival_to_alloc_s": 0.000928916,
+          "D_alloc_to_KV_ready_s": 0.084307348
+        },
+        "natural-fix-ocaml-gc:33": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.167223847,
+          "P_referenced_blocks": 41,
+          "P_just_this_reference_blocks_on_retain": 41,
+          "P_physically_returned_blocks": 41,
+          "D_arrival_to_alloc_s": 0.000729515,
+          "D_alloc_to_KV_ready_s": 0.04619047
+        },
+        "natural-raman-fitting:30": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.305531046,
+          "P_referenced_blocks": 85,
+          "P_just_this_reference_blocks_on_retain": 85,
+          "P_physically_returned_blocks": 85,
+          "D_arrival_to_alloc_s": 0.000729754,
+          "D_alloc_to_KV_ready_s": 0.078081258
+        },
+        "natural-gpt2-codegolf:31": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.22723146,
+          "P_referenced_blocks": 72,
+          "P_just_this_reference_blocks_on_retain": 72,
+          "P_physically_returned_blocks": 72,
+          "D_arrival_to_alloc_s": 0.000619144,
+          "D_alloc_to_KV_ready_s": 0.075864284
+        },
+        "natural-winning-avg-corewars:127": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.595591831,
+          "P_referenced_blocks": 200,
+          "P_just_this_reference_blocks_on_retain": 200,
+          "P_physically_returned_blocks": 200,
+          "D_arrival_to_alloc_s": 0.000578364,
+          "D_alloc_to_KV_ready_s": 0.139358187
+        },
+        "natural-winning-avg-corewars:128": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.696008356,
+          "P_referenced_blocks": 202,
+          "P_just_this_reference_blocks_on_retain": 202,
+          "P_physically_returned_blocks": 202,
+          "D_arrival_to_alloc_s": 0.000658934,
+          "D_alloc_to_KV_ready_s": 0.128361296
+        },
+        "natural-mailman:26": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.162138208,
+          "P_referenced_blocks": 39,
+          "P_just_this_reference_blocks_on_retain": 39,
+          "P_physically_returned_blocks": 39,
+          "D_arrival_to_alloc_s": 0.000570164,
+          "D_alloc_to_KV_ready_s": 0.046033619
+        },
+        "natural-mailman:27": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.150611903,
+          "P_referenced_blocks": 40,
+          "P_just_this_reference_blocks_on_retain": 40,
+          "P_physically_returned_blocks": 40,
+          "D_arrival_to_alloc_s": 0.000542894,
+          "D_alloc_to_KV_ready_s": 0.064172054
+        },
+        "natural-winning-avg-corewars:129": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.58264884,
+          "P_referenced_blocks": 203,
+          "P_just_this_reference_blocks_on_retain": 203,
+          "P_physically_returned_blocks": 203,
+          "D_arrival_to_alloc_s": 0.000584404,
+          "D_alloc_to_KV_ready_s": 0.137866501
+        },
+        "natural-chess-best-move:25": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.150660023,
+          "P_referenced_blocks": 45,
+          "P_just_this_reference_blocks_on_retain": 45,
+          "P_physically_returned_blocks": 45,
+          "D_arrival_to_alloc_s": 0.000465183,
+          "D_alloc_to_KV_ready_s": 0.040555272
+        },
+        "natural-chess-best-move:26": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.146358053,
+          "P_referenced_blocks": 47,
+          "P_just_this_reference_blocks_on_retain": 47,
+          "P_physically_returned_blocks": 47,
+          "D_arrival_to_alloc_s": 0.000465043,
+          "D_alloc_to_KV_ready_s": 0.034881596
+        },
+        "natural-chess-best-move:27": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.225187035,
+          "P_referenced_blocks": 47,
+          "P_just_this_reference_blocks_on_retain": 44,
+          "P_physically_returned_blocks": 47,
+          "D_arrival_to_alloc_s": 0.000484743,
+          "D_alloc_to_KV_ready_s": 0.037936676
+        },
+        "natural-crack-7z-hash:36": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.140231541,
+          "P_referenced_blocks": 48,
+          "P_just_this_reference_blocks_on_retain": 48,
+          "P_physically_returned_blocks": 48,
+          "D_arrival_to_alloc_s": 0.000379462,
+          "D_alloc_to_KV_ready_s": 0.036040923
+        },
+        "natural-winning-avg-corewars:130": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.663304504,
+          "P_referenced_blocks": 205,
+          "P_just_this_reference_blocks_on_retain": 205,
+          "P_physically_returned_blocks": 205,
+          "D_arrival_to_alloc_s": 0.000589174,
+          "D_alloc_to_KV_ready_s": 0.11597869
+        },
+        "natural-winning-avg-corewars:131": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.605288665,
+          "P_referenced_blocks": 205,
+          "P_just_this_reference_blocks_on_retain": 202,
+          "P_physically_returned_blocks": 205,
+          "D_arrival_to_alloc_s": 0.000528963,
+          "D_alloc_to_KV_ready_s": 0.119199111
+        }
+      },
+      "cap_Gbps": 200,
+      "ports": {
+        "D_tx_GB": 102.89045007268453,
+        "D_rx_GB": 673.4189868973685,
+        "D_peak_one_s_Gbps": 73.87768853665695,
+        "D_peak_one_s_Gbps_by_port": {
+          "0": 9.936467707585109,
+          "1": 8.213605404840635,
+          "2": 10.87810122348844,
+          "3": 11.539036793200424,
+          "4": 7.276867935841906,
+          "5": 9.41876952196983,
+          "6": 9.576938093425333,
+          "7": 7.0379018563052504
+        },
+        "D_near_cap_s_by_port": {
+          "3": 0.4378911499999987,
+          "2": 0.43781411399999115
+        },
+        "D_supply": {
+          "D0": {
+            "coverage_s": 411.32682596895677,
+            "running_request_s": 1499.2102612579565,
+            "waiting_request_s": 4.443855429999999,
+            "P_outstanding_on_eventual_D_route_s": 100.00339885199998,
+            "D_zero_running_or_waiting_with_P_outstanding_s": 4.1781158149999555,
+            "D_zero_work_with_P_outstanding_and_D_near_cap_s": 0,
+            "D_full_slots_s": 3.030599983000002,
+            "D_full_slots_with_P_outstanding_s": 1.2089225080000006,
+            "avg_running": 3.6448151849232984,
+            "avg_waiting": 0.01080370923907448
+          },
+          "D1": {
+            "coverage_s": 409.6820448949568,
+            "running_request_s": 1839.3900036520001,
+            "waiting_request_s": 5.710731696999986,
+            "P_outstanding_on_eventual_D_route_s": 129.07983406900019,
+            "D_zero_running_or_waiting_with_P_outstanding_s": 14.145175857000002,
+            "D_zero_work_with_P_outstanding_and_D_near_cap_s": 0,
+            "D_full_slots_s": 1.6429247220000036,
+            "D_full_slots_with_P_outstanding_s": 0.0,
+            "avg_running": 4.489798922292587,
+            "avg_waiting": 0.013939423921944706
+          }
+        },
+        "D_MAC_TX_at_least_85pct_cap_s": 0,
+        "D_cap_measurement_window_s": 419.9371098149568
+      },
+      "role_in_comparison": "higher_bandwidth_diagnostic_reference",
+      "client_finish_reasons": {
+        "stop": 163,
+        "length": 7
+      },
+      "client_tail_request": {
+        "id": "natural-winning-avg-corewars:131",
+        "ready_s": 399.75249213539064,
+        "dispatch_s": 399.7535270322114,
+        "first_s": 401.12653676606715,
+        "end_s": 419.9371098149568,
+        "completion_tokens": 1380,
+        "P": "P1",
+        "prefill_begin_s": 399.806557335,
+        "prefill_end_s": 400.49591722,
+        "D": "D0",
+        "decode_begin_s": 400.541049472,
+        "decode_first_chunk_s": 401.115364773,
+        "decode_end_s": 419.936478411
+      }
+    },
+    "b1-cap100": {
+      "whole_replay": {
+        "requests": 170,
+        "output_tokens": 130680,
+        "drain_s": 307.74910584278405,
+        "output_tokens_per_s": 424.63161555620854
+      },
+      "allocator_checkpoints": {
+        "P0": {
+          "observed_calls_lower_bound": 466,
+          "unobserved_checks_in_sample_range": 0,
+          "min_free_at_observed_check": 2456,
+          "min_slack_at_observed_check": 2407,
+          "peak_sampled_reclaimable_held_blocks": 267,
+          "peak_sampled_held_requests": 4
+        },
+        "P1": {
+          "observed_calls_lower_bound": 608,
+          "unobserved_checks_in_sample_range": 0,
+          "min_free_at_observed_check": 2476,
+          "min_slack_at_observed_check": 2404,
+          "peak_sampled_reclaimable_held_blocks": 375,
+          "peak_sampled_held_requests": 3
+        }
+      },
+      "releases": {
+        "P0": {
+          "requests": 77,
+          "held_s": {
+            "n": 77,
+            "mean": 0.3700380811818182,
+            "p50": 0.335343125,
+            "p95": 0.674543625,
+            "max": 1.105820573
+          },
+          "returned_physical_block_refs": 6204
+        },
+        "P1": {
+          "requests": 93,
+          "held_s": {
+            "n": 93,
+            "mean": 0.35850058470967744,
+            "p50": 0.279808775,
+            "p95": 0.731198309,
+            "max": 0.913736605
+          },
+          "returned_physical_block_refs": 7326
+        }
+      },
+      "sampled_denials": [],
+      "requests_with_denials": 0,
+      "requests_with_fitting_detach_before_D_allocation": 0,
+      "matched_receive_phase_s": {
+        "D_arrival_to_alloc_s": {
+          "n": 170,
+          "mean": 0.0008862882941176471,
+          "p50": 0.0008809054999999999,
+          "p95": 0.001277488,
+          "max": 0.002601517
+        },
+        "D_alloc_to_KV_ready_s": {
+          "n": 170,
+          "mean": 0.10179919512352942,
+          "p50": 0.079192132,
+          "p95": 0.166484856,
+          "max": 0.79077043
+        }
+      },
+      "D_arrival_to_alloc_over_5s": 0,
+      "counterfactuals": {
+        "remove_observed_attributable_allocator_episodes": {
+          "original_finish_s": 307.74910584278405,
+          "counterfactual_finish_s": 307.74910584278405,
+          "advance_s": 0.0,
+          "resulting_tail_chain": [
+            "natural-crack-7z-hash:31",
+            "natural-crack-7z-hash:32",
+            "natural-crack-7z-hash:33",
+            "natural-crack-7z-hash:34",
+            "natural-crack-7z-hash:35",
+            "natural-crack-7z-hash:36"
+          ],
+          "fixed_service_and_EOS": true
+        },
+        "remove_entire_D_alloc_to_ready_at_fixed_admission": {
+          "original_finish_s": 307.74910584278405,
+          "counterfactual_finish_s": 307.4211296037841,
+          "advance_s": 0.3279762389999519,
+          "resulting_tail_chain": [
+            "natural-crack-7z-hash:31",
+            "natural-crack-7z-hash:32",
+            "natural-crack-7z-hash:33",
+            "natural-crack-7z-hash:34",
+            "natural-crack-7z-hash:35",
+            "natural-crack-7z-hash:36"
+          ],
+          "fixed_service_and_EOS": true
+        }
+      },
+      "observed_tail_chain": [
+        "natural-crack-7z-hash:31",
+        "natural-crack-7z-hash:32",
+        "natural-crack-7z-hash:33",
+        "natural-crack-7z-hash:34",
+        "natural-crack-7z-hash:35",
+        "natural-crack-7z-hash:36"
+      ],
+      "per_request": {
+        "natural-install-windows-3.11:19": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.216797337,
+          "P_referenced_blocks": 39,
+          "P_just_this_reference_blocks_on_retain": 39,
+          "P_physically_returned_blocks": 39,
+          "D_arrival_to_alloc_s": 0.000474633,
+          "D_alloc_to_KV_ready_s": 0.034654254
+        },
+        "natural-extract-moves-from-video:131": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.447063212,
+          "P_referenced_blocks": 132,
+          "P_just_this_reference_blocks_on_retain": 132,
+          "P_physically_returned_blocks": 132,
+          "D_arrival_to_alloc_s": 0.000556934,
+          "D_alloc_to_KV_ready_s": 0.12070583
+        },
+        "natural-path-tracing-reverse:124": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.680320523,
+          "P_referenced_blocks": 196,
+          "P_just_this_reference_blocks_on_retain": 196,
+          "P_physically_returned_blocks": 196,
+          "D_arrival_to_alloc_s": 0.000565854,
+          "D_alloc_to_KV_ready_s": 0.131002526
+        },
+        "natural-gcode-to-text:97": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.646345055,
+          "P_referenced_blocks": 132,
+          "P_just_this_reference_blocks_on_retain": 132,
+          "P_physically_returned_blocks": 132,
+          "D_arrival_to_alloc_s": 0.000579594,
+          "D_alloc_to_KV_ready_s": 0.120819191
+        },
+        "natural-chess-best-move:22": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.206199544,
+          "P_referenced_blocks": 38,
+          "P_just_this_reference_blocks_on_retain": 38,
+          "P_physically_returned_blocks": 38,
+          "D_arrival_to_alloc_s": 0.000503773,
+          "D_alloc_to_KV_ready_s": 0.044345527
+        },
+        "natural-mteb-leaderboard:35": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.205774729,
+          "P_referenced_blocks": 36,
+          "P_just_this_reference_blocks_on_retain": 36,
+          "P_physically_returned_blocks": 36,
+          "D_arrival_to_alloc_s": 0.000495113,
+          "D_alloc_to_KV_ready_s": 0.057965875
+        },
+        "natural-gpt2-codegolf:26": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.412540598,
+          "P_referenced_blocks": 68,
+          "P_just_this_reference_blocks_on_retain": 68,
+          "P_physically_returned_blocks": 68,
+          "D_arrival_to_alloc_s": 0.000564044,
+          "D_alloc_to_KV_ready_s": 0.06810031
+        },
+        "natural-train-fasttext:67": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.428921711,
+          "P_referenced_blocks": 68,
+          "P_just_this_reference_blocks_on_retain": 68,
+          "P_physically_returned_blocks": 68,
+          "D_arrival_to_alloc_s": 0.000601464,
+          "D_alloc_to_KV_ready_s": 0.071791264
+        },
+        "natural-fix-ocaml-gc:28": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.227386271,
+          "P_referenced_blocks": 36,
+          "P_just_this_reference_blocks_on_retain": 36,
+          "P_physically_returned_blocks": 36,
+          "D_arrival_to_alloc_s": 0.000638035,
+          "D_alloc_to_KV_ready_s": 0.049230988
+        },
+        "natural-raman-fitting:25": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.418934034,
+          "P_referenced_blocks": 70,
+          "P_just_this_reference_blocks_on_retain": 70,
+          "P_physically_returned_blocks": 70,
+          "D_arrival_to_alloc_s": 0.000669984,
+          "D_alloc_to_KV_ready_s": 0.068440543
+        },
+        "natural-crack-7z-hash:31": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.202249707,
+          "P_referenced_blocks": 38,
+          "P_just_this_reference_blocks_on_retain": 38,
+          "P_physically_returned_blocks": 38,
+          "D_arrival_to_alloc_s": 0.000668785,
+          "D_alloc_to_KV_ready_s": 0.056376374
+        },
+        "natural-build-pmars:24": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.219875014,
+          "P_referenced_blocks": 36,
+          "P_just_this_reference_blocks_on_retain": 36,
+          "P_physically_returned_blocks": 36,
+          "D_arrival_to_alloc_s": 0.000685065,
+          "D_alloc_to_KV_ready_s": 0.055539029
+        },
+        "natural-extract-elf:11": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.209756275,
+          "P_referenced_blocks": 36,
+          "P_just_this_reference_blocks_on_retain": 36,
+          "P_physically_returned_blocks": 36,
+          "D_arrival_to_alloc_s": 0.000757155,
+          "D_alloc_to_KV_ready_s": 0.056953308
+        },
+        "natural-regex-chess:105": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 1.105820573,
+          "P_referenced_blocks": 197,
+          "P_just_this_reference_blocks_on_retain": 197,
+          "P_physically_returned_blocks": 197,
+          "D_arrival_to_alloc_s": 0.001021427,
+          "D_alloc_to_KV_ready_s": 0.163083824
+        },
+        "natural-financial-document-processor:60": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.400774161,
+          "P_referenced_blocks": 73,
+          "P_just_this_reference_blocks_on_retain": 73,
+          "P_physically_returned_blocks": 73,
+          "D_arrival_to_alloc_s": 0.000914296,
+          "D_alloc_to_KV_ready_s": 0.098932719
+        },
+        "natural-path-tracing:22": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.398869038,
+          "P_referenced_blocks": 71,
+          "P_just_this_reference_blocks_on_retain": 71,
+          "P_physically_returned_blocks": 71,
+          "D_arrival_to_alloc_s": 0.001097027,
+          "D_alloc_to_KV_ready_s": 0.102825285
+        },
+        "natural-db-wal-recovery:17": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.522517386,
+          "P_referenced_blocks": 39,
+          "P_just_this_reference_blocks_on_retain": 39,
+          "P_physically_returned_blocks": 39,
+          "D_arrival_to_alloc_s": 0.002601517,
+          "D_alloc_to_KV_ready_s": 0.072259687
+        },
+        "natural-dna-assembly:22": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.52285341,
+          "P_referenced_blocks": 43,
+          "P_just_this_reference_blocks_on_retain": 43,
+          "P_physically_returned_blocks": 43,
+          "D_arrival_to_alloc_s": 0.000931096,
+          "D_alloc_to_KV_ready_s": 0.073435765
+        },
+        "natural-circuit-fibsqrt:37": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.243319787,
+          "P_referenced_blocks": 72,
+          "P_just_this_reference_blocks_on_retain": 72,
+          "P_physically_returned_blocks": 72,
+          "D_arrival_to_alloc_s": 0.001105738,
+          "D_alloc_to_KV_ready_s": 0.077045848
+        },
+        "natural-gcode-to-text:98": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.469377304,
+          "P_referenced_blocks": 132,
+          "P_just_this_reference_blocks_on_retain": 132,
+          "P_physically_returned_blocks": 132,
+          "D_arrival_to_alloc_s": 0.001214188,
+          "D_alloc_to_KV_ready_s": 0.166484856
+        },
+        "natural-filter-js-from-html:13": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.255922916,
+          "P_referenced_blocks": 40,
+          "P_just_this_reference_blocks_on_retain": 40,
+          "P_physically_returned_blocks": 40,
+          "D_arrival_to_alloc_s": 0.002454096,
+          "D_alloc_to_KV_ready_s": 0.078825829
+        },
+        "natural-build-cython-ext:37": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.280683276,
+          "P_referenced_blocks": 38,
+          "P_just_this_reference_blocks_on_retain": 38,
+          "P_physically_returned_blocks": 38,
+          "D_arrival_to_alloc_s": 0.001430569,
+          "D_alloc_to_KV_ready_s": 0.104596206
+        },
+        "natural-path-tracing-reverse:125": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.674543625,
+          "P_referenced_blocks": 197,
+          "P_just_this_reference_blocks_on_retain": 197,
+          "P_physically_returned_blocks": 197,
+          "D_arrival_to_alloc_s": 0.001307948,
+          "D_alloc_to_KV_ready_s": 0.162766632
+        },
+        "natural-feal-linear-cryptanalysis:16": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.457283563,
+          "P_referenced_blocks": 46,
+          "P_just_this_reference_blocks_on_retain": 46,
+          "P_physically_returned_blocks": 46,
+          "D_arrival_to_alloc_s": 0.001414329,
+          "D_alloc_to_KV_ready_s": 0.076340334
+        },
+        "natural-winning-avg-corewars:128": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.656287711,
+          "P_referenced_blocks": 202,
+          "P_just_this_reference_blocks_on_retain": 202,
+          "P_physically_returned_blocks": 202,
+          "D_arrival_to_alloc_s": 0.001609881,
+          "D_alloc_to_KV_ready_s": 0.157743289
+        },
+        "natural-extract-moves-from-video:134": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.451532555,
+          "P_referenced_blocks": 134,
+          "P_just_this_reference_blocks_on_retain": 134,
+          "P_physically_returned_blocks": 134,
+          "D_arrival_to_alloc_s": 0.001215648,
+          "D_alloc_to_KV_ready_s": 0.123274217
+        },
+        "natural-train-fasttext:71": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.409693925,
+          "P_referenced_blocks": 71,
+          "P_just_this_reference_blocks_on_retain": 71,
+          "P_physically_returned_blocks": 71,
+          "D_arrival_to_alloc_s": 0.001176758,
+          "D_alloc_to_KV_ready_s": 0.076988357
+        },
+        "natural-build-pov-ray:32": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.162944777,
+          "P_referenced_blocks": 39,
+          "P_just_this_reference_blocks_on_retain": 36,
+          "P_physically_returned_blocks": 39,
+          "D_arrival_to_alloc_s": 0.001174048,
+          "D_alloc_to_KV_ready_s": 0.077561011
+        },
+        "natural-make-doom-for-mips:118": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.55111576,
+          "P_referenced_blocks": 134,
+          "P_just_this_reference_blocks_on_retain": 134,
+          "P_physically_returned_blocks": 134,
+          "D_arrival_to_alloc_s": 0.000748664,
+          "D_alloc_to_KV_ready_s": 0.108887534
+        },
+        "natural-path-tracing:24": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.59640618,
+          "P_referenced_blocks": 74,
+          "P_just_this_reference_blocks_on_retain": 74,
+          "P_physically_returned_blocks": 74,
+          "D_arrival_to_alloc_s": 0.000768635,
+          "D_alloc_to_KV_ready_s": 0.079183652
+        },
+        "natural-count-dataset-tokens:47": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.597286881,
+          "P_referenced_blocks": 71,
+          "P_just_this_reference_blocks_on_retain": 71,
+          "P_physically_returned_blocks": 71,
+          "D_arrival_to_alloc_s": 0.000962036,
+          "D_alloc_to_KV_ready_s": 0.138870898
+        },
+        "natural-chess-best-move:24": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.311282504,
+          "P_referenced_blocks": 42,
+          "P_just_this_reference_blocks_on_retain": 42,
+          "P_physically_returned_blocks": 42,
+          "D_arrival_to_alloc_s": 0.000757334,
+          "D_alloc_to_KV_ready_s": 0.107556616
+        },
+        "natural-circuit-fibsqrt:38": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.550791177,
+          "P_referenced_blocks": 74,
+          "P_just_this_reference_blocks_on_retain": 74,
+          "P_physically_returned_blocks": 74,
+          "D_arrival_to_alloc_s": 0.000808175,
+          "D_alloc_to_KV_ready_s": 0.236138746
+        },
+        "natural-raman-fitting:26": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.533260081,
+          "P_referenced_blocks": 72,
+          "P_just_this_reference_blocks_on_retain": 72,
+          "P_physically_returned_blocks": 72,
+          "D_arrival_to_alloc_s": 0.000943836,
+          "D_alloc_to_KV_ready_s": 0.100599301
+        },
+        "natural-financial-document-processor:61": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.514285169,
+          "P_referenced_blocks": 75,
+          "P_just_this_reference_blocks_on_retain": 75,
+          "P_physically_returned_blocks": 75,
+          "D_arrival_to_alloc_s": 0.000825636,
+          "D_alloc_to_KV_ready_s": 0.105135889
+        },
+        "natural-train-fasttext:72": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.385788085,
+          "P_referenced_blocks": 72,
+          "P_just_this_reference_blocks_on_retain": 72,
+          "P_physically_returned_blocks": 72,
+          "D_arrival_to_alloc_s": 0.000882766,
+          "D_alloc_to_KV_ready_s": 0.79077043
+        },
+        "natural-gcode-to-text:99": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.473399681,
+          "P_referenced_blocks": 133,
+          "P_just_this_reference_blocks_on_retain": 133,
+          "P_physically_returned_blocks": 133,
+          "D_arrival_to_alloc_s": 0.000965856,
+          "D_alloc_to_KV_ready_s": 0.15322836
+        },
+        "natural-feal-linear-cryptanalysis:17": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.444440122,
+          "P_referenced_blocks": 46,
+          "P_just_this_reference_blocks_on_retain": 43,
+          "P_physically_returned_blocks": 46,
+          "D_arrival_to_alloc_s": 0.000777555,
+          "D_alloc_to_KV_ready_s": 0.055778131
+        },
+        "natural-mteb-leaderboard:38": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.19060338,
+          "P_referenced_blocks": 40,
+          "P_just_this_reference_blocks_on_retain": 37,
+          "P_physically_returned_blocks": 40,
+          "D_arrival_to_alloc_s": 0.000878636,
+          "D_alloc_to_KV_ready_s": 0.762663679
+        },
+        "natural-dna-assembly:23": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.219816093,
+          "P_referenced_blocks": 47,
+          "P_just_this_reference_blocks_on_retain": 47,
+          "P_physically_returned_blocks": 47,
+          "D_arrival_to_alloc_s": 0.000869226,
+          "D_alloc_to_KV_ready_s": 0.063635581
+        },
+        "natural-financial-document-processor:62": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.255951726,
+          "P_referenced_blocks": 75,
+          "P_just_this_reference_blocks_on_retain": 72,
+          "P_physically_returned_blocks": 75,
+          "D_arrival_to_alloc_s": 0.000842805,
+          "D_alloc_to_KV_ready_s": 0.085393832
+        },
+        "natural-gcode-to-text:100": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.470365786,
+          "P_referenced_blocks": 135,
+          "P_just_this_reference_blocks_on_retain": 135,
+          "P_physically_returned_blocks": 135,
+          "D_arrival_to_alloc_s": 0.001086437,
+          "D_alloc_to_KV_ready_s": 0.125898593
+        },
+        "natural-path-tracing-reverse:127": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.646631258,
+          "P_referenced_blocks": 202,
+          "P_just_this_reference_blocks_on_retain": 202,
+          "P_physically_returned_blocks": 202,
+          "D_arrival_to_alloc_s": 0.001123088,
+          "D_alloc_to_KV_ready_s": 0.151995872
+        },
+        "natural-financial-document-processor:63": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.335343125,
+          "P_referenced_blocks": 75,
+          "P_just_this_reference_blocks_on_retain": 72,
+          "P_physically_returned_blocks": 75,
+          "D_arrival_to_alloc_s": 0.001116177,
+          "D_alloc_to_KV_ready_s": 0.101292244
+        },
+        "natural-extract-elf:14": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.147842271,
+          "P_referenced_blocks": 38,
+          "P_just_this_reference_blocks_on_retain": 38,
+          "P_physically_returned_blocks": 38,
+          "D_arrival_to_alloc_s": 0.001131227,
+          "D_alloc_to_KV_ready_s": 0.078448547
+        },
+        "natural-path-tracing:25": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.520739275,
+          "P_referenced_blocks": 77,
+          "P_just_this_reference_blocks_on_retain": 77,
+          "P_physically_returned_blocks": 77,
+          "D_arrival_to_alloc_s": 0.001103907,
+          "D_alloc_to_KV_ready_s": 0.10063121
+        },
+        "natural-circuit-fibsqrt:39": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.260928024,
+          "P_referenced_blocks": 75,
+          "P_just_this_reference_blocks_on_retain": 75,
+          "P_physically_returned_blocks": 75,
+          "D_arrival_to_alloc_s": 0.001009717,
+          "D_alloc_to_KV_ready_s": 0.101016173
+        },
+        "natural-mailman:25": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.196651031,
+          "P_referenced_blocks": 38,
+          "P_just_this_reference_blocks_on_retain": 35,
+          "P_physically_returned_blocks": 38,
+          "D_arrival_to_alloc_s": 0.000988747,
+          "D_alloc_to_KV_ready_s": 0.07435985
+        },
+        "natural-financial-document-processor:64": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.339817217,
+          "P_referenced_blocks": 76,
+          "P_just_this_reference_blocks_on_retain": 76,
+          "P_physically_returned_blocks": 76,
+          "D_arrival_to_alloc_s": 0.000967576,
+          "D_alloc_to_KV_ready_s": 0.09905197
+        },
+        "natural-gpt2-codegolf:27": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.24686818,
+          "P_referenced_blocks": 69,
+          "P_just_this_reference_blocks_on_retain": 69,
+          "P_physically_returned_blocks": 69,
+          "D_arrival_to_alloc_s": 0.001037056,
+          "D_alloc_to_KV_ready_s": 0.101713928
+        },
+        "natural-make-doom-for-mips:119": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.414266469,
+          "P_referenced_blocks": 136,
+          "P_just_this_reference_blocks_on_retain": 136,
+          "P_physically_returned_blocks": 136,
+          "D_arrival_to_alloc_s": 0.001057027,
+          "D_alloc_to_KV_ready_s": 0.124429924
+        },
+        "natural-mteb-leaderboard:39": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.16318782,
+          "P_referenced_blocks": 41,
+          "P_just_this_reference_blocks_on_retain": 41,
+          "P_physically_returned_blocks": 41,
+          "D_arrival_to_alloc_s": 0.000956036,
+          "D_alloc_to_KV_ready_s": 0.074426241
+        },
+        "natural-gpt2-codegolf:28": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.223635777,
+          "P_referenced_blocks": 71,
+          "P_just_this_reference_blocks_on_retain": 71,
+          "P_physically_returned_blocks": 71,
+          "D_arrival_to_alloc_s": 0.001002917,
+          "D_alloc_to_KV_ready_s": 0.077415
+        },
+        "natural-cobol-modernization:20": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.238704254,
+          "P_referenced_blocks": 41,
+          "P_just_this_reference_blocks_on_retain": 41,
+          "P_physically_returned_blocks": 41,
+          "D_arrival_to_alloc_s": 0.000996707,
+          "D_alloc_to_KV_ready_s": 0.06197801
+        },
+        "natural-build-pmars:27": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.421364411,
+          "P_referenced_blocks": 40,
+          "P_just_this_reference_blocks_on_retain": 40,
+          "P_physically_returned_blocks": 40,
+          "D_arrival_to_alloc_s": 0.000879045,
+          "D_alloc_to_KV_ready_s": 0.127098122
+        },
+        "natural-db-wal-recovery:19": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.221100888,
+          "P_referenced_blocks": 42,
+          "P_just_this_reference_blocks_on_retain": 42,
+          "P_physically_returned_blocks": 42,
+          "D_arrival_to_alloc_s": 0.000935416,
+          "D_alloc_to_KV_ready_s": 0.081701778
+        },
+        "natural-extract-elf:15": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.151301201,
+          "P_referenced_blocks": 39,
+          "P_just_this_reference_blocks_on_retain": 39,
+          "P_physically_returned_blocks": 39,
+          "D_arrival_to_alloc_s": 0.000976126,
+          "D_alloc_to_KV_ready_s": 0.074393431
+        },
+        "natural-winning-avg-corewars:129": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.662522965,
+          "P_referenced_blocks": 203,
+          "P_just_this_reference_blocks_on_retain": 203,
+          "P_physically_returned_blocks": 203,
+          "D_arrival_to_alloc_s": 0.001143598,
+          "D_alloc_to_KV_ready_s": 0.166974279
+        },
+        "natural-mteb-leaderboard:40": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.14859381,
+          "P_referenced_blocks": 42,
+          "P_just_this_reference_blocks_on_retain": 42,
+          "P_physically_returned_blocks": 42,
+          "D_arrival_to_alloc_s": 0.001226618,
+          "D_alloc_to_KV_ready_s": 0.074097219
+        },
+        "natural-circuit-fibsqrt:40": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.270537756,
+          "P_referenced_blocks": 77,
+          "P_just_this_reference_blocks_on_retain": 77,
+          "P_physically_returned_blocks": 77,
+          "D_arrival_to_alloc_s": 0.001071337,
+          "D_alloc_to_KV_ready_s": 0.13610362
+        },
+        "natural-path-tracing:26": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.81680503,
+          "P_referenced_blocks": 81,
+          "P_just_this_reference_blocks_on_retain": 81,
+          "P_physically_returned_blocks": 81,
+          "D_arrival_to_alloc_s": 0.000964687,
+          "D_alloc_to_KV_ready_s": 0.102020439
+        },
+        "natural-make-mips-interpreter:91": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.412372466,
+          "P_referenced_blocks": 135,
+          "P_just_this_reference_blocks_on_retain": 135,
+          "P_physically_returned_blocks": 135,
+          "D_arrival_to_alloc_s": 0.001091947,
+          "D_alloc_to_KV_ready_s": 0.132369776
+        },
+        "natural-raman-fitting:27": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.23322396,
+          "P_referenced_blocks": 77,
+          "P_just_this_reference_blocks_on_retain": 77,
+          "P_physically_returned_blocks": 77,
+          "D_arrival_to_alloc_s": 0.001086107,
+          "D_alloc_to_KV_ready_s": 0.080410169
+        },
+        "natural-mailman:27": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.172149374,
+          "P_referenced_blocks": 40,
+          "P_just_this_reference_blocks_on_retain": 40,
+          "P_physically_returned_blocks": 40,
+          "D_arrival_to_alloc_s": 0.001003486,
+          "D_alloc_to_KV_ready_s": 0.078186916
+        },
+        "natural-make-mips-interpreter:92": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.413861544,
+          "P_referenced_blocks": 137,
+          "P_just_this_reference_blocks_on_retain": 137,
+          "P_physically_returned_blocks": 137,
+          "D_arrival_to_alloc_s": 0.001143368,
+          "D_alloc_to_KV_ready_s": 0.127406323
+        },
+        "natural-winning-avg-corewars:130": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.648045045,
+          "P_referenced_blocks": 205,
+          "P_just_this_reference_blocks_on_retain": 205,
+          "P_physically_returned_blocks": 205,
+          "D_arrival_to_alloc_s": 0.000932636,
+          "D_alloc_to_KV_ready_s": 0.178565694
+        },
+        "natural-db-wal-recovery:21": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.169182461,
+          "P_referenced_blocks": 44,
+          "P_just_this_reference_blocks_on_retain": 44,
+          "P_physically_returned_blocks": 44,
+          "D_arrival_to_alloc_s": 0.000990597,
+          "D_alloc_to_KV_ready_s": 0.074808673
+        },
+        "natural-raman-fitting:28": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.24355129,
+          "P_referenced_blocks": 78,
+          "P_just_this_reference_blocks_on_retain": 78,
+          "P_physically_returned_blocks": 78,
+          "D_arrival_to_alloc_s": 0.000644834,
+          "D_alloc_to_KV_ready_s": 0.08974405
+        },
+        "natural-build-cython-ext:41": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.156443201,
+          "P_referenced_blocks": 44,
+          "P_just_this_reference_blocks_on_retain": 44,
+          "P_physically_returned_blocks": 44,
+          "D_arrival_to_alloc_s": 0.000670055,
+          "D_alloc_to_KV_ready_s": 0.059035471
+        },
+        "natural-regex-chess:109": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.602314779,
+          "P_referenced_blocks": 205,
+          "P_just_this_reference_blocks_on_retain": 205,
+          "P_physically_returned_blocks": 205,
+          "D_arrival_to_alloc_s": 0.000726025,
+          "D_alloc_to_KV_ready_s": 0.148738041
+        },
+        "natural-video-processing:30": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.25115137,
+          "P_referenced_blocks": 70,
+          "P_just_this_reference_blocks_on_retain": 70,
+          "P_physically_returned_blocks": 70,
+          "D_arrival_to_alloc_s": 0.000701355,
+          "D_alloc_to_KV_ready_s": 0.083822092
+        },
+        "natural-dna-assembly:26": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.2152886,
+          "P_referenced_blocks": 52,
+          "P_just_this_reference_blocks_on_retain": 52,
+          "P_physically_returned_blocks": 52,
+          "D_arrival_to_alloc_s": 0.000783515,
+          "D_alloc_to_KV_ready_s": 0.059502774
+        },
+        "natural-chess-best-move:25": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.181297042,
+          "P_referenced_blocks": 45,
+          "P_just_this_reference_blocks_on_retain": 45,
+          "P_physically_returned_blocks": 45,
+          "D_arrival_to_alloc_s": 0.000826906,
+          "D_alloc_to_KV_ready_s": 0.061143335
+        },
+        "natural-circuit-fibsqrt:41": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.253255264,
+          "P_referenced_blocks": 78,
+          "P_just_this_reference_blocks_on_retain": 78,
+          "P_physically_returned_blocks": 78,
+          "D_arrival_to_alloc_s": 0.000605424,
+          "D_alloc_to_KV_ready_s": 0.088390751
+        },
+        "natural-install-windows-3.11:22": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.169262341,
+          "P_referenced_blocks": 42,
+          "P_just_this_reference_blocks_on_retain": 42,
+          "P_physically_returned_blocks": 42,
+          "D_arrival_to_alloc_s": 0.000500293,
+          "D_alloc_to_KV_ready_s": 0.062880916
+        },
+        "natural-fix-ocaml-gc:29": {
+          "P": "P0",
+          "D": "D1",
+          "p_hold_s": 0.156994157,
+          "P_referenced_blocks": 37,
+          "P_just_this_reference_blocks_on_retain": 37,
+          "P_physically_returned_blocks": 37,
+          "D_arrival_to_alloc_s": 0.000526124,
+          "D_alloc_to_KV_ready_s": 0.060774482
+        },
+        "natural-crack-7z-hash:33": {
+          "P": "P0",
+          "D": "D0",
+          "p_hold_s": 0.158317953,
+          "P_referenced_blocks": 43,
+          "P_just_this_reference_blocks_on_retain": 40,
+          "P_physically_returned_blocks": 43,
+          "D_arrival_to_alloc_s": 0.000469553,
+          "D_alloc_to_KV_ready_s": 0.061206955
+        },
+        "natural-circuit-fibsqrt:36": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.431947926,
+          "P_referenced_blocks": 69,
+          "P_just_this_reference_blocks_on_retain": 69,
+          "P_physically_returned_blocks": 69,
+          "D_arrival_to_alloc_s": 0.000670624,
+          "D_alloc_to_KV_ready_s": 0.130991307
+        },
+        "natural-financial-document-processor:59": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.422532656,
+          "P_referenced_blocks": 68,
+          "P_just_this_reference_blocks_on_retain": 68,
+          "P_physically_returned_blocks": 68,
+          "D_arrival_to_alloc_s": 0.000422262,
+          "D_alloc_to_KV_ready_s": 0.077437081
+        },
+        "natural-make-mips-interpreter:87": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.455886276,
+          "P_referenced_blocks": 132,
+          "P_just_this_reference_blocks_on_retain": 132,
+          "P_physically_returned_blocks": 132,
+          "D_arrival_to_alloc_s": 0.000551234,
+          "D_alloc_to_KV_ready_s": 0.121891968
+        },
+        "natural-path-tracing:21": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.421441553,
+          "P_referenced_blocks": 68,
+          "P_just_this_reference_blocks_on_retain": 68,
+          "P_physically_returned_blocks": 68,
+          "D_arrival_to_alloc_s": 0.000450583,
+          "D_alloc_to_KV_ready_s": 0.081026474
+        },
+        "natural-dna-assembly:21": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.221880917,
+          "P_referenced_blocks": 40,
+          "P_just_this_reference_blocks_on_retain": 40,
+          "P_physically_returned_blocks": 40,
+          "D_arrival_to_alloc_s": 0.000451013,
+          "D_alloc_to_KV_ready_s": 0.062485094
+        },
+        "natural-db-wal-recovery:16": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.217599297,
+          "P_referenced_blocks": 36,
+          "P_just_this_reference_blocks_on_retain": 36,
+          "P_physically_returned_blocks": 36,
+          "D_arrival_to_alloc_s": 0.000533133,
+          "D_alloc_to_KV_ready_s": 0.058045785
+        },
+        "natural-winning-avg-corewars:126": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.675408956,
+          "P_referenced_blocks": 198,
+          "P_just_this_reference_blocks_on_retain": 198,
+          "P_physically_returned_blocks": 198,
+          "D_arrival_to_alloc_s": 0.000711905,
+          "D_alloc_to_KV_ready_s": 0.145318169
+        },
+        "natural-mailman:22": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.207839402,
+          "P_referenced_blocks": 36,
+          "P_just_this_reference_blocks_on_retain": 36,
+          "P_physically_returned_blocks": 36,
+          "D_arrival_to_alloc_s": 0.000555914,
+          "D_alloc_to_KV_ready_s": 0.071300171
+        },
+        "natural-cobol-modernization:17": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.202769743,
+          "P_referenced_blocks": 36,
+          "P_just_this_reference_blocks_on_retain": 36,
+          "P_physically_returned_blocks": 36,
+          "D_arrival_to_alloc_s": 0.000496643,
+          "D_alloc_to_KV_ready_s": 0.052993223
+        },
+        "natural-filter-js-from-html:12": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.205714308,
+          "P_referenced_blocks": 38,
+          "P_just_this_reference_blocks_on_retain": 38,
+          "P_physically_returned_blocks": 38,
+          "D_arrival_to_alloc_s": 0.000549494,
+          "D_alloc_to_KV_ready_s": 0.061054235
+        },
+        "natural-feal-linear-cryptanalysis:14": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.220021466,
+          "P_referenced_blocks": 37,
+          "P_just_this_reference_blocks_on_retain": 37,
+          "P_physically_returned_blocks": 37,
+          "D_arrival_to_alloc_s": 0.000539104,
+          "D_alloc_to_KV_ready_s": 0.061528318
+        },
+        "natural-build-cython-ext:36": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.208824094,
+          "P_referenced_blocks": 37,
+          "P_just_this_reference_blocks_on_retain": 37,
+          "P_physically_returned_blocks": 37,
+          "D_arrival_to_alloc_s": 0.000633455,
+          "D_alloc_to_KV_ready_s": 0.047645487
+        },
+        "natural-build-pov-ray:27": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.210574745,
+          "P_referenced_blocks": 37,
+          "P_just_this_reference_blocks_on_retain": 37,
+          "P_physically_returned_blocks": 37,
+          "D_arrival_to_alloc_s": 0.000628454,
+          "D_alloc_to_KV_ready_s": 0.048716815
+        },
+        "natural-count-dataset-tokens:44": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.415847357,
+          "P_referenced_blocks": 69,
+          "P_just_this_reference_blocks_on_retain": 69,
+          "P_physically_returned_blocks": 69,
+          "D_arrival_to_alloc_s": 0.000639254,
+          "D_alloc_to_KV_ready_s": 0.078552767
+        },
+        "natural-make-doom-for-mips:117": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.660252638,
+          "P_referenced_blocks": 133,
+          "P_just_this_reference_blocks_on_retain": 133,
+          "P_physically_returned_blocks": 133,
+          "D_arrival_to_alloc_s": 0.000794035,
+          "D_alloc_to_KV_ready_s": 0.111219079
+        },
+        "natural-video-processing:27": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.912877134,
+          "P_referenced_blocks": 68,
+          "P_just_this_reference_blocks_on_retain": 68,
+          "P_physically_returned_blocks": 68,
+          "D_arrival_to_alloc_s": 0.000655614,
+          "D_alloc_to_KV_ready_s": 0.079118421
+        },
+        "natural-extract-moves-from-video:132": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.913736605,
+          "P_referenced_blocks": 133,
+          "P_just_this_reference_blocks_on_retain": 133,
+          "P_physically_returned_blocks": 133,
+          "D_arrival_to_alloc_s": 0.000741474,
+          "D_alloc_to_KV_ready_s": 0.14856214
+        },
+        "natural-make-mips-interpreter:88": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.613612222,
+          "P_referenced_blocks": 133,
+          "P_just_this_reference_blocks_on_retain": 133,
+          "P_physically_returned_blocks": 133,
+          "D_arrival_to_alloc_s": 0.000710785,
+          "D_alloc_to_KV_ready_s": 0.114861932
+        },
+        "natural-mailman:23": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.611851752,
+          "P_referenced_blocks": 37,
+          "P_just_this_reference_blocks_on_retain": 37,
+          "P_physically_returned_blocks": 37,
+          "D_arrival_to_alloc_s": 0.000681094,
+          "D_alloc_to_KV_ready_s": 0.055448799
+        },
+        "natural-mteb-leaderboard:36": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.38963357,
+          "P_referenced_blocks": 38,
+          "P_just_this_reference_blocks_on_retain": 38,
+          "P_physically_returned_blocks": 38,
+          "D_arrival_to_alloc_s": 0.001490419,
+          "D_alloc_to_KV_ready_s": 0.057308761
+        },
+        "natural-chess-best-move:23": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.477983725,
+          "P_referenced_blocks": 40,
+          "P_just_this_reference_blocks_on_retain": 40,
+          "P_physically_returned_blocks": 40,
+          "D_arrival_to_alloc_s": 0.000708674,
+          "D_alloc_to_KV_ready_s": 0.059933058
+        },
+        "natural-train-fasttext:68": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.47592087,
+          "P_referenced_blocks": 69,
+          "P_just_this_reference_blocks_on_retain": 69,
+          "P_physically_returned_blocks": 69,
+          "D_arrival_to_alloc_s": 0.000862646,
+          "D_alloc_to_KV_ready_s": 0.113235532
+        },
+        "natural-cobol-modernization:18": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.478064126,
+          "P_referenced_blocks": 37,
+          "P_just_this_reference_blocks_on_retain": 37,
+          "P_physically_returned_blocks": 37,
+          "D_arrival_to_alloc_s": 0.000829075,
+          "D_alloc_to_KV_ready_s": 0.058192426
+        },
+        "natural-build-pov-ray:28": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.388152223,
+          "P_referenced_blocks": 37,
+          "P_just_this_reference_blocks_on_retain": 34,
+          "P_physically_returned_blocks": 37,
+          "D_arrival_to_alloc_s": 0.000771295,
+          "D_alloc_to_KV_ready_s": 0.057809803
+        },
+        "natural-winning-avg-corewars:127": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.731198309,
+          "P_referenced_blocks": 200,
+          "P_just_this_reference_blocks_on_retain": 200,
+          "P_physically_returned_blocks": 200,
+          "D_arrival_to_alloc_s": 0.001034076,
+          "D_alloc_to_KV_ready_s": 0.169467266
+        },
+        "natural-count-dataset-tokens:45": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.506343806,
+          "P_referenced_blocks": 69,
+          "P_just_this_reference_blocks_on_retain": 69,
+          "P_physically_returned_blocks": 69,
+          "D_arrival_to_alloc_s": 0.000800735,
+          "D_alloc_to_KV_ready_s": 0.082255311
+        },
+        "natural-extract-elf:12": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.289548559,
+          "P_referenced_blocks": 37,
+          "P_just_this_reference_blocks_on_retain": 37,
+          "P_physically_returned_blocks": 37,
+          "D_arrival_to_alloc_s": 0.000857175,
+          "D_alloc_to_KV_ready_s": 0.057978095
+        },
+        "natural-video-processing:28": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.402940416,
+          "P_referenced_blocks": 69,
+          "P_just_this_reference_blocks_on_retain": 69,
+          "P_physically_returned_blocks": 69,
+          "D_arrival_to_alloc_s": 0.000835325,
+          "D_alloc_to_KV_ready_s": 0.071003619
+        },
+        "natural-feal-linear-cryptanalysis:15": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.176595717,
+          "P_referenced_blocks": 45,
+          "P_just_this_reference_blocks_on_retain": 45,
+          "P_physically_returned_blocks": 45,
+          "D_arrival_to_alloc_s": 0.000908766,
+          "D_alloc_to_KV_ready_s": 0.072975322
+        },
+        "natural-build-pov-ray:29": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.147904291,
+          "P_referenced_blocks": 37,
+          "P_just_this_reference_blocks_on_retain": 34,
+          "P_physically_returned_blocks": 37,
+          "D_arrival_to_alloc_s": 0.000865786,
+          "D_alloc_to_KV_ready_s": 0.071985145
+        },
+        "natural-build-pmars:25": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.204370092,
+          "P_referenced_blocks": 38,
+          "P_just_this_reference_blocks_on_retain": 38,
+          "P_physically_returned_blocks": 38,
+          "D_arrival_to_alloc_s": 0.000858896,
+          "D_alloc_to_KV_ready_s": 0.059484234
+        },
+        "natural-train-fasttext:69": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.26573752,
+          "P_referenced_blocks": 70,
+          "P_just_this_reference_blocks_on_retain": 70,
+          "P_physically_returned_blocks": 70,
+          "D_arrival_to_alloc_s": 0.000975827,
+          "D_alloc_to_KV_ready_s": 0.075204266
+        },
+        "natural-mteb-leaderboard:37": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.342949774,
+          "P_referenced_blocks": 40,
+          "P_just_this_reference_blocks_on_retain": 40,
+          "P_physically_returned_blocks": 40,
+          "D_arrival_to_alloc_s": 0.000928046,
+          "D_alloc_to_KV_ready_s": 0.073108753
+        },
+        "natural-extract-moves-from-video:133": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.901142577,
+          "P_referenced_blocks": 134,
+          "P_just_this_reference_blocks_on_retain": 134,
+          "P_physically_returned_blocks": 134,
+          "D_arrival_to_alloc_s": 0.001159047,
+          "D_alloc_to_KV_ready_s": 0.401632246
+        },
+        "natural-build-pov-ray:30": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.139849697,
+          "P_referenced_blocks": 38,
+          "P_just_this_reference_blocks_on_retain": 38,
+          "P_physically_returned_blocks": 38,
+          "D_arrival_to_alloc_s": 0.001121037,
+          "D_alloc_to_KV_ready_s": 0.077865313
+        },
+        "natural-count-dataset-tokens:46": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.290267597,
+          "P_referenced_blocks": 70,
+          "P_just_this_reference_blocks_on_retain": 70,
+          "P_physically_returned_blocks": 70,
+          "D_arrival_to_alloc_s": 0.001176498,
+          "D_alloc_to_KV_ready_s": 0.085521112
+        },
+        "natural-train-fasttext:70": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.25199611,
+          "P_referenced_blocks": 70,
+          "P_just_this_reference_blocks_on_retain": 70,
+          "P_physically_returned_blocks": 70,
+          "D_arrival_to_alloc_s": 0.001140668,
+          "D_alloc_to_KV_ready_s": 0.081292305
+        },
+        "natural-make-mips-interpreter:89": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.643788685,
+          "P_referenced_blocks": 133,
+          "P_just_this_reference_blocks_on_retain": 130,
+          "P_physically_returned_blocks": 133,
+          "D_arrival_to_alloc_s": 0.001062377,
+          "D_alloc_to_KV_ready_s": 0.129797959
+        },
+        "natural-build-pov-ray:31": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.231754252,
+          "P_referenced_blocks": 39,
+          "P_just_this_reference_blocks_on_retain": 39,
+          "P_physically_returned_blocks": 39,
+          "D_arrival_to_alloc_s": 0.001101157,
+          "D_alloc_to_KV_ready_s": 0.079304502
+        },
+        "natural-path-tracing:23": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.279808775,
+          "P_referenced_blocks": 72,
+          "P_just_this_reference_blocks_on_retain": 72,
+          "P_physically_returned_blocks": 72,
+          "D_arrival_to_alloc_s": 0.001164407,
+          "D_alloc_to_KV_ready_s": 0.080768482
+        },
+        "natural-path-tracing-reverse:126": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.795275159,
+          "P_referenced_blocks": 200,
+          "P_just_this_reference_blocks_on_retain": 200,
+          "P_physically_returned_blocks": 200,
+          "D_arrival_to_alloc_s": 0.001025436,
+          "D_alloc_to_KV_ready_s": 0.144537294
+        },
+        "natural-extract-elf:13": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.267283729,
+          "P_referenced_blocks": 37,
+          "P_just_this_reference_blocks_on_retain": 37,
+          "P_physically_returned_blocks": 37,
+          "D_arrival_to_alloc_s": 0.000960626,
+          "D_alloc_to_KV_ready_s": 0.065595654
+        },
+        "natural-mailman:24": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.265776271,
+          "P_referenced_blocks": 38,
+          "P_just_this_reference_blocks_on_retain": 38,
+          "P_physically_returned_blocks": 38,
+          "D_arrival_to_alloc_s": 0.000888086,
+          "D_alloc_to_KV_ready_s": 0.063163448
+        },
+        "natural-cobol-modernization:19": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.221442942,
+          "P_referenced_blocks": 40,
+          "P_just_this_reference_blocks_on_retain": 40,
+          "P_physically_returned_blocks": 40,
+          "D_arrival_to_alloc_s": 0.001109767,
+          "D_alloc_to_KV_ready_s": 0.070733318
+        },
+        "natural-build-pmars:26": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.369288662,
+          "P_referenced_blocks": 38,
+          "P_just_this_reference_blocks_on_retain": 38,
+          "P_physically_returned_blocks": 38,
+          "D_arrival_to_alloc_s": 0.000945336,
+          "D_alloc_to_KV_ready_s": 0.074346251
+        },
+        "natural-db-wal-recovery:18": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.446038221,
+          "P_referenced_blocks": 40,
+          "P_just_this_reference_blocks_on_retain": 40,
+          "P_physically_returned_blocks": 40,
+          "D_arrival_to_alloc_s": 0.001277488,
+          "D_alloc_to_KV_ready_s": 0.0944808
+        },
+        "natural-regex-chess:106": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.724847274,
+          "P_referenced_blocks": 201,
+          "P_just_this_reference_blocks_on_retain": 201,
+          "P_physically_returned_blocks": 201,
+          "D_arrival_to_alloc_s": 0.001129787,
+          "D_alloc_to_KV_ready_s": 0.179334239
+        },
+        "natural-extract-moves-from-video:135": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.478138217,
+          "P_referenced_blocks": 135,
+          "P_just_this_reference_blocks_on_retain": 135,
+          "P_physically_returned_blocks": 135,
+          "D_arrival_to_alloc_s": 0.001164257,
+          "D_alloc_to_KV_ready_s": 0.127350854
+        },
+        "natural-build-cython-ext:38": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.418148304,
+          "P_referenced_blocks": 39,
+          "P_just_this_reference_blocks_on_retain": 39,
+          "P_physically_returned_blocks": 39,
+          "D_arrival_to_alloc_s": 0.001068037,
+          "D_alloc_to_KV_ready_s": 0.074746453
+        },
+        "natural-make-mips-interpreter:90": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.576913482,
+          "P_referenced_blocks": 134,
+          "P_just_this_reference_blocks_on_retain": 134,
+          "P_physically_returned_blocks": 134,
+          "D_arrival_to_alloc_s": 0.001275279,
+          "D_alloc_to_KV_ready_s": 0.132490856
+        },
+        "natural-mailman:26": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.150775404,
+          "P_referenced_blocks": 39,
+          "P_just_this_reference_blocks_on_retain": 39,
+          "P_physically_returned_blocks": 39,
+          "D_arrival_to_alloc_s": 0.001038656,
+          "D_alloc_to_KV_ready_s": 0.075212447
+        },
+        "natural-extract-elf:16": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.162511332,
+          "P_referenced_blocks": 41,
+          "P_just_this_reference_blocks_on_retain": 41,
+          "P_physically_returned_blocks": 41,
+          "D_arrival_to_alloc_s": 0.001147118,
+          "D_alloc_to_KV_ready_s": 0.079143291
+        },
+        "natural-dna-assembly:24": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.264387734,
+          "P_referenced_blocks": 49,
+          "P_just_this_reference_blocks_on_retain": 49,
+          "P_physically_returned_blocks": 49,
+          "D_arrival_to_alloc_s": 0.001023767,
+          "D_alloc_to_KV_ready_s": 0.157112945
+        },
+        "natural-extract-moves-from-video:136": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.396041995,
+          "P_referenced_blocks": 135,
+          "P_just_this_reference_blocks_on_retain": 132,
+          "P_physically_returned_blocks": 135,
+          "D_arrival_to_alloc_s": 0.001054087,
+          "D_alloc_to_KV_ready_s": 0.12849837
+        },
+        "natural-build-pmars:28": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.302516481,
+          "P_referenced_blocks": 42,
+          "P_just_this_reference_blocks_on_retain": 42,
+          "P_physically_returned_blocks": 42,
+          "D_arrival_to_alloc_s": 0.001145847,
+          "D_alloc_to_KV_ready_s": 0.078661578
+        },
+        "natural-video-processing:29": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.256148368,
+          "P_referenced_blocks": 69,
+          "P_just_this_reference_blocks_on_retain": 66,
+          "P_physically_returned_blocks": 69,
+          "D_arrival_to_alloc_s": 0.001303848,
+          "D_alloc_to_KV_ready_s": 0.079291113
+        },
+        "natural-db-wal-recovery:20": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.156106978,
+          "P_referenced_blocks": 43,
+          "P_just_this_reference_blocks_on_retain": 43,
+          "P_physically_returned_blocks": 43,
+          "D_arrival_to_alloc_s": 0.001113028,
+          "D_alloc_to_KV_ready_s": 0.080391239
+        },
+        "natural-make-doom-for-mips:120": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.443609503,
+          "P_referenced_blocks": 136,
+          "P_just_this_reference_blocks_on_retain": 133,
+          "P_physically_returned_blocks": 136,
+          "D_arrival_to_alloc_s": 0.001126228,
+          "D_alloc_to_KV_ready_s": 0.132255814
+        },
+        "natural-build-cython-ext:39": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.152368794,
+          "P_referenced_blocks": 41,
+          "P_just_this_reference_blocks_on_retain": 41,
+          "P_physically_returned_blocks": 41,
+          "D_arrival_to_alloc_s": 0.001096537,
+          "D_alloc_to_KV_ready_s": 0.078401006
+        },
+        "natural-path-tracing-reverse:128": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.592261132,
+          "P_referenced_blocks": 203,
+          "P_just_this_reference_blocks_on_retain": 203,
+          "P_physically_returned_blocks": 203,
+          "D_arrival_to_alloc_s": 0.001140187,
+          "D_alloc_to_KV_ready_s": 0.155696756
+        },
+        "natural-build-pmars:29": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.205329813,
+          "P_referenced_blocks": 43,
+          "P_just_this_reference_blocks_on_retain": 43,
+          "P_physically_returned_blocks": 43,
+          "D_arrival_to_alloc_s": 0.001034587,
+          "D_alloc_to_KV_ready_s": 0.078251906
+        },
+        "natural-regex-chess:107": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.587194103,
+          "P_referenced_blocks": 202,
+          "P_just_this_reference_blocks_on_retain": 202,
+          "P_physically_returned_blocks": 202,
+          "D_arrival_to_alloc_s": 0.001061637,
+          "D_alloc_to_KV_ready_s": 0.149328085
+        },
+        "natural-path-tracing-reverse:129": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.558956803,
+          "P_referenced_blocks": 205,
+          "P_just_this_reference_blocks_on_retain": 205,
+          "P_physically_returned_blocks": 205,
+          "D_arrival_to_alloc_s": 0.000983877,
+          "D_alloc_to_KV_ready_s": 0.149074073
+        },
+        "natural-make-doom-for-mips:121": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.473373871,
+          "P_referenced_blocks": 139,
+          "P_just_this_reference_blocks_on_retain": 139,
+          "P_physically_returned_blocks": 139,
+          "D_arrival_to_alloc_s": 0.000944916,
+          "D_alloc_to_KV_ready_s": 0.129276675
+        },
+        "natural-gpt2-codegolf:29": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.257766407,
+          "P_referenced_blocks": 72,
+          "P_just_this_reference_blocks_on_retain": 72,
+          "P_physically_returned_blocks": 72,
+          "D_arrival_to_alloc_s": 0.001038827,
+          "D_alloc_to_KV_ready_s": 0.098612527
+        },
+        "natural-make-doom-for-mips:122": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.448286047,
+          "P_referenced_blocks": 140,
+          "P_just_this_reference_blocks_on_retain": 140,
+          "P_physically_returned_blocks": 140,
+          "D_arrival_to_alloc_s": 0.000951306,
+          "D_alloc_to_KV_ready_s": 0.12379112
+        },
+        "natural-dna-assembly:25": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.357787337,
+          "P_referenced_blocks": 50,
+          "P_just_this_reference_blocks_on_retain": 50,
+          "P_physically_returned_blocks": 50,
+          "D_arrival_to_alloc_s": 0.000830815,
+          "D_alloc_to_KV_ready_s": 0.079625525
+        },
+        "natural-gpt2-codegolf:30": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.404350682,
+          "P_referenced_blocks": 72,
+          "P_just_this_reference_blocks_on_retain": 69,
+          "P_physically_returned_blocks": 72,
+          "D_arrival_to_alloc_s": 0.000907015,
+          "D_alloc_to_KV_ready_s": 0.08046553
+        },
+        "natural-build-cython-ext:40": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.203187528,
+          "P_referenced_blocks": 43,
+          "P_just_this_reference_blocks_on_retain": 43,
+          "P_physically_returned_blocks": 43,
+          "D_arrival_to_alloc_s": 0.000877786,
+          "D_alloc_to_KV_ready_s": 0.071410652
+        },
+        "natural-regex-chess:108": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.613358439,
+          "P_referenced_blocks": 203,
+          "P_just_this_reference_blocks_on_retain": 203,
+          "P_physically_returned_blocks": 203,
+          "D_arrival_to_alloc_s": 0.000995936,
+          "D_alloc_to_KV_ready_s": 0.149047104
+        },
+        "natural-gcode-to-text:101": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.458102832,
+          "P_referenced_blocks": 136,
+          "P_just_this_reference_blocks_on_retain": 136,
+          "P_physically_returned_blocks": 136,
+          "D_arrival_to_alloc_s": 0.000926726,
+          "D_alloc_to_KV_ready_s": 0.120520028
+        },
+        "natural-video-processing:31": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.272355388,
+          "P_referenced_blocks": 72,
+          "P_just_this_reference_blocks_on_retain": 72,
+          "P_physically_returned_blocks": 72,
+          "D_arrival_to_alloc_s": 0.000838905,
+          "D_alloc_to_KV_ready_s": 0.079053101
+        },
+        "natural-gcode-to-text:102": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.45029238,
+          "P_referenced_blocks": 137,
+          "P_just_this_reference_blocks_on_retain": 137,
+          "P_physically_returned_blocks": 137,
+          "D_arrival_to_alloc_s": 0.000839756,
+          "D_alloc_to_KV_ready_s": 0.120360377
+        },
+        "natural-winning-avg-corewars:131": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.665352978,
+          "P_referenced_blocks": 205,
+          "P_just_this_reference_blocks_on_retain": 202,
+          "P_physically_returned_blocks": 205,
+          "D_arrival_to_alloc_s": 0.000795275,
+          "D_alloc_to_KV_ready_s": 0.155485485
+        },
+        "natural-regex-chess:110": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.600283806,
+          "P_referenced_blocks": 206,
+          "P_just_this_reference_blocks_on_retain": 206,
+          "P_physically_returned_blocks": 206,
+          "D_arrival_to_alloc_s": 0.000809205,
+          "D_alloc_to_KV_ready_s": 0.141208763
+        },
+        "natural-install-windows-3.11:20": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.153417826,
+          "P_referenced_blocks": 40,
+          "P_just_this_reference_blocks_on_retain": 40,
+          "P_physically_returned_blocks": 40,
+          "D_arrival_to_alloc_s": 0.000662524,
+          "D_alloc_to_KV_ready_s": 0.050700697
+        },
+        "natural-video-processing:32": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.23409461,
+          "P_referenced_blocks": 73,
+          "P_just_this_reference_blocks_on_retain": 73,
+          "P_physically_returned_blocks": 73,
+          "D_arrival_to_alloc_s": 0.000745785,
+          "D_alloc_to_KV_ready_s": 0.083261618
+        },
+        "natural-raman-fitting:29": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.276708528,
+          "P_referenced_blocks": 82,
+          "P_just_this_reference_blocks_on_retain": 82,
+          "P_physically_returned_blocks": 82,
+          "D_arrival_to_alloc_s": 0.000642015,
+          "D_alloc_to_KV_ready_s": 0.081047423
+        },
+        "natural-install-windows-3.11:21": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.179960287,
+          "P_referenced_blocks": 41,
+          "P_just_this_reference_blocks_on_retain": 41,
+          "P_physically_returned_blocks": 41,
+          "D_arrival_to_alloc_s": 0.000719165,
+          "D_alloc_to_KV_ready_s": 0.065986756
+        },
+        "natural-gpt2-codegolf:31": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.221606064,
+          "P_referenced_blocks": 72,
+          "P_just_this_reference_blocks_on_retain": 72,
+          "P_physically_returned_blocks": 72,
+          "D_arrival_to_alloc_s": 0.000492673,
+          "D_alloc_to_KV_ready_s": 0.079200612
+        },
+        "natural-install-windows-3.11:23": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.160544339,
+          "P_referenced_blocks": 44,
+          "P_just_this_reference_blocks_on_retain": 44,
+          "P_physically_returned_blocks": 44,
+          "D_arrival_to_alloc_s": 0.000522103,
+          "D_alloc_to_KV_ready_s": 0.061143316
+        },
+        "natural-chess-best-move:26": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.193001279,
+          "P_referenced_blocks": 47,
+          "P_just_this_reference_blocks_on_retain": 47,
+          "P_physically_returned_blocks": 47,
+          "D_arrival_to_alloc_s": 0.000623334,
+          "D_alloc_to_KV_ready_s": 0.071435472
+        },
+        "natural-raman-fitting:30": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.249221097,
+          "P_referenced_blocks": 85,
+          "P_just_this_reference_blocks_on_retain": 85,
+          "P_physically_returned_blocks": 85,
+          "D_arrival_to_alloc_s": 0.000548924,
+          "D_alloc_to_KV_ready_s": 0.087793027
+        },
+        "natural-chess-best-move:27": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.167138096,
+          "P_referenced_blocks": 47,
+          "P_just_this_reference_blocks_on_retain": 44,
+          "P_physically_returned_blocks": 47,
+          "D_arrival_to_alloc_s": 0.000479973,
+          "D_alloc_to_KV_ready_s": 0.057021409
+        },
+        "natural-crack-7z-hash:32": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.146310163,
+          "P_referenced_blocks": 43,
+          "P_just_this_reference_blocks_on_retain": 43,
+          "P_physically_returned_blocks": 43,
+          "D_arrival_to_alloc_s": 0.000602564,
+          "D_alloc_to_KV_ready_s": 0.060133108
+        },
+        "natural-install-windows-3.11:24": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.168210909,
+          "P_referenced_blocks": 46,
+          "P_just_this_reference_blocks_on_retain": 46,
+          "P_physically_returned_blocks": 46,
+          "D_arrival_to_alloc_s": 0.000431982,
+          "D_alloc_to_KV_ready_s": 0.059779677
+        },
+        "natural-crack-7z-hash:34": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.144134347,
+          "P_referenced_blocks": 43,
+          "P_just_this_reference_blocks_on_retain": 40,
+          "P_physically_returned_blocks": 43,
+          "D_arrival_to_alloc_s": 0.000501143,
+          "D_alloc_to_KV_ready_s": 0.058241777
+        },
+        "natural-crack-7z-hash:35": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.147909611,
+          "P_referenced_blocks": 45,
+          "P_just_this_reference_blocks_on_retain": 45,
+          "P_physically_returned_blocks": 45,
+          "D_arrival_to_alloc_s": 0.000572864,
+          "D_alloc_to_KV_ready_s": 0.061551148
+        },
+        "natural-fix-ocaml-gc:30": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.143618871,
+          "P_referenced_blocks": 38,
+          "P_just_this_reference_blocks_on_retain": 38,
+          "P_physically_returned_blocks": 38,
+          "D_arrival_to_alloc_s": 0.000465743,
+          "D_alloc_to_KV_ready_s": 0.058723569
+        },
+        "natural-fix-ocaml-gc:31": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.118062732,
+          "P_referenced_blocks": 39,
+          "P_just_this_reference_blocks_on_retain": 39,
+          "P_physically_returned_blocks": 39,
+          "D_arrival_to_alloc_s": 0.000460662,
+          "D_alloc_to_KV_ready_s": 0.03239222
+        },
+        "natural-fix-ocaml-gc:32": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.125373628,
+          "P_referenced_blocks": 40,
+          "P_just_this_reference_blocks_on_retain": 40,
+          "P_physically_returned_blocks": 40,
+          "D_arrival_to_alloc_s": 0.000421133,
+          "D_alloc_to_KV_ready_s": 0.033187574
+        },
+        "natural-fix-ocaml-gc:33": {
+          "P": "P1",
+          "D": "D1",
+          "p_hold_s": 0.133312621,
+          "P_referenced_blocks": 41,
+          "P_just_this_reference_blocks_on_retain": 41,
+          "P_physically_returned_blocks": 41,
+          "D_arrival_to_alloc_s": 0.000437653,
+          "D_alloc_to_KV_ready_s": 0.034557044
+        },
+        "natural-crack-7z-hash:36": {
+          "P": "P1",
+          "D": "D0",
+          "p_hold_s": 0.135501236,
+          "P_referenced_blocks": 48,
+          "P_just_this_reference_blocks_on_retain": 48,
+          "P_physically_returned_blocks": 48,
+          "D_arrival_to_alloc_s": 0.000464963,
+          "D_alloc_to_KV_ready_s": 0.030466877
+        }
+      },
+      "cap_Gbps": 100,
+      "ports": {
+        "D_tx_GB": 80.61702190880571,
+        "D_rx_GB": 681.6112649108054,
+        "D_peak_one_s_Gbps": 49.21113750278188,
+        "D_peak_one_s_Gbps_by_port": {
+          "0": 6.096490189467624,
+          "1": 4.811660708531981,
+          "2": 6.643387839634146,
+          "3": 7.26040534328649,
+          "4": 6.316614751377077,
+          "5": 5.048082324108797,
+          "6": 6.166197523145428,
+          "7": 6.9682183838743965
+        },
+        "D_near_cap_s_by_port": {
+          "4": 0.40328090700000985,
+          "2": 0.4444109829999974,
+          "3": 0.4444015370000045,
+          "7": 0.44391070900000784
+        },
+        "D_supply": {
+          "D0": {
+            "coverage_s": 307.74910584278405,
+            "running_request_s": 1521.9627176467827,
+            "waiting_request_s": 4.161678744999989,
+            "P_outstanding_on_eventual_D_route_s": 145.21930724999996,
+            "D_zero_running_or_waiting_with_P_outstanding_s": 3.302958857,
+            "D_zero_work_with_P_outstanding_and_D_near_cap_s": 0,
+            "avg_running": 4.9454659290684955,
+            "avg_waiting": 0.013522959664181817
+          },
+          "D1": {
+            "coverage_s": 307.74910584278405,
+            "running_request_s": 1327.067466211,
+            "waiting_request_s": 3.582415443000002,
+            "P_outstanding_on_eventual_D_route_s": 137.72646608299996,
+            "D_zero_running_or_waiting_with_P_outstanding_s": 5.3320099789999755,
+            "D_zero_work_with_P_outstanding_and_D_near_cap_s": 0,
+            "avg_running": 4.312173263921496,
+            "avg_waiting": 0.0116407013862458
+          }
+        },
+        "D_MAC_TX_at_least_85pct_cap_s": 0,
+        "D_cap_measurement_window_s": 307.74910584278405
+      },
+      "role_in_comparison": "primary_100_Gbps",
+      "client_finish_reasons": {
+        "stop": 167,
+        "length": 3
+      },
+      "client_tail_request": {
+        "id": "natural-crack-7z-hash:36",
+        "ready_s": 277.175672609359,
+        "dispatch_s": 277.17638473398983,
+        "first_s": 277.91463030688465,
+        "end_s": 307.74910584278405,
+        "completion_tokens": 2144,
+        "P": "P1",
+        "prefill_begin_s": 277.189382304,
+        "prefill_end_s": 277.715318143,
+        "D": "D0",
+        "decode_begin_s": 277.724928535,
+        "decode_first_chunk_s": 277.908392851,
+        "decode_end_s": 307.74808346
+      }
+    }
+  },
+  "trace_sha256": "cf0102e8efacd847221fbe69c5446436f39f4ffface705829749ad6353ff787e"
+}

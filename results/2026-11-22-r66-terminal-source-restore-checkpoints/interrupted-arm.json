@@ -1,0 +1,92 @@
+{
+  "official_pair_valid": false,
+  "case": "b1-cap200",
+  "run_id": "2p2d-20261121-r66-restore-state-d-egress-a1",
+  "workload_sha256": "24ab66db3d15899c87f7d6c9f79c45576d0058d834e90ca8e5a1b76679144c33",
+  "successful_requests": 108,
+  "planned_requests": 110,
+  "successful_output_tokens": 36828,
+  "final_completed_s": 160.59069822900346,
+  "successful_subset_output_token_s": 229.32835093277328,
+  "successful_finish_reasons": {
+    "stop": 107,
+    "length": 1
+  },
+  "replay_client_error": [
+    {
+      "id": "regex-chess:64",
+      "error_type": "ReadError",
+      "s": 47.34676117901108
+    }
+  ],
+  "failed_id_status": {
+    "regex-chess:64": "error",
+    "regex-chess:65": "dependency_failed"
+  },
+  "generation_over_1600": {
+    "make-mips-interpreter:84": {
+      "completion_tokens": 8192,
+      "finish_reason": "length",
+      "first_s": 21.33936526099569,
+      "end_s": 157.84579596700496
+    }
+  },
+  "tail": {
+    "id": "make-mips-interpreter:85",
+    "predecessor": "make-mips-interpreter:84",
+    "ready_s": 157.84579596700496,
+    "first_s": 159.02833104899037,
+    "end_s": 160.59069822900346,
+    "completion_tokens": 118
+  },
+  "D_TX_GB": 118.93497867261175,
+  "D_TX_GB_before_successors": 8.517611259494286,
+  "D_aggregate_above_85_percent_s": 0,
+  "D_any_port_above_85_percent_s": 0.8513408139999967,
+  "D_TX_peak_1s_Gbps": 155.21891940951448,
+  "Store_initial_final_key_count": [
+    0.0,
+    11184.0
+  ],
+  "verified_raw_archive_sha256": "f01dee5aaa11aaab27eaa884d24463b34b6732eae2d17e972a76da5fd46b650f",
+  "clean_diagnostic_trace_sha256": "3359390fbe99e76f873a5482133e19fa4b65a32f9ea9761529c2487be47168e9",
+  "release": {
+    "P": {
+      "stage": "finished",
+      "npu_idle": true,
+      "port_configuration_Mbps": [
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000
+      ]
+    },
+    "D": {
+      "stage": "finished",
+      "npu_idle": true,
+      "port_configuration_Mbps": [
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000
+      ]
+    }
+  },
+  "http_connection_timing": {
+    "previous_same_proxy_worker_and_D_endpoint_done": "make-doom-for-mips:92",
+    "previous_done_to_new_D_begin_s": 4.971914844,
+    "previous_done_to_read_error_s": 4.999839085,
+    "httpx_idle_expiry_s": 5.0,
+    "vllm_uvicorn_keep_alive_s": 5,
+    "another_stream_on_same_worker_and_endpoint_complete_after_error_s": 1.48043495,
+    "interpretation": "The failure coincided with the native HTTP keep-alive expiry window. This timing does not identify an RDMA transfer failure."
+  }
+}

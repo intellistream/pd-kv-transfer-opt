@@ -1,0 +1,346 @@
+{
+  "workload_sha256": "24ab66db3d15899c87f7d6c9f79c45576d0058d834e90ca8e5a1b76679144c33",
+  "trace_sha256": "f53b421b35028b3e7d6c75228e39d05394eb685328c628efd48f3256129b8cda",
+  "arms": {
+    "b1-cap100": {
+      "success": 110,
+      "finish_reasons": {
+        "stop": 110
+      },
+      "output_tokens": 32961,
+      "duration_s": 111.13926686000195,
+      "throughput_tokens_s": 296.57384767095647,
+      "D_TX_GB": 141.20195561983124,
+      "D_hot_summary_s": {
+        "any_port": 7.059242397999995,
+        "aggregate": 1.192462286999998
+      },
+      "first_successor_P_start_s": 65.03203255301923,
+      "last_successor_P_end_s": 88.94705496099778,
+      "D_port_TX_GB_in_successor_P_window": [
+        16.45668012408453,
+        17.156032569892805,
+        17.66570492796774,
+        18.532549638448945,
+        17.59574791918155,
+        18.667059008532867,
+        18.58573273438378,
+        16.473924724794415
+      ],
+      "root_output_tokens": 15131,
+      "successor_output_tokens": 17830,
+      "ready_successors_near_plan": 54,
+      "root_P_span_s": [
+        0.22342786600347608,
+        78.92888294201111
+      ],
+      "successors_last_ready_s": 86.84132112399675,
+      "successor_median_P_HTTP_s": 11.668977831985103,
+      "successor_first_tokens_at_offsets": {
+        "5": 10,
+        "10": 18,
+        "20": 49,
+        "40": 55,
+        "60": 55
+      },
+      "D_sampled_hot_and_no_work_s": {
+        "D0": 0,
+        "D1": 0
+      },
+      "D_sampled_occupancy_during_successor_recovery": {
+        "D0": {
+          "sample_coverage_s": 23.947054960997775,
+          "estimated_mean_running": 5.578746770055157,
+          "estimated_mean_waiting": 0.17119258404302204,
+          "hot_sample_coverage_s": 7.059242397999995,
+          "estimated_hot_mean_running": 4.672486742678799
+        },
+        "D1": {
+          "sample_coverage_s": 23.947054960997775,
+          "estimated_mean_running": 6.238686261347023,
+          "estimated_mean_waiting": 0.17591643598072382,
+          "hot_sample_coverage_s": 7.059242397999995,
+          "estimated_hot_mean_running": 5.825910930275527
+        }
+      },
+      "P_sources_tokens": {
+        "local_compute": 1500465.0,
+        "local_cache_hit": 8716288.0,
+        "external_kv_transfer": 3351552.0
+      },
+      "D_sources_tokens": {
+        "local_compute": 110.0,
+        "local_cache_hit": 10994688.0,
+        "external_kv_transfer": 2573617.0
+      },
+      "store_counter_delta": {
+        "master_successful_evictions_total": 0.0,
+        "master_evicted_key_count": 0.0,
+        "master_evicted_size_bytes": 0.0,
+        "master_put_start_alloc_failures_total": 0.0,
+        "master_batch_put_start_failures_total": 1.0,
+        "master_batch_exist_key_failures_total": 0.0
+      },
+      "largest_outputs": [
+        [
+          1805,
+          "gcode-to-text:74"
+        ],
+        [
+          1452,
+          "gcode-to-text:80"
+        ],
+        [
+          1086,
+          "make-mips-interpreter:77"
+        ],
+        [
+          1020,
+          "make-mips-interpreter:76"
+        ],
+        [
+          1013,
+          "regex-chess:92"
+        ]
+      ],
+      "last_five": [
+        {
+          "id": "gcode-to-text:74",
+          "session_id": "gcode-to-text:73",
+          "predecessor": "gcode-to-text:73",
+          "offered_s": 66.888,
+          "tool_gap_s": 0,
+          "ready_s": 66.888,
+          "dispatch_s": 66.88872896801331,
+          "P_start_s": 66.91758504501195,
+          "P_end_s": 78.6544470860099,
+          "D_start_s": 78.6758285239921,
+          "first_s": 79.13409095999668,
+          "end_s": 111.13926686000195,
+          "P": "P0",
+          "D": "D1",
+          "output_tokens": 1805,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 17.741228325945272,
+          "phases_s": {
+            "ready_to_P": 0.029585045011941702,
+            "P_HTTP": 11.736862040997948,
+            "P_return_to_D": 0.021381437982199714,
+            "D_to_first": 0.4582624360045884,
+            "first_to_end": 32.00517590000527
+          }
+        },
+        {
+          "id": "gcode-to-text:80",
+          "session_id": "gcode-to-text:79",
+          "predecessor": "gcode-to-text:79",
+          "offered_s": 66.052,
+          "tool_gap_s": 0,
+          "ready_s": 66.052,
+          "dispatch_s": 66.05280018900521,
+          "P_start_s": 66.07890753701213,
+          "P_end_s": 72.72970050599542,
+          "D_start_s": 72.75445616600337,
+          "first_s": 73.09956358899944,
+          "end_s": 103.89014472000417,
+          "P": "P0",
+          "D": "D0",
+          "output_tokens": 1452,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 21.22024888422104,
+          "phases_s": {
+            "ready_to_P": 0.026907537012121452,
+            "P_HTTP": 6.650792968983296,
+            "P_return_to_D": 0.024755660007940605,
+            "D_to_first": 0.34510742299607955,
+            "first_to_end": 30.79058113100473
+          }
+        },
+        {
+          "id": "make-mips-interpreter:76",
+          "session_id": "make-mips-interpreter:75",
+          "predecessor": "make-mips-interpreter:75",
+          "offered_s": 67.078,
+          "tool_gap_s": 0,
+          "ready_s": 67.078,
+          "dispatch_s": 67.0789527290035,
+          "P_start_s": 67.11060609400738,
+          "P_end_s": 78.77958392599248,
+          "D_start_s": 78.81424428001628,
+          "first_s": 79.2196062830044,
+          "end_s": 101.48432306200266,
+          "P": "P0",
+          "D": "D0",
+          "output_tokens": 1020,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 21.849574856720572,
+          "phases_s": {
+            "ready_to_P": 0.03260609400737735,
+            "P_HTTP": 11.668977831985103,
+            "P_return_to_D": 0.0346603540237993,
+            "D_to_first": 0.4053620029881131,
+            "first_to_end": 22.264716778998263
+          }
+        },
+        {
+          "id": "regex-chess:92",
+          "session_id": "regex-chess:91",
+          "predecessor": "regex-chess:91",
+          "offered_s": 66.28,
+          "tool_gap_s": 0,
+          "ready_s": 66.28,
+          "dispatch_s": 66.28095987500274,
+          "P_start_s": 66.32216803199844,
+          "P_end_s": 73.30472370699863,
+          "D_start_s": 73.33951787199476,
+          "first_s": 73.81216124101775,
+          "end_s": 96.46261171501828,
+          "P": "P0",
+          "D": "D1",
+          "output_tokens": 1013,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 22.381868057312783,
+          "phases_s": {
+            "ready_to_P": 0.04216803199844321,
+            "P_HTTP": 6.982555675000185,
+            "P_return_to_D": 0.03479416499612853,
+            "D_to_first": 0.47264336902298965,
+            "first_to_end": 22.650450474000536
+          }
+        },
+        {
+          "id": "make-doom-for-mips:89",
+          "session_id": "make-doom-for-mips:88",
+          "predecessor": "make-doom-for-mips:88",
+          "offered_s": 66.546,
+          "tool_gap_s": 0,
+          "ready_s": 66.546,
+          "dispatch_s": 66.54710854700534,
+          "P_start_s": 66.58112477700342,
+          "P_end_s": 84.30989386301371,
+          "D_start_s": 84.33081982901786,
+          "first_s": 84.67360790699604,
+          "end_s": 96.46197578101419,
+          "P": "P1",
+          "D": "D1",
+          "output_tokens": 569,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 20.754168792285473,
+          "phases_s": {
+            "ready_to_P": 0.03512477700341776,
+            "P_HTTP": 17.72876908601029,
+            "P_return_to_D": 0.020925966004142538,
+            "D_to_first": 0.34278807797818445,
+            "first_to_end": 11.78836787401815
+          }
+        }
+      ],
+      "source_tasks": {
+        "caffe-cifar-10": {
+          "root_routes": {
+            "P0": 14
+          },
+          "successor_routes": {
+            "P0": 8,
+            "P1": 6
+          },
+          "cross_P_successors": 6,
+          "route_conditioned_full_GET_bytes": 27607367680,
+          "last_root_end_s": 17.547376202011947,
+          "last_successor_end_s": 89.22711963299662
+        },
+        "extract-moves-from-video": {
+          "root_routes": {
+            "P0": 5
+          },
+          "successor_routes": {
+            "P0": 3,
+            "P1": 2
+          },
+          "cross_P_successors": 2,
+          "route_conditioned_full_GET_bytes": 9859563520,
+          "last_root_end_s": 32.62797150100232,
+          "last_successor_end_s": 88.86598016601056
+        },
+        "gcode-to-text": {
+          "root_routes": {
+            "P1": 4
+          },
+          "successor_routes": {
+            "P0": 4
+          },
+          "cross_P_successors": 4,
+          "route_conditioned_full_GET_bytes": 18880266240,
+          "last_root_end_s": 19.438723051018314,
+          "last_successor_end_s": 111.13926686000195
+        },
+        "make-doom-for-mips": {
+          "root_routes": {
+            "P0": 7
+          },
+          "successor_routes": {
+            "P1": 2,
+            "P0": 5
+          },
+          "cross_P_successors": 2,
+          "route_conditioned_full_GET_bytes": 8727101440,
+          "last_root_end_s": 50.27628600600292,
+          "last_successor_end_s": 96.46197578101419
+        },
+        "make-mips-interpreter": {
+          "root_routes": {
+            "P1": 10
+          },
+          "successor_routes": {
+            "P0": 5,
+            "P1": 5
+          },
+          "cross_P_successors": 5,
+          "route_conditioned_full_GET_bytes": 23851991040,
+          "last_root_end_s": 44.832404568005586,
+          "last_successor_end_s": 101.48432306200266
+        },
+        "path-tracing": {
+          "root_routes": {
+            "P0": 4
+          },
+          "successor_routes": {
+            "P1": 3,
+            "P0": 1
+          },
+          "cross_P_successors": 3,
+          "route_conditioned_full_GET_bytes": 14663516160,
+          "last_root_end_s": 46.52519411200774,
+          "last_successor_end_s": 88.93670869400376
+        },
+        "path-tracing-reverse": {
+          "root_routes": {
+            "P1": 5
+          },
+          "successor_routes": {
+            "P0": 2,
+            "P1": 3
+          },
+          "cross_P_successors": 2,
+          "route_conditioned_full_GET_bytes": 9901506560,
+          "last_root_end_s": 59.7654644419963,
+          "last_successor_end_s": 89.05171914800303
+        },
+        "regex-chess": {
+          "root_routes": {
+            "P1": 6
+          },
+          "successor_routes": {
+            "P0": 4,
+            "P1": 2
+          },
+          "cross_P_successors": 4,
+          "route_conditioned_full_GET_bytes": 29659627520,
+          "last_root_end_s": 86.84132112399675,
+          "last_successor_end_s": 96.46261171501828
+        }
+      }
+    }
+  },
+  "contrasts": {}
+}

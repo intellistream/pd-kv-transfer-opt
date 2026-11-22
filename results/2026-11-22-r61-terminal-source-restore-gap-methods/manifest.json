@@ -1,0 +1,1035 @@
+{
+  "run_id": "2p2d-20261121-r61-restore-methods-a1",
+  "baseline_commit": "5d591893ca8c7adc03c797068b44ad43dad27398",
+  "verified_published_tree": "283f3a1bd973d25b10f1fbf0bd852d2fe682a044",
+  "independent_method_pass": true,
+  "case_order": [
+    "b1-cap100",
+    "b1-cap200"
+  ],
+  "event_trace": "r61-events.jsonl.gz",
+  "workload": {
+    "workload_type": "terminal_source_restore_pairs",
+    "source_repo": "openguardrails/terminal-bench-2.1-deepseek-v4-flash-trajectories",
+    "source_revision": "3f5b93ff1c5ea84b2c94cf479d0c942227191b4a",
+    "source_workload_sha256": "24873461882ce61d0c424062c4751abb69ecdab3e0c8874213138f5025ceaa43",
+    "tokenizer_fingerprint": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+    "parent_requests_sha256": "fa8fd8f314fb0fbc98ac2534bf3a07b5d5784de0b68fcb8e7beabaccdfb7ed2e",
+    "requests": 38,
+    "sessions": 19,
+    "last_session_start_s": 0.9,
+    "pressure_window_s": [
+      72.0,
+      82.0
+    ],
+    "ignore_eos": false,
+    "temperature": 0,
+    "tool_gap_policy": "Use the prior Terminal-Bench replay policy of zero additional tool delay",
+    "max_tokens_policy": "Original Qwen replay budget rule max(8192, source completion tokens), with natural EOS",
+    "route_policy": "upstream native without route override",
+    "arrival_policy": "Offer original roots in a short burst and original successors at the common late burst after their own real predecessors. Root and successor plans are shared across all bandwidth arms. Use a 120 ms gap after the first successor and keep the original spacing for the rest.",
+    "selection": {
+      "source_ledger_sha256": "24873461882ce61d0c424062c4751abb69ecdab3e0c8874213138f5025ceaa43",
+      "source_output_sha256": "eb8d5fcc8b7730165616dd0d2e30f247db5aa722384902af8a7a0b3fb213945a",
+      "max_source_output": 512,
+      "max_observed_output": 1280,
+      "output_history": {
+        "2026-11-20-r43-native-decode-apc": {
+          "trace_sha256": "a169b7c1d53d89ac4bbc8a6d2f5d8ea6daf6a9cfc10c696c33d3a44df4e6d2e8",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-21-r48-terminal-handoff-extended-symmetric": {
+          "trace_sha256": "e311c91f4efa1e1e243aa4df7b3f8b7900355ef1158cbd0ae3e77eac6507c7cf",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r57-terminal-restore-bursts-d-egress": {
+          "trace_sha256": "d4347e0b92785679f2a1ba4fa860cc9fbeb0fc02bf200b01f7334aabd1478265",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r58-terminal-restore-bursts-dense-d-egress": {
+          "trace_sha256": "f2f1e0de2c6be50dfe36d54fde0ea6749465f278468188cbaf95ffa85dc9e876",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r58-terminal-restore-bursts-methods": {
+          "trace_sha256": "d81d23b30b1e3f732ba32bb7f5084ccf84d8be18aa0928f06be87cca66c609b3",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200"
+          ]
+        }
+      },
+      "pairs": [
+        {
+          "root": "build-pov-ray:30",
+          "successor": "build-pov-ray:31",
+          "potential_GET_bytes": 1490452480,
+          "historical_completions": {
+            "build-pov-ray:30": 8,
+            "build-pov-ray:31": 8
+          },
+          "estimated_output_tokens": {
+            "build-pov-ray:30": 104.0,
+            "build-pov-ray:31": 114.0
+          }
+        },
+        {
+          "root": "caffe-cifar-10:102",
+          "successor": "caffe-cifar-10:103",
+          "potential_GET_bytes": 4971724800,
+          "historical_completions": {
+            "caffe-cifar-10:102": 8,
+            "caffe-cifar-10:103": 8
+          },
+          "estimated_output_tokens": {
+            "caffe-cifar-10:102": 229.5,
+            "caffe-cifar-10:103": 111.0
+          }
+        },
+        {
+          "root": "circuit-fibsqrt:45",
+          "successor": "circuit-fibsqrt:46",
+          "potential_GET_bytes": 3377889280,
+          "historical_completions": {
+            "circuit-fibsqrt:45": 0,
+            "circuit-fibsqrt:46": 0
+          },
+          "estimated_output_tokens": {
+            "circuit-fibsqrt:45": 379,
+            "circuit-fibsqrt:46": 167
+          }
+        },
+        {
+          "root": "compile-compcert:41",
+          "successor": "compile-compcert:42",
+          "potential_GET_bytes": 2455142400,
+          "historical_completions": {
+            "compile-compcert:41": 8,
+            "compile-compcert:42": 8
+          },
+          "estimated_output_tokens": {
+            "compile-compcert:41": 471.0,
+            "compile-compcert:42": 320.5
+          }
+        },
+        {
+          "root": "crack-7z-hash:45",
+          "successor": "crack-7z-hash:46",
+          "potential_GET_bytes": 2371256320,
+          "historical_completions": {
+            "crack-7z-hash:45": 0,
+            "crack-7z-hash:46": 0
+          },
+          "estimated_output_tokens": {
+            "crack-7z-hash:45": 272,
+            "crack-7z-hash:46": 264
+          }
+        },
+        {
+          "root": "extract-moves-from-video:72",
+          "successor": "extract-moves-from-video:73",
+          "potential_GET_bytes": 3252060160,
+          "historical_completions": {
+            "extract-moves-from-video:72": 0,
+            "extract-moves-from-video:73": 0
+          },
+          "estimated_output_tokens": {
+            "extract-moves-from-video:72": 322,
+            "extract-moves-from-video:73": 245
+          }
+        },
+        {
+          "root": "feal-linear-cryptanalysis:16",
+          "successor": "feal-linear-cryptanalysis:17",
+          "potential_GET_bytes": 1825996800,
+          "historical_completions": {
+            "feal-linear-cryptanalysis:16": 8,
+            "feal-linear-cryptanalysis:17": 8
+          },
+          "estimated_output_tokens": {
+            "feal-linear-cryptanalysis:16": 413.0,
+            "feal-linear-cryptanalysis:17": 423.0
+          }
+        },
+        {
+          "root": "financial-document-processor:83",
+          "successor": "financial-document-processor:84",
+          "potential_GET_bytes": 3335946240,
+          "historical_completions": {
+            "financial-document-processor:83": 0,
+            "financial-document-processor:84": 0
+          },
+          "estimated_output_tokens": {
+            "financial-document-processor:83": 181,
+            "financial-document-processor:84": 134
+          }
+        },
+        {
+          "root": "fix-ocaml-gc:57",
+          "successor": "fix-ocaml-gc:58",
+          "potential_GET_bytes": 2287370240,
+          "historical_completions": {
+            "fix-ocaml-gc:57": 0,
+            "fix-ocaml-gc:58": 0
+          },
+          "estimated_output_tokens": {
+            "fix-ocaml-gc:57": 179,
+            "fix-ocaml-gc:58": 355
+          }
+        },
+        {
+          "root": "make-doom-for-mips:91",
+          "successor": "make-doom-for-mips:92",
+          "potential_GET_bytes": 4300636160,
+          "historical_completions": {
+            "make-doom-for-mips:91": 0,
+            "make-doom-for-mips:92": 0
+          },
+          "estimated_output_tokens": {
+            "make-doom-for-mips:91": 231,
+            "make-doom-for-mips:92": 454
+          }
+        },
+        {
+          "root": "make-mips-interpreter:97",
+          "successor": "make-mips-interpreter:98",
+          "potential_GET_bytes": 5810585600,
+          "historical_completions": {
+            "make-mips-interpreter:97": 0,
+            "make-mips-interpreter:98": 0
+          },
+          "estimated_output_tokens": {
+            "make-mips-interpreter:97": 352,
+            "make-mips-interpreter:98": 433
+          }
+        },
+        {
+          "root": "mcmc-sampling-stan:34",
+          "successor": "mcmc-sampling-stan:35",
+          "potential_GET_bytes": 1784053760,
+          "historical_completions": {
+            "mcmc-sampling-stan:34": 0,
+            "mcmc-sampling-stan:35": 0
+          },
+          "estimated_output_tokens": {
+            "mcmc-sampling-stan:34": 430,
+            "mcmc-sampling-stan:35": 500
+          }
+        },
+        {
+          "root": "path-tracing:48",
+          "successor": "path-tracing:49",
+          "potential_GET_bytes": 4845895680,
+          "historical_completions": {
+            "path-tracing:48": 0,
+            "path-tracing:49": 0
+          },
+          "estimated_output_tokens": {
+            "path-tracing:48": 401,
+            "path-tracing:49": 301
+          }
+        },
+        {
+          "root": "path-tracing-reverse:86",
+          "successor": "path-tracing-reverse:87",
+          "potential_GET_bytes": 6062243840,
+          "historical_completions": {
+            "path-tracing-reverse:86": 0,
+            "path-tracing-reverse:87": 0
+          },
+          "estimated_output_tokens": {
+            "path-tracing-reverse:86": 98,
+            "path-tracing-reverse:87": 249
+          }
+        },
+        {
+          "root": "pytorch-model-cli:17",
+          "successor": "pytorch-model-cli:18",
+          "potential_GET_bytes": 1322680320,
+          "historical_completions": {
+            "pytorch-model-cli:17": 8,
+            "pytorch-model-cli:18": 8
+          },
+          "estimated_output_tokens": {
+            "pytorch-model-cli:17": 385.5,
+            "pytorch-model-cli:18": 277.0
+          }
+        },
+        {
+          "root": "regex-chess:15",
+          "successor": "regex-chess:16",
+          "potential_GET_bytes": 1574338560,
+          "historical_completions": {
+            "regex-chess:15": 0,
+            "regex-chess:16": 0
+          },
+          "estimated_output_tokens": {
+            "regex-chess:15": 112,
+            "regex-chess:16": 123
+          }
+        },
+        {
+          "root": "rstan-to-pystan:34",
+          "successor": "rstan-to-pystan:35",
+          "potential_GET_bytes": 1909882880,
+          "historical_completions": {
+            "rstan-to-pystan:34": 0,
+            "rstan-to-pystan:35": 18
+          },
+          "estimated_output_tokens": {
+            "rstan-to-pystan:34": 129,
+            "rstan-to-pystan:35": 99.0
+          }
+        },
+        {
+          "root": "train-fasttext:72",
+          "successor": "train-fasttext:73",
+          "potential_GET_bytes": 2916515840,
+          "historical_completions": {
+            "train-fasttext:72": 8,
+            "train-fasttext:73": 0
+          },
+          "estimated_output_tokens": {
+            "train-fasttext:72": 357.5,
+            "train-fasttext:73": 152
+          }
+        },
+        {
+          "root": "winning-avg-corewars:87",
+          "successor": "winning-avg-corewars:88",
+          "potential_GET_bytes": 5433098240,
+          "historical_completions": {
+            "winning-avg-corewars:87": 0,
+            "winning-avg-corewars:88": 0
+          },
+          "estimated_output_tokens": {
+            "winning-avg-corewars:87": 344,
+            "winning-avg-corewars:88": 215
+          }
+        }
+      ]
+    },
+    "arrival_order_screen": {
+      "full_restore_upper_bytes": 61327769600,
+      "new_order_estimated_GET_bytes": 59543715840,
+      "projected_root_P": {
+        "make-mips-interpreter:97": "P0",
+        "path-tracing-reverse:86": "P1",
+        "winning-avg-corewars:87": "P1",
+        "caffe-cifar-10:102": "P0",
+        "make-doom-for-mips:91": "P0",
+        "path-tracing:48": "P1",
+        "financial-document-processor:83": "P0",
+        "circuit-fibsqrt:45": "P1",
+        "extract-moves-from-video:72": "P0",
+        "train-fasttext:72": "P1",
+        "compile-compcert:41": "P1",
+        "fix-ocaml-gc:57": "P0",
+        "crack-7z-hash:45": "P1",
+        "rstan-to-pystan:34": "P0",
+        "mcmc-sampling-stan:34": "P0",
+        "feal-linear-cryptanalysis:16": "P1",
+        "regex-chess:15": "P0",
+        "build-pov-ray:30": "P1",
+        "pytorch-model-cli:17": "P0"
+      },
+      "projected_successor_P": {
+        "path-tracing:49": "P0",
+        "fix-ocaml-gc:58": "P1",
+        "financial-document-processor:84": "P1",
+        "build-pov-ray:31": "P0",
+        "extract-moves-from-video:73": "P1",
+        "crack-7z-hash:46": "P0",
+        "winning-avg-corewars:88": "P0",
+        "make-mips-interpreter:98": "P1",
+        "train-fasttext:73": "P0",
+        "rstan-to-pystan:35": "P1",
+        "mcmc-sampling-stan:35": "P0",
+        "pytorch-model-cli:18": "P1",
+        "make-doom-for-mips:92": "P1",
+        "path-tracing-reverse:87": "P0",
+        "regex-chess:16": "P1",
+        "compile-compcert:42": "P0",
+        "caffe-cifar-10:103": "P1",
+        "feal-linear-cryptanalysis:17": "P0",
+        "circuit-fibsqrt:46": "P0"
+      },
+      "wire_body_bytes": {
+        "build-pov-ray:30": 151623,
+        "build-pov-ray:31": 154320,
+        "caffe-cifar-10:102": 490562,
+        "caffe-cifar-10:103": 492115,
+        "circuit-fibsqrt:45": 325568,
+        "circuit-fibsqrt:46": 326539,
+        "compile-compcert:41": 249913,
+        "compile-compcert:42": 251059,
+        "crack-7z-hash:45": 234485,
+        "crack-7z-hash:46": 235349,
+        "extract-moves-from-video:72": 317919,
+        "extract-moves-from-video:73": 320529,
+        "feal-linear-cryptanalysis:16": 167061,
+        "feal-linear-cryptanalysis:17": 168077,
+        "financial-document-processor:83": 335763,
+        "financial-document-processor:84": 336429,
+        "fix-ocaml-gc:57": 244372,
+        "fix-ocaml-gc:58": 245879,
+        "make-doom-for-mips:91": 449966,
+        "make-doom-for-mips:92": 455181,
+        "make-mips-interpreter:97": 569065,
+        "make-mips-interpreter:98": 574267,
+        "mcmc-sampling-stan:34": 187960,
+        "mcmc-sampling-stan:35": 189859,
+        "path-tracing:48": 426932,
+        "path-tracing:49": 428728,
+        "path-tracing-reverse:86": 557335,
+        "path-tracing-reverse:87": 558018,
+        "pytorch-model-cli:17": 126639,
+        "pytorch-model-cli:18": 127381,
+        "regex-chess:15": 158064,
+        "regex-chess:16": 159741,
+        "rstan-to-pystan:34": 190628,
+        "rstan-to-pystan:35": 191252,
+        "train-fasttext:72": 286382,
+        "train-fasttext:73": 287174,
+        "winning-avg-corewars:87": 546867,
+        "winning-avg-corewars:88": 549496
+      }
+    },
+    "request_sources": [
+      {
+        "id": "build-pov-ray:30",
+        "session_id": "build-pov-ray",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 35343,
+        "original_offered_s": 0,
+        "offered_s": 0.8500000000000001,
+        "prompt_sha256": "9fa575067e15aa5b4e7d1e22e84c2966252637a4e09c55be066d5008f3a0a9a9"
+      },
+      {
+        "id": "build-pov-ray:31",
+        "session_id": "build-pov-ray",
+        "predecessor": "build-pov-ray:30",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 35955,
+        "original_offered_s": 0,
+        "offered_s": 72.18,
+        "prompt_sha256": "1ce7b9eff012d05be9442717a53a3024a0a7589794f7cc6ec71e7f9305c63516"
+      },
+      {
+        "id": "caffe-cifar-10:102",
+        "session_id": "caffe-cifar-10",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 120201,
+        "original_offered_s": 0,
+        "offered_s": 0.15000000000000002,
+        "prompt_sha256": "8e5edde9f9bbd7f3b04222dca2877cac9f16331d95c8e1a4b0bcfb109436131f"
+      },
+      {
+        "id": "caffe-cifar-10:103",
+        "session_id": "caffe-cifar-10",
+        "predecessor": "caffe-cifar-10:102",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 120551,
+        "original_offered_s": 0,
+        "offered_s": 72.57,
+        "prompt_sha256": "dc5b3ccb326fc8811f3e3c6f8c456a2c05825bd3a837b805b38bec9c88c53a4c"
+      },
+      {
+        "id": "circuit-fibsqrt:45",
+        "session_id": "circuit-fibsqrt",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 82313,
+        "original_offered_s": 0,
+        "offered_s": 0.35000000000000003,
+        "prompt_sha256": "e27517dbdc4a7653d5642e7dfcf1a06cf6c17319f46149d3d9e9ba11611e104e"
+      },
+      {
+        "id": "circuit-fibsqrt:46",
+        "session_id": "circuit-fibsqrt",
+        "predecessor": "circuit-fibsqrt:45",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 82541,
+        "original_offered_s": 0,
+        "offered_s": 72.63,
+        "prompt_sha256": "a33c9a3c97a75dfb82249717478ce174c1d9722eb23e11f616a386b8d44f41dd"
+      },
+      {
+        "id": "compile-compcert:41",
+        "session_id": "compile-compcert",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 58992,
+        "original_offered_s": 0,
+        "offered_s": 0.5,
+        "prompt_sha256": "56404a54a0bcfc50424e31b46aed500d008ddc26ddaa9626e3ea5d9ac63f74a9"
+      },
+      {
+        "id": "compile-compcert:42",
+        "session_id": "compile-compcert",
+        "predecessor": "compile-compcert:41",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 59254,
+        "original_offered_s": 0,
+        "offered_s": 72.54,
+        "prompt_sha256": "014593621b3d748652afac957edba05adef8ef776e4ba4a6efacc7a207363305"
+      },
+      {
+        "id": "crack-7z-hash:45",
+        "session_id": "crack-7z-hash",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 57224,
+        "original_offered_s": 0,
+        "offered_s": 0.6000000000000001,
+        "prompt_sha256": "c4d0f60c70bf370c2a06508dc72155f2359d6a373511cfdf4cfe2eddbd2aca4d"
+      },
+      {
+        "id": "crack-7z-hash:46",
+        "session_id": "crack-7z-hash",
+        "predecessor": "crack-7z-hash:45",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 57413,
+        "original_offered_s": 0,
+        "offered_s": 72.24,
+        "prompt_sha256": "e9b66586a9a696d438622eb98d7962d31aec745b84bb4db73f98f70be0ecc457"
+      },
+      {
+        "id": "extract-moves-from-video:72",
+        "session_id": "extract-moves-from-video",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 77952,
+        "original_offered_s": 0,
+        "offered_s": 0.4,
+        "prompt_sha256": "a794f2e7379b07264b4fbe73051f6d53d285f17a37eccbb42f45dae033ebefea"
+      },
+      {
+        "id": "extract-moves-from-video:73",
+        "session_id": "extract-moves-from-video",
+        "predecessor": "extract-moves-from-video:72",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 78638,
+        "original_offered_s": 0,
+        "offered_s": 72.21,
+        "prompt_sha256": "1b817d3ce989df79215643854a8df0fae61e3892b9d5c46c256e8ad1fb09074b"
+      },
+      {
+        "id": "feal-linear-cryptanalysis:16",
+        "session_id": "feal-linear-cryptanalysis",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 43045,
+        "original_offered_s": 0,
+        "offered_s": 0.75,
+        "prompt_sha256": "25ac02fe485c4775e0dc2c53d6cfd04de718d143c09ea9fbf0dbbfcd5753dec4"
+      },
+      {
+        "id": "feal-linear-cryptanalysis:17",
+        "session_id": "feal-linear-cryptanalysis",
+        "predecessor": "feal-linear-cryptanalysis:16",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 43279,
+        "original_offered_s": 0,
+        "offered_s": 72.6,
+        "prompt_sha256": "32bc03b1f155f8e713104d8ca20c6d0dad442131e1ec230b9556fecd1044220c"
+      },
+      {
+        "id": "financial-document-processor:83",
+        "session_id": "financial-document-processor",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 80680,
+        "original_offered_s": 0,
+        "offered_s": 0.30000000000000004,
+        "prompt_sha256": "d24359f68b344947147fcc02d9aba0ceba225eddd3d6a9000988c0b90bcb57dc"
+      },
+      {
+        "id": "financial-document-processor:84",
+        "session_id": "financial-document-processor",
+        "predecessor": "financial-document-processor:83",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 80824,
+        "original_offered_s": 0,
+        "offered_s": 72.15,
+        "prompt_sha256": "b3599f48e889903d511e47fdc99e2611ee5a7f8fdd9b6a48f7f5dd8dd811a71d"
+      },
+      {
+        "id": "fix-ocaml-gc:57",
+        "session_id": "fix-ocaml-gc",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 54342,
+        "original_offered_s": 0,
+        "offered_s": 0.55,
+        "prompt_sha256": "7335f44d4f45ea92b211ab5f9dc57a0fc206233235a0f5d3b9ecc05fd314bfc7"
+      },
+      {
+        "id": "fix-ocaml-gc:58",
+        "session_id": "fix-ocaml-gc",
+        "predecessor": "fix-ocaml-gc:57",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 54681,
+        "original_offered_s": 0,
+        "offered_s": 72.12,
+        "prompt_sha256": "e272f4d8ac0ebbfe3678d0d017977250f818f5258e04b2c268da9a0e2beda9b1"
+      },
+      {
+        "id": "make-doom-for-mips:91",
+        "session_id": "make-doom-for-mips",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 103669,
+        "original_offered_s": 0,
+        "offered_s": 0.2,
+        "prompt_sha256": "313f941367f94171c0d11f9b8d2b149f7e1ed0d8a8bc27dff78dc090c08e8ec8"
+      },
+      {
+        "id": "make-doom-for-mips:92",
+        "session_id": "make-doom-for-mips",
+        "predecessor": "make-doom-for-mips:91",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 104960,
+        "original_offered_s": 0,
+        "offered_s": 72.45,
+        "prompt_sha256": "7be4acd23011fe6a37572e5d4e1055a5cd2a73558268a9c928bbf5c0f96d231f"
+      },
+      {
+        "id": "make-mips-interpreter:97",
+        "session_id": "make-mips-interpreter",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 140680,
+        "original_offered_s": 0,
+        "offered_s": 0.0,
+        "prompt_sha256": "ba375ec1c61c65ddb5ade9cb05a00ea41f0059168055a2bda932f3d86e0ee271"
+      },
+      {
+        "id": "make-mips-interpreter:98",
+        "session_id": "make-mips-interpreter",
+        "predecessor": "make-mips-interpreter:97",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 142119,
+        "original_offered_s": 0,
+        "offered_s": 72.3,
+        "prompt_sha256": "40350e397cecbff2f3f13ef83bc22113db6703f8e088fe9faea303736f0c8ce9"
+      },
+      {
+        "id": "mcmc-sampling-stan:34",
+        "session_id": "mcmc-sampling-stan",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 42998,
+        "original_offered_s": 0,
+        "offered_s": 0.7000000000000001,
+        "prompt_sha256": "1e686e73971e6d0247dd5e7a055f6230e1eb702040427a2b9443f9b75483d1c9"
+      },
+      {
+        "id": "mcmc-sampling-stan:35",
+        "session_id": "mcmc-sampling-stan",
+        "predecessor": "mcmc-sampling-stan:34",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 43427,
+        "original_offered_s": 0,
+        "offered_s": 72.39,
+        "prompt_sha256": "0f943d52975150b20af821c53de65f9c0c3988ac03ec700b969bacefd60df49f"
+      },
+      {
+        "id": "path-tracing:48",
+        "session_id": "path-tracing",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 117384,
+        "original_offered_s": 0,
+        "offered_s": 0.25,
+        "prompt_sha256": "2f368260ad139e44bcdca42bf9b1707bf2fbea73e24b70b2bf73f6699bb7a239"
+      },
+      {
+        "id": "path-tracing:49",
+        "session_id": "path-tracing",
+        "predecessor": "path-tracing:48",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 117823,
+        "original_offered_s": 0,
+        "offered_s": 72.0,
+        "prompt_sha256": "0f9f9510a41b404897e159d864af05af1293a1f69cbd891c71b904d00e0895f0"
+      },
+      {
+        "id": "path-tracing-reverse:86",
+        "session_id": "path-tracing-reverse",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 146550,
+        "original_offered_s": 0,
+        "offered_s": 0.05,
+        "prompt_sha256": "2568c24fcfb49343b6d002eb1d3347a25c2017e1fb5b1c3a80568c02818c75ee"
+      },
+      {
+        "id": "path-tracing-reverse:87",
+        "session_id": "path-tracing-reverse",
+        "predecessor": "path-tracing-reverse:86",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 146706,
+        "original_offered_s": 0,
+        "offered_s": 72.48,
+        "prompt_sha256": "496c5bbb02747a1813bcae6c353de3c6f6a7ba68740ade0a3806c10357b96c24"
+      },
+      {
+        "id": "pytorch-model-cli:17",
+        "session_id": "pytorch-model-cli",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 30745,
+        "original_offered_s": 0,
+        "offered_s": 0.9,
+        "prompt_sha256": "f6560884fc65d8015f5cbb94337c644973846577b1c9c62b135e8bee55f6f7d0"
+      },
+      {
+        "id": "pytorch-model-cli:18",
+        "session_id": "pytorch-model-cli",
+        "predecessor": "pytorch-model-cli:17",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 30909,
+        "original_offered_s": 0,
+        "offered_s": 72.42,
+        "prompt_sha256": "740bd560a51f5fcd68427a117b48324252351f0bf78a13a209794826eaefae90"
+      },
+      {
+        "id": "regex-chess:15",
+        "session_id": "regex-chess",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 37620,
+        "original_offered_s": 0,
+        "offered_s": 0.8,
+        "prompt_sha256": "948e9e8f795e5e52a58c8ff4be623c461b39bf15b04b7a5979f5345460eed0a1"
+      },
+      {
+        "id": "regex-chess:16",
+        "session_id": "regex-chess",
+        "predecessor": "regex-chess:15",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 38009,
+        "original_offered_s": 0,
+        "offered_s": 72.51,
+        "prompt_sha256": "7fad2ffeef0a0f7494ae9ab72f697bef8dafe1ca45d19d4a42e32f535a7421c1"
+      },
+      {
+        "id": "rstan-to-pystan:34",
+        "session_id": "rstan-to-pystan",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 45271,
+        "original_offered_s": 0,
+        "offered_s": 0.65,
+        "prompt_sha256": "6e9b4baca201fd8ad980531ba7c7851854d5fc21238080c7c7de5140e7f0cea7"
+      },
+      {
+        "id": "rstan-to-pystan:35",
+        "session_id": "rstan-to-pystan",
+        "predecessor": "rstan-to-pystan:34",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 45412,
+        "original_offered_s": 0,
+        "offered_s": 72.36,
+        "prompt_sha256": "111c5df5f2b2b0153e731a55fa3d63d8bc70a0083dbc56dec527e5e7d81b3fff"
+      },
+      {
+        "id": "train-fasttext:72",
+        "session_id": "train-fasttext",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 69965,
+        "original_offered_s": 0,
+        "offered_s": 0.45,
+        "prompt_sha256": "91dcf56cb4b836869d5f043c026f467223c36cc027b6b472383d2aa182a2d2d1"
+      },
+      {
+        "id": "train-fasttext:73",
+        "session_id": "train-fasttext",
+        "predecessor": "train-fasttext:72",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 70149,
+        "original_offered_s": 0,
+        "offered_s": 72.33,
+        "prompt_sha256": "b96422a4ed879dc657e9743acb8416093bc87bc0ec0e9e0fa845f8253cbf02a8"
+      },
+      {
+        "id": "winning-avg-corewars:87",
+        "session_id": "winning-avg-corewars",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 131449,
+        "original_offered_s": 0,
+        "offered_s": 0.1,
+        "prompt_sha256": "de6cf1100eb98af8274366f15de48c61893454e3b64f056d063cea6a5b4d9a6d"
+      },
+      {
+        "id": "winning-avg-corewars:88",
+        "session_id": "winning-avg-corewars",
+        "predecessor": "winning-avg-corewars:87",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 132065,
+        "original_offered_s": 0,
+        "offered_s": 72.27,
+        "prompt_sha256": "59471ea1a925bc1c050d5180f274d3a20f21ae1b5a65206c1d980f45b318240d"
+      }
+    ],
+    "arrival_gap_screen": {
+      "base_plan_sha256": "cf92723174300ca4ab9e190748dbf91b963b859ca554cffa9f516923b1251e97",
+      "first_successor_id": "path-tracing:49",
+      "second_successor_id": "fix-ocaml-gc:58",
+      "original_first_gap_s": 0.03,
+      "first_gap_s": 0.12,
+      "shift_after_first_s": 0.09,
+      "reason": "r60 forward 200 Gbps served the first two successor arrivals in reverse order, changing the downstream native proxy assignments and remote bytes",
+      "validated_route_policy": "No overrides. Compare actual proxy assignments and directional bytes after each measured arm."
+    }
+  },
+  "settings": {
+    "model": "Qwen3.5-35B-A3B",
+    "attention_TP": 4,
+    "expert_parallel": true,
+    "DP": 1,
+    "serving_observer": false,
+    "D_egress_ports": 8,
+    "D_pool_GiB": 128,
+    "P_pool_GiB": 0,
+    "engines": {
+      "P": {
+        "devices": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "enable_prefix_caching": true,
+        "max_num_seqs": 16,
+        "max_num_batched_tokens": 4096,
+        "gpu_memory_utilization": 0.8,
+        "compilation_config": {
+          "cudagraph_capture_sizes": [
+            1,
+            2,
+            4,
+            8,
+            16,
+            1024,
+            2048,
+            3072,
+            4096
+          ]
+        }
+      },
+      "D": {
+        "devices": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "enable_prefix_caching": true,
+        "max_num_seqs": 16,
+        "max_num_batched_tokens": 4096,
+        "gpu_memory_utilization": 0.8,
+        "compilation_config": {
+          "cudagraph_mode": "FULL_DECODE_ONLY",
+          "cudagraph_capture_sizes": [
+            1,
+            2,
+            4,
+            8,
+            16
+          ]
+        },
+        "recompute_scheduler_enable": true
+      }
+    }
+  },
+  "shaping": "D egress only across eight equal port limits; all eight P ports read-only at original 200000 Mbps",
+  "software": {
+    "P": {
+      "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+      "ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd",
+      "mooncake": "0.3.11.post1"
+    },
+    "D": {
+      "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+      "ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd",
+      "mooncake": "0.3.11.post1"
+    },
+    "model_hashes": {
+      "config.json": "5e4d7f74fec2f360eb9cfbfcd6ec0c4c76e684d3a11caaed259d9fd9bfbc7944",
+      "tokenizer.json": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+      "model.safetensors.index.json": "d8d0b7ca4e61ae107e3e87a3ff21136b3ac7c789e64bb24267227ca804e04205"
+    }
+  },
+  "deployment_audit": {
+    "P": {
+      "intended_argv_devices_and_store_verified": true,
+      "observers_enabled": true,
+      "eager_false_log_count": 2,
+      "graph_mode_logged": true,
+      "software": {
+        "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+        "ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd",
+        "mooncake": "0.3.11.post1"
+      },
+      "native_scheduler": null
+    },
+    "D": {
+      "intended_argv_devices_and_store_verified": true,
+      "observers_enabled": true,
+      "eager_false_log_count": 2,
+      "graph_mode_logged": true,
+      "software": {
+        "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+        "ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd",
+        "mooncake": "0.3.11.post1"
+      },
+      "native_scheduler": "vllm_ascend.core.recompute_scheduler.AsyncRecomputeScheduler"
+    }
+  },
+  "bundle_sha256": {
+    "P": "8f0f4d6e02388a48c864c83da60ba3f401d092199e5011a8efa1a5027fed2f1b",
+    "D": "41d4c698424ad2ae094aeae3e0c64fe14b47625e851ec34ab827f8350b1bbf41"
+  },
+  "P_clock_tracking": {
+    "b1-cap100": "Reference ID    : CA760151 (time.neu.edu.cn)\nStratum         : 2\nRef time (UTC)  : Sat Nov 21 19:02:08 2026\nSystem time     : 0.000119640 seconds slow of NTP time\nLast offset     : -0.000321950 seconds\nRMS offset      : 0.000201263 seconds\nFrequency       : 11.775 ppm slow\nResidual freq   : -0.002 ppm\nSkew            : 0.048 ppm\nRoot delay      : 0.039055731 seconds\nRoot dispersion : 0.001466174 seconds\nUpdate interval : 1041.4 seconds\nLeap status     : Normal\n",
+    "b1-cap200": "Reference ID    : CA760151 (time.neu.edu.cn)\nStratum         : 2\nRef time (UTC)  : Sat Nov 21 19:02:08 2026\nSystem time     : 0.000117993 seconds slow of NTP time\nLast offset     : -0.000321950 seconds\nRMS offset      : 0.000201263 seconds\nFrequency       : 11.775 ppm slow\nResidual freq   : -0.002 ppm\nSkew            : 0.048 ppm\nRoot delay      : 0.039055731 seconds\nRoot dispersion : 0.001601595 seconds\nUpdate interval : 1041.4 seconds\nLeap status     : Normal\n"
+  },
+  "artifacts": {
+    "r61-events.jsonl.gz": {
+      "sha256": "b69b5b21ad528a3ab0345dfcf0d2fd8048f2841b4594001de58640e1628f7678",
+      "bytes": 129795
+    },
+    "summary.json": {
+      "sha256": "3e2713ec945fbc279e43ebccbed44f7d8cb232e2e3023ede82989d6efdfa1057",
+      "bytes": 35498
+    },
+    "native-method-events.jsonl.gz": {
+      "sha256": "e836c66c0a3d5dc50d22b19a07f7ac9da12f895106834b609f239a844f81c715",
+      "bytes": 330655
+    },
+    "native-method-summary.json": {
+      "sha256": "f09cc04681dd0e72e9087bc351eee4f6db6ad4a4223218484a9a03d09682353b",
+      "bytes": 33185
+    }
+  },
+  "controller_sha256": {
+    "P": {
+      "node_guard.py": "97705fed4333e552798184f9f386d02604baa55a9276efb4067dfae11c4c52c4"
+    },
+    "D": {
+      "node_guard.py": "97705fed4333e552798184f9f386d02604baa55a9276efb4067dfae11c4c52c4",
+      "control.py": "7d30a1d28b3d52d9d8c515a951092a58af8ffab720b5a76a6abc5133ff116ffa",
+      "run_pair.py": "36a58dd0062e60607d70a2bbd0557cc279b331927726dcb577d38e40473c3db1",
+      "replay.py": "a0e387948eda28c5927aff8e38906024d970f9362fd7ddeeb78b51a34737565d"
+    }
+  },
+  "release": {
+    "P": {
+      "stage": "finished",
+      "npu_idle": true,
+      "port_configuration_Mbps": [
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000
+      ]
+    },
+    "D": {
+      "stage": "finished",
+      "npu_idle": true,
+      "port_configuration_Mbps": [
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000
+      ]
+    }
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "source_revision": "3f5b93ff1c5ea84b2c94cf479d0c942227191b4a",
+  "ledger_sha256": "24873461882ce61d0c424062c4751abb69ecdab3e0c8874213138f5025ceaa43",
+  "source_outputs_sha256": "eb8d5fcc8b7730165616dd0d2e30f247db5aa722384902af8a7a0b3fb213945a",
+  "source_tasks": 88,
+  "source_turns": 2952,
+  "single_P_capacity_tokens": 3093504,
+  "D_service_reference_output_tokens_s": 1154,
+  "assumptions": [
+    "One continuous window per source task and one live prefix per session",
+    "Keep consecutive untruncated prompts of at least 24000 tokens at 90 percent or greater adjacent prefix overlap",
+    "Credit every successor with a full shared-prefix GET and generous four-rank state bytes",
+    "Exclude first-turn cost, assume no Store evictions and use the source model's outputs",
+    "Bound aggregate demand at assumed D service, not the instantaneous load or hardware capacity of one hot port"
+  ],
+  "cases": [
+    {
+      "turn_range": [
+        4,
+        12
+      ],
+      "source_completion_cutoff": 2048,
+      "eligible_tasks": 22,
+      "eligible_windows": 2394,
+      "largest_total_live_prefix_tokens": 2058587,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": null,
+      "100_Gbps_upper_certificate": null
+    },
+    {
+      "turn_range": [
+        4,
+        12
+      ],
+      "source_completion_cutoff": 4096,
+      "eligible_tasks": 30,
+      "eligible_windows": 5397,
+      "largest_total_live_prefix_tokens": 2855160,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": null,
+      "100_Gbps_upper_certificate": null
+    },
+    {
+      "turn_range": [
+        4,
+        12
+      ],
+      "source_completion_cutoff": 8192,
+      "eligible_tasks": 39,
+      "eligible_windows": 8922,
+      "largest_total_live_prefix_tokens": 3311384,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": 35.142715735801346,
+      "100_Gbps_upper_certificate": -6547589.9631005265
+    },
+    {
+      "turn_range": [
+        4,
+        12
+      ],
+      "source_completion_cutoff": 16384,
+      "eligible_tasks": 40,
+      "eligible_windows": 10441,
+      "largest_total_live_prefix_tokens": 3392235,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": 35.142715735801346,
+      "100_Gbps_upper_certificate": -6462667.609226286
+    },
+    {
+      "turn_range": [
+        6,
+        12
+      ],
+      "source_completion_cutoff": 2048,
+      "eligible_tasks": 18,
+      "eligible_windows": 1552,
+      "largest_total_live_prefix_tokens": 1569790,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": null,
+      "100_Gbps_upper_certificate": null
+    },
+    {
+      "turn_range": [
+        6,
+        12
+      ],
+      "source_completion_cutoff": 4096,
+      "eligible_tasks": 26,
+      "eligible_windows": 3726,
+      "largest_total_live_prefix_tokens": 2574975,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": null,
+      "100_Gbps_upper_certificate": null
+    },
+    {
+      "turn_range": [
+        6,
+        12
+      ],
+      "source_completion_cutoff": 8192,
+      "eligible_tasks": 34,
+      "eligible_windows": 6457,
+      "largest_total_live_prefix_tokens": 3087873,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": null,
+      "100_Gbps_upper_certificate": null
+    },
+    {
+      "turn_range": [
+        6,
+        12
+      ],
+      "source_completion_cutoff": 16384,
+      "eligible_tasks": 37,
+      "eligible_windows": 7664,
+      "largest_total_live_prefix_tokens": 3286220,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": 25.74808658407325,
+      "100_Gbps_upper_certificate": -10397985.384041555
+    },
+    {
+      "turn_range": [
+        8,
+        20
+      ],
+      "source_completion_cutoff": 2048,
+      "eligible_tasks": 18,
+      "eligible_windows": 1672,
+      "largest_total_live_prefix_tokens": 1513967,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": null,
+      "100_Gbps_upper_certificate": null
+    },
+    {
+      "turn_range": [
+        8,
+        20
+      ],
+      "source_completion_cutoff": 4096,
+      "eligible_tasks": 23,
+      "eligible_windows": 4622,
+      "largest_total_live_prefix_tokens": 2335633,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": null,
+      "100_Gbps_upper_certificate": null
+    },
+    {
+      "turn_range": [
+        8,
+        20
+      ],
+      "source_completion_cutoff": 8192,
+      "eligible_tasks": 30,
+      "eligible_windows": 9096,
+      "largest_total_live_prefix_tokens": 2873966,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": null,
+      "100_Gbps_upper_certificate": null
+    },
+    {
+      "turn_range": [
+        8,
+        20
+      ],
+      "source_completion_cutoff": 16384,
+      "eligible_tasks": 34,
+      "eligible_windows": 11310,
+      "largest_total_live_prefix_tokens": 3116252,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": 25.20491734845588,
+      "100_Gbps_upper_certificate": -13003553.904594518
+    },
+    {
+      "turn_range": [
+        12,
+        25
+      ],
+      "source_completion_cutoff": 2048,
+      "eligible_tasks": 9,
+      "eligible_windows": 1101,
+      "largest_total_live_prefix_tokens": 673536,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": null,
+      "100_Gbps_upper_certificate": null
+    },
+    {
+      "turn_range": [
+        12,
+        25
+      ],
+      "source_completion_cutoff": 4096,
+      "eligible_tasks": 17,
+      "eligible_windows": 3452,
+      "largest_total_live_prefix_tokens": 1867334,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": null,
+      "100_Gbps_upper_certificate": null
+    },
+    {
+      "turn_range": [
+        12,
+        25
+      ],
+      "source_completion_cutoff": 8192,
+      "eligible_tasks": 24,
+      "eligible_windows": 7558,
+      "largest_total_live_prefix_tokens": 2543627,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": null,
+      "100_Gbps_upper_certificate": null
+    },
+    {
+      "turn_range": [
+        12,
+        25
+      ],
+      "source_completion_cutoff": 16384,
+      "eligible_tasks": 26,
+      "eligible_windows": 9863,
+      "largest_total_live_prefix_tokens": 2722198,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": null,
+      "100_Gbps_upper_certificate": null
+    }
+  ]
+}

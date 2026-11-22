@@ -1,0 +1,13 @@
+{
+  "objective": "只在本地 CPU 上筛选有持续回读压力的原 Terminal-Bench 自然长会话，按已发布的双 APC 原生配置和相同工作量对比 100/200 Gbps 含排空总吞吐。用 r69/r78 的回读、前驱完成和 D 供给校准，检验正反序吞吐差相对 r69 的稳定性。",
+  "baseline_commit": "5d591893ca8c7adc03c797068b44ad43dad27398",
+  "source_revision": "3f5b93ff1c5ea84b2c94cf479d0c942227191b4a",
+  "manifest_pattern": "*/manifest.json",
+  "decode_calibration": [
+    "2026-11-22-r73-terminal-source-restore-expanded",
+    "2026-11-22-r75-terminal-source-restore-pilot"
+  ],
+  "same_inputs_arrival_control": "2026-11-22-r70-terminal-source-restore-short-earlier",
+  "historical_comparison": "2026-11-19-r28-natural-bandwidth",
+  "screening_window_s": 20
+}

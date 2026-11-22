@@ -1,0 +1,421 @@
+{
+  "source_revision": "3f5b93ff1c5ea84b2c94cf479d0c942227191b4a",
+  "ledger_sha256": "24873461882ce61d0c424062c4751abb69ecdab3e0c8874213138f5025ceaa43",
+  "source_outputs_sha256": "eb8d5fcc8b7730165616dd0d2e30f247db5aa722384902af8a7a0b3fb213945a",
+  "source_tasks": 88,
+  "source_turns": 2952,
+  "single_P_capacity_tokens": 3093504,
+  "D_service_reference_output_tokens_s": 1154,
+  "assumptions": [
+    "One continuous window per source task and one live prefix per session",
+    "Keep consecutive untruncated prompts of at least 24000 tokens at 90 percent or greater adjacent prefix overlap",
+    "Credit every successor with a full shared-prefix GET and generous four-rank state bytes",
+    "Exclude first-turn cost, assume no Store evictions and use the source model's outputs",
+    "Bound aggregate demand at assumed D service, not the instantaneous load or hardware capacity of one hot port"
+  ],
+  "cases": [
+    {
+      "turn_range": [
+        4,
+        12
+      ],
+      "source_completion_cutoff": 2048,
+      "eligible_tasks": 22,
+      "eligible_windows": 2394,
+      "largest_total_live_prefix_tokens": 2058587,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": null,
+      "100_Gbps_upper_certificate": null
+    },
+    {
+      "turn_range": [
+        4,
+        12
+      ],
+      "source_completion_cutoff": 4096,
+      "eligible_tasks": 30,
+      "eligible_windows": 5397,
+      "largest_total_live_prefix_tokens": 2855160,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": null,
+      "100_Gbps_upper_certificate": null
+    },
+    {
+      "turn_range": [
+        4,
+        12
+      ],
+      "source_completion_cutoff": 8192,
+      "eligible_tasks": 39,
+      "eligible_windows": 8922,
+      "largest_total_live_prefix_tokens": 3311384,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": 35.142715735801346,
+      "100_Gbps_upper_certificate": -6547589.9631005265
+    },
+    {
+      "turn_range": [
+        4,
+        12
+      ],
+      "source_completion_cutoff": 16384,
+      "eligible_tasks": 40,
+      "eligible_windows": 10441,
+      "largest_total_live_prefix_tokens": 3392235,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": 35.142715735801346,
+      "100_Gbps_upper_certificate": -6462667.609226286
+    },
+    {
+      "turn_range": [
+        6,
+        12
+      ],
+      "source_completion_cutoff": 2048,
+      "eligible_tasks": 18,
+      "eligible_windows": 1552,
+      "largest_total_live_prefix_tokens": 1569790,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": null,
+      "100_Gbps_upper_certificate": null
+    },
+    {
+      "turn_range": [
+        6,
+        12
+      ],
+      "source_completion_cutoff": 4096,
+      "eligible_tasks": 26,
+      "eligible_windows": 3726,
+      "largest_total_live_prefix_tokens": 2574975,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": null,
+      "100_Gbps_upper_certificate": null
+    },
+    {
+      "turn_range": [
+        6,
+        12
+      ],
+      "source_completion_cutoff": 8192,
+      "eligible_tasks": 34,
+      "eligible_windows": 6457,
+      "largest_total_live_prefix_tokens": 3087873,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": null,
+      "100_Gbps_upper_certificate": null
+    },
+    {
+      "turn_range": [
+        6,
+        12
+      ],
+      "source_completion_cutoff": 16384,
+      "eligible_tasks": 37,
+      "eligible_windows": 7664,
+      "largest_total_live_prefix_tokens": 3286220,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": 25.74808658407325,
+      "100_Gbps_upper_certificate": -10397985.384041555
+    },
+    {
+      "turn_range": [
+        8,
+        20
+      ],
+      "source_completion_cutoff": 2048,
+      "eligible_tasks": 18,
+      "eligible_windows": 1672,
+      "largest_total_live_prefix_tokens": 1513967,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": null,
+      "100_Gbps_upper_certificate": null
+    },
+    {
+      "turn_range": [
+        8,
+        20
+      ],
+      "source_completion_cutoff": 4096,
+      "eligible_tasks": 23,
+      "eligible_windows": 4622,
+      "largest_total_live_prefix_tokens": 2335633,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": null,
+      "100_Gbps_upper_certificate": null
+    },
+    {
+      "turn_range": [
+        8,
+        20
+      ],
+      "source_completion_cutoff": 8192,
+      "eligible_tasks": 30,
+      "eligible_windows": 9096,
+      "largest_total_live_prefix_tokens": 2873966,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": null,
+      "100_Gbps_upper_certificate": null
+    },
+    {
+      "turn_range": [
+        8,
+        20
+      ],
+      "source_completion_cutoff": 16384,
+      "eligible_tasks": 34,
+      "eligible_windows": 11310,
+      "largest_total_live_prefix_tokens": 3116252,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": 25.20491734845588,
+      "100_Gbps_upper_certificate": -13003553.904594518
+    },
+    {
+      "turn_range": [
+        12,
+        25
+      ],
+      "source_completion_cutoff": 2048,
+      "eligible_tasks": 9,
+      "eligible_windows": 1101,
+      "largest_total_live_prefix_tokens": 673536,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": null,
+      "100_Gbps_upper_certificate": null
+    },
+    {
+      "turn_range": [
+        12,
+        25
+      ],
+      "source_completion_cutoff": 4096,
+      "eligible_tasks": 17,
+      "eligible_windows": 3452,
+      "largest_total_live_prefix_tokens": 1867334,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": null,
+      "100_Gbps_upper_certificate": null
+    },
+    {
+      "turn_range": [
+        12,
+        25
+      ],
+      "source_completion_cutoff": 8192,
+      "eligible_tasks": 24,
+      "eligible_windows": 7558,
+      "largest_total_live_prefix_tokens": 2543627,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": null,
+      "100_Gbps_upper_certificate": null
+    },
+    {
+      "turn_range": [
+        12,
+        25
+      ],
+      "source_completion_cutoff": 16384,
+      "eligible_tasks": 26,
+      "eligible_windows": 9863,
+      "largest_total_live_prefix_tokens": 2722198,
+      "D_egress_upper_Gbps_if_working_set_reaches_P_capacity": null,
+      "100_Gbps_upper_certificate": null
+    }
+  ],
+  "resident_prefix_upper": {
+    "assumptions": [
+      "Three to ten contiguous turns in each source window",
+      "Neither P evicts a prefix during the window",
+      "Keep the immediate predecessor in Store and credit all missing full attention groups",
+      "Minimum adjacent LCP is a lower bound on any earlier prefix still resident",
+      "Choose P routes optimally for read volume and count Hybrid state on each successor"
+    ],
+    "cases": [
+      {
+        "source_completion_cutoff": 512,
+        "eligible_tasks": 11,
+        "sum_upper_GET_bytes": 38703267840,
+        "prefill_tokens_at_chosen_windows": 913394,
+        "largest_windows": [
+          [
+            5874974720,
+            143532,
+            "make-mips-interpreter:96",
+            "make-mips-interpreter:98",
+            3
+          ],
+          [
+            5486837760,
+            125598,
+            "caffe-cifar-10:94",
+            "caffe-cifar-10:103",
+            10
+          ],
+          [
+            5103452160,
+            121284,
+            "path-tracing:44",
+            "path-tracing:49",
+            6
+          ],
+          [
+            4365025280,
+            107461,
+            "make-doom-for-mips:91",
+            "make-doom-for-mips:93",
+            3
+          ],
+          [
+            3809116160,
+            84023,
+            "financial-document-processor:72",
+            "financial-document-processor:81",
+            10
+          ],
+          [
+            3316449280,
+            81555,
+            "extract-moves-from-video:72",
+            "extract-moves-from-video:74",
+            3
+          ]
+        ]
+      },
+      {
+        "source_completion_cutoff": 1024,
+        "eligible_tasks": 21,
+        "sum_upper_GET_bytes": 81304289280,
+        "prefill_tokens_at_chosen_windows": 1923321,
+        "largest_windows": [
+          [
+            10195107840,
+            249616,
+            "regex-chess:131",
+            "regex-chess:133",
+            3
+          ],
+          [
+            8097955840,
+            197053,
+            "path-tracing-reverse:121",
+            "path-tracing-reverse:123",
+            3
+          ],
+          [
+            6174474240,
+            147851,
+            "make-mips-interpreter:93",
+            "make-mips-interpreter:99",
+            7
+          ],
+          [
+            5674106880,
+            133459,
+            "path-tracing:44",
+            "path-tracing:52",
+            9
+          ],
+          [
+            5668208640,
+            135227,
+            "make-doom-for-mips:114",
+            "make-doom-for-mips:118",
+            5
+          ],
+          [
+            5486837760,
+            128201,
+            "caffe-cifar-10:95",
+            "caffe-cifar-10:104",
+            10
+          ]
+        ]
+      },
+      {
+        "source_completion_cutoff": 2048,
+        "eligible_tasks": 28,
+        "sum_upper_GET_bytes": 107128094720,
+        "prefill_tokens_at_chosen_windows": 2525213,
+        "largest_windows": [
+          [
+            10520002560,
+            246964,
+            "regex-chess:120",
+            "regex-chess:129",
+            10
+          ],
+          [
+            8162344960,
+            197634,
+            "path-tracing-reverse:120",
+            "path-tracing-reverse:123",
+            4
+          ],
+          [
+            7510753280,
+            181517,
+            "winning-avg-corewars:115",
+            "winning-avg-corewars:117",
+            3
+          ],
+          [
+            6174474240,
+            147851,
+            "make-mips-interpreter:93",
+            "make-mips-interpreter:99",
+            7
+          ],
+          [
+            6032097280,
+            139362,
+            "make-doom-for-mips:110",
+            "make-doom-for-mips:119",
+            10
+          ],
+          [
+            5674106880,
+            133459,
+            "path-tracing:44",
+            "path-tracing:52",
+            9
+          ]
+        ]
+      },
+      {
+        "source_completion_cutoff": 8192,
+        "eligible_tasks": 42,
+        "sum_upper_GET_bytes": 158334320640,
+        "prefill_tokens_at_chosen_windows": 3661955,
+        "largest_windows": [
+          [
+            11149148160,
+            267784,
+            "winning-avg-corewars:140",
+            "winning-avg-corewars:149",
+            10
+          ],
+          [
+            10897489920,
+            260377,
+            "regex-chess:124",
+            "regex-chess:133",
+            10
+          ],
+          [
+            9555312640,
+            224733,
+            "path-tracing-reverse:124",
+            "path-tracing-reverse:133",
+            10
+          ],
+          [
+            6745128960,
+            157502,
+            "extract-moves-from-video:142",
+            "extract-moves-from-video:151",
+            10
+          ],
+          [
+            6451527680,
+            150428,
+            "make-mips-interpreter:90",
+            "make-mips-interpreter:99",
+            10
+          ],
+          [
+            6283755520,
+            142323,
+            "make-doom-for-mips:114",
+            "make-doom-for-mips:123",
+            10
+          ]
+        ]
+      }
+    ]
+  }
+}

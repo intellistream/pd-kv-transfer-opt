@@ -1,0 +1,2369 @@
+{
+  "workload_sha256": "31e95dec511916f2d9d774fd4cdd142c654f0884e30fe91d3e29f8f4b08ef65c",
+  "trace_sha256": "607dcde89bc4eb0d14a5a6646d769a4eaefbf270b55a83110b5f386b6d9c004d",
+  "arms": {
+    "b1-cap100": {
+      "success": 180,
+      "finish_reasons": {
+        "stop": 177,
+        "length": 3
+      },
+      "output_tokens": 108754,
+      "duration_s": 212.75156576000154,
+      "throughput_tokens_s": 511.1783765797617,
+      "D_TX_GB": 99.45001655873145,
+      "D_hot_summary_s": {
+        "any_port": 7.414179396999998,
+        "aggregate": 0
+      },
+      "first_successor_P_start_s": 48.044024500995874,
+      "last_successor_P_end_s": 199.7624102550035,
+      "D_port_TX_GB_in_successor_P_window": [
+        15.646263796265673,
+        13.22910843637604,
+        11.94868221815523,
+        12.063472430757573,
+        10.362185566675917,
+        11.159510507967806,
+        11.264935099788497,
+        11.58062552386486
+      ],
+      "root_output_tokens": 60867,
+      "successor_output_tokens": 47887,
+      "ready_successors_near_plan": 73,
+      "root_P_span_s": [
+        0.5584988339978736,
+        38.918842649
+      ],
+      "successors_last_ready_s": 199.11260934500024,
+      "successor_median_P_HTTP_s": 7.064318920500227,
+      "successor_first_tokens_at_offsets": {
+        "5": 14,
+        "10": 33,
+        "20": 48,
+        "40": 86,
+        "60": 86
+      },
+      "D_sampled_hot_and_no_work_s": {
+        "D0": 0,
+        "D1": 0
+      },
+      "D_sampled_occupancy_during_successor_recovery": {
+        "D0": {
+          "sample_coverage_s": 151.7624102550035,
+          "estimated_mean_running": 6.922272499459624,
+          "estimated_mean_waiting": 2.2809531785059796,
+          "hot_sample_coverage_s": 7.414179396999998,
+          "estimated_hot_mean_running": 13.898705260446256
+        },
+        "D1": {
+          "sample_coverage_s": 151.7624102550035,
+          "estimated_mean_running": 6.015156261081392,
+          "estimated_mean_waiting": 1.7958340426013732,
+          "hot_sample_coverage_s": 7.414179396999998,
+          "estimated_hot_mean_running": 13.74789180030609
+        }
+      },
+      "P_sources_tokens": {
+        "local_compute": 982933.0,
+        "local_cache_hit": 16913408.0,
+        "external_kv_transfer": 2330624.0
+      },
+      "D_sources_tokens": {
+        "local_compute": 180.0,
+        "local_cache_hit": 18107392.0,
+        "external_kv_transfer": 2119573.0
+      },
+      "store_counter_delta": {
+        "master_successful_evictions_total": 0.0,
+        "master_evicted_key_count": 0.0,
+        "master_evicted_size_bytes": 0.0,
+        "master_put_start_alloc_failures_total": 0.0,
+        "master_batch_put_start_failures_total": 0.0,
+        "master_batch_exist_key_failures_total": 0.0
+      },
+      "largest_outputs": [
+        [
+          8192,
+          "regex-chess:50"
+        ],
+        [
+          8192,
+          "make-mips-interpreter:73"
+        ],
+        [
+          8192,
+          "make-mips-interpreter:48"
+        ],
+        [
+          4245,
+          "regex-chess:75"
+        ],
+        [
+          3923,
+          "regex-chess:73"
+        ]
+      ],
+      "last_five": [
+        {
+          "id": "make-mips-interpreter:74",
+          "session_id": "make-mips-interpreter:73",
+          "predecessor": "make-mips-interpreter:73",
+          "offered_s": 50.704595654395284,
+          "tool_gap_s": 0,
+          "ready_s": 192.50189631900867,
+          "dispatch_s": 192.50266244399245,
+          "P_start_s": 192.53109760998632,
+          "P_end_s": 193.2060332839901,
+          "D_start_s": 193.22880556300515,
+          "first_s": 193.60017333598807,
+          "end_s": 212.75156576000154,
+          "P": "P1",
+          "D": "D1",
+          "output_tokens": 1365,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 14.040610281534798,
+          "phases_s": {
+            "ready_to_P": 0.029201290977653116,
+            "P_HTTP": 0.6749356740037911,
+            "P_return_to_D": 0.02277227901504375,
+            "D_to_first": 0.37136777298292145,
+            "first_to_end": 19.151392424013466
+          }
+        },
+        {
+          "id": "make-mips-interpreter:49",
+          "session_id": "make-mips-interpreter:48",
+          "predecessor": "make-mips-interpreter:48",
+          "offered_s": 52.134119308330085,
+          "tool_gap_s": 0,
+          "ready_s": 199.11260934500024,
+          "dispatch_s": 199.1134783999878,
+          "P_start_s": 199.13228820299264,
+          "P_end_s": 199.7624102550035,
+          "D_start_s": 199.7786191010091,
+          "first_s": 200.00558938199538,
+          "end_s": 203.90008955300436,
+          "P": "P1",
+          "D": "D0",
+          "output_tokens": 263,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 14.864504469499945,
+          "phases_s": {
+            "ready_to_P": 0.01967885799240321,
+            "P_HTTP": 0.6301220520108473,
+            "P_return_to_D": 0.01620884600561112,
+            "D_to_first": 0.22697028098627925,
+            "first_to_end": 3.8945001710089855
+          }
+        },
+        {
+          "id": "make-mips-interpreter:48",
+          "session_id": "make-mips-interpreter:48",
+          "predecessor": null,
+          "offered_s": 5.7722973048093955,
+          "tool_gap_s": 0,
+          "ready_s": 5.7722973048093955,
+          "dispatch_s": 5.772995628998615,
+          "P_start_s": 5.789896630012663,
+          "P_end_s": 31.021942591003608,
+          "D_start_s": 31.036806518008234,
+          "first_s": 34.06359236800927,
+          "end_s": 199.11260934500024,
+          "P": "P0",
+          "D": "D0",
+          "output_tokens": 8192,
+          "finish_reason": "length",
+          "effective_TPOT_ms": 20.15004480246502,
+          "phases_s": {
+            "ready_to_P": 0.01759932520326757,
+            "P_HTTP": 25.232045960990945,
+            "P_return_to_D": 0.01486392700462602,
+            "D_to_first": 3.0267858500010334,
+            "first_to_end": 165.04901697699097
+          }
+        },
+        {
+          "id": "make-mips-interpreter:73",
+          "session_id": "make-mips-interpreter:73",
+          "predecessor": null,
+          "offered_s": 6.443658726326419,
+          "tool_gap_s": 0,
+          "ready_s": 6.443658726326419,
+          "dispatch_s": 6.444374120008433,
+          "P_start_s": 6.473090168001363,
+          "P_end_s": 35.55090407299576,
+          "D_start_s": 35.57610945700435,
+          "first_s": 43.997866889985744,
+          "end_s": 192.50189631900867,
+          "P": "P1",
+          "D": "D1",
+          "output_tokens": 8192,
+          "finish_reason": "length",
+          "effective_TPOT_ms": 18.130146432550717,
+          "phases_s": {
+            "ready_to_P": 0.02943144167494438,
+            "P_HTTP": 29.0778139049944,
+            "P_return_to_D": 0.025205384008586407,
+            "D_to_first": 8.421757432981394,
+            "first_to_end": 148.50402942902292
+          }
+        },
+        {
+          "id": "regex-chess:51",
+          "session_id": "regex-chess:50",
+          "predecessor": "regex-chess:50",
+          "offered_s": 51.09840416704596,
+          "tool_gap_s": 0,
+          "ready_s": 180.6319044069969,
+          "dispatch_s": 180.6330926239898,
+          "P_start_s": 180.6593474659894,
+          "P_end_s": 181.32677928099292,
+          "D_start_s": 181.34916467699804,
+          "first_s": 181.75215288600884,
+          "end_s": 189.11588578499504,
+          "P": "P1",
+          "D": "D0",
+          "output_tokens": 485,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 15.21432417145909,
+          "phases_s": {
+            "ready_to_P": 0.02744305899250321,
+            "P_HTTP": 0.6674318150035106,
+            "P_return_to_D": 0.02238539600512013,
+            "D_to_first": 0.40298820901080035,
+            "first_to_end": 7.3637328989862
+          }
+        }
+      ],
+      "source_tasks": {
+        "caffe-cifar-10": {
+          "root_routes": {
+            "P0": 20
+          },
+          "successor_routes": {
+            "P0": 12,
+            "P1": 8
+          },
+          "cross_P_successors": 8,
+          "route_conditioned_full_GET_bytes": 32811253760,
+          "last_root_end_s": 37.85472103499342,
+          "last_successor_end_s": 94.45365188698634
+        },
+        "make-doom-for-mips": {
+          "root_routes": {
+            "P0": 19
+          },
+          "successor_routes": {
+            "P0": 12,
+            "P1": 7
+          },
+          "cross_P_successors": 7,
+          "route_conditioned_full_GET_bytes": 30943313920,
+          "last_root_end_s": 108.36889436500496,
+          "last_successor_end_s": 151.02399739300017
+        },
+        "make-mips-interpreter": {
+          "root_routes": {
+            "P1": 8,
+            "P0": 10
+          },
+          "successor_routes": {
+            "P1": 8,
+            "P0": 10
+          },
+          "cross_P_successors": 8,
+          "route_conditioned_full_GET_bytes": 34195374080,
+          "last_root_end_s": 199.11260934500024,
+          "last_successor_end_s": 212.75156576000154
+        },
+        "regex-chess": {
+          "root_routes": {
+            "P1": 33
+          },
+          "successor_routes": {
+            "P1": 22,
+            "P0": 11
+          },
+          "cross_P_successors": 11,
+          "route_conditioned_full_GET_bytes": 62070947840,
+          "last_root_end_s": 180.6319044069969,
+          "last_successor_end_s": 189.11588578499504
+        }
+      }
+    },
+    "b1-cap200": {
+      "success": 180,
+      "finish_reasons": {
+        "stop": 177,
+        "length": 3
+      },
+      "output_tokens": 113313,
+      "duration_s": 215.78913808902144,
+      "throughput_tokens_s": 525.1098410396077,
+      "D_TX_GB": 160.11917942430264,
+      "D_hot_summary_s": {
+        "any_port": 1.2276493660000014,
+        "aggregate": 0
+      },
+      "first_successor_P_start_s": 48.046028353011934,
+      "last_successor_P_end_s": 193.6570499560039,
+      "D_port_TX_GB_in_successor_P_window": [
+        19.91935268680327,
+        18.11071676170275,
+        20.234299747212017,
+        17.888118207769885,
+        21.441011842662256,
+        20.31070382867651,
+        16.833129940587117,
+        15.21662442876537
+      ],
+      "root_output_tokens": 52551,
+      "successor_output_tokens": 60762,
+      "ready_successors_near_plan": 82,
+      "root_P_span_s": [
+        0.418677841022145,
+        34.96661056901212
+      ],
+      "successors_last_ready_s": 193.2066469170095,
+      "successor_median_P_HTTP_s": 4.671686403002241,
+      "successor_first_tokens_at_offsets": {
+        "5": 25,
+        "10": 35,
+        "20": 52,
+        "40": 87,
+        "60": 88
+      },
+      "D_sampled_hot_and_no_work_s": {
+        "D0": 0,
+        "D1": 0
+      },
+      "D_sampled_occupancy_during_successor_recovery": {
+        "D0": {
+          "sample_coverage_s": 145.6570499560039,
+          "estimated_mean_running": 6.696570727257181,
+          "estimated_mean_waiting": 2.2665351391832487,
+          "hot_sample_coverage_s": 1.2276493660000014,
+          "estimated_hot_mean_running": 15.0
+        },
+        "D1": {
+          "sample_coverage_s": 145.6570499560039,
+          "estimated_mean_running": 6.003541630057133,
+          "estimated_mean_waiting": 2.641500069171764,
+          "hot_sample_coverage_s": 1.2276493660000014,
+          "estimated_hot_mean_running": 15.0
+        }
+      },
+      "P_sources_tokens": {
+        "local_compute": 983957.0,
+        "local_cache_hit": 15470592.0,
+        "external_kv_transfer": 3772416.0
+      },
+      "D_sources_tokens": {
+        "local_compute": 180.0,
+        "local_cache_hit": 18554880.0,
+        "external_kv_transfer": 1672085.0
+      },
+      "store_counter_delta": {
+        "master_successful_evictions_total": 0.0,
+        "master_evicted_key_count": 0.0,
+        "master_evicted_size_bytes": 0.0,
+        "master_put_start_alloc_failures_total": 0.0,
+        "master_batch_put_start_failures_total": 45.0,
+        "master_batch_exist_key_failures_total": 0.0
+      },
+      "largest_outputs": [
+        [
+          8192,
+          "make-mips-interpreter:72"
+        ],
+        [
+          8192,
+          "make-mips-interpreter:58"
+        ],
+        [
+          8192,
+          "make-doom-for-mips:77"
+        ],
+        [
+          5844,
+          "make-mips-interpreter:48"
+        ],
+        [
+          5395,
+          "make-mips-interpreter:47"
+        ]
+      ],
+      "last_five": [
+        {
+          "id": "make-doom-for-mips:77",
+          "session_id": "make-doom-for-mips:76",
+          "predecessor": "make-doom-for-mips:76",
+          "offered_s": 52.230571124764616,
+          "tool_gap_s": 0,
+          "ready_s": 52.230571124764616,
+          "dispatch_s": 52.23104494099971,
+          "P_start_s": 52.25178397601121,
+          "P_end_s": 59.43173731601564,
+          "D_start_s": 59.44820870301919,
+          "first_s": 78.43657521400019,
+          "end_s": 215.78913808902144,
+          "P": "P0",
+          "D": "D0",
+          "output_tokens": 8192,
+          "finish_reason": "length",
+          "effective_TPOT_ms": 16.76871723538289,
+          "phases_s": {
+            "ready_to_P": 0.02121285124659522,
+            "P_HTTP": 7.179953340004431,
+            "P_return_to_D": 0.016471387003548443,
+            "D_to_first": 18.988366510980995,
+            "first_to_end": 137.35256287502125
+          }
+        },
+        {
+          "id": "make-mips-interpreter:72",
+          "session_id": "make-mips-interpreter:71",
+          "predecessor": "make-mips-interpreter:71",
+          "offered_s": 51.391451692377586,
+          "tool_gap_s": 0,
+          "ready_s": 51.391451692377586,
+          "dispatch_s": 51.392298348015174,
+          "P_start_s": 51.42046037199907,
+          "P_end_s": 58.84694253001362,
+          "D_start_s": 58.87045627401676,
+          "first_s": 77.38748499902431,
+          "end_s": 208.31412378401728,
+          "P": "P1",
+          "D": "D1",
+          "output_tokens": 8192,
+          "finish_reason": "length",
+          "effective_TPOT_ms": 15.98420690819106,
+          "phases_s": {
+            "ready_to_P": 0.02900867962148368,
+            "P_HTTP": 7.426482158014551,
+            "P_return_to_D": 0.023513744003139436,
+            "D_to_first": 18.51702872500755,
+            "first_to_end": 130.92663878499297
+          }
+        },
+        {
+          "id": "make-mips-interpreter:59",
+          "session_id": "make-mips-interpreter:58",
+          "predecessor": "make-mips-interpreter:58",
+          "offered_s": 51.73792481215775,
+          "tool_gap_s": 0,
+          "ready_s": 193.2066469170095,
+          "dispatch_s": 193.2075850230176,
+          "P_start_s": 193.23207132300013,
+          "P_end_s": 193.6570499560039,
+          "D_start_s": 193.677538310003,
+          "first_s": 193.97403369401582,
+          "end_s": 200.59434441200574,
+          "P": "P1",
+          "D": "D0",
+          "output_tokens": 439,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 15.11486465294503,
+          "phases_s": {
+            "ready_to_P": 0.025424405990634114,
+            "P_HTTP": 0.42497863300377503,
+            "P_return_to_D": 0.020488353999098763,
+            "D_to_first": 0.2964953840128146,
+            "first_to_end": 6.620310717989923
+          }
+        },
+        {
+          "id": "make-mips-interpreter:58",
+          "session_id": "make-mips-interpreter:58",
+          "predecessor": null,
+          "offered_s": 6.039811699759824,
+          "tool_gap_s": 0,
+          "ready_s": 6.039811699759824,
+          "dispatch_s": 6.040621665015351,
+          "P_start_s": 6.082674609002424,
+          "P_end_s": 28.46448328200495,
+          "D_start_s": 28.484408952004742,
+          "first_s": 33.082579386013094,
+          "end_s": 193.2066469170095,
+          "P": "P0",
+          "D": "D0",
+          "output_tokens": 8192,
+          "finish_reason": "length",
+          "effective_TPOT_ms": 19.54878128812067,
+          "phases_s": {
+            "ready_to_P": 0.04286290924260072,
+            "P_HTTP": 22.381808673002524,
+            "P_return_to_D": 0.019925669999793172,
+            "D_to_first": 4.5981704340083525,
+            "first_to_end": 160.1240675309964
+          }
+        },
+        {
+          "id": "make-mips-interpreter:47",
+          "session_id": "make-mips-interpreter:46",
+          "predecessor": "make-mips-interpreter:46",
+          "offered_s": 52.330921931381084,
+          "tool_gap_s": 0,
+          "ready_s": 52.330921931381084,
+          "dispatch_s": 52.331418686022516,
+          "P_start_s": 52.35214164102217,
+          "P_end_s": 59.996903764025774,
+          "D_start_s": 60.04878767201444,
+          "first_s": 83.05747131601674,
+          "end_s": 171.59969430000638,
+          "P": "P0",
+          "D": "D1",
+          "output_tokens": 5395,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 16.414946789764485,
+          "phases_s": {
+            "ready_to_P": 0.021219709641087547,
+            "P_HTTP": 7.644762123003602,
+            "P_return_to_D": 0.05188390798866749,
+            "D_to_first": 23.008683644002303,
+            "first_to_end": 88.54222298398963
+          }
+        }
+      ],
+      "source_tasks": {
+        "caffe-cifar-10": {
+          "root_routes": {
+            "P0": 20
+          },
+          "successor_routes": {
+            "P0": 7,
+            "P1": 13
+          },
+          "cross_P_successors": 13,
+          "route_conditioned_full_GET_bytes": 49868472320,
+          "last_root_end_s": 34.719790089002345,
+          "last_successor_end_s": 88.28942609400838
+        },
+        "make-doom-for-mips": {
+          "root_routes": {
+            "P0": 19
+          },
+          "successor_routes": {
+            "P0": 9,
+            "P1": 10
+          },
+          "cross_P_successors": 10,
+          "route_conditioned_full_GET_bytes": 38266798080,
+          "last_root_end_s": 106.87988694800879,
+          "last_successor_end_s": 215.78913808902144
+        },
+        "make-mips-interpreter": {
+          "root_routes": {
+            "P1": 10,
+            "P0": 8
+          },
+          "successor_routes": {
+            "P0": 11,
+            "P1": 7
+          },
+          "cross_P_successors": 11,
+          "route_conditioned_full_GET_bytes": 47894200320,
+          "last_root_end_s": 193.2066469170095,
+          "last_successor_end_s": 208.31412378401728
+        },
+        "regex-chess": {
+          "root_routes": {
+            "P0": 1,
+            "P1": 32
+          },
+          "successor_routes": {
+            "P1": 15,
+            "P0": 18
+          },
+          "cross_P_successors": 19,
+          "route_conditioned_full_GET_bytes": 92281733120,
+          "last_root_end_s": 53.58777943401947,
+          "last_successor_end_s": 141.5420921120094
+        }
+      }
+    },
+    "b2-cap200": {
+      "success": 180,
+      "finish_reasons": {
+        "stop": 177,
+        "length": 3
+      },
+      "output_tokens": 108551,
+      "duration_s": 207.4734170169977,
+      "throughput_tokens_s": 523.2043775087906,
+      "D_TX_GB": 76.74903989601812,
+      "D_hot_summary_s": {
+        "any_port": 0,
+        "aggregate": 0
+      },
+      "first_successor_P_start_s": 48.04888943201513,
+      "last_successor_P_end_s": 194.5687611970061,
+      "D_port_TX_GB_in_successor_P_window": [
+        8.931163504019114,
+        7.036638480395403,
+        7.080072167217748,
+        7.980977798680157,
+        9.527382991831923,
+        8.199497736625025,
+        9.663094136332573,
+        7.853378350808396
+      ],
+      "root_output_tokens": 55060,
+      "successor_output_tokens": 53491,
+      "ready_successors_near_plan": 78,
+      "root_P_span_s": [
+        0.32566551500349306,
+        39.18561213900102
+      ],
+      "successors_last_ready_s": 193.96364567501587,
+      "successor_median_P_HTTP_s": 2.6348134579893667,
+      "successor_first_tokens_at_offsets": {
+        "5": 22,
+        "10": 35,
+        "20": 57,
+        "40": 87,
+        "60": 87
+      },
+      "D_sampled_hot_and_no_work_s": {
+        "D0": 0,
+        "D1": 0
+      },
+      "D_sampled_occupancy_during_successor_recovery": {
+        "D0": {
+          "sample_coverage_s": 140.16504736201023,
+          "estimated_mean_running": 4.932900620169427,
+          "estimated_mean_waiting": 2.404688916287212,
+          "hot_sample_coverage_s": 0.0,
+          "estimated_hot_mean_running": null
+        },
+        "D1": {
+          "sample_coverage_s": 140.2034874940291,
+          "estimated_mean_running": 6.42296609278523,
+          "estimated_mean_waiting": 2.430973158315244,
+          "hot_sample_coverage_s": 0.0,
+          "estimated_hot_mean_running": null
+        }
+      },
+      "P_sources_tokens": {
+        "local_compute": 1100693.0,
+        "local_cache_hit": 17352704.0,
+        "external_kv_transfer": 1773568.0
+      },
+      "D_sources_tokens": {
+        "local_compute": 180.0,
+        "local_cache_hit": 18597888.0,
+        "external_kv_transfer": 1629077.0
+      },
+      "store_counter_delta": {
+        "master_successful_evictions_total": 0.0,
+        "master_evicted_key_count": 0.0,
+        "master_evicted_size_bytes": 0.0,
+        "master_put_start_alloc_failures_total": 0.0,
+        "master_batch_put_start_failures_total": 146.0,
+        "master_batch_exist_key_failures_total": 0.0
+      },
+      "largest_outputs": [
+        [
+          8192,
+          "regex-chess:50"
+        ],
+        [
+          8192,
+          "make-mips-interpreter:48"
+        ],
+        [
+          8192,
+          "make-doom-for-mips:77"
+        ],
+        [
+          7340,
+          "make-mips-interpreter:57"
+        ],
+        [
+          4231,
+          "regex-chess:75"
+        ]
+      ],
+      "last_five": [
+        {
+          "id": "make-doom-for-mips:77",
+          "session_id": "make-doom-for-mips:76",
+          "predecessor": "make-doom-for-mips:76",
+          "offered_s": 52.230571124764616,
+          "tool_gap_s": 0,
+          "ready_s": 52.230571124764616,
+          "dispatch_s": 52.23146153401467,
+          "P_start_s": 52.253817940014414,
+          "P_end_s": 55.68750018501305,
+          "D_start_s": 55.70450522599276,
+          "first_s": 76.15743984299479,
+          "end_s": 207.4734170169977,
+          "P": "P1",
+          "D": "D0",
+          "output_tokens": 8192,
+          "finish_reason": "length",
+          "effective_TPOT_ms": 16.03173936930813,
+          "phases_s": {
+            "ready_to_P": 0.023246815249798658,
+            "P_HTTP": 3.4336822449986357,
+            "P_return_to_D": 0.01700504097971134,
+            "D_to_first": 20.45293461700203,
+            "first_to_end": 131.3159771740029
+          }
+        },
+        {
+          "id": "make-mips-interpreter:57",
+          "session_id": "make-mips-interpreter:56",
+          "predecessor": "make-mips-interpreter:56",
+          "offered_s": 51.78721826949315,
+          "tool_gap_s": 0,
+          "ready_s": 51.78721826949315,
+          "dispatch_s": 51.78935516899219,
+          "P_start_s": 51.81373511799029,
+          "P_end_s": 54.93078477701056,
+          "D_start_s": 54.95099577901419,
+          "first_s": 70.48289292599657,
+          "end_s": 199.18688890899648,
+          "P": "P0",
+          "D": "D1",
+          "output_tokens": 7340,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 17.536993593541343,
+          "phases_s": {
+            "ready_to_P": 0.026516848497138312,
+            "P_HTTP": 3.1170496590202674,
+            "P_return_to_D": 0.02021100200363435,
+            "D_to_first": 15.531897146982374,
+            "first_to_end": 128.7039959829999
+          }
+        },
+        {
+          "id": "make-mips-interpreter:49",
+          "session_id": "make-mips-interpreter:48",
+          "predecessor": "make-mips-interpreter:48",
+          "offered_s": 52.134119308330085,
+          "tool_gap_s": 0,
+          "ready_s": 193.96364567501587,
+          "dispatch_s": 193.96421944900067,
+          "P_start_s": 193.98480830399785,
+          "P_end_s": 194.5687611970061,
+          "D_start_s": 194.58477294101613,
+          "first_s": 194.88835801900132,
+          "end_s": 198.5916888230131,
+          "P": "P1",
+          "D": "D0",
+          "output_tokens": 263,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 14.134850396991544,
+          "phases_s": {
+            "ready_to_P": 0.02116262898198329,
+            "P_HTTP": 0.5839528930082452,
+            "P_return_to_D": 0.01601174401002936,
+            "D_to_first": 0.30358507798518986,
+            "first_to_end": 3.7033308040117845
+          }
+        },
+        {
+          "id": "make-mips-interpreter:48",
+          "session_id": "make-mips-interpreter:48",
+          "predecessor": null,
+          "offered_s": 5.7722973048093955,
+          "tool_gap_s": 0,
+          "ready_s": 5.7722973048093955,
+          "dispatch_s": 5.77326015100698,
+          "P_start_s": 5.829561607999494,
+          "P_end_s": 30.93524204401183,
+          "D_start_s": 30.953076820995193,
+          "first_s": 31.311181507015135,
+          "end_s": 193.96364567501587,
+          "P": "P0",
+          "D": "D1",
+          "output_tokens": 8192,
+          "finish_reason": "length",
+          "effective_TPOT_ms": 19.857461136369274,
+          "phases_s": {
+            "ready_to_P": 0.057264303190098786,
+            "P_HTTP": 25.105680436012335,
+            "P_return_to_D": 0.017834776983363554,
+            "D_to_first": 0.35810468601994216,
+            "first_to_end": 162.65246416800073
+          }
+        },
+        {
+          "id": "regex-chess:51",
+          "session_id": "regex-chess:50",
+          "predecessor": "regex-chess:50",
+          "offered_s": 51.09840416704596,
+          "tool_gap_s": 0,
+          "ready_s": 184.41360256599728,
+          "dispatch_s": 184.41438521101372,
+          "P_start_s": 184.44050156199955,
+          "P_end_s": 185.0769583180081,
+          "D_start_s": 185.0987208810111,
+          "first_s": 185.5316082049976,
+          "end_s": 192.38966745100333,
+          "P": "P1",
+          "D": "D0",
+          "output_tokens": 484,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 14.198880426512885,
+          "phases_s": {
+            "ready_to_P": 0.026898996002273634,
+            "P_HTTP": 0.6364567560085561,
+            "P_return_to_D": 0.021762563002994284,
+            "D_to_first": 0.4328873239865061,
+            "first_to_end": 6.858059246005723
+          }
+        }
+      ],
+      "source_tasks": {
+        "caffe-cifar-10": {
+          "root_routes": {
+            "P0": 20
+          },
+          "successor_routes": {
+            "P0": 10,
+            "P1": 10
+          },
+          "cross_P_successors": 10,
+          "route_conditioned_full_GET_bytes": 44138823680,
+          "last_root_end_s": 39.83435819199076,
+          "last_successor_end_s": 90.14955740299774
+        },
+        "make-doom-for-mips": {
+          "root_routes": {
+            "P0": 7,
+            "P1": 12
+          },
+          "successor_routes": {
+            "P0": 13,
+            "P1": 6
+          },
+          "cross_P_successors": 8,
+          "route_conditioned_full_GET_bytes": 31972392960,
+          "last_root_end_s": 112.60559318299056,
+          "last_successor_end_s": 207.4734170169977
+        },
+        "make-mips-interpreter": {
+          "root_routes": {
+            "P0": 11,
+            "P1": 7
+          },
+          "successor_routes": {
+            "P1": 8,
+            "P0": 10
+          },
+          "cross_P_successors": 13,
+          "route_conditioned_full_GET_bytes": 56201871360,
+          "last_root_end_s": 193.96364567501587,
+          "last_successor_end_s": 199.18688890899648
+        },
+        "regex-chess": {
+          "root_routes": {
+            "P1": 25,
+            "P0": 8
+          },
+          "successor_routes": {
+            "P1": 19,
+            "P0": 14
+          },
+          "cross_P_successors": 14,
+          "route_conditioned_full_GET_bytes": 69436375040,
+          "last_root_end_s": 184.41360256599728,
+          "last_successor_end_s": 192.38966745100333
+        }
+      }
+    },
+    "b2-cap100": {
+      "success": 180,
+      "finish_reasons": {
+        "stop": 178,
+        "length": 2
+      },
+      "output_tokens": 108327,
+      "duration_s": 208.04046265300713,
+      "throughput_tokens_s": 520.7015915008791,
+      "D_TX_GB": 99.42577373427169,
+      "D_hot_summary_s": {
+        "any_port": 2.214284333000002,
+        "aggregate": 1.1839935960000005
+      },
+      "first_successor_P_start_s": 48.04434856399894,
+      "last_successor_P_end_s": 189.96739704700303,
+      "D_port_TX_GB_in_successor_P_window": [
+        10.986359333385469,
+        12.012013444418125,
+        11.80136449481472,
+        15.739273840916788,
+        12.476317381718657,
+        11.118500442347136,
+        11.704300460328996,
+        10.502035756750862
+      ],
+      "root_output_tokens": 53153,
+      "successor_output_tokens": 55174,
+      "ready_successors_near_plan": 82,
+      "root_P_span_s": [
+        0.8436419730132911,
+        34.42600242100889
+      ],
+      "successors_last_ready_s": 189.26052435001475,
+      "successor_median_P_HTTP_s": 7.208950328480569,
+      "successor_first_tokens_at_offsets": {
+        "5": 16,
+        "10": 38,
+        "20": 52,
+        "40": 87,
+        "60": 88
+      },
+      "D_sampled_hot_and_no_work_s": {
+        "D0": 0,
+        "D1": 0
+      },
+      "D_sampled_occupancy_during_successor_recovery": {
+        "D0": {
+          "sample_coverage_s": 141.96739704700303,
+          "estimated_mean_running": 5.892254452210591,
+          "estimated_mean_waiting": 2.043911126755173,
+          "hot_sample_coverage_s": 2.214284333000002,
+          "estimated_hot_mean_running": 7.635739575527351
+        },
+        "D1": {
+          "sample_coverage_s": 141.96739704700303,
+          "estimated_mean_running": 5.973464440453622,
+          "estimated_mean_waiting": 1.9975148281600223,
+          "hot_sample_coverage_s": 2.214284333000002,
+          "estimated_hot_mean_running": 5.038926941152112
+        }
+      },
+      "P_sources_tokens": {
+        "local_compute": 964501.0,
+        "local_cache_hit": 16924672.0,
+        "external_kv_transfer": 2337792.0
+      },
+      "D_sources_tokens": {
+        "local_compute": 180.0,
+        "local_cache_hit": 18347008.0,
+        "external_kv_transfer": 1879957.0
+      },
+      "store_counter_delta": {
+        "master_successful_evictions_total": 0.0,
+        "master_evicted_key_count": 0.0,
+        "master_evicted_size_bytes": 0.0,
+        "master_put_start_alloc_failures_total": 0.0,
+        "master_batch_put_start_failures_total": 14.0,
+        "master_batch_exist_key_failures_total": 0.0
+      },
+      "largest_outputs": [
+        [
+          8192,
+          "regex-chess:32"
+        ],
+        [
+          8192,
+          "make-mips-interpreter:73"
+        ],
+        [
+          6776,
+          "make-mips-interpreter:48"
+        ],
+        [
+          5095,
+          "make-mips-interpreter:47"
+        ],
+        [
+          4191,
+          "regex-chess:75"
+        ]
+      ],
+      "last_five": [
+        {
+          "id": "regex-chess:32",
+          "session_id": "regex-chess:31",
+          "predecessor": "regex-chess:31",
+          "offered_s": 52.378195664733134,
+          "tool_gap_s": 0,
+          "ready_s": 52.378195664733134,
+          "dispatch_s": 52.37847510699066,
+          "P_start_s": 52.39759702200536,
+          "P_end_s": 61.52036615498946,
+          "D_start_s": 61.537727559014456,
+          "first_s": 80.57239362999098,
+          "end_s": 208.04046265300713,
+          "P": "P0",
+          "D": "D0",
+          "output_tokens": 8192,
+          "finish_reason": "length",
+          "effective_TPOT_ms": 15.561966673546104,
+          "phases_s": {
+            "ready_to_P": 0.019401357272222697,
+            "P_HTTP": 9.122769132984104,
+            "P_return_to_D": 0.017361404024995863,
+            "D_to_first": 19.034666070976527,
+            "first_to_end": 127.46806902301614
+          }
+        },
+        {
+          "id": "make-mips-interpreter:74",
+          "session_id": "make-mips-interpreter:73",
+          "predecessor": "make-mips-interpreter:73",
+          "offered_s": 50.704595654395284,
+          "tool_gap_s": 0,
+          "ready_s": 189.26052435001475,
+          "dispatch_s": 189.26343141900725,
+          "P_start_s": 189.29285200100276,
+          "P_end_s": 189.96739704700303,
+          "D_start_s": 189.99060663901037,
+          "first_s": 190.46937371301465,
+          "end_s": 206.50571353599662,
+          "P": "P0",
+          "D": "D1",
+          "output_tokens": 1177,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 13.636343386889433,
+          "phases_s": {
+            "ready_to_P": 0.03232765098800883,
+            "P_HTTP": 0.6745450460002758,
+            "P_return_to_D": 0.023209592007333413,
+            "D_to_first": 0.4787670740042813,
+            "first_to_end": 16.036339822981972
+          }
+        },
+        {
+          "id": "make-mips-interpreter:73",
+          "session_id": "make-mips-interpreter:73",
+          "predecessor": null,
+          "offered_s": 6.443658726326419,
+          "tool_gap_s": 0,
+          "ready_s": 6.443658726326419,
+          "dispatch_s": 6.4445980100135785,
+          "P_start_s": 6.471166673989501,
+          "P_end_s": 31.138575370016042,
+          "D_start_s": 31.163665004016366,
+          "first_s": 34.882435159001034,
+          "end_s": 189.26052435001475,
+          "P": "P0",
+          "D": "D1",
+          "output_tokens": 8192,
+          "finish_reason": "length",
+          "effective_TPOT_ms": 18.847282284338142,
+          "phases_s": {
+            "ready_to_P": 0.027507947663082177,
+            "P_HTTP": 24.66740869602654,
+            "P_return_to_D": 0.025089634000323713,
+            "D_to_first": 3.718770154984668,
+            "first_to_end": 154.37808919101371
+          }
+        },
+        {
+          "id": "make-mips-interpreter:49",
+          "session_id": "make-mips-interpreter:48",
+          "predecessor": "make-mips-interpreter:48",
+          "offered_s": 52.134119308330085,
+          "tool_gap_s": 0,
+          "ready_s": 164.17797807601164,
+          "dispatch_s": 164.17950735599152,
+          "P_start_s": 164.2025752470072,
+          "P_end_s": 164.8516812559974,
+          "D_start_s": 164.86785931201302,
+          "first_s": 165.14339526600088,
+          "end_s": 168.81609125001705,
+          "P": "P0",
+          "D": "D0",
+          "output_tokens": 266,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 13.859230128362915,
+          "phases_s": {
+            "ready_to_P": 0.024597170995548368,
+            "P_HTTP": 0.6491060089902021,
+            "P_return_to_D": 0.016178056015633047,
+            "D_to_first": 0.27553595398785546,
+            "first_to_end": 3.6726959840161726
+          }
+        },
+        {
+          "id": "make-mips-interpreter:47",
+          "session_id": "make-mips-interpreter:46",
+          "predecessor": "make-mips-interpreter:46",
+          "offered_s": 52.330921931381084,
+          "tool_gap_s": 0,
+          "ready_s": 52.330921931381084,
+          "dispatch_s": 52.331287628010614,
+          "P_start_s": 52.34760140499566,
+          "P_end_s": 63.03957153999363,
+          "D_start_s": 63.05469695001375,
+          "first_s": 79.88947221901617,
+          "end_s": 167.1246935070085,
+          "P": "P1",
+          "D": "D1",
+          "output_tokens": 5095,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 17.125092518255265,
+          "phases_s": {
+            "ready_to_P": 0.016679473614573226,
+            "P_HTTP": 10.691970134997973,
+            "P_return_to_D": 0.01512541002011858,
+            "D_to_first": 16.83477526900242,
+            "first_to_end": 87.23522128799232
+          }
+        }
+      ],
+      "source_tasks": {
+        "caffe-cifar-10": {
+          "root_routes": {
+            "P1": 20
+          },
+          "successor_routes": {
+            "P1": 14,
+            "P0": 6
+          },
+          "cross_P_successors": 6,
+          "route_conditioned_full_GET_bytes": 25761873920,
+          "last_root_end_s": 48.70800479801255,
+          "last_successor_end_s": 102.68275718600489
+        },
+        "make-doom-for-mips": {
+          "root_routes": {
+            "P1": 19
+          },
+          "successor_routes": {
+            "P1": 10,
+            "P0": 9
+          },
+          "cross_P_successors": 9,
+          "route_conditioned_full_GET_bytes": 36273029120,
+          "last_root_end_s": 102.37584661701112,
+          "last_successor_end_s": 122.95362062001368
+        },
+        "make-mips-interpreter": {
+          "root_routes": {
+            "P0": 8,
+            "P1": 10
+          },
+          "successor_routes": {
+            "P1": 9,
+            "P0": 9
+          },
+          "cross_P_successors": 5,
+          "route_conditioned_full_GET_bytes": 23600332800,
+          "last_root_end_s": 189.26052435001475,
+          "last_successor_end_s": 206.50571353599662
+        },
+        "regex-chess": {
+          "root_routes": {
+            "P0": 33
+          },
+          "successor_routes": {
+            "P0": 22,
+            "P1": 11
+          },
+          "cross_P_successors": 11,
+          "route_conditioned_full_GET_bytes": 59218821120,
+          "last_root_end_s": 48.71171525301179,
+          "last_successor_end_s": 208.04046265300713
+        }
+      }
+    }
+  },
+  "contrasts": {
+    "b1": {
+      "same_P": 119,
+      "same_D": 104,
+      "replayed_stage_swap_s": {
+        "ready_to_P": -0.004151457527768798,
+        "P_HTTP": 4.495845867165675,
+        "P_return_to_D": -0.0036927458180192256,
+        "D_to_first": 4.771814110310515,
+        "first_to_end": -12.297388103150299
+      },
+      "observed_low_throughput_loss_fraction": 0.026530572027110733
+    },
+    "b2": {
+      "same_P": 70,
+      "same_D": 81,
+      "replayed_stage_swap_s": {
+        "ready_to_P": 0.0013336929938911148,
+        "P_HTTP": 1.0855432939982468,
+        "P_return_to_D": 0.008009203023296626,
+        "D_to_first": -4.055348474180695,
+        "first_to_end": 3.527507920174685
+      },
+      "observed_low_throughput_loss_fraction": 0.004783572377257905
+    }
+  },
+  "EOS_length_screen": {
+    "assumption": "Historical cohort selection only, with costs frozen on the parent replay. Removing requests on-host changes queues, routes and EOS.",
+    "thresholds": {
+      "600": {
+        "sessions": 49,
+        "request_ids": [
+          "caffe-cifar-10:100",
+          "caffe-cifar-10:101",
+          "caffe-cifar-10:102",
+          "caffe-cifar-10:103",
+          "caffe-cifar-10:58",
+          "caffe-cifar-10:59",
+          "caffe-cifar-10:60",
+          "caffe-cifar-10:61",
+          "caffe-cifar-10:71",
+          "caffe-cifar-10:72",
+          "caffe-cifar-10:73",
+          "caffe-cifar-10:74",
+          "caffe-cifar-10:76",
+          "caffe-cifar-10:77",
+          "caffe-cifar-10:78",
+          "caffe-cifar-10:79",
+          "caffe-cifar-10:81",
+          "caffe-cifar-10:82",
+          "caffe-cifar-10:83",
+          "caffe-cifar-10:84",
+          "caffe-cifar-10:86",
+          "caffe-cifar-10:87",
+          "caffe-cifar-10:88",
+          "caffe-cifar-10:89",
+          "caffe-cifar-10:91",
+          "caffe-cifar-10:92",
+          "caffe-cifar-10:93",
+          "caffe-cifar-10:94",
+          "caffe-cifar-10:95",
+          "caffe-cifar-10:96",
+          "caffe-cifar-10:97",
+          "caffe-cifar-10:98",
+          "make-doom-for-mips:102",
+          "make-doom-for-mips:103",
+          "make-doom-for-mips:105",
+          "make-doom-for-mips:106",
+          "make-doom-for-mips:115",
+          "make-doom-for-mips:116",
+          "make-doom-for-mips:120",
+          "make-doom-for-mips:121",
+          "make-doom-for-mips:71",
+          "make-doom-for-mips:72",
+          "make-doom-for-mips:74",
+          "make-doom-for-mips:75",
+          "make-doom-for-mips:92",
+          "make-doom-for-mips:93",
+          "make-doom-for-mips:94",
+          "make-doom-for-mips:95",
+          "make-mips-interpreter:50",
+          "make-mips-interpreter:51",
+          "make-mips-interpreter:53",
+          "make-mips-interpreter:54",
+          "make-mips-interpreter:60",
+          "make-mips-interpreter:61",
+          "make-mips-interpreter:67",
+          "make-mips-interpreter:68",
+          "make-mips-interpreter:69",
+          "make-mips-interpreter:70",
+          "make-mips-interpreter:80",
+          "make-mips-interpreter:81",
+          "make-mips-interpreter:82",
+          "make-mips-interpreter:83",
+          "make-mips-interpreter:92",
+          "make-mips-interpreter:93",
+          "make-mips-interpreter:94",
+          "make-mips-interpreter:95",
+          "make-mips-interpreter:96",
+          "make-mips-interpreter:97",
+          "make-mips-interpreter:98",
+          "make-mips-interpreter:99",
+          "regex-chess:100",
+          "regex-chess:101",
+          "regex-chess:102",
+          "regex-chess:103",
+          "regex-chess:29",
+          "regex-chess:30",
+          "regex-chess:33",
+          "regex-chess:34",
+          "regex-chess:39",
+          "regex-chess:40",
+          "regex-chess:41",
+          "regex-chess:42",
+          "regex-chess:43",
+          "regex-chess:44",
+          "regex-chess:54",
+          "regex-chess:55",
+          "regex-chess:56",
+          "regex-chess:57",
+          "regex-chess:58",
+          "regex-chess:59",
+          "regex-chess:66",
+          "regex-chess:67",
+          "regex-chess:70",
+          "regex-chess:71",
+          "regex-chess:96",
+          "regex-chess:97",
+          "regex-chess:98",
+          "regex-chess:99"
+        ],
+        "cases": {
+          "b1-cap100": {
+            "observed_last_retained_request": "make-mips-interpreter:95",
+            "observed_last_retained_end_s": 94.85392080899328,
+            "observed_retained_output_tokens": 25792,
+            "route_conditioned_full_GET_bytes": 85380628480,
+            "retained_observed_graph_without_any_P_HTTP_s": 82.16298401758428
+          },
+          "b1-cap200": {
+            "observed_last_retained_request": "regex-chess:30",
+            "observed_last_retained_end_s": 91.06988932701643,
+            "observed_retained_output_tokens": 25657,
+            "route_conditioned_full_GET_bytes": 145863639040,
+            "retained_observed_graph_without_any_P_HTTP_s": 83.02374210601556
+          },
+          "b2-cap200": {
+            "observed_last_retained_request": "make-mips-interpreter:95",
+            "observed_last_retained_end_s": 92.68424751699786,
+            "observed_retained_output_tokens": 25555,
+            "route_conditioned_full_GET_bytes": 126289838080,
+            "retained_observed_graph_without_any_P_HTTP_s": 85.87044899599277
+          },
+          "b2-cap100": {
+            "observed_last_retained_request": "regex-chess:40",
+            "observed_last_retained_end_s": 94.57106362201739,
+            "observed_retained_output_tokens": 26339,
+            "route_conditioned_full_GET_bytes": 64445153280,
+            "retained_observed_graph_without_any_P_HTTP_s": 84.59800408297451
+          }
+        },
+        "reference_release_opportunities": [
+          {
+            "released_at_s": 47,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 186979614720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 8,
+                "already_generating_root_sessions": 8,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 221781688320,
+                "ready_sessions": 48,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 212467384320,
+                "ready_sessions": 46,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 206614855680,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8220096589824575,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 48,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 192706314240,
+                "ready_sessions": 42,
+                "uncompleted_root_sessions": 6,
+                "already_generating_root_sessions": 6,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 221781688320,
+                "ready_sessions": 48,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 212467384320,
+                "ready_sessions": 46,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 221781688320,
+                "ready_sessions": 48,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8471856779114701,
+            "common_lightest_P_when_nonempty": null
+          }
+        ]
+      },
+      "800": {
+        "sessions": 61,
+        "request_ids": [
+          "caffe-cifar-10:100",
+          "caffe-cifar-10:101",
+          "caffe-cifar-10:102",
+          "caffe-cifar-10:103",
+          "caffe-cifar-10:58",
+          "caffe-cifar-10:59",
+          "caffe-cifar-10:60",
+          "caffe-cifar-10:61",
+          "caffe-cifar-10:62",
+          "caffe-cifar-10:63",
+          "caffe-cifar-10:69",
+          "caffe-cifar-10:70",
+          "caffe-cifar-10:71",
+          "caffe-cifar-10:72",
+          "caffe-cifar-10:73",
+          "caffe-cifar-10:74",
+          "caffe-cifar-10:76",
+          "caffe-cifar-10:77",
+          "caffe-cifar-10:78",
+          "caffe-cifar-10:79",
+          "caffe-cifar-10:81",
+          "caffe-cifar-10:82",
+          "caffe-cifar-10:83",
+          "caffe-cifar-10:84",
+          "caffe-cifar-10:86",
+          "caffe-cifar-10:87",
+          "caffe-cifar-10:88",
+          "caffe-cifar-10:89",
+          "caffe-cifar-10:91",
+          "caffe-cifar-10:92",
+          "caffe-cifar-10:93",
+          "caffe-cifar-10:94",
+          "caffe-cifar-10:95",
+          "caffe-cifar-10:96",
+          "caffe-cifar-10:97",
+          "caffe-cifar-10:98",
+          "make-doom-for-mips:100",
+          "make-doom-for-mips:101",
+          "make-doom-for-mips:102",
+          "make-doom-for-mips:103",
+          "make-doom-for-mips:105",
+          "make-doom-for-mips:106",
+          "make-doom-for-mips:113",
+          "make-doom-for-mips:114",
+          "make-doom-for-mips:115",
+          "make-doom-for-mips:116",
+          "make-doom-for-mips:120",
+          "make-doom-for-mips:121",
+          "make-doom-for-mips:71",
+          "make-doom-for-mips:72",
+          "make-doom-for-mips:74",
+          "make-doom-for-mips:75",
+          "make-doom-for-mips:86",
+          "make-doom-for-mips:87",
+          "make-doom-for-mips:92",
+          "make-doom-for-mips:93",
+          "make-doom-for-mips:94",
+          "make-doom-for-mips:95",
+          "make-doom-for-mips:96",
+          "make-doom-for-mips:97",
+          "make-doom-for-mips:98",
+          "make-doom-for-mips:99",
+          "make-mips-interpreter:50",
+          "make-mips-interpreter:51",
+          "make-mips-interpreter:53",
+          "make-mips-interpreter:54",
+          "make-mips-interpreter:60",
+          "make-mips-interpreter:61",
+          "make-mips-interpreter:63",
+          "make-mips-interpreter:64",
+          "make-mips-interpreter:67",
+          "make-mips-interpreter:68",
+          "make-mips-interpreter:69",
+          "make-mips-interpreter:70",
+          "make-mips-interpreter:80",
+          "make-mips-interpreter:81",
+          "make-mips-interpreter:82",
+          "make-mips-interpreter:83",
+          "make-mips-interpreter:92",
+          "make-mips-interpreter:93",
+          "make-mips-interpreter:94",
+          "make-mips-interpreter:95",
+          "make-mips-interpreter:96",
+          "make-mips-interpreter:97",
+          "make-mips-interpreter:98",
+          "make-mips-interpreter:99",
+          "regex-chess:100",
+          "regex-chess:101",
+          "regex-chess:102",
+          "regex-chess:103",
+          "regex-chess:29",
+          "regex-chess:30",
+          "regex-chess:33",
+          "regex-chess:34",
+          "regex-chess:39",
+          "regex-chess:40",
+          "regex-chess:41",
+          "regex-chess:42",
+          "regex-chess:43",
+          "regex-chess:44",
+          "regex-chess:46",
+          "regex-chess:47",
+          "regex-chess:48",
+          "regex-chess:49",
+          "regex-chess:54",
+          "regex-chess:55",
+          "regex-chess:56",
+          "regex-chess:57",
+          "regex-chess:58",
+          "regex-chess:59",
+          "regex-chess:60",
+          "regex-chess:61",
+          "regex-chess:66",
+          "regex-chess:67",
+          "regex-chess:68",
+          "regex-chess:69",
+          "regex-chess:70",
+          "regex-chess:71",
+          "regex-chess:96",
+          "regex-chess:97",
+          "regex-chess:98",
+          "regex-chess:99"
+        ],
+        "cases": {
+          "b1-cap100": {
+            "observed_last_retained_request": "make-mips-interpreter:95",
+            "observed_last_retained_end_s": 94.85392080899328,
+            "observed_retained_output_tokens": 37996,
+            "route_conditioned_full_GET_bytes": 106044948480,
+            "retained_observed_graph_without_any_P_HTTP_s": 84.73209677299019
+          },
+          "b1-cap200": {
+            "observed_last_retained_request": "regex-chess:47",
+            "observed_last_retained_end_s": 94.57146114500938,
+            "observed_retained_output_tokens": 37762,
+            "route_conditioned_full_GET_bytes": 165898813440,
+            "retained_observed_graph_without_any_P_HTTP_s": 86.44715096300934
+          },
+          "b2-cap200": {
+            "observed_last_retained_request": "make-mips-interpreter:64",
+            "observed_last_retained_end_s": 94.36934510798892,
+            "observed_retained_output_tokens": 37886,
+            "route_conditioned_full_GET_bytes": 144289300480,
+            "retained_observed_graph_without_any_P_HTTP_s": 90.68426787297358
+          },
+          "b2-cap100": {
+            "observed_last_retained_request": "caffe-cifar-10:70",
+            "observed_last_retained_end_s": 95.59211333701387,
+            "observed_retained_output_tokens": 38390,
+            "route_conditioned_full_GET_bytes": 92010577920,
+            "retained_observed_graph_without_any_P_HTTP_s": 86.03103072501835
+          }
+        },
+        "reference_release_opportunities": [
+          {
+            "released_at_s": 48,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 226356428800,
+                "ready_sessions": 50,
+                "uncompleted_root_sessions": 10,
+                "already_generating_root_sessions": 10,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 273808752640,
+                "ready_sessions": 60,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 264494448640,
+                "ready_sessions": 58,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 273808752640,
+                "ready_sessions": 60,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.809880807295651,
+            "common_lightest_P_when_nonempty": null
+          }
+        ]
+      },
+      "1000": {
+        "sessions": 67,
+        "request_ids": [
+          "caffe-cifar-10:100",
+          "caffe-cifar-10:101",
+          "caffe-cifar-10:102",
+          "caffe-cifar-10:103",
+          "caffe-cifar-10:58",
+          "caffe-cifar-10:59",
+          "caffe-cifar-10:60",
+          "caffe-cifar-10:61",
+          "caffe-cifar-10:62",
+          "caffe-cifar-10:63",
+          "caffe-cifar-10:69",
+          "caffe-cifar-10:70",
+          "caffe-cifar-10:71",
+          "caffe-cifar-10:72",
+          "caffe-cifar-10:73",
+          "caffe-cifar-10:74",
+          "caffe-cifar-10:76",
+          "caffe-cifar-10:77",
+          "caffe-cifar-10:78",
+          "caffe-cifar-10:79",
+          "caffe-cifar-10:81",
+          "caffe-cifar-10:82",
+          "caffe-cifar-10:83",
+          "caffe-cifar-10:84",
+          "caffe-cifar-10:86",
+          "caffe-cifar-10:87",
+          "caffe-cifar-10:88",
+          "caffe-cifar-10:89",
+          "caffe-cifar-10:91",
+          "caffe-cifar-10:92",
+          "caffe-cifar-10:93",
+          "caffe-cifar-10:94",
+          "caffe-cifar-10:95",
+          "caffe-cifar-10:96",
+          "caffe-cifar-10:97",
+          "caffe-cifar-10:98",
+          "make-doom-for-mips:100",
+          "make-doom-for-mips:101",
+          "make-doom-for-mips:102",
+          "make-doom-for-mips:103",
+          "make-doom-for-mips:105",
+          "make-doom-for-mips:106",
+          "make-doom-for-mips:107",
+          "make-doom-for-mips:108",
+          "make-doom-for-mips:113",
+          "make-doom-for-mips:114",
+          "make-doom-for-mips:115",
+          "make-doom-for-mips:116",
+          "make-doom-for-mips:120",
+          "make-doom-for-mips:121",
+          "make-doom-for-mips:71",
+          "make-doom-for-mips:72",
+          "make-doom-for-mips:74",
+          "make-doom-for-mips:75",
+          "make-doom-for-mips:86",
+          "make-doom-for-mips:87",
+          "make-doom-for-mips:92",
+          "make-doom-for-mips:93",
+          "make-doom-for-mips:94",
+          "make-doom-for-mips:95",
+          "make-doom-for-mips:96",
+          "make-doom-for-mips:97",
+          "make-doom-for-mips:98",
+          "make-doom-for-mips:99",
+          "make-mips-interpreter:50",
+          "make-mips-interpreter:51",
+          "make-mips-interpreter:53",
+          "make-mips-interpreter:54",
+          "make-mips-interpreter:60",
+          "make-mips-interpreter:61",
+          "make-mips-interpreter:63",
+          "make-mips-interpreter:64",
+          "make-mips-interpreter:67",
+          "make-mips-interpreter:68",
+          "make-mips-interpreter:69",
+          "make-mips-interpreter:70",
+          "make-mips-interpreter:80",
+          "make-mips-interpreter:81",
+          "make-mips-interpreter:82",
+          "make-mips-interpreter:83",
+          "make-mips-interpreter:92",
+          "make-mips-interpreter:93",
+          "make-mips-interpreter:94",
+          "make-mips-interpreter:95",
+          "make-mips-interpreter:96",
+          "make-mips-interpreter:97",
+          "make-mips-interpreter:98",
+          "make-mips-interpreter:99",
+          "regex-chess:100",
+          "regex-chess:101",
+          "regex-chess:102",
+          "regex-chess:103",
+          "regex-chess:29",
+          "regex-chess:30",
+          "regex-chess:33",
+          "regex-chess:34",
+          "regex-chess:39",
+          "regex-chess:40",
+          "regex-chess:41",
+          "regex-chess:42",
+          "regex-chess:43",
+          "regex-chess:44",
+          "regex-chess:46",
+          "regex-chess:47",
+          "regex-chess:48",
+          "regex-chess:49",
+          "regex-chess:52",
+          "regex-chess:53",
+          "regex-chess:54",
+          "regex-chess:55",
+          "regex-chess:56",
+          "regex-chess:57",
+          "regex-chess:58",
+          "regex-chess:59",
+          "regex-chess:60",
+          "regex-chess:61",
+          "regex-chess:62",
+          "regex-chess:63",
+          "regex-chess:66",
+          "regex-chess:67",
+          "regex-chess:68",
+          "regex-chess:69",
+          "regex-chess:70",
+          "regex-chess:71",
+          "regex-chess:76",
+          "regex-chess:77",
+          "regex-chess:83",
+          "regex-chess:84",
+          "regex-chess:87",
+          "regex-chess:88",
+          "regex-chess:96",
+          "regex-chess:97",
+          "regex-chess:98",
+          "regex-chess:99"
+        ],
+        "cases": {
+          "b1-cap100": {
+            "observed_last_retained_request": "make-mips-interpreter:95",
+            "observed_last_retained_end_s": 94.85392080899328,
+            "observed_retained_output_tokens": 44551,
+            "route_conditioned_full_GET_bytes": 121966755840,
+            "retained_observed_graph_without_any_P_HTTP_s": 84.73209677299019
+          },
+          "b1-cap200": {
+            "observed_last_retained_request": "regex-chess:47",
+            "observed_last_retained_end_s": 94.57146114500938,
+            "observed_retained_output_tokens": 44523,
+            "route_conditioned_full_GET_bytes": 181820620800,
+            "retained_observed_graph_without_any_P_HTTP_s": 86.44715096300934
+          },
+          "b2-cap200": {
+            "observed_last_retained_request": "make-mips-interpreter:64",
+            "observed_last_retained_end_s": 94.36934510798892,
+            "observed_retained_output_tokens": 44886,
+            "route_conditioned_full_GET_bytes": 155323269120,
+            "retained_observed_graph_without_any_P_HTTP_s": 90.68426787297358
+          },
+          "b2-cap100": {
+            "observed_last_retained_request": "caffe-cifar-10:70",
+            "observed_last_retained_end_s": 95.59211333701387,
+            "observed_retained_output_tokens": 46001,
+            "route_conditioned_full_GET_bytes": 103589806080,
+            "retained_observed_graph_without_any_P_HTTP_s": 86.03103072501835
+          }
+        },
+        "reference_release_opportunities": []
+      },
+      "1200": {
+        "sessions": 75,
+        "request_ids": [
+          "caffe-cifar-10:100",
+          "caffe-cifar-10:101",
+          "caffe-cifar-10:102",
+          "caffe-cifar-10:103",
+          "caffe-cifar-10:58",
+          "caffe-cifar-10:59",
+          "caffe-cifar-10:60",
+          "caffe-cifar-10:61",
+          "caffe-cifar-10:62",
+          "caffe-cifar-10:63",
+          "caffe-cifar-10:64",
+          "caffe-cifar-10:65",
+          "caffe-cifar-10:69",
+          "caffe-cifar-10:70",
+          "caffe-cifar-10:71",
+          "caffe-cifar-10:72",
+          "caffe-cifar-10:73",
+          "caffe-cifar-10:74",
+          "caffe-cifar-10:76",
+          "caffe-cifar-10:77",
+          "caffe-cifar-10:78",
+          "caffe-cifar-10:79",
+          "caffe-cifar-10:81",
+          "caffe-cifar-10:82",
+          "caffe-cifar-10:83",
+          "caffe-cifar-10:84",
+          "caffe-cifar-10:86",
+          "caffe-cifar-10:87",
+          "caffe-cifar-10:88",
+          "caffe-cifar-10:89",
+          "caffe-cifar-10:91",
+          "caffe-cifar-10:92",
+          "caffe-cifar-10:93",
+          "caffe-cifar-10:94",
+          "caffe-cifar-10:95",
+          "caffe-cifar-10:96",
+          "caffe-cifar-10:97",
+          "caffe-cifar-10:98",
+          "make-doom-for-mips:100",
+          "make-doom-for-mips:101",
+          "make-doom-for-mips:102",
+          "make-doom-for-mips:103",
+          "make-doom-for-mips:105",
+          "make-doom-for-mips:106",
+          "make-doom-for-mips:107",
+          "make-doom-for-mips:108",
+          "make-doom-for-mips:109",
+          "make-doom-for-mips:110",
+          "make-doom-for-mips:113",
+          "make-doom-for-mips:114",
+          "make-doom-for-mips:115",
+          "make-doom-for-mips:116",
+          "make-doom-for-mips:120",
+          "make-doom-for-mips:121",
+          "make-doom-for-mips:71",
+          "make-doom-for-mips:72",
+          "make-doom-for-mips:74",
+          "make-doom-for-mips:75",
+          "make-doom-for-mips:86",
+          "make-doom-for-mips:87",
+          "make-doom-for-mips:92",
+          "make-doom-for-mips:93",
+          "make-doom-for-mips:94",
+          "make-doom-for-mips:95",
+          "make-doom-for-mips:96",
+          "make-doom-for-mips:97",
+          "make-doom-for-mips:98",
+          "make-doom-for-mips:99",
+          "make-mips-interpreter:50",
+          "make-mips-interpreter:51",
+          "make-mips-interpreter:53",
+          "make-mips-interpreter:54",
+          "make-mips-interpreter:60",
+          "make-mips-interpreter:61",
+          "make-mips-interpreter:63",
+          "make-mips-interpreter:64",
+          "make-mips-interpreter:67",
+          "make-mips-interpreter:68",
+          "make-mips-interpreter:69",
+          "make-mips-interpreter:70",
+          "make-mips-interpreter:80",
+          "make-mips-interpreter:81",
+          "make-mips-interpreter:82",
+          "make-mips-interpreter:83",
+          "make-mips-interpreter:92",
+          "make-mips-interpreter:93",
+          "make-mips-interpreter:94",
+          "make-mips-interpreter:95",
+          "make-mips-interpreter:96",
+          "make-mips-interpreter:97",
+          "make-mips-interpreter:98",
+          "make-mips-interpreter:99",
+          "regex-chess:100",
+          "regex-chess:101",
+          "regex-chess:102",
+          "regex-chess:103",
+          "regex-chess:29",
+          "regex-chess:30",
+          "regex-chess:33",
+          "regex-chess:34",
+          "regex-chess:35",
+          "regex-chess:36",
+          "regex-chess:39",
+          "regex-chess:40",
+          "regex-chess:41",
+          "regex-chess:42",
+          "regex-chess:43",
+          "regex-chess:44",
+          "regex-chess:46",
+          "regex-chess:47",
+          "regex-chess:48",
+          "regex-chess:49",
+          "regex-chess:52",
+          "regex-chess:53",
+          "regex-chess:54",
+          "regex-chess:55",
+          "regex-chess:56",
+          "regex-chess:57",
+          "regex-chess:58",
+          "regex-chess:59",
+          "regex-chess:60",
+          "regex-chess:61",
+          "regex-chess:62",
+          "regex-chess:63",
+          "regex-chess:66",
+          "regex-chess:67",
+          "regex-chess:68",
+          "regex-chess:69",
+          "regex-chess:70",
+          "regex-chess:71",
+          "regex-chess:76",
+          "regex-chess:77",
+          "regex-chess:79",
+          "regex-chess:80",
+          "regex-chess:81",
+          "regex-chess:82",
+          "regex-chess:83",
+          "regex-chess:84",
+          "regex-chess:85",
+          "regex-chess:86",
+          "regex-chess:87",
+          "regex-chess:88",
+          "regex-chess:89",
+          "regex-chess:90",
+          "regex-chess:94",
+          "regex-chess:95",
+          "regex-chess:96",
+          "regex-chess:97",
+          "regex-chess:98",
+          "regex-chess:99"
+        ],
+        "cases": {
+          "b1-cap100": {
+            "observed_last_retained_request": "make-doom-for-mips:110",
+            "observed_last_retained_end_s": 104.88074643499567,
+            "observed_retained_output_tokens": 56328,
+            "route_conditioned_full_GET_bytes": 140069601280,
+            "retained_observed_graph_without_any_P_HTTP_s": 89.55608988771002
+          },
+          "b1-cap200": {
+            "observed_last_retained_request": "regex-chess:95",
+            "observed_last_retained_end_s": 106.35988704502233,
+            "observed_retained_output_tokens": 56543,
+            "route_conditioned_full_GET_bytes": 195603333120,
+            "retained_observed_graph_without_any_P_HTTP_s": 94.50425673402755
+          },
+          "b2-cap200": {
+            "observed_last_retained_request": "regex-chess:90",
+            "observed_last_retained_end_s": 99.60770096100168,
+            "observed_retained_output_tokens": 54251,
+            "route_conditioned_full_GET_bytes": 177600921600,
+            "retained_observed_graph_without_any_P_HTTP_s": 90.68426787297358
+          },
+          "b2-cap100": {
+            "observed_last_retained_request": "caffe-cifar-10:65",
+            "observed_last_retained_end_s": 102.68275718600489,
+            "observed_retained_output_tokens": 57586,
+            "route_conditioned_full_GET_bytes": 116972584960,
+            "retained_observed_graph_without_any_P_HTTP_s": 92.0316227680014
+          }
+        },
+        "reference_release_opportunities": []
+      },
+      "1400": {
+        "sessions": 76,
+        "request_ids": [
+          "caffe-cifar-10:100",
+          "caffe-cifar-10:101",
+          "caffe-cifar-10:102",
+          "caffe-cifar-10:103",
+          "caffe-cifar-10:58",
+          "caffe-cifar-10:59",
+          "caffe-cifar-10:60",
+          "caffe-cifar-10:61",
+          "caffe-cifar-10:62",
+          "caffe-cifar-10:63",
+          "caffe-cifar-10:64",
+          "caffe-cifar-10:65",
+          "caffe-cifar-10:69",
+          "caffe-cifar-10:70",
+          "caffe-cifar-10:71",
+          "caffe-cifar-10:72",
+          "caffe-cifar-10:73",
+          "caffe-cifar-10:74",
+          "caffe-cifar-10:76",
+          "caffe-cifar-10:77",
+          "caffe-cifar-10:78",
+          "caffe-cifar-10:79",
+          "caffe-cifar-10:81",
+          "caffe-cifar-10:82",
+          "caffe-cifar-10:83",
+          "caffe-cifar-10:84",
+          "caffe-cifar-10:86",
+          "caffe-cifar-10:87",
+          "caffe-cifar-10:88",
+          "caffe-cifar-10:89",
+          "caffe-cifar-10:91",
+          "caffe-cifar-10:92",
+          "caffe-cifar-10:93",
+          "caffe-cifar-10:94",
+          "caffe-cifar-10:95",
+          "caffe-cifar-10:96",
+          "caffe-cifar-10:97",
+          "caffe-cifar-10:98",
+          "make-doom-for-mips:100",
+          "make-doom-for-mips:101",
+          "make-doom-for-mips:102",
+          "make-doom-for-mips:103",
+          "make-doom-for-mips:105",
+          "make-doom-for-mips:106",
+          "make-doom-for-mips:107",
+          "make-doom-for-mips:108",
+          "make-doom-for-mips:109",
+          "make-doom-for-mips:110",
+          "make-doom-for-mips:113",
+          "make-doom-for-mips:114",
+          "make-doom-for-mips:115",
+          "make-doom-for-mips:116",
+          "make-doom-for-mips:120",
+          "make-doom-for-mips:121",
+          "make-doom-for-mips:71",
+          "make-doom-for-mips:72",
+          "make-doom-for-mips:74",
+          "make-doom-for-mips:75",
+          "make-doom-for-mips:82",
+          "make-doom-for-mips:83",
+          "make-doom-for-mips:86",
+          "make-doom-for-mips:87",
+          "make-doom-for-mips:92",
+          "make-doom-for-mips:93",
+          "make-doom-for-mips:94",
+          "make-doom-for-mips:95",
+          "make-doom-for-mips:96",
+          "make-doom-for-mips:97",
+          "make-doom-for-mips:98",
+          "make-doom-for-mips:99",
+          "make-mips-interpreter:50",
+          "make-mips-interpreter:51",
+          "make-mips-interpreter:53",
+          "make-mips-interpreter:54",
+          "make-mips-interpreter:60",
+          "make-mips-interpreter:61",
+          "make-mips-interpreter:63",
+          "make-mips-interpreter:64",
+          "make-mips-interpreter:67",
+          "make-mips-interpreter:68",
+          "make-mips-interpreter:69",
+          "make-mips-interpreter:70",
+          "make-mips-interpreter:80",
+          "make-mips-interpreter:81",
+          "make-mips-interpreter:82",
+          "make-mips-interpreter:83",
+          "make-mips-interpreter:92",
+          "make-mips-interpreter:93",
+          "make-mips-interpreter:94",
+          "make-mips-interpreter:95",
+          "make-mips-interpreter:96",
+          "make-mips-interpreter:97",
+          "make-mips-interpreter:98",
+          "make-mips-interpreter:99",
+          "regex-chess:100",
+          "regex-chess:101",
+          "regex-chess:102",
+          "regex-chess:103",
+          "regex-chess:29",
+          "regex-chess:30",
+          "regex-chess:33",
+          "regex-chess:34",
+          "regex-chess:35",
+          "regex-chess:36",
+          "regex-chess:39",
+          "regex-chess:40",
+          "regex-chess:41",
+          "regex-chess:42",
+          "regex-chess:43",
+          "regex-chess:44",
+          "regex-chess:46",
+          "regex-chess:47",
+          "regex-chess:48",
+          "regex-chess:49",
+          "regex-chess:52",
+          "regex-chess:53",
+          "regex-chess:54",
+          "regex-chess:55",
+          "regex-chess:56",
+          "regex-chess:57",
+          "regex-chess:58",
+          "regex-chess:59",
+          "regex-chess:60",
+          "regex-chess:61",
+          "regex-chess:62",
+          "regex-chess:63",
+          "regex-chess:66",
+          "regex-chess:67",
+          "regex-chess:68",
+          "regex-chess:69",
+          "regex-chess:70",
+          "regex-chess:71",
+          "regex-chess:76",
+          "regex-chess:77",
+          "regex-chess:79",
+          "regex-chess:80",
+          "regex-chess:81",
+          "regex-chess:82",
+          "regex-chess:83",
+          "regex-chess:84",
+          "regex-chess:85",
+          "regex-chess:86",
+          "regex-chess:87",
+          "regex-chess:88",
+          "regex-chess:89",
+          "regex-chess:90",
+          "regex-chess:94",
+          "regex-chess:95",
+          "regex-chess:96",
+          "regex-chess:97",
+          "regex-chess:98",
+          "regex-chess:99"
+        ],
+        "cases": {
+          "b1-cap100": {
+            "observed_last_retained_request": "make-doom-for-mips:110",
+            "observed_last_retained_end_s": 104.88074643499567,
+            "observed_retained_output_tokens": 58326,
+            "route_conditioned_full_GET_bytes": 140069601280,
+            "retained_observed_graph_without_any_P_HTTP_s": 89.55608988771002
+          },
+          "b1-cap200": {
+            "observed_last_retained_request": "regex-chess:95",
+            "observed_last_retained_end_s": 106.35988704502233,
+            "observed_retained_output_tokens": 58053,
+            "route_conditioned_full_GET_bytes": 199148994560,
+            "retained_observed_graph_without_any_P_HTTP_s": 94.50425673402755
+          },
+          "b2-cap200": {
+            "observed_last_retained_request": "regex-chess:90",
+            "observed_last_retained_end_s": 99.60770096100168,
+            "observed_retained_output_tokens": 56065,
+            "route_conditioned_full_GET_bytes": 177600921600,
+            "retained_observed_graph_without_any_P_HTTP_s": 90.68426787297358
+          },
+          "b2-cap100": {
+            "observed_last_retained_request": "caffe-cifar-10:65",
+            "observed_last_retained_end_s": 102.68275718600489,
+            "observed_retained_output_tokens": 59049,
+            "route_conditioned_full_GET_bytes": 116972584960,
+            "retained_observed_graph_without_any_P_HTTP_s": 92.0316227680014
+          }
+        },
+        "reference_release_opportunities": []
+      },
+      "1600": {
+        "sessions": 77,
+        "request_ids": [
+          "caffe-cifar-10:100",
+          "caffe-cifar-10:101",
+          "caffe-cifar-10:102",
+          "caffe-cifar-10:103",
+          "caffe-cifar-10:58",
+          "caffe-cifar-10:59",
+          "caffe-cifar-10:60",
+          "caffe-cifar-10:61",
+          "caffe-cifar-10:62",
+          "caffe-cifar-10:63",
+          "caffe-cifar-10:64",
+          "caffe-cifar-10:65",
+          "caffe-cifar-10:66",
+          "caffe-cifar-10:67",
+          "caffe-cifar-10:69",
+          "caffe-cifar-10:70",
+          "caffe-cifar-10:71",
+          "caffe-cifar-10:72",
+          "caffe-cifar-10:73",
+          "caffe-cifar-10:74",
+          "caffe-cifar-10:76",
+          "caffe-cifar-10:77",
+          "caffe-cifar-10:78",
+          "caffe-cifar-10:79",
+          "caffe-cifar-10:81",
+          "caffe-cifar-10:82",
+          "caffe-cifar-10:83",
+          "caffe-cifar-10:84",
+          "caffe-cifar-10:86",
+          "caffe-cifar-10:87",
+          "caffe-cifar-10:88",
+          "caffe-cifar-10:89",
+          "caffe-cifar-10:91",
+          "caffe-cifar-10:92",
+          "caffe-cifar-10:93",
+          "caffe-cifar-10:94",
+          "caffe-cifar-10:95",
+          "caffe-cifar-10:96",
+          "caffe-cifar-10:97",
+          "caffe-cifar-10:98",
+          "make-doom-for-mips:100",
+          "make-doom-for-mips:101",
+          "make-doom-for-mips:102",
+          "make-doom-for-mips:103",
+          "make-doom-for-mips:105",
+          "make-doom-for-mips:106",
+          "make-doom-for-mips:107",
+          "make-doom-for-mips:108",
+          "make-doom-for-mips:109",
+          "make-doom-for-mips:110",
+          "make-doom-for-mips:113",
+          "make-doom-for-mips:114",
+          "make-doom-for-mips:115",
+          "make-doom-for-mips:116",
+          "make-doom-for-mips:120",
+          "make-doom-for-mips:121",
+          "make-doom-for-mips:71",
+          "make-doom-for-mips:72",
+          "make-doom-for-mips:74",
+          "make-doom-for-mips:75",
+          "make-doom-for-mips:82",
+          "make-doom-for-mips:83",
+          "make-doom-for-mips:86",
+          "make-doom-for-mips:87",
+          "make-doom-for-mips:92",
+          "make-doom-for-mips:93",
+          "make-doom-for-mips:94",
+          "make-doom-for-mips:95",
+          "make-doom-for-mips:96",
+          "make-doom-for-mips:97",
+          "make-doom-for-mips:98",
+          "make-doom-for-mips:99",
+          "make-mips-interpreter:50",
+          "make-mips-interpreter:51",
+          "make-mips-interpreter:53",
+          "make-mips-interpreter:54",
+          "make-mips-interpreter:60",
+          "make-mips-interpreter:61",
+          "make-mips-interpreter:63",
+          "make-mips-interpreter:64",
+          "make-mips-interpreter:67",
+          "make-mips-interpreter:68",
+          "make-mips-interpreter:69",
+          "make-mips-interpreter:70",
+          "make-mips-interpreter:80",
+          "make-mips-interpreter:81",
+          "make-mips-interpreter:82",
+          "make-mips-interpreter:83",
+          "make-mips-interpreter:92",
+          "make-mips-interpreter:93",
+          "make-mips-interpreter:94",
+          "make-mips-interpreter:95",
+          "make-mips-interpreter:96",
+          "make-mips-interpreter:97",
+          "make-mips-interpreter:98",
+          "make-mips-interpreter:99",
+          "regex-chess:100",
+          "regex-chess:101",
+          "regex-chess:102",
+          "regex-chess:103",
+          "regex-chess:29",
+          "regex-chess:30",
+          "regex-chess:33",
+          "regex-chess:34",
+          "regex-chess:35",
+          "regex-chess:36",
+          "regex-chess:39",
+          "regex-chess:40",
+          "regex-chess:41",
+          "regex-chess:42",
+          "regex-chess:43",
+          "regex-chess:44",
+          "regex-chess:46",
+          "regex-chess:47",
+          "regex-chess:48",
+          "regex-chess:49",
+          "regex-chess:52",
+          "regex-chess:53",
+          "regex-chess:54",
+          "regex-chess:55",
+          "regex-chess:56",
+          "regex-chess:57",
+          "regex-chess:58",
+          "regex-chess:59",
+          "regex-chess:60",
+          "regex-chess:61",
+          "regex-chess:62",
+          "regex-chess:63",
+          "regex-chess:66",
+          "regex-chess:67",
+          "regex-chess:68",
+          "regex-chess:69",
+          "regex-chess:70",
+          "regex-chess:71",
+          "regex-chess:76",
+          "regex-chess:77",
+          "regex-chess:79",
+          "regex-chess:80",
+          "regex-chess:81",
+          "regex-chess:82",
+          "regex-chess:83",
+          "regex-chess:84",
+          "regex-chess:85",
+          "regex-chess:86",
+          "regex-chess:87",
+          "regex-chess:88",
+          "regex-chess:89",
+          "regex-chess:90",
+          "regex-chess:94",
+          "regex-chess:95",
+          "regex-chess:96",
+          "regex-chess:97",
+          "regex-chess:98",
+          "regex-chess:99"
+        ],
+        "cases": {
+          "b1-cap100": {
+            "observed_last_retained_request": "make-doom-for-mips:110",
+            "observed_last_retained_end_s": 104.88074643499567,
+            "observed_retained_output_tokens": 59343,
+            "route_conditioned_full_GET_bytes": 140069601280,
+            "retained_observed_graph_without_any_P_HTTP_s": 89.55608988771002
+          },
+          "b1-cap200": {
+            "observed_last_retained_request": "regex-chess:95",
+            "observed_last_retained_end_s": 106.35988704502233,
+            "observed_retained_output_tokens": 59199,
+            "route_conditioned_full_GET_bytes": 202526883840,
+            "retained_observed_graph_without_any_P_HTTP_s": 94.50425673402755
+          },
+          "b2-cap200": {
+            "observed_last_retained_request": "regex-chess:90",
+            "observed_last_retained_end_s": 99.60770096100168,
+            "observed_retained_output_tokens": 57387,
+            "route_conditioned_full_GET_bytes": 177600921600,
+            "retained_observed_graph_without_any_P_HTTP_s": 90.68426787297358
+          },
+          "b2-cap100": {
+            "observed_last_retained_request": "caffe-cifar-10:65",
+            "observed_last_retained_end_s": 102.68275718600489,
+            "observed_retained_output_tokens": 60637,
+            "route_conditioned_full_GET_bytes": 116972584960,
+            "retained_observed_graph_without_any_P_HTTP_s": 92.0316227680014
+          }
+        },
+        "reference_release_opportunities": []
+      }
+    }
+  }
+}

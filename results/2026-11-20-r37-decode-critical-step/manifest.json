@@ -1,0 +1,151 @@
+{
+  "scope": "Single-request device-only diagnostic. The original r34 cohort is the model baseline.",
+  "input": {
+    "source_id": "natural-crack-7z-hash:36",
+    "prompt_tokens": 45900,
+    "max_tokens": 384,
+    "tokens": 384,
+    "finish_reason": "length",
+    "token_ids_sha256": "910c3f6d04067567a1cb43c9994b352e6e109dc0f8901b53f5751af1cef2f17b"
+  },
+  "original_workload": {
+    "source_repo": "openguardrails/terminal-bench-2.1-deepseek-v4-flash-trajectories",
+    "source_revision": "3f5b93ff1c5ea84b2c94cf479d0c942227191b4a",
+    "source_workload_sha256": "002a1c1fd6bbcfc275c93cb5d6211ad4578c37a11db900d7797ad6cf567237c0",
+    "workload_spec_sha256": "7ba0e35aa4b309febe62a17134f450a91c56529be949dc629a317afce078fdbc",
+    "route_policy": "upstream native without route override",
+    "ignore_eos": false,
+    "sessions": 30,
+    "requests": 170
+  },
+  "service": {
+    "native_path": true,
+    "same_head_packing": false,
+    "P_APC": true,
+    "D_APC": false,
+    "D_graph": "FULL_DECODE_ONLY",
+    "EOS": true,
+    "routing": "native",
+    "Qwen_model": "Qwen3.5-35B-A3B",
+    "TP": 4,
+    "EP": 4,
+    "NPU_per_host": 8
+  },
+  "readback": {
+    "aggregate_Gbps": 100,
+    "readback": {
+      "0": {
+        "configured_Mbps": 12500,
+        "maximum_Mbps": 200000,
+        "current_Mbps": 12500
+      },
+      "1": {
+        "configured_Mbps": 12500,
+        "maximum_Mbps": 200000,
+        "current_Mbps": 12500
+      },
+      "2": {
+        "configured_Mbps": 12500,
+        "maximum_Mbps": 200000,
+        "current_Mbps": 12500
+      },
+      "3": {
+        "configured_Mbps": 12500,
+        "maximum_Mbps": 200000,
+        "current_Mbps": 12500
+      },
+      "4": {
+        "configured_Mbps": 12500,
+        "maximum_Mbps": 200000,
+        "current_Mbps": 12500
+      },
+      "5": {
+        "configured_Mbps": 12500,
+        "maximum_Mbps": 200000,
+        "current_Mbps": 12500
+      },
+      "6": {
+        "configured_Mbps": 12500,
+        "maximum_Mbps": 200000,
+        "current_Mbps": 12500
+      },
+      "7": {
+        "configured_Mbps": 12500,
+        "maximum_Mbps": 200000,
+        "current_Mbps": 12500
+      }
+    }
+  },
+  "profiler": {
+    "role": "D0",
+    "activities": [
+      "ProfilerActivity.NPU"
+    ],
+    "level": "Level1",
+    "aic_metrics": "ACL_AICORE_NONE",
+    "framework_cpu_ops_by_rank": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "start_at_generated_tokens": 112,
+    "requested_window_s": 0.65
+  },
+  "client_cadence_ms": {
+    "token_32_to_104_interval": {
+      "n": 71,
+      "p50": 13.204863294959068,
+      "mean": 13.292935637521072
+    },
+    "inside_active_profile": {
+      "n": 37,
+      "p50": 15.167184174060822,
+      "mean": 15.214990824460983
+    },
+    "after_profile_stop": {
+      "n": 219,
+      "p50": 13.926977291703224,
+      "mean": 14.216483872570947
+    }
+  },
+  "restoration": {
+    "run": "2p2d-20261120-r37-decode-critical-step-probe",
+    "utc": "2026-11-20T02:41:09.617203+00:00",
+    "roles": {
+      "P": {
+        "stage": "finished",
+        "npu_idle": true
+      },
+      "D": {
+        "stage": "finished",
+        "npu_idle": true,
+        "port_configuration_Mbps": [
+          200000,
+          200000,
+          200000,
+          200000,
+          200000,
+          200000,
+          200000,
+          200000
+        ]
+      }
+    }
+  },
+  "diagnostic_bootstrap_recovery": "Preserved inherited CANN PYTHONPATH on D and restarted P after the Store became ready. Invalid startups did not run workload.",
+  "files": {
+    "r34-breakdown.json": {
+      "sha256": "a80db0f946c65734702ae0d25aad8bab64a1499c4568da6e03f3b6b43ced979c",
+      "bytes": 91505
+    },
+    "r37-breakdown.json": {
+      "sha256": "4615c5f2e5c4b61de9175944b6694820b238811256350c43c7a1b5996e46f548",
+      "bytes": 82162
+    },
+    "sensitivity.json": {
+      "sha256": "bd6a37a6ed532eccd8ebf2291b1edc662457302af3582fd25ddf4d2ad1f838a9",
+      "bytes": 20238
+    }
+  }
+}

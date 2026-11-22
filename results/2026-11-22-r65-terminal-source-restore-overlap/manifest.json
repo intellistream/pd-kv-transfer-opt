@@ -1,0 +1,1710 @@
+{
+  "run_id": "2p2d-20261121-r65-restore-early-d-egress-a1",
+  "baseline_commit": "5d591893ca8c7adc03c797068b44ad43dad27398",
+  "verified_published_tree": "283f3a1bd973d25b10f1fbf0bd852d2fe682a044",
+  "independent_method_pass": false,
+  "case_order": [
+    "b1-cap100",
+    "b1-cap200",
+    "b2-cap200",
+    "b2-cap100"
+  ],
+  "event_trace": "r65-events.jsonl.gz",
+  "workload": {
+    "workload_type": "terminal_source_restore_pairs",
+    "source_repo": "openguardrails/terminal-bench-2.1-deepseek-v4-flash-trajectories",
+    "source_revision": "3f5b93ff1c5ea84b2c94cf479d0c942227191b4a",
+    "source_workload_sha256": "24873461882ce61d0c424062c4751abb69ecdab3e0c8874213138f5025ceaa43",
+    "tokenizer_fingerprint": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+    "parent_requests_sha256": "7e5aab9f7bfe17da81fc9ae9b2a96dab880096e80bd83928ea418647ed5ab5b4",
+    "requests": 51,
+    "sessions": 26,
+    "last_session_start_s": 2.04,
+    "pressure_window_s": [
+      64.75,
+      108.0
+    ],
+    "ignore_eos": false,
+    "temperature": 0,
+    "tool_gap_policy": "Use the prior Terminal-Bench replay policy of zero additional tool delay",
+    "max_tokens_policy": "Original Qwen replay budget rule max(8192, source completion tokens), with natural EOS",
+    "route_policy": "upstream native without route override",
+    "arrival_policy": "Keep the reference roots. Offer one burst of ready original successors during live cold work, then release the other unchanged successors in a second burst.",
+    "selection": {
+      "source_ledger_sha256": "24873461882ce61d0c424062c4751abb69ecdab3e0c8874213138f5025ceaa43",
+      "source_output_sha256": "eb8d5fcc8b7730165616dd0d2e30f247db5aa722384902af8a7a0b3fb213945a",
+      "max_source_output": 1024,
+      "max_observed_output": 1280,
+      "output_history": {
+        "2026-11-20-r43-native-decode-apc": {
+          "trace_sha256": "a169b7c1d53d89ac4bbc8a6d2f5d8ea6daf6a9cfc10c696c33d3a44df4e6d2e8",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-21-r48-terminal-handoff-extended-symmetric": {
+          "trace_sha256": "e311c91f4efa1e1e243aa4df7b3f8b7900355ef1158cbd0ae3e77eac6507c7cf",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r57-terminal-restore-bursts-d-egress": {
+          "trace_sha256": "d4347e0b92785679f2a1ba4fa860cc9fbeb0fc02bf200b01f7334aabd1478265",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r58-terminal-restore-bursts-dense-d-egress": {
+          "trace_sha256": "f2f1e0de2c6be50dfe36d54fde0ea6749465f278468188cbaf95ffa85dc9e876",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r58-terminal-restore-bursts-methods": {
+          "trace_sha256": "d81d23b30b1e3f732ba32bb7f5084ccf84d8be18aa0928f06be87cca66c609b3",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200"
+          ]
+        },
+        "2026-11-22-r59-terminal-restore-order": {
+          "trace_sha256": "ce28e8dcbc7ac989a05e6ddaef7dd681bf14cb48f6d22233b407d65d7c21883d",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r59-terminal-restore-order-methods": {
+          "trace_sha256": "39f1ba9dec5c765ec0417309e7e2e59b49616b3b8ded74a816058895801ce781",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200"
+          ]
+        },
+        "2026-11-22-r60-terminal-source-restore-pairs": {
+          "trace_sha256": "da361989f663c02a63983512be6727e9a8445ea76da3e2c2a83841130e79f74f",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r61-terminal-source-restore-gap": {
+          "trace_sha256": "ff7ca58f3260e7e073cc79df9a448cbacc9ed65c085b244bd357e2c446d6b773",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r61-terminal-source-restore-gap-methods": {
+          "trace_sha256": "b69b5b21ad528a3ab0345dfcf0d2fd8048f2841b4594001de58640e1628f7678",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200"
+          ]
+        }
+      },
+      "pairs": [
+        {
+          "root": "build-cython-ext:44",
+          "successor": "build-cython-ext:45",
+          "potential_GET_bytes": 1951825920,
+          "historical_completions": {
+            "build-cython-ext:44": 0,
+            "build-cython-ext:45": 0
+          },
+          "estimated_output_tokens": {
+            "build-cython-ext:44": 881,
+            "build-cython-ext:45": 948
+          }
+        },
+        {
+          "root": "build-pmars:37",
+          "successor": "build-pmars:38",
+          "potential_GET_bytes": 2119598080,
+          "historical_completions": {
+            "build-pmars:37": 0,
+            "build-pmars:38": 0
+          },
+          "estimated_output_tokens": {
+            "build-pmars:37": 661,
+            "build-pmars:38": 594
+          }
+        },
+        {
+          "root": "build-pov-ray:50",
+          "successor": "build-pov-ray:51",
+          "potential_GET_bytes": 2664857600,
+          "historical_completions": {
+            "build-pov-ray:50": 0,
+            "build-pov-ray:51": 0
+          },
+          "estimated_output_tokens": {
+            "build-pov-ray:50": 741,
+            "build-pov-ray:51": 548
+          }
+        },
+        {
+          "root": "caffe-cifar-10:102",
+          "successor": "caffe-cifar-10:103",
+          "potential_GET_bytes": 4971724800,
+          "historical_completions": {
+            "caffe-cifar-10:102": 18,
+            "caffe-cifar-10:103": 18
+          },
+          "estimated_output_tokens": {
+            "caffe-cifar-10:102": 230.5,
+            "caffe-cifar-10:103": 111.0
+          }
+        },
+        {
+          "root": "circuit-fibsqrt:45",
+          "successor": "circuit-fibsqrt:46",
+          "potential_GET_bytes": 3377889280,
+          "historical_completions": {
+            "circuit-fibsqrt:45": 10,
+            "circuit-fibsqrt:46": 10
+          },
+          "estimated_output_tokens": {
+            "circuit-fibsqrt:45": 334.0,
+            "circuit-fibsqrt:46": 555.5
+          }
+        },
+        {
+          "root": "compile-compcert:41",
+          "successor": "compile-compcert:42",
+          "potential_GET_bytes": 2455142400,
+          "historical_completions": {
+            "compile-compcert:41": 18,
+            "compile-compcert:42": 18
+          },
+          "estimated_output_tokens": {
+            "compile-compcert:41": 471.5,
+            "compile-compcert:42": 348.0
+          }
+        },
+        {
+          "root": "crack-7z-hash:44",
+          "successor": "crack-7z-hash:45",
+          "potential_GET_bytes": 2371256320,
+          "historical_completions": {
+            "crack-7z-hash:44": 0,
+            "crack-7z-hash:45": 10
+          },
+          "estimated_output_tokens": {
+            "crack-7z-hash:44": 553,
+            "crack-7z-hash:45": 184.0
+          }
+        },
+        {
+          "root": "extract-moves-from-video:134",
+          "successor": "extract-moves-from-video:135",
+          "potential_GET_bytes": 5516984320,
+          "historical_completions": {
+            "extract-moves-from-video:134": 8,
+            "extract-moves-from-video:135": 8
+          },
+          "estimated_output_tokens": {
+            "extract-moves-from-video:134": 294.5,
+            "extract-moves-from-video:135": 258.5
+          }
+        },
+        {
+          "root": "feal-linear-cryptanalysis:16",
+          "successor": "feal-linear-cryptanalysis:17",
+          "potential_GET_bytes": 1825996800,
+          "historical_completions": {
+            "feal-linear-cryptanalysis:16": 18,
+            "feal-linear-cryptanalysis:17": 18
+          },
+          "estimated_output_tokens": {
+            "feal-linear-cryptanalysis:16": 399.0,
+            "feal-linear-cryptanalysis:17": 425.5
+          }
+        },
+        {
+          "root": "financial-document-processor:83",
+          "successor": "financial-document-processor:84",
+          "potential_GET_bytes": 3335946240,
+          "historical_completions": {
+            "financial-document-processor:83": 10,
+            "financial-document-processor:84": 10
+          },
+          "estimated_output_tokens": {
+            "financial-document-processor:83": 112.0,
+            "financial-document-processor:84": 105.0
+          }
+        },
+        {
+          "root": "fix-ocaml-gc:57",
+          "successor": "fix-ocaml-gc:58",
+          "potential_GET_bytes": 2287370240,
+          "historical_completions": {
+            "fix-ocaml-gc:57": 10,
+            "fix-ocaml-gc:58": 10
+          },
+          "estimated_output_tokens": {
+            "fix-ocaml-gc:57": 116.0,
+            "fix-ocaml-gc:58": 304.0
+          }
+        },
+        {
+          "root": "gcode-to-text:104",
+          "successor": "gcode-to-text:105",
+          "potential_GET_bytes": 5642813440,
+          "historical_completions": {
+            "gcode-to-text:104": 0,
+            "gcode-to-text:105": 0
+          },
+          "estimated_output_tokens": {
+            "gcode-to-text:104": 653,
+            "gcode-to-text:105": 753
+          }
+        },
+        {
+          "root": "hf-model-inference:16",
+          "successor": "hf-model-inference:17",
+          "potential_GET_bytes": 1071022080,
+          "historical_completions": {
+            "hf-model-inference:16": 24,
+            "hf-model-inference:17": 24
+          },
+          "estimated_output_tokens": {
+            "hf-model-inference:16": 130.0,
+            "hf-model-inference:17": 134.0
+          }
+        },
+        {
+          "root": "make-doom-for-mips:117",
+          "successor": "make-doom-for-mips:118",
+          "potential_GET_bytes": 5475041280,
+          "historical_completions": {
+            "make-doom-for-mips:117": 8,
+            "make-doom-for-mips:118": 8
+          },
+          "estimated_output_tokens": {
+            "make-doom-for-mips:117": 828.5,
+            "make-doom-for-mips:118": 541.0
+          }
+        },
+        {
+          "root": "make-mips-interpreter:98",
+          "successor": "make-mips-interpreter:99",
+          "potential_GET_bytes": 5852528640,
+          "historical_completions": {
+            "make-mips-interpreter:98": 10,
+            "make-mips-interpreter:99": 0
+          },
+          "estimated_output_tokens": {
+            "make-mips-interpreter:98": 150.0,
+            "make-mips-interpreter:99": 622
+          }
+        },
+        {
+          "root": "mcmc-sampling-stan:48",
+          "successor": "mcmc-sampling-stan:49",
+          "potential_GET_bytes": 2413199360,
+          "historical_completions": {
+            "mcmc-sampling-stan:48": 8,
+            "mcmc-sampling-stan:49": 8
+          },
+          "estimated_output_tokens": {
+            "mcmc-sampling-stan:48": 169.0,
+            "mcmc-sampling-stan:49": 268.0
+          }
+        },
+        {
+          "root": "mteb-leaderboard:46",
+          "successor": "mteb-leaderboard:47",
+          "potential_GET_bytes": 2035712000,
+          "historical_completions": {
+            "mteb-leaderboard:46": 0,
+            "mteb-leaderboard:47": 0
+          },
+          "estimated_output_tokens": {
+            "mteb-leaderboard:46": 496,
+            "mteb-leaderboard:47": 848
+          }
+        },
+        {
+          "root": "password-recovery:11",
+          "successor": "password-recovery:12",
+          "potential_GET_bytes": 1154908160,
+          "historical_completions": {
+            "password-recovery:11": 8,
+            "password-recovery:12": 8
+          },
+          "estimated_output_tokens": {
+            "password-recovery:11": 501.5,
+            "password-recovery:12": 473.5
+          }
+        },
+        {
+          "root": "path-tracing:51",
+          "successor": "path-tracing:52",
+          "potential_GET_bytes": 5013667840,
+          "historical_completions": {
+            "path-tracing:51": 0,
+            "path-tracing:52": 0
+          },
+          "estimated_output_tokens": {
+            "path-tracing:51": 428,
+            "path-tracing:52": 725
+          }
+        },
+        {
+          "root": "path-tracing-reverse:121",
+          "successor": "path-tracing-reverse:122",
+          "potential_GET_bytes": 8033566720,
+          "historical_completions": {
+            "path-tracing-reverse:121": 0,
+            "path-tracing-reverse:122": 0
+          },
+          "estimated_output_tokens": {
+            "path-tracing-reverse:121": 126,
+            "path-tracing-reverse:122": 640
+          }
+        },
+        {
+          "root": "pytorch-model-cli:17",
+          "successor": "pytorch-model-cli:18",
+          "potential_GET_bytes": 1322680320,
+          "historical_completions": {
+            "pytorch-model-cli:17": 18,
+            "pytorch-model-cli:18": 18
+          },
+          "estimated_output_tokens": {
+            "pytorch-model-cli:17": 379.0,
+            "pytorch-model-cli:18": 277.0
+          }
+        },
+        {
+          "root": "regex-chess:131",
+          "successor": "regex-chess:132",
+          "potential_GET_bytes": 10130718720,
+          "historical_completions": {
+            "regex-chess:131": 0,
+            "regex-chess:132": 0
+          },
+          "estimated_output_tokens": {
+            "regex-chess:131": 557,
+            "regex-chess:132": 634
+          }
+        },
+        {
+          "root": "rstan-to-pystan:39",
+          "successor": "rstan-to-pystan:40",
+          "potential_GET_bytes": 1993768960,
+          "historical_completions": {
+            "rstan-to-pystan:39": 8,
+            "rstan-to-pystan:40": 8
+          },
+          "estimated_output_tokens": {
+            "rstan-to-pystan:39": 890.0,
+            "rstan-to-pystan:40": 776.5
+          }
+        },
+        {
+          "root": "sanitize-git-repo:17",
+          "successor": "sanitize-git-repo:18",
+          "potential_GET_bytes": 1196851200,
+          "historical_completions": {
+            "sanitize-git-repo:17": 0,
+            "sanitize-git-repo:18": 0
+          },
+          "estimated_output_tokens": {
+            "sanitize-git-repo:17": 541,
+            "sanitize-git-repo:18": 280
+          }
+        },
+        {
+          "root": "train-fasttext:72",
+          "successor": "train-fasttext:73",
+          "potential_GET_bytes": 2916515840,
+          "historical_completions": {
+            "train-fasttext:72": 18,
+            "train-fasttext:73": 10
+          },
+          "estimated_output_tokens": {
+            "train-fasttext:72": 367.0,
+            "train-fasttext:73": 289.0
+          }
+        },
+        {
+          "root": "winning-avg-corewars:87",
+          "successor": "winning-avg-corewars:88",
+          "potential_GET_bytes": 5433098240,
+          "historical_completions": {
+            "winning-avg-corewars:87": 10,
+            "winning-avg-corewars:88": 10
+          },
+          "estimated_output_tokens": {
+            "winning-avg-corewars:87": 1095.0,
+            "winning-avg-corewars:88": 155.0
+          }
+        }
+      ]
+    },
+    "arrival_order_screen": {
+      "full_restore_upper_bytes": 92564684800,
+      "new_order_estimated_GET_bytes": 72062238720,
+      "root_first_gap_s": 0.12,
+      "successor_first_gap_s": 0.12,
+      "successor_gap_s": 0.022,
+      "projected_root_P": {
+        "regex-chess:131": "P0",
+        "path-tracing-reverse:121": "P1",
+        "make-mips-interpreter:98": "P1",
+        "make-doom-for-mips:117": "P0",
+        "gcode-to-text:104": "P1",
+        "extract-moves-from-video:134": "P0",
+        "winning-avg-corewars:87": "P1",
+        "caffe-cifar-10:102": "P0",
+        "path-tracing:51": "P1",
+        "financial-document-processor:83": "P0",
+        "circuit-fibsqrt:45": "P1",
+        "train-fasttext:72": "P0",
+        "build-pov-ray:50": "P1",
+        "compile-compcert:41": "P0",
+        "mcmc-sampling-stan:48": "P1",
+        "fix-ocaml-gc:57": "P0",
+        "crack-7z-hash:44": "P1",
+        "build-pmars:37": "P0",
+        "mteb-leaderboard:46": "P1",
+        "build-cython-ext:44": "P0",
+        "rstan-to-pystan:39": "P0",
+        "feal-linear-cryptanalysis:16": "P1",
+        "pytorch-model-cli:17": "P1",
+        "sanitize-git-repo:17": "P0",
+        "hf-model-inference:16": "P1",
+        "password-recovery:11": "P0"
+      },
+      "projected_successor_P": {
+        "path-tracing-reverse:122": "P0",
+        "caffe-cifar-10:103": "P1",
+        "financial-document-processor:84": "P1",
+        "path-tracing:52": "P0",
+        "make-doom-for-mips:118": "P1",
+        "make-mips-interpreter:99": "P0",
+        "extract-moves-from-video:135": "P1",
+        "gcode-to-text:105": "P0",
+        "regex-chess:132": "P1",
+        "circuit-fibsqrt:46": "P0",
+        "rstan-to-pystan:40": "P1",
+        "build-pmars:38": "P1",
+        "compile-compcert:42": "P0",
+        "build-cython-ext:45": "P1",
+        "build-pov-ray:51": "P0",
+        "hf-model-inference:17": "P1",
+        "mteb-leaderboard:47": "P1",
+        "train-fasttext:73": "P0",
+        "feal-linear-cryptanalysis:17": "P1",
+        "password-recovery:12": "P0",
+        "fix-ocaml-gc:58": "P1",
+        "pytorch-model-cli:18": "P0",
+        "crack-7z-hash:45": "P0",
+        "winning-avg-corewars:88": "P1",
+        "sanitize-git-repo:18": "P0"
+      },
+      "wire_body_bytes": {
+        "build-cython-ext:44": 200210,
+        "build-cython-ext:45": 203871,
+        "build-pmars:37": 215677,
+        "build-pmars:38": 221416,
+        "build-pov-ray:50": 274761,
+        "build-pov-ray:51": 275643,
+        "caffe-cifar-10:102": 490562,
+        "caffe-cifar-10:103": 492115,
+        "circuit-fibsqrt:45": 325568,
+        "circuit-fibsqrt:46": 326539,
+        "compile-compcert:41": 249913,
+        "compile-compcert:42": 251059,
+        "crack-7z-hash:44": 231574,
+        "crack-7z-hash:45": 234485,
+        "extract-moves-from-video:134": 547575,
+        "extract-moves-from-video:135": 550637,
+        "feal-linear-cryptanalysis:16": 167061,
+        "feal-linear-cryptanalysis:17": 168077,
+        "financial-document-processor:83": 335763,
+        "financial-document-processor:84": 336429,
+        "fix-ocaml-gc:57": 244372,
+        "fix-ocaml-gc:58": 245879,
+        "gcode-to-text:104": 566061,
+        "gcode-to-text:105": 567550,
+        "hf-model-inference:16": 108460,
+        "hf-model-inference:17": 109697,
+        "make-doom-for-mips:117": 570877,
+        "make-doom-for-mips:118": 575735,
+        "make-mips-interpreter:98": 574267,
+        "make-mips-interpreter:99": 575186,
+        "mcmc-sampling-stan:48": 249724,
+        "mcmc-sampling-stan:49": 250919,
+        "mteb-leaderboard:46": 213550,
+        "mteb-leaderboard:47": 217310,
+        "password-recovery:11": 102552,
+        "password-recovery:12": 103628,
+        "path-tracing:51": 444230,
+        "path-tracing:52": 448573,
+        "path-tracing-reverse:121": 745535,
+        "path-tracing-reverse:122": 746300,
+        "pytorch-model-cli:17": 126639,
+        "pytorch-model-cli:18": 127381,
+        "regex-chess:131": 1026106,
+        "regex-chess:132": 1028040,
+        "rstan-to-pystan:39": 199063,
+        "rstan-to-pystan:40": 200175,
+        "sanitize-git-repo:17": 124574,
+        "sanitize-git-repo:18": 125619,
+        "train-fasttext:72": 286382,
+        "train-fasttext:73": 287174,
+        "winning-avg-corewars:87": 546867,
+        "winning-avg-corewars:88": 549496
+      }
+    },
+    "request_sources": [
+      {
+        "id": "build-cython-ext:44",
+        "session_id": "build-cython-ext",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 46368,
+        "original_offered_s": 0,
+        "offered_s": 1.62,
+        "prompt_sha256": "49fa0d2f7e887bb5536b41d373891a9475751dbd02155a5c1230e26fd7db9078"
+      },
+      {
+        "id": "build-cython-ext:45",
+        "session_id": "build-cython-ext",
+        "predecessor": "build-cython-ext:44",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 47190,
+        "original_offered_s": 0,
+        "offered_s": 95.21252133349003,
+        "prompt_sha256": "59507863c03e625db347f91a4a96af43642023d50c0646bae809a5ee34acf53d"
+      },
+      {
+        "id": "build-pmars:37",
+        "session_id": "build-pmars",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 51125,
+        "original_offered_s": 0,
+        "offered_s": 1.48,
+        "prompt_sha256": "587b373747cd2377d70a769231b28c73e91143d7f2c9a68927fbede4df31b04a"
+      },
+      {
+        "id": "build-pmars:38",
+        "session_id": "build-pmars",
+        "predecessor": "build-pmars:37",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 52463,
+        "original_offered_s": 0,
+        "offered_s": 95.15370422349928,
+        "prompt_sha256": "f31d146a398a3080ad36a7e82b3428043e9e5f6cc40c068c982e535dd3c17d94"
+      },
+      {
+        "id": "build-pov-ray:50",
+        "session_id": "build-pov-ray",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 64236,
+        "original_offered_s": 0,
+        "offered_s": 1.13,
+        "prompt_sha256": "1f98db0571312f31b480bcd702165604e9840fd507278c9b7aec610f1d3d2f4f"
+      },
+      {
+        "id": "build-pov-ray:51",
+        "session_id": "build-pov-ray",
+        "predecessor": "build-pov-ray:50",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 64430,
+        "original_offered_s": 0,
+        "offered_s": 95.23784975449985,
+        "prompt_sha256": "6b8a4056f08992519a0025b1920218038248ef6593aa6091fa8d4b8faf0b2197"
+      },
+      {
+        "id": "caffe-cifar-10:102",
+        "session_id": "caffe-cifar-10",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 120201,
+        "original_offered_s": 0,
+        "offered_s": 0.78,
+        "prompt_sha256": "8e5edde9f9bbd7f3b04222dca2877cac9f16331d95c8e1a4b0bcfb109436131f"
+      },
+      {
+        "id": "caffe-cifar-10:103",
+        "session_id": "caffe-cifar-10",
+        "predecessor": "caffe-cifar-10:102",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 120551,
+        "original_offered_s": 0,
+        "offered_s": 64.86946294950438,
+        "prompt_sha256": "dc5b3ccb326fc8811f3e3c6f8c456a2c05825bd3a837b805b38bec9c88c53a4c"
+      },
+      {
+        "id": "circuit-fibsqrt:45",
+        "session_id": "circuit-fibsqrt",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 82313,
+        "original_offered_s": 0,
+        "offered_s": 0.9900000000000001,
+        "prompt_sha256": "e27517dbdc4a7653d5642e7dfcf1a06cf6c17319f46149d3d9e9ba11611e104e"
+      },
+      {
+        "id": "circuit-fibsqrt:46",
+        "session_id": "circuit-fibsqrt",
+        "predecessor": "circuit-fibsqrt:45",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 82541,
+        "original_offered_s": 0,
+        "offered_s": 95.0,
+        "prompt_sha256": "a33c9a3c97a75dfb82249717478ce174c1d9722eb23e11f616a386b8d44f41dd"
+      },
+      {
+        "id": "compile-compcert:41",
+        "session_id": "compile-compcert",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 58992,
+        "original_offered_s": 0,
+        "offered_s": 1.2000000000000002,
+        "prompt_sha256": "56404a54a0bcfc50424e31b46aed500d008ddc26ddaa9626e3ea5d9ac63f74a9"
+      },
+      {
+        "id": "compile-compcert:42",
+        "session_id": "compile-compcert",
+        "predecessor": "compile-compcert:41",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 59254,
+        "original_offered_s": 0,
+        "offered_s": 95.18142795500648,
+        "prompt_sha256": "014593621b3d748652afac957edba05adef8ef776e4ba4a6efacc7a207363305"
+      },
+      {
+        "id": "crack-7z-hash:44",
+        "session_id": "crack-7z-hash",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 56540,
+        "original_offered_s": 0,
+        "offered_s": 1.4100000000000001,
+        "prompt_sha256": "3a8df0713c7b0ef8413e2230bc6bfb5a55b6e0066c62d0be971700fd31fa2de6"
+      },
+      {
+        "id": "crack-7z-hash:45",
+        "session_id": "crack-7z-hash",
+        "predecessor": "crack-7z-hash:44",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 57224,
+        "original_offered_s": 0,
+        "offered_s": 95.47139381500554,
+        "prompt_sha256": "c4d0f60c70bf370c2a06508dc72155f2359d6a373511cfdf4cfe2eddbd2aca4d"
+      },
+      {
+        "id": "extract-moves-from-video:134",
+        "session_id": "extract-moves-from-video",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 133435,
+        "original_offered_s": 0,
+        "offered_s": 0.64,
+        "prompt_sha256": "7394ad47330fb3ca0d4cfd7c03818cdc658ea600c216386290b45eca615e01cc"
+      },
+      {
+        "id": "extract-moves-from-video:135",
+        "session_id": "extract-moves-from-video",
+        "predecessor": "extract-moves-from-video:134",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 134201,
+        "original_offered_s": 0,
+        "offered_s": 65.07469776050362,
+        "prompt_sha256": "bdc5c28d23bbf471d070a454d51e8b611fad4f89092d6d6c6cf7a42814e8c71e"
+      },
+      {
+        "id": "feal-linear-cryptanalysis:16",
+        "session_id": "feal-linear-cryptanalysis",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 43045,
+        "original_offered_s": 0,
+        "offered_s": 1.7600000000000002,
+        "prompt_sha256": "25ac02fe485c4775e0dc2c53d6cfd04de718d143c09ea9fbf0dbbfcd5753dec4"
+      },
+      {
+        "id": "feal-linear-cryptanalysis:17",
+        "session_id": "feal-linear-cryptanalysis",
+        "predecessor": "feal-linear-cryptanalysis:16",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 43279,
+        "original_offered_s": 0,
+        "offered_s": 95.35756690400582,
+        "prompt_sha256": "32bc03b1f155f8e713104d8ca20c6d0dad442131e1ec230b9556fecd1044220c"
+      },
+      {
+        "id": "financial-document-processor:83",
+        "session_id": "financial-document-processor",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 80680,
+        "original_offered_s": 0,
+        "offered_s": 0.92,
+        "prompt_sha256": "d24359f68b344947147fcc02d9aba0ceba225eddd3d6a9000988c0b90bcb57dc"
+      },
+      {
+        "id": "financial-document-processor:84",
+        "session_id": "financial-document-processor",
+        "predecessor": "financial-document-processor:83",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 80824,
+        "original_offered_s": 0,
+        "offered_s": 64.92144181600388,
+        "prompt_sha256": "b3599f48e889903d511e47fdc99e2611ee5a7f8fdd9b6a48f7f5dd8dd811a71d"
+      },
+      {
+        "id": "fix-ocaml-gc:57",
+        "session_id": "fix-ocaml-gc",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 54342,
+        "original_offered_s": 0,
+        "offered_s": 1.34,
+        "prompt_sha256": "7335f44d4f45ea92b211ab5f9dc57a0fc206233235a0f5d3b9ecc05fd314bfc7"
+      },
+      {
+        "id": "fix-ocaml-gc:58",
+        "session_id": "fix-ocaml-gc",
+        "predecessor": "fix-ocaml-gc:57",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 54681,
+        "original_offered_s": 0,
+        "offered_s": 95.41240222851164,
+        "prompt_sha256": "e272f4d8ac0ebbfe3678d0d017977250f818f5258e04b2c268da9a0e2beda9b1"
+      },
+      {
+        "id": "gcode-to-text:104",
+        "session_id": "gcode-to-text",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 139847,
+        "original_offered_s": 0,
+        "offered_s": 0.5700000000000001,
+        "prompt_sha256": "903d7ad9a807d28b525ccb7ab37f378d7aca923f81690a75cbc414231fbb9db6"
+      },
+      {
+        "id": "gcode-to-text:105",
+        "session_id": "gcode-to-text",
+        "predecessor": "gcode-to-text:104",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 140196,
+        "original_offered_s": 0,
+        "offered_s": 65.11348519100773,
+        "prompt_sha256": "332e3ac7052db6c886ce75c27f4e8c7de9e69b74ba3d6f51c6fa8e20e519c012"
+      },
+      {
+        "id": "hf-model-inference:16",
+        "session_id": "hf-model-inference",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 24862,
+        "original_offered_s": 0,
+        "offered_s": 1.9700000000000002,
+        "prompt_sha256": "99254e4a1019683ebadf5802070181d7aeaeb3a353ae973cac3f88ed7196b576"
+      },
+      {
+        "id": "hf-model-inference:17",
+        "session_id": "hf-model-inference",
+        "predecessor": "hf-model-inference:16",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 25143,
+        "original_offered_s": 0,
+        "offered_s": 95.27563533699663,
+        "prompt_sha256": "6347526f5212f1ceffdcaf24b5f03c1e0fb193c2d217c1083f6bea871bb42a43"
+      },
+      {
+        "id": "make-doom-for-mips:117",
+        "session_id": "make-doom-for-mips",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 132123,
+        "original_offered_s": 0,
+        "offered_s": 0.5,
+        "prompt_sha256": "065b9c0da5d63b72c112da41eb112e86ceafdaa87df83ec7160531a80e68aede"
+      },
+      {
+        "id": "make-doom-for-mips:118",
+        "session_id": "make-doom-for-mips",
+        "predecessor": "make-doom-for-mips:117",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 133266,
+        "original_offered_s": 0,
+        "offered_s": 64.99108153498395,
+        "prompt_sha256": "d2846d4f65b4f5572da711eb2884604a7d78d74c5b680bb54d3a53ad4570c0e6"
+      },
+      {
+        "id": "make-mips-interpreter:98",
+        "session_id": "make-mips-interpreter",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 142119,
+        "original_offered_s": 0,
+        "offered_s": 0.43,
+        "prompt_sha256": "40350e397cecbff2f3f13ef83bc22113db6703f8e088fe9faea303736f0c8ce9"
+      },
+      {
+        "id": "make-mips-interpreter:99",
+        "session_id": "make-mips-interpreter",
+        "predecessor": "make-mips-interpreter:98",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 142324,
+        "original_offered_s": 0,
+        "offered_s": 65.0296226039934,
+        "prompt_sha256": "e30ecf818b70f0b38daed3de465e81e6d5fe17423065e2766af74f02cb1ef04d"
+      },
+      {
+        "id": "mcmc-sampling-stan:48",
+        "session_id": "mcmc-sampling-stan",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 57377,
+        "original_offered_s": 0,
+        "offered_s": 1.27,
+        "prompt_sha256": "1a2e7be257c89ffb0bc553a5d319b06045617a3ac4cae37e754342d2daeeff97"
+      },
+      {
+        "id": "mteb-leaderboard:46",
+        "session_id": "mteb-leaderboard",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 48583,
+        "original_offered_s": 0,
+        "offered_s": 1.5500000000000003,
+        "prompt_sha256": "212cc6d9535669dba810f13d93846382c3097eb5e54764a3a186651bcb5b211b"
+      },
+      {
+        "id": "mteb-leaderboard:47",
+        "session_id": "mteb-leaderboard",
+        "predecessor": "mteb-leaderboard:46",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 49442,
+        "original_offered_s": 0,
+        "offered_s": 95.29551818250481,
+        "prompt_sha256": "817d1814d37d1110aa5d78617b637d31881badea409cdafc16299006bc3376d2"
+      },
+      {
+        "id": "password-recovery:11",
+        "session_id": "password-recovery",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 26664,
+        "original_offered_s": 0,
+        "offered_s": 2.04,
+        "prompt_sha256": "5ae4181a0b8792e6bfe7ec3325bbd200ec12b48a8d1d69824e4377b5ae3e710f"
+      },
+      {
+        "id": "password-recovery:12",
+        "session_id": "password-recovery",
+        "predecessor": "password-recovery:11",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 26909,
+        "original_offered_s": 0,
+        "offered_s": 95.39160218200028,
+        "prompt_sha256": "51e530bb1e0cc08305e8a3b861dc51322c9ad747ad3d5167730bd4809319aab5"
+      },
+      {
+        "id": "path-tracing:51",
+        "session_id": "path-tracing",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 121767,
+        "original_offered_s": 0,
+        "offered_s": 0.8500000000000001,
+        "prompt_sha256": "6812b892e72826faa91ad8ae46276d2bd71694d0e11d30a6b847081b7b212d15"
+      },
+      {
+        "id": "path-tracing:52",
+        "session_id": "path-tracing",
+        "predecessor": "path-tracing:51",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 122870,
+        "original_offered_s": 0,
+        "offered_s": 64.95159542998054,
+        "prompt_sha256": "6ac5b7d25ed4a74fcd6413906c905deca43baa73ef35645673afa69ba3e348f6"
+      },
+      {
+        "id": "path-tracing-reverse:121",
+        "session_id": "path-tracing-reverse",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 195002,
+        "original_offered_s": 0,
+        "offered_s": 0.36,
+        "prompt_sha256": "3af5102c578687e27da7c040568d29c223bc3c7892908fe19b9726817c3e30c1"
+      },
+      {
+        "id": "path-tracing-reverse:122",
+        "session_id": "path-tracing-reverse",
+        "predecessor": "path-tracing-reverse:121",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 195173,
+        "original_offered_s": 0,
+        "offered_s": 64.75,
+        "prompt_sha256": "b0f3259cebd189cdd3fbbec870a90955b62f60865368bc745386a1ca5164cabf"
+      },
+      {
+        "id": "pytorch-model-cli:17",
+        "session_id": "pytorch-model-cli",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 30745,
+        "original_offered_s": 0,
+        "offered_s": 1.83,
+        "prompt_sha256": "f6560884fc65d8015f5cbb94337c644973846577b1c9c62b135e8bee55f6f7d0"
+      },
+      {
+        "id": "pytorch-model-cli:18",
+        "session_id": "pytorch-model-cli",
+        "predecessor": "pytorch-model-cli:17",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 30909,
+        "original_offered_s": 0,
+        "offered_s": 95.44794816600077,
+        "prompt_sha256": "740bd560a51f5fcd68427a117b48324252351f0bf78a13a209794826eaefae90"
+      },
+      {
+        "id": "regex-chess:131",
+        "session_id": "regex-chess",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 246666,
+        "original_offered_s": 0,
+        "offered_s": 0.0,
+        "prompt_sha256": "9c004ad0dd35672314a30689041e378a4a64b8883e6c43823d57eafd71b9f9f4"
+      },
+      {
+        "id": "regex-chess:132",
+        "session_id": "regex-chess",
+        "predecessor": "regex-chess:131",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 247155,
+        "original_offered_s": 0,
+        "offered_s": 65.12358130449884,
+        "prompt_sha256": "5b7780b0778dc5290e5a8b53cdb96b6e4a2764700a4e5981e440d318c8967807"
+      },
+      {
+        "id": "rstan-to-pystan:39",
+        "session_id": "rstan-to-pystan",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 47290,
+        "original_offered_s": 0,
+        "offered_s": 1.69,
+        "prompt_sha256": "779a49089fe1542f65adf5ed720a0b0e80225568f06fc1aa246c509f858c760f"
+      },
+      {
+        "id": "rstan-to-pystan:40",
+        "session_id": "rstan-to-pystan",
+        "predecessor": "rstan-to-pystan:39",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 47537,
+        "original_offered_s": 0,
+        "offered_s": 95.124933060006,
+        "prompt_sha256": "1310616fa4738d8081184a7afe34552cbd3ab42498b40119ff356b4c641c3b76"
+      },
+      {
+        "id": "sanitize-git-repo:17",
+        "session_id": "sanitize-git-repo",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 28401,
+        "original_offered_s": 0,
+        "offered_s": 1.9,
+        "prompt_sha256": "ae73140786aa84aa621264f5a337d742ac9cb0854ce7db5cd4a9c9526f6f83bd"
+      },
+      {
+        "id": "sanitize-git-repo:18",
+        "session_id": "sanitize-git-repo",
+        "predecessor": "sanitize-git-repo:17",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 28633,
+        "original_offered_s": 0,
+        "offered_s": 95.53618733400735,
+        "prompt_sha256": "73d0b39409bb3ca3d53cbd83494307ca18849bc29bc9141031d3dff198e56067"
+      },
+      {
+        "id": "train-fasttext:72",
+        "session_id": "train-fasttext",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 69965,
+        "original_offered_s": 0,
+        "offered_s": 1.06,
+        "prompt_sha256": "91dcf56cb4b836869d5f043c026f467223c36cc027b6b472383d2aa182a2d2d1"
+      },
+      {
+        "id": "train-fasttext:73",
+        "session_id": "train-fasttext",
+        "predecessor": "train-fasttext:72",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 70149,
+        "original_offered_s": 0,
+        "offered_s": 95.32221698250284,
+        "prompt_sha256": "b96422a4ed879dc657e9743acb8416093bc87bc0ec0e9e0fa845f8253cbf02a8"
+      },
+      {
+        "id": "winning-avg-corewars:87",
+        "session_id": "winning-avg-corewars",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 131449,
+        "original_offered_s": 0,
+        "offered_s": 0.71,
+        "prompt_sha256": "de6cf1100eb98af8274366f15de48c61893454e3b64f056d063cea6a5b4d9a6d"
+      },
+      {
+        "id": "winning-avg-corewars:88",
+        "session_id": "winning-avg-corewars",
+        "predecessor": "winning-avg-corewars:87",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 132065,
+        "original_offered_s": 0,
+        "offered_s": 95.48405684350453,
+        "prompt_sha256": "59471ea1a925bc1c050d5180f274d3a20f21ae1b5a65206c1d980f45b318240d"
+      }
+    ],
+    "arrival_gap_calibration": {
+      "input_trace_sha256": "97d4959861e5c05b85a7df97fe29554981cb29368405ff494e9601eb361ab723",
+      "recorded_root_orders": {
+        "b1-cap100": [
+          "regex-chess:131",
+          "path-tracing-reverse:121",
+          "make-mips-interpreter:98",
+          "make-doom-for-mips:117",
+          "gcode-to-text:104",
+          "extract-moves-from-video:134",
+          "winning-avg-corewars:87",
+          "caffe-cifar-10:102",
+          "path-tracing:51",
+          "financial-document-processor:83",
+          "circuit-fibsqrt:45",
+          "train-fasttext:72",
+          "build-pov-ray:50",
+          "compile-compcert:41",
+          "mcmc-sampling-stan:48",
+          "fix-ocaml-gc:57",
+          "crack-7z-hash:44",
+          "build-pmars:37",
+          "mteb-leaderboard:46",
+          "build-cython-ext:44",
+          "rstan-to-pystan:39",
+          "feal-linear-cryptanalysis:16",
+          "pytorch-model-cli:17",
+          "sanitize-git-repo:17",
+          "hf-model-inference:16",
+          "password-recovery:11"
+        ],
+        "b1-cap200": [
+          "regex-chess:131",
+          "path-tracing-reverse:121",
+          "make-mips-interpreter:98",
+          "make-doom-for-mips:117",
+          "gcode-to-text:104",
+          "extract-moves-from-video:134",
+          "winning-avg-corewars:87",
+          "caffe-cifar-10:102",
+          "path-tracing:51",
+          "financial-document-processor:83",
+          "circuit-fibsqrt:45",
+          "train-fasttext:72",
+          "build-pov-ray:50",
+          "compile-compcert:41",
+          "mcmc-sampling-stan:48",
+          "fix-ocaml-gc:57",
+          "crack-7z-hash:44",
+          "build-pmars:37",
+          "mteb-leaderboard:46",
+          "build-cython-ext:44",
+          "rstan-to-pystan:39",
+          "feal-linear-cryptanalysis:16",
+          "pytorch-model-cli:17",
+          "sanitize-git-repo:17",
+          "hf-model-inference:16",
+          "password-recovery:11"
+        ],
+        "b2-cap200": [
+          "regex-chess:131",
+          "path-tracing-reverse:121",
+          "make-mips-interpreter:98",
+          "make-doom-for-mips:117",
+          "gcode-to-text:104",
+          "extract-moves-from-video:134",
+          "winning-avg-corewars:87",
+          "caffe-cifar-10:102",
+          "path-tracing:51",
+          "financial-document-processor:83",
+          "circuit-fibsqrt:45",
+          "train-fasttext:72",
+          "build-pov-ray:50",
+          "compile-compcert:41",
+          "mcmc-sampling-stan:48",
+          "fix-ocaml-gc:57",
+          "crack-7z-hash:44",
+          "build-pmars:37",
+          "mteb-leaderboard:46",
+          "build-cython-ext:44",
+          "rstan-to-pystan:39",
+          "feal-linear-cryptanalysis:16",
+          "pytorch-model-cli:17",
+          "sanitize-git-repo:17",
+          "hf-model-inference:16",
+          "password-recovery:11"
+        ],
+        "b2-cap100": [
+          "regex-chess:131",
+          "path-tracing-reverse:121",
+          "make-mips-interpreter:98",
+          "make-doom-for-mips:117",
+          "gcode-to-text:104",
+          "extract-moves-from-video:134",
+          "winning-avg-corewars:87",
+          "caffe-cifar-10:102",
+          "path-tracing:51",
+          "financial-document-processor:83",
+          "circuit-fibsqrt:45",
+          "train-fasttext:72",
+          "build-pov-ray:50",
+          "compile-compcert:41",
+          "mcmc-sampling-stan:48",
+          "fix-ocaml-gc:57",
+          "crack-7z-hash:44",
+          "build-pmars:37",
+          "mteb-leaderboard:46",
+          "build-cython-ext:44",
+          "rstan-to-pystan:39",
+          "feal-linear-cryptanalysis:16",
+          "pytorch-model-cli:17",
+          "sanitize-git-repo:17",
+          "hf-model-inference:16",
+          "password-recovery:11"
+        ]
+      },
+      "median_offered_to_P_proxy_s": {
+        "build-cython-ext:45": 0.012735935996758485,
+        "build-pmars:38": 0.014354890501252271,
+        "build-pov-ray:51": 0.017993877506583544,
+        "caffe-cifar-10:103": 0.028727423998759605,
+        "circuit-fibsqrt:46": 0.020860242501257176,
+        "compile-compcert:42": 0.015702876484027684,
+        "crack-7z-hash:45": 0.014417461490495498,
+        "extract-moves-from-video:135": 0.032796758486767885,
+        "feal-linear-cryptanalysis:17": 0.011095745003657953,
+        "financial-document-processor:84": 0.022792328990647093,
+        "fix-ocaml-gc:58": 0.01520921700645772,
+        "gcode-to-text:105": 0.03412336148915074,
+        "hf-model-inference:17": 0.008825461503235488,
+        "make-doom-for-mips:118": 0.03473885398869925,
+        "make-mips-interpreter:99": 0.03447105348726609,
+        "mteb-leaderboard:47": 0.013546631994074687,
+        "password-recovery:12": 0.008588973480399886,
+        "path-tracing:52": 0.029669850500056327,
+        "path-tracing-reverse:122": 0.05187949449464213,
+        "pytorch-model-cli:18": 0.010938796500326475,
+        "regex-chess:132": 0.05984193648933456,
+        "rstan-to-pystan:40": 0.013090081500578776,
+        "sanitize-git-repo:18": 0.010138173491355928,
+        "train-fasttext:73": 0.01826153548364573,
+        "winning-avg-corewars:88": 0.03258929351879658
+      },
+      "desired_proxy_order": [
+        "regex-chess:132",
+        "path-tracing-reverse:122",
+        "feal-linear-cryptanalysis:17",
+        "circuit-fibsqrt:46",
+        "build-pmars:38",
+        "make-doom-for-mips:118",
+        "mteb-leaderboard:47",
+        "gcode-to-text:105",
+        "extract-moves-from-video:135",
+        "make-mips-interpreter:99",
+        "hf-model-inference:17",
+        "sanitize-git-repo:18",
+        "winning-avg-corewars:88",
+        "rstan-to-pystan:40",
+        "build-cython-ext:45",
+        "caffe-cifar-10:103",
+        "build-pov-ray:51",
+        "crack-7z-hash:45",
+        "train-fasttext:73",
+        "fix-ocaml-gc:58",
+        "password-recovery:12",
+        "path-tracing:52",
+        "pytorch-model-cli:18",
+        "compile-compcert:42",
+        "financial-document-processor:84"
+      ],
+      "observed_delay_pattern_projection_bytes": {
+        "b1-cap100": 85470412800,
+        "b1-cap200": 85470412800,
+        "b2-cap200": 85470412800,
+        "b2-cap100": 85470412800
+      },
+      "observed_first_P": {
+        "b1-cap100": "P1",
+        "b1-cap200": "P1",
+        "b2-cap200": "P1",
+        "b2-cap100": "P1"
+      },
+      "projected_first_successor_P": "P1",
+      "excluded_successors_after_reference_output_screen": {
+        "mcmc-sampling-stan:49": {
+          "b2-cap200": {
+            "output_tokens": 8192,
+            "reason": "length"
+          }
+        }
+      },
+      "assumptions": "Proxy order uses calibrated admission time. Selecting the same first P and retaining prefill reservations until all successors are selected are required for the projection."
+    },
+    "overlap_arrival_calibration": {
+      "reference_trace_sha256": "bcd5bac0f9e8576bba7967cb98ac2f812590135d133cf74edcddf3c5a486ef85",
+      "early": {
+        "earliest_s": 64.75,
+        "ready_requests": 9,
+        "launch_order": [
+          "path-tracing-reverse:122",
+          "caffe-cifar-10:103",
+          "financial-document-processor:84",
+          "path-tracing:52",
+          "make-doom-for-mips:118",
+          "make-mips-interpreter:99",
+          "extract-moves-from-video:135",
+          "gcode-to-text:105",
+          "regex-chess:132"
+        ],
+        "min_predicted_GET_bytes": 53972992000,
+        "per_case_GET_bytes": {
+          "b1-cap100": 53972992000,
+          "b1-cap200": 53972992000,
+          "b2-cap200": 53972992000,
+          "b2-cap100": 53972992000
+        },
+        "projected_P": {
+          "b1-cap100": {
+            "path-tracing-reverse:122": "P0",
+            "caffe-cifar-10:103": "P1",
+            "financial-document-processor:84": "P1",
+            "path-tracing:52": "P0",
+            "make-doom-for-mips:118": "P1",
+            "make-mips-interpreter:99": "P0",
+            "extract-moves-from-video:135": "P1",
+            "gcode-to-text:105": "P0",
+            "regex-chess:132": "P1"
+          },
+          "b1-cap200": {
+            "path-tracing-reverse:122": "P0",
+            "caffe-cifar-10:103": "P1",
+            "financial-document-processor:84": "P1",
+            "path-tracing:52": "P0",
+            "make-doom-for-mips:118": "P1",
+            "make-mips-interpreter:99": "P0",
+            "extract-moves-from-video:135": "P1",
+            "gcode-to-text:105": "P0",
+            "regex-chess:132": "P1"
+          },
+          "b2-cap200": {
+            "path-tracing-reverse:122": "P0",
+            "caffe-cifar-10:103": "P1",
+            "financial-document-processor:84": "P1",
+            "path-tracing:52": "P0",
+            "make-doom-for-mips:118": "P1",
+            "make-mips-interpreter:99": "P0",
+            "extract-moves-from-video:135": "P1",
+            "gcode-to-text:105": "P0",
+            "regex-chess:132": "P1"
+          },
+          "b2-cap100": {
+            "path-tracing-reverse:122": "P0",
+            "caffe-cifar-10:103": "P1",
+            "financial-document-processor:84": "P1",
+            "path-tracing:52": "P0",
+            "make-doom-for-mips:118": "P1",
+            "make-mips-interpreter:99": "P0",
+            "extract-moves-from-video:135": "P1",
+            "gcode-to-text:105": "P0",
+            "regex-chess:132": "P1"
+          }
+        },
+        "initial_P_weight": {
+          "b1-cap100": [
+            10091.061000000002,
+            10182.141000000001
+          ],
+          "b1-cap200": [
+            7863.278,
+            7908.197
+          ],
+          "b2-cap200": [
+            7863.278,
+            7908.197
+          ],
+          "b2-cap100": [
+            7863.278,
+            7908.197
+          ]
+        },
+        "observed_cold_work": {
+          "b1-cap100": {
+            "P_HTTP_in_flight_at_start": 12,
+            "P_to_D_in_next_8_s": 5,
+            "D_running_at_start": 5
+          },
+          "b1-cap200": {
+            "P_HTTP_in_flight_at_start": 10,
+            "P_to_D_in_next_8_s": 6,
+            "D_running_at_start": 4
+          },
+          "b2-cap200": {
+            "P_HTTP_in_flight_at_start": 10,
+            "P_to_D_in_next_8_s": 7,
+            "D_running_at_start": 4
+          },
+          "b2-cap100": {
+            "P_HTTP_in_flight_at_start": 10,
+            "P_to_D_in_next_8_s": 7,
+            "D_running_at_start": 4
+          }
+        },
+        "later_requests": [
+          "build-cython-ext:45",
+          "build-pmars:38",
+          "build-pov-ray:51",
+          "circuit-fibsqrt:46",
+          "compile-compcert:42",
+          "crack-7z-hash:45",
+          "feal-linear-cryptanalysis:17",
+          "fix-ocaml-gc:58",
+          "hf-model-inference:17",
+          "mteb-leaderboard:47",
+          "password-recovery:12",
+          "pytorch-model-cli:18",
+          "rstan-to-pystan:40",
+          "sanitize-git-repo:18",
+          "train-fasttext:73",
+          "winning-avg-corewars:88"
+        ]
+      },
+      "late_release_s": 95.0,
+      "late_order": [
+        "circuit-fibsqrt:46",
+        "rstan-to-pystan:40",
+        "build-pmars:38",
+        "compile-compcert:42",
+        "build-cython-ext:45",
+        "build-pov-ray:51",
+        "hf-model-inference:17",
+        "mteb-leaderboard:47",
+        "train-fasttext:73",
+        "feal-linear-cryptanalysis:17",
+        "password-recovery:12",
+        "fix-ocaml-gc:58",
+        "pytorch-model-cli:18",
+        "crack-7z-hash:45",
+        "winning-avg-corewars:88",
+        "sanitize-git-repo:18"
+      ],
+      "late_GET_bytes_by_first_P": {
+        "P0": 18089246720,
+        "P1": 18089246720
+      },
+      "late_projected_P_by_first_P": {
+        "P0": {
+          "circuit-fibsqrt:46": "P0",
+          "rstan-to-pystan:40": "P1",
+          "build-pmars:38": "P1",
+          "compile-compcert:42": "P0",
+          "build-cython-ext:45": "P1",
+          "build-pov-ray:51": "P0",
+          "hf-model-inference:17": "P1",
+          "mteb-leaderboard:47": "P1",
+          "train-fasttext:73": "P0",
+          "feal-linear-cryptanalysis:17": "P1",
+          "password-recovery:12": "P0",
+          "fix-ocaml-gc:58": "P1",
+          "pytorch-model-cli:18": "P0",
+          "crack-7z-hash:45": "P0",
+          "winning-avg-corewars:88": "P1",
+          "sanitize-git-repo:18": "P0"
+        },
+        "P1": {
+          "circuit-fibsqrt:46": "P1",
+          "rstan-to-pystan:40": "P0",
+          "build-pmars:38": "P0",
+          "compile-compcert:42": "P1",
+          "build-cython-ext:45": "P0",
+          "build-pov-ray:51": "P1",
+          "hf-model-inference:17": "P0",
+          "mteb-leaderboard:47": "P0",
+          "train-fasttext:73": "P1",
+          "feal-linear-cryptanalysis:17": "P0",
+          "password-recovery:12": "P1",
+          "fix-ocaml-gc:58": "P0",
+          "pytorch-model-cli:18": "P1",
+          "crack-7z-hash:45": "P1",
+          "winning-avg-corewars:88": "P0",
+          "sanitize-git-repo:18": "P1"
+        }
+      },
+      "anticipated_limitations": "The early projection assumes outstanding root reservations remain through its short arrival window. The late projection assumes the remaining roots have released their P reservations."
+    }
+  },
+  "settings": {
+    "model": "Qwen3.5-35B-A3B",
+    "attention_TP": 4,
+    "expert_parallel": true,
+    "DP": 1,
+    "serving_observer": false,
+    "D_egress_ports": 8,
+    "D_pool_GiB": 128,
+    "P_pool_GiB": 0,
+    "engines": {
+      "P": {
+        "devices": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "enable_prefix_caching": true,
+        "max_num_seqs": 16,
+        "max_num_batched_tokens": 4096,
+        "gpu_memory_utilization": 0.8,
+        "compilation_config": {
+          "cudagraph_capture_sizes": [
+            1,
+            2,
+            4,
+            8,
+            16,
+            1024,
+            2048,
+            3072,
+            4096
+          ]
+        }
+      },
+      "D": {
+        "devices": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "enable_prefix_caching": true,
+        "max_num_seqs": 16,
+        "max_num_batched_tokens": 4096,
+        "gpu_memory_utilization": 0.8,
+        "compilation_config": {
+          "cudagraph_mode": "FULL_DECODE_ONLY",
+          "cudagraph_capture_sizes": [
+            1,
+            2,
+            4,
+            8,
+            16
+          ]
+        },
+        "recompute_scheduler_enable": true
+      }
+    }
+  },
+  "shaping": "D egress only across eight equal port limits; all eight P ports read-only at original 200000 Mbps",
+  "software": {
+    "P": {
+      "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+      "ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd",
+      "mooncake": "0.3.11.post1"
+    },
+    "D": {
+      "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+      "ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd",
+      "mooncake": "0.3.11.post1"
+    },
+    "model_hashes": {
+      "config.json": "5e4d7f74fec2f360eb9cfbfcd6ec0c4c76e684d3a11caaed259d9fd9bfbc7944",
+      "tokenizer.json": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+      "model.safetensors.index.json": "d8d0b7ca4e61ae107e3e87a3ff21136b3ac7c789e64bb24267227ca804e04205"
+    }
+  },
+  "deployment_audit": {
+    "P": {
+      "intended_argv_devices_and_store_verified": true,
+      "observers_enabled": false,
+      "eager_false_log_count": 2,
+      "graph_mode_logged": true,
+      "software": {
+        "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+        "ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd",
+        "mooncake": "0.3.11.post1"
+      },
+      "native_scheduler": null
+    },
+    "D": {
+      "intended_argv_devices_and_store_verified": true,
+      "observers_enabled": false,
+      "eager_false_log_count": 2,
+      "graph_mode_logged": true,
+      "software": {
+        "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+        "ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd",
+        "mooncake": "0.3.11.post1"
+      },
+      "native_scheduler": "vllm_ascend.core.recompute_scheduler.AsyncRecomputeScheduler"
+    }
+  },
+  "bundle_sha256": {
+    "P": "1a0039e411921f6141d46fca6cdbcf167c6f1df9623c98ef3967eeb9c88435d2",
+    "D": "a2ad43cdd1f4038e2d2736ab62cc50074f5c12f4b8bb87e6652ed718e674ab26"
+  },
+  "P_clock_tracking": {
+    "b1-cap100": "Reference ID    : CA760151 (time.neu.edu.cn)\nStratum         : 2\nRef time (UTC)  : Sat Nov 21 23:20:35 2026\nSystem time     : 0.000260664 seconds slow of NTP time\nLast offset     : +0.000107060 seconds\nRMS offset      : 0.000389961 seconds\nFrequency       : 11.595 ppm slow\nResidual freq   : +0.005 ppm\nSkew            : 0.226 ppm\nRoot delay      : 0.038571458 seconds\nRoot dispersion : 0.000587942 seconds\nUpdate interval : 1039.3 seconds\nLeap status     : Normal\n",
+    "b1-cap200": "Reference ID    : CA760151 (time.neu.edu.cn)\nStratum         : 2\nRef time (UTC)  : Sat Nov 21 23:20:35 2026\nSystem time     : 0.000257506 seconds slow of NTP time\nLast offset     : +0.000107060 seconds\nRMS offset      : 0.000389961 seconds\nFrequency       : 11.595 ppm slow\nResidual freq   : +0.005 ppm\nSkew            : 0.226 ppm\nRoot delay      : 0.038571458 seconds\nRoot dispersion : 0.000773920 seconds\nUpdate interval : 1039.3 seconds\nLeap status     : Normal\n",
+    "b2-cap200": "Reference ID    : CA760151 (time.neu.edu.cn)\nStratum         : 2\nRef time (UTC)  : Sat Nov 21 23:20:35 2026\nSystem time     : 0.000254114 seconds slow of NTP time\nLast offset     : +0.000107060 seconds\nRMS offset      : 0.000389961 seconds\nFrequency       : 11.595 ppm slow\nResidual freq   : +0.005 ppm\nSkew            : 0.226 ppm\nRoot delay      : 0.038571458 seconds\nRoot dispersion : 0.000973575 seconds\nUpdate interval : 1039.3 seconds\nLeap status     : Normal\n",
+    "b2-cap100": "Reference ID    : CA760151 (time.neu.edu.cn)\nStratum         : 2\nRef time (UTC)  : Sat Nov 21 23:20:35 2026\nSystem time     : 0.000250561 seconds slow of NTP time\nLast offset     : +0.000107060 seconds\nRMS offset      : 0.000389961 seconds\nFrequency       : 11.595 ppm slow\nResidual freq   : +0.005 ppm\nSkew            : 0.226 ppm\nRoot delay      : 0.038571458 seconds\nRoot dispersion : 0.001182772 seconds\nUpdate interval : 1039.3 seconds\nLeap status     : Normal\n"
+  },
+  "artifacts": {
+    "r65-events.jsonl.gz": {
+      "sha256": "83e9c143cf962c99d65f0d220ddfb97fcafb287f0b4d67f80fab22b95459e80d",
+      "bytes": 341567
+    },
+    "summary.json": {
+      "sha256": "1656abacd90f7a5467900eb0c170b46465b7ee4990c6c93ff41cc45c59cffe85",
+      "bytes": 84906
+    }
+  },
+  "controller_sha256": {
+    "P": {
+      "node_guard.py": "97705fed4333e552798184f9f386d02604baa55a9276efb4067dfae11c4c52c4"
+    },
+    "D": {
+      "node_guard.py": "97705fed4333e552798184f9f386d02604baa55a9276efb4067dfae11c4c52c4",
+      "control.py": "7d30a1d28b3d52d9d8c515a951092a58af8ffab720b5a76a6abc5133ff116ffa",
+      "run_pair.py": "36a58dd0062e60607d70a2bbd0557cc279b331927726dcb577d38e40473c3db1",
+      "replay.py": "a0e387948eda28c5927aff8e38906024d970f9362fd7ddeeb78b51a34737565d"
+    }
+  },
+  "release": {
+    "P": {
+      "stage": "finished",
+      "npu_idle": true,
+      "port_configuration_Mbps": [
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000
+      ]
+    },
+    "D": {
+      "stage": "finished",
+      "npu_idle": true,
+      "port_configuration_Mbps": [
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000
+      ]
+    }
+  }
+}

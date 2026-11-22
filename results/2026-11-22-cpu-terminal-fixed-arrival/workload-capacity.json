@@ -1,0 +1,365 @@
+{
+  "fixed_arrival_feasibility_sha256": "4cb028626d1f1ada6409fd7f21eb2e48bc4ad22042ff846026d8138b26bb21df",
+  "target_100_loss_relative_to_200": 0.3,
+  "calibrated_resource_speeds": {
+    "R100_GB_s": [
+      8.972724656624326,
+      9.775807106658874
+    ],
+    "optimistic_decode_tokens_s": 989.1132698751511,
+    "optimistic_cold_tokens_s_per_P": 12465.790005421666,
+    "optimistic_warm_tokens_s_per_P": 24800,
+    "chunk_tokens": 4096
+  },
+  "fixed_mix": {
+    "nominal/forward": {
+      "output_tokens": 192774,
+      "finish_s": [
+        676.6128895395506,
+        657.849428716688
+      ],
+      "throughput_tokens_s": [
+        284.910327574733,
+        293.0366609515151
+      ],
+      "actual_100_loss": 0.02773145636588681,
+      "read_GB_by_cap_in_regular_window": [
+        4207.72364288,
+        7308.3805696
+      ],
+      "minimum_arrival_multiplier_for_30pct_if_byte_mix_fixed": 1.404209152394841,
+      "maximum_arrival_multiplier_before_200_wire_fills_if_byte_mix_fixed": 1.1318422174839065,
+      "maximum_steady_wire_100_loss_at_200_saturation_boundary_if_mix_fixed": 0.13155173796089203,
+      "steady_wire_100_loss_at_unchanged_offered_mix": 0.017053593323611338,
+      "high_to_low_rate_cost_at_high_bytes_s": 407.2553683124788,
+      "low_volume_reduction_equivalent_wire_s": 345.5647025155137,
+      "wire_time_cost_offset_fraction_by_volume": 0.8485209266790288,
+      "wire_time_gap_after_volume_feedback_s": 61.690665796965106
+    },
+    "nominal/reverse": {
+      "output_tokens": 192774,
+      "finish_s": [
+        654.0226292921926,
+        656.8841401538326
+      ],
+      "throughput_tokens_s": [
+        294.7512690938953,
+        293.4672771287417
+      ],
+      "actual_100_loss": -0.004375247481477551,
+      "read_GB_by_cap_in_regular_window": [
+        4388.95017984,
+        7341.33714944
+      ],
+      "minimum_arrival_multiplier_for_30pct_if_byte_mix_fixed": 1.4667180589694955,
+      "maximum_arrival_multiplier_before_200_wire_fills_if_byte_mix_fixed": 1.2276092625512642,
+      "maximum_steady_wire_100_loss_at_200_saturation_boundary_if_mix_fixed": 0.1636568144289542,
+      "steady_wire_100_loss_at_unchanged_offered_mix": 0.0,
+      "high_to_low_rate_cost_at_high_bytes_s": 375.4849635095288,
+      "low_volume_reduction_equivalent_wire_s": 302.0095361322091,
+      "wire_time_cost_offset_fraction_by_volume": 0.8043185892437072,
+      "wire_time_gap_after_volume_feedback_s": 73.4754273773197
+    },
+    "archive_ingress/forward": {
+      "output_tokens": 192774,
+      "finish_s": [
+        669.0792689304517,
+        658.2083776242893
+      ],
+      "throughput_tokens_s": [
+        288.1183276058702,
+        292.87685564834453
+      ],
+      "actual_100_loss": 0.01624753868632034,
+      "read_GB_by_cap_in_regular_window": [
+        4055.6904448,
+        7175.90560768
+      ],
+      "minimum_arrival_multiplier_for_30pct_if_byte_mix_fixed": 1.456847885828137,
+      "maximum_arrival_multiplier_before_200_wire_fills_if_byte_mix_fixed": 1.152737246328789,
+      "maximum_steady_wire_100_loss_at_200_saturation_boundary_if_mix_fixed": 0.11532873312846381,
+      "steady_wire_100_loss_at_unchanged_offered_mix": 0.0,
+      "high_to_low_rate_cost_at_high_bytes_s": 399.87327608354826,
+      "low_volume_reduction_equivalent_wire_s": 347.74444578285676,
+      "wire_time_cost_offset_fraction_by_volume": 0.8696366238543036,
+      "wire_time_gap_after_volume_feedback_s": 52.128830300691504
+    },
+    "archive_ingress/reverse": {
+      "output_tokens": 192774,
+      "finish_s": [
+        665.6274824351419,
+        656.8689281299798
+      ],
+      "throughput_tokens_s": [
+        289.61244102294665,
+        293.47407335707356
+      ],
+      "actual_100_loss": 0.013158342370599874,
+      "read_GB_by_cap_in_regular_window": [
+        4137.9282944,
+        7336.49125376
+      ],
+      "minimum_arrival_multiplier_for_30pct_if_byte_mix_fixed": 1.555694548259967,
+      "maximum_arrival_multiplier_before_200_wire_fills_if_byte_mix_fixed": 1.228420122431875,
+      "maximum_steady_wire_100_loss_at_200_saturation_boundary_if_mix_fixed": 0.11350671981330307,
+      "steady_wire_100_loss_at_unchanged_offered_mix": 0.0,
+      "high_to_low_rate_cost_at_high_bytes_s": 375.23711207244907,
+      "low_volume_reduction_equivalent_wire_s": 327.1917013564304,
+      "wire_time_cost_offset_fraction_by_volume": 0.8719598643890473,
+      "wire_time_gap_after_volume_feedback_s": 48.04541071601864
+    }
+  },
+  "fixed_KV_ready_decode_bounds": {
+    "nominal/forward/100": {
+      "last_D_KV_ready_s": 674.337625116763,
+      "earliest_finish_s_with_instant_generation_and_fixed_KV_ready": 674.337625116763,
+      "optimistic_earliest_finish_s_at_calibrated_decode_rates_and_fixed_KV_ready": 676.3961800445744,
+      "max_saving_from_any_faster_decode_if_KV_ready_unchanged_s": 2.2752644227875862,
+      "max_saving_from_perfect_batching_at_calibrated_rate_if_KV_ready_unchanged_s": 0.21670949497615766
+    },
+    "nominal/forward/200": {
+      "last_D_KV_ready_s": 656.0365434372225,
+      "earliest_finish_s_with_instant_generation_and_fixed_KV_ready": 656.0365434372225,
+      "optimistic_earliest_finish_s_at_calibrated_decode_rates_and_fixed_KV_ready": 657.4179645168126,
+      "max_saving_from_any_faster_decode_if_KV_ready_unchanged_s": 1.8128852794654904,
+      "max_saving_from_perfect_batching_at_calibrated_rate_if_KV_ready_unchanged_s": 0.4314641998753359
+    },
+    "archive_ingress/forward/100": {
+      "last_D_KV_ready_s": 667.5889673686463,
+      "earliest_finish_s_with_instant_generation_and_fixed_KV_ready": 667.5889673686463,
+      "optimistic_earliest_finish_s_at_calibrated_decode_rates_and_fixed_KV_ready": 668.9703884482365,
+      "max_saving_from_any_faster_decode_if_KV_ready_unchanged_s": 1.4903015618053814,
+      "max_saving_from_perfect_batching_at_calibrated_rate_if_KV_ready_unchanged_s": 0.10888048221522695
+    },
+    "archive_ingress/forward/200": {
+      "last_D_KV_ready_s": 656.4406829001948,
+      "earliest_finish_s_with_instant_generation_and_fixed_KV_ready": 656.4406829001948,
+      "optimistic_earliest_finish_s_at_calibrated_decode_rates_and_fixed_KV_ready": 657.822103979785,
+      "max_saving_from_any_faster_decode_if_KV_ready_unchanged_s": 1.76769472409444,
+      "max_saving_from_perfect_batching_at_calibrated_rate_if_KV_ready_unchanged_s": 0.3862736445042856
+    },
+    "nominal/reverse/200": {
+      "last_D_KV_ready_s": 655.2651458626586,
+      "earliest_finish_s_with_instant_generation_and_fixed_KV_ready": 655.2651458626586,
+      "optimistic_earliest_finish_s_at_calibrated_decode_rates_and_fixed_KV_ready": 656.530854802231,
+      "max_saving_from_any_faster_decode_if_KV_ready_unchanged_s": 1.6189942911739763,
+      "max_saving_from_perfect_batching_at_calibrated_rate_if_KV_ready_unchanged_s": 0.3532853516015848
+    },
+    "nominal/reverse/100": {
+      "last_D_KV_ready_s": 652.644118616422,
+      "earliest_finish_s_with_instant_generation_and_fixed_KV_ready": 652.644118616422,
+      "optimistic_earliest_finish_s_at_calibrated_decode_rates_and_fixed_KV_ready": 653.9098275559944,
+      "max_saving_from_any_faster_decode_if_KV_ready_unchanged_s": 1.378510675770599,
+      "max_saving_from_perfect_batching_at_calibrated_rate_if_KV_ready_unchanged_s": 0.11280173619820744
+    },
+    "archive_ingress/reverse/200": {
+      "last_D_KV_ready_s": 655.2497589216571,
+      "earliest_finish_s_with_instant_generation_and_fixed_KV_ready": 655.2497589216571,
+      "optimistic_earliest_finish_s_at_calibrated_decode_rates_and_fixed_KV_ready": 656.5154678612295,
+      "max_saving_from_any_faster_decode_if_KV_ready_unchanged_s": 1.6191692083227736,
+      "max_saving_from_perfect_batching_at_calibrated_rate_if_KV_ready_unchanged_s": 0.35346026875038206
+    },
+    "archive_ingress/reverse/100": {
+      "last_D_KV_ready_s": 664.2291816682526,
+      "earliest_finish_s_with_instant_generation_and_fixed_KV_ready": 664.2291816682526,
+      "optimistic_earliest_finish_s_at_calibrated_decode_rates_and_fixed_KV_ready": 665.5089522584113,
+      "max_saving_from_any_faster_decode_if_KV_ready_unchanged_s": 1.3983007668892924,
+      "max_saving_from_perfect_batching_at_calibrated_rate_if_KV_ready_unchanged_s": 0.1185301767305873
+    }
+  },
+  "benchmark_prefilter": {
+    "bailian_coder": {
+      "url": "https://media.githubusercontent.com/media/alibaba-edu/qwen-bailian-usagetraces-anon/0b4273a1d8a83935b9d9356e78f95c31f2ac64cf/qwen_coder_blksz_16.jsonl",
+      "source_sha256": "3d74974cebb7bccb69b1ca6ea210a44d9a3033443c0271ed015327284dea1aff",
+      "source_block_tokens": 16,
+      "compatible": 43011,
+      "excluded": 0,
+      "has_original_timestamps": true,
+      "prompt_tokens_p50_p90_p99": [
+        4540,
+        12776,
+        14407
+      ],
+      "output_tokens_p50_p90_p99": [
+        469,
+        1789,
+        5843
+      ],
+      "whole_trace_reference_output": 34763950,
+      "whole_trace_matched_input_tokens": 149012480,
+      "whole_trace_minimum_prefill_tokens": 98199949,
+      "whole_trace_Qwen_natural_EOS_available": false,
+      "whole_trace_all_prompt_GET_upper_MB_per_output": 0.32985191525358887,
+      "whole_trace_optimistic_balanced_mix": {
+        "optimistic_output_tokens_s": 989.1132698751511,
+        "potential_GET_GB_s": 0.21338716201681845,
+        "potential_GET_MB_per_output_token": 0.2157358196637609,
+        "ideal_high_throughput_for_30pct_at_best_R100": 59416.08630810547
+      },
+      "best_original_clock_windows": {
+        "60": {
+          "optimistic_output_tokens_s": 989.1132698751511,
+          "potential_GET_GB_s": 0.3799904144917653,
+          "potential_GET_MB_per_output_token": 0.3841728000876268,
+          "ideal_high_throughput_for_30pct_at_best_R100": 33365.65753215264,
+          "source_start_s": 7138.319,
+          "output_tokens": 146074,
+          "potential_GET_GB": 56.1176576,
+          "minimum_total_P_compute_s": 40.15178837930489,
+          "rows": 289
+        },
+        "120": {
+          "optimistic_output_tokens_s": 989.1132698751511,
+          "potential_GET_GB_s": 0.3318745396519078,
+          "potential_GET_MB_per_output_token": 0.33552733519973704,
+          "ideal_high_throughput_for_30pct_at_best_R100": 38203.081347340376,
+          "source_start_s": 7077.533,
+          "output_tokens": 428989,
+          "potential_GET_GB": 143.937536,
+          "minimum_total_P_compute_s": 94.43025618832871,
+          "rows": 746
+        }
+      }
+    },
+    "dynamo_agentic": {
+      "url": "https://media.githubusercontent.com/media/ai-dynamo/dynamo/66a95d5aa3b5d238fd94b6f8243c4e479cb7242c/recipes/kimi-k2.6/perf/traces/64k_400_90kv_agent_new_noschedule_short_15perc.jsonl",
+      "source_sha256": "f20d3f2bc83dd1306cda659fbe34e7c4d85ca5497626c98bc0b1c4d2211379d0",
+      "source_block_tokens": 512,
+      "compatible": 3410,
+      "excluded": 131,
+      "has_original_timestamps": false,
+      "prompt_tokens_p50_p90_p99": [
+        67585,
+        73252,
+        208632
+      ],
+      "output_tokens_p50_p90_p99": [
+        372,
+        6756,
+        11278
+      ],
+      "whole_trace_reference_output": 7838086,
+      "whole_trace_matched_input_tokens": 165037056,
+      "whole_trace_minimum_prefill_tokens": 8933789,
+      "whole_trace_Qwen_natural_EOS_available": false,
+      "whole_trace_all_prompt_GET_upper_MB_per_output": 0.9318491947345309,
+      "whole_trace_optimistic_balanced_mix": {
+        "optimistic_output_tokens_s": 989.1132698751511,
+        "potential_GET_GB_s": 0.8807636132698079,
+        "potential_GET_MB_per_output_token": 0.8904577868831752,
+        "ideal_high_throughput_for_30pct_at_best_R100": 14395.042942752762
+      },
+      "best_original_clock_windows": null
+    },
+    "agentx_256k_aggregate_only": {
+      "source": "https://huggingface.co/datasets/semianalysisai/cc-traces-weka-062126-256k/blob/main/README.md",
+      "requests": 68266,
+      "prompt_tokens": 6891228864,
+      "output_tokens": 58728807,
+      "optimistic_all_input_GET_MB_per_output_token": 4.881085391967182,
+      "optimistic_all_input_GET_GB_s_at_D_ceiling": 4.827946332588493
+    },
+    "agentx_256k_session_screen": {
+      "url": "https://huggingface.co/datasets/semianalysisai/cc-traces-weka-062126-256k/resolve/8fecd2fc56694469f758f0afbbb6335ad3043740/traces.jsonl",
+      "source_sha256": "e39cd2ff3eba21d4a3664be51da743ac3d2149a1933898cafc7bfeac8147eeef",
+      "observed_requests": 68266,
+      "observed_source_output": 58728807,
+      "sessions_with_compatible_work": 393,
+      "optimistic_sessions_above_best_R100_threshold": 9,
+      "optimistic_sessions_above_worst_R100_threshold": 5,
+      "potential_GET_GB_s_p50_p90_p99": [
+        4.396844372754372,
+        8.222984218818258,
+        15.566663428862956
+      ],
+      "best_five_whole_sessions": [
+        {
+          "optimistic_output_tokens_s": 989.1132698751511,
+          "potential_GET_GB_s": 22.095405223167806,
+          "potential_GET_MB_per_output_token": 22.338599527591775,
+          "ideal_high_throughput_for_30pct_at_best_R100": 573.812967328564,
+          "session": "c46ba0cc37132f9a7885c7d222ef104b68cc",
+          "requests": 1970,
+          "output_tokens": 611251,
+          "potential_GET_GB": 13654.49129984,
+          "recorded_span_s": 41705.581,
+          "prior_observed_prefix_potential_GET_GB": 13543.67483904,
+          "peak_potential_GET_GB_at_observed_offsets": {
+            "60": 197.9031552,
+            "120": 351.58949888
+          }
+        },
+        {
+          "optimistic_output_tokens_s": 989.1132698751511,
+          "potential_GET_GB_s": 17.835157944851453,
+          "potential_GET_MB_per_output_token": 18.031461601058755,
+          "ideal_high_throughput_for_30pct_at_best_R100": 710.8784836465642,
+          "session": "1c4f3018d336b1bf78434d328001bc7bbe49",
+          "requests": 72,
+          "output_tokens": 32491,
+          "potential_GET_GB": 585.86021888,
+          "recorded_span_s": 16298.722,
+          "prior_observed_prefix_potential_GET_GB": 576.73613312,
+          "peak_potential_GET_GB_at_observed_offsets": {
+            "60": 54.49285632,
+            "120": 90.06645248
+          }
+        },
+        {
+          "optimistic_output_tokens_s": 989.1132698751511,
+          "potential_GET_GB_s": 17.44778385632834,
+          "potential_GET_MB_per_output_token": 17.639823858121577,
+          "ideal_high_throughput_for_30pct_at_best_R100": 726.6613421987352,
+          "session": "12e6fd87f4d3d1f93f96bd7bb6a520043805",
+          "requests": 94,
+          "output_tokens": 43643,
+          "potential_GET_GB": 769.85483264,
+          "recorded_span_s": 19208.547,
+          "prior_observed_prefix_potential_GET_GB": 759.3885696,
+          "peak_potential_GET_GB_at_observed_offsets": {
+            "60": 62.08454656,
+            "120": 88.576
+          }
+        },
+        {
+          "optimistic_output_tokens_s": 989.1132698751511,
+          "potential_GET_GB_s": 15.566663428862956,
+          "potential_GET_MB_per_output_token": 15.737998774223122,
+          "ideal_high_throughput_for_30pct_at_best_R100": 814.4731909552864,
+          "session": "9709e5e7e6397448a359dcbc99c917e0e40d",
+          "requests": 177,
+          "output_tokens": 71987,
+          "potential_GET_GB": 1132.93131776,
+          "recorded_span_s": 58022.944,
+          "prior_observed_prefix_potential_GET_GB": 1124.56220672,
+          "peak_potential_GET_GB_at_observed_offsets": {
+            "60": 34.25386496,
+            "120": 56.19892224
+          }
+        },
+        {
+          "optimistic_output_tokens_s": 989.1132698751511,
+          "potential_GET_GB_s": 14.298707511370168,
+          "potential_GET_MB_per_output_token": 14.456087029521901,
+          "ideal_high_throughput_for_30pct_at_best_R100": 886.6976281143642,
+          "session": "fdd96c30a6d09d41fe63078cf1a857c89601",
+          "requests": 36,
+          "output_tokens": 11483,
+          "potential_GET_GB": 165.99924736,
+          "recorded_span_s": 17319.513,
+          "prior_observed_prefix_potential_GET_GB": 159.64340224,
+          "peak_potential_GET_GB_at_observed_offsets": {
+            "60": 54.43436544,
+            "120": 54.43436544
+          }
+        }
+      ],
+      "nested_times_interpreted_as_relative": false,
+      "sum_of_five_per_session_peaks_GB_upper_bound_for_any_root_offsets": {
+        "60": 403.16878848,
+        "120": 640.86523904
+      },
+      "screen_scope": "Published 256k variant including branches. Matching peers may publish in any order. Peak calibrated P/D budget and source output counts, no routing or physical residency assumed. Timed peak sums permit perfect alignment of five independent roots. They retain within-session observed offsets and require prior reported prefix evidence."
+    }
+  }
+}

@@ -1,0 +1,4729 @@
+{
+  "source_repo": "openguardrails/terminal-bench-2.1-deepseek-v4-flash-trajectories",
+  "source_revision": "3f5b93ff1c5ea84b2c94cf479d0c942227191b4a",
+  "ledger_sha256": "24873461882ce61d0c424062c4751abb69ecdab3e0c8874213138f5025ceaa43",
+  "eos_receipt_sha256": "7a7928e24a5d5518008d38eeb27662b83b7f66f85c69aa7bd1630238ae5b2697",
+  "baseline_revision": "5d591893ca8c7adc03c797068b44ad43dad27398",
+  "scope": "CPU constructed workload using exact Terminal-Bench snapshot fingerprints and observed natural EOS lengths. Fixed per-domain cache salts separate independent copies of unchanged prompts. Each request is an independent replay of its complete source prompt history. Cold preparation is timed.",
+  "design": {
+    "effective_100_GB_s": [
+      8.972724656624326,
+      9.775807106658874
+    ],
+    "target_offered_GB_s_if_both_P_need_GET": 15.9714498887913,
+    "cold_end_s": {
+      "forward": 266.3321611887589,
+      "reverse": 269.32642720115985
+    },
+    "pressure_start_s": 272,
+    "ideal_pressure_wave_100_loss": 0.38791987109952386,
+    "full_network_work_GB_per_cycle": 272.6674432,
+    "estimated_work_for_30pct_GB": 9239.885823351164,
+    "cycles": 36,
+    "num_domains": 27,
+    "working_set_attention_pages": 3209,
+    "P_capacity_pages": 3021,
+    "Store_capacity_GiB": 128.0,
+    "Store_dense_fit_GB": 136.17250304,
+    "ordered_sources": [
+      {
+        "key": "caffe-cifar-10:103",
+        "task": "caffe-cifar-10",
+        "prompt": 120551,
+        "output": 111,
+        "body_bytes": 492115,
+        "prompt_sha256": "dc5b3ccb326fc8811f3e3c6f8c456a2c05825bd3a837b805b38bec9c88c53a4c",
+        "eos_reference_count": 81
+      },
+      {
+        "key": "extract-moves-from-video:110",
+        "task": "extract-moves-from-video",
+        "prompt": 115906,
+        "output": 143,
+        "body_bytes": 474591,
+        "prompt_sha256": "cb5731af5dcb04e91e6ae060df72e57724f299a56098debb4af1c64bbc2140c5",
+        "eos_reference_count": 9
+      },
+      {
+        "key": "make-doom-for-mips:104",
+        "task": "make-doom-for-mips",
+        "prompt": 116762,
+        "output": 101,
+        "body_bytes": 505079,
+        "prompt_sha256": "a2fbed15c698e833ae624bd50872f8c50c64fe0efa2727e9009a24ccfbfc59e3",
+        "eos_reference_count": 31
+      },
+      {
+        "key": "make-mips-interpreter:87",
+        "task": "make-mips-interpreter",
+        "prompt": 131436,
+        "output": 139,
+        "body_bytes": 531188,
+        "prompt_sha256": "378fa6f79bf2c9d5f6221ac7937babc8c4cebb93017e77170d97351d40a74537",
+        "eos_reference_count": 57
+      },
+      {
+        "key": "path-tracing:49",
+        "task": "path-tracing",
+        "prompt": 117823,
+        "output": 164,
+        "body_bytes": 428728,
+        "prompt_sha256": "0f9f9510a41b404897e159d864af05af1293a1f69cbd891c71b904d00e0895f0",
+        "eos_reference_count": 33
+      },
+      {
+        "key": "path-tracing-reverse:89",
+        "task": "path-tracing-reverse",
+        "prompt": 147050,
+        "output": 90,
+        "body_bytes": 559549,
+        "prompt_sha256": "91742b23a8bac7512cf6018a1a3da21e69f284c6d8b5c302226fe9fa532ba917",
+        "eos_reference_count": 23
+      },
+      {
+        "key": "regex-chess:56",
+        "task": "regex-chess",
+        "prompt": 110810,
+        "output": 120,
+        "body_bytes": 457569,
+        "prompt_sha256": "bc5c50fc9037c579705173bdc51dc3916a99221b1c46da337f6aeb08e7d417f6",
+        "eos_reference_count": 21
+      },
+      {
+        "key": "caffe-cifar-10:103",
+        "task": "caffe-cifar-10",
+        "prompt": 120551,
+        "output": 111,
+        "body_bytes": 492115,
+        "prompt_sha256": "dc5b3ccb326fc8811f3e3c6f8c456a2c05825bd3a837b805b38bec9c88c53a4c",
+        "eos_reference_count": 81
+      },
+      {
+        "key": "extract-moves-from-video:110",
+        "task": "extract-moves-from-video",
+        "prompt": 115906,
+        "output": 143,
+        "body_bytes": 474591,
+        "prompt_sha256": "cb5731af5dcb04e91e6ae060df72e57724f299a56098debb4af1c64bbc2140c5",
+        "eos_reference_count": 9
+      },
+      {
+        "key": "make-doom-for-mips:104",
+        "task": "make-doom-for-mips",
+        "prompt": 116762,
+        "output": 101,
+        "body_bytes": 505079,
+        "prompt_sha256": "a2fbed15c698e833ae624bd50872f8c50c64fe0efa2727e9009a24ccfbfc59e3",
+        "eos_reference_count": 31
+      },
+      {
+        "key": "make-mips-interpreter:87",
+        "task": "make-mips-interpreter",
+        "prompt": 131436,
+        "output": 139,
+        "body_bytes": 531188,
+        "prompt_sha256": "378fa6f79bf2c9d5f6221ac7937babc8c4cebb93017e77170d97351d40a74537",
+        "eos_reference_count": 57
+      },
+      {
+        "key": "path-tracing:49",
+        "task": "path-tracing",
+        "prompt": 117823,
+        "output": 164,
+        "body_bytes": 428728,
+        "prompt_sha256": "0f9f9510a41b404897e159d864af05af1293a1f69cbd891c71b904d00e0895f0",
+        "eos_reference_count": 33
+      },
+      {
+        "key": "path-tracing-reverse:89",
+        "task": "path-tracing-reverse",
+        "prompt": 147050,
+        "output": 90,
+        "body_bytes": 559549,
+        "prompt_sha256": "91742b23a8bac7512cf6018a1a3da21e69f284c6d8b5c302226fe9fa532ba917",
+        "eos_reference_count": 23
+      },
+      {
+        "key": "regex-chess:56",
+        "task": "regex-chess",
+        "prompt": 110810,
+        "output": 120,
+        "body_bytes": 457569,
+        "prompt_sha256": "bc5c50fc9037c579705173bdc51dc3916a99221b1c46da337f6aeb08e7d417f6",
+        "eos_reference_count": 21
+      },
+      {
+        "key": "caffe-cifar-10:103",
+        "task": "caffe-cifar-10",
+        "prompt": 120551,
+        "output": 111,
+        "body_bytes": 492115,
+        "prompt_sha256": "dc5b3ccb326fc8811f3e3c6f8c456a2c05825bd3a837b805b38bec9c88c53a4c",
+        "eos_reference_count": 81
+      },
+      {
+        "key": "extract-moves-from-video:110",
+        "task": "extract-moves-from-video",
+        "prompt": 115906,
+        "output": 143,
+        "body_bytes": 474591,
+        "prompt_sha256": "cb5731af5dcb04e91e6ae060df72e57724f299a56098debb4af1c64bbc2140c5",
+        "eos_reference_count": 9
+      },
+      {
+        "key": "make-doom-for-mips:104",
+        "task": "make-doom-for-mips",
+        "prompt": 116762,
+        "output": 101,
+        "body_bytes": 505079,
+        "prompt_sha256": "a2fbed15c698e833ae624bd50872f8c50c64fe0efa2727e9009a24ccfbfc59e3",
+        "eos_reference_count": 31
+      },
+      {
+        "key": "make-mips-interpreter:87",
+        "task": "make-mips-interpreter",
+        "prompt": 131436,
+        "output": 139,
+        "body_bytes": 531188,
+        "prompt_sha256": "378fa6f79bf2c9d5f6221ac7937babc8c4cebb93017e77170d97351d40a74537",
+        "eos_reference_count": 57
+      },
+      {
+        "key": "path-tracing:49",
+        "task": "path-tracing",
+        "prompt": 117823,
+        "output": 164,
+        "body_bytes": 428728,
+        "prompt_sha256": "0f9f9510a41b404897e159d864af05af1293a1f69cbd891c71b904d00e0895f0",
+        "eos_reference_count": 33
+      },
+      {
+        "key": "path-tracing-reverse:89",
+        "task": "path-tracing-reverse",
+        "prompt": 147050,
+        "output": 90,
+        "body_bytes": 559549,
+        "prompt_sha256": "91742b23a8bac7512cf6018a1a3da21e69f284c6d8b5c302226fe9fa532ba917",
+        "eos_reference_count": 23
+      },
+      {
+        "key": "regex-chess:56",
+        "task": "regex-chess",
+        "prompt": 110810,
+        "output": 120,
+        "body_bytes": 457569,
+        "prompt_sha256": "bc5c50fc9037c579705173bdc51dc3916a99221b1c46da337f6aeb08e7d417f6",
+        "eos_reference_count": 21
+      },
+      {
+        "key": "caffe-cifar-10:103",
+        "task": "caffe-cifar-10",
+        "prompt": 120551,
+        "output": 111,
+        "body_bytes": 492115,
+        "prompt_sha256": "dc5b3ccb326fc8811f3e3c6f8c456a2c05825bd3a837b805b38bec9c88c53a4c",
+        "eos_reference_count": 81
+      },
+      {
+        "key": "extract-moves-from-video:110",
+        "task": "extract-moves-from-video",
+        "prompt": 115906,
+        "output": 143,
+        "body_bytes": 474591,
+        "prompt_sha256": "cb5731af5dcb04e91e6ae060df72e57724f299a56098debb4af1c64bbc2140c5",
+        "eos_reference_count": 9
+      },
+      {
+        "key": "make-doom-for-mips:104",
+        "task": "make-doom-for-mips",
+        "prompt": 116762,
+        "output": 101,
+        "body_bytes": 505079,
+        "prompt_sha256": "a2fbed15c698e833ae624bd50872f8c50c64fe0efa2727e9009a24ccfbfc59e3",
+        "eos_reference_count": 31
+      },
+      {
+        "key": "make-mips-interpreter:87",
+        "task": "make-mips-interpreter",
+        "prompt": 131436,
+        "output": 139,
+        "body_bytes": 531188,
+        "prompt_sha256": "378fa6f79bf2c9d5f6221ac7937babc8c4cebb93017e77170d97351d40a74537",
+        "eos_reference_count": 57
+      },
+      {
+        "key": "path-tracing:49",
+        "task": "path-tracing",
+        "prompt": 117823,
+        "output": 164,
+        "body_bytes": 428728,
+        "prompt_sha256": "0f9f9510a41b404897e159d864af05af1293a1f69cbd891c71b904d00e0895f0",
+        "eos_reference_count": 33
+      },
+      {
+        "key": "regex-chess:56",
+        "task": "regex-chess",
+        "prompt": 110810,
+        "output": 120,
+        "body_bytes": 457569,
+        "prompt_sha256": "bc5c50fc9037c579705173bdc51dc3916a99221b1c46da337f6aeb08e7d417f6",
+        "eos_reference_count": 21
+      }
+    ],
+    "requests": 1998,
+    "fit_control_aliases": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "5": 5,
+      "6": 6,
+      "7": 0,
+      "8": 1,
+      "9": 2,
+      "10": 3,
+      "11": 4,
+      "12": 12,
+      "13": 13,
+      "14": 14,
+      "15": 15,
+      "16": 16,
+      "17": 17,
+      "18": 18,
+      "19": 19,
+      "20": 20,
+      "21": 21,
+      "22": 22,
+      "23": 23,
+      "24": 24,
+      "25": 25,
+      "26": 26
+    }
+  },
+  "models": {
+    "forward": {
+      "service": {
+        "shares": [
+          0.11827091187140638,
+          0.1455577124112663,
+          0.12028486761106179,
+          0.11168186784936034,
+          0.11874194234489979,
+          0.12489112610786461,
+          0.1073293792015991,
+          0.1532421926025417
+        ],
+        "decode_first_s": 0.01534912310655682,
+        "decode_add_s": 0.0011335391113483672,
+        "cold_tokens_s": 12465.790005421666,
+        "ingress_base_s": 0.006145089003484275,
+        "ingress_s_per_byte": 4.996719485769583e-08,
+        "body_bytes_per_token": 4.12420475216543,
+        "get_width": 4,
+        "get_setup_s": 0.03,
+        "first_admission_s": 0.45,
+        "rail_efficiency": 0.88,
+        "warm_tokens_s": 24800,
+        "chunk_tokens": 4096,
+        "slots": 16,
+        "p_pages": 3021,
+        "d_pages": 3021,
+        "store_bytes": 137438953472,
+        "checkpoint_stride": 1,
+        "decode_ingress_s": 0.09,
+        "pull_setup_s": 0.04,
+        "pull_GB_s": 80,
+        "put_setup_s": 0.01,
+        "put_GB_s_per_P": 37.5,
+        "release_suffix_first": true
+      },
+      "decode_archive": "2026-11-22-r73-terminal-source-restore-expanded",
+      "decode_trace_sha256": "457a056addf78417069ada059ff56760cd6cee8f487b07408d3bfc1f84e34ed0",
+      "decode_fit": {
+        "first_sequence_period_s": 0.01534912310655682,
+        "additional_sequence_period_s": 0.0011335391113483672,
+        "samples": 80,
+        "observed_mean_width": [
+          0.9060623519280832,
+          14.867427855580372
+        ],
+        "median_fit_error_ms": 0.7226896444600563
+      },
+      "prefill_and_rail_archive": "2026-11-22-r73-terminal-source-restore-expanded",
+      "prefill_and_rail_case": "b2-cap200",
+      "prefill_and_rail_trace_sha256": "457a056addf78417069ada059ff56760cd6cee8f487b07408d3bfc1f84e34ed0",
+      "ingress_source": "2026-11-22-r78-terminal-source-restore-stable-tail"
+    },
+    "reverse": {
+      "service": {
+        "shares": [
+          0.11374393226647848,
+          0.12136185773804083,
+          0.12801945777515972,
+          0.12390558050411812,
+          0.13188657438268392,
+          0.140653348107023,
+          0.12443158586130357,
+          0.11599766336519242
+        ],
+        "decode_first_s": 0.014063432661915495,
+        "decode_add_s": 0.0012533526244249624,
+        "cold_tokens_s": 12320.79519010355,
+        "ingress_base_s": 0.006145089003484275,
+        "ingress_s_per_byte": 4.996719485769583e-08,
+        "body_bytes_per_token": 4.12420475216543,
+        "get_width": 3,
+        "get_setup_s": 0.03,
+        "first_admission_s": 0.45,
+        "rail_efficiency": 0.88,
+        "warm_tokens_s": 24800,
+        "chunk_tokens": 4096,
+        "slots": 16,
+        "p_pages": 3021,
+        "d_pages": 3021,
+        "store_bytes": 137438953472,
+        "checkpoint_stride": 1,
+        "decode_ingress_s": 0.09,
+        "pull_setup_s": 0.04,
+        "pull_GB_s": 80,
+        "put_setup_s": 0.01,
+        "put_GB_s_per_P": 37.5,
+        "release_suffix_first": true
+      },
+      "decode_archive": "2026-11-22-r75-terminal-source-restore-pilot",
+      "decode_trace_sha256": "607dcde89bc4eb0d14a5a6646d769a4eaefbf270b55a83110b5f386b6d9c004d",
+      "decode_fit": {
+        "first_sequence_period_s": 0.014063432661915495,
+        "additional_sequence_period_s": 0.0012533526244249624,
+        "samples": 359,
+        "observed_mean_width": [
+          0.9236228291722395,
+          16.0
+        ],
+        "median_fit_error_ms": 0.5823936310921756
+      },
+      "prefill_and_rail_archive": "2026-11-22-r76-terminal-source-restore-density-measured",
+      "prefill_and_rail_case": "b2-cap200",
+      "prefill_and_rail_trace_sha256": "587483e962ed049e9b60d5830e307541e1abfc92786feaacd45000574ed636a4",
+      "ingress_source": "2026-11-22-r78-terminal-source-restore-stable-tail"
+    }
+  },
+  "nominal": {
+    "forward": {
+      "arms": {
+        "100": {
+          "requests": 1998,
+          "output_tokens": 250268,
+          "finish_s": 888.5139970337012,
+          "throughput_tokens_s": 281.6702953870375,
+          "GET_GB": 1970.30412288,
+          "GET_MB_per_output": 7.87277687471031,
+          "D_to_P_GB_by_port": [
+            233.0296652770112,
+            286.7929608809019,
+            236.9977705741521,
+            220.04724467453596,
+            233.9577385609374,
+            246.07350068145385,
+            211.47151834706352,
+            301.93372388396165
+          ],
+          "cache": {
+            "P_local_pages": 184671,
+            "P_external_pages": 46377,
+            "P_lookup_pages": 237466,
+            "P_computed_tokens": 7185196,
+            "P_adjacent_local_pages": 184671,
+            "P_adjacent_store_pages": 46377,
+            "P_adjacent_eviction_pages": 0,
+            "P_store_capacity_lost_pages": 0,
+            "GET_bytes": 1970304122880,
+            "GET_states": 1170,
+            "D_local_pages": 197543,
+            "P_to_D_bytes": 1801177333760,
+            "store_hit_requests": 390,
+            "adjacent_pages": 237466,
+            "P_missed_lookup_pages": 52795,
+            "P_novel_lookup_pages": 6418,
+            "adjacent_not_yet_seen_or_not_compatible_pages": 6418,
+            "Store_peak_GB": 136.17250304,
+            "Store_evicted_objects": 0,
+            "Store_evicted_GB": 0.0,
+            "Store_failed_puts": 0,
+            "Store_committed_GB": 136.17250304,
+            "P_to_D_Store_put_GB": 272.3450060799926,
+            "P_HBM_evicted_pages": [
+              21509,
+              24367
+            ],
+            "D_HBM_evicted_pages": [
+              13204,
+              15580
+            ]
+          },
+          "stage": {
+            "D_mean_active_area": 4857.992097269041,
+            "both_D_full_s": 10.418371937171287,
+            "any_D_running_s": 653.0742512007137,
+            "no_P_work_or_D_active_or_waiting_s": 5.906140930862357,
+            "D_egress_wire_busy_s": 219.5881628246994,
+            "D_active_seq_s_while_GET": 1484.9771375286844,
+            "both_D_full_while_GET_s": 4.062873654919088,
+            "both_D_idle_with_GET_and_no_D_queue_s": 14.010751747875702,
+            "one_or_more_D_idle_with_GET_and_no_local_D_queue_s": 20.213209699606068,
+            "mean_D_sequences_while_GET": 6.762555496737611,
+            "longest_continuous_D_egress_wire_s": 30.29031311680194,
+            "P_compute_wall_s_by_instance": [
+              276.3813182149839,
+              276.20962466659665
+            ],
+            "P_synchronous_GET_wall_s_by_instance": [
+              144.39393274448554,
+              159.24846347989194
+            ],
+            "D_sequence_slots_peak": [
+              16,
+              16
+            ],
+            "D_busy_fraction_of_peak_sequence_slots": 0.17086084580150884
+          },
+          "peak_D_to_P_aggregate_Gbps": {
+            "1": 71.78179725299469,
+            "10": 71.78179725299461,
+            "30": 71.78179725299461,
+            "120": 52.133756928000004
+          },
+          "peak_1s_D_to_P_port_Gbps": [
+            8.489698616880105,
+            10.448394200915232,
+            8.63426397946057,
+            8.016725194798596,
+            8.523510030828447,
+            8.964909492972993,
+            7.7042957371389775,
+            11.0
+          ],
+          "D_to_P_hot_port_floor_Gbps": 10.625,
+          "own_GET_wait_p50_p95_s": [
+            0.6055126450346506,
+            4.476770233393722
+          ],
+          "tail_session": {
+            "session": "restore-035-25-0",
+            "turns": 1,
+            "phases_s": {
+              "tool_gap_s": 0.0,
+              "P_ingress_s": 0.02756742452038452,
+              "P_queue_s": 0.0,
+              "P_own_GET_s": 0.0,
+              "P_compute_s": 0.002540322580645161,
+              "P_other_or_cohort_s": 0.002540322580697384,
+              "D_alloc_from_P_reply_s": 0.09000000000003183,
+              "P_to_D_pull_s": 0.10108569599992734,
+              "D_generation_s": 2.8792159869890384,
+              "first_turn_plan_s": 885.4110472810305,
+              "planned_release_wait_s": 0
+            }
+          },
+          "last_P_reply_s": 886.060918142246,
+          "drain_after_last_P_reply_s": 2.4530788914552204,
+          "pressure": {
+            "start_s": 272,
+            "last_P_reply_minus_start_s": 614.060918142246,
+            "GET_wire_busy_s": 219.5881628246994,
+            "GET_wire_fraction_of_pressure_phase": 0.35759996498235413,
+            "D_to_P_peak_30s_Gbps": 71.78179725299461,
+            "mean_D_running_sequences": 7.719193245666811,
+            "GET_GB_by_cycle": [
+              54.711418880000004,
+              270.06697471999996,
+              217.7687552,
+              137.42424064,
+              30.291722240000002,
+              28.90760192,
+              37.40254208,
+              44.15832064,
+              40.48683008,
+              35.76676352,
+              45.7940992,
+              41.95483648,
+              38.89299456,
+              41.19986176,
+              41.954836480000004,
+              40.36100096,
+              45.7940992,
+              40.486830080000004,
+              35.76676352,
+              44.3260928,
+              40.48683008,
+              35.76676352,
+              45.7940992,
+              41.95483648,
+              38.89299456,
+              41.19986176,
+              41.954836480000004,
+              40.36100096,
+              45.7940992,
+              40.486830080000004,
+              35.76676352,
+              44.3260928,
+              40.48683008,
+              35.76676352,
+              45.7940992,
+              41.95483648
+            ],
+            "both_P_admission_pairs": 810,
+            "total_pairs": 972,
+            "P_queue_by_tenth_p95_s": [
+              25.569565803859575,
+              17.081481378376793,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "P_queue_p95_s": 14.910031146798133
+          }
+        },
+        "200": {
+          "requests": 1998,
+          "output_tokens": 250268,
+          "finish_s": 889.0438330710437,
+          "throughput_tokens_s": 281.5024306906148,
+          "GET_GB": 9598.07193088,
+          "GET_MB_per_output": 38.35117526363738,
+          "D_to_P_GB_by_port": [
+            1135.172719472545,
+            1397.0733938176998,
+            1154.5028115273665,
+            1071.9306009932113,
+            1139.6937038387714,
+            1198.714011911908,
+            1030.1551018736598,
+            1470.8295874449846
+          ],
+          "cache": {
+            "P_local_pages": 5132,
+            "P_external_pages": 225916,
+            "P_lookup_pages": 237466,
+            "P_computed_tokens": 7185196,
+            "P_adjacent_local_pages": 5132,
+            "P_adjacent_store_pages": 225916,
+            "P_adjacent_eviction_pages": 0,
+            "P_store_capacity_lost_pages": 0,
+            "GET_bytes": 9598071930880,
+            "GET_states": 5706,
+            "D_local_pages": 30876,
+            "P_to_D_bytes": 8791697981440,
+            "store_hit_requests": 1902,
+            "adjacent_pages": 237466,
+            "P_missed_lookup_pages": 232334,
+            "P_novel_lookup_pages": 6418,
+            "adjacent_not_yet_seen_or_not_compatible_pages": 6418,
+            "Store_peak_GB": 136.17250304,
+            "Store_evicted_objects": 0,
+            "Store_evicted_GB": 0.0,
+            "Store_failed_puts": 0,
+            "Store_committed_GB": 136.17250304,
+            "P_to_D_Store_put_GB": 272.3450060799926,
+            "P_HBM_evicted_pages": [
+              113148,
+              113148
+            ],
+            "D_HBM_evicted_pages": [
+              100279,
+              100279
+            ]
+          },
+          "stage": {
+            "D_mean_active_area": 4589.258333462418,
+            "both_D_full_s": 0.0,
+            "any_D_running_s": 668.7630804688986,
+            "no_P_work_or_D_active_or_waiting_s": 5.906140930862357,
+            "D_egress_wire_busy_s": 534.8471227072672,
+            "D_active_seq_s_while_GET": 3932.83348520224,
+            "both_D_full_while_GET_s": 0.0,
+            "both_D_idle_with_GET_and_no_D_queue_s": 0.0,
+            "one_or_more_D_idle_with_GET_and_no_local_D_queue_s": 0.0,
+            "mean_D_sequences_while_GET": 7.35319181543912,
+            "longest_continuous_D_egress_wire_s": 0.6756302095511728,
+            "P_compute_wall_s_by_instance": [
+              276.2954714407934,
+              276.2954714407934
+            ],
+            "P_synchronous_GET_wall_s_by_instance": [
+              563.3771227072413,
+              563.3771227072413
+            ],
+            "D_sequence_slots_peak": [
+              5,
+              5
+            ],
+            "D_busy_fraction_of_peak_sequence_slots": 0.16131299446204053
+          },
+          "peak_D_to_P_aggregate_Gbps": {
+            "1": 134.23054621866504,
+            "10": 128.62384364814207,
+            "30": 127.93661041467324,
+            "120": 127.83670826899355
+          },
+          "peak_1s_D_to_P_port_Gbps": [
+            15.875569102278632,
+            19.53829124330423,
+            16.145903481272683,
+            14.991118124140485,
+            15.938795780021167,
+            16.76420407532305,
+            14.406881195540905,
+            20.569783216785254
+          ],
+          "D_to_P_hot_port_floor_Gbps": 21.25,
+          "own_GET_wait_p50_p95_s": [
+            0.5447440891202859,
+            0.6756302095511728
+          ],
+          "tail_session": {
+            "session": "restore-035-25-0",
+            "turns": 1,
+            "phases_s": {
+              "tool_gap_s": 0.0,
+              "P_ingress_s": 0.02756742452038452,
+              "P_queue_s": 0.0,
+              "P_own_GET_s": 0.5447440891202859,
+              "P_compute_s": 0.002540322580645161,
+              "P_other_or_cohort_s": 0.029999999999998826,
+              "D_alloc_from_P_reply_s": 0.09000000000003183,
+              "P_to_D_pull_s": 0.08483276799995565,
+              "D_generation_s": 2.853101185791843,
+              "first_turn_plan_s": 885.4110472810305,
+              "planned_release_wait_s": 0
+            }
+          },
+          "last_P_reply_s": 886.6029407012586,
+          "drain_after_last_P_reply_s": 2.440892369785047,
+          "pressure": {
+            "start_s": 272,
+            "last_P_reply_minus_start_s": 614.6029407012586,
+            "GET_wire_busy_s": 534.8471227072672,
+            "GET_wire_fraction_of_pressure_phase": 0.8702319616255164,
+            "D_to_P_peak_30s_Gbps": 127.93661041467324,
+            "mean_D_running_sequences": 7.2769540455659865,
+            "GET_GB_by_cycle": [
+              54.711418880000004,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432
+            ],
+            "both_P_admission_pairs": 972,
+            "total_pairs": 972,
+            "P_queue_by_tenth_p95_s": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "P_queue_p95_s": 0.0
+          }
+        }
+      },
+      "100_loss_relative_to_200": -0.0005963170407121044,
+      "same_D_to_P_bytes_on_every_port": false,
+      "same_P_placement_requests": 1682,
+      "D_supply_comparison": {
+        "common_begin_s": 272,
+        "common_end_s": 886.060918142246,
+        "100_wire_busy_s": 219.5881628246994,
+        "100_active_seq_s": 1484.9771375286937,
+        "200_active_seq_s": 1611.108789939862,
+        "100_fewer_D_active_with_P_pending_s": 127.54939121104576,
+        "longest_100_fewer_D_active_with_P_pending_s": 3.939918198383566,
+        "mean_active_D_during_100_GET": [
+          6.7625554967376535,
+          7.3369564607452675
+        ]
+      },
+      "saved_completion_s": -0.5298360373424202,
+      "saved_wire_service_s": -315.2589598825678,
+      "remaining_completion_gap_s": 314.7291238452254
+    },
+    "reverse": {
+      "arms": {
+        "200": {
+          "requests": 1998,
+          "output_tokens": 250268,
+          "finish_s": 888.8033439565129,
+          "throughput_tokens_s": 281.5785985749453,
+          "GET_GB": 9598.07193088,
+          "GET_MB_per_output": 38.35117526363738,
+          "D_to_P_GB_by_port": [
+            1091.722443594777,
+            1164.8398402349135,
+            1228.7399642782084,
+            1189.2546743159398,
+            1265.8568276423255,
+            1350.0009524502789,
+            1194.3033115702337,
+            1113.3539167930942
+          ],
+          "cache": {
+            "P_local_pages": 5132,
+            "P_external_pages": 225916,
+            "P_lookup_pages": 237466,
+            "P_computed_tokens": 7185196,
+            "P_adjacent_local_pages": 5132,
+            "P_adjacent_store_pages": 225916,
+            "P_adjacent_eviction_pages": 0,
+            "P_store_capacity_lost_pages": 0,
+            "GET_bytes": 9598071930880,
+            "GET_states": 5706,
+            "D_local_pages": 30962,
+            "P_to_D_bytes": 8788090880000,
+            "store_hit_requests": 1902,
+            "adjacent_pages": 237466,
+            "P_missed_lookup_pages": 232334,
+            "P_novel_lookup_pages": 6418,
+            "adjacent_not_yet_seen_or_not_compatible_pages": 6418,
+            "Store_peak_GB": 136.17250304,
+            "Store_evicted_objects": 0,
+            "Store_evicted_GB": 0.0,
+            "Store_failed_puts": 0,
+            "Store_committed_GB": 136.17250304,
+            "P_to_D_Store_put_GB": 272.3450060799926,
+            "P_HBM_evicted_pages": [
+              113148,
+              113148
+            ],
+            "D_HBM_evicted_pages": [
+              100235,
+              100235
+            ]
+          },
+          "stage": {
+            "D_mean_active_area": 4274.438943987622,
+            "both_D_full_s": 0.0,
+            "any_D_running_s": 664.1743862705908,
+            "no_P_work_or_D_active_or_waiting_s": 2.911874918461415,
+            "D_egress_wire_busy_s": 490.90943725464683,
+            "D_active_seq_s_while_GET": 3429.2939917271196,
+            "both_D_full_while_GET_s": 0.0,
+            "both_D_idle_with_GET_and_no_D_queue_s": 0.0,
+            "one_or_more_D_idle_with_GET_and_no_local_D_queue_s": 0.0,
+            "mean_D_sequences_while_GET": 6.985593943569393,
+            "longest_continuous_D_egress_wire_s": 0.6201271950088767,
+            "P_compute_wall_s_by_instance": [
+              279.40544959321204,
+              279.40544959321204
+            ],
+            "P_synchronous_GET_wall_s_by_instance": [
+              519.4394372546209,
+              519.4394372546209
+            ],
+            "D_sequence_slots_peak": [
+              5,
+              5
+            ],
+            "D_busy_fraction_of_peak_sequence_slots": 0.1502877075203137
+          },
+          "peak_D_to_P_aggregate_Gbps": {
+            "1": 139.66539175815342,
+            "10": 129.32772747120725,
+            "30": 128.07087355671393,
+            "120": 127.88968500444295
+          },
+          "peak_1s_D_to_P_port_Gbps": [
+            15.886090860110471,
+            16.950051405480735,
+            17.879887722834155,
+            17.30532144212907,
+            18.419990078798264,
+            19.64440496546331,
+            17.378786186407098,
+            16.20085909692989
+          ],
+          "D_to_P_hot_port_floor_Gbps": 21.25,
+          "own_GET_wait_p50_p95_s": [
+            0.49999336798191507,
+            0.6201271950088767
+          ],
+          "tail_session": {
+            "session": "restore-035-25-0",
+            "turns": 1,
+            "phases_s": {
+              "tool_gap_s": 0.0,
+              "P_ingress_s": 0.02756742452038452,
+              "P_queue_s": 0.0,
+              "P_own_GET_s": 0.49999336798191507,
+              "P_compute_s": 0.002540322580645161,
+              "P_other_or_cohort_s": 0.029999999999998826,
+              "D_alloc_from_P_reply_s": 0.09000000000003183,
+              "P_to_D_pull_s": 0.08483276799995565,
+              "D_generation_s": 2.6573627923994536,
+              "first_turn_plan_s": 885.4110472810305,
+              "planned_release_wait_s": 0
+            }
+          },
+          "last_P_reply_s": 886.5608780534711,
+          "drain_after_last_P_reply_s": 2.2424659030417615,
+          "pressure": {
+            "start_s": 272,
+            "last_P_reply_minus_start_s": 614.5608780534711,
+            "GET_wire_busy_s": 490.90943725464683,
+            "GET_wire_fraction_of_pressure_phase": 0.7987970838780504,
+            "D_to_P_peak_30s_Gbps": 128.07087355671393,
+            "mean_D_running_sequences": 6.782054466454958,
+            "GET_GB_by_cycle": [
+              54.711418880000004,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432,
+              272.6674432
+            ],
+            "both_P_admission_pairs": 972,
+            "total_pairs": 972,
+            "P_queue_by_tenth_p95_s": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "P_queue_p95_s": 0.0
+          }
+        },
+        "100": {
+          "requests": 1998,
+          "output_tokens": 250268,
+          "finish_s": 888.3016574050779,
+          "throughput_tokens_s": 281.7376258545855,
+          "GET_GB": 3448.49727488,
+          "GET_MB_per_output": 13.779217778061918,
+          "D_to_P_GB_by_port": [
+            392.24564045508424,
+            418.5160356840058,
+            441.47475126925116,
+            427.28805671087355,
+            454.8104923519415,
+            485.0426876498143,
+            429.1019847516998,
+            400.0176260073116
+          ],
+          "cache": {
+            "P_local_pages": 149881,
+            "P_external_pages": 81167,
+            "P_lookup_pages": 237466,
+            "P_computed_tokens": 7185196,
+            "P_adjacent_local_pages": 149881,
+            "P_adjacent_store_pages": 81167,
+            "P_adjacent_eviction_pages": 0,
+            "P_store_capacity_lost_pages": 0,
+            "GET_bytes": 3448497274880,
+            "GET_states": 2055,
+            "D_local_pages": 194376,
+            "P_to_D_bytes": 1934010941440,
+            "store_hit_requests": 685,
+            "adjacent_pages": 237466,
+            "P_missed_lookup_pages": 87585,
+            "P_novel_lookup_pages": 6418,
+            "adjacent_not_yet_seen_or_not_compatible_pages": 6418,
+            "Store_peak_GB": 136.17250304,
+            "Store_evicted_objects": 0,
+            "Store_evicted_GB": 0.0,
+            "Store_failed_puts": 0,
+            "Store_committed_GB": 136.17250304,
+            "P_to_D_Store_put_GB": 272.3450060799926,
+            "P_HBM_evicted_pages": [
+              38974,
+              39831
+            ],
+            "D_HBM_evicted_pages": [
+              15495,
+              16092
+            ]
+          },
+          "stage": {
+            "D_mean_active_area": 5147.379224984948,
+            "both_D_full_s": 35.22519631675152,
+            "any_D_running_s": 633.2351190820287,
+            "no_P_work_or_D_active_or_waiting_s": 2.911874918461415,
+            "D_egress_wire_busy_s": 352.758318290774,
+            "D_active_seq_s_while_GET": 2349.3318295123318,
+            "both_D_full_while_GET_s": 17.875970986546065,
+            "both_D_idle_with_GET_and_no_D_queue_s": 25.832758195817064,
+            "one_or_more_D_idle_with_GET_and_no_local_D_queue_s": 47.41534294824078,
+            "mean_D_sequences_while_GET": 6.659890660822939,
+            "longest_continuous_D_egress_wire_s": 29.606569381146187,
+            "P_compute_wall_s_by_instance": [
+              279.50669959320317,
+              279.30419959320375
+            ],
+            "P_synchronous_GET_wall_s_by_instance": [
+              311.53574377676574,
+              312.43465269996005
+            ],
+            "D_sequence_slots_peak": [
+              16,
+              16
+            ],
+            "D_busy_fraction_of_peak_sequence_slots": 0.18108218018040606
+          },
+          "peak_D_to_P_aggregate_Gbps": {
+            "1": 78.20645685327327,
+            "10": 78.20645685327108,
+            "30": 78.19220415172373,
+            "120": 60.19599973481045
+          },
+          "peak_1s_D_to_P_port_Gbps": [
+            8.89550993112016,
+            9.491280890822964,
+            10.011948200872212,
+            9.690216435575167,
+            10.314381688985122,
+            11.0,
+            9.7313534508462,
+            9.071766255050534
+          ],
+          "D_to_P_hot_port_floor_Gbps": 10.625,
+          "own_GET_wait_p50_p95_s": [
+            2.925129220246788,
+            3.279643604553428
+          ],
+          "tail_session": {
+            "session": "restore-035-25-0",
+            "turns": 1,
+            "phases_s": {
+              "tool_gap_s": 0.0,
+              "P_ingress_s": 0.02756742452038452,
+              "P_queue_s": 0.0,
+              "P_own_GET_s": 0.0,
+              "P_compute_s": 0.002540322580645161,
+              "P_other_or_cohort_s": 2.6111491441271895e-14,
+              "D_alloc_from_P_reply_s": 0.09000000000003183,
+              "P_to_D_pull_s": 0.10108569599992734,
+              "D_generation_s": 2.6694166809463695,
+              "first_turn_plan_s": 885.4110472810305,
+              "planned_release_wait_s": 0
+            }
+          },
+          "last_P_reply_s": 886.060918142246,
+          "drain_after_last_P_reply_s": 2.2407392628318803,
+          "pressure": {
+            "start_s": 272,
+            "last_P_reply_minus_start_s": 614.060918142246,
+            "GET_wire_busy_s": 352.758318290774,
+            "GET_wire_fraction_of_pressure_phase": 0.5744679523946812,
+            "D_to_P_peak_30s_Gbps": 78.19220415172373,
+            "mean_D_running_sequences": 8.20973638635537,
+            "GET_GB_by_cycle": [
+              54.711418880000004,
+              270.06697471999996,
+              250.89310720000003,
+              4.9717248,
+              44.493864959999996,
+              51.14331136,
+              45.3746688,
+              78.20541952,
+              272.6674432,
+              248.18630656000002,
+              81.68669183999998,
+              30.20783616,
+              51.604684799999994,
+              29.78840576,
+              257.92004096000005,
+              252.40305664000005,
+              56.870010879999995,
+              46.003814399999996,
+              59.367096319999995,
+              48.626728959999994,
+              50.84971008,
+              44.703580159999994,
+              211.03542272,
+              263.18536704,
+              137.55006975999999,
+              68.84917248000001,
+              15.71209216,
+              56.198922239999995,
+              56.198922239999995,
+              40.94820352,
+              39.186595839999995,
+              56.198922239999995,
+              40.94820352,
+              39.186595839999995,
+              54.730915839999994,
+              37.82197248
+            ],
+            "both_P_admission_pairs": 766,
+            "total_pairs": 972,
+            "P_queue_by_tenth_p95_s": [
+              19.337242239197906,
+              2.8381296256920336,
+              23.656467756321433,
+              11.030191428828118,
+              19.868648443724396,
+              0.19728218418572396,
+              21.654450022998617,
+              2.5958526391729038,
+              0.0,
+              0.0
+            ],
+            "P_queue_p95_s": 19.47807595954191
+          }
+        }
+      },
+      "100_loss_relative_to_200": -0.0005647704777457419,
+      "same_D_to_P_bytes_on_every_port": false,
+      "same_P_placement_requests": 1618,
+      "D_supply_comparison": {
+        "common_begin_s": 272,
+        "common_end_s": 886.060918142246,
+        "100_wire_busy_s": 352.758318290774,
+        "100_active_seq_s": 2349.331829512337,
+        "200_active_seq_s": 2404.560772681959,
+        "100_fewer_D_active_with_P_pending_s": 226.11542562183115,
+        "longest_100_fewer_D_active_with_P_pending_s": 2.970240298086992,
+        "mean_active_D_during_100_GET": [
+          6.659890660822955,
+          6.8164537815375095
+        ]
+      },
+      "saved_completion_s": -0.5016865514350002,
+      "saved_wire_service_s": -138.15111896387282,
+      "remaining_completion_gap_s": 137.64943241243782
+    }
+  },
+  "archive_ingress_sensitivity": {
+    "source": "2026-11-22-r73-terminal-source-restore-expanded/b2-cap200",
+    "orders": {
+      "forward": {
+        "arms": {
+          "100": {
+            "requests": 1998,
+            "output_tokens": 250268,
+            "finish_s": 888.6364612916445,
+            "throughput_tokens_s": 281.631478001963,
+            "GET_GB": 2281.0902528,
+            "GET_MB_per_output": 9.114590170537186,
+            "D_to_P_GB_by_port": [
+              269.7866242596343,
+              332.0302790012069,
+              274.3806390669329,
+              254.75642016567494,
+              270.8610872814919,
+              284.88793042586707,
+              244.82800073584406,
+              349.55927186336
+            ],
+            "cache": {
+              "P_local_pages": 178348,
+              "P_external_pages": 53668,
+              "P_lookup_pages": 237466,
+              "P_computed_tokens": 6193964,
+              "P_adjacent_local_pages": 178348,
+              "P_adjacent_store_pages": 53668,
+              "P_adjacent_eviction_pages": 0,
+              "P_store_capacity_lost_pages": 0,
+              "GET_bytes": 2281090252800,
+              "GET_states": 1402,
+              "D_local_pages": 201042,
+              "P_to_D_bytes": 1654418636800,
+              "store_hit_requests": 468,
+              "adjacent_pages": 237466,
+              "P_missed_lookup_pages": 59118,
+              "P_novel_lookup_pages": 5450,
+              "adjacent_not_yet_seen_or_not_compatible_pages": 5450,
+              "Store_peak_GB": 136.17250304,
+              "Store_evicted_objects": 0,
+              "Store_evicted_GB": 0.0,
+              "Store_failed_puts": 0,
+              "Store_committed_GB": 136.17250304,
+              "P_to_D_Store_put_GB": 136.89389055999655,
+              "P_HBM_evicted_pages": [
+                24468,
+                25865
+              ],
+              "D_HBM_evicted_pages": [
+                14595,
+                11279
+              ]
+            },
+            "stage": {
+              "D_mean_active_area": 4929.198225398816,
+              "both_D_full_s": 0.5465114304549274,
+              "any_D_running_s": 654.0367093535297,
+              "no_P_work_or_D_active_or_waiting_s": 43.288573178114326,
+              "D_egress_wire_busy_s": 254.22492499153455,
+              "D_active_seq_s_while_GET": 1663.9121231407128,
+              "both_D_full_while_GET_s": 0.07013585913693987,
+              "both_D_idle_with_GET_and_no_D_queue_s": 17.016542504467985,
+              "one_or_more_D_idle_with_GET_and_no_local_D_queue_s": 31.71207021062375,
+              "mean_D_sequences_while_GET": 6.54503929225712,
+              "longest_continuous_D_egress_wire_s": 37.66180554203402,
+              "P_compute_wall_s_by_instance": [
+                236.4109490746365,
+                236.56865970088285
+              ],
+              "P_synchronous_GET_wall_s_by_instance": [
+                189.8638956622862,
+                200.30980591439692
+              ],
+              "D_sequence_slots_peak": [
+                16,
+                16
+              ],
+              "D_busy_fraction_of_peak_sequence_slots": 0.1733413507699398
+            },
+            "peak_D_to_P_aggregate_Gbps": {
+              "1": 71.7817972529956,
+              "10": 71.78179725299469,
+              "30": 71.78179725299456,
+              "120": 52.331685349053195
+            },
+            "peak_1s_D_to_P_port_Gbps": [
+              8.489698616880105,
+              10.448394200915345,
+              8.63426397946057,
+              8.01672519479871,
+              8.523510030828447,
+              8.964909492972993,
+              7.704295737139091,
+              11.0
+            ],
+            "D_to_P_hot_port_floor_Gbps": 10.625,
+            "own_GET_wait_p50_p95_s": [
+              1.088834404258705,
+              4.495690743072942
+            ],
+            "tail_session": {
+              "session": "restore-035-25-1",
+              "turns": 1,
+              "phases_s": {
+                "tool_gap_s": 0.0,
+                "P_ingress_s": 0.026619513592208932,
+                "P_queue_s": 0.0,
+                "P_own_GET_s": 0.0,
+                "P_compute_s": 0.002540322580645161,
+                "P_other_or_cohort_s": 2.6111491441271895e-14,
+                "D_alloc_from_P_reply_s": 0.09000000000003183,
+                "P_to_D_pull_s": 0.04079257599994435,
+                "D_generation_s": 3.065461598441175,
+                "first_turn_plan_s": 885.4110472810305,
+                "planned_release_wait_s": 0
+              }
+            },
+            "last_P_reply_s": 886.0586714113272,
+            "drain_after_last_P_reply_s": 2.5777898803173684,
+            "pressure": {
+              "start_s": 272,
+              "last_P_reply_minus_start_s": 614.0586714113272,
+              "GET_wire_busy_s": 251.95441234575094,
+              "GET_wire_fraction_of_pressure_phase": 0.4103099981743915,
+              "D_to_P_peak_30s_Gbps": 71.78179725299456,
+              "mean_D_running_sequences": 7.834250650737488,
+              "GET_GB_by_cycle": [
+                62.619156479999994,
+                53.4560768,
+                50.075238399999996,
+                28.781772800000002,
+                139.69506304,
+                33.040465919999995,
+                44.01299456,
+                111.72970496000002,
+                35.72482048,
+                136.39811072,
+                19.34163968,
+                24.355307519999997,
+                129.79060736,
+                47.30404863999999,
+                38.305792,
+                64.38076415999998,
+                271.03166464,
+                76.84079616,
+                87.91670783999999,
+                51.269140480000004,
+                43.31945984,
+                126.85164544,
+                91.50431231999998,
+                47.84930816,
+                36.73145344,
+                39.68991232,
+                40.8223744,
+                30.37560832,
+                35.09567488,
+                40.8223744,
+                30.37560832,
+                35.09567488,
+                42.2903808,
+                31.84361472,
+                39.68991232,
+                42.2903808
+              ],
+              "both_P_admission_pairs": 794,
+              "total_pairs": 972,
+              "P_queue_by_tenth_p95_s": [
+                0.8921500476378128,
+                3.5782872436108732,
+                3.7602218464070347,
+                3.2607332166981564,
+                16.081868179044932,
+                6.2921057456482,
+                5.420037394761607,
+                0.0002608785950997117,
+                0.0003971185732325466,
+                0.002159060569056237
+              ],
+              "P_queue_p95_s": 6.160268703016072
+            }
+          },
+          "200": {
+            "requests": 1998,
+            "output_tokens": 250268,
+            "finish_s": 889.0424673749445,
+            "throughput_tokens_s": 281.50286311851966,
+            "GET_GB": 9629.08061696,
+            "GET_MB_per_output": 38.475077185097575,
+            "D_to_P_GB_by_port": [
+              1138.8401450511606,
+              1401.5869472283837,
+              1158.2326872272922,
+              1075.39370897418,
+              1143.3757354534737,
+              1202.5867216355643,
+              1033.4832449004832,
+              1475.5814264896076
+            ],
+            "cache": {
+              "P_local_pages": 5359,
+              "P_external_pages": 226642,
+              "P_lookup_pages": 237466,
+              "P_computed_tokens": 6209324,
+              "P_adjacent_local_pages": 5359,
+              "P_adjacent_store_pages": 226642,
+              "P_adjacent_eviction_pages": 0,
+              "P_store_capacity_lost_pages": 0,
+              "GET_bytes": 9629080616960,
+              "GET_states": 5732,
+              "D_local_pages": 32100,
+              "P_to_D_bytes": 8740359700480,
+              "store_hit_requests": 1914,
+              "adjacent_pages": 237466,
+              "P_missed_lookup_pages": 232107,
+              "P_novel_lookup_pages": 5465,
+              "adjacent_not_yet_seen_or_not_compatible_pages": 5465,
+              "Store_peak_GB": 136.17250304,
+              "Store_evicted_objects": 0,
+              "Store_evicted_GB": 0.0,
+              "Store_failed_puts": 0,
+              "Store_committed_GB": 136.17250304,
+              "P_to_D_Store_put_GB": 136.17250303999992,
+              "P_HBM_evicted_pages": [
+                113033,
+                113033
+              ],
+              "D_HBM_evicted_pages": [
+                99827,
+                99507
+              ]
+            },
+            "stage": {
+              "D_mean_active_area": 4590.79740333717,
+              "both_D_full_s": 0.0,
+              "any_D_running_s": 674.8237996407214,
+              "no_P_work_or_D_active_or_waiting_s": 43.50718482251563,
+              "D_egress_wire_busy_s": 536.5750641780392,
+              "D_active_seq_s_while_GET": 3936.6379804124263,
+              "both_D_full_while_GET_s": 0.0,
+              "both_D_idle_with_GET_and_no_D_queue_s": 0.5753912506421326,
+              "one_or_more_D_idle_with_GET_and_no_local_D_queue_s": 1.3725148058463805,
+              "mean_D_sequences_while_GET": 7.336602543099588,
+              "longest_continuous_D_egress_wire_s": 0.6756302095511728,
+              "P_compute_wall_s_by_instance": [
+                236.69843962052568,
+                237.36612156557635
+              ],
+              "P_synchronous_GET_wall_s_by_instance": [
+                560.3356420958879,
+                560.3816185829846
+              ],
+              "D_sequence_slots_peak": [
+                5,
+                5
+              ],
+              "D_busy_fraction_of_peak_sequence_slots": 0.1613673408401792
+            },
+            "peak_D_to_P_aggregate_Gbps": {
+              "1": 134.7525025363575,
+              "10": 128.6724992651172,
+              "30": 127.95234249622978,
+              "120": 127.83991932243704
+            },
+            "peak_1s_D_to_P_port_Gbps": [
+              15.937301351928,
+              19.61426601088533,
+              16.20868692784461,
+              15.049411180635616,
+              16.00077388700265,
+              16.82939178761808,
+              14.462902443088751,
+              20.64976894735082
+            ],
+            "D_to_P_hot_port_floor_Gbps": 21.25,
+            "own_GET_wait_p50_p95_s": [
+              0.5423009641154408,
+              0.6741078185634706
+            ],
+            "tail_session": {
+              "session": "restore-035-25-1",
+              "turns": 1,
+              "phases_s": {
+                "tool_gap_s": 0.0,
+                "P_ingress_s": 0.026619513592208932,
+                "P_queue_s": 0.0,
+                "P_own_GET_s": 0.5446085191133534,
+                "P_compute_s": 0.002540322580645161,
+                "P_other_or_cohort_s": 0.029999999999998826,
+                "D_alloc_from_P_reply_s": 0.09000000000003183,
+                "P_to_D_pull_s": 0.08483276799995565,
+                "D_generation_s": 2.8528189706278226,
+                "first_turn_plan_s": 885.4110472810305,
+                "planned_release_wait_s": 0
+              }
+            },
+            "last_P_reply_s": 886.600364349321,
+            "drain_after_last_P_reply_s": 2.44210302562351,
+            "pressure": {
+              "start_s": 272,
+              "last_P_reply_minus_start_s": 614.600364349321,
+              "GET_wire_busy_s": 535.4666588652051,
+              "GET_wire_fraction_of_pressure_phase": 0.8712436404623759,
+              "D_to_P_peak_30s_Gbps": 127.95234249622978,
+              "mean_D_running_sequences": 7.277206083632364,
+              "GET_GB_by_cycle": [
+                65.8292736,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432
+              ],
+              "both_P_admission_pairs": 972,
+              "total_pairs": 972,
+              "P_queue_by_tenth_p95_s": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "P_queue_p95_s": 0.0
+            }
+          }
+        },
+        "100_loss_relative_to_200": -0.000456886590844866,
+        "same_D_to_P_bytes_on_every_port": false,
+        "same_P_placement_requests": 1626,
+        "D_supply_comparison": {
+          "common_begin_s": 272,
+          "common_end_s": 886.0586714113272,
+          "100_wire_busy_s": 251.95441234575094,
+          "100_active_seq_s": 1662.7817564699023,
+          "200_active_seq_s": 1838.5327164040355,
+          "100_fewer_D_active_with_P_pending_s": 152.5495566201373,
+          "longest_100_fewer_D_active_with_P_pending_s": 5.226222573789812,
+          "mean_active_D_during_100_GET": [
+            6.599534181557048,
+            7.297084815014319
+          ]
+        },
+        "saved_completion_s": -0.4060060832999852,
+        "saved_wire_service_s": -283.51224651945415,
+        "remaining_completion_gap_s": 283.10624043615417
+      },
+      "reverse": {
+        "arms": {
+          "200": {
+            "requests": 1998,
+            "output_tokens": 250268,
+            "finish_s": 888.8019246426849,
+            "throughput_tokens_s": 281.57904822338503,
+            "GET_GB": 9629.2503552,
+            "GET_MB_per_output": 38.47575541099941,
+            "D_to_P_GB_by_port": [
+              1095.2688001788065,
+              1168.6237117317335,
+              1232.7314092539386,
+              1193.1178550805132,
+              1269.96884322054,
+              1354.3863022195883,
+              1198.1828923530281,
+              1116.9705411616226
+            ],
+            "cache": {
+              "P_local_pages": 5359,
+              "P_external_pages": 226644,
+              "P_lookup_pages": 237466,
+              "P_computed_tokens": 6207276,
+              "P_adjacent_local_pages": 5359,
+              "P_adjacent_store_pages": 226644,
+              "P_adjacent_eviction_pages": 0,
+              "P_store_capacity_lost_pages": 0,
+              "GET_bytes": 9629250355200,
+              "GET_states": 5736,
+              "D_local_pages": 35381,
+              "P_to_D_bytes": 8602744586240,
+              "store_hit_requests": 1914,
+              "adjacent_pages": 237466,
+              "P_missed_lookup_pages": 232107,
+              "P_novel_lookup_pages": 5463,
+              "adjacent_not_yet_seen_or_not_compatible_pages": 5463,
+              "Store_peak_GB": 136.17250304,
+              "Store_evicted_objects": 0,
+              "Store_evicted_GB": 0.0,
+              "Store_failed_puts": 0,
+              "Store_committed_GB": 136.17250304,
+              "P_to_D_Store_put_GB": 136.17250303999955,
+              "P_HBM_evicted_pages": [
+                113033,
+                113033
+              ],
+              "D_HBM_evicted_pages": [
+                98226,
+                97825
+              ]
+            },
+            "stage": {
+              "D_mean_active_area": 4276.536314217984,
+              "both_D_full_s": 0.0,
+              "any_D_running_s": 667.8336089915739,
+              "no_P_work_or_D_active_or_waiting_s": 41.10716804214912,
+              "D_egress_wire_busy_s": 492.5041098980321,
+              "D_active_seq_s_while_GET": 3431.671330894794,
+              "both_D_full_while_GET_s": 0.0,
+              "both_D_idle_with_GET_and_no_D_queue_s": 0.62939107922025,
+              "one_or_more_D_idle_with_GET_and_no_local_D_queue_s": 1.2684442752101273,
+              "mean_D_sequences_while_GET": 6.9678024242382195,
+              "longest_continuous_D_egress_wire_s": 0.6201271950088767,
+              "P_compute_wall_s_by_instance": [
+                239.34194210234494,
+                239.87458731161297
+              ],
+              "P_synchronous_GET_wall_s_by_instance": [
+                516.3487808013786,
+                516.404590866005
+              ],
+              "D_sequence_slots_peak": [
+                5,
+                5
+              ],
+              "D_busy_fraction_of_peak_sequence_slots": 0.15036169039917247
+            },
+            "peak_D_to_P_aggregate_Gbps": {
+              "1": 140.23406453872485,
+              "10": 129.38331285160967,
+              "30": 128.0880137009357,
+              "120": 127.8931834556133
+            },
+            "peak_1s_D_to_P_port_Gbps": [
+              15.950773938345492,
+              17.01906659057579,
+              17.952688903854323,
+              17.375783173122727,
+              18.494990383772347,
+              19.724390696027967,
+              17.44954704232987,
+              16.26682381069577
+            ],
+            "D_to_P_hot_port_floor_Gbps": 21.25,
+            "own_GET_wait_p50_p95_s": [
+              0.49755024297706996,
+              0.6186048040211745
+            ],
+            "tail_session": {
+              "session": "restore-035-25-1",
+              "turns": 1,
+              "phases_s": {
+                "tool_gap_s": 0.0,
+                "P_ingress_s": 0.026619513592208932,
+                "P_queue_s": 0.0,
+                "P_own_GET_s": 0.49985779797498253,
+                "P_compute_s": 0.002540322580645161,
+                "P_other_or_cohort_s": 0.029999999999998826,
+                "D_alloc_from_P_reply_s": 0.09000000000003183,
+                "P_to_D_pull_s": 0.08483276799995565,
+                "D_generation_s": 2.6570269595065383,
+                "first_turn_plan_s": 885.4110472810305,
+                "planned_release_wait_s": 0
+              }
+            },
+            "last_P_reply_s": 886.5583017015335,
+            "drain_after_last_P_reply_s": 2.2436229411513295,
+            "pressure": {
+              "start_s": 272,
+              "last_P_reply_minus_start_s": 614.5583017015335,
+              "GET_wire_busy_s": 491.478078523787,
+              "GET_wire_fraction_of_pressure_phase": 0.7997257170931169,
+              "D_to_P_peak_30s_Gbps": 128.08801370093565,
+              "mean_D_running_sequences": 6.782936619308181,
+              "GET_GB_by_cycle": [
+                65.8292736,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432
+              ],
+              "both_P_admission_pairs": 972,
+              "total_pairs": 972,
+              "P_queue_by_tenth_p95_s": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "P_queue_p95_s": 0.0
+            }
+          },
+          "100": {
+            "requests": 1998,
+            "output_tokens": 250268,
+            "finish_s": 1035.4887365604552,
+            "throughput_tokens_s": 241.69070233569704,
+            "GET_GB": 5979.91686144,
+            "GET_MB_per_output": 23.894053020921568,
+            "D_to_P_GB_by_port": [
+              680.1792584468052,
+              725.7338194233942,
+              765.5457141420851,
+              740.9450700830887,
+              788.6707499485738,
+              841.0953279631784,
+              744.0905383877297,
+              693.6563830451565
+            ],
+            "cache": {
+              "P_local_pages": 91287,
+              "P_external_pages": 140724,
+              "P_lookup_pages": 237466,
+              "P_computed_tokens": 6199084,
+              "P_adjacent_local_pages": 91287,
+              "P_adjacent_store_pages": 140724,
+              "P_adjacent_eviction_pages": 0,
+              "P_store_capacity_lost_pages": 0,
+              "GET_bytes": 5979916861440,
+              "GET_states": 3612,
+              "D_local_pages": 212851,
+              "P_to_D_bytes": 1159113277440,
+              "store_hit_requests": 1206,
+              "adjacent_pages": 237466,
+              "P_missed_lookup_pages": 146179,
+              "P_novel_lookup_pages": 5455,
+              "adjacent_not_yet_seen_or_not_compatible_pages": 5455,
+              "Store_peak_GB": 136.17250304,
+              "Store_evicted_objects": 0,
+              "Store_evicted_GB": 0.0,
+              "Store_failed_puts": 0,
+              "Store_committed_GB": 136.17250304,
+              "P_to_D_Store_put_GB": 148.90287103999967,
+              "P_HBM_evicted_pages": [
+                68529,
+                68923
+              ],
+              "D_HBM_evicted_pages": [
+                8908,
+                6898
+              ]
+            },
+            "stage": {
+              "D_mean_active_area": 4769.421792152527,
+              "both_D_full_s": 19.15291844132537,
+              "any_D_running_s": 709.0985917728964,
+              "no_P_work_or_D_active_or_waiting_s": 41.02385876065569,
+              "D_egress_wire_busy_s": 611.7056930641297,
+              "D_active_seq_s_while_GET": 3299.2155408321887,
+              "both_D_full_while_GET_s": 12.243841538823403,
+              "both_D_idle_with_GET_and_no_D_queue_s": 90.89844012933764,
+              "one_or_more_D_idle_with_GET_and_no_local_D_queue_s": 133.07593710113684,
+              "mean_D_sequences_while_GET": 5.393468751787973,
+              "longest_continuous_D_egress_wire_s": 55.36136469298356,
+              "P_compute_wall_s_by_instance": [
+                238.78247989844473,
+                239.76915736577743
+              ],
+              "P_synchronous_GET_wall_s_by_instance": [
+                590.7649891360719,
+                590.4174929695724
+              ],
+              "D_sequence_slots_peak": [
+                16,
+                16
+              ],
+              "D_busy_fraction_of_peak_sequence_slots": 0.14393631310741425
+            },
+            "peak_D_to_P_aggregate_Gbps": {
+              "1": 78.20645685327327,
+              "10": 78.20645685327108,
+              "30": 78.20645685327102,
+              "120": 76.68493787151353
+            },
+            "peak_1s_D_to_P_port_Gbps": [
+              8.895509931120614,
+              9.491280890823418,
+              10.011948200872212,
+              9.690216435575167,
+              10.314381688985122,
+              11.000000000000455,
+              9.731353450846655,
+              9.071766255050534
+            ],
+            "D_to_P_hot_port_floor_Gbps": 10.625,
+            "own_GET_wait_p50_p95_s": [
+              3.047929950757407,
+              3.348264518324754
+            ],
+            "tail_session": {
+              "session": "restore-035-25-0",
+              "turns": 1,
+              "phases_s": {
+                "tool_gap_s": 0.0,
+                "P_ingress_s": 0.026483943585276393,
+                "P_queue_s": 144.1546950920416,
+                "P_own_GET_s": 3.047929950757407,
+                "P_compute_s": 0.002540322580645161,
+                "P_other_or_cohort_s": 0.0534677419355182,
+                "D_alloc_from_P_reply_s": 0.08999999999991815,
+                "P_to_D_pull_s": 0.040792576000058034,
+                "D_generation_s": 2.661779652524274,
+                "first_turn_plan_s": 885.4110472810305,
+                "planned_release_wait_s": 0
+              }
+            },
+            "last_P_reply_s": 1032.696164331931,
+            "drain_after_last_P_reply_s": 2.79257222852425,
+            "pressure": {
+              "start_s": 272,
+              "last_P_reply_minus_start_s": 760.696164331931,
+              "GET_wire_busy_s": 609.6258929434675,
+              "GET_wire_fraction_of_pressure_phase": 0.8014052410516117,
+              "D_to_P_peak_30s_Gbps": 78.20645685327102,
+              "mean_D_running_sequences": 6.124544792967168,
+              "GET_GB_by_cycle": [
+                62.619156479999994,
+                57.566494719999994,
+                79.34377984,
+                79.34377984,
+                89.11945728,
+                29.201203200000002,
+                90.07824896,
+                272.6674432,
+                267.82154751999997,
+                75.49861888,
+                60.877045759999994,
+                10.23705088,
+                58.737950719999986,
+                66.22625792,
+                272.6674432,
+                256.913408,
+                268.07320576,
+                39.899627519999996,
+                111.01372415999997,
+                83.28052736,
+                43.9066624,
+                35.30539008,
+                44.535807999999996,
+                232.64198656,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432
+              ],
+              "both_P_admission_pairs": 818,
+              "total_pairs": 972,
+              "P_queue_by_tenth_p95_s": [
+                0.5269995559834229,
+                11.393591137761348,
+                25.840678818001038,
+                9.412278687229104,
+                32.86102244972426,
+                19.20335496102564,
+                28.46164872180259,
+                63.23797482923135,
+                108.20693490473582,
+                142.9868195971502
+              ],
+              "P_queue_p95_s": 124.50584927562807
+            }
+          }
+        },
+        "100_loss_relative_to_200": 0.14165949540408765,
+        "same_D_to_P_bytes_on_every_port": false,
+        "same_P_placement_requests": 1740,
+        "D_supply_comparison": {
+          "common_begin_s": 272,
+          "common_end_s": 886.5583017015335,
+          "100_wire_busy_s": 466.4416891207447,
+          "100_active_seq_s": 2734.3832538527377,
+          "200_active_seq_s": 3170.268767392366,
+          "100_fewer_D_active_with_P_pending_s": 301.46571045164205,
+          "longest_100_fewer_D_active_with_P_pending_s": 3.192539585139855,
+          "mean_active_D_during_100_GET": [
+            5.86221883169818,
+            6.796709731002838
+          ]
+        },
+        "saved_completion_s": 146.68681191777034,
+        "saved_wire_service_s": 118.14781441968051,
+        "remaining_completion_gap_s": 28.538997498089827
+      }
+    }
+  },
+  "paired_clients": {
+    "design": {
+      "pressure_start_s": 144,
+      "cold_end_s": {
+        "forward": 140.0965997589913,
+        "reverse": 141.60528780067986
+      },
+      "predicted": {
+        "forward": {
+          "cycle_seconds": {
+            "100": 38.43996579551037,
+            "200": 23.24572694194782
+          },
+          "minimum_cycles": 12.20561425437204
+        },
+        "reverse": {
+          "cycle_seconds": {
+            "100": 35.95736350525708,
+            "200": 22.011331212216533
+          },
+          "minimum_cycles": 14.150839278772489
+        }
+      },
+      "cycles": 17
+    },
+    "nominal": {
+      "forward": {
+        "arms": {
+          "100": {
+            "requests": 945,
+            "output_tokens": 118370,
+            "finish_s": 776.534947069106,
+            "throughput_tokens_s": 152.43357745426223,
+            "GET_GB": 4508.49488896,
+            "GET_MB_per_output": 38.08815484463969,
+            "D_to_P_GB_by_port": [
+              533.2238016848753,
+              656.246202454905,
+              542.3037108437034,
+              503.5171303883482,
+              535.3474401671648,
+              563.0710037337675,
+              483.89395756566023,
+              690.8916421215845
+            ],
+            "cache": {
+              "P_local_pages": 2986,
+              "P_external_pages": 106120,
+              "P_lookup_pages": 112315,
+              "P_computed_tokens": 3576026,
+              "P_adjacent_local_pages": 2986,
+              "P_adjacent_store_pages": 106120,
+              "P_adjacent_eviction_pages": 0,
+              "P_store_capacity_lost_pages": 0,
+              "GET_bytes": 4508494888960,
+              "GET_states": 2679,
+              "D_local_pages": 6582,
+              "P_to_D_bytes": 4494682193920,
+              "store_hit_requests": 893,
+              "adjacent_pages": 112315,
+              "P_missed_lookup_pages": 109329,
+              "P_novel_lookup_pages": 3209,
+              "adjacent_not_yet_seen_or_not_compatible_pages": 3209,
+              "Store_peak_GB": 136.17250304,
+              "Store_evicted_objects": 0,
+              "Store_evicted_GB": 0.0,
+              "Store_failed_puts": 0,
+              "Store_committed_GB": 136.17250304,
+              "P_to_D_Store_put_GB": 136.17250303999992,
+              "P_HBM_evicted_pages": [
+                51533,
+                51756
+              ],
+              "D_HBM_evicted_pages": [
+                50021,
+                49674
+              ]
+            },
+            "stage": {
+              "D_mean_active_area": 1900.1656446676677,
+              "both_D_full_s": 0.0,
+              "any_D_running_s": 659.3889897959831,
+              "no_P_work_or_D_active_or_waiting_s": 4.051702360630024,
+              "D_egress_wire_busy_s": 502.4666488156979,
+              "D_active_seq_s_while_GET": 1494.9552066118456,
+              "both_D_full_while_GET_s": 0.0,
+              "both_D_idle_with_GET_and_no_D_queue_s": 0.08995967741935829,
+              "one_or_more_D_idle_with_GET_and_no_local_D_queue_s": 0.5540930977225003,
+              "mean_D_sequences_while_GET": 2.975232704768406,
+              "longest_continuous_D_egress_wire_s": 1.3512604191023456,
+              "P_compute_wall_s_by_instance": [
+                143.71176484972398,
+                131.91548078461116
+              ],
+              "P_synchronous_GET_wall_s_by_instance": [
+                507.8817142841311,
+                509.70411114181513
+              ],
+              "D_sequence_slots_peak": [
+                4,
+                4
+              ],
+              "D_busy_fraction_of_peak_sequence_slots": 0.07646813143437343
+            },
+            "peak_D_to_P_aggregate_Gbps": {
+              "1": 71.78179725299924,
+              "10": 59.57272941197791,
+              "30": 58.864740720699956,
+              "120": 57.73239750026686
+            },
+            "peak_1s_D_to_P_port_Gbps": [
+              8.48969861688056,
+              10.448394200915573,
+              8.634263979461139,
+              8.01672519479871,
+              8.523510030828675,
+              8.964909492973675,
+              7.704295737139205,
+              11.000000000000341
+            ],
+            "D_to_P_hot_port_floor_Gbps": 10.625,
+            "own_GET_wait_p50_p95_s": [
+              1.0894881782405719,
+              1.3512604191023456
+            ],
+            "tail_session": {
+              "session": "restore-016-26-0",
+              "turns": 1,
+              "phases_s": {
+                "tool_gap_s": 0.0,
+                "P_ingress_s": 0.029008528387294064,
+                "P_queue_s": 0.0,
+                "P_own_GET_s": 1.0240451180251284,
+                "P_compute_s": 0.008790322580645162,
+                "P_other_or_cohort_s": 0.030000000000021565,
+                "D_alloc_from_P_reply_s": 0.09000000000003183,
+                "P_to_D_pull_s": 0.0974156799999264,
+                "D_generation_s": 1.936383408386746,
+                "first_turn_plan_s": 773.3193040117262,
+                "planned_release_wait_s": 0
+              }
+            },
+            "last_P_reply_s": 774.4111479807193,
+            "drain_after_last_P_reply_s": 2.123799088386704,
+            "pressure": {
+              "start_s": 144,
+              "last_P_reply_minus_start_s": 630.4111479807193,
+              "GET_wire_busy_s": 502.4666488156979,
+              "GET_wire_fraction_of_pressure_phase": 0.7970459444208076,
+              "D_to_P_peak_30s_Gbps": 58.864740720699956,
+              "mean_D_running_sequences": 2.9207278792811326,
+              "GET_GB_by_cycle": [
+                145.81579775999998,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432
+              ],
+              "both_P_admission_pairs": 459,
+              "total_pairs": 459,
+              "P_queue_by_tenth_p95_s": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "P_queue_p95_s": 0.0
+            }
+          },
+          "200": {
+            "requests": 945,
+            "output_tokens": 118370,
+            "finish_s": 521.8154129475803,
+            "throughput_tokens_s": 226.8426670867444,
+            "GET_GB": 4508.49488896,
+            "GET_MB_per_output": 38.08815484463969,
+            "D_to_P_GB_by_port": [
+              533.2238016848765,
+              656.2462024549066,
+              542.3037108437046,
+              503.51713038834947,
+              535.347440167166,
+              563.0710037337689,
+              483.8939575656614,
+              690.8916421215862
+            ],
+            "cache": {
+              "P_local_pages": 2986,
+              "P_external_pages": 106120,
+              "P_lookup_pages": 112315,
+              "P_computed_tokens": 3576026,
+              "P_adjacent_local_pages": 2986,
+              "P_adjacent_store_pages": 106120,
+              "P_adjacent_eviction_pages": 0,
+              "P_store_capacity_lost_pages": 0,
+              "GET_bytes": 4508494888960,
+              "GET_states": 2679,
+              "D_local_pages": 34614,
+              "P_to_D_bytes": 3318934896640,
+              "store_hit_requests": 893,
+              "adjacent_pages": 112315,
+              "P_missed_lookup_pages": 109329,
+              "P_novel_lookup_pages": 3209,
+              "adjacent_not_yet_seen_or_not_compatible_pages": 3209,
+              "Store_peak_GB": 136.17250304,
+              "Store_evicted_objects": 0,
+              "Store_evicted_GB": 0.0,
+              "Store_failed_puts": 0,
+              "Store_committed_GB": 136.17250304,
+              "P_to_D_Store_put_GB": 136.17250303999992,
+              "P_HBM_evicted_pages": [
+                51533,
+                51756
+              ],
+              "D_HBM_evicted_pages": [
+                33658,
+                33365
+              ]
+            },
+            "stage": {
+              "D_mean_active_area": 2050.0788281779533,
+              "both_D_full_s": 0.0,
+              "any_D_running_s": 404.6694556744574,
+              "no_P_work_or_D_active_or_waiting_s": 4.051702360630024,
+              "D_egress_wire_busy_s": 251.23332440784955,
+              "D_active_seq_s_while_GET": 1342.5649361239202,
+              "both_D_full_while_GET_s": 0.0,
+              "both_D_idle_with_GET_and_no_D_queue_s": 0.08995967741935829,
+              "one_or_more_D_idle_with_GET_and_no_local_D_queue_s": 0.27704654886125013,
+              "mean_D_sequences_while_GET": 5.34389671150637,
+              "longest_continuous_D_egress_wire_s": 0.6756302095511728,
+              "P_compute_wall_s_by_instance": [
+                143.7117648497183,
+                131.91548078460548
+              ],
+              "P_synchronous_GET_wall_s_by_instance": [
+                260.6158571420626,
+                261.5720555709047
+              ],
+              "D_sequence_slots_peak": [
+                5,
+                5
+              ],
+              "D_busy_fraction_of_peak_sequence_slots": 0.12277322936606469
+            },
+            "peak_D_to_P_aggregate_Gbps": {
+              "1": 113.42132269368835,
+              "10": 105.43468640516112,
+              "30": 103.01962103466646,
+              "120": 100.16145577453273
+            },
+            "peak_1s_D_to_P_port_Gbps": [
+              13.414443260643552,
+              16.509348269953307,
+              13.642868784481792,
+              12.667105172376154,
+              13.467868159976206,
+              14.16531671585824,
+              12.1734401529378,
+              17.380932177461204
+            ],
+            "D_to_P_hot_port_floor_Gbps": 21.25,
+            "own_GET_wait_p50_p95_s": [
+              0.5447440891202859,
+              0.6756302095511728
+            ],
+            "tail_session": {
+              "session": "restore-016-26-0",
+              "turns": 1,
+              "phases_s": {
+                "tool_gap_s": 0.0,
+                "P_ingress_s": 0.029008528387294064,
+                "P_queue_s": 0.0,
+                "P_own_GET_s": 0.5120225590126211,
+                "P_compute_s": 0.008790322580645162,
+                "P_other_or_cohort_s": 0.030000000000021565,
+                "D_alloc_from_P_reply_s": 0.09000000000003183,
+                "P_to_D_pull_s": 0.0974156799999264,
+                "D_generation_s": 2.024885467010222,
+                "first_turn_plan_s": 519.0232903905895,
+                "planned_release_wait_s": 0
+              }
+            },
+            "last_P_reply_s": 519.6031118005701,
+            "drain_after_last_P_reply_s": 2.21230114701018,
+            "pressure": {
+              "start_s": 144,
+              "last_P_reply_minus_start_s": 375.6031118005701,
+              "GET_wire_busy_s": 251.23332440784955,
+              "GET_wire_fraction_of_pressure_phase": 0.6688797736618438,
+              "D_to_P_peak_30s_Gbps": 103.01962103466646,
+              "mean_D_running_sequences": 5.2924029804721355,
+              "GET_GB_by_cycle": [
+                145.81579775999998,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432
+              ],
+              "both_P_admission_pairs": 459,
+              "total_pairs": 459,
+              "P_queue_by_tenth_p95_s": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "P_queue_p95_s": 0.0
+            }
+          }
+        },
+        "100_loss_relative_to_200": 0.3280206964064137,
+        "same_D_to_P_bytes_on_every_port": true,
+        "same_P_placement_requests": 945,
+        "D_supply_comparison": {
+          "common_begin_s": 144,
+          "common_end_s": 519.6031118005701,
+          "100_wire_busy_s": 298.7904255928229,
+          "100_active_seq_s": 903.108531239313,
+          "200_active_seq_s": 1578.0247334386875,
+          "100_fewer_D_active_with_P_pending_s": 240.98953221767013,
+          "longest_100_fewer_D_active_with_P_pending_s": 1.3512604191023456,
+          "mean_active_D_during_100_GET": [
+            3.0225484282084247,
+            5.281376504309891
+          ]
+        },
+        "saved_completion_s": 254.71953412152573,
+        "saved_wire_service_s": 251.23332440784836,
+        "remaining_completion_gap_s": 3.4862097136773684,
+        "same_added_nonwire_ms_per_pair_budget_for_30pct_loss": 158.01779230787162
+      },
+      "reverse": {
+        "arms": {
+          "200": {
+            "requests": 945,
+            "output_tokens": 118370,
+            "finish_s": 506.7649516614346,
+            "throughput_tokens_s": 233.57968938444267,
+            "GET_GB": 4508.49488896,
+            "GET_MB_per_output": 38.08815484463969,
+            "D_to_P_GB_by_port": [
+              512.8139372736302,
+              547.1593153266472,
+              577.1750710667376,
+              558.6276764164379,
+              594.6099465267728,
+              634.1349010556244,
+              560.9991688808741,
+              522.9748724132722
+            ],
+            "cache": {
+              "P_local_pages": 2986,
+              "P_external_pages": 106120,
+              "P_lookup_pages": 112315,
+              "P_computed_tokens": 3576026,
+              "P_adjacent_local_pages": 2986,
+              "P_adjacent_store_pages": 106120,
+              "P_adjacent_eviction_pages": 0,
+              "P_store_capacity_lost_pages": 0,
+              "GET_bytes": 4508494888960,
+              "GET_states": 2679,
+              "D_local_pages": 9700,
+              "P_to_D_bytes": 4363903795200,
+              "store_hit_requests": 893,
+              "adjacent_pages": 112315,
+              "P_missed_lookup_pages": 109329,
+              "P_novel_lookup_pages": 3209,
+              "adjacent_not_yet_seen_or_not_compatible_pages": 3209,
+              "Store_peak_GB": 136.17250304,
+              "Store_evicted_objects": 0,
+              "Store_evicted_GB": 0.0,
+              "Store_failed_puts": 0,
+              "Store_committed_GB": 136.17250304,
+              "P_to_D_Store_put_GB": 136.17250303999992,
+              "P_HBM_evicted_pages": [
+                51533,
+                51756
+              ],
+              "D_HBM_evicted_pages": [
+                48178,
+                48401
+              ]
+            },
+            "stage": {
+              "D_mean_active_area": 1903.4555901070812,
+              "both_D_full_s": 0.0,
+              "any_D_running_s": 387.39018323137157,
+              "no_P_work_or_D_active_or_waiting_s": 2.5430143189414527,
+              "D_egress_wire_busy_s": 230.5945094747725,
+              "D_active_seq_s_while_GET": 1201.818829704322,
+              "both_D_full_while_GET_s": 0.0,
+              "both_D_idle_with_GET_and_no_D_queue_s": 0.08995967741935829,
+              "one_or_more_D_idle_with_GET_and_no_local_D_queue_s": 0.2542871778133531,
+              "mean_D_sequences_while_GET": 5.211827603535388,
+              "longest_continuous_D_egress_wire_s": 0.6201271950088767,
+              "P_compute_wall_s_by_instance": [
+                145.33616503142431,
+                133.40105875532032
+              ],
+              "P_synchronous_GET_wall_s_by_instance": [
+                240.30296960275177,
+                241.18800983985977
+              ],
+              "D_sequence_slots_peak": [
+                4,
+                4
+              ],
+              "D_busy_fraction_of_peak_sequence_slots": 0.11737786323981293
+            },
+            "peak_D_to_P_aggregate_Gbps": {
+              "1": 119.00316110668064,
+              "10": 105.0272312346596,
+              "30": 103.01962103466721,
+              "120": 101.84222310400054
+            },
+            "peak_1s_D_to_P_port_Gbps": [
+              13.535887496414944,
+              14.442444708605763,
+              15.234720158407072,
+              14.745155758748297,
+              15.694919259070502,
+              16.73819304497374,
+              14.807752059012273,
+              13.804088621446226
+            ],
+            "D_to_P_hot_port_floor_Gbps": 21.25,
+            "own_GET_wait_p50_p95_s": [
+              0.49999336798191507,
+              0.6201271950088767
+            ],
+            "tail_session": {
+              "session": "restore-016-26-0",
+              "turns": 1,
+              "phases_s": {
+                "tool_gap_s": 0.0,
+                "P_ingress_s": 0.029008528387350907,
+                "P_queue_s": 0.0,
+                "P_own_GET_s": 0.4699599112252031,
+                "P_compute_s": 0.008790322580645162,
+                "P_other_or_cohort_s": 0.02999999999996472,
+                "D_alloc_from_P_reply_s": 0.08999999999997499,
+                "P_to_D_pull_s": 0.09741568000004008,
+                "D_generation_s": 1.887523191559012,
+                "first_turn_plan_s": 504.15225402768243,
+                "planned_release_wait_s": 0
+              }
+            },
+            "last_P_reply_s": 504.6900127898756,
+            "drain_after_last_P_reply_s": 2.074938871559027,
+            "pressure": {
+              "start_s": 144,
+              "last_P_reply_minus_start_s": 360.6900127898756,
+              "GET_wire_busy_s": 230.5945094747725,
+              "GET_wire_fraction_of_pressure_phase": 0.6393149277718099,
+              "D_to_P_peak_30s_Gbps": 103.01962103466721,
+              "mean_D_running_sequences": 5.118695763408988,
+              "GET_GB_by_cycle": [
+                145.81579775999998,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432
+              ],
+              "both_P_admission_pairs": 459,
+              "total_pairs": 459,
+              "P_queue_by_tenth_p95_s": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "P_queue_p95_s": 0.0
+            }
+          },
+          "100": {
+            "requests": 945,
+            "output_tokens": 118370,
+            "finish_s": 734.5801724126945,
+            "throughput_tokens_s": 161.1396610545847,
+            "GET_GB": 4508.49488896,
+            "GET_MB_per_output": 38.08815484463969,
+            "D_to_P_GB_by_port": [
+              512.8139372736309,
+              547.1593153266479,
+              577.1750710667384,
+              558.6276764164387,
+              594.6099465267736,
+              634.1349010556252,
+              560.9991688808748,
+              522.9748724132729
+            ],
+            "cache": {
+              "P_local_pages": 2986,
+              "P_external_pages": 106120,
+              "P_lookup_pages": 112315,
+              "P_computed_tokens": 3576026,
+              "P_adjacent_local_pages": 2986,
+              "P_adjacent_store_pages": 106120,
+              "P_adjacent_eviction_pages": 0,
+              "P_store_capacity_lost_pages": 0,
+              "GET_bytes": 4508494888960,
+              "GET_states": 2679,
+              "D_local_pages": 6582,
+              "P_to_D_bytes": 4494682193920,
+              "store_hit_requests": 893,
+              "adjacent_pages": 112315,
+              "P_missed_lookup_pages": 109329,
+              "P_novel_lookup_pages": 3209,
+              "adjacent_not_yet_seen_or_not_compatible_pages": 3209,
+              "Store_peak_GB": 136.17250304,
+              "Store_evicted_objects": 0,
+              "Store_evicted_GB": 0.0,
+              "Store_failed_puts": 0,
+              "Store_committed_GB": 136.17250304,
+              "P_to_D_Store_put_GB": 136.17250303999992,
+              "P_HBM_evicted_pages": [
+                51533,
+                51756
+              ],
+              "D_HBM_evicted_pages": [
+                50021,
+                49674
+              ]
+            },
+            "stage": {
+              "D_mean_active_area": 1753.8839710361278,
+              "both_D_full_s": 0.0,
+              "any_D_running_s": 615.2054039826314,
+              "no_P_work_or_D_active_or_waiting_s": 2.5430143189414527,
+              "D_egress_wire_busy_s": 461.1890189495456,
+              "D_active_seq_s_while_GET": 1356.4042104874998,
+              "both_D_full_while_GET_s": 0.0,
+              "both_D_idle_with_GET_and_no_D_queue_s": 0.08995967741935829,
+              "one_or_more_D_idle_with_GET_and_no_local_D_queue_s": 0.5085743556267062,
+              "mean_D_sequences_while_GET": 2.9411025734675857,
+              "longest_continuous_D_egress_wire_s": 1.2402543900177534,
+              "P_compute_wall_s_by_instance": [
+                145.33616503142966,
+                133.40105875532566
+              ],
+              "P_synchronous_GET_wall_s_by_instance": [
+                467.2559392055111,
+                468.93601967972705
+              ],
+              "D_sequence_slots_peak": [
+                4,
+                4
+              ],
+              "D_busy_fraction_of_peak_sequence_slots": 0.07461251494831637
+            },
+            "peak_D_to_P_aggregate_Gbps": {
+              "1": 78.20645685327327,
+              "10": 64.77892812799998,
+              "30": 62.82949803910544,
+              "120": 61.85194149529509
+            },
+            "peak_1s_D_to_P_port_Gbps": [
+              8.89550993112016,
+              9.491280890822964,
+              10.011948200872212,
+              9.690216435575167,
+              10.314381688985122,
+              11.000000000000455,
+              9.731353450846655,
+              9.071766255050534
+            ],
+            "D_to_P_hot_port_floor_Gbps": 10.625,
+            "own_GET_wait_p50_p95_s": [
+              0.9999867359638301,
+              1.2402543900176966
+            ],
+            "tail_session": {
+              "session": "restore-016-26-0",
+              "turns": 1,
+              "phases_s": {
+                "tool_gap_s": 0.0,
+                "P_ingress_s": 0.029008528387294064,
+                "P_queue_s": 0.0,
+                "P_own_GET_s": 0.9399198224504062,
+                "P_compute_s": 0.008790322580645162,
+                "P_other_or_cohort_s": 0.030000000000021565,
+                "D_alloc_from_P_reply_s": 0.09000000000003183,
+                "P_to_D_pull_s": 0.0974156799999264,
+                "D_generation_s": 1.7908139825121907,
+                "first_turn_plan_s": 731.594224076764,
+                "planned_release_wait_s": 0
+              }
+            },
+            "last_P_reply_s": 732.6019427501824,
+            "drain_after_last_P_reply_s": 1.978229662512149,
+            "pressure": {
+              "start_s": 144,
+              "last_P_reply_minus_start_s": 588.6019427501824,
+              "GET_wire_busy_s": 461.1890189495456,
+              "GET_wire_fraction_of_pressure_phase": 0.7835329540277883,
+              "D_to_P_peak_30s_Gbps": 62.82949803910544,
+              "mean_D_running_sequences": 2.8879323463811457,
+              "GET_GB_by_cycle": [
+                145.81579775999998,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432
+              ],
+              "both_P_admission_pairs": 459,
+              "total_pairs": 459,
+              "P_queue_by_tenth_p95_s": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "P_queue_p95_s": 0.0
+            }
+          }
+        },
+        "100_loss_relative_to_200": 0.3101298255886915,
+        "same_D_to_P_bytes_on_every_port": true,
+        "same_P_placement_requests": 945,
+        "D_supply_comparison": {
+          "common_begin_s": 144,
+          "common_end_s": 504.6900127898756,
+          "100_wire_busy_s": 281.953339103076,
+          "100_active_seq_s": 841.8242644031183,
+          "200_active_seq_s": 1441.4896763203417,
+          "100_fewer_D_active_with_P_pending_s": 221.66692879309878,
+          "longest_100_fewer_D_active_with_P_pending_s": 1.2402543900176966,
+          "mean_active_D_during_100_GET": [
+            2.985686451102342,
+            5.112511456349039
+          ]
+        },
+        "saved_completion_s": 227.81522075125991,
+        "saved_wire_service_s": 230.59450947477308,
+        "remaining_completion_gap_s": -2.7792887235131616,
+        "same_added_nonwire_ms_per_pair_budget_for_30pct_loss": 54.03899075854433
+      }
+    },
+    "archive_ingress": {
+      "forward": {
+        "arms": {
+          "100": {
+            "requests": 945,
+            "output_tokens": 118370,
+            "finish_s": 774.8588456058229,
+            "throughput_tokens_s": 152.76330737045726,
+            "GET_GB": 4508.49488896,
+            "GET_MB_per_output": 38.08815484463969,
+            "D_to_P_GB_by_port": [
+              533.2238016848751,
+              656.2462024549048,
+              542.3037108437032,
+              503.5171303883481,
+              535.3474401671647,
+              563.0710037337674,
+              483.8939575656601,
+              690.8916421215844
+            ],
+            "cache": {
+              "P_local_pages": 2986,
+              "P_external_pages": 106120,
+              "P_lookup_pages": 112315,
+              "P_computed_tokens": 3576026,
+              "P_adjacent_local_pages": 2986,
+              "P_adjacent_store_pages": 106120,
+              "P_adjacent_eviction_pages": 0,
+              "P_store_capacity_lost_pages": 0,
+              "GET_bytes": 4508494888960,
+              "GET_states": 2679,
+              "D_local_pages": 7597,
+              "P_to_D_bytes": 4452110008320,
+              "store_hit_requests": 893,
+              "adjacent_pages": 112315,
+              "P_missed_lookup_pages": 109329,
+              "P_novel_lookup_pages": 3209,
+              "adjacent_not_yet_seen_or_not_compatible_pages": 3209,
+              "Store_peak_GB": 136.17250304,
+              "Store_evicted_objects": 0,
+              "Store_evicted_GB": 0.0,
+              "Store_failed_puts": 0,
+              "Store_committed_GB": 136.17250304,
+              "P_to_D_Store_put_GB": 136.1725030399999,
+              "P_HBM_evicted_pages": [
+                51756,
+                51533
+              ],
+              "D_HBM_evicted_pages": [
+                49292,
+                49388
+              ]
+            },
+            "stage": {
+              "D_mean_active_area": 1901.043457223369,
+              "both_D_full_s": 0.0,
+              "any_D_running_s": 666.0973464545494,
+              "no_P_work_or_D_active_or_waiting_s": 5.27254759912848,
+              "D_egress_wire_busy_s": 502.46664881569774,
+              "D_active_seq_s_while_GET": 1499.7801320712872,
+              "both_D_full_while_GET_s": 0.0,
+              "both_D_idle_with_GET_and_no_D_queue_s": 0.09158811842880255,
+              "one_or_more_D_idle_with_GET_and_no_local_D_queue_s": 0.5540930977225003,
+              "mean_D_sequences_while_GET": 2.984835183800227,
+              "longest_continuous_D_egress_wire_s": 1.3512604191023456,
+              "P_compute_wall_s_by_instance": [
+                141.36718821340259,
+                134.26005742093244
+              ],
+              "P_synchronous_GET_wall_s_by_instance": [
+                507.2187424032492,
+                506.5458337238057
+              ],
+              "D_sequence_slots_peak": [
+                4,
+                4
+              ],
+              "D_busy_fraction_of_peak_sequence_slots": 0.0766689421887963
+            },
+            "peak_D_to_P_aggregate_Gbps": {
+              "1": 71.78179725299924,
+              "10": 60.04805719149899,
+              "30": 59.60997273600001,
+              "120": 58.00455918933327
+            },
+            "peak_1s_D_to_P_port_Gbps": [
+              8.48969861688056,
+              10.448394200916027,
+              8.634263979461139,
+              8.016725194799164,
+              8.523510030828675,
+              8.964909492973675,
+              7.704295737139546,
+              11.000000000000455
+            ],
+            "D_to_P_hot_port_floor_Gbps": 10.625,
+            "own_GET_wait_p50_p95_s": [
+              1.0856497222378039,
+              1.3494963390817247
+            ],
+            "tail_session": {
+              "session": "restore-016-26-1",
+              "turns": 1,
+              "phases_s": {
+                "tool_gap_s": 0.0,
+                "P_ingress_s": 0.027132957451385664,
+                "P_queue_s": 0.0,
+                "P_own_GET_s": 1.0237314470404044,
+                "P_compute_s": 0.008790322580645162,
+                "P_other_or_cohort_s": 0.030000000000021565,
+                "D_alloc_from_P_reply_s": 0.09000000000003183,
+                "P_to_D_pull_s": 0.0974156799999264,
+                "D_generation_s": 1.936558496835687,
+                "first_turn_plan_s": 771.6452167019148,
+                "planned_release_wait_s": 0
+              }
+            },
+            "last_P_reply_s": 772.7348714289873,
+            "drain_after_last_P_reply_s": 2.1239741768356453,
+            "pressure": {
+              "start_s": 144,
+              "last_P_reply_minus_start_s": 628.7348714289873,
+              "GET_wire_busy_s": 502.4666488156978,
+              "GET_wire_fraction_of_pressure_phase": 0.7991709568672287,
+              "D_to_P_peak_30s_Gbps": 59.60997273600001,
+              "mean_D_running_sequences": 2.929915929990196,
+              "GET_GB_by_cycle": [
+                145.81579775999998,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432
+              ],
+              "both_P_admission_pairs": 459,
+              "total_pairs": 459,
+              "P_queue_by_tenth_p95_s": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "P_queue_p95_s": 0.0
+            }
+          },
+          "200": {
+            "requests": 945,
+            "output_tokens": 118370,
+            "finish_s": 514.3425294752858,
+            "throughput_tokens_s": 230.1384645768199,
+            "GET_GB": 4508.49488896,
+            "GET_MB_per_output": 38.08815484463969,
+            "D_to_P_GB_by_port": [
+              533.2238016848765,
+              656.2462024549066,
+              542.3037108437046,
+              503.51713038834947,
+              535.347440167166,
+              563.0710037337689,
+              483.8939575656614,
+              690.8916421215862
+            ],
+            "cache": {
+              "P_local_pages": 2986,
+              "P_external_pages": 106120,
+              "P_lookup_pages": 112315,
+              "P_computed_tokens": 3576026,
+              "P_adjacent_local_pages": 2986,
+              "P_adjacent_store_pages": 106120,
+              "P_adjacent_eviction_pages": 0,
+              "P_store_capacity_lost_pages": 0,
+              "GET_bytes": 4508494888960,
+              "GET_states": 2679,
+              "D_local_pages": 61919,
+              "P_to_D_bytes": 2173680189440,
+              "store_hit_requests": 893,
+              "adjacent_pages": 112315,
+              "P_missed_lookup_pages": 109329,
+              "P_novel_lookup_pages": 3209,
+              "adjacent_not_yet_seen_or_not_compatible_pages": 3209,
+              "Store_peak_GB": 136.17250304,
+              "Store_evicted_objects": 0,
+              "Store_evicted_GB": 0.0,
+              "Store_failed_puts": 0,
+              "Store_committed_GB": 136.17250304,
+              "P_to_D_Store_put_GB": 136.1725030399999,
+              "P_HBM_evicted_pages": [
+                51756,
+                51533
+              ],
+              "D_HBM_evicted_pages": [
+                17258,
+                16911
+              ]
+            },
+            "stage": {
+              "D_mean_active_area": 2066.818357123675,
+              "both_D_full_s": 0.0,
+              "any_D_running_s": 405.58103032401226,
+              "no_P_work_or_D_active_or_waiting_s": 5.27254759912848,
+              "D_egress_wire_busy_s": 251.23332440784955,
+              "D_active_seq_s_while_GET": 1372.869094976662,
+              "both_D_full_while_GET_s": 0.0,
+              "both_D_idle_with_GET_and_no_D_queue_s": 0.09158811842880255,
+              "one_or_more_D_idle_with_GET_and_no_local_D_queue_s": 0.8931890728009932,
+              "mean_D_sequences_while_GET": 5.464518284795534,
+              "longest_continuous_D_egress_wire_s": 0.6756302095511728,
+              "P_compute_wall_s_by_instance": [
+                141.36718821339673,
+                134.2600574209266
+              ],
+              "P_synchronous_GET_wall_s_by_instance": [
+                259.3590588769001,
+                259.00760453717845
+              ],
+              "D_sequence_slots_peak": [
+                5,
+                5
+              ],
+              "D_busy_fraction_of_peak_sequence_slots": 0.1255740483409088
+            },
+            "peak_D_to_P_aggregate_Gbps": {
+              "1": 114.08381124928201,
+              "10": 105.8837640236452,
+              "30": 103.01962103466646,
+              "120": 100.34458629685113
+            },
+            "peak_1s_D_to_P_port_Gbps": [
+              13.492796386217833,
+              16.605778588603926,
+              13.722556132684986,
+              12.74109313169356,
+              13.546533337848587,
+              14.248055657599934,
+              12.24454463833763,
+              17.482453376294416
+            ],
+            "D_to_P_hot_port_floor_Gbps": 21.25,
+            "own_GET_wait_p50_p95_s": [
+              0.5406750321171785,
+              0.6738661295306088
+            ],
+            "tail_session": {
+              "session": "restore-016-26-1",
+              "turns": 1,
+              "phases_s": {
+                "tool_gap_s": 0.0,
+                "P_ingress_s": 0.027132957451385664,
+                "P_queue_s": 0.0,
+                "P_own_GET_s": 0.511708888027897,
+                "P_compute_s": 0.008790322580645162,
+                "P_other_or_cohort_s": 0.030000000000021565,
+                "D_alloc_from_P_reply_s": 0.09000000000003183,
+                "P_to_D_pull_s": 0.0974156799999264,
+                "D_generation_s": 2.1070167888555034,
+                "first_turn_plan_s": 511.4704648383704,
+                "planned_release_wait_s": 0
+              }
+            },
+            "last_P_reply_s": 512.0480970064303,
+            "drain_after_last_P_reply_s": 2.2944324688554616,
+            "pressure": {
+              "start_s": 144,
+              "last_P_reply_minus_start_s": 368.04809700643034,
+              "GET_wire_busy_s": 251.23332440784955,
+              "GET_wire_fraction_of_pressure_phase": 0.6826100350777256,
+              "D_to_P_peak_30s_Gbps": 103.01962103466646,
+              "mean_D_running_sequences": 5.445344293168038,
+              "GET_GB_by_cycle": [
+                145.81579775999998,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432
+              ],
+              "both_P_admission_pairs": 459,
+              "total_pairs": 459,
+              "P_queue_by_tenth_p95_s": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "P_queue_p95_s": 0.0
+            }
+          }
+        },
+        "100_loss_relative_to_200": 0.3362113210785541,
+        "same_D_to_P_bytes_on_every_port": true,
+        "same_P_placement_requests": 945,
+        "D_supply_comparison": {
+          "common_begin_s": 144,
+          "common_end_s": 512.0480970064303,
+          "100_wire_busy_s": 293.5550610568151,
+          "100_active_seq_s": 891.8080940196907,
+          "200_active_seq_s": 1598.276247314127,
+          "100_fewer_D_active_with_P_pending_s": 246.6953025141227,
+          "longest_100_fewer_D_active_with_P_pending_s": 1.3512604191023456,
+          "mean_active_D_during_100_GET": [
+            3.037958503624943,
+            5.444553541540864
+          ]
+        },
+        "saved_completion_s": 260.5163161305371,
+        "saved_wire_service_s": 251.23332440784824,
+        "remaining_completion_gap_s": 9.282991722688877,
+        "same_added_nonwire_ms_per_pair_budget_for_30pct_loss": 203.76661182854224
+      },
+      "reverse": {
+        "arms": {
+          "200": {
+            "requests": 945,
+            "output_tokens": 118370,
+            "finish_s": 493.9937524077275,
+            "throughput_tokens_s": 239.6184150570005,
+            "GET_GB": 4508.49488896,
+            "GET_MB_per_output": 38.08815484463969,
+            "D_to_P_GB_by_port": [
+              512.8139372736302,
+              547.1593153266472,
+              577.1750710667376,
+              558.6276764164379,
+              594.6099465267728,
+              634.1349010556244,
+              560.999168880874,
+              522.9748724132722
+            ],
+            "cache": {
+              "P_local_pages": 2986,
+              "P_external_pages": 106120,
+              "P_lookup_pages": 112315,
+              "P_computed_tokens": 3576026,
+              "P_adjacent_local_pages": 2986,
+              "P_adjacent_store_pages": 106120,
+              "P_adjacent_eviction_pages": 0,
+              "P_store_capacity_lost_pages": 0,
+              "GET_bytes": 4508494888960,
+              "GET_states": 2679,
+              "D_local_pages": 59939,
+              "P_to_D_bytes": 2256727408640,
+              "store_hit_requests": 893,
+              "adjacent_pages": 112315,
+              "P_missed_lookup_pages": 109329,
+              "P_novel_lookup_pages": 3209,
+              "adjacent_not_yet_seen_or_not_compatible_pages": 3209,
+              "Store_peak_GB": 136.17250304,
+              "Store_evicted_objects": 0,
+              "Store_evicted_GB": 0.0,
+              "Store_failed_puts": 0,
+              "Store_committed_GB": 136.17250304,
+              "P_to_D_Store_put_GB": 136.1725030399999,
+              "P_HBM_evicted_pages": [
+                51756,
+                51533
+              ],
+              "D_HBM_evicted_pages": [
+                18248,
+                17597
+              ]
+            },
+            "stage": {
+              "D_mean_active_area": 1935.2319541960624,
+              "both_D_full_s": 0.0,
+              "any_D_running_s": 382.6417039859441,
+              "no_P_work_or_D_active_or_waiting_s": 3.886592331816594,
+              "D_egress_wire_busy_s": 230.59450947477248,
+              "D_active_seq_s_while_GET": 1251.2734222774543,
+              "both_D_full_while_GET_s": 0.0,
+              "both_D_idle_with_GET_and_no_D_queue_s": 0.09158811842880255,
+              "one_or_more_D_idle_with_GET_and_no_local_D_queue_s": 0.2542871778133531,
+              "mean_D_sequences_while_GET": 5.426293215426043,
+              "longest_continuous_D_egress_wire_s": 0.6201271950088767,
+              "P_compute_wall_s_by_instance": [
+                142.96399671362977,
+                135.7732270731149
+              ],
+              "P_synchronous_GET_wall_s_by_instance": [
+                238.99738850642464,
+                238.67234163729856
+              ],
+              "D_sequence_slots_peak": [
+                4,
+                4
+              ],
+              "D_busy_fraction_of_peak_sequence_slots": 0.12242259800628387
+            },
+            "peak_D_to_P_aggregate_Gbps": {
+              "1": 124.45823016015856,
+              "10": 112.32081156860882,
+              "30": 108.23331566933417,
+              "120": 106.50486920533379
+            },
+            "peak_1s_D_to_P_port_Gbps": [
+              14.156368501342968,
+              15.104482023025412,
+              15.933075140759456,
+              15.421069256509554,
+              16.414369629554812,
+              17.505466771500778,
+              15.486534952319516,
+              14.436863885145613
+            ],
+            "D_to_P_hot_port_floor_Gbps": 21.25,
+            "own_GET_wait_p50_p95_s": [
+              0.4959243109788076,
+              0.6183631149883126
+            ],
+            "tail_session": {
+              "session": "restore-016-26-1",
+              "turns": 1,
+              "phases_s": {
+                "tool_gap_s": 0.0,
+                "P_ingress_s": 0.027132957451385664,
+                "P_queue_s": 0.0,
+                "P_own_GET_s": 0.4696462402404791,
+                "P_compute_s": 0.008790322580645162,
+                "P_other_or_cohort_s": 0.02999999999996472,
+                "D_alloc_from_P_reply_s": 0.08999999999997499,
+                "P_to_D_pull_s": 0.09741568000004008,
+                "D_generation_s": 1.9789844159039944,
+                "first_turn_plan_s": 491.29178279155104,
+                "planned_release_wait_s": 0
+              }
+            },
+            "last_P_reply_s": 491.8273523118235,
+            "drain_after_last_P_reply_s": 2.1664000959040095,
+            "pressure": {
+              "start_s": 144,
+              "last_P_reply_minus_start_s": 347.8273523118235,
+              "GET_wire_busy_s": 230.59450947477248,
+              "GET_wire_fraction_of_pressure_phase": 0.6629568029717426,
+              "D_to_P_peak_30s_Gbps": 108.23331566933417,
+              "mean_D_running_sequences": 5.397993265476751,
+              "GET_GB_by_cycle": [
+                145.81579775999998,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432
+              ],
+              "both_P_admission_pairs": 459,
+              "total_pairs": 459,
+              "P_queue_by_tenth_p95_s": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "P_queue_p95_s": 0.0
+            }
+          },
+          "100": {
+            "requests": 945,
+            "output_tokens": 118370,
+            "finish_s": 732.9788444550783,
+            "throughput_tokens_s": 161.49170047056452,
+            "GET_GB": 4508.49488896,
+            "GET_MB_per_output": 38.08815484463969,
+            "D_to_P_GB_by_port": [
+              512.8139372736309,
+              547.159315326648,
+              577.1750710667384,
+              558.6276764164387,
+              594.6099465267737,
+              634.1349010556253,
+              560.9991688808748,
+              522.974872413273
+            ],
+            "cache": {
+              "P_local_pages": 2986,
+              "P_external_pages": 106120,
+              "P_lookup_pages": 112315,
+              "P_computed_tokens": 3576026,
+              "P_adjacent_local_pages": 2986,
+              "P_adjacent_store_pages": 106120,
+              "P_adjacent_eviction_pages": 0,
+              "P_store_capacity_lost_pages": 0,
+              "GET_bytes": 4508494888960,
+              "GET_states": 2679,
+              "D_local_pages": 7597,
+              "P_to_D_bytes": 4452110008320,
+              "store_hit_requests": 893,
+              "adjacent_pages": 112315,
+              "P_missed_lookup_pages": 109329,
+              "P_novel_lookup_pages": 3209,
+              "adjacent_not_yet_seen_or_not_compatible_pages": 3209,
+              "Store_peak_GB": 136.17250304,
+              "Store_evicted_objects": 0,
+              "Store_evicted_GB": 0.0,
+              "Store_failed_puts": 0,
+              "Store_committed_GB": 136.17250304,
+              "P_to_D_Store_put_GB": 136.1725030399999,
+              "P_HBM_evicted_pages": [
+                51756,
+                51533
+              ],
+              "D_HBM_evicted_pages": [
+                49292,
+                49388
+              ]
+            },
+            "stage": {
+              "D_mean_active_area": 1754.9046433936787,
+              "both_D_full_s": 0.0,
+              "any_D_running_s": 621.6267960332949,
+              "no_P_work_or_D_active_or_waiting_s": 3.886592331816594,
+              "D_egress_wire_busy_s": 461.18901894954564,
+              "D_active_seq_s_while_GET": 1361.1128240976186,
+              "both_D_full_while_GET_s": 0.0,
+              "both_D_idle_with_GET_and_no_D_queue_s": 0.09158811842880255,
+              "one_or_more_D_idle_with_GET_and_no_local_D_queue_s": 0.5085743556267062,
+              "mean_D_sequences_while_GET": 2.9513122996680137,
+              "longest_continuous_D_egress_wire_s": 1.2402543900177534,
+              "P_compute_wall_s_by_instance": [
+                142.9639967136351,
+                135.77322707312024
+              ],
+              "P_synchronous_GET_wall_s_by_instance": [
+                466.4954016622995,
+                465.8753079240474
+              ],
+              "D_sequence_slots_peak": [
+                4,
+                4
+              ],
+              "D_busy_fraction_of_peak_sequence_slots": 0.07481903539361082
+            },
+            "peak_D_to_P_aggregate_Gbps": {
+              "1": 78.20645685327327,
+              "10": 65.42511435870183,
+              "30": 63.504095941118734,
+              "120": 62.11056435199998
+            },
+            "peak_1s_D_to_P_port_Gbps": [
+              8.89550993112016,
+              9.491280890822964,
+              10.011948200872439,
+              9.690216435575167,
+              10.314381688985122,
+              11.000000000000455,
+              9.731353450846655,
+              9.071766255050534
+            ],
+            "D_to_P_hot_port_floor_Gbps": 10.625,
+            "own_GET_wait_p50_p95_s": [
+              0.9961482799610621,
+              1.2384903099971325
+            ],
+            "tail_session": {
+              "session": "restore-016-26-1",
+              "turns": 1,
+              "phases_s": {
+                "tool_gap_s": 0.0,
+                "P_ingress_s": 0.027132957451385664,
+                "P_queue_s": 0.0,
+                "P_own_GET_s": 0.9396061514656822,
+                "P_compute_s": 0.008790322580645162,
+                "P_other_or_cohort_s": 0.030000000000021565,
+                "D_alloc_from_P_reply_s": 0.09000000000003183,
+                "P_to_D_pull_s": 0.0974156799999264,
+                "D_generation_s": 1.791029019654161,
+                "first_turn_plan_s": 729.9948703239264,
+                "planned_release_wait_s": 0
+              }
+            },
+            "last_P_reply_s": 731.0003997554242,
+            "drain_after_last_P_reply_s": 1.9784446996541192,
+            "pressure": {
+              "start_s": 144,
+              "last_P_reply_minus_start_s": 587.0003997554242,
+              "GET_wire_busy_s": 461.18901894954564,
+              "GET_wire_fraction_of_pressure_phase": 0.7856707067690273,
+              "D_to_P_peak_30s_Gbps": 63.504095941118734,
+              "mean_D_running_sequences": 2.897555462674471,
+              "GET_GB_by_cycle": [
+                145.81579775999998,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432
+              ],
+              "both_P_admission_pairs": 459,
+              "total_pairs": 459,
+              "P_queue_by_tenth_p95_s": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "P_queue_p95_s": 0.0
+            }
+          }
+        },
+        "100_loss_relative_to_200": 0.3260463707175894,
+        "same_D_to_P_bytes_on_every_port": true,
+        "same_P_placement_requests": 945,
+        "D_supply_comparison": {
+          "common_begin_s": 144,
+          "common_end_s": 491.8273523118235,
+          "100_wire_busy_s": 272.7210331646427,
+          "100_active_seq_s": 819.0475795517203,
+          "200_active_seq_s": 1465.9162998891422,
+          "100_fewer_D_active_with_P_pending_s": 222.8347817629681,
+          "longest_100_fewer_D_active_with_P_pending_s": 1.2402543900176966,
+          "mean_active_D_during_100_GET": [
+            3.0032431677437152,
+            5.375149407725231
+          ]
+        },
+        "saved_completion_s": 238.98509204735075,
+        "saved_wire_service_s": 230.59450947477316,
+        "remaining_completion_gap_s": 8.390582572577586,
+        "same_added_nonwire_ms_per_pair_budget_for_30pct_loss": 138.64516129867312
+      }
+    },
+    "same_requests_without_first_token_gate": {
+      "forward": {
+        "arms": {
+          "100": {
+            "requests": 945,
+            "output_tokens": 118370,
+            "finish_s": 439.1097961957916,
+            "throughput_tokens_s": 269.56811491224585,
+            "GET_GB": 1083.93463808,
+            "GET_MB_per_output": 9.157173591957422,
+            "D_to_P_GB_by_port": [
+              128.19793805472452,
+              157.77504632225876,
+              130.38093444049704,
+              121.05584500739486,
+              128.70850430053525,
+              135.37381757713194,
+              116.33803180023646,
+              166.10452057722176
+            ],
+            "cache": {
+              "P_local_pages": 83613,
+              "P_external_pages": 25493,
+              "P_lookup_pages": 112315,
+              "P_computed_tokens": 3576026,
+              "P_adjacent_local_pages": 83613,
+              "P_adjacent_store_pages": 25493,
+              "P_adjacent_eviction_pages": 0,
+              "P_store_capacity_lost_pages": 0,
+              "GET_bytes": 1083934638080,
+              "GET_states": 684,
+              "D_local_pages": 93575,
+              "P_to_D_bytes": 845931315200,
+              "store_hit_requests": 228,
+              "adjacent_pages": 112315,
+              "P_missed_lookup_pages": 28702,
+              "P_novel_lookup_pages": 3209,
+              "adjacent_not_yet_seen_or_not_compatible_pages": 3209,
+              "Store_peak_GB": 136.17250304,
+              "Store_evicted_objects": 0,
+              "Store_evicted_GB": 0.0,
+              "Store_failed_puts": 0,
+              "Store_committed_GB": 136.17250304,
+              "P_to_D_Store_put_GB": 136.17250303999992,
+              "P_HBM_evicted_pages": [
+                9957,
+                10222
+              ],
+              "D_HBM_evicted_pages": [
+                4606,
+                5792
+              ]
+            },
+            "stage": {
+              "D_mean_active_area": 2299.3727327670845,
+              "both_D_full_s": 0.4931811004759652,
+              "any_D_running_s": 320.223875990679,
+              "no_P_work_or_D_active_or_waiting_s": 4.051702360630024,
+              "D_egress_wire_busy_s": 120.80328769252495,
+              "D_active_seq_s_while_GET": 709.1945614145835,
+              "both_D_full_while_GET_s": 0.0,
+              "both_D_idle_with_GET_and_no_D_queue_s": 1.540668646955936,
+              "one_or_more_D_idle_with_GET_and_no_local_D_queue_s": 13.220613143670192,
+              "mean_D_sequences_while_GET": 5.8706561299859965,
+              "longest_continuous_D_egress_wire_s": 14.404576302759835,
+              "P_compute_wall_s_by_instance": [
+                143.8432971077827,
+                131.78394852654088
+              ],
+              "P_synchronous_GET_wall_s_by_instance": [
+                88.8925622954925,
+                92.29663548987858
+              ],
+              "D_sequence_slots_peak": [
+                16,
+                16
+              ],
+              "D_busy_fraction_of_peak_sequence_slots": 0.1636387949471578
+            },
+            "peak_D_to_P_aggregate_Gbps": {
+              "1": 71.7817972529956,
+              "10": 71.78179725299461,
+              "30": 51.98238314927848,
+              "120": 34.522846549333465
+            },
+            "peak_1s_D_to_P_port_Gbps": [
+              8.489698616880105,
+              10.448394200915345,
+              8.63426397946057,
+              8.016725194798596,
+              8.523510030828447,
+              8.964909492972993,
+              7.7042957371389775,
+              11.0
+            ],
+            "D_to_P_hot_port_floor_Gbps": 10.625,
+            "own_GET_wait_p50_p95_s": [
+              1.080139169638386,
+              4.258327276403122
+            ],
+            "tail_session": {
+              "session": "restore-016-25-0",
+              "turns": 1,
+              "phases_s": {
+                "tool_gap_s": 0.0,
+                "P_ingress_s": 0.027567424520441364,
+                "P_queue_s": 0.9212936070343858,
+                "P_own_GET_s": 2.155724845440659,
+                "P_compute_s": 0.002540322580645161,
+                "P_other_or_cohort_s": 0.04133064516125042,
+                "D_alloc_from_P_reply_s": 0.08999999999997499,
+                "P_to_D_pull_s": 0.04079257600000119,
+                "D_generation_s": 2.790890749850746,
+                "first_turn_plan_s": 433.0396560252035,
+                "planned_release_wait_s": 0
+              }
+            },
+            "last_P_reply_s": 436.1881128699409,
+            "drain_after_last_P_reply_s": 2.921683325850722,
+            "pressure": {
+              "start_s": 144,
+              "last_P_reply_minus_start_s": 292.1881128699409,
+              "GET_wire_busy_s": 120.80328769252495,
+              "GET_wire_fraction_of_pressure_phase": 0.413443539868773,
+              "D_to_P_peak_30s_Gbps": 51.98238314927848,
+              "mean_D_running_sequences": 7.656021313041062,
+              "GET_GB_by_cycle": [
+                83.78384384,
+                89.53593855999998,
+                29.768908800000002,
+                59.199324159999996,
+                43.50967808,
+                178.25251328000002,
+                20.05467136,
+                40.44488704,
+                29.03343104,
+                181.73378560000003,
+                20.13855744,
+                40.44488704,
+                29.03343104,
+                86.15510016,
+                51.26914048,
+                47.47476991999999,
+                54.10177023999999
+              ],
+              "both_P_admission_pairs": 367,
+              "total_pairs": 459,
+              "P_queue_by_tenth_p95_s": [
+                0.46769925499924625,
+                1.538605600465587,
+                4.831010645079061,
+                4.829978710249833,
+                0.0,
+                5.457936487497761,
+                0.0,
+                1.3479106744956084,
+                0.28741324676730073,
+                0.9212936070343858
+              ],
+              "P_queue_p95_s": 3.589663166826597
+            }
+          },
+          "200": {
+            "requests": 945,
+            "output_tokens": 118370,
+            "finish_s": 436.67244181521664,
+            "throughput_tokens_s": 271.07275079678544,
+            "GET_GB": 4508.49488896,
+            "GET_MB_per_output": 38.08815484463969,
+            "D_to_P_GB_by_port": [
+              533.2238016848761,
+              656.246202454906,
+              542.3037108437042,
+              503.517130388349,
+              535.3474401671656,
+              563.0710037337684,
+              483.89395756566097,
+              690.8916421215855
+            ],
+            "cache": {
+              "P_local_pages": 2986,
+              "P_external_pages": 106120,
+              "P_lookup_pages": 112315,
+              "P_computed_tokens": 3576026,
+              "P_adjacent_local_pages": 2986,
+              "P_adjacent_store_pages": 106120,
+              "P_adjacent_eviction_pages": 0,
+              "P_store_capacity_lost_pages": 0,
+              "GET_bytes": 4508494888960,
+              "GET_states": 2679,
+              "D_local_pages": 35200,
+              "P_to_D_bytes": 3294356275200,
+              "store_hit_requests": 893,
+              "adjacent_pages": 112315,
+              "P_missed_lookup_pages": 109329,
+              "P_novel_lookup_pages": 3209,
+              "adjacent_not_yet_seen_or_not_compatible_pages": 3209,
+              "Store_peak_GB": 136.17250304,
+              "Store_evicted_objects": 0,
+              "Store_evicted_GB": 0.0,
+              "Store_failed_puts": 0,
+              "Store_committed_GB": 136.17250304,
+              "P_to_D_Store_put_GB": 136.17250303999992,
+              "P_HBM_evicted_pages": [
+                51534,
+                51757
+              ],
+              "D_HBM_evicted_pages": [
+                35245,
+                35838
+              ]
+            },
+            "stage": {
+              "D_mean_active_area": 2170.2024683018876,
+              "both_D_full_s": 0.0,
+              "any_D_running_s": 319.5264845420938,
+              "no_P_work_or_D_active_or_waiting_s": 4.051702360630024,
+              "D_egress_wire_busy_s": 251.23332440784932,
+              "D_active_seq_s_while_GET": 1844.562338621326,
+              "both_D_full_while_GET_s": 0.0,
+              "both_D_idle_with_GET_and_no_D_queue_s": 0.08995967741935829,
+              "one_or_more_D_idle_with_GET_and_no_local_D_queue_s": 0.27704654886125013,
+              "mean_D_sequences_while_GET": 7.342028940503468,
+              "longest_continuous_D_egress_wire_s": 0.6756302095511728,
+              "P_compute_wall_s_by_instance": [
+                143.71176484971798,
+                131.91548078460517
+              ],
+              "P_synchronous_GET_wall_s_by_instance": [
+                260.61585714206336,
+                261.5720555709054
+              ],
+              "D_sequence_slots_peak": [
+                5,
+                5
+              ],
+              "D_busy_fraction_of_peak_sequence_slots": 0.15530823711364952
+            },
+            "peak_D_to_P_aggregate_Gbps": {
+              "1": 134.2305462186705,
+              "10": 128.6238436481355,
+              "30": 127.93661041466414,
+              "120": 127.83670826898575
+            },
+            "peak_1s_D_to_P_port_Gbps": [
+              15.87556910227886,
+              19.53829124330423,
+              16.145903481273308,
+              14.991118124140485,
+              15.93879578002111,
+              16.76420407532305,
+              14.406881195540791,
+              20.569783216785254
+            ],
+            "D_to_P_hot_port_floor_Gbps": 21.25,
+            "own_GET_wait_p50_p95_s": [
+              0.5447440891202859,
+              0.6756302095511728
+            ],
+            "tail_session": {
+              "session": "restore-016-25-0",
+              "turns": 1,
+              "phases_s": {
+                "tool_gap_s": 0.0,
+                "P_ingress_s": 0.027567424520441364,
+                "P_queue_s": 0.0,
+                "P_own_GET_s": 0.5447440891202859,
+                "P_compute_s": 0.002540322580645161,
+                "P_other_or_cohort_s": 0.029999999999998826,
+                "D_alloc_from_P_reply_s": 0.08999999999997499,
+                "P_to_D_pull_s": 0.08483276800001249,
+                "D_generation_s": 2.853101185791786,
+                "first_turn_plan_s": 433.0396560252035,
+                "planned_release_wait_s": 0
+              }
+            },
+            "last_P_reply_s": 434.23154944543154,
+            "drain_after_last_P_reply_s": 2.4408923697851037,
+            "pressure": {
+              "start_s": 144,
+              "last_P_reply_minus_start_s": 290.23154944543154,
+              "GET_wire_busy_s": 251.23332440784932,
+              "GET_wire_fraction_of_pressure_phase": 0.8656306486593232,
+              "D_to_P_peak_30s_Gbps": 127.93661041466414,
+              "mean_D_running_sequences": 7.253836562432168,
+              "GET_GB_by_cycle": [
+                145.81579775999998,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432
+              ],
+              "both_P_admission_pairs": 459,
+              "total_pairs": 459,
+              "P_queue_by_tenth_p95_s": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "P_queue_p95_s": 0.0
+            }
+          }
+        },
+        "100_loss_relative_to_200": 0.00555067184037084,
+        "same_D_to_P_bytes_on_every_port": false,
+        "same_P_placement_requests": 791,
+        "D_supply_comparison": {
+          "common_begin_s": 144,
+          "common_end_s": 434.23154944543154,
+          "100_wire_busy_s": 118.86059523575753,
+          "100_active_seq_s": 700.4947231552021,
+          "200_active_seq_s": 864.1600448068501,
+          "100_fewer_D_active_with_P_pending_s": 78.91209822329893,
+          "longest_100_fewer_D_active_with_P_pending_s": 5.328058698824492,
+          "mean_active_D_during_100_GET": [
+            5.893414228372198,
+            7.270366121697494
+          ]
+        },
+        "saved_completion_s": 2.437354380574959,
+        "saved_wire_service_s": -130.43003671532438,
+        "remaining_completion_gap_s": 132.86739109589934
+      },
+      "reverse": {
+        "arms": {
+          "200": {
+            "requests": 945,
+            "output_tokens": 118370,
+            "finish_s": 436.43195270068594,
+            "throughput_tokens_s": 271.22212126658974,
+            "GET_GB": 4508.49488896,
+            "GET_MB_per_output": 38.08815484463969,
+            "D_to_P_GB_by_port": [
+              512.81393727363,
+              547.159315326647,
+              577.1750710667374,
+              558.6276764164377,
+              594.6099465267725,
+              634.1349010556241,
+              560.9991688808738,
+              522.974872413272
+            ],
+            "cache": {
+              "P_local_pages": 2986,
+              "P_external_pages": 106120,
+              "P_lookup_pages": 112315,
+              "P_computed_tokens": 3576026,
+              "P_adjacent_local_pages": 2986,
+              "P_adjacent_store_pages": 106120,
+              "P_adjacent_eviction_pages": 0,
+              "P_store_capacity_lost_pages": 0,
+              "GET_bytes": 4508494888960,
+              "GET_states": 2679,
+              "D_local_pages": 14795,
+              "P_to_D_bytes": 4150204006400,
+              "store_hit_requests": 893,
+              "adjacent_pages": 112315,
+              "P_missed_lookup_pages": 109329,
+              "P_novel_lookup_pages": 3209,
+              "adjacent_not_yet_seen_or_not_compatible_pages": 3209,
+              "Store_peak_GB": 136.17250304,
+              "Store_evicted_objects": 0,
+              "Store_evicted_GB": 0.0,
+              "Store_failed_puts": 0,
+              "Store_committed_GB": 136.17250304,
+              "P_to_D_Store_put_GB": 136.17250303999992,
+              "P_HBM_evicted_pages": [
+                51534,
+                51757
+              ],
+              "D_HBM_evicted_pages": [
+                45631,
+                45855
+              ]
+            },
+            "stage": {
+              "D_mean_active_area": 2019.4639107034259,
+              "both_D_full_s": 0.0,
+              "any_D_running_s": 317.0571842706229,
+              "no_P_work_or_D_active_or_waiting_s": 2.5430143189414527,
+              "D_egress_wire_busy_s": 230.5945094747724,
+              "D_active_seq_s_while_GET": 1604.695927030876,
+              "both_D_full_while_GET_s": 0.0,
+              "both_D_idle_with_GET_and_no_D_queue_s": 0.08995967741935829,
+              "one_or_more_D_idle_with_GET_and_no_local_D_queue_s": 0.2542871778133531,
+              "mean_D_sequences_while_GET": 6.958951150597251,
+              "longest_continuous_D_egress_wire_s": 0.6201271950088767,
+              "P_compute_wall_s_by_instance": [
+                145.3361650314243,
+                133.4010587553203
+              ],
+              "P_synchronous_GET_wall_s_by_instance": [
+                240.30296960275254,
+                241.18800983986054
+              ],
+              "D_sequence_slots_peak": [
+                5,
+                5
+              ],
+              "D_busy_fraction_of_peak_sequence_slots": 0.14460042812851284
+            },
+            "peak_D_to_P_aggregate_Gbps": {
+              "1": 139.66539175815706,
+              "10": 129.3277274712078,
+              "30": 128.07087355671533,
+              "120": 127.8896850044445
+            },
+            "peak_1s_D_to_P_port_Gbps": [
+              15.886090860110471,
+              16.950051405481645,
+              17.879887722834155,
+              17.30532144212907,
+              18.419990078798264,
+              19.644404965463764,
+              17.378786186407524,
+              16.20085909692989
+            ],
+            "D_to_P_hot_port_floor_Gbps": 21.25,
+            "own_GET_wait_p50_p95_s": [
+              0.49999336798191507,
+              0.6201271950088767
+            ],
+            "tail_session": {
+              "session": "restore-016-25-0",
+              "turns": 1,
+              "phases_s": {
+                "tool_gap_s": 0.0,
+                "P_ingress_s": 0.027567424520441364,
+                "P_queue_s": 0.0,
+                "P_own_GET_s": 0.49999336798191507,
+                "P_compute_s": 0.002540322580645161,
+                "P_other_or_cohort_s": 0.029999999999998826,
+                "D_alloc_from_P_reply_s": 0.08999999999997499,
+                "P_to_D_pull_s": 0.08483276800001249,
+                "D_generation_s": 2.6573627923994536,
+                "first_turn_plan_s": 433.0396560252035,
+                "planned_release_wait_s": 0
+              }
+            },
+            "last_P_reply_s": 434.1894867976442,
+            "drain_after_last_P_reply_s": 2.2424659030417615,
+            "pressure": {
+              "start_s": 144,
+              "last_P_reply_minus_start_s": 290.1894867976442,
+              "GET_wire_busy_s": 230.5945094747724,
+              "GET_wire_fraction_of_pressure_phase": 0.794634264733275,
+              "D_to_P_peak_30s_Gbps": 128.07087355671533,
+              "mean_D_running_sequences": 6.756181505832686,
+              "GET_GB_by_cycle": [
+                145.81579775999998,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432,
+                272.6674432
+              ],
+              "both_P_admission_pairs": 459,
+              "total_pairs": 459,
+              "P_queue_by_tenth_p95_s": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "P_queue_p95_s": 0.0
+            }
+          },
+          "100": {
+            "requests": 945,
+            "output_tokens": 118370,
+            "finish_s": 452.0198486111502,
+            "throughput_tokens_s": 261.86903155623975,
+            "GET_GB": 1526.78006784,
+            "GET_MB_per_output": 12.898370092422066,
+            "D_to_P_GB_by_port": [
+              173.66196862220264,
+              185.29286539047465,
+              195.45755642679865,
+              189.17657060783233,
+              201.36179298317964,
+              214.74672836476404,
+              189.97966510276012,
+              177.10292034199023
+            ],
+            "cache": {
+              "P_local_pages": 73197,
+              "P_external_pages": 35909,
+              "P_lookup_pages": 112315,
+              "P_computed_tokens": 3576026,
+              "P_adjacent_local_pages": 73197,
+              "P_adjacent_store_pages": 35909,
+              "P_adjacent_eviction_pages": 0,
+              "P_store_capacity_lost_pages": 0,
+              "GET_bytes": 1526780067840,
+              "GET_states": 962,
+              "D_local_pages": 93061,
+              "P_to_D_bytes": 867490037760,
+              "store_hit_requests": 321,
+              "adjacent_pages": 112315,
+              "P_missed_lookup_pages": 39118,
+              "P_novel_lookup_pages": 3209,
+              "adjacent_not_yet_seen_or_not_compatible_pages": 3209,
+              "Store_peak_GB": 136.17250304,
+              "Store_evicted_objects": 0,
+              "Store_evicted_GB": 0.0,
+              "Store_failed_puts": 0,
+              "Store_committed_GB": 136.17250304,
+              "P_to_D_Store_put_GB": 136.17250303999992,
+              "P_HBM_evicted_pages": [
+                14777,
+                15134
+              ],
+              "D_HBM_evicted_pages": [
+                5730,
+                5144
+              ]
+            },
+            "stage": {
+              "D_mean_active_area": 2182.620969778992,
+              "both_D_full_s": 2.334886283825199,
+              "any_D_running_s": 320.264762019408,
+              "no_P_work_or_D_active_or_waiting_s": 2.5430143189414527,
+              "D_egress_wire_busy_s": 156.17943881073748,
+              "D_active_seq_s_while_GET": 874.138356005439,
+              "both_D_full_while_GET_s": 1.6399505009478617,
+              "both_D_idle_with_GET_and_no_D_queue_s": 10.865155694350449,
+              "one_or_more_D_idle_with_GET_and_no_local_D_queue_s": 17.51173470502576,
+              "mean_D_sequences_while_GET": 5.597013042573061,
+              "longest_continuous_D_egress_wire_s": 28.724722062971694,
+              "P_compute_wall_s_by_instance": [
+                145.42181019271496,
+                133.31541359403022
+              ],
+              "P_synchronous_GET_wall_s_by_instance": [
+                134.35569324824328,
+                135.62078595151215
+              ],
+              "D_sequence_slots_peak": [
+                16,
+                16
+              ],
+              "D_busy_fraction_of_peak_sequence_slots": 0.15089360680767017
+            },
+            "peak_D_to_P_aggregate_Gbps": {
+              "1": 78.20645685327145,
+              "10": 78.20645685327099,
+              "30": 78.19439531617681,
+              "120": 54.93354222933336
+            },
+            "peak_1s_D_to_P_port_Gbps": [
+              8.895509931119818,
+              9.491280890822964,
+              10.011948200872212,
+              9.69021643557494,
+              10.314381688985122,
+              11.0,
+              9.7313534508462,
+              9.071766255050306
+            ],
+            "D_to_P_hot_port_floor_Gbps": 10.625,
+            "own_GET_wait_p50_p95_s": [
+              1.8883185337038526,
+              3.197322923721515
+            ],
+            "tail_session": {
+              "session": "restore-016-25-0",
+              "turns": 1,
+              "phases_s": {
+                "tool_gap_s": 0.0,
+                "P_ingress_s": 0.027567424520441364,
+                "P_queue_s": 13.11919137534494,
+                "P_own_GET_s": 2.976067786469173,
+                "P_compute_s": 0.002540322580645161,
+                "P_other_or_cohort_s": 0.04572580645159743,
+                "D_alloc_from_P_reply_s": 0.08999999999997499,
+                "P_to_D_pull_s": 0.04079257600000119,
+                "D_generation_s": 2.6783072945799518,
+                "first_turn_plan_s": 433.0396560252035,
+                "planned_release_wait_s": 0
+              }
+            },
+            "last_P_reply_s": 449.2423273308306,
+            "drain_after_last_P_reply_s": 2.777521280319604,
+            "pressure": {
+              "start_s": 144,
+              "last_P_reply_minus_start_s": 305.2423273308306,
+              "GET_wire_busy_s": 156.17943881073748,
+              "GET_wire_fraction_of_pressure_phase": 0.5116572140451072,
+              "D_to_P_peak_30s_Gbps": 78.19439531617681,
+              "mean_D_running_sequences": 6.945391112953576,
+              "GET_GB_by_cycle": [
+                83.78384384,
+                89.53593855999998,
+                27.69518592,
+                60.586393599999994,
+                99.35650816,
+                61.25453311999999,
+                55.550279679999996,
+                28.73982976,
+                81.37654271999999,
+                79.98947328,
+                34.908405759999994,
+                171.07435519999999,
+                177.70135552,
+                51.31108352,
+                36.10230784,
+                125.17392384000001,
+                262.64010752
+              ],
+              "both_P_admission_pairs": 376,
+              "total_pairs": 459,
+              "P_queue_by_tenth_p95_s": [
+                0.29151096960160316,
+                1.0174131701973863,
+                1.2379921867938037,
+                0.2775326523945978,
+                0.580714410171538,
+                2.6089175152383177,
+                4.538963135673157,
+                11.854948712477324,
+                2.4268850683112646,
+                14.481145518957476
+              ],
+              "P_queue_p95_s": 9.756386801895246
+            }
+          }
+        },
+        "100_loss_relative_to_200": 0.03448498104310849,
+        "same_D_to_P_bytes_on_every_port": false,
+        "same_P_placement_requests": 792,
+        "D_supply_comparison": {
+          "common_begin_s": 144,
+          "common_end_s": 434.1894867976442,
+          "100_wire_busy_s": 141.36271787535887,
+          "100_active_seq_s": 813.9086424047329,
+          "200_active_seq_s": 955.9094475973766,
+          "100_fewer_D_active_with_P_pending_s": 93.07420928446027,
+          "longest_100_fewer_D_active_with_P_pending_s": 3.8797889035640196,
+          "mean_active_D_during_100_GET": [
+            5.757590506447149,
+            6.762104336733345
+          ]
+        },
+        "saved_completion_s": 15.587895910464283,
+        "saved_wire_service_s": -74.41507066403491,
+        "remaining_completion_gap_s": 90.0029665744992
+      }
+    },
+    "rule": "Send two simultaneous requests for the same namespace and snapshot. Wait for both D first tokens and the minimum pair interval before posting the next pair. The plan and EOS work are frozen. Actual releases follow first-token completions. Routing uses unchanged native scores.",
+    "fit_control": {
+      "arms": {
+        "100": {
+          "requests": 945,
+          "output_tokens": 118370,
+          "finish_s": 439.15507158630436,
+          "throughput_tokens_s": 269.54032335873296,
+          "GET_GB": 96.41459712,
+          "GET_MB_per_output": 0.8145188571428571,
+          "D_to_P_GB_by_port": [
+            11.403042319096645,
+            14.033888199841034,
+            11.59721705035303,
+            10.767762294305134,
+            11.448456532429757,
+            12.041327607552853,
+            10.34811885486186,
+            14.774784261559468
+          ],
+          "cache": {
+            "P_local_pages": 107071,
+            "P_external_pages": 2268,
+            "P_lookup_pages": 112315,
+            "P_computed_tokens": 3337434,
+            "P_adjacent_local_pages": 107071,
+            "P_adjacent_store_pages": 2268,
+            "P_adjacent_eviction_pages": 0,
+            "P_store_capacity_lost_pages": 0,
+            "GET_bytes": 96414597120,
+            "GET_states": 60,
+            "D_local_pages": 107071,
+            "P_to_D_bytes": 279868047360,
+            "store_hit_requests": 20,
+            "adjacent_pages": 112315,
+            "P_missed_lookup_pages": 5244,
+            "P_novel_lookup_pages": 2976,
+            "adjacent_not_yet_seen_or_not_compatible_pages": 2976,
+            "Store_peak_GB": 111.26341632,
+            "Store_evicted_objects": 0,
+            "Store_evicted_GB": 0.0,
+            "Store_failed_puts": 0,
+            "Store_committed_GB": 111.26341632,
+            "P_to_D_Store_put_GB": 111.2634163200004,
+            "P_HBM_evicted_pages": [
+              0,
+              0
+            ],
+            "D_HBM_evicted_pages": [
+              0,
+              0
+            ]
+          },
+          "stage": {
+            "D_mean_active_area": 2164.5615242867752,
+            "both_D_full_s": 0.0,
+            "any_D_running_s": 327.0185838350129,
+            "no_P_work_or_D_active_or_waiting_s": 13.576411328474116,
+            "D_egress_wire_busy_s": 10.745297644770524,
+            "D_active_seq_s_while_GET": 55.991124384043324,
+            "both_D_full_while_GET_s": 0.0,
+            "both_D_idle_with_GET_and_no_D_queue_s": 0.4013729235643808,
+            "one_or_more_D_idle_with_GET_and_no_local_D_queue_s": 0.5659436965170883,
+            "mean_D_sequences_while_GET": 5.210756019521977,
+            "longest_continuous_D_egress_wire_s": 0.6756302095511728,
+            "P_compute_wall_s_by_instance": [
+              122.2249330680446,
+              134.26005742092653
+            ],
+            "P_synchronous_GET_wall_s_by_instance": [
+              6.051063730859262,
+              5.294233913911285
+            ],
+            "D_sequence_slots_peak": [
+              5,
+              5
+            ],
+            "D_busy_fraction_of_peak_sequence_slots": 0.15402884313649184
+          },
+          "peak_D_to_P_aggregate_Gbps": {
+            "1": 56.91791051288601,
+            "10": 52.043138344319075,
+            "30": 24.356410709333268,
+            "120": 6.121357311999985
+          },
+          "peak_1s_D_to_P_port_Gbps": [
+            6.731733178174146,
+            8.284840849484858,
+            6.846363330740765,
+            6.35669856016186,
+            6.758543248513277,
+            7.108541939661002,
+            6.108964000800235,
+            8.722225405349917
+          ],
+          "D_to_P_hot_port_floor_Gbps": 10.625,
+          "own_GET_wait_p50_p95_s": [
+            0.5400695848191788,
+            0.6756302095511728
+          ],
+          "tail_session": {
+            "session": "restore-016-25-1",
+            "turns": 1,
+            "phases_s": {
+              "tool_gap_s": 0.0,
+              "P_ingress_s": 0.033252044592984475,
+              "P_queue_s": 0.0,
+              "P_own_GET_s": 0.0,
+              "P_compute_s": 0.002540322580645161,
+              "P_other_or_cohort_s": 2.6111491441271895e-14,
+              "D_alloc_from_P_reply_s": 0.08999999999997499,
+              "P_to_D_pull_s": 0.04079257600000119,
+              "D_generation_s": 2.8474365336317646,
+              "first_turn_plan_s": 436.14105010949896,
+              "planned_release_wait_s": 0
+            }
+          },
+          "last_P_reply_s": 436.78904539977856,
+          "drain_after_last_P_reply_s": 2.3660261865258008,
+          "pressure": {
+            "start_s": 144,
+            "last_P_reply_minus_start_s": 292.78904539977856,
+            "GET_wire_busy_s": 10.179353948253436,
+            "GET_wire_fraction_of_pressure_phase": 0.03476685384302679,
+            "D_to_P_peak_30s_Gbps": 24.35641070933327,
+            "mean_D_running_sequences": 7.172455308635217,
+            "GET_GB_by_cycle": [
+              91.33654016000001,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "both_P_admission_pairs": 459,
+            "total_pairs": 459,
+            "P_queue_by_tenth_p95_s": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "P_queue_p95_s": 0.0
+          }
+        },
+        "200": {
+          "requests": 945,
+          "output_tokens": 118370,
+          "finish_s": 436.0536775020119,
+          "throughput_tokens_s": 271.45740560679906,
+          "GET_GB": 96.24682496,
+          "GET_MB_per_output": 0.813101503421475,
+          "D_to_P_GB_by_port": [
+            11.383199752746872,
+            14.009467668025215,
+            11.577036598298674,
+            10.749025186103273,
+            11.42853494028002,
+            12.020374353560971,
+            10.330111973081808,
+            14.749074487903487
+          ],
+          "cache": {
+            "P_local_pages": 107071,
+            "P_external_pages": 2264,
+            "P_lookup_pages": 112315,
+            "P_computed_tokens": 3341530,
+            "P_adjacent_local_pages": 107071,
+            "P_adjacent_store_pages": 2264,
+            "P_adjacent_eviction_pages": 0,
+            "P_store_capacity_lost_pages": 0,
+            "GET_bytes": 96246824960,
+            "GET_states": 60,
+            "D_local_pages": 107071,
+            "P_to_D_bytes": 279868047360,
+            "store_hit_requests": 20,
+            "adjacent_pages": 112315,
+            "P_missed_lookup_pages": 5244,
+            "P_novel_lookup_pages": 2980,
+            "adjacent_not_yet_seen_or_not_compatible_pages": 2980,
+            "Store_peak_GB": 111.26341632,
+            "Store_evicted_objects": 0,
+            "Store_evicted_GB": 0.0,
+            "Store_failed_puts": 0,
+            "Store_committed_GB": 111.26341632,
+            "P_to_D_Store_put_GB": 111.2634163200004,
+            "P_HBM_evicted_pages": [
+              0,
+              0
+            ],
+            "D_HBM_evicted_pages": [
+              0,
+              0
+            ]
+          },
+          "stage": {
+            "D_mean_active_area": 2169.228670011953,
+            "both_D_full_s": 0.0,
+            "any_D_running_s": 323.61998870748545,
+            "no_P_work_or_D_active_or_waiting_s": 13.576411328474116,
+            "D_egress_wire_busy_s": 5.363299813783087,
+            "D_active_seq_s_while_GET": 34.87683635757359,
+            "both_D_full_while_GET_s": 0.0,
+            "both_D_idle_with_GET_and_no_D_queue_s": 0.2560112795062892,
+            "one_or_more_D_idle_with_GET_and_no_local_D_queue_s": 0.2736228396563405,
+            "mean_D_sequences_while_GET": 6.502869048630095,
+            "longest_continuous_D_egress_wire_s": 0.3378151047755864,
+            "P_compute_wall_s_by_instance": [
+              122.55351232360873,
+              134.2600574209265
+            ],
+            "P_synchronous_GET_wall_s_by_instance": [
+              3.181182856827448,
+              2.7821169569556616
+            ],
+            "D_sequence_slots_peak": [
+              5,
+              6
+            ],
+            "D_busy_fraction_of_peak_sequence_slots": 0.1554588332477961
+          },
+          "peak_D_to_P_aggregate_Gbps": {
+            "1": 87.60066048000016,
+            "10": 60.633776128000285,
+            "30": 24.35641070933341,
+            "120": 6.110172501333351
+          },
+          "peak_1s_D_to_P_port_Gbps": [
+            10.36060999550709,
+            12.750951745184844,
+            10.537033848478387,
+            9.78340538724406,
+            10.401872576091321,
+            10.940545135139928,
+            9.402124506968471,
+            13.424117285386043
+          ],
+          "D_to_P_hot_port_floor_Gbps": 21.25,
+          "own_GET_wait_p50_p95_s": [
+            0.2700347924096036,
+            0.3378151047755864
+          ],
+          "tail_session": {
+            "session": "restore-016-25-1",
+            "turns": 1,
+            "phases_s": {
+              "tool_gap_s": 0.0,
+              "P_ingress_s": 0.033252044592984475,
+              "P_queue_s": 0.0,
+              "P_own_GET_s": 0.0,
+              "P_compute_s": 0.002540322580645161,
+              "P_other_or_cohort_s": 2.6111491441271895e-14,
+              "D_alloc_from_P_reply_s": 0.08999999999997499,
+              "P_to_D_pull_s": 0.04079257600000119,
+              "D_generation_s": 2.8474365336317646,
+              "first_turn_plan_s": 433.0396560252065,
+              "planned_release_wait_s": 0
+            }
+          },
+          "last_P_reply_s": 433.6876513154861,
+          "drain_after_last_P_reply_s": 2.3660261865258008,
+          "pressure": {
+            "start_s": 144,
+            "last_P_reply_minus_start_s": 289.6876513154861,
+            "GET_wire_busy_s": 5.089676974126746,
+            "GET_wire_fraction_of_pressure_phase": 0.017569533775479446,
+            "D_to_P_peak_30s_Gbps": 24.35641070933341,
+            "mean_D_running_sequences": 7.26537301314413,
+            "GET_GB_by_cycle": [
+              91.33654016000001,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "both_P_admission_pairs": 459,
+            "total_pairs": 459,
+            "P_queue_by_tenth_p95_s": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "P_queue_p95_s": 0.0
+          }
+        }
+      },
+      "100_loss_relative_to_200": 0.007062184373938065,
+      "same_D_to_P_bytes_on_every_port": false,
+      "same_P_placement_requests": 945,
+      "D_supply_comparison": {
+        "common_begin_s": 144,
+        "common_end_s": 433.6876513154861,
+        "100_wire_busy_s": 10.179353948253436,
+        "100_active_seq_s": 55.92659073109061,
+        "200_active_seq_s": 73.70249383254531,
+        "100_fewer_D_active_with_P_pending_s": 8.511498981671991,
+        "longest_100_fewer_D_active_with_P_pending_s": 0.6756302095511728,
+        "mean_active_D_during_100_GET": [
+          5.49411986412816,
+          7.240390127626039
+        ]
+      },
+      "saved_completion_s": 3.1013940842924512,
+      "saved_wire_service_s": 5.089676974126689,
+      "remaining_completion_gap_s": -1.9882828898342382,
+      "same_added_nonwire_ms_per_pair_budget_for_30pct_loss": 0.0
+    },
+    "same_service_ABBA_reproduced": true
+  },
+  "fit_control": {
+    "arms": {
+      "100": {
+        "requests": 1998,
+        "output_tokens": 250268,
+        "finish_s": 888.420478054659,
+        "throughput_tokens_s": 281.6999452196357,
+        "GET_GB": 0.0,
+        "GET_MB_per_output": 0.0,
+        "D_to_P_GB_by_port": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cache": {
+          "P_local_pages": 232202,
+          "P_external_pages": 0,
+          "P_lookup_pages": 237466,
+          "P_computed_tokens": 6003500,
+          "P_adjacent_local_pages": 232202,
+          "P_adjacent_store_pages": 0,
+          "P_adjacent_eviction_pages": 0,
+          "P_store_capacity_lost_pages": 0,
+          "GET_bytes": 0,
+          "GET_states": 0,
+          "D_local_pages": 231760,
+          "P_to_D_bytes": 366012334080,
+          "store_hit_requests": 0,
+          "adjacent_pages": 237466,
+          "P_missed_lookup_pages": 5264,
+          "P_novel_lookup_pages": 5264,
+          "adjacent_not_yet_seen_or_not_compatible_pages": 5264,
+          "Store_peak_GB": 111.26341632,
+          "Store_evicted_objects": 0,
+          "Store_evicted_GB": 0.0,
+          "Store_failed_puts": 0,
+          "Store_committed_GB": 111.26341632,
+          "P_to_D_Store_put_GB": 222.8663091199935,
+          "P_HBM_evicted_pages": [
+            0,
+            0
+          ],
+          "D_HBM_evicted_pages": [
+            0,
+            0
+          ]
+        },
+        "stage": {
+          "D_mean_active_area": 4590.677885829641,
+          "both_D_full_s": 0.0,
+          "any_D_running_s": 659.3681703251823,
+          "no_P_work_or_D_active_or_waiting_s": 53.76770023928622,
+          "D_egress_wire_busy_s": 0.0,
+          "D_active_seq_s_while_GET": 0.0,
+          "both_D_full_while_GET_s": 0.0,
+          "both_D_idle_with_GET_and_no_D_queue_s": 0.0,
+          "one_or_more_D_idle_with_GET_and_no_local_D_queue_s": 0.0,
+          "mean_D_sequences_while_GET": null,
+          "longest_continuous_D_egress_wire_s": 0.0,
+          "P_compute_wall_s_by_instance": [
+            228.4339121323695,
+            228.4339121323695
+          ],
+          "P_synchronous_GET_wall_s_by_instance": [
+            0.0,
+            0.0
+          ],
+          "D_sequence_slots_peak": [
+            5,
+            5
+          ],
+          "D_busy_fraction_of_peak_sequence_slots": 0.16147611122866323
+        },
+        "peak_D_to_P_aggregate_Gbps": {
+          "1": 0.0,
+          "10": 0.0,
+          "30": 0.0,
+          "120": 0.0
+        },
+        "peak_1s_D_to_P_port_Gbps": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "D_to_P_hot_port_floor_Gbps": 10.625,
+        "own_GET_wait_p50_p95_s": [],
+        "tail_session": {
+          "session": "restore-035-25-0",
+          "turns": 1,
+          "phases_s": {
+            "tool_gap_s": 0.0,
+            "P_ingress_s": 0.02756742452038452,
+            "P_queue_s": 0.0,
+            "P_own_GET_s": 0.0,
+            "P_compute_s": 0.002540322580645161,
+            "P_other_or_cohort_s": 2.6111491441271895e-14,
+            "D_alloc_from_P_reply_s": 0.09000000000003183,
+            "P_to_D_pull_s": 0.04079257599994435,
+            "D_generation_s": 2.8485304505275053,
+            "first_turn_plan_s": 885.4110472810305,
+            "planned_release_wait_s": 0
+          }
+        },
+        "last_P_reply_s": 886.060918142246,
+        "drain_after_last_P_reply_s": 2.359559912413033,
+        "pressure": {
+          "start_s": 272,
+          "last_P_reply_minus_start_s": 614.060918142246,
+          "GET_wire_busy_s": 0,
+          "GET_wire_fraction_of_pressure_phase": 0.0,
+          "D_to_P_peak_30s_Gbps": 0.0,
+          "mean_D_running_sequences": 7.282407317545187,
+          "GET_GB_by_cycle": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "both_P_admission_pairs": 972,
+          "total_pairs": 972,
+          "P_queue_by_tenth_p95_s": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "P_queue_p95_s": 0.0
+        }
+      },
+      "200": {
+        "requests": 1998,
+        "output_tokens": 250268,
+        "finish_s": 888.420478054659,
+        "throughput_tokens_s": 281.6999452196357,
+        "GET_GB": 0.0,
+        "GET_MB_per_output": 0.0,
+        "D_to_P_GB_by_port": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cache": {
+          "P_local_pages": 232202,
+          "P_external_pages": 0,
+          "P_lookup_pages": 237466,
+          "P_computed_tokens": 6003500,
+          "P_adjacent_local_pages": 232202,
+          "P_adjacent_store_pages": 0,
+          "P_adjacent_eviction_pages": 0,
+          "P_store_capacity_lost_pages": 0,
+          "GET_bytes": 0,
+          "GET_states": 0,
+          "D_local_pages": 231760,
+          "P_to_D_bytes": 366012334080,
+          "store_hit_requests": 0,
+          "adjacent_pages": 237466,
+          "P_missed_lookup_pages": 5264,
+          "P_novel_lookup_pages": 5264,
+          "adjacent_not_yet_seen_or_not_compatible_pages": 5264,
+          "Store_peak_GB": 111.26341632,
+          "Store_evicted_objects": 0,
+          "Store_evicted_GB": 0.0,
+          "Store_failed_puts": 0,
+          "Store_committed_GB": 111.26341632,
+          "P_to_D_Store_put_GB": 222.8663091199935,
+          "P_HBM_evicted_pages": [
+            0,
+            0
+          ],
+          "D_HBM_evicted_pages": [
+            0,
+            0
+          ]
+        },
+        "stage": {
+          "D_mean_active_area": 4590.677885829641,
+          "both_D_full_s": 0.0,
+          "any_D_running_s": 659.3681703251823,
+          "no_P_work_or_D_active_or_waiting_s": 53.76770023928622,
+          "D_egress_wire_busy_s": 0.0,
+          "D_active_seq_s_while_GET": 0.0,
+          "both_D_full_while_GET_s": 0.0,
+          "both_D_idle_with_GET_and_no_D_queue_s": 0.0,
+          "one_or_more_D_idle_with_GET_and_no_local_D_queue_s": 0.0,
+          "mean_D_sequences_while_GET": null,
+          "longest_continuous_D_egress_wire_s": 0.0,
+          "P_compute_wall_s_by_instance": [
+            228.4339121323695,
+            228.4339121323695
+          ],
+          "P_synchronous_GET_wall_s_by_instance": [
+            0.0,
+            0.0
+          ],
+          "D_sequence_slots_peak": [
+            5,
+            5
+          ],
+          "D_busy_fraction_of_peak_sequence_slots": 0.16147611122866323
+        },
+        "peak_D_to_P_aggregate_Gbps": {
+          "1": 0.0,
+          "10": 0.0,
+          "30": 0.0,
+          "120": 0.0
+        },
+        "peak_1s_D_to_P_port_Gbps": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "D_to_P_hot_port_floor_Gbps": 21.25,
+        "own_GET_wait_p50_p95_s": [],
+        "tail_session": {
+          "session": "restore-035-25-0",
+          "turns": 1,
+          "phases_s": {
+            "tool_gap_s": 0.0,
+            "P_ingress_s": 0.02756742452038452,
+            "P_queue_s": 0.0,
+            "P_own_GET_s": 0.0,
+            "P_compute_s": 0.002540322580645161,
+            "P_other_or_cohort_s": 2.6111491441271895e-14,
+            "D_alloc_from_P_reply_s": 0.09000000000003183,
+            "P_to_D_pull_s": 0.04079257599994435,
+            "D_generation_s": 2.8485304505275053,
+            "first_turn_plan_s": 885.4110472810305,
+            "planned_release_wait_s": 0
+          }
+        },
+        "last_P_reply_s": 886.060918142246,
+        "drain_after_last_P_reply_s": 2.359559912413033,
+        "pressure": {
+          "start_s": 272,
+          "last_P_reply_minus_start_s": 614.060918142246,
+          "GET_wire_busy_s": 0,
+          "GET_wire_fraction_of_pressure_phase": 0.0,
+          "D_to_P_peak_30s_Gbps": 0.0,
+          "mean_D_running_sequences": 7.282407317545187,
+          "GET_GB_by_cycle": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "both_P_admission_pairs": 972,
+          "total_pairs": 972,
+          "P_queue_by_tenth_p95_s": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "P_queue_p95_s": 0.0
+        }
+      }
+    },
+    "100_loss_relative_to_200": 0.0,
+    "same_D_to_P_bytes_on_every_port": true,
+    "same_P_placement_requests": 1998,
+    "D_supply_comparison": {
+      "common_begin_s": 272,
+      "common_end_s": 886.060918142246,
+      "longest_100_fewer_D_active_with_P_pending_s": 0.0,
+      "mean_active_D_during_100_GET": null
+    },
+    "saved_completion_s": 0.0,
+    "saved_wire_service_s": 0,
+    "remaining_completion_gap_s": 0.0
+  },
+  "workload_sha256": "29af7b0c38e7e417998e6abd808e89bc960d9f34abc66eda8bd4e276c16bb6de",
+  "trace_sha256": "6255ccf65e75321457232534d178d8a6efde59d7f93dbb65fdbe2b9d92ab8405"
+}

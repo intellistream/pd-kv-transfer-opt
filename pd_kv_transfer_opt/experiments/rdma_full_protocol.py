@@ -1,4 +1,5 @@
 """Repeated hardware-cap comparison, low-load controls, and separate trace windows."""
+from pd_kv_transfer_opt.experiments.hardware import validate_port_rates
 from pd_kv_transfer_opt.experiments.rdma_hard_cap_protocol import OUTPUT_TOKENS, PREFIXES, PROMPT_LENGTHS, WORKLOAD_SHA256, request_id
 
 
@@ -18,3 +19,14 @@ CASES = (('warm', None, 2),) + tuple(
 
 def offered_rate(case):
     return 0.5 if case.startswith('low') else RATE
+
+
+def port_comparison(rates):
+    """Reuse the three matching r14 cohorts for an equal/weighted/equal crossover."""
+    rates = validate_port_rates(rates)
+    cap, remainder = divmod(sum(rates), 1000)
+    comparison = [row for row in CASES if row[0].startswith("b") and row[1] == cap]
+    if remainder or len(comparison) != 3 or len(set(rates)) == 1:
+        raise ValueError("Port rates must vary and sum to the aggregate of an existing r14 comparison.")
+    warm = next(row for row in CASES if row[0] == "warm")
+    return [warm, *comparison], {comparison[1][0]: rates}

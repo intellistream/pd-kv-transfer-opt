@@ -1,0 +1,1718 @@
+{
+  "trace_sha256": "f80d19ef5181924716c098ecc11087df4ef97d371498178e293dc51633b17599",
+  "arms": {
+    "b1-cap100": {
+      "phases": {
+        "producer_phase": {
+          "window_s": [
+            0,
+            23.5
+          ],
+          "D_TX_GB": 3.073037108413139,
+          "D_TX_GB_by_port": [
+            0.3426023284693033,
+            0.3100138940492737,
+            0.3443512553938363,
+            0.44391426157897584,
+            0.34810468711713216,
+            0.3575412128264231,
+            0.4873055428932204,
+            0.43920392608497427
+          ],
+          "D_sample_seconds": 23.5,
+          "D_any_port_hot_s": 0,
+          "prompt_source_sample_delta": {
+            "P0": {
+              "sample_window_s": [
+                -2.11035591000109,
+                22.131520341004943
+              ],
+              "tokens": {
+                "local_compute": 203912.0,
+                "local_cache_hit": 0.0,
+                "external_kv_transfer": 0.0
+              }
+            },
+            "P1": {
+              "sample_window_s": [
+                -2.1127095549891237,
+                22.13229886701447
+              ],
+              "tokens": {
+                "local_compute": 169972.0,
+                "local_cache_hit": 0.0,
+                "external_kv_transfer": 0.0
+              }
+            },
+            "D0": {
+              "sample_window_s": [
+                -2.111994450999191,
+                22.13316391198896
+              ],
+              "tokens": {
+                "local_compute": 2.0,
+                "local_cache_hit": 0.0,
+                "external_kv_transfer": 169972.0
+              }
+            },
+            "D1": {
+              "sample_window_s": [
+                -2.1095680450089276,
+                22.13868112800992
+              ],
+              "tokens": {
+                "local_compute": 2.0,
+                "local_cache_hit": 0.0,
+                "external_kv_transfer": 203912.0
+              }
+            }
+          },
+          "P_HTTP_returns": 4,
+          "D_first_tokens": 4,
+          "client_output_tokens_in_overlapping_time_bins": 1113
+        },
+        "shared_history_burst_through_drain": {
+          "window_s": [
+            23.5,
+            48.67945886301459
+          ],
+          "D_TX_GB": 14.577738145559172,
+          "D_TX_GB_by_port": [
+            1.5468905753642064,
+            1.9677710457571485,
+            1.806319058436276,
+            1.9033101141960491,
+            1.8235138677031102,
+            1.9624699423838532,
+            1.6742099960617158,
+            1.8932535456568131
+          ],
+          "D_sample_seconds": 25.179458863014588,
+          "D_any_port_hot_s": 0,
+          "prompt_source_sample_delta": {
+            "P0": {
+              "sample_window_s": [
+                22.131520341004943,
+                45.0938020790054
+              ],
+              "tokens": {
+                "local_compute": 90349.0,
+                "local_cache_hit": 3360768.0,
+                "external_kv_transfer": 173056.0
+              }
+            },
+            "P1": {
+              "sample_window_s": [
+                22.13229886701447,
+                45.093092955008615
+              ],
+              "tokens": {
+                "local_compute": 94011.0,
+                "local_cache_hit": 3479552.0,
+                "external_kv_transfer": 233472.0
+              }
+            },
+            "D0": {
+              "sample_window_s": [
+                22.13316391198896,
+                45.09973419801099
+              ],
+              "tokens": {
+                "local_compute": 36.0,
+                "local_cache_hit": 3148800.0,
+                "external_kv_transfer": 527232.0
+              }
+            },
+            "D1": {
+              "sample_window_s": [
+                22.13868112800992,
+                45.09571406201576
+              ],
+              "tokens": {
+                "local_compute": 36.0,
+                "local_cache_hit": 2922496.0,
+                "external_kv_transfer": 832680.0
+              }
+            }
+          },
+          "P_HTTP_returns": 72,
+          "D_first_tokens": 72,
+          "client_output_tokens_in_overlapping_time_bins": 17769
+        }
+      },
+      "groups": {
+        "caffe-cifar-10": {
+          "producer": "caffe-cifar-10:74",
+          "producer_events": {
+            "session_id": "caffe-cifar-10:74",
+            "predecessor": null,
+            "offered_s": 0.0,
+            "tool_gap_s": 0,
+            "ready_s": 0.0,
+            "dispatch_s": 0.18952740999520756,
+            "P_start_s": 0.2419192029919941,
+            "P_end_s": 11.041760533989873,
+            "D_start_s": 11.063194954011124,
+            "first_s": 11.939408987003844,
+            "end_s": 16.57051334201242,
+            "P": "P0",
+            "D": "D1",
+            "output_tokens": 323,
+            "finish_reason": "stop",
+            "effective_TPOT_ms": 14.382311661517312,
+            "phases_s": {
+              "ready_to_P": 0.2419192029919941,
+              "P_HTTP": 10.799841330997879,
+              "P_return_to_D": 0.021434420021250844,
+              "D_to_first": 0.8762140329927206,
+              "first_to_end": 4.631104355008574
+            }
+          },
+          "later_opposite_P_after_producer_D_admission": [
+            "caffe-cifar-10:76",
+            "caffe-cifar-10:78",
+            "caffe-cifar-10:79",
+            "caffe-cifar-10:81",
+            "caffe-cifar-10:82",
+            "caffe-cifar-10:84",
+            "caffe-cifar-10:87",
+            "caffe-cifar-10:88",
+            "caffe-cifar-10:89",
+            "caffe-cifar-10:94",
+            "caffe-cifar-10:95",
+            "caffe-cifar-10:96",
+            "caffe-cifar-10:97",
+            "caffe-cifar-10:98",
+            "caffe-cifar-10:101",
+            "caffe-cifar-10:102",
+            "caffe-cifar-10:103"
+          ],
+          "later_opposite_P_before_any_opposite_P_HTTP_return": [
+            "caffe-cifar-10:76",
+            "caffe-cifar-10:78",
+            "caffe-cifar-10:79",
+            "caffe-cifar-10:81",
+            "caffe-cifar-10:82",
+            "caffe-cifar-10:84",
+            "caffe-cifar-10:87",
+            "caffe-cifar-10:88",
+            "caffe-cifar-10:89",
+            "caffe-cifar-10:94",
+            "caffe-cifar-10:95",
+            "caffe-cifar-10:96",
+            "caffe-cifar-10:97",
+            "caffe-cifar-10:98",
+            "caffe-cifar-10:101",
+            "caffe-cifar-10:102",
+            "caffe-cifar-10:103"
+          ],
+          "upper_attached_shared_GET_bytes_for_early_admissions": 70258688000,
+          "last_later_end_s": 48.67945886301459
+        },
+        "financial-document-processor": {
+          "producer": "financial-document-processor:61",
+          "producer_events": {
+            "session_id": "financial-document-processor:61",
+            "predecessor": null,
+            "offered_s": 0.7254983901221408,
+            "tool_gap_s": 0,
+            "ready_s": 0.7254983901221408,
+            "dispatch_s": 0.726659895008197,
+            "P_start_s": 0.7621633569942787,
+            "P_end_s": 9.410251816996606,
+            "D_start_s": 9.426372802990954,
+            "first_s": 10.258125825988827,
+            "end_s": 12.096030082000652,
+            "P": "P1",
+            "D": "D0",
+            "output_tokens": 133,
+            "finish_reason": "stop",
+            "effective_TPOT_ms": 13.923517090998674,
+            "phases_s": {
+              "ready_to_P": 0.03666496687213794,
+              "P_HTTP": 8.648088460002327,
+              "P_return_to_D": 0.016120985994348302,
+              "D_to_first": 0.8317530229978729,
+              "first_to_end": 1.837904256011825
+            }
+          },
+          "later_opposite_P_after_producer_D_admission": [
+            "financial-document-processor:62",
+            "financial-document-processor:63",
+            "financial-document-processor:64",
+            "financial-document-processor:66",
+            "financial-document-processor:67",
+            "financial-document-processor:70",
+            "financial-document-processor:75",
+            "financial-document-processor:76",
+            "financial-document-processor:79",
+            "financial-document-processor:80"
+          ],
+          "later_opposite_P_before_any_opposite_P_HTTP_return": [
+            "financial-document-processor:62",
+            "financial-document-processor:63",
+            "financial-document-processor:64",
+            "financial-document-processor:66",
+            "financial-document-processor:67",
+            "financial-document-processor:70",
+            "financial-document-processor:75",
+            "financial-document-processor:76",
+            "financial-document-processor:79",
+            "financial-document-processor:80"
+          ],
+          "upper_attached_shared_GET_bytes_for_early_admissions": 30423449600,
+          "last_later_end_s": 47.087003991997335
+        },
+        "make-doom-for-mips": {
+          "producer": "make-doom-for-mips:85",
+          "producer_events": {
+            "session_id": "make-doom-for-mips:85",
+            "predecessor": null,
+            "offered_s": 0.839510521359174,
+            "tool_gap_s": 0,
+            "ready_s": 0.839510521359174,
+            "dispatch_s": 0.9366379290004261,
+            "P_start_s": 0.9679823240148835,
+            "P_end_s": 15.579657297988888,
+            "D_start_s": 15.600886867003283,
+            "first_s": 16.547055278002517,
+            "end_s": 19.704121226997813,
+            "P": "P1",
+            "D": "D0",
+            "output_tokens": 215,
+            "finish_reason": "stop",
+            "effective_TPOT_ms": 14.752644621473346,
+            "phases_s": {
+              "ready_to_P": 0.12847180265570946,
+              "P_HTTP": 14.611674973974004,
+              "P_return_to_D": 0.021229569014394656,
+              "D_to_first": 0.9461684109992348,
+              "first_to_end": 3.157065948995296
+            }
+          },
+          "later_opposite_P_after_producer_D_admission": [
+            "make-doom-for-mips:86",
+            "make-doom-for-mips:87",
+            "make-doom-for-mips:89",
+            "make-doom-for-mips:91",
+            "make-doom-for-mips:92",
+            "make-doom-for-mips:93",
+            "make-doom-for-mips:95",
+            "make-doom-for-mips:96",
+            "make-doom-for-mips:97",
+            "make-doom-for-mips:98",
+            "make-doom-for-mips:100",
+            "make-doom-for-mips:101",
+            "make-doom-for-mips:102",
+            "make-doom-for-mips:103",
+            "make-doom-for-mips:104",
+            "make-doom-for-mips:105",
+            "make-doom-for-mips:106",
+            "make-doom-for-mips:107"
+          ],
+          "later_opposite_P_before_any_opposite_P_HTTP_return": [
+            "make-doom-for-mips:86",
+            "make-doom-for-mips:87",
+            "make-doom-for-mips:89",
+            "make-doom-for-mips:91",
+            "make-doom-for-mips:92",
+            "make-doom-for-mips:93",
+            "make-doom-for-mips:95",
+            "make-doom-for-mips:96",
+            "make-doom-for-mips:97",
+            "make-doom-for-mips:98",
+            "make-doom-for-mips:100",
+            "make-doom-for-mips:101",
+            "make-doom-for-mips:102",
+            "make-doom-for-mips:103",
+            "make-doom-for-mips:104",
+            "make-doom-for-mips:105",
+            "make-doom-for-mips:106",
+            "make-doom-for-mips:107"
+          ],
+          "upper_attached_shared_GET_bytes_for_early_admissions": 72126627840,
+          "last_later_end_s": 47.185131653997814
+        },
+        "regex-chess": {
+          "producer": "regex-chess:51",
+          "producer_events": {
+            "session_id": "regex-chess:51",
+            "predecessor": null,
+            "offered_s": 0.9592342027716109,
+            "tool_gap_s": 0,
+            "ready_s": 0.9592342027716109,
+            "dispatch_s": 0.9603131939948071,
+            "P_start_s": 0.9876061720133293,
+            "P_end_s": 17.462434128014138,
+            "D_start_s": 17.48487045499496,
+            "first_s": 17.9235808160156,
+            "end_s": 24.662638244015398,
+            "P": "P0",
+            "D": "D1",
+            "output_tokens": 488,
+            "finish_reason": "stop",
+            "effective_TPOT_ms": 13.837900262833257,
+            "phases_s": {
+              "ready_to_P": 0.028371969241718475,
+              "P_HTTP": 16.47482795600081,
+              "P_return_to_D": 0.02243632698082365,
+              "D_to_first": 0.43871036102063954,
+              "first_to_end": 6.739057427999796
+            }
+          },
+          "later_opposite_P_after_producer_D_admission": [
+            "regex-chess:53",
+            "regex-chess:54",
+            "regex-chess:56",
+            "regex-chess:57",
+            "regex-chess:58",
+            "regex-chess:59",
+            "regex-chess:60",
+            "regex-chess:61",
+            "regex-chess:62",
+            "regex-chess:66"
+          ],
+          "later_opposite_P_before_any_opposite_P_HTTP_return": [
+            "regex-chess:53",
+            "regex-chess:54",
+            "regex-chess:56",
+            "regex-chess:57",
+            "regex-chess:58",
+            "regex-chess:59",
+            "regex-chess:60",
+            "regex-chess:61",
+            "regex-chess:62",
+            "regex-chess:66"
+          ],
+          "upper_attached_shared_GET_bytes_for_early_admissions": 43006361600,
+          "last_later_end_s": 46.05881722399499
+        }
+      },
+      "output_tokens": 18882,
+      "duration_s": 48.67945886301459,
+      "throughput_tokens_s": 387.8843446706032,
+      "finish_reasons": {
+        "stop": 76
+      },
+      "tail_id": "caffe-cifar-10:79",
+      "tail": {
+        "session_id": "caffe-cifar-10:79",
+        "predecessor": null,
+        "offered_s": 25.39559439016209,
+        "tool_gap_s": 0,
+        "ready_s": 25.39559439016209,
+        "dispatch_s": 25.397013429988874,
+        "P_start_s": 25.422924248996424,
+        "P_end_s": 33.66506489299354,
+        "D_start_s": 33.6867122350086,
+        "first_s": 43.67484561400488,
+        "end_s": 48.67945886301459,
+        "P": "P1",
+        "D": "D0",
+        "output_tokens": 264,
+        "finish_reason": "stop",
+        "effective_TPOT_ms": 19.028947714865808,
+        "phases_s": {
+          "ready_to_P": 0.02732985883433514,
+          "P_HTTP": 8.242140643997118,
+          "P_return_to_D": 0.021647342015057802,
+          "D_to_first": 9.988133378996281,
+          "first_to_end": 5.004613249009708
+        }
+      }
+    },
+    "b1-cap200": {
+      "phases": {
+        "producer_phase": {
+          "window_s": [
+            0,
+            23.5
+          ],
+          "D_TX_GB": 6.374646052345378,
+          "D_TX_GB_by_port": [
+            0.9270666889981238,
+            0.7087942902216549,
+            0.8271229591722232,
+            0.8906820429388094,
+            0.7043500976326285,
+            0.7820613940127918,
+            0.8657696649333805,
+            0.6687989144357657
+          ],
+          "D_sample_seconds": 23.5,
+          "D_any_port_hot_s": 0,
+          "prompt_source_sample_delta": {
+            "P0": {
+              "sample_window_s": [
+                -2.1108937110111583,
+                22.958562954998342
+              ],
+              "tokens": {
+                "local_compute": 203912.0,
+                "local_cache_hit": 0.0,
+                "external_kv_transfer": 0.0
+              }
+            },
+            "P1": {
+              "sample_window_s": [
+                -2.1159891040006187,
+                22.96080313998391
+              ],
+              "tokens": {
+                "local_compute": 169972.0,
+                "local_cache_hit": 0.0,
+                "external_kv_transfer": 0.0
+              }
+            },
+            "D0": {
+              "sample_window_s": [
+                -2.1167544490017463,
+                22.96166376498877
+              ],
+              "tokens": {
+                "local_compute": 2.0,
+                "local_cache_hit": 0.0,
+                "external_kv_transfer": 169972.0
+              }
+            },
+            "D1": {
+              "sample_window_s": [
+                -2.1175624140014406,
+                22.96251379098976
+              ],
+              "tokens": {
+                "local_compute": 2.0,
+                "local_cache_hit": 0.0,
+                "external_kv_transfer": 203912.0
+              }
+            }
+          },
+          "P_HTTP_returns": 4,
+          "D_first_tokens": 4,
+          "client_output_tokens_in_overlapping_time_bins": 1187
+        },
+        "shared_history_burst_through_drain": {
+          "window_s": [
+            23.5,
+            48.50107236599433
+          ],
+          "D_TX_GB": 15.665773578937053,
+          "D_TX_GB_by_port": [
+            1.9742294786467467,
+            1.8087690127579719,
+            2.0628245338895606,
+            2.0164961215103787,
+            1.8242755758769735,
+            2.2199101229701617,
+            2.1544278884053556,
+            1.6048408448799036
+          ],
+          "D_sample_seconds": 25.001072365994332,
+          "D_any_port_hot_s": 0,
+          "prompt_source_sample_delta": {
+            "P0": {
+              "sample_window_s": [
+                22.958562954998342,
+                47.16367324499879
+              ],
+              "tokens": {
+                "local_compute": 87266.0,
+                "local_cache_hit": 3381248.0,
+                "external_kv_transfer": 171008.0
+              }
+            },
+            "P1": {
+              "sample_window_s": [
+                22.96080313998391,
+                47.17459582697484
+              ],
+              "tokens": {
+                "local_compute": 89926.0,
+                "local_cache_hit": 3366912.0,
+                "external_kv_transfer": 334848.0
+              }
+            },
+            "D0": {
+              "sample_window_s": [
+                22.96166376498877,
+                47.166418412991334
+              ],
+              "tokens": {
+                "local_compute": 37.0,
+                "local_cache_hit": 3376128.0,
+                "external_kv_transfer": 431172.0
+              }
+            },
+            "D1": {
+              "sample_window_s": [
+                22.96251379098976,
+                47.165090224996675
+              ],
+              "tokens": {
+                "local_compute": 35.0,
+                "local_cache_hit": 3363840.0,
+                "external_kv_transfer": 260068.0
+              }
+            }
+          },
+          "P_HTTP_returns": 72,
+          "D_first_tokens": 72,
+          "client_output_tokens_in_overlapping_time_bins": 17868
+        }
+      },
+      "groups": {
+        "caffe-cifar-10": {
+          "producer": "caffe-cifar-10:74",
+          "producer_events": {
+            "session_id": "caffe-cifar-10:74",
+            "predecessor": null,
+            "offered_s": 0.0,
+            "tool_gap_s": 0,
+            "ready_s": 0.0,
+            "dispatch_s": 0.2369124209799338,
+            "P_start_s": 0.2961784479848575,
+            "P_end_s": 7.129662198974984,
+            "D_start_s": 7.15159567198134,
+            "first_s": 8.009681516996352,
+            "end_s": 12.239697912998963,
+            "P": "P0",
+            "D": "D1",
+            "output_tokens": 314,
+            "finish_reason": "stop",
+            "effective_TPOT_ms": 13.514429380200035,
+            "phases_s": {
+              "ready_to_P": 0.2961784479848575,
+              "P_HTTP": 6.833483750990126,
+              "P_return_to_D": 0.021933473006356508,
+              "D_to_first": 0.8580858450150117,
+              "first_to_end": 4.230016396002611
+            }
+          },
+          "later_opposite_P_after_producer_D_admission": [
+            "caffe-cifar-10:76",
+            "caffe-cifar-10:78",
+            "caffe-cifar-10:79",
+            "caffe-cifar-10:81",
+            "caffe-cifar-10:82",
+            "caffe-cifar-10:84",
+            "caffe-cifar-10:93",
+            "caffe-cifar-10:94",
+            "caffe-cifar-10:96",
+            "caffe-cifar-10:97",
+            "caffe-cifar-10:100",
+            "caffe-cifar-10:102",
+            "caffe-cifar-10:103"
+          ],
+          "later_opposite_P_before_any_opposite_P_HTTP_return": [
+            "caffe-cifar-10:76",
+            "caffe-cifar-10:78",
+            "caffe-cifar-10:79",
+            "caffe-cifar-10:81",
+            "caffe-cifar-10:82",
+            "caffe-cifar-10:84",
+            "caffe-cifar-10:93",
+            "caffe-cifar-10:94",
+            "caffe-cifar-10:96",
+            "caffe-cifar-10:97",
+            "caffe-cifar-10:100",
+            "caffe-cifar-10:102",
+            "caffe-cifar-10:103"
+          ],
+          "upper_attached_shared_GET_bytes_for_early_admissions": 53727232000,
+          "last_later_end_s": 46.84325298899785
+        },
+        "financial-document-processor": {
+          "producer": "financial-document-processor:61",
+          "producer_events": {
+            "session_id": "financial-document-processor:61",
+            "predecessor": null,
+            "offered_s": 0.7254983901221408,
+            "tool_gap_s": 0,
+            "ready_s": 0.7254983901221408,
+            "dispatch_s": 0.7269687069929205,
+            "P_start_s": 0.7454282079997938,
+            "P_end_s": 5.573144464986399,
+            "D_start_s": 5.58900082798209,
+            "first_s": 5.980123687972082,
+            "end_s": 7.772285702987574,
+            "P": "P1",
+            "D": "D0",
+            "output_tokens": 133,
+            "finish_reason": "stop",
+            "effective_TPOT_ms": 13.576984962238578,
+            "phases_s": {
+              "ready_to_P": 0.019929817877653022,
+              "P_HTTP": 4.827716256986605,
+              "P_return_to_D": 0.015856362995691597,
+              "D_to_first": 0.3911228599899914,
+              "first_to_end": 1.7921620150154922
+            }
+          },
+          "later_opposite_P_after_producer_D_admission": [
+            "financial-document-processor:62",
+            "financial-document-processor:63",
+            "financial-document-processor:64",
+            "financial-document-processor:66",
+            "financial-document-processor:67",
+            "financial-document-processor:70",
+            "financial-document-processor:84"
+          ],
+          "later_opposite_P_before_any_opposite_P_HTTP_return": [
+            "financial-document-processor:62",
+            "financial-document-processor:63",
+            "financial-document-processor:64",
+            "financial-document-processor:66",
+            "financial-document-processor:67",
+            "financial-document-processor:70",
+            "financial-document-processor:84"
+          ],
+          "upper_attached_shared_GET_bytes_for_early_admissions": 21296414720,
+          "last_later_end_s": 48.50107236599433
+        },
+        "make-doom-for-mips": {
+          "producer": "make-doom-for-mips:85",
+          "producer_events": {
+            "session_id": "make-doom-for-mips:85",
+            "predecessor": null,
+            "offered_s": 0.839510521359174,
+            "tool_gap_s": 0,
+            "ready_s": 0.839510521359174,
+            "dispatch_s": 0.8830328479816671,
+            "P_start_s": 0.9083903339924291,
+            "P_end_s": 11.735865325987106,
+            "D_start_s": 11.75743313797284,
+            "first_s": 12.31043818598846,
+            "end_s": 15.493799053976545,
+            "P": "P1",
+            "D": "D0",
+            "output_tokens": 244,
+            "finish_reason": "stop",
+            "effective_TPOT_ms": 13.100250485547676,
+            "phases_s": {
+              "ready_to_P": 0.06887981263325504,
+              "P_HTTP": 10.827474991994677,
+              "P_return_to_D": 0.021567811985732988,
+              "D_to_first": 0.5530050480156206,
+              "first_to_end": 3.1833608679880854
+            }
+          },
+          "later_opposite_P_after_producer_D_admission": [
+            "make-doom-for-mips:86",
+            "make-doom-for-mips:87",
+            "make-doom-for-mips:91",
+            "make-doom-for-mips:93",
+            "make-doom-for-mips:94",
+            "make-doom-for-mips:96",
+            "make-doom-for-mips:97",
+            "make-doom-for-mips:98",
+            "make-doom-for-mips:99",
+            "make-doom-for-mips:100",
+            "make-doom-for-mips:101",
+            "make-doom-for-mips:102",
+            "make-doom-for-mips:103",
+            "make-doom-for-mips:104",
+            "make-doom-for-mips:105",
+            "make-doom-for-mips:106",
+            "make-doom-for-mips:107"
+          ],
+          "later_opposite_P_before_any_opposite_P_HTTP_return": [
+            "make-doom-for-mips:86",
+            "make-doom-for-mips:87",
+            "make-doom-for-mips:91",
+            "make-doom-for-mips:93",
+            "make-doom-for-mips:94",
+            "make-doom-for-mips:96",
+            "make-doom-for-mips:97",
+            "make-doom-for-mips:98",
+            "make-doom-for-mips:99",
+            "make-doom-for-mips:100",
+            "make-doom-for-mips:101",
+            "make-doom-for-mips:102",
+            "make-doom-for-mips:103",
+            "make-doom-for-mips:104",
+            "make-doom-for-mips:105",
+            "make-doom-for-mips:106",
+            "make-doom-for-mips:107"
+          ],
+          "upper_attached_shared_GET_bytes_for_early_admissions": 68119592960,
+          "last_later_end_s": 47.41354203998344
+        },
+        "regex-chess": {
+          "producer": "regex-chess:51",
+          "producer_events": {
+            "session_id": "regex-chess:51",
+            "predecessor": null,
+            "offered_s": 0.9592342027716109,
+            "tool_gap_s": 0,
+            "ready_s": 0.9592342027716109,
+            "dispatch_s": 0.9597914799815044,
+            "P_start_s": 0.9857395599829033,
+            "P_end_s": 13.449771619983949,
+            "D_start_s": 13.472038535983302,
+            "first_s": 14.34192052698927,
+            "end_s": 21.21942610599217,
+            "P": "P0",
+            "D": "D1",
+            "output_tokens": 496,
+            "finish_reason": "stop",
+            "effective_TPOT_ms": 13.893950664652323,
+            "phases_s": {
+              "ready_to_P": 0.026505357211292435,
+              "P_HTTP": 12.464032060001045,
+              "P_return_to_D": 0.022266915999352932,
+              "D_to_first": 0.8698819910059683,
+              "first_to_end": 6.8775055790029
+            }
+          },
+          "later_opposite_P_after_producer_D_admission": [
+            "regex-chess:53",
+            "regex-chess:54",
+            "regex-chess:55",
+            "regex-chess:56",
+            "regex-chess:57",
+            "regex-chess:58",
+            "regex-chess:59",
+            "regex-chess:60",
+            "regex-chess:61",
+            "regex-chess:62",
+            "regex-chess:66"
+          ],
+          "later_opposite_P_before_any_opposite_P_HTTP_return": [
+            "regex-chess:53",
+            "regex-chess:54",
+            "regex-chess:55",
+            "regex-chess:56",
+            "regex-chess:57",
+            "regex-chess:58",
+            "regex-chess:59",
+            "regex-chess:60",
+            "regex-chess:61",
+            "regex-chess:62",
+            "regex-chess:66"
+          ],
+          "upper_attached_shared_GET_bytes_for_early_admissions": 47306997760,
+          "last_later_end_s": 46.15163729398046
+        }
+      },
+      "output_tokens": 19055,
+      "duration_s": 48.50107236599433,
+      "throughput_tokens_s": 392.8779111564567,
+      "finish_reasons": {
+        "stop": 76
+      },
+      "tail_id": "financial-document-processor:82",
+      "tail": {
+        "session_id": "financial-document-processor:82",
+        "predecessor": null,
+        "offered_s": 24.7797869810517,
+        "tool_gap_s": 0,
+        "ready_s": 24.7797869810517,
+        "dispatch_s": 24.781203699996695,
+        "P_start_s": 24.820715448993724,
+        "P_end_s": 31.799883351981407,
+        "D_start_s": 31.818696144997375,
+        "first_s": 39.574664761981694,
+        "end_s": 48.50107236599433,
+        "P": "P1",
+        "D": "D0",
+        "output_tokens": 427,
+        "finish_reason": "stop",
+        "effective_TPOT_ms": 20.954008460123564,
+        "phases_s": {
+          "ready_to_P": 0.04092846794202387,
+          "P_HTTP": 6.979167902987683,
+          "P_return_to_D": 0.018812793015968055,
+          "D_to_first": 7.755968616984319,
+          "first_to_end": 8.926407604012638
+        }
+      }
+    },
+    "b2-cap200": {
+      "phases": {
+        "producer_phase": {
+          "window_s": [
+            0,
+            23.5
+          ],
+          "D_TX_GB": 3.6034848908875903,
+          "D_TX_GB_by_port": [
+            0.4617338892921296,
+            0.5293249006389609,
+            0.44002740692359316,
+            0.36133727462679144,
+            0.40321606618257533,
+            0.5534727346895741,
+            0.37410636587958923,
+            0.4802662526543765
+          ],
+          "D_sample_seconds": 23.5,
+          "D_any_port_hot_s": 0,
+          "prompt_source_sample_delta": {
+            "P0": {
+              "sample_window_s": [
+                -1.5971790000039618,
+                18.415341487998376
+              ],
+              "tokens": {
+                "local_compute": 203912.0,
+                "local_cache_hit": 0.0,
+                "external_kv_transfer": 0.0
+              }
+            },
+            "P1": {
+              "sample_window_s": [
+                -1.595943772001192,
+                18.413094213989098
+              ],
+              "tokens": {
+                "local_compute": 169972.0,
+                "local_cache_hit": 0.0,
+                "external_kv_transfer": 0.0
+              }
+            },
+            "D0": {
+              "sample_window_s": [
+                -1.5942901620001066,
+                18.414447543007554
+              ],
+              "tokens": {
+                "local_compute": 2.0,
+                "local_cache_hit": 0.0,
+                "external_kv_transfer": 169972.0
+              }
+            },
+            "D1": {
+              "sample_window_s": [
+                -1.5951394769945182,
+                18.417196060996503
+              ],
+              "tokens": {
+                "local_compute": 2.0,
+                "local_cache_hit": 0.0,
+                "external_kv_transfer": 203912.0
+              }
+            }
+          },
+          "P_HTTP_returns": 4,
+          "D_first_tokens": 4,
+          "client_output_tokens_in_overlapping_time_bins": 1207
+        },
+        "shared_history_burst_through_drain": {
+          "window_s": [
+            23.5,
+            48.96951247000834
+          ],
+          "D_TX_GB": 13.534736061158558,
+          "D_TX_GB_by_port": [
+            1.7305882146532983,
+            1.577707482105728,
+            1.7261408247305285,
+            1.8474311749550698,
+            1.4869432118174248,
+            1.856927261310424,
+            1.5795537342404595,
+            1.7294441573456247
+          ],
+          "D_sample_seconds": 25.46951247000834,
+          "D_any_port_hot_s": 0,
+          "prompt_source_sample_delta": {
+            "P0": {
+              "sample_window_s": [
+                18.415341487998376,
+                48.4029548529943
+              ],
+              "tokens": {
+                "local_compute": 91754.0,
+                "local_cache_hit": 3349504.0,
+                "external_kv_transfer": 171008.0
+              }
+            },
+            "P1": {
+              "sample_window_s": [
+                18.413094213989098,
+                48.40379394800402
+              ],
+              "tokens": {
+                "local_compute": 84414.0,
+                "local_cache_hit": 3511296.0,
+                "external_kv_transfer": 223232.0
+              }
+            },
+            "D0": {
+              "sample_window_s": [
+                18.414447543007554,
+                48.40211830698536
+              ],
+              "tokens": {
+                "local_compute": 37.0,
+                "local_cache_hit": 3520512.0,
+                "external_kv_transfer": 294179.0
+              }
+            },
+            "D1": {
+              "sample_window_s": [
+                18.417196060996503,
+                48.40103748999536
+              ],
+              "tokens": {
+                "local_compute": 35.0,
+                "local_cache_hit": 3040256.0,
+                "external_kv_transfer": 576261.0
+              }
+            }
+          },
+          "P_HTTP_returns": 72,
+          "D_first_tokens": 72,
+          "client_output_tokens_in_overlapping_time_bins": 18033
+        }
+      },
+      "groups": {
+        "caffe-cifar-10": {
+          "producer": "caffe-cifar-10:74",
+          "producer_events": {
+            "session_id": "caffe-cifar-10:74",
+            "predecessor": null,
+            "offered_s": 0.0,
+            "tool_gap_s": 0,
+            "ready_s": 0.0,
+            "dispatch_s": 0.48752699900069274,
+            "P_start_s": 0.5442684110021219,
+            "P_end_s": 7.311759439005982,
+            "D_start_s": 7.333380730997305,
+            "first_s": 8.096707215008792,
+            "end_s": 12.373735758999828,
+            "P": "P0",
+            "D": "D1",
+            "output_tokens": 317,
+            "finish_reason": "stop",
+            "effective_TPOT_ms": 13.534900455667838,
+            "phases_s": {
+              "ready_to_P": 0.5442684110021219,
+              "P_HTTP": 6.76749102800386,
+              "P_return_to_D": 0.021621291991323233,
+              "D_to_first": 0.7633264840114862,
+              "first_to_end": 4.277028543991037
+            }
+          },
+          "later_opposite_P_after_producer_D_admission": [
+            "caffe-cifar-10:76",
+            "caffe-cifar-10:78",
+            "caffe-cifar-10:79",
+            "caffe-cifar-10:81",
+            "caffe-cifar-10:82",
+            "caffe-cifar-10:83",
+            "caffe-cifar-10:87",
+            "caffe-cifar-10:88",
+            "caffe-cifar-10:89",
+            "caffe-cifar-10:91",
+            "caffe-cifar-10:92",
+            "caffe-cifar-10:93",
+            "caffe-cifar-10:94",
+            "caffe-cifar-10:95",
+            "caffe-cifar-10:96",
+            "caffe-cifar-10:97",
+            "caffe-cifar-10:98",
+            "caffe-cifar-10:101",
+            "caffe-cifar-10:102",
+            "caffe-cifar-10:103"
+          ],
+          "later_opposite_P_before_any_opposite_P_HTTP_return": [
+            "caffe-cifar-10:76",
+            "caffe-cifar-10:78",
+            "caffe-cifar-10:79",
+            "caffe-cifar-10:81",
+            "caffe-cifar-10:82",
+            "caffe-cifar-10:83",
+            "caffe-cifar-10:87",
+            "caffe-cifar-10:88",
+            "caffe-cifar-10:89",
+            "caffe-cifar-10:91",
+            "caffe-cifar-10:92",
+            "caffe-cifar-10:93",
+            "caffe-cifar-10:94",
+            "caffe-cifar-10:95",
+            "caffe-cifar-10:96",
+            "caffe-cifar-10:97",
+            "caffe-cifar-10:98",
+            "caffe-cifar-10:101",
+            "caffe-cifar-10:102",
+            "caffe-cifar-10:103"
+          ],
+          "upper_attached_shared_GET_bytes_for_early_admissions": 82657280000,
+          "last_later_end_s": 48.29412856098497
+        },
+        "financial-document-processor": {
+          "producer": "financial-document-processor:61",
+          "producer_events": {
+            "session_id": "financial-document-processor:61",
+            "predecessor": null,
+            "offered_s": 0.7254983901221408,
+            "tool_gap_s": 0,
+            "ready_s": 0.7254983901221408,
+            "dispatch_s": 0.7272072279884014,
+            "P_start_s": 0.7532439479837194,
+            "P_end_s": 5.508713112008991,
+            "D_start_s": 5.525112259987509,
+            "first_s": 5.95231779498863,
+            "end_s": 7.699441765988013,
+            "P": "P1",
+            "D": "D0",
+            "output_tokens": 133,
+            "finish_reason": "stop",
+            "effective_TPOT_ms": 13.235787659086231,
+            "phases_s": {
+              "ready_to_P": 0.027745557861578618,
+              "P_HTTP": 4.755469164025271,
+              "P_return_to_D": 0.016399147978518158,
+              "D_to_first": 0.42720553500112146,
+              "first_to_end": 1.7471239709993824
+            }
+          },
+          "later_opposite_P_after_producer_D_admission": [
+            "financial-document-processor:62",
+            "financial-document-processor:63",
+            "financial-document-processor:64",
+            "financial-document-processor:66",
+            "financial-document-processor:67",
+            "financial-document-processor:70",
+            "financial-document-processor:75",
+            "financial-document-processor:76",
+            "financial-document-processor:79",
+            "financial-document-processor:80",
+            "financial-document-processor:81",
+            "financial-document-processor:82",
+            "financial-document-processor:83",
+            "financial-document-processor:84"
+          ],
+          "later_opposite_P_before_any_opposite_P_HTTP_return": [
+            "financial-document-processor:62",
+            "financial-document-processor:63",
+            "financial-document-processor:64",
+            "financial-document-processor:66",
+            "financial-document-processor:67",
+            "financial-document-processor:70",
+            "financial-document-processor:75",
+            "financial-document-processor:76",
+            "financial-document-processor:79",
+            "financial-document-processor:80",
+            "financial-document-processor:81",
+            "financial-document-processor:82",
+            "financial-document-processor:83",
+            "financial-document-processor:84"
+          ],
+          "upper_attached_shared_GET_bytes_for_early_admissions": 42592829440,
+          "last_later_end_s": 44.81046896800399
+        },
+        "make-doom-for-mips": {
+          "producer": "make-doom-for-mips:85",
+          "producer_events": {
+            "session_id": "make-doom-for-mips:85",
+            "predecessor": null,
+            "offered_s": 0.839510521359174,
+            "tool_gap_s": 0,
+            "ready_s": 0.839510521359174,
+            "dispatch_s": 0.8408930719888303,
+            "P_start_s": 0.8722701270016842,
+            "P_end_s": 11.641581848991336,
+            "D_start_s": 11.663194249995286,
+            "first_s": 12.131930796982488,
+            "end_s": 15.368199012009427,
+            "P": "P1",
+            "D": "D0",
+            "output_tokens": 248,
+            "finish_reason": "stop",
+            "effective_TPOT_ms": 13.10230046569611,
+            "phases_s": {
+              "ready_to_P": 0.032759605642510126,
+              "P_HTTP": 10.769311721989652,
+              "P_return_to_D": 0.021612401003949344,
+              "D_to_first": 0.468736546987202,
+              "first_to_end": 3.2362682150269393
+            }
+          },
+          "later_opposite_P_after_producer_D_admission": [
+            "make-doom-for-mips:86",
+            "make-doom-for-mips:87",
+            "make-doom-for-mips:89",
+            "make-doom-for-mips:91",
+            "make-doom-for-mips:92",
+            "make-doom-for-mips:93",
+            "make-doom-for-mips:95",
+            "make-doom-for-mips:96",
+            "make-doom-for-mips:97",
+            "make-doom-for-mips:98",
+            "make-doom-for-mips:99",
+            "make-doom-for-mips:100",
+            "make-doom-for-mips:101",
+            "make-doom-for-mips:102",
+            "make-doom-for-mips:103",
+            "make-doom-for-mips:104",
+            "make-doom-for-mips:105",
+            "make-doom-for-mips:106",
+            "make-doom-for-mips:107"
+          ],
+          "later_opposite_P_before_any_opposite_P_HTTP_return": [
+            "make-doom-for-mips:86",
+            "make-doom-for-mips:87",
+            "make-doom-for-mips:89",
+            "make-doom-for-mips:91",
+            "make-doom-for-mips:92",
+            "make-doom-for-mips:93",
+            "make-doom-for-mips:95",
+            "make-doom-for-mips:96",
+            "make-doom-for-mips:97",
+            "make-doom-for-mips:98",
+            "make-doom-for-mips:99",
+            "make-doom-for-mips:100",
+            "make-doom-for-mips:101",
+            "make-doom-for-mips:102",
+            "make-doom-for-mips:103",
+            "make-doom-for-mips:104",
+            "make-doom-for-mips:105",
+            "make-doom-for-mips:106",
+            "make-doom-for-mips:107"
+          ],
+          "upper_attached_shared_GET_bytes_for_early_admissions": 76133662720,
+          "last_later_end_s": 48.96951247000834
+        },
+        "regex-chess": {
+          "producer": "regex-chess:51",
+          "producer_events": {
+            "session_id": "regex-chess:51",
+            "predecessor": null,
+            "offered_s": 0.9592342027716109,
+            "tool_gap_s": 0,
+            "ready_s": 0.9592342027716109,
+            "dispatch_s": 0.9600595509982668,
+            "P_start_s": 0.9871177680033725,
+            "P_end_s": 13.654965872003231,
+            "D_start_s": 13.675442856008885,
+            "first_s": 14.69984304899117,
+            "end_s": 21.843243537005037,
+            "P": "P0",
+            "D": "D1",
+            "output_tokens": 509,
+            "finish_reason": "stop",
+            "effective_TPOT_ms": 14.061811984279267,
+            "phases_s": {
+              "ready_to_P": 0.02788356523176161,
+              "P_HTTP": 12.667848103999859,
+              "P_return_to_D": 0.02047698400565423,
+              "D_to_first": 1.0244001929822844,
+              "first_to_end": 7.143400488013867
+            }
+          },
+          "later_opposite_P_after_producer_D_admission": [
+            "regex-chess:53",
+            "regex-chess:54",
+            "regex-chess:55",
+            "regex-chess:56",
+            "regex-chess:57",
+            "regex-chess:58",
+            "regex-chess:59",
+            "regex-chess:60",
+            "regex-chess:61",
+            "regex-chess:62",
+            "regex-chess:66"
+          ],
+          "later_opposite_P_before_any_opposite_P_HTTP_return": [
+            "regex-chess:53",
+            "regex-chess:54",
+            "regex-chess:55",
+            "regex-chess:56",
+            "regex-chess:57",
+            "regex-chess:58",
+            "regex-chess:59",
+            "regex-chess:60",
+            "regex-chess:61",
+            "regex-chess:62",
+            "regex-chess:66"
+          ],
+          "upper_attached_shared_GET_bytes_for_early_admissions": 47306997760,
+          "last_later_end_s": 47.26718945198809
+        }
+      },
+      "output_tokens": 19240,
+      "duration_s": 48.96951247000834,
+      "throughput_tokens_s": 392.8975198963569,
+      "finish_reasons": {
+        "stop": 76
+      },
+      "tail_id": "make-doom-for-mips:87",
+      "tail": {
+        "session_id": "make-doom-for-mips:87",
+        "predecessor": null,
+        "offered_s": 24.58565859800748,
+        "tool_gap_s": 0,
+        "ready_s": 24.58565859800748,
+        "dispatch_s": 24.58630165399518,
+        "P_start_s": 24.611084105999907,
+        "P_end_s": 30.455670876981458,
+        "D_start_s": 30.47788390200003,
+        "first_s": 30.911248916992918,
+        "end_s": 48.96951247000834,
+        "P": "P0",
+        "D": "D0",
+        "output_tokens": 730,
+        "finish_reason": "stop",
+        "effective_TPOT_ms": 24.77128059398549,
+        "phases_s": {
+          "ready_to_P": 0.025425507992427043,
+          "P_HTTP": 5.84458677098155,
+          "P_return_to_D": 0.022213025018572807,
+          "D_to_first": 0.43336501499288715,
+          "first_to_end": 18.058263553015422
+        }
+      }
+    },
+    "b2-cap100": {
+      "phases": {
+        "producer_phase": {
+          "window_s": [
+            0,
+            23.5
+          ],
+          "D_TX_GB": 1.4995168389139766,
+          "D_TX_GB_by_port": [
+            0.15182293526186966,
+            0.26372663433985677,
+            0.15163785379781142,
+            0.14557218927723373,
+            0.14349041939532847,
+            0.14913150144177947,
+            0.2336720107207259,
+            0.26046329467937124
+          ],
+          "D_sample_seconds": 23.5,
+          "D_any_port_hot_s": 0,
+          "prompt_source_sample_delta": {
+            "P0": {
+              "sample_window_s": [
+                -2.067112635006197,
+                22.631525664997753
+              ],
+              "tokens": {
+                "local_compute": 203912.0,
+                "local_cache_hit": 0.0,
+                "external_kv_transfer": 0.0
+              }
+            },
+            "P1": {
+              "sample_window_s": [
+                -2.0680017409904394,
+                22.633755098999245
+              ],
+              "tokens": {
+                "local_compute": 169972.0,
+                "local_cache_hit": 0.0,
+                "external_kv_transfer": 0.0
+              }
+            },
+            "D0": {
+              "sample_window_s": [
+                -2.0691892789909616,
+                22.63455385400448
+              ],
+              "tokens": {
+                "local_compute": 2.0,
+                "local_cache_hit": 0.0,
+                "external_kv_transfer": 169972.0
+              }
+            },
+            "D1": {
+              "sample_window_s": [
+                -2.0662495289871003,
+                22.63237811002182
+              ],
+              "tokens": {
+                "local_compute": 2.0,
+                "local_cache_hit": 0.0,
+                "external_kv_transfer": 203912.0
+              }
+            }
+          },
+          "P_HTTP_returns": 4,
+          "D_first_tokens": 4,
+          "client_output_tokens_in_overlapping_time_bins": 1153
+        },
+        "shared_history_burst_through_drain": {
+          "window_s": [
+            23.5,
+            48.81611163599882
+          ],
+          "D_TX_GB": 15.512284838153613,
+          "D_TX_GB_by_port": [
+            1.9225728257381307,
+            1.9128064524009176,
+            2.094864159594557,
+            1.8553922989933371,
+            1.9371658397876064,
+            2.1094236699346753,
+            1.8109088213067512,
+            1.8691507703976384
+          ],
+          "D_sample_seconds": 25.316111635998823,
+          "D_any_port_hot_s": 0,
+          "prompt_source_sample_delta": {
+            "P0": {
+              "sample_window_s": [
+                22.631525664997753,
+                44.412723846005974
+              ],
+              "tokens": {
+                "local_compute": 90532.0,
+                "local_cache_hit": 3350528.0,
+                "external_kv_transfer": 171008.0
+              }
+            },
+            "P1": {
+              "sample_window_s": [
+                22.633755098999245,
+                44.414569948014105
+              ],
+              "tokens": {
+                "local_compute": 81540.0,
+                "local_cache_hit": 3517440.0,
+                "external_kv_transfer": 220160.0
+              }
+            },
+            "D0": {
+              "sample_window_s": [
+                22.63455385400448,
+                44.41539490301511
+              ],
+              "tokens": {
+                "local_compute": 35.0,
+                "local_cache_hit": 3223552.0,
+                "external_kv_transfer": 421836.0
+              }
+            },
+            "D1": {
+              "sample_window_s": [
+                22.63237811002182,
+                44.41797438001959
+              ],
+              "tokens": {
+                "local_compute": 37.0,
+                "local_cache_hit": 3367936.0,
+                "external_kv_transfer": 417884.0
+              }
+            }
+          },
+          "P_HTTP_returns": 72,
+          "D_first_tokens": 72,
+          "client_output_tokens_in_overlapping_time_bins": 18456
+        }
+      },
+      "groups": {
+        "caffe-cifar-10": {
+          "producer": "caffe-cifar-10:74",
+          "producer_events": {
+            "session_id": "caffe-cifar-10:74",
+            "predecessor": null,
+            "offered_s": 0.0,
+            "tool_gap_s": 0,
+            "ready_s": 0.0,
+            "dispatch_s": 0.19065080699510872,
+            "P_start_s": 0.24769344099331647,
+            "P_end_s": 7.023843746021157,
+            "D_start_s": 7.044923704001121,
+            "first_s": 7.683078619011212,
+            "end_s": 11.271774238994112,
+            "P": "P0",
+            "D": "D1",
+            "output_tokens": 268,
+            "finish_reason": "stop",
+            "effective_TPOT_ms": 13.440807565479027,
+            "phases_s": {
+              "ready_to_P": 0.24769344099331647,
+              "P_HTTP": 6.776150305027841,
+              "P_return_to_D": 0.021079957979964092,
+              "D_to_first": 0.6381549150100909,
+              "first_to_end": 3.5886956199829
+            }
+          },
+          "later_opposite_P_after_producer_D_admission": [
+            "caffe-cifar-10:76",
+            "caffe-cifar-10:78",
+            "caffe-cifar-10:79",
+            "caffe-cifar-10:81",
+            "caffe-cifar-10:82",
+            "caffe-cifar-10:84",
+            "caffe-cifar-10:87",
+            "caffe-cifar-10:88",
+            "caffe-cifar-10:89",
+            "caffe-cifar-10:91",
+            "caffe-cifar-10:92",
+            "caffe-cifar-10:93",
+            "caffe-cifar-10:94",
+            "caffe-cifar-10:95",
+            "caffe-cifar-10:97",
+            "caffe-cifar-10:98",
+            "caffe-cifar-10:100",
+            "caffe-cifar-10:101",
+            "caffe-cifar-10:102",
+            "caffe-cifar-10:103"
+          ],
+          "later_opposite_P_before_any_opposite_P_HTTP_return": [
+            "caffe-cifar-10:76",
+            "caffe-cifar-10:78",
+            "caffe-cifar-10:79",
+            "caffe-cifar-10:81",
+            "caffe-cifar-10:82",
+            "caffe-cifar-10:84",
+            "caffe-cifar-10:87",
+            "caffe-cifar-10:88",
+            "caffe-cifar-10:89",
+            "caffe-cifar-10:91",
+            "caffe-cifar-10:92",
+            "caffe-cifar-10:93",
+            "caffe-cifar-10:94",
+            "caffe-cifar-10:95",
+            "caffe-cifar-10:97",
+            "caffe-cifar-10:98",
+            "caffe-cifar-10:100",
+            "caffe-cifar-10:101",
+            "caffe-cifar-10:102",
+            "caffe-cifar-10:103"
+          ],
+          "upper_attached_shared_GET_bytes_for_early_admissions": 82657280000,
+          "last_later_end_s": 48.81611163599882
+        },
+        "financial-document-processor": {
+          "producer": "financial-document-processor:61",
+          "producer_events": {
+            "session_id": "financial-document-processor:61",
+            "predecessor": null,
+            "offered_s": 0.7254983901221408,
+            "tool_gap_s": 0,
+            "ready_s": 0.7254983901221408,
+            "dispatch_s": 0.7269162659940775,
+            "P_start_s": 0.7511084040161222,
+            "P_end_s": 5.5763513749989215,
+            "D_start_s": 5.598291499016341,
+            "first_s": 5.960998732014559,
+            "end_s": 7.7173471830028575,
+            "P": "P1",
+            "D": "D0",
+            "output_tokens": 133,
+            "finish_reason": "stop",
+            "effective_TPOT_ms": 13.305670083244683,
+            "phases_s": {
+              "ready_to_P": 0.02561001389398143,
+              "P_HTTP": 4.825242970982799,
+              "P_return_to_D": 0.021940124017419294,
+              "D_to_first": 0.3627072329982184,
+              "first_to_end": 1.7563484509882983
+            }
+          },
+          "later_opposite_P_after_producer_D_admission": [
+            "financial-document-processor:62",
+            "financial-document-processor:63",
+            "financial-document-processor:64",
+            "financial-document-processor:66",
+            "financial-document-processor:69",
+            "financial-document-processor:70",
+            "financial-document-processor:75",
+            "financial-document-processor:76",
+            "financial-document-processor:79",
+            "financial-document-processor:80",
+            "financial-document-processor:81",
+            "financial-document-processor:82",
+            "financial-document-processor:83",
+            "financial-document-processor:84"
+          ],
+          "later_opposite_P_before_any_opposite_P_HTTP_return": [
+            "financial-document-processor:62",
+            "financial-document-processor:63",
+            "financial-document-processor:64",
+            "financial-document-processor:66",
+            "financial-document-processor:69",
+            "financial-document-processor:70",
+            "financial-document-processor:75",
+            "financial-document-processor:76",
+            "financial-document-processor:79",
+            "financial-document-processor:80",
+            "financial-document-processor:81",
+            "financial-document-processor:82",
+            "financial-document-processor:83",
+            "financial-document-processor:84"
+          ],
+          "upper_attached_shared_GET_bytes_for_early_admissions": 42592829440,
+          "last_later_end_s": 48.309837564011104
+        },
+        "make-doom-for-mips": {
+          "producer": "make-doom-for-mips:85",
+          "producer_events": {
+            "session_id": "make-doom-for-mips:85",
+            "predecessor": null,
+            "offered_s": 0.839510521359174,
+            "tool_gap_s": 0,
+            "ready_s": 0.839510521359174,
+            "dispatch_s": 0.8405483190144878,
+            "P_start_s": 0.8661849170166533,
+            "P_end_s": 11.688085792993661,
+            "D_start_s": 11.70877154901973,
+            "first_s": 12.124927251017652,
+            "end_s": 15.459766651008977,
+            "P": "P1",
+            "D": "D0",
+            "output_tokens": 243,
+            "finish_reason": "stop",
+            "effective_TPOT_ms": 13.780328099137703,
+            "phases_s": {
+              "ready_to_P": 0.02667439565747931,
+              "P_HTTP": 10.821900875977008,
+              "P_return_to_D": 0.020685756026068702,
+              "D_to_first": 0.41615570199792273,
+              "first_to_end": 3.334839399991324
+            }
+          },
+          "later_opposite_P_after_producer_D_admission": [
+            "make-doom-for-mips:86",
+            "make-doom-for-mips:87",
+            "make-doom-for-mips:89",
+            "make-doom-for-mips:92",
+            "make-doom-for-mips:93",
+            "make-doom-for-mips:94",
+            "make-doom-for-mips:95",
+            "make-doom-for-mips:96",
+            "make-doom-for-mips:97",
+            "make-doom-for-mips:98",
+            "make-doom-for-mips:99",
+            "make-doom-for-mips:100",
+            "make-doom-for-mips:101",
+            "make-doom-for-mips:102",
+            "make-doom-for-mips:103",
+            "make-doom-for-mips:104",
+            "make-doom-for-mips:105",
+            "make-doom-for-mips:106",
+            "make-doom-for-mips:107"
+          ],
+          "later_opposite_P_before_any_opposite_P_HTTP_return": [
+            "make-doom-for-mips:86",
+            "make-doom-for-mips:87",
+            "make-doom-for-mips:89",
+            "make-doom-for-mips:92",
+            "make-doom-for-mips:93",
+            "make-doom-for-mips:94",
+            "make-doom-for-mips:95",
+            "make-doom-for-mips:96",
+            "make-doom-for-mips:97",
+            "make-doom-for-mips:98",
+            "make-doom-for-mips:99",
+            "make-doom-for-mips:100",
+            "make-doom-for-mips:101",
+            "make-doom-for-mips:102",
+            "make-doom-for-mips:103",
+            "make-doom-for-mips:104",
+            "make-doom-for-mips:105",
+            "make-doom-for-mips:106",
+            "make-doom-for-mips:107"
+          ],
+          "upper_attached_shared_GET_bytes_for_early_admissions": 76133662720,
+          "last_later_end_s": 48.76531941400026
+        },
+        "regex-chess": {
+          "producer": "regex-chess:51",
+          "producer_events": {
+            "session_id": "regex-chess:51",
+            "predecessor": null,
+            "offered_s": 0.9592342027716109,
+            "tool_gap_s": 0,
+            "ready_s": 0.9592342027716109,
+            "dispatch_s": 0.9605024040210992,
+            "P_start_s": 0.9875393010152038,
+            "P_end_s": 13.483170118008275,
+            "D_start_s": 13.506459791009547,
+            "first_s": 14.398246045020642,
+            "end_s": 21.210691557993414,
+            "P": "P0",
+            "D": "D1",
+            "output_tokens": 509,
+            "finish_reason": "stop",
+            "effective_TPOT_ms": 13.410325812938527,
+            "phases_s": {
+              "ready_to_P": 0.028305098243592952,
+              "P_HTTP": 12.49563081699307,
+              "P_return_to_D": 0.023289673001272604,
+              "D_to_first": 0.8917862540110946,
+              "first_to_end": 6.812445512972772
+            }
+          },
+          "later_opposite_P_after_producer_D_admission": [
+            "regex-chess:53",
+            "regex-chess:54",
+            "regex-chess:55",
+            "regex-chess:56",
+            "regex-chess:57",
+            "regex-chess:58",
+            "regex-chess:59",
+            "regex-chess:60",
+            "regex-chess:61",
+            "regex-chess:62",
+            "regex-chess:66"
+          ],
+          "later_opposite_P_before_any_opposite_P_HTTP_return": [
+            "regex-chess:53",
+            "regex-chess:54",
+            "regex-chess:55",
+            "regex-chess:56",
+            "regex-chess:57",
+            "regex-chess:58",
+            "regex-chess:59",
+            "regex-chess:60",
+            "regex-chess:61",
+            "regex-chess:62",
+            "regex-chess:66"
+          ],
+          "upper_attached_shared_GET_bytes_for_early_admissions": 47306997760,
+          "last_later_end_s": 47.10245805399609
+        }
+      },
+      "output_tokens": 19609,
+      "duration_s": 48.81611163599882,
+      "throughput_tokens_s": 401.6911495576717,
+      "finish_reasons": {
+        "stop": 76
+      },
+      "tail_id": "caffe-cifar-10:79",
+      "tail": {
+        "session_id": "caffe-cifar-10:79",
+        "predecessor": null,
+        "offered_s": 25.39559439016209,
+        "tool_gap_s": 0,
+        "ready_s": 25.39559439016209,
+        "dispatch_s": 25.396477125003003,
+        "P_start_s": 25.42446372800623,
+        "P_end_s": 32.84024008901906,
+        "D_start_s": 32.865000331017654,
+        "first_s": 43.746944720012834,
+        "end_s": 48.81611163599882,
+        "P": "P1",
+        "D": "D0",
+        "output_tokens": 276,
+        "finish_reason": "stop",
+        "effective_TPOT_ms": 18.433334239949048,
+        "phases_s": {
+          "ready_to_P": 0.02886933784414225,
+          "P_HTTP": 7.415776361012831,
+          "P_return_to_D": 0.02476024199859239,
+          "D_to_first": 10.88194438899518,
+          "first_to_end": 5.0691669159859885
+        }
+      }
+    }
+  },
+  "route_matches": {
+    "b1": {
+      "P": 57,
+      "D": 39
+    },
+    "b2": {
+      "P": 68,
+      "D": 38
+    }
+  },
+  "admission_bounds_scope": "HTTP times bound overlap candidates. They do not locate the Store commit, lookup, rank reads, or APC publication."
+}

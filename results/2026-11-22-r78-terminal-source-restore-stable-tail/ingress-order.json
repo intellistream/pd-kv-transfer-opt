@@ -1,0 +1,347 @@
+{
+  "trace_sha256": "485b9745af532f9f83700c43461d85247ec888e11aa0f069f7b250919f8e1e92",
+  "arms": {
+    "b1-cap100": {
+      "first_deviation": {},
+      "all_predecessors_ready_on_plan": true,
+      "scheduled_burst_span_s": 1.099341249995632,
+      "first_child_score_release_after_burst_start_s": 2.1850018829863984,
+      "D_TX_GB": 201.24668102824745,
+      "D_supply_while_rails_hot_s": {
+        "D0": 4.044756204999999,
+        "D1": 6.174752045999995
+      },
+      "D_prompt_token_sources": {
+        "local_compute": 90.0,
+        "local_cache_hit": 8882176.0,
+        "external_kv_transfer": 1406394.0
+      },
+      "last_P_reply_s": 65.2485101709899
+    },
+    "b1-cap200": {
+      "first_deviation": {},
+      "all_predecessors_ready_on_plan": true,
+      "scheduled_burst_span_s": 1.1004065969900694,
+      "first_child_score_release_after_burst_start_s": 1.7609732690034434,
+      "D_TX_GB": 201.24919422488355,
+      "D_supply_while_rails_hot_s": {
+        "D0": 2.0408708480000044,
+        "D1": 2.0384017720000003
+      },
+      "D_prompt_token_sources": {
+        "local_compute": 90.0,
+        "local_cache_hit": 8971264.0,
+        "external_kv_transfer": 1317306.0
+      },
+      "last_P_reply_s": 57.12893849599641
+    },
+    "b2-cap200": {
+      "first_deviation": {
+        "index": 32,
+        "planned": "make-mips-interpreter:68",
+        "observed": "make-doom-for-mips:93",
+        "arrival_at_s": 45.335928479005815,
+        "actual_P": "P1",
+        "projected_P": "P0",
+        "native_active_score_estimate": {
+          "P0": 72838.198625,
+          "P1": 72733.22412500001
+        }
+      },
+      "all_predecessors_ready_on_plan": true,
+      "scheduled_burst_span_s": 1.1000620539998636,
+      "first_child_score_release_after_burst_start_s": 1.7341371760121547,
+      "D_TX_GB": 154.5418565816559,
+      "D_supply_while_rails_hot_s": {
+        "D0": 1.956038821,
+        "D1": 1.9582231559999954
+      },
+      "D_prompt_token_sources": {
+        "local_compute": 90.0,
+        "local_cache_hit": 8975360.0,
+        "external_kv_transfer": 1313210.0
+      },
+      "last_P_reply_s": 55.133629124000436
+    },
+    "b2-cap100": {
+      "first_deviation": {},
+      "all_predecessors_ready_on_plan": true,
+      "scheduled_burst_span_s": 1.1004223769996315,
+      "first_child_score_release_after_burst_start_s": 2.3423707189795095,
+      "D_TX_GB": 201.24752837815234,
+      "D_supply_while_rails_hot_s": {
+        "D0": 1.5879586169999982,
+        "D1": 5.222068732999993
+      },
+      "D_prompt_token_sources": {
+        "local_compute": 90.0,
+        "local_cache_hit": 8963072.0,
+        "external_kv_transfer": 1325498.0
+      },
+      "last_P_reply_s": 66.62513124299585
+    }
+  },
+  "scope": "Use actual same-clock events for order and score-release timestamps. The precursor at each occupancy update is inferred from the observed native P selection and recorded body size.",
+  "read_amount_attribution_from_native_routes": {
+    "b1": {
+      "observed_MAC_TX_difference_GB": -0.002513196636101611,
+      "route_conditioned_full_read_difference_GB": 0.0,
+      "by_route_change": [],
+      "route_conditioned_full_read_bytes_by_cap": {
+        "low": 208605675520,
+        "high": 208605675520
+      },
+      "sources": {
+        "caffe-cifar-10": {
+          "low": 60712222720,
+          "high": 60712222720
+        },
+        "make-doom-for-mips": {
+          "low": 32453263360,
+          "high": 32453263360
+        },
+        "make-mips-interpreter": {
+          "low": 45984317440,
+          "high": 45984317440
+        },
+        "regex-chess": {
+          "low": 69455872000,
+          "high": 69455872000
+        }
+      }
+    },
+    "b2": {
+      "observed_MAC_TX_difference_GB": 46.70567179649643,
+      "route_conditioned_full_read_difference_GB": 42.92542464,
+      "by_route_change": [
+        {
+          "id": "caffe-cifar-10:59",
+          "source": "caffe-cifar-10:58",
+          "P_100": "P0",
+          "P_200": "P1",
+          "potential_delta_bytes": -2874572800,
+          "first_100_s": 66.85689185699448,
+          "first_200_s": 53.79740211600438
+        },
+        {
+          "id": "caffe-cifar-10:61",
+          "source": "caffe-cifar-10:60",
+          "P_100": "P1",
+          "P_200": "P0",
+          "potential_delta_bytes": 2958458880,
+          "first_100_s": 65.73481808797806,
+          "first_200_s": 57.23831071102177
+        },
+        {
+          "id": "caffe-cifar-10:63",
+          "source": "caffe-cifar-10:62",
+          "P_100": "P1",
+          "P_200": "P0",
+          "potential_delta_bytes": 3168174080,
+          "first_100_s": 65.72586601000512,
+          "first_200_s": 56.26680953599862
+        },
+        {
+          "id": "caffe-cifar-10:72",
+          "source": "caffe-cifar-10:71",
+          "P_100": "P1",
+          "P_200": "P0",
+          "potential_delta_bytes": 3713433600,
+          "first_100_s": 65.8161031990021,
+          "first_200_s": 55.46725236301427
+        },
+        {
+          "id": "make-doom-for-mips:72",
+          "source": "make-doom-for-mips:71",
+          "P_100": "P0",
+          "P_200": "P1",
+          "potential_delta_bytes": 2916515840,
+          "first_100_s": 66.95458673499525,
+          "first_200_s": 53.99404744099593
+        },
+        {
+          "id": "make-doom-for-mips:93",
+          "source": "make-doom-for-mips:92",
+          "P_100": "P0",
+          "P_200": "P1",
+          "potential_delta_bytes": 4300636160,
+          "first_100_s": 64.91767616098514,
+          "first_200_s": 52.93897085901699
+        },
+        {
+          "id": "make-mips-interpreter:51",
+          "source": "make-mips-interpreter:50",
+          "P_100": "P1",
+          "P_200": "P0",
+          "potential_delta_bytes": 3042344960,
+          "first_100_s": 65.6535690969904,
+          "first_200_s": 55.34711242801859
+        },
+        {
+          "id": "make-mips-interpreter:54",
+          "source": "make-mips-interpreter:53",
+          "P_100": "P1",
+          "P_200": "P0",
+          "potential_delta_bytes": 3419832320,
+          "first_100_s": 64.63089363797917,
+          "first_200_s": 55.04043137500412
+        },
+        {
+          "id": "make-mips-interpreter:61",
+          "source": "make-mips-interpreter:60",
+          "P_100": "P1",
+          "P_200": "P0",
+          "potential_delta_bytes": 3881205760,
+          "first_100_s": 64.65265644999454,
+          "first_200_s": 55.104864156019175
+        },
+        {
+          "id": "make-mips-interpreter:68",
+          "source": "make-mips-interpreter:67",
+          "P_100": "P1",
+          "P_200": "P0",
+          "potential_delta_bytes": 4174807040,
+          "first_100_s": 63.474598254979355,
+          "first_200_s": 54.82338807801716
+        },
+        {
+          "id": "regex-chess:34",
+          "source": "regex-chess:33",
+          "P_100": "P0",
+          "P_200": "P1",
+          "potential_delta_bytes": 3168174080,
+          "first_100_s": 66.87056528599351,
+          "first_200_s": 53.91521526599536
+        },
+        {
+          "id": "regex-chess:40",
+          "source": "regex-chess:39",
+          "P_100": "P0",
+          "P_200": "P1",
+          "potential_delta_bytes": 3419832320,
+          "first_100_s": 66.90209136198973,
+          "first_200_s": 53.92029202901176
+        },
+        {
+          "id": "regex-chess:42",
+          "source": "regex-chess:41",
+          "P_100": "P0",
+          "P_200": "P1",
+          "potential_delta_bytes": 3671490560,
+          "first_100_s": 66.9109555099858,
+          "first_200_s": 53.84439558300073
+        },
+        {
+          "id": "regex-chess:44",
+          "source": "regex-chess:43",
+          "P_100": "P0",
+          "P_200": "P1",
+          "potential_delta_bytes": 3965091840,
+          "first_100_s": 65.9949574469938,
+          "first_200_s": 53.297112449014094
+        }
+      ],
+      "route_conditioned_full_read_bytes_by_cap": {
+        "low": 208605675520,
+        "high": 165680250880
+      },
+      "sources": {
+        "caffe-cifar-10": {
+          "low": 60712222720,
+          "high": 53746728960
+        },
+        "make-doom-for-mips": {
+          "low": 32453263360,
+          "high": 25236111360
+        },
+        "make-mips-interpreter": {
+          "low": 45984317440,
+          "high": 31466127360
+        },
+        "regex-chess": {
+          "low": 69455872000,
+          "high": 55231283200
+        }
+      }
+    }
+  },
+  "alternate_arrival_guard_screen": {
+    "scope": "Prospective schedule sensitivity for exactly the same native sessions. Hold the four observed prefill ingress residuals and prefill reservation lifetimes. Recheck actual timing and route under both caps.",
+    "trace_sha256": "485b9745af532f9f83700c43461d85247ec888e11aa0f069f7b250919f8e1e92",
+    "candidate_start_s": 41.2,
+    "observed_lower_bound_s": 40.59243629087695,
+    "minimum_historical_extra_ingress_margin_ms": 12.0,
+    "relative_arrival_s": {
+      "regex-chess:103": 0.0,
+      "make-mips-interpreter:99": 0.12109621496205136,
+      "make-mips-interpreter:97": 0.14340206416176926,
+      "regex-chess:101": 0.15436690911184314,
+      "make-mips-interpreter:93": 0.18817425719110048,
+      "regex-chess:99": 0.19905110991102504,
+      "make-mips-interpreter:81": 0.23529585775544604,
+      "caffe-cifar-10:103": 0.25724703980607444,
+      "regex-chess:97": 0.2661034690019264,
+      "make-mips-interpreter:83": 0.3011877287457736,
+      "make-doom-for-mips:121": 0.3180209209287099,
+      "caffe-cifar-10:101": 0.34576190178188426,
+      "caffe-cifar-10:98": 0.3679178993642296,
+      "regex-chess:71": 0.38590768220653615,
+      "caffe-cifar-10:96": 0.4123506152716985,
+      "make-doom-for-mips:116": 0.4298063487353687,
+      "caffe-cifar-10:94": 0.45647153588325295,
+      "regex-chess:67": 0.4755139776196273,
+      "caffe-cifar-10:92": 0.5006915914094066,
+      "make-doom-for-mips:106": 0.5205313097069322,
+      "caffe-cifar-10:89": 0.5449145450328601,
+      "make-doom-for-mips:103": 0.564634541931504,
+      "caffe-cifar-10:87": 0.5893582537231978,
+      "make-doom-for-mips:101": 0.6089515837828756,
+      "caffe-cifar-10:84": 0.6347558928384056,
+      "regex-chess:59": 0.6555230522396793,
+      "caffe-cifar-10:82": 0.6828142596005895,
+      "regex-chess:57": 0.7039129013725534,
+      "make-mips-interpreter:70": 0.7276779425637079,
+      "caffe-cifar-10:79": 0.7492191937477193,
+      "regex-chess:55": 0.7706720529640227,
+      "make-mips-interpreter:68": 0.7940013802160157,
+      "make-doom-for-mips:93": 0.8267927957068637,
+      "make-mips-interpreter:61": 0.8524107204177285,
+      "regex-chess:44": 0.8738877137891579,
+      "caffe-cifar-10:72": 0.8964812241296785,
+      "regex-chess:42": 0.9190770329611611,
+      "make-mips-interpreter:54": 0.9428021003964262,
+      "regex-chess:40": 0.9751071308352675,
+      "caffe-cifar-10:63": 0.9987944230712227,
+      "regex-chess:34": 1.0209867967714228,
+      "make-mips-interpreter:51": 1.0440104247252773,
+      "make-doom-for-mips:72": 1.0654188631053554,
+      "caffe-cifar-10:61": 1.0874911656363135,
+      "caffe-cifar-10:59": 1.1103641924648695
+    },
+    "observed_ingress_gap_extensions": [
+      {
+        "id": "caffe-cifar-10:84",
+        "planned_gap_extension_ms": 1.2454890068620446
+      },
+      {
+        "id": "caffe-cifar-10:82",
+        "planned_gap_extension_ms": 3.890476987464354
+      },
+      {
+        "id": "make-doom-for-mips:93",
+        "planned_gap_extension_ms": 12.712854001903903
+      },
+      {
+        "id": "regex-chess:40",
+        "planned_gap_extension_ms": 11.347545992350202
+      }
+    ],
+    "candidate_offer_span_s": 1.1103641924648695,
+    "modeled_slack_until_any_successor_score_release_s": {
+      "b1-cap100": 1.056464267002184,
+      "b1-cap200": 0.6313703060247917,
+      "b2-cap200": 0.6048787560237088,
+      "b2-cap100": 1.2127519759912957
+    }
+  }
+}

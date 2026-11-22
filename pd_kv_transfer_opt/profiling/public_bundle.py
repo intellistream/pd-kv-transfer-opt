@@ -111,7 +111,7 @@ def control(row):
     if name == "progress.json":
         if raw["stage"] != "complete" or not raw["restored"]:
             raise ValueError("Publish completed runs after the shaper restore readback.")
-        value = select(raw, "stage current completed_cases restored recovered_profile_stop")
+        value = select(raw, "stage current completed_cases restored recovered_profile_stop port_rate_comparison")
     elif name.endswith("-trace.json"):
         value = select(raw, "case stage D_worker_start D_worker_stop")
         for action in ("start", "stop"):
@@ -126,7 +126,7 @@ def control(row):
             raise ValueError("Missing shaper restoration.")
         value = select(raw, "requested verified restored")
     elif name.endswith("-shaping.json"):
-        value = select(raw, "requested_aggregate_Gbps readback")
+        value = select(raw, "requested_aggregate_Gbps readback requested_port_Mbps")
     elif re.fullmatch(r"[abc]-b\d+-cap(?:100|200)-ports-full-(?:before|after)\.json", name):
         value = {"unix_ns": raw["unix_ns"], "ports": [
             {**select(row, "port monotonic_ns"), "counters": select(row["counters"],

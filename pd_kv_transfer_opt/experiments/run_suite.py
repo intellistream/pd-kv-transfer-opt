@@ -16,7 +16,7 @@ import urllib.request
 from pd_kv_transfer_opt.common import read_json, write_json
 from pd_kv_transfer_opt.experiments.cohort import fixed_sources
 from pd_kv_transfer_opt.experiments.hardware import Shaper
-from pd_kv_transfer_opt.experiments.rdma_full_protocol import CASES, offered_rate
+from pd_kv_transfer_opt.experiments.rdma_full_protocol import CASES, offered_rate, port_comparison
 from pd_kv_transfer_opt.experiments.serve import endpoints, read_deployment
 
 
@@ -117,7 +117,7 @@ def profile_case(args, config, state, shaper, folder, case, number):
     write_json(folder / f"{case}-trace.json", receipt)
 
 
-def run(args, cases, config):
+def run(args, cases, config, port_rates=None):
     state = read_json(args.run_dir / "state.json")
     if state["role"] != "D" or state["stage"] != "ready":
         raise RuntimeError("Run on the ready D host with a D-side run directory.")
@@ -135,6 +135,9 @@ def run(args, cases, config):
     if any(item != {"configured_Mbps": 200000, "maximum_Mbps": 200000, "current_Mbps": 200000} for item in before.values()):
         raise ValueError("The r14 baseline requires eight ports at the original 200 Gbps setting.")
     status = {"stage": "running", "completed_cases": [], "restored": False}
+    if port_rates:
+        weighted_case, = port_rates
+        status["port_rate_comparison"] = {"weighted_case": weighted_case, "port_Mbps": port_rates[weighted_case]}
     write_json(folder / "shaping-initial.json", before)
     mutation_started = False
     profiles = 0
@@ -150,8 +153,12 @@ def run(args, cases, config):
             write_json(folder / "progress.json", status)
             if cap is not None:
                 mutation_started = True
-                readback = shaper.apply(cap)
-                write_json(folder / f"{case}-shaping.json", {"requested_aggregate_Gbps": cap, "readback": readback})
+                rates = port_rates.get(case) if port_rates else None
+                readback = shaper.apply_ports(rates) if rates else shaper.apply(cap)
+                receipt = {"requested_aggregate_Gbps": cap, "readback": readback}
+                if port_rates:
+                    receipt["requested_port_Mbps"] = rates or [cap * 125] * 8
+                write_json(folder / f"{case}-shaping.json", receipt)
             if case.startswith("profile-"):
                 profiles += 1
                 profile_case(args, config, state, shaper, folder, case, profiles)
@@ -190,16 +197,32 @@ def main():
     parser.add_argument("--hccn-tool", type=Path, default=Path("/usr/local/Ascend/driver/tools/hccn_tool"))
     parser.add_argument("--sudo", action="store_true", help="Use sudo -n for hccn_tool.")
     parser.add_argument("--profiles", action="store_true", help="Append separate P0/D0 profiler windows.")
+    parser.add_argument("--port-rates-mbps", type=int, nargs=8,
+                        help="Use the supplied port rates in the middle arm of an equal/weighted/equal comparison.")
     parser.add_argument("--apply", action="store_true", help="Run real traffic and change local D egress caps.")
     args = parser.parse_args()
     args.run_dir = args.run_dir.resolve()
     config = read_deployment(args.config)
-    cases = [row for row in CASES if args.profiles or not row[0].startswith("profile-")]
+    port_rates = None
+    if args.port_rates_mbps:
+        if args.profiles:
+            parser.error("Run method profiling separately from the fixed-total port comparison.")
+        try:
+            cases, port_rates = port_comparison(args.port_rates_mbps)
+        except ValueError as error:
+            parser.error(str(error))
+    else:
+        cases = [row for row in CASES if args.profiles or not row[0].startswith("profile-")]
     if not args.apply:
-        print(json.dumps([{"case": case, "cap_Gbps": cap, "requests": count, "offered_s_inv": offered_rate(case)}
-                          for case, cap, count in cases], indent=2))
+        plan = []
+        for case, cap, count in cases:
+            row = {"case": case, "cap_Gbps": cap, "requests": count, "offered_s_inv": offered_rate(case)}
+            if port_rates and cap is not None:
+                row["port_Mbps"] = port_rates.get(case, [cap * 125] * 8)
+            plan.append(row)
+        print(json.dumps(plan, indent=2))
         return
-    run(args, cases, config)
+    run(args, cases, config, port_rates)
 
 
 if __name__ == "__main__":

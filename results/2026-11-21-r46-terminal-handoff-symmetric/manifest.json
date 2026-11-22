@@ -1,0 +1,1181 @@
+{
+  "run_id": "2p2d-20261121-r46-terminal-handoff-symmetric-a1",
+  "baseline_commit": "5d591893ca8c7adc03c797068b44ad43dad27398",
+  "verified_published_tree": "283f3a1bd973d25b10f1fbf0bd852d2fe682a044",
+  "case_order": [
+    "b1-cap100",
+    "b1-cap200",
+    "b2-cap200",
+    "b2-cap100"
+  ],
+  "event_trace": "r46-events.jsonl.gz",
+  "workload": {
+    "source_repo": "openguardrails/terminal-bench-2.1-deepseek-v4-flash-trajectories",
+    "source_revision": "3f5b93ff1c5ea84b2c94cf479d0c942227191b4a",
+    "source_workload_sha256": "002a1c1fd6bbcfc275c93cb5d6211ad4578c37a11db900d7797ad6cf567237c0",
+    "tokenizer_fingerprint": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+    "ignore_eos": false,
+    "temperature": 0,
+    "tool_gap_policy": "zero inherited from r28; actual tool latency unavailable",
+    "max_tokens_policy": "larger of 8192 and source completion count, within model context",
+    "route_policy": "upstream native without route override",
+    "parent_r42_sha256": "e9e915f126adc1f09517b4b3741f4c3e1caa4c4e1fd53899b81e9a6ddda09281",
+    "requests": 81,
+    "sessions": 27,
+    "last_session_start_s": 3.25,
+    "pressure_window_s": [
+      30,
+      90
+    ],
+    "arrival_policy": "8 roots/s in original relative r42 order, plus original predecessor dependencies",
+    "request_sources": [
+      {
+        "id": "natural-install-windows-3.11:19",
+        "session_id": "install-windows-3.11",
+        "predecessor": null,
+        "offered_s": 0.0,
+        "tool_gap_s": 0,
+        "prompt_tokens": 35905,
+        "max_tokens": 8192,
+        "source_completion_tokens": 1617,
+        "prompt_sha256": "dfede3447983d1274b59f53f56f3e4ef94c4a0fe31b888b98563e9feaa789893",
+        "original_offered_s": 0.0
+      },
+      {
+        "id": "natural-install-windows-3.11:20",
+        "session_id": "install-windows-3.11",
+        "predecessor": "natural-install-windows-3.11:19",
+        "offered_s": 0.0,
+        "tool_gap_s": 0,
+        "prompt_tokens": 37189,
+        "max_tokens": 8192,
+        "source_completion_tokens": 2601,
+        "prompt_sha256": "5210174f896a57e5b488b0e85628bfd8c357f32665adea2ffbe78a26d8ae3e6c",
+        "original_offered_s": 0.0
+      },
+      {
+        "id": "natural-extract-moves-from-video:131",
+        "session_id": "extract-moves-from-video",
+        "predecessor": null,
+        "offered_s": 0.125,
+        "tool_gap_s": 0,
+        "prompt_tokens": 131237,
+        "max_tokens": 8192,
+        "source_completion_tokens": 1665,
+        "prompt_sha256": "da9d4729063c911b6484cdb37a29479ffbc81604cb336b4758704ee14b1fefcf",
+        "original_offered_s": 0.06183806455728989
+      },
+      {
+        "id": "natural-extract-moves-from-video:132",
+        "session_id": "extract-moves-from-video",
+        "predecessor": "natural-extract-moves-from-video:131",
+        "offered_s": 0.125,
+        "tool_gap_s": 0,
+        "prompt_tokens": 132661,
+        "max_tokens": 8192,
+        "source_completion_tokens": 2274,
+        "prompt_sha256": "199dafd98b499c34e5b9f134e808026ff0e32638d0d3174523daf42cc3f98157",
+        "original_offered_s": 0.06183806455728989
+      },
+      {
+        "id": "natural-make-mips-interpreter:87",
+        "session_id": "make-mips-interpreter",
+        "predecessor": null,
+        "offered_s": 0.25,
+        "tool_gap_s": 0,
+        "prompt_tokens": 131436,
+        "max_tokens": 8192,
+        "source_completion_tokens": 272,
+        "prompt_sha256": "378fa6f79bf2c9d5f6221ac7937babc8c4cebb93017e77170d97351d40a74537",
+        "original_offered_s": 0.12499128383318162
+      },
+      {
+        "id": "natural-make-mips-interpreter:88",
+        "session_id": "make-mips-interpreter",
+        "predecessor": "natural-make-mips-interpreter:87",
+        "offered_s": 0.25,
+        "tool_gap_s": 0,
+        "prompt_tokens": 132252,
+        "max_tokens": 8192,
+        "source_completion_tokens": 734,
+        "prompt_sha256": "6e060de0609276c9c0f8b8ba20b6eb4fbdbcfa651b7e8327d2e701ac319774a1",
+        "original_offered_s": 0.12499128383318162
+      },
+      {
+        "id": "natural-financial-document-processor:59",
+        "session_id": "financial-document-processor",
+        "predecessor": null,
+        "offered_s": 0.375,
+        "tool_gap_s": 0,
+        "prompt_tokens": 66098,
+        "max_tokens": 8192,
+        "source_completion_tokens": 2923,
+        "prompt_sha256": "7639111ec3c975445b5b28b71f9210e98dba82a4cb37fe3d5f4836639c37133b",
+        "original_offered_s": 0.21017421453897922
+      },
+      {
+        "id": "natural-financial-document-processor:60",
+        "session_id": "financial-document-processor",
+        "predecessor": "natural-financial-document-processor:59",
+        "offered_s": 0.375,
+        "tool_gap_s": 0,
+        "prompt_tokens": 71508,
+        "max_tokens": 8192,
+        "source_completion_tokens": 3465,
+        "prompt_sha256": "36d733bb52f07562283a6a8dd577e6be0f7845081af18c826d016559aaeebbae",
+        "original_offered_s": 0.21017421453897922
+      },
+      {
+        "id": "natural-financial-document-processor:61",
+        "session_id": "financial-document-processor",
+        "predecessor": "natural-financial-document-processor:60",
+        "offered_s": 0.375,
+        "tool_gap_s": 0,
+        "prompt_tokens": 72837,
+        "max_tokens": 8192,
+        "source_completion_tokens": 179,
+        "prompt_sha256": "276801cb92ccba5d0079d6c35cd4e70a793f1510bff8dfcff3f8859560aff19e",
+        "original_offered_s": 0.21017421453897922
+      },
+      {
+        "id": "natural-financial-document-processor:62",
+        "session_id": "financial-document-processor",
+        "predecessor": "natural-financial-document-processor:61",
+        "offered_s": 0.375,
+        "tool_gap_s": 0,
+        "prompt_tokens": 73278,
+        "max_tokens": 8192,
+        "source_completion_tokens": 152,
+        "prompt_sha256": "3ce791b2113115789bdb175d84956dd8ec5318662f416b14e1768c5a3d367518",
+        "original_offered_s": 0.21017421453897922
+      },
+      {
+        "id": "natural-financial-document-processor:63",
+        "session_id": "financial-document-processor",
+        "predecessor": "natural-financial-document-processor:62",
+        "offered_s": 0.375,
+        "tool_gap_s": 0,
+        "prompt_tokens": 73554,
+        "max_tokens": 8192,
+        "source_completion_tokens": 160,
+        "prompt_sha256": "22a11ed51aa24b0640f56fc5fa0919db86f5eef2b64d1f609c5c051ccc8e93aa",
+        "original_offered_s": 0.21017421453897922
+      },
+      {
+        "id": "natural-path-tracing-reverse:124",
+        "session_id": "path-tracing-reverse",
+        "predecessor": null,
+        "offered_s": 0.5,
+        "tool_gap_s": 0,
+        "prompt_tokens": 196715,
+        "max_tokens": 8192,
+        "source_completion_tokens": 3350,
+        "prompt_sha256": "1e6baf6113117445f34ec28a185a8a38504db355c53afb4979d05186a06c936b",
+        "original_offered_s": 0.24061845875898574
+      },
+      {
+        "id": "natural-path-tracing-reverse:125",
+        "session_id": "path-tracing-reverse",
+        "predecessor": "natural-path-tracing-reverse:124",
+        "offered_s": 0.5,
+        "tool_gap_s": 0,
+        "prompt_tokens": 198024,
+        "max_tokens": 8192,
+        "source_completion_tokens": 1438,
+        "prompt_sha256": "ed47bc2418563c6e2fcdad4ffc88105ff114d02ba46aa847c9cef48a807728cd",
+        "original_offered_s": 0.24061845875898574
+      },
+      {
+        "id": "natural-path-tracing-reverse:126",
+        "session_id": "path-tracing-reverse",
+        "predecessor": "natural-path-tracing-reverse:125",
+        "offered_s": 0.5,
+        "tool_gap_s": 0,
+        "prompt_tokens": 201106,
+        "max_tokens": 8192,
+        "source_completion_tokens": 1622,
+        "prompt_sha256": "c6fb5580204626c61dd91912084f4d773519fb300a5fac8380c3a77939b2c611",
+        "original_offered_s": 0.24061845875898574
+      },
+      {
+        "id": "natural-dna-assembly:21",
+        "session_id": "dna-assembly",
+        "predecessor": null,
+        "offered_s": 0.625,
+        "tool_gap_s": 0,
+        "prompt_tokens": 36928,
+        "max_tokens": 8192,
+        "source_completion_tokens": 6076,
+        "prompt_sha256": "5735b8ab1dee74a6e7ff90a2ec924c2b96f3995aa46f50d8516b7d590dfc57d1",
+        "original_offered_s": 0.5624605342310509
+      },
+      {
+        "id": "natural-dna-assembly:22",
+        "session_id": "dna-assembly",
+        "predecessor": "natural-dna-assembly:21",
+        "offered_s": 0.625,
+        "tool_gap_s": 0,
+        "prompt_tokens": 40928,
+        "max_tokens": 8192,
+        "source_completion_tokens": 7856,
+        "prompt_sha256": "6bb1e3370a7a1016df68b8b86d7f0251e6ba8bbeecf818e9bf23872c6824bf5c",
+        "original_offered_s": 0.5624605342310509
+      },
+      {
+        "id": "natural-dna-assembly:23",
+        "session_id": "dna-assembly",
+        "predecessor": "natural-dna-assembly:22",
+        "offered_s": 0.625,
+        "tool_gap_s": 0,
+        "prompt_tokens": 44583,
+        "max_tokens": 10716,
+        "source_completion_tokens": 10716,
+        "prompt_sha256": "23ff44966f75d9bbd45d9efa2cca8d0fc2899eba0cee5a36f4dfed4add7939cf",
+        "original_offered_s": 0.5624605342310509
+      },
+      {
+        "id": "natural-gcode-to-text:97",
+        "session_id": "gcode-to-text",
+        "predecessor": null,
+        "offered_s": 0.75,
+        "tool_gap_s": 0,
+        "prompt_tokens": 131248,
+        "max_tokens": 8192,
+        "source_completion_tokens": 5860,
+        "prompt_sha256": "bfb579c6445dfd3bf67392b41fd9a13bf3d24fc672f6ce93ee5ecd76e1baab99",
+        "original_offered_s": 1.0448196796645939
+      },
+      {
+        "id": "natural-gcode-to-text:98",
+        "session_id": "gcode-to-text",
+        "predecessor": "natural-gcode-to-text:97",
+        "offered_s": 0.75,
+        "tool_gap_s": 0,
+        "prompt_tokens": 131600,
+        "max_tokens": 8192,
+        "source_completion_tokens": 5527,
+        "prompt_sha256": "1095303e932ce7e6c70635c62bb0b06e3fa9991b8abb0f4a96f12e588dc56e70",
+        "original_offered_s": 1.0448196796645939
+      },
+      {
+        "id": "natural-gcode-to-text:99",
+        "session_id": "gcode-to-text",
+        "predecessor": "natural-gcode-to-text:98",
+        "offered_s": 0.75,
+        "tool_gap_s": 0,
+        "prompt_tokens": 132562,
+        "max_tokens": 8192,
+        "source_completion_tokens": 3959,
+        "prompt_sha256": "f4e3a3bfa84807175fc99e8925c8c7ec15646880483ffb8360da6d341de1f833",
+        "original_offered_s": 1.0448196796645939
+      },
+      {
+        "id": "natural-winning-avg-corewars:126",
+        "session_id": "winning-avg-corewars",
+        "predecessor": null,
+        "offered_s": 0.875,
+        "tool_gap_s": 0,
+        "prompt_tokens": 199434,
+        "max_tokens": 8192,
+        "source_completion_tokens": 2683,
+        "prompt_sha256": "077db78bf26bbe5a8302239b4d4c0977631d357e26740305f2f0afde35d9d457",
+        "original_offered_s": 1.4427792619578388
+      },
+      {
+        "id": "natural-winning-avg-corewars:127",
+        "session_id": "winning-avg-corewars",
+        "predecessor": "natural-winning-avg-corewars:126",
+        "offered_s": 0.875,
+        "tool_gap_s": 0,
+        "prompt_tokens": 201593,
+        "max_tokens": 8192,
+        "source_completion_tokens": 3473,
+        "prompt_sha256": "3cac7d96ae625d3b523a9ef3c7971f8b6daa8cfeb54e4da2aa827dc6a699e6e2",
+        "original_offered_s": 1.4427792619578388
+      },
+      {
+        "id": "natural-db-wal-recovery:16",
+        "session_id": "db-wal-recovery",
+        "predecessor": null,
+        "offered_s": 1.0,
+        "tool_gap_s": 0,
+        "prompt_tokens": 33727,
+        "max_tokens": 8192,
+        "source_completion_tokens": 2842,
+        "prompt_sha256": "c77dae5862f96ef386d59f3d51ddd6443b5f9fa1315ea30bbcc4f9fc0a9f11d8",
+        "original_offered_s": 1.4796503805511065
+      },
+      {
+        "id": "natural-db-wal-recovery:17",
+        "session_id": "db-wal-recovery",
+        "predecessor": "natural-db-wal-recovery:16",
+        "offered_s": 1.0,
+        "tool_gap_s": 0,
+        "prompt_tokens": 36152,
+        "max_tokens": 8192,
+        "source_completion_tokens": 3256,
+        "prompt_sha256": "a726a899ec562c22c98a765338d21b0a875c0d82db680b563b822037f3499f83",
+        "original_offered_s": 1.4796503805511065
+      },
+      {
+        "id": "natural-chess-best-move:22",
+        "session_id": "chess-best-move",
+        "predecessor": null,
+        "offered_s": 1.125,
+        "tool_gap_s": 0,
+        "prompt_tokens": 35402,
+        "max_tokens": 8860,
+        "source_completion_tokens": 8860,
+        "prompt_sha256": "529210f19b58dae22f34c50aa3375c1ff347d7ede609667a74ef92e8e3586de1",
+        "original_offered_s": 1.6011149411308685
+      },
+      {
+        "id": "natural-chess-best-move:23",
+        "session_id": "chess-best-move",
+        "predecessor": "natural-chess-best-move:22",
+        "offered_s": 1.125,
+        "tool_gap_s": 0,
+        "prompt_tokens": 37637,
+        "max_tokens": 8192,
+        "source_completion_tokens": 3683,
+        "prompt_sha256": "122ded6e17161e01b6923c6ff71b84d6ce151092ea5c5f6c7bcb51a8b8ba8283",
+        "original_offered_s": 1.6011149411308685
+      },
+      {
+        "id": "natural-mteb-leaderboard:35",
+        "session_id": "mteb-leaderboard",
+        "predecessor": null,
+        "offered_s": 1.25,
+        "tool_gap_s": 0,
+        "prompt_tokens": 33311,
+        "max_tokens": 8192,
+        "source_completion_tokens": 1047,
+        "prompt_sha256": "1f9fb2e9006e490bc14cf108c357a757a35d614c2c927e84045e3ef51a05ddf0",
+        "original_offered_s": 5.0
+      },
+      {
+        "id": "natural-mteb-leaderboard:36",
+        "session_id": "mteb-leaderboard",
+        "predecessor": "natural-mteb-leaderboard:35",
+        "offered_s": 1.25,
+        "tool_gap_s": 0,
+        "prompt_tokens": 35001,
+        "max_tokens": 8192,
+        "source_completion_tokens": 541,
+        "prompt_sha256": "b15be37a24b7461789a38e4ea98c1a00cbbe799e0bd1b1d84e8ed2ae6239b90d",
+        "original_offered_s": 5.0
+      },
+      {
+        "id": "natural-mteb-leaderboard:37",
+        "session_id": "mteb-leaderboard",
+        "predecessor": "natural-mteb-leaderboard:36",
+        "offered_s": 1.25,
+        "tool_gap_s": 0,
+        "prompt_tokens": 36880,
+        "max_tokens": 8192,
+        "source_completion_tokens": 667,
+        "prompt_sha256": "8a0ed0b086f80d99abdf831a2456442901807d01384d934f31af9a5e212665c5",
+        "original_offered_s": 5.0
+      },
+      {
+        "id": "natural-mteb-leaderboard:38",
+        "session_id": "mteb-leaderboard",
+        "predecessor": "natural-mteb-leaderboard:37",
+        "offered_s": 1.25,
+        "tool_gap_s": 0,
+        "prompt_tokens": 37824,
+        "max_tokens": 8192,
+        "source_completion_tokens": 1096,
+        "prompt_sha256": "5c08fdc67852bd4c1c9c9e62bca4e1562603ac10385aa90cff6fbeac5bb9cf59",
+        "original_offered_s": 5.0
+      },
+      {
+        "id": "natural-mteb-leaderboard:39",
+        "session_id": "mteb-leaderboard",
+        "predecessor": "natural-mteb-leaderboard:38",
+        "offered_s": 1.25,
+        "tool_gap_s": 0,
+        "prompt_tokens": 38760,
+        "max_tokens": 8192,
+        "source_completion_tokens": 913,
+        "prompt_sha256": "4d98b37c78cbde4ef9f44a9f5cc681366b7f231db6e89ae77c957867d57da86a",
+        "original_offered_s": 5.0
+      },
+      {
+        "id": "natural-gpt2-codegolf:26",
+        "session_id": "gpt2-codegolf",
+        "predecessor": null,
+        "offered_s": 1.375,
+        "tool_gap_s": 0,
+        "prompt_tokens": 66128,
+        "max_tokens": 8838,
+        "source_completion_tokens": 8838,
+        "prompt_sha256": "2cc57e16cd509bb627edf5a8b63e7e18cd0e631172e5b3730261385c68593f0a",
+        "original_offered_s": 10.0
+      },
+      {
+        "id": "natural-gpt2-codegolf:27",
+        "session_id": "gpt2-codegolf",
+        "predecessor": "natural-gpt2-codegolf:26",
+        "offered_s": 1.375,
+        "tool_gap_s": 0,
+        "prompt_tokens": 67475,
+        "max_tokens": 8192,
+        "source_completion_tokens": 1476,
+        "prompt_sha256": "fffaed6b8abce18db0e230e774a06595dd0a608e5ccaf31b32b2b343c658f7e4",
+        "original_offered_s": 10.0
+      },
+      {
+        "id": "sustained-caffe-cifar-10:100",
+        "session_id": "caffe-cifar-10",
+        "predecessor": null,
+        "offered_s": 1.5,
+        "tool_gap_s": 0,
+        "prompt_tokens": 117535,
+        "max_tokens": 8192,
+        "source_completion_tokens": 122,
+        "prompt_sha256": "f01bc318ce647e89c92662636c5463fddee47f79bf63e9415391229a201786c7",
+        "original_offered_s": 12.5
+      },
+      {
+        "id": "sustained-caffe-cifar-10:101",
+        "session_id": "caffe-cifar-10",
+        "predecessor": "sustained-caffe-cifar-10:100",
+        "offered_s": 1.5,
+        "tool_gap_s": 0,
+        "prompt_tokens": 117690,
+        "max_tokens": 8192,
+        "source_completion_tokens": 177,
+        "prompt_sha256": "b2908a5bf45e3b2bc7e834f6911c1ee1f47427cb0cdf248f4988c646e795a5b8",
+        "original_offered_s": 12.5
+      },
+      {
+        "id": "natural-mailman:22",
+        "session_id": "mailman",
+        "predecessor": null,
+        "offered_s": 1.625,
+        "tool_gap_s": 0,
+        "prompt_tokens": 32864,
+        "max_tokens": 8192,
+        "source_completion_tokens": 3008,
+        "prompt_sha256": "2e90e894842439af5d5a3bbc277e62aed00658dedd65159a8ba60eb71233b5e7",
+        "original_offered_s": 15.0
+      },
+      {
+        "id": "natural-mailman:23",
+        "session_id": "mailman",
+        "predecessor": "natural-mailman:22",
+        "offered_s": 1.625,
+        "tool_gap_s": 0,
+        "prompt_tokens": 34351,
+        "max_tokens": 8192,
+        "source_completion_tokens": 4811,
+        "prompt_sha256": "da69ffd37a90224473da178c9f16a5bdc617f108af5462df3e2b6e2fb6c92648",
+        "original_offered_s": 15.0
+      },
+      {
+        "id": "natural-mailman:24",
+        "session_id": "mailman",
+        "predecessor": "natural-mailman:23",
+        "offered_s": 1.625,
+        "tool_gap_s": 0,
+        "prompt_tokens": 35339,
+        "max_tokens": 8192,
+        "source_completion_tokens": 6223,
+        "prompt_sha256": "8cffd94d49886521b30c235ff3f3b381bf9dc32187966d100e532942d68a9cd3",
+        "original_offered_s": 15.0
+      },
+      {
+        "id": "natural-mailman:25",
+        "session_id": "mailman",
+        "predecessor": "natural-mailman:24",
+        "offered_s": 1.625,
+        "tool_gap_s": 0,
+        "prompt_tokens": 35501,
+        "max_tokens": 8192,
+        "source_completion_tokens": 5956,
+        "prompt_sha256": "5476ff5abc4249f316d6504fa3b5892cf2e5f30e90076d0a2e655d66f789a43e",
+        "original_offered_s": 15.0
+      },
+      {
+        "id": "natural-mailman:26",
+        "session_id": "mailman",
+        "predecessor": "natural-mailman:25",
+        "offered_s": 1.625,
+        "tool_gap_s": 0,
+        "prompt_tokens": 36324,
+        "max_tokens": 10968,
+        "source_completion_tokens": 10968,
+        "prompt_sha256": "1b4e48b94f7c8631aeaa15b9839795c8ef1c492b6d471abbc64dfbc70697b3a8",
+        "original_offered_s": 15.0
+      },
+      {
+        "id": "natural-mailman:27",
+        "session_id": "mailman",
+        "predecessor": "natural-mailman:26",
+        "offered_s": 1.625,
+        "tool_gap_s": 0,
+        "prompt_tokens": 37129,
+        "max_tokens": 8192,
+        "source_completion_tokens": 3386,
+        "prompt_sha256": "74f1d64c5df3562a90f3749e605537bc493fd9dc6c348577e8cc33f78a2efa30",
+        "original_offered_s": 15.0
+      },
+      {
+        "id": "sustained-compile-compcert:37",
+        "session_id": "compile-compcert",
+        "predecessor": null,
+        "offered_s": 1.75,
+        "tool_gap_s": 0,
+        "prompt_tokens": 55164,
+        "max_tokens": 8192,
+        "source_completion_tokens": 196,
+        "prompt_sha256": "7a4c96856feb0f1ca33617a0457e2e24ad872a63afb6a106bf0f5705da2b5ac9",
+        "original_offered_s": 17.5
+      },
+      {
+        "id": "sustained-compile-compcert:38",
+        "session_id": "compile-compcert",
+        "predecessor": "sustained-compile-compcert:37",
+        "offered_s": 1.75,
+        "tool_gap_s": 0,
+        "prompt_tokens": 55906,
+        "max_tokens": 8192,
+        "source_completion_tokens": 521,
+        "prompt_sha256": "52c174b9198857d7402ce0cfa1f4d0bccd46be74ed61b1621f0d7c89c852d8f5",
+        "original_offered_s": 17.5
+      },
+      {
+        "id": "sustained-compile-compcert:39",
+        "session_id": "compile-compcert",
+        "predecessor": "sustained-compile-compcert:38",
+        "offered_s": 1.75,
+        "tool_gap_s": 0,
+        "prompt_tokens": 56718,
+        "max_tokens": 8192,
+        "source_completion_tokens": 868,
+        "prompt_sha256": "f841c736124a59d605f27dc8fd70a8a8f791ff0b26f689d15b33e87823a33352",
+        "original_offered_s": 17.5
+      },
+      {
+        "id": "natural-train-fasttext:67",
+        "session_id": "train-fasttext",
+        "predecessor": null,
+        "offered_s": 1.875,
+        "tool_gap_s": 0,
+        "prompt_tokens": 65994,
+        "max_tokens": 8192,
+        "source_completion_tokens": 1133,
+        "prompt_sha256": "98fe5baa5aaa2f429b44d85b70e4ee10c1927f16d8c22cb5a3a913486b6142da",
+        "original_offered_s": 20.0
+      },
+      {
+        "id": "natural-train-fasttext:68",
+        "session_id": "train-fasttext",
+        "predecessor": "natural-train-fasttext:67",
+        "offered_s": 1.875,
+        "tool_gap_s": 0,
+        "prompt_tokens": 66816,
+        "max_tokens": 8192,
+        "source_completion_tokens": 1088,
+        "prompt_sha256": "635227c600c5599a8b4fe9fbaabf649a200bee0758544c98154c1bd5837f0011",
+        "original_offered_s": 20.0
+      },
+      {
+        "id": "natural-train-fasttext:69",
+        "session_id": "train-fasttext",
+        "predecessor": "natural-train-fasttext:68",
+        "offered_s": 1.875,
+        "tool_gap_s": 0,
+        "prompt_tokens": 67639,
+        "max_tokens": 8192,
+        "source_completion_tokens": 219,
+        "prompt_sha256": "0f5a00d5a4ca76f94ddf8dab811b9ef1f5a2a5f0119de3c5bc9fb3d2c271da65",
+        "original_offered_s": 20.0
+      },
+      {
+        "id": "natural-filter-js-from-html:12",
+        "session_id": "filter-js-from-html",
+        "predecessor": null,
+        "offered_s": 2.0,
+        "tool_gap_s": 0,
+        "prompt_tokens": 35700,
+        "max_tokens": 10185,
+        "source_completion_tokens": 10185,
+        "prompt_sha256": "69f59f0d9fc993a4b4185f844d0dec1fd68fd43c25beb9809b13f72596537ccb",
+        "original_offered_s": 30.0
+      },
+      {
+        "id": "natural-filter-js-from-html:13",
+        "session_id": "filter-js-from-html",
+        "predecessor": "natural-filter-js-from-html:12",
+        "offered_s": 2.0,
+        "tool_gap_s": 0,
+        "prompt_tokens": 37146,
+        "max_tokens": 8192,
+        "source_completion_tokens": 2450,
+        "prompt_sha256": "9630e9fc139539375897d952dae6682ffb05c7c25855b4c35ac905218e9b399d",
+        "original_offered_s": 30.0
+      },
+      {
+        "id": "natural-fix-ocaml-gc:28",
+        "session_id": "fix-ocaml-gc",
+        "predecessor": null,
+        "offered_s": 2.125,
+        "tool_gap_s": 0,
+        "prompt_tokens": 33633,
+        "max_tokens": 8192,
+        "source_completion_tokens": 2326,
+        "prompt_sha256": "be903cd85fe7b6868e211bb80792e5f01d3aae9d98ef957c671bbbca80e74141",
+        "original_offered_s": 35.0
+      },
+      {
+        "id": "natural-fix-ocaml-gc:29",
+        "session_id": "fix-ocaml-gc",
+        "predecessor": "natural-fix-ocaml-gc:28",
+        "offered_s": 2.125,
+        "tool_gap_s": 0,
+        "prompt_tokens": 34418,
+        "max_tokens": 8192,
+        "source_completion_tokens": 2891,
+        "prompt_sha256": "a6cfd0c7294c6d017b4316af77fd3ac6c4d0434fb638b07458e2fa17b6239b9d",
+        "original_offered_s": 35.0
+      },
+      {
+        "id": "sustained-llm-inference-batching-scheduler:21",
+        "session_id": "llm-inference-batching-scheduler",
+        "predecessor": null,
+        "offered_s": 2.25,
+        "tool_gap_s": 0,
+        "prompt_tokens": 63874,
+        "max_tokens": 8192,
+        "source_completion_tokens": 1384,
+        "prompt_sha256": "732a1149912ce53884e1e2f12e66239f5add0f4c0b7ae2107b42eae2a5bc8581",
+        "original_offered_s": 37.5
+      },
+      {
+        "id": "sustained-llm-inference-batching-scheduler:22",
+        "session_id": "llm-inference-batching-scheduler",
+        "predecessor": "sustained-llm-inference-batching-scheduler:21",
+        "offered_s": 2.25,
+        "tool_gap_s": 0,
+        "prompt_tokens": 67175,
+        "max_tokens": 8192,
+        "source_completion_tokens": 4122,
+        "prompt_sha256": "e15e9355e9d23793239835060a7717ef0a0bfd940ba19d6aaea4a4ad7ebb6886",
+        "original_offered_s": 37.5
+      },
+      {
+        "id": "sustained-llm-inference-batching-scheduler:23",
+        "session_id": "llm-inference-batching-scheduler",
+        "predecessor": "sustained-llm-inference-batching-scheduler:22",
+        "offered_s": 2.25,
+        "tool_gap_s": 0,
+        "prompt_tokens": 74519,
+        "max_tokens": 8192,
+        "source_completion_tokens": 4859,
+        "prompt_sha256": "e66176fb215e2c490c699ae07fe2cf02fdfa9b2fa62be0c8e0525d1d1bf666f8",
+        "original_offered_s": 37.5
+      },
+      {
+        "id": "sustained-llm-inference-batching-scheduler:24",
+        "session_id": "llm-inference-batching-scheduler",
+        "predecessor": "sustained-llm-inference-batching-scheduler:23",
+        "offered_s": 2.25,
+        "tool_gap_s": 0,
+        "prompt_tokens": 77425,
+        "max_tokens": 8192,
+        "source_completion_tokens": 1659,
+        "prompt_sha256": "02eccee2fb285b4eaaaa062d209ef62581f7d8c77fece65206d14d139f4f5ad6",
+        "original_offered_s": 37.5
+      },
+      {
+        "id": "sustained-llm-inference-batching-scheduler:25",
+        "session_id": "llm-inference-batching-scheduler",
+        "predecessor": "sustained-llm-inference-batching-scheduler:24",
+        "offered_s": 2.25,
+        "tool_gap_s": 0,
+        "prompt_tokens": 78848,
+        "max_tokens": 8192,
+        "source_completion_tokens": 296,
+        "prompt_sha256": "ab9bb1461d433cb5a61014743349750f08831c6a3d93c6d69278d6e4bd84a7ba",
+        "original_offered_s": 37.5
+      },
+      {
+        "id": "sustained-llm-inference-batching-scheduler:26",
+        "session_id": "llm-inference-batching-scheduler",
+        "predecessor": "sustained-llm-inference-batching-scheduler:25",
+        "offered_s": 2.25,
+        "tool_gap_s": 0,
+        "prompt_tokens": 79035,
+        "max_tokens": 8192,
+        "source_completion_tokens": 177,
+        "prompt_sha256": "bbc3d4cd171991bf4d9f0935fd6a41c2e004cdcf9626f198ae65e339e37db027",
+        "original_offered_s": 37.5
+      },
+      {
+        "id": "natural-raman-fitting:25",
+        "session_id": "raman-fitting",
+        "predecessor": null,
+        "offered_s": 2.375,
+        "tool_gap_s": 0,
+        "prompt_tokens": 68007,
+        "max_tokens": 8192,
+        "source_completion_tokens": 2609,
+        "prompt_sha256": "2188962c747981f8d82037cd6851b91e4a578160f9de7a488c6886653695fb06",
+        "original_offered_s": 40.0
+      },
+      {
+        "id": "natural-raman-fitting:26",
+        "session_id": "raman-fitting",
+        "predecessor": "natural-raman-fitting:25",
+        "offered_s": 2.375,
+        "tool_gap_s": 0,
+        "prompt_tokens": 69968,
+        "max_tokens": 8192,
+        "source_completion_tokens": 4248,
+        "prompt_sha256": "14400819882f29d34340e111ccb8eb2dc6c0880b6644d72156ae2648df83fa7f",
+        "original_offered_s": 40.0
+      },
+      {
+        "id": "natural-raman-fitting:27",
+        "session_id": "raman-fitting",
+        "predecessor": "natural-raman-fitting:26",
+        "offered_s": 2.375,
+        "tool_gap_s": 0,
+        "prompt_tokens": 74829,
+        "max_tokens": 8192,
+        "source_completion_tokens": 2020,
+        "prompt_sha256": "5b7113589ca934e1379d8f70782e144f170b2b57283f9ab36d4a134a4b7fcf7c",
+        "original_offered_s": 40.0
+      },
+      {
+        "id": "sustained-mcmc-sampling-stan:46",
+        "session_id": "mcmc-sampling-stan",
+        "predecessor": null,
+        "offered_s": 2.5,
+        "tool_gap_s": 0,
+        "prompt_tokens": 57033,
+        "max_tokens": 8192,
+        "source_completion_tokens": 299,
+        "prompt_sha256": "7a0fd7b6a1cb4e92e6af2a326cda94c89d20a275c7c7a86b10446d87a2cee161",
+        "original_offered_s": 42.5
+      },
+      {
+        "id": "sustained-mcmc-sampling-stan:47",
+        "session_id": "mcmc-sampling-stan",
+        "predecessor": "sustained-mcmc-sampling-stan:46",
+        "offered_s": 2.5,
+        "tool_gap_s": 0,
+        "prompt_tokens": 57213,
+        "max_tokens": 8192,
+        "source_completion_tokens": 1029,
+        "prompt_sha256": "84ffec37e4851d146b1f20a45c41f168e91fbf9cb1d6bea33cecf93516f2268b",
+        "original_offered_s": 42.5
+      },
+      {
+        "id": "natural-feal-linear-cryptanalysis:14",
+        "session_id": "feal-linear-cryptanalysis",
+        "predecessor": null,
+        "offered_s": 2.625,
+        "tool_gap_s": 0,
+        "prompt_tokens": 34265,
+        "max_tokens": 16526,
+        "source_completion_tokens": 16526,
+        "prompt_sha256": "f7bdc05a194b7e85d9f6e40d10e3f77b05eced35abbd1b4cce4dd93b5d7351ff",
+        "original_offered_s": 45.0
+      },
+      {
+        "id": "natural-feal-linear-cryptanalysis:15",
+        "session_id": "feal-linear-cryptanalysis",
+        "predecessor": "natural-feal-linear-cryptanalysis:14",
+        "offered_s": 2.625,
+        "tool_gap_s": 0,
+        "prompt_tokens": 42545,
+        "max_tokens": 8192,
+        "source_completion_tokens": 430,
+        "prompt_sha256": "5d90df984809ec7c25c992734cd5a8d228235add6fbaccec60b807a61a0d16c6",
+        "original_offered_s": 45.0
+      },
+      {
+        "id": "natural-build-cython-ext:36",
+        "session_id": "build-cython-ext",
+        "predecessor": null,
+        "offered_s": 2.75,
+        "tool_gap_s": 0,
+        "prompt_tokens": 34302,
+        "max_tokens": 8192,
+        "source_completion_tokens": 1037,
+        "prompt_sha256": "e16008ed8be184d8c99dba6b23c4ac0db1c92d822f21b76d049ff80bc65ef5f4",
+        "original_offered_s": 55.0
+      },
+      {
+        "id": "natural-build-cython-ext:37",
+        "session_id": "build-cython-ext",
+        "predecessor": "natural-build-cython-ext:36",
+        "offered_s": 2.75,
+        "tool_gap_s": 0,
+        "prompt_tokens": 35817,
+        "max_tokens": 8192,
+        "source_completion_tokens": 593,
+        "prompt_sha256": "57947f5a5c214ac5e68fe2c0a854e1908f61935d96c2450e2f7493933da44000",
+        "original_offered_s": 55.0
+      },
+      {
+        "id": "natural-build-pmars:24",
+        "session_id": "build-pmars",
+        "predecessor": null,
+        "offered_s": 2.875,
+        "tool_gap_s": 0,
+        "prompt_tokens": 33079,
+        "max_tokens": 8192,
+        "source_completion_tokens": 6022,
+        "prompt_sha256": "d37d92b6b718372610dc5df32db56b9aac04d6951ddd12e222c8ead3df7e9c8a",
+        "original_offered_s": 60.0
+      },
+      {
+        "id": "natural-build-pmars:25",
+        "session_id": "build-pmars",
+        "predecessor": "natural-build-pmars:24",
+        "offered_s": 2.875,
+        "tool_gap_s": 0,
+        "prompt_tokens": 34844,
+        "max_tokens": 8192,
+        "source_completion_tokens": 1000,
+        "prompt_sha256": "d2a389c1392a8294029b93ff7e060a3b9e07ed7a96c31f96b2e568c4e1543469",
+        "original_offered_s": 60.0
+      },
+      {
+        "id": "natural-build-pmars:26",
+        "session_id": "build-pmars",
+        "predecessor": "natural-build-pmars:25",
+        "offered_s": 2.875,
+        "tool_gap_s": 0,
+        "prompt_tokens": 35769,
+        "max_tokens": 8192,
+        "source_completion_tokens": 932,
+        "prompt_sha256": "ba8221d29e7337b216d3c8a683f4f99c140cde973f2a8759c1a2c3b05a1b81cb",
+        "original_offered_s": 60.0
+      },
+      {
+        "id": "natural-build-pmars:27",
+        "session_id": "build-pmars",
+        "predecessor": "natural-build-pmars:26",
+        "offered_s": 2.875,
+        "tool_gap_s": 0,
+        "prompt_tokens": 36895,
+        "max_tokens": 8192,
+        "source_completion_tokens": 1051,
+        "prompt_sha256": "8f3c736d71700c934bace36959bbefa5ec880cf78bedd65957091d57bcc3c901",
+        "original_offered_s": 60.0
+      },
+      {
+        "id": "natural-count-dataset-tokens:44",
+        "session_id": "count-dataset-tokens",
+        "predecessor": null,
+        "offered_s": 3.0,
+        "tool_gap_s": 0,
+        "prompt_tokens": 66650,
+        "max_tokens": 8192,
+        "source_completion_tokens": 1031,
+        "prompt_sha256": "e51ca2fd80639a05b6b8a19e375cc8e322171667c8ff9a0d91afb8bb90af97e9",
+        "original_offered_s": 75.0
+      },
+      {
+        "id": "natural-count-dataset-tokens:45",
+        "session_id": "count-dataset-tokens",
+        "predecessor": "natural-count-dataset-tokens:44",
+        "offered_s": 3.0,
+        "tool_gap_s": 0,
+        "prompt_tokens": 67530,
+        "max_tokens": 8192,
+        "source_completion_tokens": 3822,
+        "prompt_sha256": "92b39763bf43c38c2d5966be7ddc0ded489b34d90a88c5860e5ef0f61e626e95",
+        "original_offered_s": 75.0
+      },
+      {
+        "id": "natural-count-dataset-tokens:46",
+        "session_id": "count-dataset-tokens",
+        "predecessor": "natural-count-dataset-tokens:45",
+        "offered_s": 3.0,
+        "tool_gap_s": 0,
+        "prompt_tokens": 68355,
+        "max_tokens": 8192,
+        "source_completion_tokens": 2410,
+        "prompt_sha256": "cc0da0001ace78adeb910f9afbf949482965e3b4860260af3b060c5f4d49752d",
+        "original_offered_s": 75.0
+      },
+      {
+        "id": "sustained-rstan-to-pystan:35",
+        "session_id": "rstan-to-pystan",
+        "predecessor": null,
+        "offered_s": 3.125,
+        "tool_gap_s": 0,
+        "prompt_tokens": 45412,
+        "max_tokens": 8192,
+        "source_completion_tokens": 189,
+        "prompt_sha256": "111c5df5f2b2b0153e731a55fa3d63d8bc70a0083dbc56dec527e5e7d81b3fff",
+        "original_offered_s": 77.5
+      },
+      {
+        "id": "sustained-rstan-to-pystan:36",
+        "session_id": "rstan-to-pystan",
+        "predecessor": "sustained-rstan-to-pystan:35",
+        "offered_s": 3.125,
+        "tool_gap_s": 0,
+        "prompt_tokens": 45568,
+        "max_tokens": 8192,
+        "source_completion_tokens": 546,
+        "prompt_sha256": "700c392383a70d79480dcd7894b7b87f74f46fc0c82caedc90495a8f20cc112e",
+        "original_offered_s": 77.5
+      },
+      {
+        "id": "sustained-rstan-to-pystan:37",
+        "session_id": "rstan-to-pystan",
+        "predecessor": "sustained-rstan-to-pystan:36",
+        "offered_s": 3.125,
+        "tool_gap_s": 0,
+        "prompt_tokens": 46370,
+        "max_tokens": 8192,
+        "source_completion_tokens": 568,
+        "prompt_sha256": "779d79e6d6804cc739be750fae1a0e4ee2dbb746b49dc67abda6eda314d9d4a4",
+        "original_offered_s": 77.5
+      },
+      {
+        "id": "sustained-rstan-to-pystan:38",
+        "session_id": "rstan-to-pystan",
+        "predecessor": "sustained-rstan-to-pystan:37",
+        "offered_s": 3.125,
+        "tool_gap_s": 0,
+        "prompt_tokens": 46696,
+        "max_tokens": 8192,
+        "source_completion_tokens": 938,
+        "prompt_sha256": "f65341e2ab6d0c53b444e6f8862e0f36d908ebde4c55503f7f7a99b6a3df7143",
+        "original_offered_s": 77.5
+      },
+      {
+        "id": "natural-video-processing:27",
+        "session_id": "video-processing",
+        "predecessor": null,
+        "offered_s": 3.25,
+        "tool_gap_s": 0,
+        "prompt_tokens": 65923,
+        "max_tokens": 8192,
+        "source_completion_tokens": 156,
+        "prompt_sha256": "1e2a21f6da8a4f25fbe881c54698f32a3d8e9bef710803361f29490bbcfbbaa9",
+        "original_offered_s": 90.0
+      },
+      {
+        "id": "natural-video-processing:28",
+        "session_id": "video-processing",
+        "predecessor": "natural-video-processing:27",
+        "offered_s": 3.25,
+        "tool_gap_s": 0,
+        "prompt_tokens": 67315,
+        "max_tokens": 8192,
+        "source_completion_tokens": 183,
+        "prompt_sha256": "cae922adde780501d23295b5eceaf1ad93be619f496c580171aaeae90cecfd62",
+        "original_offered_s": 90.0
+      },
+      {
+        "id": "natural-video-processing:29",
+        "session_id": "video-processing",
+        "predecessor": "natural-video-processing:28",
+        "offered_s": 3.25,
+        "tool_gap_s": 0,
+        "prompt_tokens": 67467,
+        "max_tokens": 8192,
+        "source_completion_tokens": 2938,
+        "prompt_sha256": "d04a1a2ee98e3a57576828f2a91a26263a8e6145e96ef410ee285db11fe36017",
+        "original_offered_s": 90.0
+      },
+      {
+        "id": "natural-video-processing:30",
+        "session_id": "video-processing",
+        "predecessor": "natural-video-processing:29",
+        "offered_s": 3.25,
+        "tool_gap_s": 0,
+        "prompt_tokens": 68417,
+        "max_tokens": 8192,
+        "source_completion_tokens": 746,
+        "prompt_sha256": "80785cab70a8b2cb2eea312996be642da77a31dd6de1a15283ed92bb431e93d1",
+        "original_offered_s": 90.0
+      }
+    ]
+  },
+  "settings": {
+    "model": "Qwen3.5-35B-A3B",
+    "attention_TP": 4,
+    "expert_parallel": true,
+    "DP": 1,
+    "serving_observer": false,
+    "D_egress_ports": 8,
+    "D_pool_GiB": 128,
+    "P_pool_GiB": 0,
+    "engines": {
+      "P": {
+        "devices": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "enable_prefix_caching": true,
+        "max_num_seqs": 16,
+        "max_num_batched_tokens": 4096,
+        "gpu_memory_utilization": 0.8,
+        "compilation_config": {
+          "cudagraph_capture_sizes": [
+            1,
+            2,
+            4,
+            8,
+            16,
+            1024,
+            2048,
+            3072,
+            4096
+          ]
+        }
+      },
+      "D": {
+        "devices": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "enable_prefix_caching": true,
+        "max_num_seqs": 16,
+        "max_num_batched_tokens": 4096,
+        "gpu_memory_utilization": 0.8,
+        "compilation_config": {
+          "cudagraph_mode": "FULL_DECODE_ONLY",
+          "cudagraph_capture_sizes": [
+            1,
+            2,
+            4,
+            8,
+            16
+          ]
+        },
+        "recompute_scheduler_enable": true
+      }
+    }
+  },
+  "shaping": "equal limits applied independently to eight P and eight D egress ports",
+  "software": {
+    "P": {
+      "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+      "ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd",
+      "mooncake": "0.3.11.post1"
+    },
+    "D": {
+      "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+      "ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd",
+      "mooncake": "0.3.11.post1"
+    },
+    "model_hashes": {
+      "config.json": "5e4d7f74fec2f360eb9cfbfcd6ec0c4c76e684d3a11caaed259d9fd9bfbc7944",
+      "tokenizer.json": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+      "model.safetensors.index.json": "d8d0b7ca4e61ae107e3e87a3ff21136b3ac7c789e64bb24267227ca804e04205"
+    }
+  },
+  "deployment_audit": {
+    "P": {
+      "intended_argv_devices_and_store_verified": true,
+      "observers_enabled": false,
+      "eager_false_log_count": 2,
+      "graph_mode_logged": true,
+      "software": {
+        "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+        "ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd",
+        "mooncake": "0.3.11.post1"
+      },
+      "native_scheduler": null
+    },
+    "D": {
+      "intended_argv_devices_and_store_verified": true,
+      "observers_enabled": false,
+      "eager_false_log_count": 2,
+      "graph_mode_logged": true,
+      "software": {
+        "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+        "ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd",
+        "mooncake": "0.3.11.post1"
+      },
+      "native_scheduler": "vllm_ascend.core.recompute_scheduler.AsyncRecomputeScheduler"
+    }
+  },
+  "bundle_sha256": {
+    "P": "4a212808ec9fea0a64f789cbf0fc5118ef5f8e2dfb90218adb0b63488d4aceac",
+    "D": "d87576c08fed2cd083fe64832d78b3e4f2665f91e0fb3330b673c7f486b3a970"
+  },
+  "P_clock_tracking": {
+    "b1-cap100": "Reference ID    : CA760151 (time.neu.edu.cn)\nStratum         : 2\nRef time (UTC)  : Sat Nov 21 11:51:03 2026\nSystem time     : 0.000344098 seconds fast of NTP time\nLast offset     : +0.001084560 seconds\nRMS offset      : 0.000423417 seconds\nFrequency       : 11.921 ppm slow\nResidual freq   : +0.039 ppm\nSkew            : 0.158 ppm\nRoot delay      : 0.040642850 seconds\nRoot dispersion : 0.001905255 seconds\nUpdate interval : 1033.8 seconds\nLeap status     : Normal\n",
+    "b1-cap200": "Reference ID    : CA760151 (time.neu.edu.cn)\nStratum         : 2\nRef time (UTC)  : Sat Nov 21 12:08:17 2026\nSystem time     : 0.000228368 seconds fast of NTP time\nLast offset     : -0.000054576 seconds\nRMS offset      : 0.000402059 seconds\nFrequency       : 11.891 ppm slow\nResidual freq   : +0.008 ppm\nSkew            : 0.157 ppm\nRoot delay      : 0.042263009 seconds\nRoot dispersion : 0.001046140 seconds\nUpdate interval : 1033.3 seconds\nLeap status     : Normal\n",
+    "b2-cap200": "Reference ID    : CA760151 (time.neu.edu.cn)\nStratum         : 2\nRef time (UTC)  : Sat Nov 21 12:08:17 2026\nSystem time     : 0.000222040 seconds fast of NTP time\nLast offset     : -0.000054576 seconds\nRMS offset      : 0.000402059 seconds\nFrequency       : 11.891 ppm slow\nResidual freq   : +0.008 ppm\nSkew            : 0.157 ppm\nRoot delay      : 0.042263009 seconds\nRoot dispersion : 0.001379655 seconds\nUpdate interval : 1033.3 seconds\nLeap status     : Normal\n",
+    "b2-cap100": "Reference ID    : CA760151 (time.neu.edu.cn)\nStratum         : 2\nRef time (UTC)  : Sat Nov 21 12:08:17 2026\nSystem time     : 0.000216271 seconds fast of NTP time\nLast offset     : -0.000054576 seconds\nRMS offset      : 0.000402059 seconds\nFrequency       : 11.891 ppm slow\nResidual freq   : +0.008 ppm\nSkew            : 0.157 ppm\nRoot delay      : 0.042263009 seconds\nRoot dispersion : 0.001683658 seconds\nUpdate interval : 1033.3 seconds\nLeap status     : Normal\n"
+  },
+  "artifacts": {
+    "r46-events.jsonl.gz": {
+      "sha256": "f89c32c34a6b389b6e4ef0bc65f6b803c953fb389bdccd4fb822d94f85338b21",
+      "bytes": 573102
+    },
+    "summary.json": {
+      "sha256": "3599a79fbc8cae3c68bbb851463cac23bbad346f1001c5823e0d31fafed1462f",
+      "bytes": 84409
+    },
+    "native-handoff-log.json": {
+      "sha256": "856716acc6b621814d270e22f7c9f0daa0a5c18bec73b24e527e54fc570e995c",
+      "bytes": 71460
+    }
+  },
+  "release": {
+    "P": {
+      "stage": "finished",
+      "npu_idle": true
+    },
+    "D": {
+      "stage": "finished",
+      "npu_idle": true,
+      "port_configuration_Mbps": [
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000
+      ]
+    }
+  },
+  "controller_sha256": {
+    "P": {
+      "node_guard.py": "fd79b67e5882a38870d7bf5904bc2eb09ed50f271e434f4ef3ad45cc20657864"
+    },
+    "D": {
+      "node_guard.py": "fd79b67e5882a38870d7bf5904bc2eb09ed50f271e434f4ef3ad45cc20657864",
+      "control.py": "21b50e87830e2c5ce57b9602a6ec72036112e467ef91ef64dedccb5462e0e426",
+      "run_pair.py": "2593cfd9dda482edebf0c72b209883b4815cc31c17999ae7fef717d98a7a9859",
+      "replay.py": "4379011d0b7a7263b8c61e4f8f6c127962f4a0e7256c6d0fc8616f531fa2be96"
+    }
+  }
+}

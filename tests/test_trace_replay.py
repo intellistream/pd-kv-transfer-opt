@@ -2,6 +2,7 @@
 
 import unittest
 
+from pd_kv_transfer_opt.profiling.analyze_kv_lifetime import change_finish
 from pd_kv_transfer_opt.simulator.trace_replay import simulate
 
 
@@ -32,6 +33,15 @@ class Simulation(unittest.TestCase):
     def test_incomplete_or_duplicate_stream_is_rejected(self):
         with self.assertRaises(ValueError):
             simulate([row("a", "s")], ["a", "b"], {})
+
+    def test_phase_perturbations_each_start_at_the_observed_residence(self):
+        requests = {"a": {"predecessor": None, "offered_s": 0, "end_s": 8,
+                          "phases_s": {"P_HTTP": 3, "first_to_end": 5}}}
+        get = change_finish(requests, {"a": 2}, "P_HTTP")
+        compute = change_finish(requests, {"a": 1}, "P_HTTP")
+        self.assertEqual(get["counterfactual_finish_s"], 6)
+        self.assertEqual(compute["counterfactual_finish_s"], 7)
+        self.assertEqual(requests["a"]["phases_s"]["P_HTTP"], 3)
 
 
 if __name__ == "__main__":

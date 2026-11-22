@@ -8,7 +8,7 @@ from statistics import mean, median
 from pd_kv_transfer_opt.profiling.analyze_natural_reproduction import interval_union, normalized_proxy_id, read_bundle
 from pd_kv_transfer_opt.profiling.analyze_prefill_chunks import get_batches, stats
 from pd_kv_transfer_opt.profiling.analyze_rdma_hard_caps import analyze_case
-from pd_kv_transfer_opt.experiments.rdma_full_protocol import CASES, ORDERS, PROMPT_LENGTHS
+from pd_kv_transfer_opt.experiments.rdma_full_protocol import CASES, ORDERS, PROMPT_LENGTHS, port_comparison
 
 
 def associate_loads(events):
@@ -305,16 +305,26 @@ def comparison(prefill_path, decode_path, *, partial=False):
     loads, load_batches, mismatches = associate_loads(p_events)
     transfers = associate_transfers(d_events)
     summaries = {}
+    port_comparison_config = control.get('progress.json', {}).get('port_rate_comparison')
+    cases, weighted_cases = port_comparison(port_comparison_config['port_Mbps']) if port_comparison_config else (CASES, {})
+    if weighted_cases and port_comparison_config['weighted_case'] not in weighted_cases:
+        raise ValueError("The comparison did not apply weighted rates in the planned case")
     completed = {row['case'] for row in d['client_summary']}
     profile_cases = {case for case, _, _ in CASES if case.startswith('profile-')}
     if not partial:
         assert (completed & profile_cases) in (set(), profile_cases)
-    for case, cap, count in CASES:
+    for case, cap, count in cases:
         if cap is None or (case not in completed and (partial or case in profile_cases)):
             continue
         shaping = control[f'{case}-shaping.json']
         assert len(shaping['readback']) == 8
         assert sum(r['current_Mbps'] for r in shaping['readback'].values()) == cap * 1000
+        if weighted_cases:
+            expected = list(weighted_cases.get(case, [cap * 125] * 8))
+            if (shaping['requested_port_Mbps'] != expected or
+                    any(shaping['readback'][str(port)]['configured_Mbps'] != rate
+                        or shaping['readback'][str(port)]['current_Mbps'] != rate for port, rate in enumerate(expected))):
+                raise ValueError(f"Unexpected per-port shaping readback for {case}")
         summary = analyze_case(p, d, p_events, d_events, arrival_monotonic_ns, batches, case, cap, count)
         assert sum(row['prompt_tokens'] for row in summary['requests_joined']) == count // 2 * sum(PROMPT_LENGTHS)
         summary = detail_case(summary, d, case, arrivals, steps, lookups, loads, load_batches, transfers)
@@ -324,7 +334,13 @@ def comparison(prefill_path, decode_path, *, partial=False):
               'P0_CPU_STACK_EVIDENCE': summarize_stack_snapshots(p),
               'P_scheduler_pairing_errors': errors, 'P_load_pairing_issues': mismatches,
               'P_store_errors': p['store_error'], 'D_store_errors': d['store_error'], 'D_master_events': d['master_event']}
-    if not partial:
+    if not partial and weighted_cases:
+        balanced_before, weighted, balanced_after = [summaries[case]['output_tokens_s'] for case, cap, _ in cases if cap]
+        result['port_rate_comparison'] = {
+            'equal_before_tokens_s': balanced_before, 'weighted_tokens_s': weighted, 'equal_after_tokens_s': balanced_after,
+            'weighted_vs_equal_mean_pct': (weighted / mean((balanced_before, balanced_after)) - 1) * 100,
+        }
+    elif not partial:
         result['repeated_estimates'] = repeated_estimates(summaries)
     return result
 

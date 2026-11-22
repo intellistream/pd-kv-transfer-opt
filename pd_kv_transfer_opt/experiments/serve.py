@@ -46,7 +46,8 @@ def endpoints(config):
             for role in ROLES for idx, port in enumerate(config[role]["api_ports"])}
 
 
-def model_commands(config, role, run_dir, *, observe=False):
+def model_commands(config, role, run_dir, *, observe=False, profile_decode_steps=False,
+                   decode_language_model_only=False, decode_native_profiler=False):
     local = config[role]
     producer = role == "P"
     kv_role = "kv_producer" if producer else "kv_consumer"
@@ -90,8 +91,12 @@ def model_commands(config, role, run_dir, *, observe=False):
                 "--kv-transfer-config", json.dumps(transfer), "--compilation-config", json.dumps(graph)]
         if "enable_prefix_caching" in local:
             argv.append("--enable-prefix-caching" if local["enable_prefix_caching"] else "--no-enable-prefix-caching")
-        if observe:
+        if decode_language_model_only:
+            argv.append("--language-model-only")
+        if observe or decode_native_profiler:
             profiler = dict(PROFILE_CONFIG, torch_profiler_dir=str(run_dir / "native-process-profile" / label))
+            if profile_decode_steps or decode_native_profiler:
+                profiler["ignore_frontend"] = True
             argv.extend(["--profiler-config", json.dumps(profiler)])
         cpu_sets = local.get("cpu_sets")
         if cpu_sets:
@@ -113,6 +118,30 @@ def launch(config, role, run_dir, run_id, state, store):
         for handler in logging["handlers"].values():
             handler.setdefault("filters", []).append("rdma_observations")
         logging.setdefault("filters", {})["rdma_observations"] = {"()": name}
+    if state.get("page_observations_enabled", False):
+        for handler in logging["handlers"].values():
+            handler.setdefault("filters", []).append("kv_page_observations")
+        logging.setdefault("filters", {})["kv_page_observations"] = {
+            "()": "pd_kv_transfer_opt.profiling.kv_lifetime_observability.InstallFilter",
+        }
+    if state.get("prefill_admission_observations", False):
+        for handler in logging["handlers"].values():
+            handler.setdefault("filters", []).append("prefill_admission_observations")
+        logging.setdefault("filters", {})["prefill_admission_observations"] = {
+            "()": "pd_kv_transfer_opt.profiling.prefill_admission_observability.InstallFilter",
+        }
+    if state.get("decode_step_observations", False):
+        for handler in logging["handlers"].values():
+            handler.setdefault("filters", []).append("decode_step_observations")
+        logging.setdefault("filters", {})["decode_step_observations"] = {
+            "()": "pd_kv_transfer_opt.profiling.decode_step_observability.InstallFilter",
+        }
+    if state.get("prefill_order_enabled", False):
+        for handler in logging["handlers"].values():
+            handler.setdefault("filters", []).append("prefill_order")
+        logging.setdefault("filters", {})["prefill_order"] = {
+            "()": "pd_kv_transfer_opt.experiments.prefill_order.InstallFilter",
+        }
     write_json(run_dir / "logging.json", logging)
     write_json(run_dir / "store.json", store)
     local = config[role]
@@ -124,6 +153,8 @@ def launch(config, role, run_dir, run_id, state, store):
                VLLM_LOGGING_CONFIG_PATH=str(run_dir / "logging.json"), MOONCAKE_CONFIG_PATH=str(run_dir / "store.json"))
     if mode_file is not None:
         env["ISSUE23_SAME_HEAD_MODE"] = mode_file
+    if state.get("prefill_admission_observations", False):
+        env["ISSUE23_P_ADMISSION_OBSERVABILITY"] = "1"
     repo = str(Path(__file__).resolve().parents[2])
     env["PYTHONPATH"] = os.pathsep.join(item for item in (repo, env.get("PYTHONPATH")) if item)
     children = []
@@ -159,6 +190,12 @@ def launch(config, role, run_dir, run_id, state, store):
                    "--default_kv_lease_ttl=11000", "--logtostderr=true"], env, "master")
         for item in state["instances"]:
             process_env = dict(env, ASCEND_RT_VISIBLE_DEVICES=",".join(map(str, item["devices"])))
+            if state.get("prefill_order_enabled", False):
+                process_env.update(PDKV_PREFILL_ORDER_INSTANCE=item["id"],
+                                   PDKV_PREFILL_ORDER_DIR=str(run_dir / "prefill-order"))
+            if (observer := state.get("adxl_observer")) is not None:
+                preloads = [observer, process_env.get("LD_PRELOAD", "")]
+                process_env["LD_PRELOAD"] = ":".join(filter(None, preloads))
             item["pid"] = spawn(item["argv"], process_env, item["id"]).pid
         opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
         ready = False
@@ -202,19 +239,56 @@ def main():
     parser.add_argument("--run-dir", type=Path, required=True)
     parser.add_argument("--run-id", required=True)
     parser.add_argument("--observe", action="store_true", help="Enable method and NPU event observations for profiling runs.")
+    parser.add_argument("--profile-kv-lifetime", action="store_true",
+                        help="Observe scheduler page demand and connector-owned page lifetimes.")
+    parser.add_argument("--profile-prefill-admission", action="store_true",
+                        help="Join P HTTP processing and EngineCore input events with --observe.")
+    parser.add_argument("--profile-decode-steps", action="store_true",
+                        help="Sample D scheduling, graph and device step boundaries with --observe.")
+    parser.add_argument("--decode-language-model-only", action="store_true",
+                        help="Run the native D language-only input path for text token prompts.")
+    parser.add_argument("--decode-native-profiler", action="store_true",
+                        help="Expose the native D worker profiler for separate diagnostic windows.")
+    parser.add_argument("--adxl-observer", type=Path, help="Optional native ADXL timing library for P workers.")
     parser.add_argument("--same-head-kv", action="store_true", help="Enable the P-side same-head A/B mode file.")
+    parser.add_argument("--prefill-order", action="store_true",
+                        help="Enable the experimental P waiting-queue order and per-arm audit.")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
     config = read_deployment(args.config)
     run_dir = args.run_dir.resolve()
     observe = args.observe or args.same_head_kv
-    store, commands = model_commands(config, args.role, run_dir, observe=observe)
+    if args.profile_decode_steps and (args.role != "D" or not args.observe):
+        parser.error("--profile-decode-steps requires --observe on D")
+    if args.role != "D" and (args.decode_language_model_only or args.decode_native_profiler):
+        parser.error("Decode input-path and native profiler options require --role D")
+    store, commands = model_commands(config, args.role, run_dir, observe=observe,
+                                    profile_decode_steps=args.profile_decode_steps,
+                                    decode_language_model_only=args.decode_language_model_only,
+                                    decode_native_profiler=args.decode_native_profiler)
     state = {"run_id": args.run_id, "role": args.role, "instances": commands, "store_config": store,
-             "observations_enabled": observe}
+             "observations_enabled": observe, "decode_language_model_only": args.decode_language_model_only,
+             "decode_native_profiler": args.decode_native_profiler}
+    if args.profile_kv_lifetime:
+        state["page_observations_enabled"] = True
+    if args.profile_prefill_admission:
+        if args.role != "P" or not args.observe:
+            parser.error("--profile-prefill-admission requires --observe on P")
+        state["prefill_admission_observations"] = True
+    if args.profile_decode_steps:
+        state["decode_step_observations"] = True
+    if args.adxl_observer is not None:
+        if args.role != "P" or not args.observe or not args.adxl_observer.is_file():
+            parser.error("--adxl-observer requires an existing library and --observe on P")
+        state["adxl_observer"] = str(args.adxl_observer.resolve())
     if args.same_head_kv:
         if args.role != "P" or config["P"].get("enable_prefix_caching") is not False:
             parser.error("--same-head-kv requires P with local prefix caching disabled")
         state["same_head_mode_file"] = str(run_dir / "same-head-mode")
+    if args.prefill_order:
+        if args.role != "P":
+            parser.error("--prefill-order requires --role P")
+        state["prefill_order_enabled"] = True
     if args.dry_run:
         print(json.dumps(state, indent=2))
         return

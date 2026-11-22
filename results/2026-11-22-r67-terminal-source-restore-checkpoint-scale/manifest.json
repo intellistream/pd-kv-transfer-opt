@@ -1,0 +1,4671 @@
+{
+  "run_id": "2p2d-20261121-r67-restore-scale-d-egress-a1",
+  "baseline_commit": "5d591893ca8c7adc03c797068b44ad43dad27398",
+  "verified_published_tree": "283f3a1bd973d25b10f1fbf0bd852d2fe682a044",
+  "independent_method_pass": false,
+  "case_order": [
+    "b1-cap100",
+    "b1-cap200",
+    "b2-cap200",
+    "b2-cap100"
+  ],
+  "event_trace": "r67-events.jsonl.gz",
+  "workload": {
+    "workload_type": "terminal_source_restore_pairs",
+    "source_repo": "openguardrails/terminal-bench-2.1-deepseek-v4-flash-trajectories",
+    "source_revision": "3f5b93ff1c5ea84b2c94cf479d0c942227191b4a",
+    "source_workload_sha256": "24873461882ce61d0c424062c4751abb69ecdab3e0c8874213138f5025ceaa43",
+    "tokenizer_fingerprint": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+    "parent_requests_sha256": "a6ac659b0792e2e3bb62eb0ddf442a4f01de764d0e4481236017aa5177de3863",
+    "requests": 226,
+    "sessions": 113,
+    "last_session_start_s": 5.886837057250183,
+    "pressure_window_s": [
+      78.0,
+      118.0
+    ],
+    "ignore_eos": false,
+    "temperature": 0,
+    "tool_gap_policy": "Use the prior Terminal-Bench replay policy of zero additional tool delay",
+    "max_tokens_policy": "Original Qwen replay budget rule max(8192, source completion tokens), with natural EOS",
+    "route_policy": "upstream native without route override",
+    "arrival_policy": "Independent two-turn windows with original adjacent prompts. Interleave their planned arrivals, with deeper checkpoints of the same source task offered first in the successor burst.",
+    "selection": {
+      "pairs": [
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:57",
+          "successor": "caffe-cifar-10:58",
+          "checkpoint_blocks": 66,
+          "potential_GET_bytes": 2832629760,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:57": 1084,
+            "caffe-cifar-10:58": 231
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:64",
+          "successor": "caffe-cifar-10:65",
+          "checkpoint_blocks": 77,
+          "potential_GET_bytes": 3294003200,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:64": 1473,
+            "caffe-cifar-10:65": 372
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:67",
+          "successor": "caffe-cifar-10:68",
+          "checkpoint_blocks": 81,
+          "potential_GET_bytes": 3461775360,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:67": 227,
+            "caffe-cifar-10:68": 162
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:71",
+          "successor": "caffe-cifar-10:72",
+          "checkpoint_blocks": 87,
+          "potential_GET_bytes": 3713433600,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:71": 288,
+            "caffe-cifar-10:72": 192
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:73",
+          "successor": "caffe-cifar-10:74",
+          "checkpoint_blocks": 89,
+          "potential_GET_bytes": 3797319680,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:73": 195,
+            "caffe-cifar-10:74": 297
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:76",
+          "successor": "caffe-cifar-10:77",
+          "checkpoint_blocks": 97,
+          "potential_GET_bytes": 4132864000,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:76": 273,
+            "caffe-cifar-10:77": 206
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:78",
+          "successor": "caffe-cifar-10:79",
+          "checkpoint_blocks": 101,
+          "potential_GET_bytes": 4300636160,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:78": 191,
+            "caffe-cifar-10:79": 1487
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:81",
+          "successor": "caffe-cifar-10:82",
+          "checkpoint_blocks": 103,
+          "potential_GET_bytes": 4384522240,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:81": 106,
+            "caffe-cifar-10:82": 221
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:83",
+          "successor": "caffe-cifar-10:84",
+          "checkpoint_blocks": 105,
+          "potential_GET_bytes": 4468408320,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:83": 102,
+            "caffe-cifar-10:84": 181
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:86",
+          "successor": "caffe-cifar-10:87",
+          "checkpoint_blocks": 106,
+          "potential_GET_bytes": 4510351360,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:86": 110,
+            "caffe-cifar-10:87": 99
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:88",
+          "successor": "caffe-cifar-10:89",
+          "checkpoint_blocks": 108,
+          "potential_GET_bytes": 4594237440,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:88": 186,
+            "caffe-cifar-10:89": 104
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:91",
+          "successor": "caffe-cifar-10:92",
+          "checkpoint_blocks": 109,
+          "potential_GET_bytes": 4636180480,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:91": 103,
+            "caffe-cifar-10:92": 182
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:93",
+          "successor": "caffe-cifar-10:94",
+          "checkpoint_blocks": 110,
+          "potential_GET_bytes": 4678123520,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:93": 101,
+            "caffe-cifar-10:94": 176
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:95",
+          "successor": "caffe-cifar-10:96",
+          "checkpoint_blocks": 111,
+          "potential_GET_bytes": 4720066560,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:95": 114,
+            "caffe-cifar-10:96": 108
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:97",
+          "successor": "caffe-cifar-10:98",
+          "checkpoint_blocks": 112,
+          "potential_GET_bytes": 4762009600,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:97": 111,
+            "caffe-cifar-10:98": 232
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:101",
+          "successor": "caffe-cifar-10:102",
+          "checkpoint_blocks": 114,
+          "potential_GET_bytes": 4845895680,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:101": 117,
+            "caffe-cifar-10:102": 231
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:103",
+          "successor": "caffe-cifar-10:104",
+          "checkpoint_blocks": 117,
+          "potential_GET_bytes": 4971724800,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:103": 111,
+            "caffe-cifar-10:104": 468
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:58",
+          "successor": "extract-moves-from-video:59",
+          "checkpoint_blocks": 64,
+          "potential_GET_bytes": 2748743680,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:58": 427,
+            "extract-moves-from-video:59": 819
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:60",
+          "successor": "extract-moves-from-video:61",
+          "checkpoint_blocks": 66,
+          "potential_GET_bytes": 2832629760,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:60": 1079,
+            "extract-moves-from-video:61": 1053
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:62",
+          "successor": "extract-moves-from-video:63",
+          "checkpoint_blocks": 68,
+          "potential_GET_bytes": 2916515840,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:62": 1117,
+            "extract-moves-from-video:63": 880
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:64",
+          "successor": "extract-moves-from-video:65",
+          "checkpoint_blocks": 69,
+          "potential_GET_bytes": 2958458880,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:64": 902,
+            "extract-moves-from-video:65": 799
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:66",
+          "successor": "extract-moves-from-video:67",
+          "checkpoint_blocks": 71,
+          "potential_GET_bytes": 3042344960,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:66": 533,
+            "extract-moves-from-video:67": 1358
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:68",
+          "successor": "extract-moves-from-video:69",
+          "checkpoint_blocks": 72,
+          "potential_GET_bytes": 3084288000,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:68": 857,
+            "extract-moves-from-video:69": 646
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:72",
+          "successor": "extract-moves-from-video:73",
+          "checkpoint_blocks": 76,
+          "potential_GET_bytes": 3252060160,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:72": 138.0,
+            "extract-moves-from-video:73": 152.5
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:74",
+          "successor": "extract-moves-from-video:75",
+          "checkpoint_blocks": 77,
+          "potential_GET_bytes": 3294003200,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:74": 407,
+            "extract-moves-from-video:75": 1262
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:80",
+          "successor": "extract-moves-from-video:81",
+          "checkpoint_blocks": 81,
+          "potential_GET_bytes": 3461775360,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:80": 846,
+            "extract-moves-from-video:81": 717
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:83",
+          "successor": "extract-moves-from-video:84",
+          "checkpoint_blocks": 79,
+          "potential_GET_bytes": 3377889280,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:83": 673,
+            "extract-moves-from-video:84": 906
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:93",
+          "successor": "extract-moves-from-video:94",
+          "checkpoint_blocks": 93,
+          "potential_GET_bytes": 3965091840,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:93": 146,
+            "extract-moves-from-video:94": 146
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:102",
+          "successor": "extract-moves-from-video:103",
+          "checkpoint_blocks": 102,
+          "potential_GET_bytes": 4342579200,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:102": 186,
+            "extract-moves-from-video:103": 1402
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:104",
+          "successor": "extract-moves-from-video:105",
+          "checkpoint_blocks": 104,
+          "potential_GET_bytes": 4426465280,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:104": 344,
+            "extract-moves-from-video:105": 344
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:109",
+          "successor": "extract-moves-from-video:110",
+          "checkpoint_blocks": 112,
+          "potential_GET_bytes": 4762009600,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:109": 400,
+            "extract-moves-from-video:110": 120
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:134",
+          "successor": "extract-moves-from-video:135",
+          "checkpoint_blocks": 130,
+          "potential_GET_bytes": 5516984320,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:134": 352,
+            "extract-moves-from-video:135": 259
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:153",
+          "successor": "extract-moves-from-video:154",
+          "checkpoint_blocks": 143,
+          "potential_GET_bytes": 6062243840,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:153": 1339,
+            "extract-moves-from-video:154": 428
+          }
+        },
+        {
+          "task": "financial-document-processor",
+          "root": "financial-document-processor:63",
+          "successor": "financial-document-processor:64",
+          "checkpoint_blocks": 71,
+          "potential_GET_bytes": 3042344960,
+          "estimated_output_tokens": {
+            "financial-document-processor:63": 143.0,
+            "financial-document-processor:64": 113.0
+          }
+        },
+        {
+          "task": "financial-document-processor",
+          "root": "financial-document-processor:66",
+          "successor": "financial-document-processor:67",
+          "checkpoint_blocks": 72,
+          "potential_GET_bytes": 3084288000,
+          "estimated_output_tokens": {
+            "financial-document-processor:66": 177,
+            "financial-document-processor:67": 188
+          }
+        },
+        {
+          "task": "financial-document-processor",
+          "root": "financial-document-processor:69",
+          "successor": "financial-document-processor:70",
+          "checkpoint_blocks": 73,
+          "potential_GET_bytes": 3126231040,
+          "estimated_output_tokens": {
+            "financial-document-processor:69": 119,
+            "financial-document-processor:70": 212
+          }
+        },
+        {
+          "task": "financial-document-processor",
+          "root": "financial-document-processor:72",
+          "successor": "financial-document-processor:73",
+          "checkpoint_blocks": 74,
+          "potential_GET_bytes": 3168174080,
+          "estimated_output_tokens": {
+            "financial-document-processor:72": 144,
+            "financial-document-processor:73": 398
+          }
+        },
+        {
+          "task": "financial-document-processor",
+          "root": "financial-document-processor:75",
+          "successor": "financial-document-processor:76",
+          "checkpoint_blocks": 75,
+          "potential_GET_bytes": 3210117120,
+          "estimated_output_tokens": {
+            "financial-document-processor:75": 163,
+            "financial-document-processor:76": 170
+          }
+        },
+        {
+          "task": "financial-document-processor",
+          "root": "financial-document-processor:79",
+          "successor": "financial-document-processor:80",
+          "checkpoint_blocks": 76,
+          "potential_GET_bytes": 3252060160,
+          "estimated_output_tokens": {
+            "financial-document-processor:79": 166,
+            "financial-document-processor:80": 157
+          }
+        },
+        {
+          "task": "financial-document-processor",
+          "root": "financial-document-processor:81",
+          "successor": "financial-document-processor:82",
+          "checkpoint_blocks": 77,
+          "potential_GET_bytes": 3294003200,
+          "estimated_output_tokens": {
+            "financial-document-processor:81": 174,
+            "financial-document-processor:82": 907
+          }
+        },
+        {
+          "task": "financial-document-processor",
+          "root": "financial-document-processor:83",
+          "successor": "financial-document-processor:84",
+          "checkpoint_blocks": 78,
+          "potential_GET_bytes": 3335946240,
+          "estimated_output_tokens": {
+            "financial-document-processor:83": 112.0,
+            "financial-document-processor:84": 94.0
+          }
+        },
+        {
+          "task": "financial-document-processor",
+          "root": "financial-document-processor:85",
+          "successor": "financial-document-processor:86",
+          "checkpoint_blocks": 79,
+          "potential_GET_bytes": 3377889280,
+          "estimated_output_tokens": {
+            "financial-document-processor:85": 1436,
+            "financial-document-processor:86": 506
+          }
+        },
+        {
+          "task": "financial-document-processor",
+          "root": "financial-document-processor:87",
+          "successor": "financial-document-processor:88",
+          "checkpoint_blocks": 81,
+          "potential_GET_bytes": 3461775360,
+          "estimated_output_tokens": {
+            "financial-document-processor:87": 356,
+            "financial-document-processor:88": 1222
+          }
+        },
+        {
+          "task": "financial-document-processor",
+          "root": "financial-document-processor:97",
+          "successor": "financial-document-processor:98",
+          "checkpoint_blocks": 100,
+          "potential_GET_bytes": 4258693120,
+          "estimated_output_tokens": {
+            "financial-document-processor:97": 1067,
+            "financial-document-processor:98": 279
+          }
+        },
+        {
+          "task": "gcode-to-text",
+          "root": "gcode-to-text:52",
+          "successor": "gcode-to-text:53",
+          "checkpoint_blocks": 78,
+          "potential_GET_bytes": 3335946240,
+          "estimated_output_tokens": {
+            "gcode-to-text:52": 216,
+            "gcode-to-text:53": 875
+          }
+        },
+        {
+          "task": "gcode-to-text",
+          "root": "gcode-to-text:56",
+          "successor": "gcode-to-text:57",
+          "checkpoint_blocks": 79,
+          "potential_GET_bytes": 3377889280,
+          "estimated_output_tokens": {
+            "gcode-to-text:56": 703,
+            "gcode-to-text:57": 277
+          }
+        },
+        {
+          "task": "gcode-to-text",
+          "root": "gcode-to-text:59",
+          "successor": "gcode-to-text:60",
+          "checkpoint_blocks": 82,
+          "potential_GET_bytes": 3503718400,
+          "estimated_output_tokens": {
+            "gcode-to-text:59": 573,
+            "gcode-to-text:60": 1069
+          }
+        },
+        {
+          "task": "gcode-to-text",
+          "root": "gcode-to-text:62",
+          "successor": "gcode-to-text:63",
+          "checkpoint_blocks": 84,
+          "potential_GET_bytes": 3587604480,
+          "estimated_output_tokens": {
+            "gcode-to-text:62": 304,
+            "gcode-to-text:63": 1462
+          }
+        },
+        {
+          "task": "gcode-to-text",
+          "root": "gcode-to-text:86",
+          "successor": "gcode-to-text:87",
+          "checkpoint_blocks": 115,
+          "potential_GET_bytes": 4887838720,
+          "estimated_output_tokens": {
+            "gcode-to-text:86": 244,
+            "gcode-to-text:87": 331
+          }
+        },
+        {
+          "task": "gcode-to-text",
+          "root": "gcode-to-text:92",
+          "successor": "gcode-to-text:93",
+          "checkpoint_blocks": 120,
+          "potential_GET_bytes": 5097553920,
+          "estimated_output_tokens": {
+            "gcode-to-text:92": 264,
+            "gcode-to-text:93": 327
+          }
+        },
+        {
+          "task": "make-doom-for-mips",
+          "root": "make-doom-for-mips:72",
+          "successor": "make-doom-for-mips:73",
+          "checkpoint_blocks": 69,
+          "potential_GET_bytes": 2958458880,
+          "estimated_output_tokens": {
+            "make-doom-for-mips:72": 1074,
+            "make-doom-for-mips:73": 871
+          }
+        },
+        {
+          "task": "make-doom-for-mips",
+          "root": "make-doom-for-mips:80",
+          "successor": "make-doom-for-mips:81",
+          "checkpoint_blocks": 80,
+          "potential_GET_bytes": 3419832320,
+          "estimated_output_tokens": {
+            "make-doom-for-mips:80": 1076,
+            "make-doom-for-mips:81": 1063
+          }
+        },
+        {
+          "task": "make-doom-for-mips",
+          "root": "make-doom-for-mips:86",
+          "successor": "make-doom-for-mips:87",
+          "checkpoint_blocks": 95,
+          "potential_GET_bytes": 4048977920,
+          "estimated_output_tokens": {
+            "make-doom-for-mips:86": 1212,
+            "make-doom-for-mips:87": 812
+          }
+        },
+        {
+          "task": "make-doom-for-mips",
+          "root": "make-doom-for-mips:88",
+          "successor": "make-doom-for-mips:89",
+          "checkpoint_blocks": 98,
+          "potential_GET_bytes": 4174807040,
+          "estimated_output_tokens": {
+            "make-doom-for-mips:88": 515,
+            "make-doom-for-mips:89": 569
+          }
+        },
+        {
+          "task": "make-doom-for-mips",
+          "root": "make-doom-for-mips:90",
+          "successor": "make-doom-for-mips:91",
+          "checkpoint_blocks": 100,
+          "potential_GET_bytes": 4258693120,
+          "estimated_output_tokens": {
+            "make-doom-for-mips:90": 1091,
+            "make-doom-for-mips:91": 517.0
+          }
+        },
+        {
+          "task": "make-doom-for-mips",
+          "root": "make-doom-for-mips:92",
+          "successor": "make-doom-for-mips:93",
+          "checkpoint_blocks": 101,
+          "potential_GET_bytes": 4300636160,
+          "estimated_output_tokens": {
+            "make-doom-for-mips:92": 163,
+            "make-doom-for-mips:93": 280
+          }
+        },
+        {
+          "task": "make-doom-for-mips",
+          "root": "make-doom-for-mips:95",
+          "successor": "make-doom-for-mips:96",
+          "checkpoint_blocks": 103,
+          "potential_GET_bytes": 4384522240,
+          "estimated_output_tokens": {
+            "make-doom-for-mips:95": 1378,
+            "make-doom-for-mips:96": 1092
+          }
+        },
+        {
+          "task": "make-doom-for-mips",
+          "root": "make-doom-for-mips:97",
+          "successor": "make-doom-for-mips:98",
+          "checkpoint_blocks": 107,
+          "potential_GET_bytes": 4552294400,
+          "estimated_output_tokens": {
+            "make-doom-for-mips:97": 635,
+            "make-doom-for-mips:98": 408
+          }
+        },
+        {
+          "task": "make-doom-for-mips",
+          "root": "make-doom-for-mips:100",
+          "successor": "make-doom-for-mips:101",
+          "checkpoint_blocks": 111,
+          "potential_GET_bytes": 4720066560,
+          "estimated_output_tokens": {
+            "make-doom-for-mips:100": 1320,
+            "make-doom-for-mips:101": 190
+          }
+        },
+        {
+          "task": "make-doom-for-mips",
+          "root": "make-doom-for-mips:103",
+          "successor": "make-doom-for-mips:104",
+          "checkpoint_blocks": 113,
+          "potential_GET_bytes": 4803952640,
+          "estimated_output_tokens": {
+            "make-doom-for-mips:103": 118,
+            "make-doom-for-mips:104": 101
+          }
+        },
+        {
+          "task": "make-doom-for-mips",
+          "root": "make-doom-for-mips:106",
+          "successor": "make-doom-for-mips:107",
+          "checkpoint_blocks": 114,
+          "potential_GET_bytes": 4845895680,
+          "estimated_output_tokens": {
+            "make-doom-for-mips:106": 166,
+            "make-doom-for-mips:107": 210
+          }
+        },
+        {
+          "task": "make-doom-for-mips",
+          "root": "make-doom-for-mips:111",
+          "successor": "make-doom-for-mips:112",
+          "checkpoint_blocks": 120,
+          "potential_GET_bytes": 5097553920,
+          "estimated_output_tokens": {
+            "make-doom-for-mips:111": 1287,
+            "make-doom-for-mips:112": 545
+          }
+        },
+        {
+          "task": "make-doom-for-mips",
+          "root": "make-doom-for-mips:115",
+          "successor": "make-doom-for-mips:116",
+          "checkpoint_blocks": 125,
+          "potential_GET_bytes": 5307269120,
+          "estimated_output_tokens": {
+            "make-doom-for-mips:115": 412,
+            "make-doom-for-mips:116": 407
+          }
+        },
+        {
+          "task": "make-doom-for-mips",
+          "root": "make-doom-for-mips:117",
+          "successor": "make-doom-for-mips:118",
+          "checkpoint_blocks": 129,
+          "potential_GET_bytes": 5475041280,
+          "estimated_output_tokens": {
+            "make-doom-for-mips:117": 832,
+            "make-doom-for-mips:118": 542
+          }
+        },
+        {
+          "task": "make-doom-for-mips",
+          "root": "make-doom-for-mips:122",
+          "successor": "make-doom-for-mips:123",
+          "checkpoint_blocks": 136,
+          "potential_GET_bytes": 5768642560,
+          "estimated_output_tokens": {
+            "make-doom-for-mips:122": 592.5,
+            "make-doom-for-mips:123": 217
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:50",
+          "successor": "make-mips-interpreter:51",
+          "checkpoint_blocks": 71,
+          "potential_GET_bytes": 3042344960,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:50": 847,
+            "make-mips-interpreter:51": 241
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:56",
+          "successor": "make-mips-interpreter:57",
+          "checkpoint_blocks": 88,
+          "potential_GET_bytes": 3755376640,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:56": 134,
+            "make-mips-interpreter:57": 458
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:60",
+          "successor": "make-mips-interpreter:61",
+          "checkpoint_blocks": 91,
+          "potential_GET_bytes": 3881205760,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:60": 309,
+            "make-mips-interpreter:61": 1320
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:63",
+          "successor": "make-mips-interpreter:64",
+          "checkpoint_blocks": 93,
+          "potential_GET_bytes": 3965091840,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:63": 1406,
+            "make-mips-interpreter:64": 810
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:65",
+          "successor": "make-mips-interpreter:66",
+          "checkpoint_blocks": 97,
+          "potential_GET_bytes": 4132864000,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:65": 1375,
+            "make-mips-interpreter:66": 292
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:67",
+          "successor": "make-mips-interpreter:68",
+          "checkpoint_blocks": 98,
+          "potential_GET_bytes": 4174807040,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:67": 1523,
+            "make-mips-interpreter:68": 894
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:69",
+          "successor": "make-mips-interpreter:70",
+          "checkpoint_blocks": 101,
+          "potential_GET_bytes": 4300636160,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:69": 1438,
+            "make-mips-interpreter:70": 1181
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:76",
+          "successor": "make-mips-interpreter:77",
+          "checkpoint_blocks": 110,
+          "potential_GET_bytes": 4678123520,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:76": 1020,
+            "make-mips-interpreter:77": 1086
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:78",
+          "successor": "make-mips-interpreter:79",
+          "checkpoint_blocks": 117,
+          "potential_GET_bytes": 4971724800,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:78": 317,
+            "make-mips-interpreter:79": 984
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:80",
+          "successor": "make-mips-interpreter:81",
+          "checkpoint_blocks": 118,
+          "potential_GET_bytes": 5013667840,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:80": 398,
+            "make-mips-interpreter:81": 67
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:82",
+          "successor": "make-mips-interpreter:83",
+          "checkpoint_blocks": 116,
+          "potential_GET_bytes": 4929781760,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:82": 61,
+            "make-mips-interpreter:83": 1149
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:87",
+          "successor": "make-mips-interpreter:88",
+          "checkpoint_blocks": 121,
+          "potential_GET_bytes": 5139496960,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:87": 139,
+            "make-mips-interpreter:88": 390
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:90",
+          "successor": "make-mips-interpreter:91",
+          "checkpoint_blocks": 129,
+          "potential_GET_bytes": 5475041280,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:90": 289.0,
+            "make-mips-interpreter:91": 308.0
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:94",
+          "successor": "make-mips-interpreter:95",
+          "checkpoint_blocks": 134,
+          "potential_GET_bytes": 5684756480,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:94": 457,
+            "make-mips-interpreter:95": 474
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:96",
+          "successor": "make-mips-interpreter:97",
+          "checkpoint_blocks": 135,
+          "potential_GET_bytes": 5726699520,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:96": 176,
+            "make-mips-interpreter:97": 325
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:98",
+          "successor": "make-mips-interpreter:99",
+          "checkpoint_blocks": 138,
+          "potential_GET_bytes": 5852528640,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:98": 150,
+            "make-mips-interpreter:99": 367
+          }
+        },
+        {
+          "task": "path-tracing",
+          "root": "path-tracing:45",
+          "successor": "path-tracing:46",
+          "checkpoint_blocks": 112,
+          "potential_GET_bytes": 4762009600,
+          "estimated_output_tokens": {
+            "path-tracing:45": 167,
+            "path-tracing:46": 104
+          }
+        },
+        {
+          "task": "path-tracing",
+          "root": "path-tracing:47",
+          "successor": "path-tracing:48",
+          "checkpoint_blocks": 113,
+          "potential_GET_bytes": 4803952640,
+          "estimated_output_tokens": {
+            "path-tracing:47": 135,
+            "path-tracing:48": 246
+          }
+        },
+        {
+          "task": "path-tracing",
+          "root": "path-tracing:49",
+          "successor": "path-tracing:50",
+          "checkpoint_blocks": 115,
+          "potential_GET_bytes": 4887838720,
+          "estimated_output_tokens": {
+            "path-tracing:49": 164,
+            "path-tracing:50": 143
+          }
+        },
+        {
+          "task": "path-tracing",
+          "root": "path-tracing:51",
+          "successor": "path-tracing:52",
+          "checkpoint_blocks": 118,
+          "potential_GET_bytes": 5013667840,
+          "estimated_output_tokens": {
+            "path-tracing:51": 152,
+            "path-tracing:52": 239
+          }
+        },
+        {
+          "task": "path-tracing-reverse",
+          "root": "path-tracing-reverse:30",
+          "successor": "path-tracing-reverse:31",
+          "checkpoint_blocks": 65,
+          "potential_GET_bytes": 2790686720,
+          "estimated_output_tokens": {
+            "path-tracing-reverse:30": 834,
+            "path-tracing-reverse:31": 1112
+          }
+        },
+        {
+          "task": "path-tracing-reverse",
+          "root": "path-tracing-reverse:48",
+          "successor": "path-tracing-reverse:49",
+          "checkpoint_blocks": 90,
+          "potential_GET_bytes": 3839262720,
+          "estimated_output_tokens": {
+            "path-tracing-reverse:48": 127,
+            "path-tracing-reverse:49": 130
+          }
+        },
+        {
+          "task": "path-tracing-reverse",
+          "root": "path-tracing-reverse:51",
+          "successor": "path-tracing-reverse:52",
+          "checkpoint_blocks": 94,
+          "potential_GET_bytes": 4007034880,
+          "estimated_output_tokens": {
+            "path-tracing-reverse:51": 87,
+            "path-tracing-reverse:52": 122
+          }
+        },
+        {
+          "task": "path-tracing-reverse",
+          "root": "path-tracing-reverse:89",
+          "successor": "path-tracing-reverse:90",
+          "checkpoint_blocks": 143,
+          "potential_GET_bytes": 6062243840,
+          "estimated_output_tokens": {
+            "path-tracing-reverse:89": 107,
+            "path-tracing-reverse:90": 193
+          }
+        },
+        {
+          "task": "path-tracing-reverse",
+          "root": "path-tracing-reverse:114",
+          "successor": "path-tracing-reverse:115",
+          "checkpoint_blocks": 174,
+          "potential_GET_bytes": 7362478080,
+          "estimated_output_tokens": {
+            "path-tracing-reverse:114": 81,
+            "path-tracing-reverse:115": 127
+          }
+        },
+        {
+          "task": "path-tracing-reverse",
+          "root": "path-tracing-reverse:122",
+          "successor": "path-tracing-reverse:123",
+          "checkpoint_blocks": 190,
+          "potential_GET_bytes": 8033566720,
+          "estimated_output_tokens": {
+            "path-tracing-reverse:122": 415,
+            "path-tracing-reverse:123": 88
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:31",
+          "successor": "regex-chess:32",
+          "checkpoint_blocks": 71,
+          "potential_GET_bytes": 3042344960,
+          "estimated_output_tokens": {
+            "regex-chess:31": 134,
+            "regex-chess:32": 1463
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:36",
+          "successor": "regex-chess:37",
+          "checkpoint_blocks": 77,
+          "potential_GET_bytes": 3294003200,
+          "estimated_output_tokens": {
+            "regex-chess:36": 939,
+            "regex-chess:37": 1333
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:40",
+          "successor": "regex-chess:41",
+          "checkpoint_blocks": 84,
+          "potential_GET_bytes": 3587604480,
+          "estimated_output_tokens": {
+            "regex-chess:40": 1451,
+            "regex-chess:41": 591
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:42",
+          "successor": "regex-chess:43",
+          "checkpoint_blocks": 88,
+          "potential_GET_bytes": 3755376640,
+          "estimated_output_tokens": {
+            "regex-chess:42": 1391,
+            "regex-chess:43": 1346
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:46",
+          "successor": "regex-chess:47",
+          "checkpoint_blocks": 96,
+          "potential_GET_bytes": 4090920960,
+          "estimated_output_tokens": {
+            "regex-chess:46": 301,
+            "regex-chess:47": 1485
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:56",
+          "successor": "regex-chess:57",
+          "checkpoint_blocks": 108,
+          "potential_GET_bytes": 4594237440,
+          "estimated_output_tokens": {
+            "regex-chess:56": 120,
+            "regex-chess:57": 377
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:60",
+          "successor": "regex-chess:61",
+          "checkpoint_blocks": 112,
+          "potential_GET_bytes": 4762009600,
+          "estimated_output_tokens": {
+            "regex-chess:60": 854,
+            "regex-chess:61": 1263
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:62",
+          "successor": "regex-chess:63",
+          "checkpoint_blocks": 115,
+          "potential_GET_bytes": 4887838720,
+          "estimated_output_tokens": {
+            "regex-chess:62": 1154,
+            "regex-chess:63": 834
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:78",
+          "successor": "regex-chess:79",
+          "checkpoint_blocks": 143,
+          "potential_GET_bytes": 6062243840,
+          "estimated_output_tokens": {
+            "regex-chess:78": 1121,
+            "regex-chess:79": 825
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:81",
+          "successor": "regex-chess:82",
+          "checkpoint_blocks": 149,
+          "potential_GET_bytes": 6313902080,
+          "estimated_output_tokens": {
+            "regex-chess:81": 625,
+            "regex-chess:82": 258
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:92",
+          "successor": "regex-chess:93",
+          "checkpoint_blocks": 168,
+          "potential_GET_bytes": 7110819840,
+          "estimated_output_tokens": {
+            "regex-chess:92": 1013,
+            "regex-chess:93": 1508
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:97",
+          "successor": "regex-chess:98",
+          "checkpoint_blocks": 177,
+          "potential_GET_bytes": 7488307200,
+          "estimated_output_tokens": {
+            "regex-chess:97": 193,
+            "regex-chess:98": 1271
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:102",
+          "successor": "regex-chess:103",
+          "checkpoint_blocks": 187,
+          "potential_GET_bytes": 7907737600,
+          "estimated_output_tokens": {
+            "regex-chess:102": 378,
+            "regex-chess:103": 114
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:109",
+          "successor": "regex-chess:110",
+          "checkpoint_blocks": 201,
+          "potential_GET_bytes": 8494940160,
+          "estimated_output_tokens": {
+            "regex-chess:109": 648.5,
+            "regex-chess:110": 510.5
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:113",
+          "successor": "regex-chess:114",
+          "checkpoint_blocks": 205,
+          "potential_GET_bytes": 8662712320,
+          "estimated_output_tokens": {
+            "regex-chess:113": 1281,
+            "regex-chess:114": 760
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:119",
+          "successor": "regex-chess:120",
+          "checkpoint_blocks": 216,
+          "potential_GET_bytes": 9124085760,
+          "estimated_output_tokens": {
+            "regex-chess:119": 1393,
+            "regex-chess:120": 1045
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:125",
+          "successor": "regex-chess:126",
+          "checkpoint_blocks": 228,
+          "potential_GET_bytes": 9627402240,
+          "estimated_output_tokens": {
+            "regex-chess:125": 1319,
+            "regex-chess:126": 118
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:128",
+          "successor": "regex-chess:129",
+          "checkpoint_blocks": 237,
+          "potential_GET_bytes": 10004889600,
+          "estimated_output_tokens": {
+            "regex-chess:128": 1097,
+            "regex-chess:129": 643
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:132",
+          "successor": "regex-chess:133",
+          "checkpoint_blocks": 240,
+          "potential_GET_bytes": 10130718720,
+          "estimated_output_tokens": {
+            "regex-chess:132": 420,
+            "regex-chess:133": 242
+          }
+        },
+        {
+          "task": "winning-avg-corewars",
+          "root": "winning-avg-corewars:50",
+          "successor": "winning-avg-corewars:51",
+          "checkpoint_blocks": 75,
+          "potential_GET_bytes": 3210117120,
+          "estimated_output_tokens": {
+            "winning-avg-corewars:50": 1154,
+            "winning-avg-corewars:51": 1444
+          }
+        },
+        {
+          "task": "winning-avg-corewars",
+          "root": "winning-avg-corewars:87",
+          "successor": "winning-avg-corewars:88",
+          "checkpoint_blocks": 128,
+          "potential_GET_bytes": 5433098240,
+          "estimated_output_tokens": {
+            "winning-avg-corewars:87": 1094.0,
+            "winning-avg-corewars:88": 155.0
+          }
+        },
+        {
+          "task": "winning-avg-corewars",
+          "root": "winning-avg-corewars:116",
+          "successor": "winning-avg-corewars:117",
+          "checkpoint_blocks": 176,
+          "potential_GET_bytes": 7446364160,
+          "estimated_output_tokens": {
+            "winning-avg-corewars:116": 363,
+            "winning-avg-corewars:117": 1278
+          }
+        }
+      ],
+      "source_ledger_sha256": "24873461882ce61d0c424062c4751abb69ecdab3e0c8874213138f5025ceaa43",
+      "source_output_sha256": "eb8d5fcc8b7730165616dd0d2e30f247db5aa722384902af8a7a0b3fb213945a",
+      "historical_outcomes": {
+        "2026-11-20-r43-native-decode-apc": {
+          "trace_sha256": "a169b7c1d53d89ac4bbc8a6d2f5d8ea6daf6a9cfc10c696c33d3a44df4e6d2e8",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-21-r48-terminal-handoff-extended-symmetric": {
+          "trace_sha256": "e311c91f4efa1e1e243aa4df7b3f8b7900355ef1158cbd0ae3e77eac6507c7cf",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r58-terminal-restore-bursts-dense-d-egress": {
+          "trace_sha256": "f2f1e0de2c6be50dfe36d54fde0ea6749465f278468188cbaf95ffa85dc9e876",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r60-terminal-source-restore-pairs": {
+          "trace_sha256": "da361989f663c02a63983512be6727e9a8445ea76da3e2c2a83841130e79f74f",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r61-terminal-source-restore-gap": {
+          "trace_sha256": "ff7ca58f3260e7e073cc79df9a448cbacc9ed65c085b244bd357e2c446d6b773",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r62-terminal-source-restore-scale": {
+          "trace_sha256": "f8c1c7c8c3d6efab522b9a987801708892204c687f862f165f48382b06fa67b4",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r63-terminal-source-restore-paced": {
+          "trace_sha256": "97d4959861e5c05b85a7df97fe29554981cb29368405ff494e9601eb361ab723",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r64-terminal-source-restore-priority": {
+          "trace_sha256": "bcd5bac0f9e8576bba7967cb98ac2f812590135d133cf74edcddf3c5a486ef85",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r65-terminal-source-restore-overlap": {
+          "trace_sha256": "83e9c143cf962c99d65f0d220ddfb97fcafb287f0b4d67f80fab22b95459e80d",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r66-terminal-source-restore-checkpoints": {
+          "trace_sha256": "f53b421b35028b3e7d6c75228e39d05394eb685328c628efd48f3256129b8cda",
+          "cases": [
+            "b1-cap100"
+          ]
+        }
+      },
+      "shared_prefix_floor_tokens": 65536,
+      "max_source_output": 1536,
+      "max_observed_output": 1400,
+      "excluded_requests": [
+        "make-mips-interpreter:84",
+        "regex-chess:64",
+        "regex-chess:65"
+      ],
+      "shared_root_tokens_upper_by_task": {
+        "caffe-cifar-10": 132492,
+        "extract-moves-from-video": 169214,
+        "financial-document-processor": 125955,
+        "gcode-to-text": 141887,
+        "make-doom-for-mips": 153862,
+        "make-mips-interpreter": 183024,
+        "path-tracing": 128082,
+        "path-tracing-reverse": 211830,
+        "regex-chess": 389006,
+        "winning-avg-corewars": 180825
+      },
+      "admission_fit": {
+        "offset_s": 0.006145089003484275,
+        "s_per_byte": 4.996719485769583e-08,
+        "samples": 219,
+        "p95_absolute_residual_ms": 6.015305820199226,
+        "r66_observation_sha256": {
+          "r66-events.jsonl.gz": "f53b421b35028b3e7d6c75228e39d05394eb685328c628efd48f3256129b8cda",
+          "r66-interrupted-events.jsonl.gz": "3359390fbe99e76f873a5482133e19fa4b65a32f9ea9761529c2487be47168e9"
+        }
+      }
+    },
+    "arrival_order_screen": {
+      "full_restore_upper_bytes": 525985546240,
+      "new_order_estimated_GET_bytes": 262981550080,
+      "full_GET_by_relative_successor_first_P": {
+        "same_as_roots": 263003996160,
+        "opposite_to_roots": 262981550080
+      },
+      "projected_root_P": {
+        "caffe-cifar-10:57": "P0",
+        "extract-moves-from-video:58": "P1",
+        "extract-moves-from-video:60": "P1",
+        "caffe-cifar-10:64": "P0",
+        "extract-moves-from-video:62": "P1",
+        "caffe-cifar-10:67": "P0",
+        "extract-moves-from-video:64": "P1",
+        "caffe-cifar-10:71": "P0",
+        "extract-moves-from-video:66": "P1",
+        "caffe-cifar-10:73": "P0",
+        "extract-moves-from-video:68": "P1",
+        "extract-moves-from-video:72": "P1",
+        "caffe-cifar-10:76": "P0",
+        "extract-moves-from-video:74": "P1",
+        "caffe-cifar-10:78": "P0",
+        "extract-moves-from-video:83": "P1",
+        "caffe-cifar-10:81": "P0",
+        "extract-moves-from-video:80": "P1",
+        "caffe-cifar-10:83": "P0",
+        "extract-moves-from-video:93": "P1",
+        "caffe-cifar-10:86": "P0",
+        "extract-moves-from-video:102": "P1",
+        "extract-moves-from-video:104": "P1",
+        "caffe-cifar-10:88": "P0",
+        "extract-moves-from-video:109": "P1",
+        "caffe-cifar-10:91": "P0",
+        "extract-moves-from-video:134": "P1",
+        "caffe-cifar-10:93": "P0",
+        "caffe-cifar-10:95": "P0",
+        "extract-moves-from-video:153": "P1",
+        "caffe-cifar-10:97": "P0",
+        "gcode-to-text:52": "P1",
+        "caffe-cifar-10:101": "P0",
+        "gcode-to-text:56": "P1",
+        "gcode-to-text:59": "P1",
+        "caffe-cifar-10:103": "P0",
+        "gcode-to-text:62": "P1",
+        "financial-document-processor:63": "P0",
+        "gcode-to-text:86": "P1",
+        "financial-document-processor:66": "P0",
+        "gcode-to-text:92": "P1",
+        "financial-document-processor:69": "P0",
+        "financial-document-processor:72": "P0",
+        "make-doom-for-mips:72": "P1",
+        "financial-document-processor:75": "P0",
+        "make-doom-for-mips:80": "P1",
+        "financial-document-processor:79": "P0",
+        "make-doom-for-mips:86": "P1",
+        "financial-document-processor:81": "P0",
+        "make-doom-for-mips:88": "P1",
+        "financial-document-processor:83": "P0",
+        "financial-document-processor:85": "P0",
+        "make-doom-for-mips:90": "P1",
+        "financial-document-processor:87": "P0",
+        "make-doom-for-mips:92": "P1",
+        "financial-document-processor:97": "P0",
+        "make-doom-for-mips:95": "P1",
+        "path-tracing-reverse:30": "P0",
+        "path-tracing-reverse:48": "P0",
+        "make-doom-for-mips:97": "P1",
+        "path-tracing-reverse:51": "P0",
+        "make-doom-for-mips:100": "P1",
+        "path-tracing-reverse:89": "P0",
+        "make-doom-for-mips:103": "P1",
+        "path-tracing-reverse:114": "P0",
+        "make-doom-for-mips:106": "P1",
+        "path-tracing-reverse:122": "P0",
+        "make-doom-for-mips:111": "P1",
+        "make-doom-for-mips:115": "P1",
+        "regex-chess:31": "P0",
+        "regex-chess:36": "P0",
+        "make-doom-for-mips:117": "P1",
+        "regex-chess:40": "P0",
+        "make-doom-for-mips:122": "P1",
+        "regex-chess:42": "P0",
+        "regex-chess:46": "P0",
+        "make-mips-interpreter:50": "P1",
+        "regex-chess:56": "P0",
+        "make-mips-interpreter:56": "P1",
+        "make-mips-interpreter:60": "P1",
+        "regex-chess:60": "P0",
+        "make-mips-interpreter:63": "P1",
+        "regex-chess:62": "P0",
+        "make-mips-interpreter:65": "P1",
+        "regex-chess:78": "P0",
+        "make-mips-interpreter:67": "P1",
+        "make-mips-interpreter:69": "P1",
+        "regex-chess:81": "P0",
+        "make-mips-interpreter:76": "P1",
+        "regex-chess:92": "P0",
+        "make-mips-interpreter:82": "P1",
+        "regex-chess:97": "P0",
+        "make-mips-interpreter:78": "P1",
+        "make-mips-interpreter:80": "P1",
+        "regex-chess:102": "P0",
+        "make-mips-interpreter:87": "P1",
+        "regex-chess:109": "P0",
+        "make-mips-interpreter:90": "P1",
+        "make-mips-interpreter:94": "P1",
+        "regex-chess:113": "P0",
+        "make-mips-interpreter:96": "P1",
+        "make-mips-interpreter:98": "P1",
+        "regex-chess:119": "P0",
+        "path-tracing:45": "P1",
+        "regex-chess:125": "P0",
+        "path-tracing:47": "P1",
+        "path-tracing:49": "P1",
+        "path-tracing:51": "P1",
+        "regex-chess:128": "P0",
+        "winning-avg-corewars:50": "P1",
+        "winning-avg-corewars:87": "P1",
+        "regex-chess:132": "P0",
+        "winning-avg-corewars:116": "P1"
+      },
+      "projected_successor_P": {
+        "regex-chess:133": "P0",
+        "regex-chess:129": "P1",
+        "financial-document-processor:98": "P1",
+        "caffe-cifar-10:104": "P0",
+        "extract-moves-from-video:154": "P1",
+        "gcode-to-text:93": "P0",
+        "caffe-cifar-10:102": "P0",
+        "caffe-cifar-10:98": "P1",
+        "make-mips-interpreter:99": "P0",
+        "extract-moves-from-video:135": "P1",
+        "extract-moves-from-video:110": "P1",
+        "extract-moves-from-video:105": "P0",
+        "caffe-cifar-10:96": "P0",
+        "regex-chess:126": "P1",
+        "caffe-cifar-10:94": "P0",
+        "extract-moves-from-video:103": "P0",
+        "make-mips-interpreter:97": "P1",
+        "make-mips-interpreter:95": "P0",
+        "path-tracing:52": "P1",
+        "make-doom-for-mips:123": "P0",
+        "financial-document-processor:88": "P1",
+        "make-doom-for-mips:118": "P1",
+        "path-tracing:50": "P0",
+        "make-mips-interpreter:91": "P1",
+        "path-tracing-reverse:123": "P0",
+        "financial-document-processor:86": "P1",
+        "make-mips-interpreter:88": "P0",
+        "regex-chess:120": "P1",
+        "caffe-cifar-10:92": "P0",
+        "financial-document-processor:84": "P0",
+        "make-doom-for-mips:116": "P1",
+        "make-mips-interpreter:81": "P0",
+        "regex-chess:114": "P1",
+        "make-mips-interpreter:79": "P0",
+        "gcode-to-text:87": "P0",
+        "extract-moves-from-video:94": "P1",
+        "path-tracing-reverse:115": "P0",
+        "make-mips-interpreter:83": "P1",
+        "extract-moves-from-video:81": "P1",
+        "path-tracing:48": "P0",
+        "winning-avg-corewars:117": "P1",
+        "regex-chess:110": "P0",
+        "gcode-to-text:63": "P1",
+        "financial-document-processor:82": "P0",
+        "regex-chess:103": "P1",
+        "path-tracing-reverse:90": "P0",
+        "regex-chess:98": "P1",
+        "make-doom-for-mips:112": "P0",
+        "regex-chess:93": "P0",
+        "regex-chess:82": "P1",
+        "make-mips-interpreter:77": "P0",
+        "extract-moves-from-video:84": "P1",
+        "extract-moves-from-video:75": "P1",
+        "financial-document-processor:80": "P0",
+        "financial-document-processor:76": "P1",
+        "make-mips-interpreter:70": "P0",
+        "make-doom-for-mips:107": "P1",
+        "regex-chess:79": "P0",
+        "make-doom-for-mips:104": "P1",
+        "regex-chess:63": "P0",
+        "path-tracing-reverse:52": "P1",
+        "path-tracing-reverse:49": "P0",
+        "regex-chess:61": "P1",
+        "financial-document-processor:73": "P0",
+        "make-doom-for-mips:101": "P1",
+        "caffe-cifar-10:89": "P0",
+        "financial-document-processor:70": "P1",
+        "make-mips-interpreter:68": "P0",
+        "caffe-cifar-10:87": "P1",
+        "make-doom-for-mips:98": "P0",
+        "make-mips-interpreter:66": "P1",
+        "caffe-cifar-10:84": "P0",
+        "make-doom-for-mips:96": "P1",
+        "make-doom-for-mips:93": "P0",
+        "caffe-cifar-10:82": "P1",
+        "extract-moves-from-video:73": "P0",
+        "regex-chess:57": "P1",
+        "caffe-cifar-10:79": "P0",
+        "make-mips-interpreter:64": "P1",
+        "extract-moves-from-video:69": "P0",
+        "extract-moves-from-video:67": "P0",
+        "caffe-cifar-10:77": "P1",
+        "financial-document-processor:67": "P0",
+        "extract-moves-from-video:65": "P1",
+        "caffe-cifar-10:74": "P0",
+        "regex-chess:47": "P1",
+        "extract-moves-from-video:63": "P0",
+        "path-tracing-reverse:31": "P1",
+        "extract-moves-from-video:61": "P0",
+        "make-mips-interpreter:61": "P1",
+        "make-doom-for-mips:91": "P0",
+        "winning-avg-corewars:88": "P1",
+        "regex-chess:43": "P0",
+        "make-doom-for-mips:89": "P1",
+        "make-mips-interpreter:57": "P0",
+        "make-mips-interpreter:51": "P1",
+        "winning-avg-corewars:51": "P0",
+        "regex-chess:41": "P1",
+        "make-doom-for-mips:87": "P0",
+        "make-doom-for-mips:81": "P1",
+        "caffe-cifar-10:72": "P0",
+        "regex-chess:37": "P1",
+        "path-tracing:46": "P0",
+        "gcode-to-text:60": "P1",
+        "financial-document-processor:64": "P0",
+        "caffe-cifar-10:68": "P1",
+        "caffe-cifar-10:65": "P0",
+        "gcode-to-text:57": "P1",
+        "make-doom-for-mips:73": "P0",
+        "caffe-cifar-10:58": "P1",
+        "gcode-to-text:53": "P0",
+        "regex-chess:32": "P1",
+        "extract-moves-from-video:59": "P0"
+      },
+      "wire_body_bytes": {
+        "caffe-cifar-10:57": 287018,
+        "caffe-cifar-10:58": 290968,
+        "caffe-cifar-10:64": 333408,
+        "caffe-cifar-10:65": 338556,
+        "caffe-cifar-10:67": 351708,
+        "caffe-cifar-10:68": 355402,
+        "caffe-cifar-10:71": 376804,
+        "caffe-cifar-10:72": 384337,
+        "caffe-cifar-10:73": 398469,
+        "caffe-cifar-10:74": 413605,
+        "caffe-cifar-10:76": 415618,
+        "caffe-cifar-10:77": 422680,
+        "caffe-cifar-10:78": 429033,
+        "caffe-cifar-10:79": 435354,
+        "caffe-cifar-10:81": 437574,
+        "caffe-cifar-10:82": 443458,
+        "caffe-cifar-10:83": 444707,
+        "caffe-cifar-10:84": 446818,
+        "caffe-cifar-10:86": 449148,
+        "caffe-cifar-10:87": 449863,
+        "caffe-cifar-10:88": 457451,
+        "caffe-cifar-10:89": 458743,
+        "caffe-cifar-10:91": 460132,
+        "caffe-cifar-10:92": 463205,
+        "caffe-cifar-10:93": 464520,
+        "caffe-cifar-10:94": 467609,
+        "caffe-cifar-10:95": 469339,
+        "caffe-cifar-10:96": 470029,
+        "caffe-cifar-10:97": 470688,
+        "caffe-cifar-10:98": 478689,
+        "caffe-cifar-10:101": 481811,
+        "caffe-cifar-10:102": 490562,
+        "caffe-cifar-10:103": 492115,
+        "caffe-cifar-10:104": 500000,
+        "extract-moves-from-video:58": 268381,
+        "extract-moves-from-video:59": 272390,
+        "extract-moves-from-video:60": 276375,
+        "extract-moves-from-video:61": 281079,
+        "extract-moves-from-video:62": 285383,
+        "extract-moves-from-video:63": 288912,
+        "extract-moves-from-video:64": 291756,
+        "extract-moves-from-video:65": 296606,
+        "extract-moves-from-video:66": 300642,
+        "extract-moves-from-video:67": 302564,
+        "extract-moves-from-video:68": 304699,
+        "extract-moves-from-video:69": 307222,
+        "extract-moves-from-video:72": 317919,
+        "extract-moves-from-video:73": 320529,
+        "extract-moves-from-video:74": 324053,
+        "extract-moves-from-video:75": 326526,
+        "extract-moves-from-video:80": 338804,
+        "extract-moves-from-video:81": 341832,
+        "extract-moves-from-video:83": 349089,
+        "extract-moves-from-video:84": 362723,
+        "extract-moves-from-video:93": 390180,
+        "extract-moves-from-video:94": 391615,
+        "extract-moves-from-video:102": 432897,
+        "extract-moves-from-video:103": 439342,
+        "extract-moves-from-video:104": 442076,
+        "extract-moves-from-video:105": 447197,
+        "extract-moves-from-video:109": 470707,
+        "extract-moves-from-video:110": 474591,
+        "extract-moves-from-video:134": 547575,
+        "extract-moves-from-video:135": 550637,
+        "extract-moves-from-video:153": 612902,
+        "extract-moves-from-video:154": 616143,
+        "financial-document-processor:63": 306482,
+        "financial-document-processor:64": 307784,
+        "financial-document-processor:66": 310755,
+        "financial-document-processor:67": 311739,
+        "financial-document-processor:69": 314167,
+        "financial-document-processor:70": 315960,
+        "financial-document-processor:72": 319218,
+        "financial-document-processor:73": 320602,
+        "financial-document-processor:75": 323240,
+        "financial-document-processor:76": 324055,
+        "financial-document-processor:79": 327859,
+        "financial-document-processor:80": 328743,
+        "financial-document-processor:81": 330071,
+        "financial-document-processor:82": 331434,
+        "financial-document-processor:83": 335763,
+        "financial-document-processor:84": 336429,
+        "financial-document-processor:85": 339641,
+        "financial-document-processor:86": 345546,
+        "financial-document-processor:87": 346961,
+        "financial-document-processor:88": 365426,
+        "financial-document-processor:97": 426173,
+        "financial-document-processor:98": 431286,
+        "gcode-to-text:52": 313469,
+        "gcode-to-text:53": 314372,
+        "gcode-to-text:56": 330218,
+        "gcode-to-text:57": 331606,
+        "gcode-to-text:59": 336394,
+        "gcode-to-text:60": 337749,
+        "gcode-to-text:62": 342695,
+        "gcode-to-text:63": 343382,
+        "gcode-to-text:86": 476917,
+        "gcode-to-text:87": 480360,
+        "gcode-to-text:92": 500867,
+        "gcode-to-text:93": 504253,
+        "make-doom-for-mips:72": 312488,
+        "make-doom-for-mips:73": 314819,
+        "make-doom-for-mips:80": 358667,
+        "make-doom-for-mips:81": 360559,
+        "make-doom-for-mips:86": 427992,
+        "make-doom-for-mips:87": 434069,
+        "make-doom-for-mips:88": 437942,
+        "make-doom-for-mips:89": 441214,
+        "make-doom-for-mips:90": 446765,
+        "make-doom-for-mips:91": 449966,
+        "make-doom-for-mips:92": 455181,
+        "make-doom-for-mips:93": 458154,
+        "make-doom-for-mips:95": 467880,
+        "make-doom-for-mips:96": 471520,
+        "make-doom-for-mips:97": 478182,
+        "make-doom-for-mips:98": 481395,
+        "make-doom-for-mips:100": 494114,
+        "make-doom-for-mips:101": 498028,
+        "make-doom-for-mips:103": 504373,
+        "make-doom-for-mips:104": 505079,
+        "make-doom-for-mips:106": 506439,
+        "make-doom-for-mips:107": 507289,
+        "make-doom-for-mips:111": 533487,
+        "make-doom-for-mips:112": 538822,
+        "make-doom-for-mips:115": 556571,
+        "make-doom-for-mips:116": 560974,
+        "make-doom-for-mips:117": 570877,
+        "make-doom-for-mips:118": 575735,
+        "make-doom-for-mips:122": 601073,
+        "make-doom-for-mips:123": 602116,
+        "make-mips-interpreter:50": 299069,
+        "make-mips-interpreter:51": 300649,
+        "make-mips-interpreter:56": 371475,
+        "make-mips-interpreter:57": 372612,
+        "make-mips-interpreter:60": 382562,
+        "make-mips-interpreter:61": 385748,
+        "make-mips-interpreter:63": 392389,
+        "make-mips-interpreter:64": 398459,
+        "make-mips-interpreter:65": 405268,
+        "make-mips-interpreter:66": 408009,
+        "make-mips-interpreter:67": 412032,
+        "make-mips-interpreter:68": 419700,
+        "make-mips-interpreter:69": 423408,
+        "make-mips-interpreter:70": 426173,
+        "make-mips-interpreter:76": 477741,
+        "make-mips-interpreter:77": 483414,
+        "make-mips-interpreter:78": 484675,
+        "make-mips-interpreter:79": 487153,
+        "make-mips-interpreter:80": 490393,
+        "make-mips-interpreter:81": 491138,
+        "make-mips-interpreter:82": 492199,
+        "make-mips-interpreter:83": 493302,
+        "make-mips-interpreter:87": 531188,
+        "make-mips-interpreter:88": 534549,
+        "make-mips-interpreter:90": 541863,
+        "make-mips-interpreter:91": 544181,
+        "make-mips-interpreter:94": 555254,
+        "make-mips-interpreter:95": 561396,
+        "make-mips-interpreter:96": 563715,
+        "make-mips-interpreter:97": 569065,
+        "make-mips-interpreter:98": 574267,
+        "make-mips-interpreter:99": 575186,
+        "path-tracing:45": 417959,
+        "path-tracing:46": 419056,
+        "path-tracing:47": 422887,
+        "path-tracing:48": 426932,
+        "path-tracing:49": 428728,
+        "path-tracing:50": 432506,
+        "path-tracing:51": 444230,
+        "path-tracing:52": 448573,
+        "path-tracing-reverse:30": 252421,
+        "path-tracing-reverse:31": 261575,
+        "path-tracing-reverse:48": 349094,
+        "path-tracing-reverse:49": 357311,
+        "path-tracing-reverse:51": 366529,
+        "path-tracing-reverse:52": 371717,
+        "path-tracing-reverse:89": 559549,
+        "path-tracing-reverse:90": 560575,
+        "path-tracing-reverse:114": 713585,
+        "path-tracing-reverse:115": 716013,
+        "path-tracing-reverse:122": 746300,
+        "path-tracing-reverse:123": 749854,
+        "regex-chess:31": 304647,
+        "regex-chess:32": 313025,
+        "regex-chess:36": 327342,
+        "regex-chess:37": 332595,
+        "regex-chess:40": 358753,
+        "regex-chess:41": 364056,
+        "regex-chess:42": 372413,
+        "regex-chess:43": 393032,
+        "regex-chess:46": 405463,
+        "regex-chess:47": 409282,
+        "regex-chess:56": 457569,
+        "regex-chess:57": 461497,
+        "regex-chess:60": 477152,
+        "regex-chess:61": 481366,
+        "regex-chess:62": 489081,
+        "regex-chess:63": 500323,
+        "regex-chess:78": 608519,
+        "regex-chess:79": 616437,
+        "regex-chess:81": 632397,
+        "regex-chess:82": 639695,
+        "regex-chess:92": 714438,
+        "regex-chess:93": 721533,
+        "regex-chess:97": 755159,
+        "regex-chess:98": 769828,
+        "regex-chess:102": 794011,
+        "regex-chess:103": 797256,
+        "regex-chess:109": 856375,
+        "regex-chess:110": 862635,
+        "regex-chess:113": 875554,
+        "regex-chess:114": 882490,
+        "regex-chess:119": 923166,
+        "regex-chess:120": 930408,
+        "regex-chess:125": 978913,
+        "regex-chess:126": 987357,
+        "regex-chess:128": 1010604,
+        "regex-chess:129": 1013278,
+        "regex-chess:132": 1028040,
+        "regex-chess:133": 1028761,
+        "winning-avg-corewars:50": 315328,
+        "winning-avg-corewars:51": 322217,
+        "winning-avg-corewars:87": 546867,
+        "winning-avg-corewars:88": 549496,
+        "winning-avg-corewars:116": 750581,
+        "winning-avg-corewars:117": 752246
+      },
+      "planned_successor_order": [
+        "regex-chess:133",
+        "regex-chess:129",
+        "financial-document-processor:98",
+        "caffe-cifar-10:104",
+        "extract-moves-from-video:154",
+        "gcode-to-text:93",
+        "caffe-cifar-10:102",
+        "caffe-cifar-10:98",
+        "make-mips-interpreter:99",
+        "extract-moves-from-video:135",
+        "extract-moves-from-video:110",
+        "extract-moves-from-video:105",
+        "caffe-cifar-10:96",
+        "regex-chess:126",
+        "caffe-cifar-10:94",
+        "extract-moves-from-video:103",
+        "make-mips-interpreter:97",
+        "make-mips-interpreter:95",
+        "path-tracing:52",
+        "make-doom-for-mips:123",
+        "financial-document-processor:88",
+        "make-doom-for-mips:118",
+        "path-tracing:50",
+        "make-mips-interpreter:91",
+        "path-tracing-reverse:123",
+        "financial-document-processor:86",
+        "make-mips-interpreter:88",
+        "regex-chess:120",
+        "caffe-cifar-10:92",
+        "financial-document-processor:84",
+        "make-doom-for-mips:116",
+        "make-mips-interpreter:81",
+        "regex-chess:114",
+        "make-mips-interpreter:79",
+        "gcode-to-text:87",
+        "extract-moves-from-video:94",
+        "path-tracing-reverse:115",
+        "make-mips-interpreter:83",
+        "extract-moves-from-video:81",
+        "path-tracing:48",
+        "winning-avg-corewars:117",
+        "regex-chess:110",
+        "gcode-to-text:63",
+        "financial-document-processor:82",
+        "regex-chess:103",
+        "path-tracing-reverse:90",
+        "regex-chess:98",
+        "make-doom-for-mips:112",
+        "regex-chess:93",
+        "regex-chess:82",
+        "make-mips-interpreter:77",
+        "extract-moves-from-video:84",
+        "extract-moves-from-video:75",
+        "financial-document-processor:80",
+        "financial-document-processor:76",
+        "make-mips-interpreter:70",
+        "make-doom-for-mips:107",
+        "regex-chess:79",
+        "make-doom-for-mips:104",
+        "regex-chess:63",
+        "path-tracing-reverse:52",
+        "path-tracing-reverse:49",
+        "regex-chess:61",
+        "financial-document-processor:73",
+        "make-doom-for-mips:101",
+        "caffe-cifar-10:89",
+        "financial-document-processor:70",
+        "make-mips-interpreter:68",
+        "caffe-cifar-10:87",
+        "make-doom-for-mips:98",
+        "make-mips-interpreter:66",
+        "caffe-cifar-10:84",
+        "make-doom-for-mips:96",
+        "make-doom-for-mips:93",
+        "caffe-cifar-10:82",
+        "extract-moves-from-video:73",
+        "regex-chess:57",
+        "caffe-cifar-10:79",
+        "make-mips-interpreter:64",
+        "extract-moves-from-video:69",
+        "extract-moves-from-video:67",
+        "caffe-cifar-10:77",
+        "financial-document-processor:67",
+        "extract-moves-from-video:65",
+        "caffe-cifar-10:74",
+        "regex-chess:47",
+        "extract-moves-from-video:63",
+        "path-tracing-reverse:31",
+        "extract-moves-from-video:61",
+        "make-mips-interpreter:61",
+        "make-doom-for-mips:91",
+        "winning-avg-corewars:88",
+        "regex-chess:43",
+        "make-doom-for-mips:89",
+        "make-mips-interpreter:57",
+        "make-mips-interpreter:51",
+        "winning-avg-corewars:51",
+        "regex-chess:41",
+        "make-doom-for-mips:87",
+        "make-doom-for-mips:81",
+        "caffe-cifar-10:72",
+        "regex-chess:37",
+        "path-tracing:46",
+        "gcode-to-text:60",
+        "financial-document-processor:64",
+        "caffe-cifar-10:68",
+        "caffe-cifar-10:65",
+        "gcode-to-text:57",
+        "make-doom-for-mips:73",
+        "caffe-cifar-10:58",
+        "gcode-to-text:53",
+        "regex-chess:32",
+        "extract-moves-from-video:59"
+      ],
+      "admission_fit": {
+        "offset_s": 0.006145089003484275,
+        "s_per_byte": 4.996719485769583e-08,
+        "samples": 219,
+        "p95_absolute_residual_ms": 6.015305820199226,
+        "r66_observation_sha256": {
+          "r66-events.jsonl.gz": "f53b421b35028b3e7d6c75228e39d05394eb685328c628efd48f3256129b8cda",
+          "r66-interrupted-events.jsonl.gz": "3359390fbe99e76f873a5482133e19fa4b65a32f9ea9761529c2487be47168e9"
+        }
+      },
+      "assumptions": "Potential totals assume complete remote reads after P changes. Existing hybrid checkpoints, early root releases and actual P routing can reduce demand."
+    },
+    "request_sources": [
+      {
+        "id": "caffe-cifar-10:57",
+        "session_id": "caffe-cifar-10:57",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 67706,
+        "prompt_sha256": "aaa7a52764a597897148323304e5e21d7088da3cfc6f04d1d94f1d9040e13fad",
+        "original_offered_s": 0,
+        "offered_s": 0.0
+      },
+      {
+        "id": "caffe-cifar-10:58",
+        "session_id": "caffe-cifar-10:57",
+        "predecessor": "caffe-cifar-10:57",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 68681,
+        "prompt_sha256": "54fab3b1e081966249e0e1946da7dd5f26b9ff12d98d09648af2bc5a7d70da57",
+        "original_offered_s": 0,
+        "offered_s": 83.46886544659564
+      },
+      {
+        "id": "caffe-cifar-10:64",
+        "session_id": "caffe-cifar-10:64",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 79128,
+        "prompt_sha256": "67b6f77efb0414063714816b277b5b407cd9689a1cacc0ce82af3c130d3064d4",
+        "original_offered_s": 0,
+        "offered_s": 0.45768202183055146
+      },
+      {
+        "id": "caffe-cifar-10:65",
+        "session_id": "caffe-cifar-10:64",
+        "predecessor": "caffe-cifar-10:64",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 80403,
+        "prompt_sha256": "3e4239c4abdb6fe8ecec37f8f16d30bcaea2b077942dd22d02c1ae030b189b2c",
+        "original_offered_s": 0,
+        "offered_s": 83.31948760772674
+      },
+      {
+        "id": "caffe-cifar-10:67",
+        "session_id": "caffe-cifar-10:67",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 83491,
+        "prompt_sha256": "0c13064f39fed059d02ab76647b4e06e9b4bde2816260539989653f7f84fa19e",
+        "original_offered_s": 0,
+        "offered_s": 0.5567676221646557
+      },
+      {
+        "id": "caffe-cifar-10:68",
+        "session_id": "caffe-cifar-10:67",
+        "predecessor": "caffe-cifar-10:67",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 84333,
+        "prompt_sha256": "2779184c1063440366450c7dec8fe89c92ce906988276a0eb569451c40b6b915",
+        "original_offered_s": 0,
+        "offered_s": 83.26964586036219
+      },
+      {
+        "id": "caffe-cifar-10:71",
+        "session_id": "caffe-cifar-10:71",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 89258,
+        "prompt_sha256": "8276ff8b8d1a5bcc21e59c7f0e87f2eec821c5d8c83adfb4162d7aed89e3697e",
+        "original_offered_s": 0,
+        "offered_s": 0.655513645442507
+      },
+      {
+        "id": "caffe-cifar-10:72",
+        "session_id": "caffe-cifar-10:71",
+        "predecessor": "caffe-cifar-10:71",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 91367,
+        "prompt_sha256": "cb7b5c0b408d561fd03d00fed844082680d8a0225a1f5df4bdeeb3bed16cb877",
+        "original_offered_s": 0,
+        "offered_s": 83.02320005957897
+      },
+      {
+        "id": "caffe-cifar-10:73",
+        "session_id": "caffe-cifar-10:73",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 95449,
+        "prompt_sha256": "09bfca18c92fa511dc8312c52dc0e92a7c1ddbc19ddb17d1cedb7c65af50cafd",
+        "original_offered_s": 0,
+        "offered_s": 0.7544311061659149
+      },
+      {
+        "id": "caffe-cifar-10:74",
+        "session_id": "caffe-cifar-10:73",
+        "predecessor": "caffe-cifar-10:73",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 99779,
+        "prompt_sha256": "e106def16e1e3413eeabd1fd20585946edd712b12bbbbd047ecc990bc0fd75a8",
+        "original_offered_s": 0,
+        "offered_s": 82.23773761971987
+      },
+      {
+        "id": "caffe-cifar-10:76",
+        "session_id": "caffe-cifar-10:76",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 100237,
+        "prompt_sha256": "96dcf51b35215d42b55c7f8610e727cb71a6cef74095a14603ad49dddb3f38f4",
+        "original_offered_s": 0,
+        "offered_s": 0.9035742187413004
+      },
+      {
+        "id": "caffe-cifar-10:77",
+        "session_id": "caffe-cifar-10:76",
+        "predecessor": "caffe-cifar-10:76",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 102254,
+        "prompt_sha256": "4a753c4e1c32fd140c72c8fa87c71c8cd829b86a855af06863f0ed0d370ba97a",
+        "original_offered_s": 0,
+        "offered_s": 82.09028416742655
+      },
+      {
+        "id": "caffe-cifar-10:78",
+        "session_id": "caffe-cifar-10:78",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 103837,
+        "prompt_sha256": "d0791d6baeab29bafe2a1e85fe8468d4aed7469544fdaae75289c0287cd414c4",
+        "original_offered_s": 0,
+        "offered_s": 1.0029039088222844
+      },
+      {
+        "id": "caffe-cifar-10:79",
+        "session_id": "caffe-cifar-10:78",
+        "predecessor": "caffe-cifar-10:78",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 105605,
+        "prompt_sha256": "4343556f14022f161a96c7f26b2d9577d162a3274eab32d60e0e5054c117f2bc",
+        "original_offered_s": 0,
+        "offered_s": 81.89365088319892
+      },
+      {
+        "id": "caffe-cifar-10:81",
+        "session_id": "caffe-cifar-10:81",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 106099,
+        "prompt_sha256": "3f2cce977da4038c982bff3fd4b426ac88524e322551dd74e175c11840167de8",
+        "original_offered_s": 0,
+        "offered_s": 1.1024771390110046
+      },
+      {
+        "id": "caffe-cifar-10:82",
+        "session_id": "caffe-cifar-10:81",
+        "predecessor": "caffe-cifar-10:81",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 107754,
+        "prompt_sha256": "1f62e3a0d8d0b2513b503252e0f6cf7848612e467a7eae5fbc8f5d6ca59029f4",
+        "original_offered_s": 0,
+        "offered_s": 81.74624594905178
+      },
+      {
+        "id": "caffe-cifar-10:83",
+        "session_id": "caffe-cifar-10:83",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 108037,
+        "prompt_sha256": "b06fdae8ec6bcdf901b7ce49a73c5fef46e2430044d1b8eacca1314abd0ed595",
+        "original_offered_s": 0,
+        "offered_s": 1.2021207230100848
+      },
+      {
+        "id": "caffe-cifar-10:84",
+        "session_id": "caffe-cifar-10:83",
+        "predecessor": "caffe-cifar-10:83",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 108595,
+        "prompt_sha256": "f30e1427e3ebd8de4864a7d8688792ed1060286035634f0413d58d155c0e013d",
+        "original_offered_s": 0,
+        "offered_s": 81.59907805927708
+      },
+      {
+        "id": "caffe-cifar-10:86",
+        "session_id": "caffe-cifar-10:86",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 109117,
+        "prompt_sha256": "2cfd881e6c225190bdd28a1e2e58593207e8f36656dd73774b6238543852395e",
+        "original_offered_s": 0,
+        "offered_s": 1.3018988186977218
+      },
+      {
+        "id": "caffe-cifar-10:87",
+        "session_id": "caffe-cifar-10:86",
+        "predecessor": "caffe-cifar-10:86",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 109274,
+        "prompt_sha256": "2a1edc83c648e724f5a33c97b1b875ee24c5287ca4cdfdb5f5b35eb1f1843079",
+        "original_offered_s": 0,
+        "offered_s": 81.45192590916872
+      },
+      {
+        "id": "caffe-cifar-10:88",
+        "session_id": "caffe-cifar-10:88",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 111422,
+        "prompt_sha256": "0f038ebd7c5a02392851913f4fb8f5206591adc84d8bf2cd8cbce3a3f2c15510",
+        "original_offered_s": 0,
+        "offered_s": 1.4514839410788183
+      },
+      {
+        "id": "caffe-cifar-10:89",
+        "session_id": "caffe-cifar-10:88",
+        "predecessor": "caffe-cifar-10:88",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 111717,
+        "prompt_sha256": "e40e521640dafd5c1a7ca762840c406ca87cbe2c960425795d33158e188616e8",
+        "original_offered_s": 0,
+        "offered_s": 81.30448220047839
+      },
+      {
+        "id": "caffe-cifar-10:91",
+        "session_id": "caffe-cifar-10:91",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 112027,
+        "prompt_sha256": "9644ae8b6ba34c8e41a1fc25f7397bd393cd747dcf5fe5a540e6b03c13ae43f9",
+        "original_offered_s": 0,
+        "offered_s": 1.551349979029405
+      },
+      {
+        "id": "caffe-cifar-10:92",
+        "session_id": "caffe-cifar-10:91",
+        "predecessor": "caffe-cifar-10:91",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 112868,
+        "prompt_sha256": "5591b58b632446556ff55a9fa2d2d103330f06e9dad2016e9c1d5ed559daf6f5",
+        "original_offered_s": 0,
+        "offered_s": 79.49125924685492
+      },
+      {
+        "id": "caffe-cifar-10:93",
+        "session_id": "caffe-cifar-10:93",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 113166,
+        "prompt_sha256": "52eae0b2bba8f956577b46d6d10cc21d67c0e1b621fe8d5cf9a7d790d11d5a20",
+        "original_offered_s": 0,
+        "offered_s": 1.6511307229783694
+      },
+      {
+        "id": "caffe-cifar-10:94",
+        "session_id": "caffe-cifar-10:93",
+        "predecessor": "caffe-cifar-10:93",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 114012,
+        "prompt_sha256": "ffd112b93fcfe6e07faeda44ccb69fa1066ac5a7e019a7b8d03ddcb63a446cfa",
+        "original_offered_s": 0,
+        "offered_s": 78.80503919132879
+      },
+      {
+        "id": "caffe-cifar-10:95",
+        "session_id": "caffe-cifar-10:95",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 114401,
+        "prompt_sha256": "b18fdea5f77f8d2e5d389d802326284a06f9850beae2097cf6f3f412220630af",
+        "original_offered_s": 0,
+        "offered_s": 1.7008899310663501
+      },
+      {
+        "id": "caffe-cifar-10:96",
+        "session_id": "caffe-cifar-10:95",
+        "predecessor": "caffe-cifar-10:95",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 114554,
+        "prompt_sha256": "2e6e4994722938d6643b7315655330a34278389dc7e11bd9caf18b7b871a7ec5",
+        "original_offered_s": 0,
+        "offered_s": 78.70691827071722
+      },
+      {
+        "id": "caffe-cifar-10:97",
+        "session_id": "caffe-cifar-10:97",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 114700,
+        "prompt_sha256": "379234b2fdd07765373436872f6ce1a783dcc76bf03064f293f2508351c25be9",
+        "original_offered_s": 0,
+        "offered_s": 1.800822525320487
+      },
+      {
+        "id": "caffe-cifar-10:98",
+        "session_id": "caffe-cifar-10:97",
+        "predecessor": "caffe-cifar-10:97",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 116993,
+        "prompt_sha256": "3a7e035b1067d7cefd8e718b76a2f6f1383db6f280d18bcfbbcf6fd7761f2d40",
+        "original_offered_s": 0,
+        "offered_s": 78.46148555480976
+      },
+      {
+        "id": "caffe-cifar-10:101",
+        "session_id": "caffe-cifar-10:101",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 117690,
+        "prompt_sha256": "b2908a5bf45e3b2bc7e834f6911c1ee1f47427cb0cdf248f4988c646e795a5b8",
+        "original_offered_s": 0,
+        "offered_s": 1.900266740212085
+      },
+      {
+        "id": "caffe-cifar-10:102",
+        "session_id": "caffe-cifar-10:101",
+        "predecessor": "caffe-cifar-10:101",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 120201,
+        "prompt_sha256": "8e5edde9f9bbd7f3b04222dca2877cac9f16331d95c8e1a4b0bcfb109436131f",
+        "original_offered_s": 0,
+        "offered_s": 78.41189229430522
+      },
+      {
+        "id": "caffe-cifar-10:103",
+        "session_id": "caffe-cifar-10:103",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 120551,
+        "prompt_sha256": "dc5b3ccb326fc8811f3e3c6f8c456a2c05825bd3a837b805b38bec9c88c53a4c",
+        "original_offered_s": 0,
+        "offered_s": 2.049751878236271
+      },
+      {
+        "id": "caffe-cifar-10:104",
+        "session_id": "caffe-cifar-10:103",
+        "predecessor": "caffe-cifar-10:103",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 122759,
+        "prompt_sha256": "f8e315f7fd15fb000025f6c28ff2de1fc5f9880435f705e7f20b52449263852a",
+        "original_offered_s": 0,
+        "offered_s": 78.26442070392014
+      },
+      {
+        "id": "extract-moves-from-video:58",
+        "session_id": "extract-moves-from-video:58",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 65650,
+        "prompt_sha256": "e6746ced66fe025e9dee5748418c36756965b546ad9830d8a3badfee7a92f282",
+        "original_offered_s": 0,
+        "offered_s": 0.36093123861056287
+      },
+      {
+        "id": "extract-moves-from-video:59",
+        "session_id": "extract-moves-from-video:58",
+        "predecessor": "extract-moves-from-video:58",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 66641,
+        "prompt_sha256": "a857ce59dced1a40c28e14c8c33b9f450c6eb6b299161f3eb31b467cabfd7fd7",
+        "original_offered_s": 0,
+        "offered_s": 83.61679373714172
+      },
+      {
+        "id": "extract-moves-from-video:60",
+        "session_id": "extract-moves-from-video:60",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 67633,
+        "prompt_sha256": "f16aa7c1fb0979efaae96000bbc6049eaffda2ad92cfe92f29ddc0e53fb095e9",
+        "original_offered_s": 0,
+        "offered_s": 0.41053180085487045
+      },
+      {
+        "id": "extract-moves-from-video:61",
+        "session_id": "extract-moves-from-video:60",
+        "predecessor": "extract-moves-from-video:60",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 68808,
+        "prompt_sha256": "4d7c15b64f68ece4174788e38380ffe14e635c23b30972e1ee9ee04674238501",
+        "original_offered_s": 0,
+        "offered_s": 82.4403595721856
+      },
+      {
+        "id": "extract-moves-from-video:62",
+        "session_id": "extract-moves-from-video:62",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 69803,
+        "prompt_sha256": "612cf212bc8d2c18af21fa29c4a3197b1bc108064fe303e0ef9a5fbdb20b7e70",
+        "original_offered_s": 0,
+        "offered_s": 0.5100816963635924
+      },
+      {
+        "id": "extract-moves-from-video:63",
+        "session_id": "extract-moves-from-video:62",
+        "predecessor": "extract-moves-from-video:62",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 70651,
+        "prompt_sha256": "b303755be4ecf5f1d1d1662c9fd333de3096e74f645eaf5e055f409612b189b6",
+        "original_offered_s": 0,
+        "offered_s": 82.34196817914827
+      },
+      {
+        "id": "extract-moves-from-video:64",
+        "session_id": "extract-moves-from-video:64",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 71356,
+        "prompt_sha256": "f42fda510503421cc17296afa130bd1681d5df9fd2a7caf3d1709d61fd6d4be7",
+        "original_offered_s": 0,
+        "offered_s": 0.6097632554307643
+      },
+      {
+        "id": "extract-moves-from-video:65",
+        "session_id": "extract-moves-from-video:64",
+        "predecessor": "extract-moves-from-video:64",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 72605,
+        "prompt_sha256": "e02e8b54034bda562bc508fe42983b8a0d6e402ef27ed129403538fe251cf50a",
+        "original_offered_s": 0,
+        "offered_s": 82.19458373155103
+      },
+      {
+        "id": "extract-moves-from-video:66",
+        "session_id": "extract-moves-from-video:66",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 73630,
+        "prompt_sha256": "07d905399d2df68fbf2ab4c184f77f16a80fb7e49534d70fc5d67e40898e31f8",
+        "original_offered_s": 0,
+        "offered_s": 0.7093192469372587
+      },
+      {
+        "id": "extract-moves-from-video:67",
+        "session_id": "extract-moves-from-video:66",
+        "predecessor": "extract-moves-from-video:66",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 74073,
+        "prompt_sha256": "dd9b7c8fe26007df8efd81c4743f0fbb4530b82df0170809e2807d04ebc47f94",
+        "original_offered_s": 0,
+        "offered_s": 82.04728602700406
+      },
+      {
+        "id": "extract-moves-from-video:68",
+        "session_id": "extract-moves-from-video:68",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 74576,
+        "prompt_sha256": "a0c0e00e420742e7de73e4f21f795f5ff7bfb9fef05f209cb3ac7b7b8f4a40c8",
+        "original_offered_s": 0,
+        "offered_s": 0.8091165300277211
+      },
+      {
+        "id": "extract-moves-from-video:69",
+        "session_id": "extract-moves-from-video:68",
+        "predecessor": "extract-moves-from-video:68",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 75165,
+        "prompt_sha256": "e973f60af0bcf5a923acb2d68feaebee53669c0baf146c62e60700b07005b71d",
+        "original_offered_s": 0,
+        "offered_s": 81.99805327981042
+      },
+      {
+        "id": "extract-moves-from-video:72",
+        "session_id": "extract-moves-from-video:72",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 77952,
+        "prompt_sha256": "a794f2e7379b07264b4fbe73051f6d53d285f17a37eccbb42f45dae033ebefea",
+        "original_offered_s": 0,
+        "offered_s": 0.8584559637117023
+      },
+      {
+        "id": "extract-moves-from-video:73",
+        "session_id": "extract-moves-from-video:72",
+        "predecessor": "extract-moves-from-video:72",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 78638,
+        "prompt_sha256": "1b817d3ce989df79215643854a8df0fae61e3892b9d5c46c256e8ad1fb09074b",
+        "original_offered_s": 0,
+        "offered_s": 81.80138836634846
+      },
+      {
+        "id": "extract-moves-from-video:74",
+        "session_id": "extract-moves-from-video:74",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 79589,
+        "prompt_sha256": "4e93810a59758beaa89df73adcbc48e40a983d3e1493f1102a287075a94c941c",
+        "original_offered_s": 0,
+        "offered_s": 0.9581494649384453
+      },
+      {
+        "id": "extract-moves-from-video:75",
+        "session_id": "extract-moves-from-video:74",
+        "predecessor": "extract-moves-from-video:74",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 80256,
+        "prompt_sha256": "6841b95b062dd7cec749c4bf949417188fd76802d32cc9436b92256a4bee1409",
+        "original_offered_s": 0,
+        "offered_s": 80.67408871308089
+      },
+      {
+        "id": "extract-moves-from-video:80",
+        "session_id": "extract-moves-from-video:80",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 83183,
+        "prompt_sha256": "75445777d964427b2ec367eb50f32c6f5926652e794a36d88f1b100255579991",
+        "original_offered_s": 0,
+        "offered_s": 1.1574123988470995
+      },
+      {
+        "id": "extract-moves-from-video:81",
+        "session_id": "extract-moves-from-video:80",
+        "predecessor": "extract-moves-from-video:80",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 83989,
+        "prompt_sha256": "d6de31ed4756d6dcc49d05008671f8246a7de7ee7c623aad1845baf1ad9f754c",
+        "original_offered_s": 0,
+        "offered_s": 79.9873239151964
+      },
+      {
+        "id": "extract-moves-from-video:83",
+        "session_id": "extract-moves-from-video:83",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 85734,
+        "prompt_sha256": "97cb9e546fd892ec7d8fa9c40c183b76539de3d4e9ea3c27f808f041d8aa3ebb",
+        "original_offered_s": 0,
+        "offered_s": 1.056898486247988
+      },
+      {
+        "id": "extract-moves-from-video:84",
+        "session_id": "extract-moves-from-video:83",
+        "predecessor": "extract-moves-from-video:83",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 89022,
+        "prompt_sha256": "d2689e7b06408373efea3599ba987b6395e0db8a322e4bbeb32410ebaf2aed98",
+        "original_offered_s": 0,
+        "offered_s": 80.62328005052863
+      },
+      {
+        "id": "extract-moves-from-video:93",
+        "session_id": "extract-moves-from-video:93",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 95424,
+        "prompt_sha256": "1783f62de9531902a6a48010b524e4985fafff65e3bd054a0c72ad250e5d8728",
+        "original_offered_s": 0,
+        "offered_s": 1.2548452842440905
+      },
+      {
+        "id": "extract-moves-from-video:94",
+        "session_id": "extract-moves-from-video:93",
+        "predecessor": "extract-moves-from-video:93",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 95761,
+        "prompt_sha256": "a8ecf5e461c225ec42f55c002229a011900845e1a76f93e602d110dfa02b160b",
+        "original_offered_s": 0,
+        "offered_s": 79.8378363983348
+      },
+      {
+        "id": "extract-moves-from-video:102",
+        "session_id": "extract-moves-from-video:102",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 105958,
+        "prompt_sha256": "9f013b54b9bb2fe36cd413fc99faf8682570cf6439bbb1ad9b39cc06619ba4eb",
+        "original_offered_s": 0,
+        "offered_s": 1.352710835581354
+      },
+      {
+        "id": "extract-moves-from-video:103",
+        "session_id": "extract-moves-from-video:102",
+        "predecessor": "extract-moves-from-video:102",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 107433,
+        "prompt_sha256": "9c3834cd9fb4bae20b922d76254bd1071978f8ce3315d4756d8a636999f055db",
+        "original_offered_s": 0,
+        "offered_s": 78.85545161402582
+      },
+      {
+        "id": "extract-moves-from-video:104",
+        "session_id": "extract-moves-from-video:104",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 108084,
+        "prompt_sha256": "1784271a0647c631707b43958eeca92311ee15feb96cac82bb25b5edf4e71ae7",
+        "original_offered_s": 0,
+        "offered_s": 1.4022521866997555
+      },
+      {
+        "id": "extract-moves-from-video:105",
+        "session_id": "extract-moves-from-video:104",
+        "predecessor": "extract-moves-from-video:104",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 109304,
+        "prompt_sha256": "8c54736b1690cd9644cdbd5cf7a1d018d01c5819b672ddf46b0bbde610f17a45",
+        "original_offered_s": 0,
+        "offered_s": 78.65905912171021
+      },
+      {
+        "id": "extract-moves-from-video:109",
+        "session_id": "extract-moves-from-video:109",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 114960,
+        "prompt_sha256": "b0115087ac729458b87155901b1b0db7b461f57770c02be8d03a4a7e71325b4f",
+        "original_offered_s": 0,
+        "offered_s": 1.5008215759437848
+      },
+      {
+        "id": "extract-moves-from-video:110",
+        "session_id": "extract-moves-from-video:109",
+        "predecessor": "extract-moves-from-video:109",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 115906,
+        "prompt_sha256": "cb5731af5dcb04e91e6ae060df72e57724f299a56098debb4af1c64bbc2140c5",
+        "original_offered_s": 0,
+        "offered_s": 78.6086903203743
+      },
+      {
+        "id": "extract-moves-from-video:134",
+        "session_id": "extract-moves-from-video:134",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 133435,
+        "prompt_sha256": "7394ad47330fb3ca0d4cfd7c03818cdc658ea600c216386290b45eca615e01cc",
+        "original_offered_s": 0,
+        "offered_s": 1.5969806976094632
+      },
+      {
+        "id": "extract-moves-from-video:135",
+        "session_id": "extract-moves-from-video:134",
+        "predecessor": "extract-moves-from-video:134",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 134201,
+        "prompt_sha256": "bdc5c28d23bbf471d070a454d51e8b611fad4f89092d6d6c6cf7a42814e8c71e",
+        "original_offered_s": 0,
+        "offered_s": 78.55589051507413
+      },
+      {
+        "id": "extract-moves-from-video:153",
+        "session_id": "extract-moves-from-video:153",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 149415,
+        "prompt_sha256": "4541cbbcc4ca3c522ba3debf2cc12327b326874220d63ba3f4f6b774cbe1a621",
+        "original_offered_s": 0,
+        "offered_s": 1.743716490670995
+      },
+      {
+        "id": "extract-moves-from-video:154",
+        "session_id": "extract-moves-from-video:153",
+        "predecessor": "extract-moves-from-video:153",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 150238,
+        "prompt_sha256": "29b6d4e61f3f4d2820652c6b800c6c4db06b7afb8a6250fcd13dc93d5a8e2511",
+        "original_offered_s": 0,
+        "offered_s": 78.3076173640078
+      },
+      {
+        "id": "financial-document-processor:63",
+        "session_id": "financial-document-processor:63",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 73554,
+        "prompt_sha256": "22a11ed51aa24b0640f56fc5fa0919db86f5eef2b64d1f609c5c051ccc8e93aa",
+        "original_offered_s": 0,
+        "offered_s": 2.15902743851929
+      },
+      {
+        "id": "financial-document-processor:64",
+        "session_id": "financial-document-processor:63",
+        "predecessor": "financial-document-processor:63",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 73874,
+        "prompt_sha256": "126e94773736fe36b023a41c638ddeb90332d96b51939d86ec4c3a36ec9a08c5",
+        "original_offered_s": 0,
+        "offered_s": 83.22302519824692
+      },
+      {
+        "id": "financial-document-processor:66",
+        "session_id": "financial-document-processor:66",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 74620,
+        "prompt_sha256": "69a5ff2f0fc044bb208f44afd7e2c598c6a6ab30d33b0e2344fd79fc1072424d",
+        "original_offered_s": 0,
+        "offered_s": 2.258813928695663
+      },
+      {
+        "id": "financial-document-processor:67",
+        "session_id": "financial-document-processor:66",
+        "predecessor": "financial-document-processor:66",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 74851,
+        "prompt_sha256": "782f807930a9bb95aaf0abfe0f0c7b66de1547640a9081b37927bbf96b7124cf",
+        "original_offered_s": 0,
+        "offered_s": 82.14482757799125
+      },
+      {
+        "id": "financial-document-processor:69",
+        "session_id": "financial-document-processor:69",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 75428,
+        "prompt_sha256": "a2796e99ef17a6f029222eb8b5f3de892a631097e6faeea3cc482e641e65fede",
+        "original_offered_s": 0,
+        "offered_s": 2.358643440626808
+      },
+      {
+        "id": "financial-document-processor:70",
+        "session_id": "financial-document-processor:69",
+        "predecessor": "financial-document-processor:69",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 75880,
+        "prompt_sha256": "58874c4b7ada59ed8e607e14140600c13c24d9c852befcb38783a3e6cc90da5a",
+        "original_offered_s": 0,
+        "offered_s": 81.36061666646175
+      },
+      {
+        "id": "financial-document-processor:72",
+        "session_id": "financial-document-processor:72",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 76698,
+        "prompt_sha256": "de43f58c7c9279caab94cfc12deb748bb38a21377a6ae95437eb107a1790b36a",
+        "original_offered_s": 0,
+        "offered_s": 2.408391056325582
+      },
+      {
+        "id": "financial-document-processor:73",
+        "session_id": "financial-document-processor:72",
+        "predecessor": "financial-document-processor:72",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 77039,
+        "prompt_sha256": "bdee72d89200e872cb3cd515678d71a14cf71a25137dc1f61263c49d4404af1e",
+        "original_offered_s": 0,
+        "offered_s": 81.21338471874323
+      },
+      {
+        "id": "financial-document-processor:75",
+        "session_id": "financial-document-processor:75",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 77688,
+        "prompt_sha256": "5593d5e0c99317911a136297933fbc2f2770aeb198f16a3b9608b8b6e5405fd6",
+        "original_offered_s": 0,
+        "offered_s": 2.508190088267864
+      },
+      {
+        "id": "financial-document-processor:76",
+        "session_id": "financial-document-processor:75",
+        "predecessor": "financial-document-processor:75",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 77876,
+        "prompt_sha256": "06931d2639064309d14ae4ef2b87b6246cd991b7d23d2af30ecec7118affcadf",
+        "original_offered_s": 0,
+        "offered_s": 80.77221218201937
+      },
+      {
+        "id": "financial-document-processor:79",
+        "session_id": "financial-document-processor:79",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 78798,
+        "prompt_sha256": "8493210d877adbfee32b0cbcd777e18b20b5381d4852098c3b853cb6231e935d",
+        "original_offered_s": 0,
+        "offered_s": 2.6079592897948167
+      },
+      {
+        "id": "financial-document-processor:80",
+        "session_id": "financial-document-processor:79",
+        "predecessor": "financial-document-processor:79",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 79004,
+        "prompt_sha256": "c3997e86a069118a572b233a9d9288e145705e286bf2eede0d10c0a5bcd24a54",
+        "original_offered_s": 0,
+        "offered_s": 80.7229779358099
+      },
+      {
+        "id": "financial-document-processor:81",
+        "session_id": "financial-document-processor:81",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 79329,
+        "prompt_sha256": "3339fb49814db1867520af84330b22129f88e1d306b1ab801451e40ec77ecda3",
+        "original_offered_s": 0,
+        "offered_s": 2.7078487623597916
+      },
+      {
+        "id": "financial-document-processor:82",
+        "session_id": "financial-document-processor:81",
+        "predecessor": "financial-document-processor:81",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 79660,
+        "prompt_sha256": "9a59eb1e6340338e906fc148b9a8f036e5f7c58f0dfc3f9c73ce416f093a6b1d",
+        "original_offered_s": 0,
+        "offered_s": 80.23284347408854
+      },
+      {
+        "id": "financial-document-processor:83",
+        "session_id": "financial-document-processor:83",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 80680,
+        "prompt_sha256": "d24359f68b344947147fcc02d9aba0ceba225eddd3d6a9000988c0b90bcb57dc",
+        "original_offered_s": 0,
+        "offered_s": 2.8075643490866615
+      },
+      {
+        "id": "financial-document-processor:84",
+        "session_id": "financial-document-processor:83",
+        "predecessor": "financial-document-processor:83",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 80824,
+        "prompt_sha256": "b3599f48e889903d511e47fdc99e2611ee5a7f8fdd9b6a48f7f5dd8dd811a71d",
+        "original_offered_s": 0,
+        "offered_s": 79.54659388795021
+      },
+      {
+        "id": "financial-document-processor:85",
+        "session_id": "financial-document-processor:85",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 81633,
+        "prompt_sha256": "74922da0a9a22839c6d129f66fe47ed3e7808784a87b69bd6d2499599578a46b",
+        "original_offered_s": 0,
+        "offered_s": 2.8573705763050032
+      },
+      {
+        "id": "financial-document-processor:86",
+        "session_id": "financial-document-processor:85",
+        "predecessor": "financial-document-processor:85",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 83064,
+        "prompt_sha256": "5b7856a25ad388e8cf40bf20d1ba11bb812fc97606f15f8c04aa9eb0b471813c",
+        "original_offered_s": 0,
+        "offered_s": 79.35013833703469
+      },
+      {
+        "id": "financial-document-processor:87",
+        "session_id": "financial-document-processor:87",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 83422,
+        "prompt_sha256": "d390667346288b349e519be9ba04ac74074a3f0da8735197c27ba40dfc1ebd2c",
+        "original_offered_s": 0,
+        "offered_s": 2.957004816438645
+      },
+      {
+        "id": "financial-document-processor:88",
+        "session_id": "financial-document-processor:87",
+        "predecessor": "financial-document-processor:87",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 88109,
+        "prompt_sha256": "80f2ce24ad308a83bff210bdb410c6b731d82d56dc8e7af3d074c55ea459f0a8",
+        "original_offered_s": 0,
+        "offered_s": 79.10414498920092
+      },
+      {
+        "id": "financial-document-processor:97",
+        "session_id": "financial-document-processor:97",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 102889,
+        "prompt_sha256": "45ce1171858f06fd8fd27fcf6fd19ac2f0fe3692598c17d0f9b7ff40992254ca",
+        "original_offered_s": 0,
+        "offered_s": 3.0530468149995773
+      },
+      {
+        "id": "financial-document-processor:98",
+        "session_id": "financial-document-processor:97",
+        "predecessor": "financial-document-processor:97",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 104214,
+        "prompt_sha256": "e8c59e320256d136278bbf1f8396b3ee3b405b7f6b12710201c19b399a7ac26b",
+        "original_offered_s": 0,
+        "offered_s": 78.2188541497476
+      },
+      {
+        "id": "gcode-to-text:52",
+        "session_id": "gcode-to-text:52",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 80294,
+        "prompt_sha256": "3b755f5ca90edd0fcaadaf5d1654c23c1833fd056c2757a855a04073b8686f16",
+        "original_offered_s": 0,
+        "offered_s": 1.858678317728819
+      },
+      {
+        "id": "gcode-to-text:53",
+        "session_id": "gcode-to-text:52",
+        "predecessor": "gcode-to-text:52",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 80514,
+        "prompt_sha256": "6f1ba435715ba65360a9d2d06c45934bd93e2fc91e0052b37ef2b5e306f84745",
+        "original_offered_s": 0,
+        "offered_s": 83.51669601436718
+      },
+      {
+        "id": "gcode-to-text:56",
+        "session_id": "gcode-to-text:56",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 84201,
+        "prompt_sha256": "f8359123ed274ce2f010618a2ac1521390a3853d5edebafca516f58fd44df742",
+        "original_offered_s": 0,
+        "offered_s": 1.9578414171821474
+      },
+      {
+        "id": "gcode-to-text:57",
+        "session_id": "gcode-to-text:56",
+        "predecessor": "gcode-to-text:56",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 84516,
+        "prompt_sha256": "8b0d98249588cf9ab6e8c066681344423fa6ebb8b322ac4cad677a942ec9612e",
+        "original_offered_s": 0,
+        "offered_s": 83.36883487973101
+      },
+      {
+        "id": "gcode-to-text:59",
+        "session_id": "gcode-to-text:59",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 85585,
+        "prompt_sha256": "36ac878cd6288abd3fb4535f9c5ac68a0231c0682085cd8c310e91e6099fe542",
+        "original_offered_s": 0,
+        "offered_s": 2.0075328197867064
+      },
+      {
+        "id": "gcode-to-text:60",
+        "session_id": "gcode-to-text:59",
+        "predecessor": "gcode-to-text:59",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 85883,
+        "prompt_sha256": "cb4bf6c304d03a783e5e1eaf0a50d6d7d893c31b8375491536d17cf08987b34c",
+        "original_offered_s": 0,
+        "offered_s": 83.172527931253
+      },
+      {
+        "id": "gcode-to-text:62",
+        "session_id": "gcode-to-text:62",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 86974,
+        "prompt_sha256": "8acedad0b050f0387ed04c9b0ae0a7ae05b7e6e99ea87ba2bf92dc9564cbce86",
+        "original_offered_s": 0,
+        "offered_s": 2.1072179764919077
+      },
+      {
+        "id": "gcode-to-text:63",
+        "session_id": "gcode-to-text:62",
+        "predecessor": "gcode-to-text:62",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 87123,
+        "prompt_sha256": "25267e884e3c892343992bb241646b86cd771ebb81fdeb6c7b1d76a187e2103e",
+        "original_offered_s": 0,
+        "offered_s": 80.18324646604437
+      },
+      {
+        "id": "gcode-to-text:86",
+        "session_id": "gcode-to-text:86",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 118709,
+        "prompt_sha256": "a99c6667c2934ca9dbfebb4d0f01154b08b421349e23f635b8b66b2ed5ce03eb",
+        "original_offered_s": 0,
+        "offered_s": 2.200511279663718
+      },
+      {
+        "id": "gcode-to-text:87",
+        "session_id": "gcode-to-text:86",
+        "predecessor": "gcode-to-text:86",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 119513,
+        "prompt_sha256": "8cf4db7f7da3bf02ce5d4adfce56faf6915d517e865d07032c70a0f09ef0e7a7",
+        "original_offered_s": 0,
+        "offered_s": 79.78440205962715
+      },
+      {
+        "id": "gcode-to-text:92",
+        "session_id": "gcode-to-text:92",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 124396,
+        "prompt_sha256": "d4292849c8782dfe2dff614690f20ea0032949418422e53c3096259787643e79",
+        "original_offered_s": 0,
+        "offered_s": 2.2993145653468763
+      },
+      {
+        "id": "gcode-to-text:93",
+        "session_id": "gcode-to-text:92",
+        "predecessor": "gcode-to-text:92",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 125189,
+        "prompt_sha256": "63245ff79fcfa5a7cfec40cb9e711b299be17e6f9706f1f1e22c814947026a5b",
+        "original_offered_s": 0,
+        "offered_s": 78.36220819344041
+      },
+      {
+        "id": "make-doom-for-mips:72",
+        "session_id": "make-doom-for-mips:72",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 71336,
+        "prompt_sha256": "e0ccdfebc4503cced294f729c7e6053631d27c15741324334689bd77f7090a26",
+        "original_offered_s": 0,
+        "offered_s": 2.4587273355469743
+      },
+      {
+        "id": "make-doom-for-mips:73",
+        "session_id": "make-doom-for-mips:72",
+        "predecessor": "make-doom-for-mips:72",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 71873,
+        "prompt_sha256": "72a22942d14f5cacfd3db80b838dc3454ed49887930e3970c90d59ef73d0b3ea",
+        "original_offered_s": 0,
+        "offered_s": 83.41867367903109
+      },
+      {
+        "id": "make-doom-for-mips:80",
+        "session_id": "make-doom-for-mips:80",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 82000,
+        "prompt_sha256": "6211f6c382b510daabe9fcebdaa6ac125fe6983e4603562683abc9ce80df08a6",
+        "original_offered_s": 0,
+        "offered_s": 2.5564199004556407
+      },
+      {
+        "id": "make-doom-for-mips:81",
+        "session_id": "make-doom-for-mips:80",
+        "predecessor": "make-doom-for-mips:80",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 82429,
+        "prompt_sha256": "acc1560d1b0e529d968a10914aa76a9e40b46fa0940548ee37dc89703132c549",
+        "original_offered_s": 0,
+        "offered_s": 82.9753881795383
+      },
+      {
+        "id": "make-doom-for-mips:86",
+        "session_id": "make-doom-for-mips:86",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 98211,
+        "prompt_sha256": "18d09b487d9e8d3750ef9e34ab18c2593ee476386c1e5db298d7472396a3e158",
+        "original_offered_s": 0,
+        "offered_s": 2.6529559246721313
+      },
+      {
+        "id": "make-doom-for-mips:87",
+        "session_id": "make-doom-for-mips:86",
+        "predecessor": "make-doom-for-mips:86",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 99740,
+        "prompt_sha256": "95f82e39dbb4821ea9082023d73c0395526f01f44f541d0691fb8ebd06d4a43d",
+        "original_offered_s": 0,
+        "offered_s": 82.92271509104431
+      },
+      {
+        "id": "make-doom-for-mips:88",
+        "session_id": "make-doom-for-mips:88",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 100670,
+        "prompt_sha256": "a9256707d236370dd53f07e2cc09bc7d77859cc8e0e3e6a8b6ad6daa37a27328",
+        "original_offered_s": 0,
+        "offered_s": 2.752458751083297
+      },
+      {
+        "id": "make-doom-for-mips:89",
+        "session_id": "make-doom-for-mips:88",
+        "predecessor": "make-doom-for-mips:88",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 101416,
+        "prompt_sha256": "186a4ebf317820bd1e7eb2ba77f4cc1ef015fe8a2805c89fe115df75f983fe36",
+        "original_offered_s": 0,
+        "offered_s": 82.67735807543704
+      },
+      {
+        "id": "make-doom-for-mips:90",
+        "session_id": "make-doom-for-mips:90",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 102937,
+        "prompt_sha256": "7961094f8bc4c83b010cbc38007989607da238a4d0815df9ef2fe14adc6aaeea",
+        "original_offered_s": 0,
+        "offered_s": 2.9020178905230676
+      },
+      {
+        "id": "make-doom-for-mips:91",
+        "session_id": "make-doom-for-mips:90",
+        "predecessor": "make-doom-for-mips:90",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 103669,
+        "prompt_sha256": "313f941367f94171c0d11f9b8d2b149f7e1ed0d8a8bc27dff78dc090c08e8ec8",
+        "original_offered_s": 0,
+        "offered_s": 82.52992076254766
+      },
+      {
+        "id": "make-doom-for-mips:92",
+        "session_id": "make-doom-for-mips:92",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 104960,
+        "prompt_sha256": "7be4acd23011fe6a37572e5d4e1055a5cd2a73558268a9c928bbf5c0f96d231f",
+        "original_offered_s": 0,
+        "offered_s": 3.0015973666111453
+      },
+      {
+        "id": "make-doom-for-mips:93",
+        "session_id": "make-doom-for-mips:92",
+        "predecessor": "make-doom-for-mips:92",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 105680,
+        "prompt_sha256": "5b668fede7a646d37e55694c3c637f7f3c03a39deb4eb205c027af4e921114c1",
+        "original_offered_s": 0,
+        "offered_s": 81.69651163115617
+      },
+      {
+        "id": "make-doom-for-mips:95",
+        "session_id": "make-doom-for-mips:95",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 108067,
+        "prompt_sha256": "25a6daa215f149d102cf70cc688d8512f7c32fb399809606caff27dd359e512c",
+        "original_offered_s": 0,
+        "offered_s": 3.100962833203647
+      },
+      {
+        "id": "make-doom-for-mips:96",
+        "session_id": "make-doom-for-mips:95",
+        "predecessor": "make-doom-for-mips:95",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 108935,
+        "prompt_sha256": "d8ebe1626947dc6005c571a9b9dafc289ebb570793f948501f1f63f7979b225c",
+        "original_offered_s": 0,
+        "offered_s": 81.6468437696297
+      },
+      {
+        "id": "make-doom-for-mips:97",
+        "session_id": "make-doom-for-mips:97",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 110493,
+        "prompt_sha256": "b649954ce28f4d2124d7dea45f5780898607781bd83dcb49f34ff184b5174de2",
+        "original_offered_s": 0,
+        "offered_s": 3.2504480711622237
+      },
+      {
+        "id": "make-doom-for-mips:98",
+        "session_id": "make-doom-for-mips:97",
+        "predecessor": "make-doom-for-mips:97",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 111261,
+        "prompt_sha256": "54331bf665335804beab896ec9168c5350798823cf3747625c23e24d5469ad02",
+        "original_offered_s": 0,
+        "offered_s": 81.49935034358046
+      },
+      {
+        "id": "make-doom-for-mips:100",
+        "session_id": "make-doom-for-mips:100",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 114222,
+        "prompt_sha256": "260b40d29e31f3d9ede765f5f43988afa9a2e384f762373840fd23c38f4596c4",
+        "original_offered_s": 0,
+        "offered_s": 3.34965199381375
+      },
+      {
+        "id": "make-doom-for-mips:101",
+        "session_id": "make-doom-for-mips:100",
+        "predecessor": "make-doom-for-mips:100",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 115148,
+        "prompt_sha256": "83b3137d13e995522a489f4e49d0f97c5513f50e9c7e35509f8a30691023399e",
+        "original_offered_s": 0,
+        "offered_s": 81.25351923922841
+      },
+      {
+        "id": "make-doom-for-mips:103",
+        "session_id": "make-doom-for-mips:103",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 116605,
+        "prompt_sha256": "70269875bea874d811050e52f5ead0c7a287118d379f21bc535d39e74b7c9287",
+        "original_offered_s": 0,
+        "offered_s": 3.4491393803617054
+      },
+      {
+        "id": "make-doom-for-mips:104",
+        "session_id": "make-doom-for-mips:103",
+        "predecessor": "make-doom-for-mips:103",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 116762,
+        "prompt_sha256": "a2fbed15c698e833ae624bd50872f8c50c64fe0efa2727e9009a24ccfbfc59e3",
+        "original_offered_s": 0,
+        "offered_s": 80.95916692053747
+      },
+      {
+        "id": "make-doom-for-mips:106",
+        "session_id": "make-doom-for-mips:106",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 117060,
+        "prompt_sha256": "5be03c065bbfac71564fdb76a7832441a3b1f28c3be986a3435a21ae76368a02",
+        "original_offered_s": 0,
+        "offered_s": 3.5490361481371293
+      },
+      {
+        "id": "make-doom-for-mips:107",
+        "session_id": "make-doom-for-mips:106",
+        "predecessor": "make-doom-for-mips:106",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 117243,
+        "prompt_sha256": "ad286bab0352e39d7d293b69a811fea3e7ebdb632c9bbd40e1ba4f82c65e1f50",
+        "original_offered_s": 0,
+        "offered_s": 80.86105649303684
+      },
+      {
+        "id": "make-doom-for-mips:111",
+        "session_id": "make-doom-for-mips:111",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 123273,
+        "prompt_sha256": "c43cee44f3f7db23c14b98a6eaf11a04263003f40f502a3cb7aa1603eeacbaed",
+        "original_offered_s": 0,
+        "offered_s": 3.6476846354506183
+      },
+      {
+        "id": "make-doom-for-mips:112",
+        "session_id": "make-doom-for-mips:111",
+        "predecessor": "make-doom-for-mips:111",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 124490,
+        "prompt_sha256": "d4530e41148bd66df4ef5b5df712fdcee039a710f5b12ecfd3d37f0914bd1d9f",
+        "original_offered_s": 0,
+        "offered_s": 80.41848087748139
+      },
+      {
+        "id": "make-doom-for-mips:115",
+        "session_id": "make-doom-for-mips:115",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 128634,
+        "prompt_sha256": "38cb7b528c288e538d681b6e9e923579be3cc044addd3e823bd870d479940a53",
+        "original_offered_s": 0,
+        "offered_s": 3.6965311927245232
+      },
+      {
+        "id": "make-doom-for-mips:116",
+        "session_id": "make-doom-for-mips:115",
+        "predecessor": "make-doom-for-mips:115",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 129688,
+        "prompt_sha256": "0b160dda41df0ff5601039db6291511b44ef1f0a03100f9c282386f3ecc1d2fc",
+        "original_offered_s": 0,
+        "offered_s": 79.5843740041809
+      },
+      {
+        "id": "make-doom-for-mips:117",
+        "session_id": "make-doom-for-mips:117",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 132123,
+        "prompt_sha256": "065b9c0da5d63b72c112da41eb112e86ceafdaa87df83ec7160531a80e68aede",
+        "original_offered_s": 0,
+        "offered_s": 3.845816362034889
+      },
+      {
+        "id": "make-doom-for-mips:118",
+        "session_id": "make-doom-for-mips:117",
+        "predecessor": "make-doom-for-mips:117",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 133266,
+        "prompt_sha256": "d2846d4f65b4f5572da711eb2884604a7d78d74c5b680bb54d3a53ad4570c0e6",
+        "original_offered_s": 0,
+        "offered_s": 79.1426364384176
+      },
+      {
+        "id": "make-doom-for-mips:122",
+        "session_id": "make-doom-for-mips:122",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 139335,
+        "prompt_sha256": "3f889ab8d55c30e63875ef6d3bfb3e179ae2960a04dfa0191b8b6009ce55d948",
+        "original_offered_s": 0,
+        "offered_s": 3.944307552618966
+      },
+      {
+        "id": "make-doom-for-mips:123",
+        "session_id": "make-doom-for-mips:122",
+        "predecessor": "make-doom-for-mips:122",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 139568,
+        "prompt_sha256": "aa3aeb7e2331819d5f86534f503cdcff9a631d64d70e025ac068f83a80f434de",
+        "original_offered_s": 0,
+        "offered_s": 79.04331825385006
+      },
+      {
+        "id": "make-mips-interpreter:50",
+        "session_id": "make-mips-interpreter:50",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 73367,
+        "prompt_sha256": "90c92aa517004144e847170d661c5acbcaf54276c30213e4af4d9b3bb0cdd9d4",
+        "original_offered_s": 0,
+        "offered_s": 4.10939784533477
+      },
+      {
+        "id": "make-mips-interpreter:51",
+        "session_id": "make-mips-interpreter:50",
+        "predecessor": "make-mips-interpreter:50",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 73771,
+        "prompt_sha256": "d06573c18384b802281c7a0b95e8269c3dd13191a70f63f419dc8fe118e71bd1",
+        "original_offered_s": 0,
+        "offered_s": 82.78238171418222
+      },
+      {
+        "id": "make-mips-interpreter:56",
+        "session_id": "make-mips-interpreter:56",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 91129,
+        "prompt_sha256": "d96b4ada0ed2e2690f56bd14d50e9a5860ec4691a9cf2dbbed09785c3b7929ae",
+        "original_offered_s": 0,
+        "offered_s": 4.205779920623903
+      },
+      {
+        "id": "make-mips-interpreter:57",
+        "session_id": "make-mips-interpreter:56",
+        "predecessor": "make-mips-interpreter:56",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 91391,
+        "prompt_sha256": "e6ee37b3359ee14d8368ef89639a15c86b5cc903e6d8f1b48e6049d671a4010b",
+        "original_offered_s": 0,
+        "offered_s": 82.72978592493868
+      },
+      {
+        "id": "make-mips-interpreter:60",
+        "session_id": "make-mips-interpreter:60",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 93798,
+        "prompt_sha256": "90f22ef98735ec3476df8f319ea26d42628941046d9c9c8c818c2b64811d57a7",
+        "original_offered_s": 0,
+        "offered_s": 4.255225934334517
+      },
+      {
+        "id": "make-mips-interpreter:61",
+        "session_id": "make-mips-interpreter:60",
+        "predecessor": "make-mips-interpreter:60",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 94575,
+        "prompt_sha256": "0d96e11734e0c1122a3b1e070f1d81fc3419336c395a90f427d3850c56996db2",
+        "original_offered_s": 0,
+        "offered_s": 82.48412955586703
+      },
+      {
+        "id": "make-mips-interpreter:63",
+        "session_id": "make-mips-interpreter:63",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 96195,
+        "prompt_sha256": "6f6ef487b9c95f14b0bd066b4c030771070b83594658f3c0181216a5b3795645",
+        "original_offered_s": 0,
+        "offered_s": 4.35473490671065
+      },
+      {
+        "id": "make-mips-interpreter:64",
+        "session_id": "make-mips-interpreter:63",
+        "predecessor": "make-mips-interpreter:63",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 97791,
+        "prompt_sha256": "2ae13b7de7ce66270bd46a853e5905ca947f4be32dbeeeca274e9edc10ce9dd7",
+        "original_offered_s": 0,
+        "offered_s": 81.94449442285318
+      },
+      {
+        "id": "make-mips-interpreter:65",
+        "session_id": "make-mips-interpreter:65",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 99472,
+        "prompt_sha256": "da806368f40dac6c32a319ff1b258968e8286e8ef25be1d6f154d26d4c5697ce",
+        "original_offered_s": 0,
+        "offered_s": 4.454091379208078
+      },
+      {
+        "id": "make-mips-interpreter:66",
+        "session_id": "make-mips-interpreter:65",
+        "predecessor": "make-mips-interpreter:65",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 100099,
+        "prompt_sha256": "b3663a93d45b73624431a8d866067550d30bf1b72fe879f2b56d697486b1ac48",
+        "original_offered_s": 0,
+        "offered_s": 81.5520172361423
+      },
+      {
+        "id": "make-mips-interpreter:67",
+        "session_id": "make-mips-interpreter:67",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 101192,
+        "prompt_sha256": "f9bb115381b5fb7b3668689524a32970fa27da49a09ee2f297358d5902607aed",
+        "original_offered_s": 0,
+        "offered_s": 4.55375340110206
+      },
+      {
+        "id": "make-mips-interpreter:68",
+        "session_id": "make-mips-interpreter:67",
+        "predecessor": "make-mips-interpreter:67",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 103350,
+        "prompt_sha256": "92f0262831dfa05d145e7c1bc2eae672a9ee2131c8e0e2acf73d1ad8e1d7b812",
+        "original_offered_s": 0,
+        "offered_s": 81.4044330696672
+      },
+      {
+        "id": "make-mips-interpreter:69",
+        "session_id": "make-mips-interpreter:69",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 104242,
+        "prompt_sha256": "eeb924a753f3f0ba5a5c9f9fdfea579d8d1668d656ab8c02e69467db7887ffa6",
+        "original_offered_s": 0,
+        "offered_s": 4.603184974293359
+      },
+      {
+        "id": "make-mips-interpreter:70",
+        "session_id": "make-mips-interpreter:69",
+        "predecessor": "make-mips-interpreter:69",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 104919,
+        "prompt_sha256": "2ff56f4dd7e77eb448f9453b17f7cf8bab32b574f6ef8134957297d6604f9347",
+        "original_offered_s": 0,
+        "offered_s": 80.8161096320149
+      },
+      {
+        "id": "make-mips-interpreter:76",
+        "session_id": "make-mips-interpreter:76",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 118398,
+        "prompt_sha256": "d4023d12d9bb6d4e56838a1cdb4e33626acc1d86fe5116bd38aba9e250918120",
+        "original_offered_s": 0,
+        "offered_s": 4.700470106695156
+      },
+      {
+        "id": "make-mips-interpreter:77",
+        "session_id": "make-mips-interpreter:76",
+        "predecessor": "make-mips-interpreter:76",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 119799,
+        "prompt_sha256": "8a0f20a167c7104cb3a8b01fec5a412e0171f6a088435b068c612a977102fa69",
+        "original_offered_s": 0,
+        "offered_s": 80.56824945981406
+      },
+      {
+        "id": "make-mips-interpreter:78",
+        "session_id": "make-mips-interpreter:78",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 120089,
+        "prompt_sha256": "fb930a13a84139c344e8fa564508c35df8d9bc0aa60fe6879b319aab89eb20fd",
+        "original_offered_s": 0,
+        "offered_s": 4.900123634166012
+      },
+      {
+        "id": "make-mips-interpreter:79",
+        "session_id": "make-mips-interpreter:78",
+        "predecessor": "make-mips-interpreter:78",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 120716,
+        "prompt_sha256": "fe3a13f2f12a4e208cb1c7d55e114d08c0bfc1bdd40560e9f3cc188341bdb8fd",
+        "original_offered_s": 0,
+        "offered_s": 79.73506263247248
+      },
+      {
+        "id": "make-mips-interpreter:80",
+        "session_id": "make-mips-interpreter:80",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 121506,
+        "prompt_sha256": "0bfdecdd689b0296c984caeef53babbb0b2ef14ea9e2e8e81a2d6187d5404b89",
+        "original_offered_s": 0,
+        "offered_s": 4.949837921745817
+      },
+      {
+        "id": "make-mips-interpreter:81",
+        "session_id": "make-mips-interpreter:80",
+        "predecessor": "make-mips-interpreter:80",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 121678,
+        "prompt_sha256": "70242c4cb20125207bd7000fc9ccbcd9b0aa71d3b405932fb7f9d72c21a9adce",
+        "original_offered_s": 0,
+        "offered_s": 79.63686351320098
+      },
+      {
+        "id": "make-mips-interpreter:82",
+        "session_id": "make-mips-interpreter:82",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 121925,
+        "prompt_sha256": "9dd993c50502ba69c7ca773edac471ba88d0731f3671c42da5bcb1056d5808e8",
+        "original_offered_s": 0,
+        "offered_s": 4.799747680991904
+      },
+      {
+        "id": "make-mips-interpreter:83",
+        "session_id": "make-mips-interpreter:82",
+        "predecessor": "make-mips-interpreter:82",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 122183,
+        "prompt_sha256": "a85302e5995e19e7083ae1148f8a155c5220dc5151339de4f2eb39e888095178",
+        "original_offered_s": 0,
+        "offered_s": 79.9307553841913
+      },
+      {
+        "id": "make-mips-interpreter:87",
+        "session_id": "make-mips-interpreter:87",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 131436,
+        "prompt_sha256": "378fa6f79bf2c9d5f6221ac7937babc8c4cebb93017e77170d97351d40a74537",
+        "original_offered_s": 0,
+        "offered_s": 5.047799510031597
+      },
+      {
+        "id": "make-mips-interpreter:88",
+        "session_id": "make-mips-interpreter:87",
+        "predecessor": "make-mips-interpreter:87",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 132252,
+        "prompt_sha256": "6e060de0609276c9c0f8b8ba20b6eb4fbdbcfa651b7e8327d2e701ac319774a1",
+        "original_offered_s": 0,
+        "offered_s": 79.389694387305
+      },
+      {
+        "id": "make-mips-interpreter:90",
+        "session_id": "make-mips-interpreter:90",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 134097,
+        "prompt_sha256": "4b4f4aeca05b1c48e3d179550d16a75dd0882170e93ba8b8e8b1f19861b5ef82",
+        "original_offered_s": 0,
+        "offered_s": 5.147266110226491
+      },
+      {
+        "id": "make-mips-interpreter:91",
+        "session_id": "make-mips-interpreter:90",
+        "predecessor": "make-mips-interpreter:90",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 134626,
+        "prompt_sha256": "f1628885971ab963d469ecb05482ccb359a070b8f9416522f4e9ff6c84e6aff6",
+        "original_offered_s": 0,
+        "offered_s": 79.24221310328414
+      },
+      {
+        "id": "make-mips-interpreter:94",
+        "session_id": "make-mips-interpreter:94",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 137294,
+        "prompt_sha256": "fb96ebdf770d85fd789ae3405e7f3110e0978e8b4e6a82887952756576cb7696",
+        "original_offered_s": 0,
+        "offered_s": 5.1965969995201515
+      },
+      {
+        "id": "make-mips-interpreter:95",
+        "session_id": "make-mips-interpreter:94",
+        "predecessor": "make-mips-interpreter:94",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 138708,
+        "prompt_sha256": "675f5c788801a7dce9f2fe02ef05e8a7b381b98c219f09086cd220726df3a409",
+        "original_offered_s": 0,
+        "offered_s": 78.94735291802466
+      },
+      {
+        "id": "make-mips-interpreter:96",
+        "session_id": "make-mips-interpreter:96",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 139261,
+        "prompt_sha256": "4c29d411faff5445763fb4f1c0b65897ad41b29c37a4065574243ec0f173ed91",
+        "original_offered_s": 0,
+        "offered_s": 5.29617422708446
+      },
+      {
+        "id": "make-mips-interpreter:97",
+        "session_id": "make-mips-interpreter:96",
+        "predecessor": "make-mips-interpreter:96",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 140680,
+        "prompt_sha256": "ba375ec1c61c65ddb5ade9cb05a00ea41f0059168055a2bda932f3d86e0ee271",
+        "original_offered_s": 0,
+        "offered_s": 78.8979697196073
+      },
+      {
+        "id": "make-mips-interpreter:98",
+        "session_id": "make-mips-interpreter:98",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 142119,
+        "prompt_sha256": "40350e397cecbff2f3f13ef83bc22113db6703f8e088fe9faea303736f0c8ce9",
+        "original_offered_s": 0,
+        "offered_s": 5.345646973244322
+      },
+      {
+        "id": "make-mips-interpreter:99",
+        "session_id": "make-mips-interpreter:98",
+        "predecessor": "make-mips-interpreter:98",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 142324,
+        "prompt_sha256": "e30ecf818b70f0b38daed3de465e81e6d5fe17423065e2766af74f02cb1ef04d",
+        "original_offered_s": 0,
+        "offered_s": 78.50566387040757
+      },
+      {
+        "id": "path-tracing:45",
+        "session_id": "path-tracing:45",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 115144,
+        "prompt_sha256": "e43ffac2e6e6cb844e56e482675da173fa6cbfed9becd32d6008cc9bcf56ad52",
+        "original_offered_s": 0,
+        "offered_s": 5.453457245538139
+      },
+      {
+        "id": "path-tracing:46",
+        "session_id": "path-tracing:45",
+        "predecessor": "path-tracing:45",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 115386,
+        "prompt_sha256": "035ff70058081f2a59cc9bf5cb97ab8d05816085364193ce6c1229c0206196be",
+        "original_offered_s": 0,
+        "offered_s": 83.1194652485407
+      },
+      {
+        "id": "path-tracing:47",
+        "session_id": "path-tracing:47",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 116388,
+        "prompt_sha256": "a717387219c309bdb0891300823bed096ea9f6935bc0817055819fb818482ac5",
+        "original_offered_s": 0,
+        "offered_s": 5.55321100720188
+      },
+      {
+        "id": "path-tracing:48",
+        "session_id": "path-tracing:47",
+        "predecessor": "path-tracing:47",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 117384,
+        "prompt_sha256": "2f368260ad139e44bcdca42bf9b1707bf2fbea73e24b70b2bf73f6699bb7a239",
+        "original_offered_s": 0,
+        "offered_s": 80.032071706914
+      },
+      {
+        "id": "path-tracing:49",
+        "session_id": "path-tracing:49",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 117823,
+        "prompt_sha256": "0f9f9510a41b404897e159d864af05af1293a1f69cbd891c71b904d00e0895f0",
+        "original_offered_s": 0,
+        "offered_s": 5.602919148816716
+      },
+      {
+        "id": "path-tracing:50",
+        "session_id": "path-tracing:49",
+        "predecessor": "path-tracing:49",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 118770,
+        "prompt_sha256": "40e2ac0c66751b3d7531d0549c6e2c8e67bdb408c2ead436afdab406c6e1e85c",
+        "original_offered_s": 0,
+        "offered_s": 79.19879318976987
+      },
+      {
+        "id": "path-tracing:51",
+        "session_id": "path-tracing:51",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 121767,
+        "prompt_sha256": "6812b892e72826faa91ad8ae46276d2bd71694d0e11d30a6b847081b7b212d15",
+        "original_offered_s": 0,
+        "offered_s": 5.652144557362033
+      },
+      {
+        "id": "path-tracing:52",
+        "session_id": "path-tracing:51",
+        "predecessor": "path-tracing:51",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 122870,
+        "prompt_sha256": "6ac5b7d25ed4a74fcd6413906c905deca43baa73ef35645673afa69ba3e348f6",
+        "original_offered_s": 0,
+        "offered_s": 79.0019903668501
+      },
+      {
+        "id": "path-tracing-reverse:30",
+        "session_id": "path-tracing-reverse:30",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 67335,
+        "prompt_sha256": "88824d300a8317a0030fc0623dd978044310150002c5fd9f044f45faca6a9743",
+        "original_offered_s": 0,
+        "offered_s": 3.161728715040492
+      },
+      {
+        "id": "path-tracing-reverse:31",
+        "session_id": "path-tracing-reverse:30",
+        "predecessor": "path-tracing-reverse:30",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 69711,
+        "prompt_sha256": "d8f374eddcc905b2ff496cd94e04e867c78aef061b66eee047d4f37c12e3fad6",
+        "original_offered_s": 0,
+        "offered_s": 82.3923341323541
+      },
+      {
+        "id": "path-tracing-reverse:48",
+        "session_id": "path-tracing-reverse:48",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 92743,
+        "prompt_sha256": "76fb504b219468b0b77d955e18b5af1a578d7e3df4d739925e2c80c5c0e05acd",
+        "original_offered_s": 0,
+        "offered_s": 3.2068982364120133
+      },
+      {
+        "id": "path-tracing-reverse:49",
+        "session_id": "path-tracing-reverse:48",
+        "predecessor": "path-tracing-reverse:48",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 94904,
+        "prompt_sha256": "93a74b7b7e41f5a4f7a8b5ea239bb6ca77ae02dc6162dacdeec1cee32f4cb305",
+        "original_offered_s": 0,
+        "offered_s": 81.1135504729872
+      },
+      {
+        "id": "path-tracing-reverse:51",
+        "session_id": "path-tracing-reverse:51",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 97269,
+        "prompt_sha256": "ff0f2ea2f854b3d05833c6701c5f8a5d72a4aa25e1639d993c9a162234c64027",
+        "original_offered_s": 0,
+        "offered_s": 3.3060270583696694
+      },
+      {
+        "id": "path-tracing-reverse:52",
+        "session_id": "path-tracing-reverse:51",
+        "predecessor": "path-tracing-reverse:51",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 98627,
+        "prompt_sha256": "b97769d52a7881de9ce6bc24ebb5aecd4c708d84f5333cda5bd36cccc1b02472",
+        "original_offered_s": 0,
+        "offered_s": 81.06383064557808
+      },
+      {
+        "id": "path-tracing-reverse:89",
+        "session_id": "path-tracing-reverse:89",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 147050,
+        "prompt_sha256": "91742b23a8bac7512cf6018a1a3da21e69f284c6d8b5c302226fe9fa532ba917",
+        "original_offered_s": 0,
+        "offered_s": 3.3963823904182373
+      },
+      {
+        "id": "path-tracing-reverse:90",
+        "session_id": "path-tracing-reverse:89",
+        "predecessor": "path-tracing-reverse:89",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 147285,
+        "prompt_sha256": "9e23c043a2e63adf6789c3b2413038017eaab7c6e7eb482098436a7efce5a733",
+        "original_offered_s": 0,
+        "offered_s": 80.31939394109165
+      },
+      {
+        "id": "path-tracing-reverse:114",
+        "session_id": "path-tracing-reverse:114",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 186724,
+        "prompt_sha256": "699124bcff9747268c94a9525484797f5169eda8410d420519adf23b728f6173",
+        "original_offered_s": 0,
+        "offered_s": 3.488685643591137
+      },
+      {
+        "id": "path-tracing-reverse:115",
+        "session_id": "path-tracing-reverse:114",
+        "predecessor": "path-tracing-reverse:114",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 187294,
+        "prompt_sha256": "2b6e88c58115e849f8aab18c6e338435781dfca94e48403a3015724e24bf4f90",
+        "original_offered_s": 0,
+        "offered_s": 79.87062714025735
+      },
+      {
+        "id": "path-tracing-reverse:122",
+        "session_id": "path-tracing-reverse:122",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 195173,
+        "prompt_sha256": "b0f3259cebd189cdd3fbbec870a90955b62f60865368bc745386a1ca5164cabf",
+        "original_offered_s": 0,
+        "offered_s": 3.5870509668113675
+      },
+      {
+        "id": "path-tracing-reverse:123",
+        "session_id": "path-tracing-reverse:122",
+        "predecessor": "path-tracing-reverse:122",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 195998,
+        "prompt_sha256": "5789b0b13b88a6c62611ff7d78e3df29983eae650a3d31a4940cf296d69c8db5",
+        "original_offered_s": 0,
+        "offered_s": 79.28093620041616
+      },
+      {
+        "id": "regex-chess:31",
+        "session_id": "regex-chess:31",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 73555,
+        "prompt_sha256": "01b9ce969875e9989e542a8cbcab5278a502367d6ae7fc8b9c5077d79c1cc66a",
+        "original_offered_s": 0,
+        "offered_s": 3.7591191283218537
+      },
+      {
+        "id": "regex-chess:32",
+        "session_id": "regex-chess:31",
+        "predecessor": "regex-chess:31",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 75732,
+        "prompt_sha256": "b4a92ed3f509fe761d5ce0f15e6e5cf9e72a3d29acd99250746b95fb1a0be7ce",
+        "original_offered_s": 0,
+        "offered_s": 83.56576332017866
+      },
+      {
+        "id": "regex-chess:36",
+        "session_id": "regex-chess:36",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 79111,
+        "prompt_sha256": "46cb798cd0c7b3bba05f59d94749a534339b21d7f6dbed7e89b45de203706a96",
+        "original_offered_s": 0,
+        "offered_s": 3.807985122834558
+      },
+      {
+        "id": "regex-chess:37",
+        "session_id": "regex-chess:36",
+        "predecessor": "regex-chess:36",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 80322,
+        "prompt_sha256": "99babc8fcbbb54d191c8cdf20f090e6bf417df4455e633f2e4f43dc0dd153dd6",
+        "original_offered_s": 0,
+        "offered_s": 83.0747854621753
+      },
+      {
+        "id": "regex-chess:40",
+        "session_id": "regex-chess:40",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 86920,
+        "prompt_sha256": "9f486ee66705a85343d73fae20543b13c4e914e8df723e7ca59e80fa42cb6b70",
+        "original_offered_s": 0,
+        "offered_s": 3.906415603276883
+      },
+      {
+        "id": "regex-chess:41",
+        "session_id": "regex-chess:40",
+        "predecessor": "regex-chess:40",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 88172,
+        "prompt_sha256": "74315503bd4c128aa30c2108739ed928481e0af99d81b7734920431c13e157a4",
+        "original_offered_s": 0,
+        "offered_s": 82.87721344425788
+      },
+      {
+        "id": "regex-chess:42",
+        "session_id": "regex-chess:42",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 90345,
+        "prompt_sha256": "497ab8f9aeba38e44b003ad8be4a6831da65bc935b3d5cc278ae448ac6e6983e",
+        "original_offered_s": 0,
+        "offered_s": 4.0057330513951275
+      },
+      {
+        "id": "regex-chess:43",
+        "session_id": "regex-chess:42",
+        "predecessor": "regex-chess:42",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 95644,
+        "prompt_sha256": "e0b3669d2557b69b4c2873e8e29b39c9df458b188cfc28b83003b596f29d09e6",
+        "original_offered_s": 0,
+        "offered_s": 82.63076559481969
+      },
+      {
+        "id": "regex-chess:46",
+        "session_id": "regex-chess:46",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 98548,
+        "prompt_sha256": "be51aa97ca7196ea215dc40fcfcbd13fa19593dcb3a60282abce120da0609d33",
+        "original_offered_s": 0,
+        "offered_s": 4.054081635605081
+      },
+      {
+        "id": "regex-chess:47",
+        "session_id": "regex-chess:46",
+        "predecessor": "regex-chess:46",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 99478,
+        "prompt_sha256": "f7df4863b36c18db9e58cab9920d9958286e3d99854b2c2db58dc5635dc6f397",
+        "original_offered_s": 0,
+        "offered_s": 82.28695362790324
+      },
+      {
+        "id": "regex-chess:56",
+        "session_id": "regex-chess:56",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 110810,
+        "prompt_sha256": "bc5c50fc9037c579705173bdc51dc3916a99221b1c46da337f6aeb08e7d417f6",
+        "original_offered_s": 0,
+        "offered_s": 4.151478044949825
+      },
+      {
+        "id": "regex-chess:57",
+        "session_id": "regex-chess:56",
+        "predecessor": "regex-chess:56",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 111682,
+        "prompt_sha256": "0a3dc7bb0006f39126064172fa95c88c777b74a43b02958765d4c8bb45fc98ef",
+        "original_offered_s": 0,
+        "offered_s": 81.84334459082375
+      },
+      {
+        "id": "regex-chess:60",
+        "session_id": "regex-chess:60",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 115539,
+        "prompt_sha256": "a7d60329beeb7ef6bda81ec32f05fb782bdcce9d42e0f4643da11d7a9f851273",
+        "original_offered_s": 0,
+        "offered_s": 4.300499537372927
+      },
+      {
+        "id": "regex-chess:61",
+        "session_id": "regex-chess:60",
+        "predecessor": "regex-chess:60",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 116538,
+        "prompt_sha256": "f08c21d8c69d817ae76dc28dfb57c0dd33b2fab176a73abdba0f3f084c64dc6d",
+        "original_offered_s": 0,
+        "offered_s": 81.15635179262912
+      },
+      {
+        "id": "regex-chess:62",
+        "session_id": "regex-chess:62",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 118387,
+        "prompt_sha256": "3e5154e8be17fe8b67b54e64225228b653e808b0b90a23de4b597f11afb2adce",
+        "original_offered_s": 0,
+        "offered_s": 4.399903478705469
+      },
+      {
+        "id": "regex-chess:63",
+        "session_id": "regex-chess:62",
+        "predecessor": "regex-chess:62",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 121087,
+        "prompt_sha256": "4edd24eab9790a479e6fcd93df583fe0c63d90de8bb618e4ca95b4a22d1df2b8",
+        "original_offered_s": 0,
+        "offered_s": 81.00840456451621
+      },
+      {
+        "id": "regex-chess:78",
+        "session_id": "regex-chess:78",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 147280,
+        "prompt_sha256": "2e96d7892deb10a9967772c3f73c8e60faa5c2da997938b0c86c10271b08ae6b",
+        "original_offered_s": 0,
+        "offered_s": 4.493935496886056
+      },
+      {
+        "id": "regex-chess:79",
+        "session_id": "regex-chess:78",
+        "predecessor": "regex-chess:78",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 149259,
+        "prompt_sha256": "6a148648d0ec8dff75aca3d8a07b32b19d245760a92d0ee8e64e01bb0d4a7e06",
+        "original_offered_s": 0,
+        "offered_s": 80.9046026736525
+      },
+      {
+        "id": "regex-chess:81",
+        "session_id": "regex-chess:81",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 152997,
+        "prompt_sha256": "9d07d72b2473ccb2542875c021e332965eccb025b36c11638a0c23aaf28af6f1",
+        "original_offered_s": 0,
+        "offered_s": 4.642742380207244
+      },
+      {
+        "id": "regex-chess:82",
+        "session_id": "regex-chess:81",
+        "predecessor": "regex-chess:81",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 154814,
+        "prompt_sha256": "0f99fde354bae109628cd548afac83834777cab08b907a6456fbff1ff4fedd5d",
+        "original_offered_s": 0,
+        "offered_s": 80.51144053663451
+      },
+      {
+        "id": "regex-chess:92",
+        "session_id": "regex-chess:92",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 172559,
+        "prompt_sha256": "4283aaa3f2fb21868f20a2fe4cb0f368f9de34fed97a71c0237e55dfda53ff53",
+        "original_offered_s": 0,
+        "offered_s": 4.738643021573924
+      },
+      {
+        "id": "regex-chess:93",
+        "session_id": "regex-chess:92",
+        "predecessor": "regex-chess:92",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 174329,
+        "prompt_sha256": "cd3231b7f5360bc64105c03b268b14f5841f56349d384519f789b2ada39a2516",
+        "original_offered_s": 0,
+        "offered_s": 80.45835132134174
+      },
+      {
+        "id": "regex-chess:97",
+        "session_id": "regex-chess:97",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 182135,
+        "prompt_sha256": "40015639dd811c0bfad2d92be1d4e85f08c89efd295cc64bc078deca434e3eb0",
+        "original_offered_s": 0,
+        "offered_s": 4.836608307432123
+      },
+      {
+        "id": "regex-chess:98",
+        "session_id": "regex-chess:97",
+        "predecessor": "regex-chess:97",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 185843,
+        "prompt_sha256": "b22af2253c6639a012e4531f69f3b4512506082b2a2d34df419466954b5618e4",
+        "original_offered_s": 0,
+        "offered_s": 80.35793815566608
+      },
+      {
+        "id": "regex-chess:102",
+        "session_id": "regex-chess:102",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 191554,
+        "prompt_sha256": "ebdb972360b4e2d9c8757ef181af2786005e4c6acd9e3b687ce574bb6c410a41",
+        "original_offered_s": 0,
+        "offered_s": 4.9846669819775125
+      },
+      {
+        "id": "regex-chess:103",
+        "session_id": "regex-chess:102",
+        "predecessor": "regex-chess:102",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 192315,
+        "prompt_sha256": "64f595104f3190e31635f19b0568543de87e6744e11c9907ba9f6c1ccf620dde",
+        "original_offered_s": 0,
+        "offered_s": 80.25856765544553
+      },
+      {
+        "id": "regex-chess:109",
+        "session_id": "regex-chess:109",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 206277,
+        "prompt_sha256": "a154cee4b85a94034da67d9e4c7025f2ff62fe8ba5751aac7af5d5fb822a8c25",
+        "original_offered_s": 0,
+        "offered_s": 5.081550827837407
+      },
+      {
+        "id": "regex-chess:110",
+        "session_id": "regex-chess:109",
+        "predecessor": "regex-chess:109",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 207667,
+        "prompt_sha256": "84d92102612bb39e0c133b52e715a490480165d348e2284a4f28732d11be88fc",
+        "original_offered_s": 0,
+        "offered_s": 80.10830085021291
+      },
+      {
+        "id": "regex-chess:113",
+        "session_id": "regex-chess:113",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 210648,
+        "prompt_sha256": "d5e890b8c8db99c009a6705e1d39d421a18208ac7889d4fc4ee63cd6a28555e7",
+        "original_offered_s": 0,
+        "offered_s": 5.230592507007231
+      },
+      {
+        "id": "regex-chess:114",
+        "session_id": "regex-chess:113",
+        "predecessor": "regex-chess:113",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 212207,
+        "prompt_sha256": "975af816a5d1ed453f28d6bf111a765241e46a3a12d3a436d6e39cecaa37295d",
+        "original_offered_s": 0,
+        "offered_s": 79.66630875155903
+      },
+      {
+        "id": "regex-chess:119",
+        "session_id": "regex-chess:119",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 221610,
+        "prompt_sha256": "c653135b63d5c8ec03fdd6540aae2c8e9534daf2da02d5e2ad36e82383e1e986",
+        "original_offered_s": 0,
+        "offered_s": 5.378213468925668
+      },
+      {
+        "id": "regex-chess:120",
+        "session_id": "regex-chess:119",
+        "predecessor": "regex-chess:119",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 223256,
+        "prompt_sha256": "9ffa4e0cbe5004210049a210726c7b6bd1aa8a03976ac29fc29affa3577b2c83",
+        "original_offered_s": 0,
+        "offered_s": 79.41891442351583
+      },
+      {
+        "id": "regex-chess:125",
+        "session_id": "regex-chess:125",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 234545,
+        "prompt_sha256": "525aa662102cc0294628209d108264adb876e8e74619d3fea2da773e279383eb",
+        "original_offered_s": 0,
+        "offered_s": 5.475427947713935
+      },
+      {
+        "id": "regex-chess:126",
+        "session_id": "regex-chess:125",
+        "predecessor": "regex-chess:125",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 236648,
+        "prompt_sha256": "7aedb615ce5b0d1d53c27a831fe01469c96faf9923a3237c9a4b59f42a0fe0dc",
+        "original_offered_s": 0,
+        "offered_s": 78.73006884173587
+      },
+      {
+        "id": "regex-chess:128",
+        "session_id": "regex-chess:128",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 242823,
+        "prompt_sha256": "41889da7b40db35097e75bd709a247724068cd7dde7903472d3f7e14f01cfe8e",
+        "original_offered_s": 0,
+        "offered_s": 5.6738444373417
+      },
+      {
+        "id": "regex-chess:129",
+        "session_id": "regex-chess:128",
+        "predecessor": "regex-chess:128",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 243466,
+        "prompt_sha256": "36e8f13d79fdd097664d03cf1e6bf03e32222bf9305faafd20caeeab7b2f2e21",
+        "original_offered_s": 0,
+        "offered_s": 78.14077364207797
+      },
+      {
+        "id": "regex-chess:132",
+        "session_id": "regex-chess:132",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 247155,
+        "prompt_sha256": "5b7780b0778dc5290e5a8b53cdb96b6e4a2764700a4e5981e440d318c8967807",
+        "original_offered_s": 0,
+        "offered_s": 5.822973209332161
+      },
+      {
+        "id": "regex-chess:133",
+        "session_id": "regex-chess:132",
+        "predecessor": "regex-chess:132",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 247315,
+        "prompt_sha256": "2d0dc5a2be1b850f97c6cb64cf95b4e9905373d86cb15f764d8fee1a895806e5",
+        "original_offered_s": 0,
+        "offered_s": 78.0
+      },
+      {
+        "id": "winning-avg-corewars:50",
+        "session_id": "winning-avg-corewars:50",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 76985,
+        "prompt_sha256": "4c81bd7dda730d603db56f702141c2c4207c4c402035bc8c653a43e17af283e8",
+        "original_offered_s": 0,
+        "offered_s": 5.758585428713579
+      },
+      {
+        "id": "winning-avg-corewars:51",
+        "session_id": "winning-avg-corewars:50",
+        "predecessor": "winning-avg-corewars:50",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 78607,
+        "prompt_sha256": "e483dad27307635fba6f00710b26daaef436958205814e044e8c4d6d77372a94",
+        "original_offered_s": 0,
+        "offered_s": 82.83030402172353
+      },
+      {
+        "id": "winning-avg-corewars:87",
+        "session_id": "winning-avg-corewars:87",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 131449,
+        "prompt_sha256": "de6cf1100eb98af8274366f15de48c61893454e3b64f056d063cea6a5b4d9a6d",
+        "original_offered_s": 0,
+        "offered_s": 5.797016074383423
+      },
+      {
+        "id": "winning-avg-corewars:88",
+        "session_id": "winning-avg-corewars:87",
+        "predecessor": "winning-avg-corewars:87",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 132065,
+        "prompt_sha256": "59471ea1a925bc1c050d5180f274d3a20f21ae1b5a65206c1d980f45b318240d",
+        "original_offered_s": 0,
+        "offered_s": 82.57394752764347
+      },
+      {
+        "id": "winning-avg-corewars:116",
+        "session_id": "winning-avg-corewars:116",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 180263,
+        "prompt_sha256": "1ab76cdf7c0c697fe9e60b6225c18b86a717df8e388935a1adb6076bef56812c",
+        "original_offered_s": 0,
+        "offered_s": 5.886837057250183
+      },
+      {
+        "id": "winning-avg-corewars:117",
+        "session_id": "winning-avg-corewars:116",
+        "predecessor": "winning-avg-corewars:116",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 180650,
+        "prompt_sha256": "fd047648ace3526d6720113d1628d9d085c4e70a9f4dba317371531e6d8beb94",
+        "original_offered_s": 0,
+        "offered_s": 80.06481667888607
+      }
+    ]
+  },
+  "settings": {
+    "model": "Qwen3.5-35B-A3B",
+    "attention_TP": 4,
+    "expert_parallel": true,
+    "DP": 1,
+    "serving_observer": false,
+    "D_egress_ports": 8,
+    "D_pool_GiB": 128,
+    "P_pool_GiB": 0,
+    "engines": {
+      "P": {
+        "devices": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "enable_prefix_caching": true,
+        "max_num_seqs": 16,
+        "max_num_batched_tokens": 4096,
+        "gpu_memory_utilization": 0.8,
+        "compilation_config": {
+          "cudagraph_capture_sizes": [
+            1,
+            2,
+            4,
+            8,
+            16,
+            1024,
+            2048,
+            3072,
+            4096
+          ]
+        }
+      },
+      "D": {
+        "devices": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "enable_prefix_caching": true,
+        "max_num_seqs": 16,
+        "max_num_batched_tokens": 4096,
+        "gpu_memory_utilization": 0.8,
+        "compilation_config": {
+          "cudagraph_mode": "FULL_DECODE_ONLY",
+          "cudagraph_capture_sizes": [
+            1,
+            2,
+            4,
+            8,
+            16
+          ]
+        },
+        "recompute_scheduler_enable": true
+      }
+    }
+  },
+  "shaping": "D egress only across eight equal port limits; all eight P ports read-only at original 200000 Mbps",
+  "software": {
+    "P": {
+      "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+      "ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd",
+      "mooncake": "0.3.11.post1"
+    },
+    "D": {
+      "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+      "ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd",
+      "mooncake": "0.3.11.post1"
+    },
+    "model_hashes": {
+      "config.json": "5e4d7f74fec2f360eb9cfbfcd6ec0c4c76e684d3a11caaed259d9fd9bfbc7944",
+      "tokenizer.json": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+      "model.safetensors.index.json": "d8d0b7ca4e61ae107e3e87a3ff21136b3ac7c789e64bb24267227ca804e04205"
+    }
+  },
+  "deployment_audit": {
+    "P": {
+      "intended_argv_devices_and_store_verified": true,
+      "observers_enabled": false,
+      "eager_false_log_count": 2,
+      "graph_mode_logged": true,
+      "software": {
+        "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+        "ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd",
+        "mooncake": "0.3.11.post1"
+      },
+      "native_scheduler": null
+    },
+    "D": {
+      "intended_argv_devices_and_store_verified": true,
+      "observers_enabled": false,
+      "eager_false_log_count": 2,
+      "graph_mode_logged": true,
+      "software": {
+        "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+        "ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd",
+        "mooncake": "0.3.11.post1"
+      },
+      "native_scheduler": "vllm_ascend.core.recompute_scheduler.AsyncRecomputeScheduler"
+    }
+  },
+  "bundle_sha256": {
+    "P": "7a1f953e8673c347541c352eb1a785e1168f84a7a289545954b49a6a6088d83b",
+    "D": "c9ea285dc6d0928cb8f789901b3aca7648e999cc9af616ff548959d1ec863641"
+  },
+  "P_clock_tracking": {
+    "b1-cap100": "Reference ID    : CA760151 (time.neu.edu.cn)\nStratum         : 2\nRef time (UTC)  : Sat Nov 21 23:54:55 2026\nSystem time     : 0.000315341 seconds slow of NTP time\nLast offset     : -0.000070992 seconds\nRMS offset      : 0.000351940 seconds\nFrequency       : 11.591 ppm slow\nResidual freq   : +0.002 ppm\nSkew            : 0.147 ppm\nRoot delay      : 0.039291602 seconds\nRoot dispersion : 0.001031544 seconds\nUpdate interval : 1028.3 seconds\nLeap status     : Normal\n",
+    "b1-cap200": "Reference ID    : CA760151 (time.neu.edu.cn)\nStratum         : 2\nRef time (UTC)  : Sat Nov 21 23:54:55 2026\nSystem time     : 0.000305442 seconds slow of NTP time\nLast offset     : -0.000070992 seconds\nRMS offset      : 0.000351940 seconds\nFrequency       : 11.591 ppm slow\nResidual freq   : +0.002 ppm\nSkew            : 0.147 ppm\nRoot delay      : 0.039291602 seconds\nRoot dispersion : 0.001374696 seconds\nUpdate interval : 1028.3 seconds\nLeap status     : Normal\n",
+    "b2-cap200": "Reference ID    : CA760151 (time.neu.edu.cn)\nStratum         : 2\nRef time (UTC)  : Sun Nov 22 00:12:16 2026\nSystem time     : 0.000281180 seconds slow of NTP time\nLast offset     : +0.000014953 seconds\nRMS offset      : 0.000333913 seconds\nFrequency       : 11.583 ppm slow\nResidual freq   : +0.002 ppm\nSkew            : 0.132 ppm\nRoot delay      : 0.039291602 seconds\nRoot dispersion : 0.000728084 seconds\nUpdate interval : 1039.5 seconds\nLeap status     : Normal\n",
+    "b2-cap100": "Reference ID    : CA760151 (time.neu.edu.cn)\nStratum         : 2\nRef time (UTC)  : Sun Nov 22 00:12:16 2026\nSystem time     : 0.000272903 seconds slow of NTP time\nLast offset     : +0.000014953 seconds\nRMS offset      : 0.000333913 seconds\nFrequency       : 11.583 ppm slow\nResidual freq   : +0.002 ppm\nSkew            : 0.132 ppm\nRoot delay      : 0.039291602 seconds\nRoot dispersion : 0.001126304 seconds\nUpdate interval : 1039.5 seconds\nLeap status     : Normal\n"
+  },
+  "artifacts": {
+    "r67-events.jsonl.gz": {
+      "sha256": "09e76a5c66fada6bd9842e3149c576bf2eba7a904012a6ce2c31c823aeb49a5e",
+      "bytes": 791800
+    },
+    "summary.json": {
+      "sha256": "4de855ecdf78a862916ed386d78e1cabbfa85ac0d3babbe5b0b57e8dd2c5d968",
+      "bytes": 77378
+    },
+    "checkpoint-attribution.json": {
+      "sha256": "bcb0fa7759988d7639be61c4be7a64aada4956dfee92b9adab5acc6a921d8422",
+      "bytes": 168700
+    },
+    "store-publish-diagnostic.json": {
+      "sha256": "0a1819f07d12101dd8c47040c75c2637f4ecd11fd7616bb2e93c275ddf2b1c4a",
+      "bytes": 1714
+    }
+  },
+  "controller_sha256": {
+    "P": {
+      "node_guard.py": "97705fed4333e552798184f9f386d02604baa55a9276efb4067dfae11c4c52c4"
+    },
+    "D": {
+      "node_guard.py": "97705fed4333e552798184f9f386d02604baa55a9276efb4067dfae11c4c52c4",
+      "control.py": "7d30a1d28b3d52d9d8c515a951092a58af8ffab720b5a76a6abc5133ff116ffa",
+      "run_pair.py": "36a58dd0062e60607d70a2bbd0557cc279b331927726dcb577d38e40473c3db1",
+      "replay.py": "a0e387948eda28c5927aff8e38906024d970f9362fd7ddeeb78b51a34737565d"
+    }
+  },
+  "release": {
+    "P": {
+      "stage": "finished",
+      "npu_idle": true,
+      "port_configuration_Mbps": [
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000
+      ]
+    },
+    "D": {
+      "stage": "finished",
+      "npu_idle": true,
+      "port_configuration_Mbps": [
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000
+      ]
+    }
+  }
+}

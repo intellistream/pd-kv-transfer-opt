@@ -1,0 +1,2610 @@
+{
+  "run_id": "2p2d-20261121-r72-restore-roots-d-egress-a1",
+  "baseline_commit": "5d591893ca8c7adc03c797068b44ad43dad27398",
+  "verified_published_tree": "283f3a1bd973d25b10f1fbf0bd852d2fe682a044",
+  "independent_method_pass": false,
+  "case_order": [
+    "b1-cap100",
+    "b1-cap200",
+    "b2-cap200",
+    "b2-cap100"
+  ],
+  "event_trace": "r72-events.jsonl.gz",
+  "workload": {
+    "workload_type": "terminal_source_restore_pairs",
+    "source_repo": "openguardrails/terminal-bench-2.1-deepseek-v4-flash-trajectories",
+    "source_revision": "3f5b93ff1c5ea84b2c94cf479d0c942227191b4a",
+    "source_workload_sha256": "24873461882ce61d0c424062c4751abb69ecdab3e0c8874213138f5025ceaa43",
+    "tokenizer_fingerprint": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+    "parent_requests_sha256": "a6ac659b0792e2e3bb62eb0ddf442a4f01de764d0e4481236017aa5177de3863",
+    "requests": 102,
+    "sessions": 51,
+    "last_session_start_s": 26.479701761139832,
+    "pressure_window_s": [
+      25.0,
+      61.0
+    ],
+    "ignore_eos": false,
+    "temperature": 0,
+    "tool_gap_policy": "Use the prior Terminal-Bench replay policy of zero additional tool delay",
+    "max_tokens_policy": "Original Qwen replay budget rule max(8192, source completion tokens), with natural EOS",
+    "route_policy": "upstream native without route override",
+    "arrival_policy": "Every original root is a timed request with its own original successor. Some roots are offered earlier than other sibling roots with a compatible original checkpoint. The later root and successor waves are fixed. Every successor still waits for its own original predecessor.",
+    "selection": {
+      "pairs": [
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:57",
+          "successor": "caffe-cifar-10:58",
+          "checkpoint_blocks": 66,
+          "potential_GET_bytes": 2832629760,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:57": 1084,
+            "caffe-cifar-10:58": 231
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:64",
+          "successor": "caffe-cifar-10:65",
+          "checkpoint_blocks": 77,
+          "potential_GET_bytes": 3294003200,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:64": 1473,
+            "caffe-cifar-10:65": 372
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:67",
+          "successor": "caffe-cifar-10:68",
+          "checkpoint_blocks": 81,
+          "potential_GET_bytes": 3461775360,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:67": 227,
+            "caffe-cifar-10:68": 162
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:71",
+          "successor": "caffe-cifar-10:72",
+          "checkpoint_blocks": 87,
+          "potential_GET_bytes": 3713433600,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:71": 288,
+            "caffe-cifar-10:72": 192
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:73",
+          "successor": "caffe-cifar-10:74",
+          "checkpoint_blocks": 89,
+          "potential_GET_bytes": 3797319680,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:73": 195,
+            "caffe-cifar-10:74": 297
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:76",
+          "successor": "caffe-cifar-10:77",
+          "checkpoint_blocks": 97,
+          "potential_GET_bytes": 4132864000,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:76": 273,
+            "caffe-cifar-10:77": 206
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:78",
+          "successor": "caffe-cifar-10:79",
+          "checkpoint_blocks": 101,
+          "potential_GET_bytes": 4300636160,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:78": 191,
+            "caffe-cifar-10:79": 1487
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:81",
+          "successor": "caffe-cifar-10:82",
+          "checkpoint_blocks": 103,
+          "potential_GET_bytes": 4384522240,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:81": 106,
+            "caffe-cifar-10:82": 221
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:83",
+          "successor": "caffe-cifar-10:84",
+          "checkpoint_blocks": 105,
+          "potential_GET_bytes": 4468408320,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:83": 102,
+            "caffe-cifar-10:84": 181
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:86",
+          "successor": "caffe-cifar-10:87",
+          "checkpoint_blocks": 106,
+          "potential_GET_bytes": 4510351360,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:86": 110,
+            "caffe-cifar-10:87": 99
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:88",
+          "successor": "caffe-cifar-10:89",
+          "checkpoint_blocks": 108,
+          "potential_GET_bytes": 4594237440,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:88": 186,
+            "caffe-cifar-10:89": 104
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:91",
+          "successor": "caffe-cifar-10:92",
+          "checkpoint_blocks": 109,
+          "potential_GET_bytes": 4636180480,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:91": 103,
+            "caffe-cifar-10:92": 182
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:93",
+          "successor": "caffe-cifar-10:94",
+          "checkpoint_blocks": 110,
+          "potential_GET_bytes": 4678123520,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:93": 101,
+            "caffe-cifar-10:94": 176
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:95",
+          "successor": "caffe-cifar-10:96",
+          "checkpoint_blocks": 111,
+          "potential_GET_bytes": 4720066560,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:95": 114,
+            "caffe-cifar-10:96": 108
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:97",
+          "successor": "caffe-cifar-10:98",
+          "checkpoint_blocks": 112,
+          "potential_GET_bytes": 4762009600,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:97": 111,
+            "caffe-cifar-10:98": 232
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:101",
+          "successor": "caffe-cifar-10:102",
+          "checkpoint_blocks": 114,
+          "potential_GET_bytes": 4845895680,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:101": 117,
+            "caffe-cifar-10:102": 231
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:103",
+          "successor": "caffe-cifar-10:104",
+          "checkpoint_blocks": 117,
+          "potential_GET_bytes": 4971724800,
+          "estimated_output_tokens": {
+            "caffe-cifar-10:103": 111,
+            "caffe-cifar-10:104": 468
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:58",
+          "successor": "extract-moves-from-video:59",
+          "checkpoint_blocks": 64,
+          "potential_GET_bytes": 2748743680,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:58": 427,
+            "extract-moves-from-video:59": 819
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:60",
+          "successor": "extract-moves-from-video:61",
+          "checkpoint_blocks": 66,
+          "potential_GET_bytes": 2832629760,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:60": 1079,
+            "extract-moves-from-video:61": 1053
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:62",
+          "successor": "extract-moves-from-video:63",
+          "checkpoint_blocks": 68,
+          "potential_GET_bytes": 2916515840,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:62": 1117,
+            "extract-moves-from-video:63": 880
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:64",
+          "successor": "extract-moves-from-video:65",
+          "checkpoint_blocks": 69,
+          "potential_GET_bytes": 2958458880,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:64": 902,
+            "extract-moves-from-video:65": 799
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:66",
+          "successor": "extract-moves-from-video:67",
+          "checkpoint_blocks": 71,
+          "potential_GET_bytes": 3042344960,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:66": 533,
+            "extract-moves-from-video:67": 1358
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:68",
+          "successor": "extract-moves-from-video:69",
+          "checkpoint_blocks": 72,
+          "potential_GET_bytes": 3084288000,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:68": 857,
+            "extract-moves-from-video:69": 646
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:72",
+          "successor": "extract-moves-from-video:73",
+          "checkpoint_blocks": 76,
+          "potential_GET_bytes": 3252060160,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:72": 138.0,
+            "extract-moves-from-video:73": 152.5
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:74",
+          "successor": "extract-moves-from-video:75",
+          "checkpoint_blocks": 77,
+          "potential_GET_bytes": 3294003200,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:74": 407,
+            "extract-moves-from-video:75": 1262
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:93",
+          "successor": "extract-moves-from-video:94",
+          "checkpoint_blocks": 93,
+          "potential_GET_bytes": 3965091840,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:93": 146,
+            "extract-moves-from-video:94": 146
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:102",
+          "successor": "extract-moves-from-video:103",
+          "checkpoint_blocks": 102,
+          "potential_GET_bytes": 4342579200,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:102": 186,
+            "extract-moves-from-video:103": 1402
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:109",
+          "successor": "extract-moves-from-video:110",
+          "checkpoint_blocks": 112,
+          "potential_GET_bytes": 4762009600,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:109": 400,
+            "extract-moves-from-video:110": 120
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:134",
+          "successor": "extract-moves-from-video:135",
+          "checkpoint_blocks": 130,
+          "potential_GET_bytes": 5516984320,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:134": 352,
+            "extract-moves-from-video:135": 259
+          }
+        },
+        {
+          "task": "extract-moves-from-video",
+          "root": "extract-moves-from-video:153",
+          "successor": "extract-moves-from-video:154",
+          "checkpoint_blocks": 143,
+          "potential_GET_bytes": 6062243840,
+          "estimated_output_tokens": {
+            "extract-moves-from-video:153": 1339,
+            "extract-moves-from-video:154": 428
+          }
+        },
+        {
+          "task": "financial-document-processor",
+          "root": "financial-document-processor:63",
+          "successor": "financial-document-processor:64",
+          "checkpoint_blocks": 71,
+          "potential_GET_bytes": 3042344960,
+          "estimated_output_tokens": {
+            "financial-document-processor:63": 143.0,
+            "financial-document-processor:64": 113.0
+          }
+        },
+        {
+          "task": "financial-document-processor",
+          "root": "financial-document-processor:66",
+          "successor": "financial-document-processor:67",
+          "checkpoint_blocks": 72,
+          "potential_GET_bytes": 3084288000,
+          "estimated_output_tokens": {
+            "financial-document-processor:66": 177,
+            "financial-document-processor:67": 188
+          }
+        },
+        {
+          "task": "financial-document-processor",
+          "root": "financial-document-processor:69",
+          "successor": "financial-document-processor:70",
+          "checkpoint_blocks": 73,
+          "potential_GET_bytes": 3126231040,
+          "estimated_output_tokens": {
+            "financial-document-processor:69": 119,
+            "financial-document-processor:70": 212
+          }
+        },
+        {
+          "task": "financial-document-processor",
+          "root": "financial-document-processor:72",
+          "successor": "financial-document-processor:73",
+          "checkpoint_blocks": 74,
+          "potential_GET_bytes": 3168174080,
+          "estimated_output_tokens": {
+            "financial-document-processor:72": 144,
+            "financial-document-processor:73": 398
+          }
+        },
+        {
+          "task": "financial-document-processor",
+          "root": "financial-document-processor:75",
+          "successor": "financial-document-processor:76",
+          "checkpoint_blocks": 75,
+          "potential_GET_bytes": 3210117120,
+          "estimated_output_tokens": {
+            "financial-document-processor:75": 163,
+            "financial-document-processor:76": 170
+          }
+        },
+        {
+          "task": "financial-document-processor",
+          "root": "financial-document-processor:79",
+          "successor": "financial-document-processor:80",
+          "checkpoint_blocks": 76,
+          "potential_GET_bytes": 3252060160,
+          "estimated_output_tokens": {
+            "financial-document-processor:79": 166,
+            "financial-document-processor:80": 157
+          }
+        },
+        {
+          "task": "financial-document-processor",
+          "root": "financial-document-processor:81",
+          "successor": "financial-document-processor:82",
+          "checkpoint_blocks": 77,
+          "potential_GET_bytes": 3294003200,
+          "estimated_output_tokens": {
+            "financial-document-processor:81": 174,
+            "financial-document-processor:82": 907
+          }
+        },
+        {
+          "task": "financial-document-processor",
+          "root": "financial-document-processor:83",
+          "successor": "financial-document-processor:84",
+          "checkpoint_blocks": 78,
+          "potential_GET_bytes": 3335946240,
+          "estimated_output_tokens": {
+            "financial-document-processor:83": 112.0,
+            "financial-document-processor:84": 94.0
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:50",
+          "successor": "make-mips-interpreter:51",
+          "checkpoint_blocks": 71,
+          "potential_GET_bytes": 3042344960,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:50": 847,
+            "make-mips-interpreter:51": 241
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:56",
+          "successor": "make-mips-interpreter:57",
+          "checkpoint_blocks": 88,
+          "potential_GET_bytes": 3755376640,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:56": 134,
+            "make-mips-interpreter:57": 458
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:60",
+          "successor": "make-mips-interpreter:61",
+          "checkpoint_blocks": 91,
+          "potential_GET_bytes": 3881205760,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:60": 309,
+            "make-mips-interpreter:61": 1320
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:63",
+          "successor": "make-mips-interpreter:64",
+          "checkpoint_blocks": 93,
+          "potential_GET_bytes": 3965091840,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:63": 1406,
+            "make-mips-interpreter:64": 810
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:67",
+          "successor": "make-mips-interpreter:68",
+          "checkpoint_blocks": 98,
+          "potential_GET_bytes": 4174807040,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:67": 1523,
+            "make-mips-interpreter:68": 894
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:69",
+          "successor": "make-mips-interpreter:70",
+          "checkpoint_blocks": 101,
+          "potential_GET_bytes": 4300636160,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:69": 1438,
+            "make-mips-interpreter:70": 1181
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:80",
+          "successor": "make-mips-interpreter:81",
+          "checkpoint_blocks": 118,
+          "potential_GET_bytes": 5013667840,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:80": 398,
+            "make-mips-interpreter:81": 67
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:82",
+          "successor": "make-mips-interpreter:83",
+          "checkpoint_blocks": 116,
+          "potential_GET_bytes": 4929781760,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:82": 61,
+            "make-mips-interpreter:83": 1149
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:87",
+          "successor": "make-mips-interpreter:88",
+          "checkpoint_blocks": 121,
+          "potential_GET_bytes": 5139496960,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:87": 139,
+            "make-mips-interpreter:88": 390
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:90",
+          "successor": "make-mips-interpreter:91",
+          "checkpoint_blocks": 129,
+          "potential_GET_bytes": 5475041280,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:90": 289.0,
+            "make-mips-interpreter:91": 308.0
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:94",
+          "successor": "make-mips-interpreter:95",
+          "checkpoint_blocks": 134,
+          "potential_GET_bytes": 5684756480,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:94": 457,
+            "make-mips-interpreter:95": 474
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:96",
+          "successor": "make-mips-interpreter:97",
+          "checkpoint_blocks": 135,
+          "potential_GET_bytes": 5726699520,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:96": 176,
+            "make-mips-interpreter:97": 325
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:98",
+          "successor": "make-mips-interpreter:99",
+          "checkpoint_blocks": 138,
+          "potential_GET_bytes": 5852528640,
+          "estimated_output_tokens": {
+            "make-mips-interpreter:98": 150,
+            "make-mips-interpreter:99": 367
+          }
+        }
+      ],
+      "source_ledger_sha256": "24873461882ce61d0c424062c4751abb69ecdab3e0c8874213138f5025ceaa43",
+      "source_output_sha256": "eb8d5fcc8b7730165616dd0d2e30f247db5aa722384902af8a7a0b3fb213945a",
+      "historical_outcomes": {
+        "2026-11-20-r43-native-decode-apc": {
+          "trace_sha256": "a169b7c1d53d89ac4bbc8a6d2f5d8ea6daf6a9cfc10c696c33d3a44df4e6d2e8",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-21-r48-terminal-handoff-extended-symmetric": {
+          "trace_sha256": "e311c91f4efa1e1e243aa4df7b3f8b7900355ef1158cbd0ae3e77eac6507c7cf",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r58-terminal-restore-bursts-dense-d-egress": {
+          "trace_sha256": "f2f1e0de2c6be50dfe36d54fde0ea6749465f278468188cbaf95ffa85dc9e876",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r60-terminal-source-restore-pairs": {
+          "trace_sha256": "da361989f663c02a63983512be6727e9a8445ea76da3e2c2a83841130e79f74f",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r61-terminal-source-restore-gap": {
+          "trace_sha256": "ff7ca58f3260e7e073cc79df9a448cbacc9ed65c085b244bd357e2c446d6b773",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r62-terminal-source-restore-scale": {
+          "trace_sha256": "f8c1c7c8c3d6efab522b9a987801708892204c687f862f165f48382b06fa67b4",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r63-terminal-source-restore-paced": {
+          "trace_sha256": "97d4959861e5c05b85a7df97fe29554981cb29368405ff494e9601eb361ab723",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r64-terminal-source-restore-priority": {
+          "trace_sha256": "bcd5bac0f9e8576bba7967cb98ac2f812590135d133cf74edcddf3c5a486ef85",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r65-terminal-source-restore-overlap": {
+          "trace_sha256": "83e9c143cf962c99d65f0d220ddfb97fcafb287f0b4d67f80fab22b95459e80d",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r66-terminal-source-restore-checkpoints": {
+          "trace_sha256": "f53b421b35028b3e7d6c75228e39d05394eb685328c628efd48f3256129b8cda",
+          "cases": [
+            "b1-cap100"
+          ]
+        }
+      },
+      "shared_prefix_floor_tokens": 65536,
+      "max_source_output": 1536,
+      "max_observed_output": 1400,
+      "excluded_requests": [
+        "make-mips-interpreter:84",
+        "regex-chess:64",
+        "regex-chess:65"
+      ],
+      "shared_root_tokens_upper_by_task": {
+        "caffe-cifar-10": 132492,
+        "extract-moves-from-video": 162549,
+        "financial-document-processor": 86363,
+        "make-mips-interpreter": 176841
+      },
+      "admission_fit": {
+        "offset_s": 0.006145089003484275,
+        "s_per_byte": 4.996719485769583e-08,
+        "samples": 219,
+        "p95_absolute_residual_ms": 6.015305820199226,
+        "r66_observation_sha256": {
+          "r66-events.jsonl.gz": "f53b421b35028b3e7d6c75228e39d05394eb685328c628efd48f3256129b8cda",
+          "r66-interrupted-events.jsonl.gz": "3359390fbe99e76f873a5482133e19fa4b65a32f9ea9761529c2487be47168e9"
+        }
+      }
+    },
+    "arrival_order_screen": {
+      "full_restore_upper_bytes": 293520179200,
+      "new_order_estimated_GET_bytes": 146495733760,
+      "full_GET_by_relative_successor_first_P": {
+        "same_as_roots": 103931248640,
+        "opposite_to_roots": 103405486080
+      },
+      "projected_root_P": {
+        "caffe-cifar-10:64": "P0",
+        "extract-moves-from-video:60": "P1",
+        "extract-moves-from-video:62": "P1",
+        "caffe-cifar-10:71": "P0",
+        "extract-moves-from-video:64": "P1",
+        "caffe-cifar-10:76": "P0",
+        "extract-moves-from-video:68": "P1",
+        "caffe-cifar-10:81": "P0",
+        "extract-moves-from-video:74": "P1",
+        "extract-moves-from-video:134": "P1",
+        "caffe-cifar-10:86": "P0",
+        "caffe-cifar-10:91": "P0",
+        "make-mips-interpreter:50": "P1",
+        "make-mips-interpreter:56": "P1",
+        "caffe-cifar-10:95": "P0",
+        "make-mips-interpreter:67": "P1",
+        "caffe-cifar-10:101": "P0",
+        "make-mips-interpreter:80": "P1",
+        "financial-document-processor:69": "P0",
+        "make-mips-interpreter:96": "P1",
+        "financial-document-processor:75": "P0",
+        "financial-document-processor:81": "P0",
+        "financial-document-processor:83": "P0",
+        "extract-moves-from-video:153": "P1",
+        "caffe-cifar-10:103": "P0",
+        "caffe-cifar-10:97": "P1",
+        "caffe-cifar-10:93": "P0",
+        "make-mips-interpreter:98": "P1",
+        "make-mips-interpreter:82": "P0",
+        "caffe-cifar-10:88": "P1",
+        "caffe-cifar-10:83": "P0",
+        "make-mips-interpreter:69": "P1",
+        "make-mips-interpreter:60": "P0",
+        "extract-moves-from-video:93": "P1",
+        "make-mips-interpreter:94": "P0",
+        "financial-document-processor:79": "P1",
+        "caffe-cifar-10:78": "P0",
+        "financial-document-processor:72": "P1",
+        "extract-moves-from-video:72": "P1",
+        "extract-moves-from-video:66": "P0",
+        "caffe-cifar-10:73": "P1",
+        "extract-moves-from-video:102": "P0",
+        "caffe-cifar-10:67": "P1",
+        "extract-moves-from-video:109": "P0",
+        "caffe-cifar-10:57": "P1",
+        "extract-moves-from-video:58": "P0",
+        "financial-document-processor:63": "P1",
+        "financial-document-processor:66": "P0",
+        "make-mips-interpreter:63": "P1",
+        "make-mips-interpreter:87": "P0",
+        "make-mips-interpreter:90": "P1"
+      },
+      "projected_successor_P": {
+        "make-mips-interpreter:99": "P0",
+        "extract-moves-from-video:154": "P1",
+        "caffe-cifar-10:104": "P0",
+        "caffe-cifar-10:102": "P1",
+        "financial-document-processor:84": "P0",
+        "financial-document-processor:82": "P1",
+        "extract-moves-from-video:135": "P0",
+        "make-mips-interpreter:97": "P1",
+        "make-mips-interpreter:95": "P0",
+        "extract-moves-from-video:110": "P1",
+        "extract-moves-from-video:103": "P1",
+        "caffe-cifar-10:98": "P0",
+        "make-mips-interpreter:91": "P1",
+        "caffe-cifar-10:96": "P0",
+        "caffe-cifar-10:94": "P1",
+        "financial-document-processor:80": "P0",
+        "make-mips-interpreter:88": "P0",
+        "extract-moves-from-video:94": "P1",
+        "caffe-cifar-10:92": "P1",
+        "make-mips-interpreter:81": "P0",
+        "extract-moves-from-video:75": "P1",
+        "caffe-cifar-10:89": "P0",
+        "extract-moves-from-video:73": "P1",
+        "financial-document-processor:76": "P0",
+        "caffe-cifar-10:87": "P1",
+        "make-mips-interpreter:83": "P0",
+        "caffe-cifar-10:84": "P1",
+        "make-mips-interpreter:70": "P0",
+        "make-mips-interpreter:68": "P1",
+        "caffe-cifar-10:82": "P0",
+        "make-mips-interpreter:64": "P1",
+        "extract-moves-from-video:69": "P0",
+        "caffe-cifar-10:79": "P1",
+        "extract-moves-from-video:67": "P0",
+        "extract-moves-from-video:65": "P0",
+        "financial-document-processor:73": "P1",
+        "make-mips-interpreter:61": "P0",
+        "financial-document-processor:70": "P1",
+        "financial-document-processor:67": "P1",
+        "caffe-cifar-10:77": "P0",
+        "extract-moves-from-video:63": "P1",
+        "extract-moves-from-video:61": "P0",
+        "make-mips-interpreter:57": "P1",
+        "caffe-cifar-10:74": "P0",
+        "extract-moves-from-video:59": "P1",
+        "caffe-cifar-10:72": "P0",
+        "caffe-cifar-10:68": "P1",
+        "financial-document-processor:64": "P0",
+        "caffe-cifar-10:65": "P1",
+        "caffe-cifar-10:58": "P0",
+        "make-mips-interpreter:51": "P1"
+      },
+      "wire_body_bytes": {
+        "caffe-cifar-10:57": 287018,
+        "caffe-cifar-10:58": 290968,
+        "caffe-cifar-10:64": 333408,
+        "caffe-cifar-10:65": 338556,
+        "caffe-cifar-10:67": 351708,
+        "caffe-cifar-10:68": 355402,
+        "caffe-cifar-10:71": 376804,
+        "caffe-cifar-10:72": 384337,
+        "caffe-cifar-10:73": 398469,
+        "caffe-cifar-10:74": 413605,
+        "caffe-cifar-10:76": 415618,
+        "caffe-cifar-10:77": 422680,
+        "caffe-cifar-10:78": 429033,
+        "caffe-cifar-10:79": 435354,
+        "caffe-cifar-10:81": 437574,
+        "caffe-cifar-10:82": 443458,
+        "caffe-cifar-10:83": 444707,
+        "caffe-cifar-10:84": 446818,
+        "caffe-cifar-10:86": 449148,
+        "caffe-cifar-10:87": 449863,
+        "caffe-cifar-10:88": 457451,
+        "caffe-cifar-10:89": 458743,
+        "caffe-cifar-10:91": 460132,
+        "caffe-cifar-10:92": 463205,
+        "caffe-cifar-10:93": 464520,
+        "caffe-cifar-10:94": 467609,
+        "caffe-cifar-10:95": 469339,
+        "caffe-cifar-10:96": 470029,
+        "caffe-cifar-10:97": 470688,
+        "caffe-cifar-10:98": 478689,
+        "caffe-cifar-10:101": 481811,
+        "caffe-cifar-10:102": 490562,
+        "caffe-cifar-10:103": 492115,
+        "caffe-cifar-10:104": 500000,
+        "extract-moves-from-video:58": 268381,
+        "extract-moves-from-video:59": 272390,
+        "extract-moves-from-video:60": 276375,
+        "extract-moves-from-video:61": 281079,
+        "extract-moves-from-video:62": 285383,
+        "extract-moves-from-video:63": 288912,
+        "extract-moves-from-video:64": 291756,
+        "extract-moves-from-video:65": 296606,
+        "extract-moves-from-video:66": 300642,
+        "extract-moves-from-video:67": 302564,
+        "extract-moves-from-video:68": 304699,
+        "extract-moves-from-video:69": 307222,
+        "extract-moves-from-video:72": 317919,
+        "extract-moves-from-video:73": 320529,
+        "extract-moves-from-video:74": 324053,
+        "extract-moves-from-video:75": 326526,
+        "extract-moves-from-video:93": 390180,
+        "extract-moves-from-video:94": 391615,
+        "extract-moves-from-video:102": 432897,
+        "extract-moves-from-video:103": 439342,
+        "extract-moves-from-video:109": 470707,
+        "extract-moves-from-video:110": 474591,
+        "extract-moves-from-video:134": 547575,
+        "extract-moves-from-video:135": 550637,
+        "extract-moves-from-video:153": 612902,
+        "extract-moves-from-video:154": 616143,
+        "financial-document-processor:63": 306482,
+        "financial-document-processor:64": 307784,
+        "financial-document-processor:66": 310755,
+        "financial-document-processor:67": 311739,
+        "financial-document-processor:69": 314167,
+        "financial-document-processor:70": 315960,
+        "financial-document-processor:72": 319218,
+        "financial-document-processor:73": 320602,
+        "financial-document-processor:75": 323240,
+        "financial-document-processor:76": 324055,
+        "financial-document-processor:79": 327859,
+        "financial-document-processor:80": 328743,
+        "financial-document-processor:81": 330071,
+        "financial-document-processor:82": 331434,
+        "financial-document-processor:83": 335763,
+        "financial-document-processor:84": 336429,
+        "make-mips-interpreter:50": 299069,
+        "make-mips-interpreter:51": 300649,
+        "make-mips-interpreter:56": 371475,
+        "make-mips-interpreter:57": 372612,
+        "make-mips-interpreter:60": 382562,
+        "make-mips-interpreter:61": 385748,
+        "make-mips-interpreter:63": 392389,
+        "make-mips-interpreter:64": 398459,
+        "make-mips-interpreter:67": 412032,
+        "make-mips-interpreter:68": 419700,
+        "make-mips-interpreter:69": 423408,
+        "make-mips-interpreter:70": 426173,
+        "make-mips-interpreter:80": 490393,
+        "make-mips-interpreter:81": 491138,
+        "make-mips-interpreter:82": 492199,
+        "make-mips-interpreter:83": 493302,
+        "make-mips-interpreter:87": 531188,
+        "make-mips-interpreter:88": 534549,
+        "make-mips-interpreter:90": 541863,
+        "make-mips-interpreter:91": 544181,
+        "make-mips-interpreter:94": 555254,
+        "make-mips-interpreter:95": 561396,
+        "make-mips-interpreter:96": 563715,
+        "make-mips-interpreter:97": 569065,
+        "make-mips-interpreter:98": 574267,
+        "make-mips-interpreter:99": 575186
+      },
+      "planned_root_order": [
+        "caffe-cifar-10:64",
+        "extract-moves-from-video:60",
+        "extract-moves-from-video:62",
+        "caffe-cifar-10:71",
+        "extract-moves-from-video:64",
+        "caffe-cifar-10:76",
+        "extract-moves-from-video:68",
+        "caffe-cifar-10:81",
+        "extract-moves-from-video:74",
+        "extract-moves-from-video:134",
+        "caffe-cifar-10:86",
+        "caffe-cifar-10:91",
+        "make-mips-interpreter:50",
+        "make-mips-interpreter:56",
+        "caffe-cifar-10:95",
+        "make-mips-interpreter:67",
+        "caffe-cifar-10:101",
+        "make-mips-interpreter:80",
+        "financial-document-processor:69",
+        "make-mips-interpreter:96",
+        "financial-document-processor:75",
+        "financial-document-processor:81",
+        "financial-document-processor:83",
+        "extract-moves-from-video:153",
+        "caffe-cifar-10:103",
+        "caffe-cifar-10:97",
+        "caffe-cifar-10:93",
+        "make-mips-interpreter:98",
+        "make-mips-interpreter:82",
+        "caffe-cifar-10:88",
+        "caffe-cifar-10:83",
+        "make-mips-interpreter:69",
+        "make-mips-interpreter:60",
+        "extract-moves-from-video:93",
+        "make-mips-interpreter:94",
+        "financial-document-processor:79",
+        "caffe-cifar-10:78",
+        "financial-document-processor:72",
+        "extract-moves-from-video:72",
+        "extract-moves-from-video:66",
+        "caffe-cifar-10:73",
+        "extract-moves-from-video:102",
+        "caffe-cifar-10:67",
+        "extract-moves-from-video:109",
+        "caffe-cifar-10:57",
+        "extract-moves-from-video:58",
+        "financial-document-processor:63",
+        "financial-document-processor:66",
+        "make-mips-interpreter:63",
+        "make-mips-interpreter:87",
+        "make-mips-interpreter:90"
+      ],
+      "planned_successor_order": [
+        "make-mips-interpreter:99",
+        "extract-moves-from-video:154",
+        "caffe-cifar-10:104",
+        "caffe-cifar-10:102",
+        "financial-document-processor:84",
+        "financial-document-processor:82",
+        "extract-moves-from-video:135",
+        "make-mips-interpreter:97",
+        "make-mips-interpreter:95",
+        "extract-moves-from-video:110",
+        "extract-moves-from-video:103",
+        "caffe-cifar-10:98",
+        "make-mips-interpreter:91",
+        "caffe-cifar-10:96",
+        "caffe-cifar-10:94",
+        "financial-document-processor:80",
+        "make-mips-interpreter:88",
+        "extract-moves-from-video:94",
+        "caffe-cifar-10:92",
+        "make-mips-interpreter:81",
+        "extract-moves-from-video:75",
+        "caffe-cifar-10:89",
+        "extract-moves-from-video:73",
+        "financial-document-processor:76",
+        "caffe-cifar-10:87",
+        "make-mips-interpreter:83",
+        "caffe-cifar-10:84",
+        "make-mips-interpreter:70",
+        "make-mips-interpreter:68",
+        "caffe-cifar-10:82",
+        "make-mips-interpreter:64",
+        "extract-moves-from-video:69",
+        "caffe-cifar-10:79",
+        "extract-moves-from-video:67",
+        "extract-moves-from-video:65",
+        "financial-document-processor:73",
+        "make-mips-interpreter:61",
+        "financial-document-processor:70",
+        "financial-document-processor:67",
+        "caffe-cifar-10:77",
+        "extract-moves-from-video:63",
+        "extract-moves-from-video:61",
+        "make-mips-interpreter:57",
+        "caffe-cifar-10:74",
+        "extract-moves-from-video:59",
+        "caffe-cifar-10:72",
+        "caffe-cifar-10:68",
+        "financial-document-processor:64",
+        "caffe-cifar-10:65",
+        "caffe-cifar-10:58",
+        "make-mips-interpreter:51"
+      ],
+      "admission_fit": {
+        "offset_s": 0.006145089003484275,
+        "s_per_byte": 4.996719485769583e-08,
+        "samples": 219,
+        "p95_absolute_residual_ms": 6.015305820199226,
+        "r66_observation_sha256": {
+          "r66-events.jsonl.gz": "f53b421b35028b3e7d6c75228e39d05394eb685328c628efd48f3256129b8cda",
+          "r66-interrupted-events.jsonl.gz": "3359390fbe99e76f873a5482133e19fa4b65a32f9ea9761529c2487be47168e9"
+        }
+      },
+      "assumptions": "Potential totals assume complete remote reads after P changes. Existing hybrid checkpoints, early root releases and actual P routing can reduce demand.",
+      "cold_arrival_guard": {
+        "first_gap_s": 0.72,
+        "first_three_remaining_gaps_s": 0.12,
+        "subsequent_gap_s": 0.068,
+        "reason": "Leave room for the first large HTTP request and the initial request-body preparation delays observed in the parent replay."
+      }
+    },
+    "request_sources": [
+      {
+        "id": "caffe-cifar-10:57",
+        "session_id": "caffe-cifar-10:57",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 67706,
+        "prompt_sha256": "aaa7a52764a597897148323304e5e21d7088da3cfc6f04d1d94f1d9040e13fad",
+        "original_offered_s": 0,
+        "offered_s": 26.19243565091334
+      },
+      {
+        "id": "caffe-cifar-10:58",
+        "session_id": "caffe-cifar-10:57",
+        "predecessor": "caffe-cifar-10:57",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 68681,
+        "prompt_sha256": "54fab3b1e081966249e0e1946da7dd5f26b9ff12d98d09648af2bc5a7d70da57",
+        "original_offered_s": 0,
+        "offered_s": 33.55420157618806
+      },
+      {
+        "id": "caffe-cifar-10:64",
+        "session_id": "caffe-cifar-10:64",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 79128,
+        "prompt_sha256": "67b6f77efb0414063714816b277b5b407cd9689a1cacc0ce82af3c130d3064d4",
+        "original_offered_s": 0,
+        "offered_s": 0.0
+      },
+      {
+        "id": "caffe-cifar-10:65",
+        "session_id": "caffe-cifar-10:64",
+        "predecessor": "caffe-cifar-10:64",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 80403,
+        "prompt_sha256": "3e4239c4abdb6fe8ecec37f8f16d30bcaea2b077942dd22d02c1ae030b189b2c",
+        "original_offered_s": 0,
+        "offered_s": 33.50182373731918
+      },
+      {
+        "id": "caffe-cifar-10:67",
+        "session_id": "caffe-cifar-10:67",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 83491,
+        "prompt_sha256": "0c13064f39fed059d02ab76647b4e06e9b4bde2816260539989653f7f84fa19e",
+        "original_offered_s": 0,
+        "offered_s": 26.089203273077995
+      },
+      {
+        "id": "caffe-cifar-10:68",
+        "session_id": "caffe-cifar-10:67",
+        "predecessor": "caffe-cifar-10:67",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 84333,
+        "prompt_sha256": "2779184c1063440366450c7dec8fe89c92ce906988276a0eb569451c40b6b915",
+        "original_offered_s": 0,
+        "offered_s": 33.4009819899546
+      },
+      {
+        "id": "caffe-cifar-10:71",
+        "session_id": "caffe-cifar-10:71",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 89258,
+        "prompt_sha256": "8276ff8b8d1a5bcc21e59c7f0e87f2eec821c5d8c83adfb4162d7aed89e3697e",
+        "original_offered_s": 0,
+        "offered_s": 0.9578316236119554
+      },
+      {
+        "id": "caffe-cifar-10:72",
+        "session_id": "caffe-cifar-10:71",
+        "predecessor": "caffe-cifar-10:71",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 91367,
+        "prompt_sha256": "cb7b5c0b408d561fd03d00fed844082680d8a0225a1f5df4bdeeb3bed16cb877",
+        "original_offered_s": 0,
+        "offered_s": 33.3495361891714
+      },
+      {
+        "id": "caffe-cifar-10:73",
+        "session_id": "caffe-cifar-10:73",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 95449,
+        "prompt_sha256": "09bfca18c92fa511dc8312c52dc0e92a7c1ddbc19ddb17d1cedb7c65af50cafd",
+        "original_offered_s": 0,
+        "offered_s": 25.986866757079255
+      },
+      {
+        "id": "caffe-cifar-10:74",
+        "session_id": "caffe-cifar-10:73",
+        "predecessor": "caffe-cifar-10:73",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 99779,
+        "prompt_sha256": "e106def16e1e3413eeabd1fd20585946edd712b12bbbbd047ecc990bc0fd75a8",
+        "original_offered_s": 0,
+        "offered_s": 33.248073749312304
+      },
+      {
+        "id": "caffe-cifar-10:76",
+        "session_id": "caffe-cifar-10:76",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 100237,
+        "prompt_sha256": "96dcf51b35215d42b55c7f8610e727cb71a6cef74095a14603ad49dddb3f38f4",
+        "original_offered_s": 0,
+        "offered_s": 1.143892196910749
+      },
+      {
+        "id": "caffe-cifar-10:77",
+        "session_id": "caffe-cifar-10:76",
+        "predecessor": "caffe-cifar-10:76",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 102254,
+        "prompt_sha256": "4a753c4e1c32fd140c72c8fa87c71c8cd829b86a855af06863f0ed0d370ba97a",
+        "original_offered_s": 0,
+        "offered_s": 33.047620297018966
+      },
+      {
+        "id": "caffe-cifar-10:78",
+        "session_id": "caffe-cifar-10:78",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 103837,
+        "prompt_sha256": "d0791d6baeab29bafe2a1e85fe8468d4aed7469544fdaae75289c0287cd414c4",
+        "original_offered_s": 0,
+        "offered_s": 25.785339559735622
+      },
+      {
+        "id": "caffe-cifar-10:79",
+        "session_id": "caffe-cifar-10:78",
+        "predecessor": "caffe-cifar-10:78",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 105605,
+        "prompt_sha256": "4343556f14022f161a96c7f26b2d9577d162a3274eab32d60e0e5054c117f2bc",
+        "original_offered_s": 0,
+        "offered_s": 32.69698701279134
+      },
+      {
+        "id": "caffe-cifar-10:81",
+        "session_id": "caffe-cifar-10:81",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 106099,
+        "prompt_sha256": "3f2cce977da4038c982bff3fd4b426ac88524e322551dd74e175c11840167de8",
+        "original_offered_s": 0,
+        "offered_s": 1.2787951171804535
+      },
+      {
+        "id": "caffe-cifar-10:82",
+        "session_id": "caffe-cifar-10:81",
+        "predecessor": "caffe-cifar-10:81",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 107754,
+        "prompt_sha256": "1f62e3a0d8d0b2513b503252e0f6cf7848612e467a7eae5fbc8f5d6ca59029f4",
+        "original_offered_s": 0,
+        "offered_s": 32.546582078644214
+      },
+      {
+        "id": "caffe-cifar-10:83",
+        "session_id": "caffe-cifar-10:83",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 108037,
+        "prompt_sha256": "b06fdae8ec6bcdf901b7ce49a73c5fef46e2430044d1b8eacca1314abd0ed595",
+        "original_offered_s": 0,
+        "offered_s": 25.484556373923425
+      },
+      {
+        "id": "caffe-cifar-10:84",
+        "session_id": "caffe-cifar-10:83",
+        "predecessor": "caffe-cifar-10:83",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 108595,
+        "prompt_sha256": "f30e1427e3ebd8de4864a7d8688792ed1060286035634f0413d58d155c0e013d",
+        "original_offered_s": 0,
+        "offered_s": 32.39641418886949
+      },
+      {
+        "id": "caffe-cifar-10:86",
+        "session_id": "caffe-cifar-10:86",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 109117,
+        "prompt_sha256": "2cfd881e6c225190bdd28a1e2e58593207e8f36656dd73774b6238543852395e",
+        "original_offered_s": 0,
+        "offered_s": 1.4822167968671707
+      },
+      {
+        "id": "caffe-cifar-10:87",
+        "session_id": "caffe-cifar-10:86",
+        "predecessor": "caffe-cifar-10:86",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 109274,
+        "prompt_sha256": "2a1edc83c648e724f5a33c97b1b875ee24c5287ca4cdfdb5f5b35eb1f1843079",
+        "original_offered_s": 0,
+        "offered_s": 32.29626203876115
+      },
+      {
+        "id": "caffe-cifar-10:88",
+        "session_id": "caffe-cifar-10:88",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 111422,
+        "prompt_sha256": "0f038ebd7c5a02392851913f4fb8f5206591adc84d8bf2cd8cbce3a3f2c15510",
+        "original_offered_s": 0,
+        "offered_s": 25.433919591992158
+      },
+      {
+        "id": "caffe-cifar-10:89",
+        "session_id": "caffe-cifar-10:88",
+        "predecessor": "caffe-cifar-10:88",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 111717,
+        "prompt_sha256": "e40e521640dafd5c1a7ca762840c406ca87cbe2c960425795d33158e188616e8",
+        "original_offered_s": 0,
+        "offered_s": 32.14581833007082
+      },
+      {
+        "id": "caffe-cifar-10:91",
+        "session_id": "caffe-cifar-10:91",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 112027,
+        "prompt_sha256": "9644ae8b6ba34c8e41a1fc25f7397bd393cd747dcf5fe5a540e6b03c13ae43f9",
+        "original_offered_s": 0,
+        "offered_s": 1.5496679571988539
+      },
+      {
+        "id": "caffe-cifar-10:92",
+        "session_id": "caffe-cifar-10:91",
+        "predecessor": "caffe-cifar-10:91",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 112868,
+        "prompt_sha256": "5591b58b632446556ff55a9fa2d2d103330f06e9dad2016e9c1d5ed559daf6f5",
+        "original_offered_s": 0,
+        "offered_s": 31.995595376447362
+      },
+      {
+        "id": "caffe-cifar-10:93",
+        "session_id": "caffe-cifar-10:93",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 113166,
+        "prompt_sha256": "52eae0b2bba8f956577b46d6d10cc21d67c0e1b621fe8d5cf9a7d790d11d5a20",
+        "original_offered_s": 0,
+        "offered_s": 25.283566373891706
+      },
+      {
+        "id": "caffe-cifar-10:94",
+        "session_id": "caffe-cifar-10:93",
+        "predecessor": "caffe-cifar-10:93",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 114012,
+        "prompt_sha256": "ffd112b93fcfe6e07faeda44ccb69fa1066ac5a7e019a7b8d03ddcb63a446cfa",
+        "original_offered_s": 0,
+        "offered_s": 31.795375320921206
+      },
+      {
+        "id": "caffe-cifar-10:95",
+        "session_id": "caffe-cifar-10:95",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 114401,
+        "prompt_sha256": "b18fdea5f77f8d2e5d389d802326284a06f9850beae2097cf6f3f412220630af",
+        "original_offered_s": 0,
+        "offered_s": 1.7532079092357993
+      },
+      {
+        "id": "caffe-cifar-10:96",
+        "session_id": "caffe-cifar-10:95",
+        "predecessor": "caffe-cifar-10:95",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 114554,
+        "prompt_sha256": "2e6e4994722938d6643b7315655330a34278389dc7e11bd9caf18b7b871a7ec5",
+        "original_offered_s": 0,
+        "offered_s": 31.74525440030965
+      },
+      {
+        "id": "caffe-cifar-10:97",
+        "session_id": "caffe-cifar-10:97",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 114700,
+        "prompt_sha256": "379234b2fdd07765373436872f6ce1a783dcc76bf03064f293f2508351c25be9",
+        "original_offered_s": 0,
+        "offered_s": 25.23325817623383
+      },
+      {
+        "id": "caffe-cifar-10:98",
+        "session_id": "caffe-cifar-10:97",
+        "predecessor": "caffe-cifar-10:97",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 116993,
+        "prompt_sha256": "3a7e035b1067d7cefd8e718b76a2f6f1383db6f280d18bcfbbcf6fd7761f2d40",
+        "original_offered_s": 0,
+        "offered_s": 31.644821684402185
+      },
+      {
+        "id": "caffe-cifar-10:101",
+        "session_id": "caffe-cifar-10:101",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 117690,
+        "prompt_sha256": "b2908a5bf45e3b2bc7e834f6911c1ee1f47427cb0cdf248f4988c646e795a5b8",
+        "original_offered_s": 0,
+        "offered_s": 1.888584718381534
+      },
+      {
+        "id": "caffe-cifar-10:102",
+        "session_id": "caffe-cifar-10:101",
+        "predecessor": "caffe-cifar-10:101",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 120201,
+        "prompt_sha256": "8e5edde9f9bbd7f3b04222dca2877cac9f16331d95c8e1a4b0bcfb109436131f",
+        "original_offered_s": 0,
+        "offered_s": 31.24422842389764
+      },
+      {
+        "id": "caffe-cifar-10:103",
+        "session_id": "caffe-cifar-10:103",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 120551,
+        "prompt_sha256": "dc5b3ccb326fc8811f3e3c6f8c456a2c05825bd3a837b805b38bec9c88c53a4c",
+        "original_offered_s": 0,
+        "offered_s": 25.182187529149612
+      },
+      {
+        "id": "caffe-cifar-10:104",
+        "session_id": "caffe-cifar-10:103",
+        "predecessor": "caffe-cifar-10:103",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 122759,
+        "prompt_sha256": "f8e315f7fd15fb000025f6c28ff2de1fc5f9880435f705e7f20b52449263852a",
+        "original_offered_s": 0,
+        "offered_s": 31.193756833512573
+      },
+      {
+        "id": "extract-moves-from-video:58",
+        "session_id": "extract-moves-from-video:58",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 65650,
+        "prompt_sha256": "e6746ced66fe025e9dee5748418c36756965b546ad9830d8a3badfee7a92f282",
+        "original_offered_s": 0,
+        "offered_s": 26.2433668895239
+      },
+      {
+        "id": "extract-moves-from-video:59",
+        "session_id": "extract-moves-from-video:58",
+        "predecessor": "extract-moves-from-video:58",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 66641,
+        "prompt_sha256": "a857ce59dced1a40c28e14c8c33b9f450c6eb6b299161f3eb31b467cabfd7fd7",
+        "original_offered_s": 0,
+        "offered_s": 33.30512986673413
+      },
+      {
+        "id": "extract-moves-from-video:60",
+        "session_id": "extract-moves-from-video:60",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 67633,
+        "prompt_sha256": "f16aa7c1fb0979efaae96000bbc6049eaffda2ad92cfe92f29ddc0e53fb095e9",
+        "original_offered_s": 0,
+        "offered_s": 0.7228497790243189
+      },
+      {
+        "id": "extract-moves-from-video:61",
+        "session_id": "extract-moves-from-video:60",
+        "predecessor": "extract-moves-from-video:60",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 68808,
+        "prompt_sha256": "4d7c15b64f68ece4174788e38380ffe14e635c23b30972e1ee9ee04674238501",
+        "original_offered_s": 0,
+        "offered_s": 33.15469570177801
+      },
+      {
+        "id": "extract-moves-from-video:62",
+        "session_id": "extract-moves-from-video:62",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 69803,
+        "prompt_sha256": "612cf212bc8d2c18af21fa29c4a3197b1bc108064fe303e0ef9a5fbdb20b7e70",
+        "original_offered_s": 0,
+        "offered_s": 0.8423996745330408
+      },
+      {
+        "id": "extract-moves-from-video:63",
+        "session_id": "extract-moves-from-video:62",
+        "predecessor": "extract-moves-from-video:62",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 70651,
+        "prompt_sha256": "b303755be4ecf5f1d1d1662c9fd333de3096e74f645eaf5e055f409612b189b6",
+        "original_offered_s": 0,
+        "offered_s": 33.104304308740694
+      },
+      {
+        "id": "extract-moves-from-video:64",
+        "session_id": "extract-moves-from-video:64",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 71356,
+        "prompt_sha256": "f42fda510503421cc17296afa130bd1681d5df9fd2a7caf3d1709d61fd6d4be7",
+        "original_offered_s": 0,
+        "offered_s": 1.0820812336002128
+      },
+      {
+        "id": "extract-moves-from-video:65",
+        "session_id": "extract-moves-from-video:64",
+        "predecessor": "extract-moves-from-video:64",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 72605,
+        "prompt_sha256": "e02e8b54034bda562bc508fe42983b8a0d6e402ef27ed129403538fe251cf50a",
+        "original_offered_s": 0,
+        "offered_s": 32.803919861143456
+      },
+      {
+        "id": "extract-moves-from-video:66",
+        "session_id": "extract-moves-from-video:66",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 73630,
+        "prompt_sha256": "07d905399d2df68fbf2ab4c184f77f16a80fb7e49534d70fc5d67e40898e31f8",
+        "original_offered_s": 0,
+        "offered_s": 25.941754897850597
+      },
+      {
+        "id": "extract-moves-from-video:67",
+        "session_id": "extract-moves-from-video:66",
+        "predecessor": "extract-moves-from-video:66",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 74073,
+        "prompt_sha256": "dd9b7c8fe26007df8efd81c4743f0fbb4530b82df0170809e2807d04ebc47f94",
+        "original_offered_s": 0,
+        "offered_s": 32.7536221565965
+      },
+      {
+        "id": "extract-moves-from-video:68",
+        "session_id": "extract-moves-from-video:68",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 74576,
+        "prompt_sha256": "a0c0e00e420742e7de73e4f21f795f5ff7bfb9fef05f209cb3ac7b7b8f4a40c8",
+        "original_offered_s": 0,
+        "offered_s": 1.2174345081971698
+      },
+      {
+        "id": "extract-moves-from-video:69",
+        "session_id": "extract-moves-from-video:68",
+        "predecessor": "extract-moves-from-video:68",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 75165,
+        "prompt_sha256": "e973f60af0bcf5a923acb2d68feaebee53669c0baf146c62e60700b07005b71d",
+        "original_offered_s": 0,
+        "offered_s": 32.65338940940285
+      },
+      {
+        "id": "extract-moves-from-video:72",
+        "session_id": "extract-moves-from-video:72",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 77952,
+        "prompt_sha256": "a794f2e7379b07264b4fbe73051f6d53d285f17a37eccbb42f45dae033ebefea",
+        "original_offered_s": 0,
+        "offered_s": 25.89089161462504
+      },
+      {
+        "id": "extract-moves-from-video:73",
+        "session_id": "extract-moves-from-video:72",
+        "predecessor": "extract-moves-from-video:72",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 78638,
+        "prompt_sha256": "1b817d3ce989df79215643854a8df0fae61e3892b9d5c46c256e8ad1fb09074b",
+        "original_offered_s": 0,
+        "offered_s": 32.20272449594087
+      },
+      {
+        "id": "extract-moves-from-video:74",
+        "session_id": "extract-moves-from-video:74",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 79589,
+        "prompt_sha256": "4e93810a59758beaa89df73adcbc48e40a983d3e1493f1102a287075a94c941c",
+        "original_offered_s": 0,
+        "offered_s": 1.352467443107894
+      },
+      {
+        "id": "extract-moves-from-video:75",
+        "session_id": "extract-moves-from-video:74",
+        "predecessor": "extract-moves-from-video:74",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 80256,
+        "prompt_sha256": "6841b95b062dd7cec749c4bf949417188fd76802d32cc9436b92256a4bee1409",
+        "original_offered_s": 0,
+        "offered_s": 32.102424842673315
+      },
+      {
+        "id": "extract-moves-from-video:93",
+        "session_id": "extract-moves-from-video:93",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 95424,
+        "prompt_sha256": "1783f62de9531902a6a48010b524e4985fafff65e3bd054a0c72ad250e5d8728",
+        "original_offered_s": 0,
+        "offered_s": 25.637280935157428
+      },
+      {
+        "id": "extract-moves-from-video:94",
+        "session_id": "extract-moves-from-video:93",
+        "predecessor": "extract-moves-from-video:93",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 95761,
+        "prompt_sha256": "a8ecf5e461c225ec42f55c002229a011900845e1a76f93e602d110dfa02b160b",
+        "original_offered_s": 0,
+        "offered_s": 31.949172527927225
+      },
+      {
+        "id": "extract-moves-from-video:102",
+        "session_id": "extract-moves-from-video:102",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 105958,
+        "prompt_sha256": "9f013b54b9bb2fe36cd413fc99faf8682570cf6439bbb1ad9b39cc06619ba4eb",
+        "original_offered_s": 0,
+        "offered_s": 26.035146486494693
+      },
+      {
+        "id": "extract-moves-from-video:103",
+        "session_id": "extract-moves-from-video:102",
+        "predecessor": "extract-moves-from-video:102",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 107433,
+        "prompt_sha256": "9c3834cd9fb4bae20b922d76254bd1071978f8ce3315d4756d8a636999f055db",
+        "original_offered_s": 0,
+        "offered_s": 31.596787743618247
+      },
+      {
+        "id": "extract-moves-from-video:109",
+        "session_id": "extract-moves-from-video:109",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 114960,
+        "prompt_sha256": "b0115087ac729458b87155901b1b0db7b461f57770c02be8d03a4a7e71325b4f",
+        "original_offered_s": 0,
+        "offered_s": 26.133257226857122
+      },
+      {
+        "id": "extract-moves-from-video:110",
+        "session_id": "extract-moves-from-video:109",
+        "predecessor": "extract-moves-from-video:109",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 115906,
+        "prompt_sha256": "cb5731af5dcb04e91e6ae060df72e57724f299a56098debb4af1c64bbc2140c5",
+        "original_offered_s": 0,
+        "offered_s": 31.54502644996671
+      },
+      {
+        "id": "extract-moves-from-video:134",
+        "session_id": "extract-moves-from-video:134",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 133435,
+        "prompt_sha256": "7394ad47330fb3ca0d4cfd7c03818cdc658ea600c216386290b45eca615e01cc",
+        "original_offered_s": 0,
+        "offered_s": 1.4092986757789123
+      },
+      {
+        "id": "extract-moves-from-video:135",
+        "session_id": "extract-moves-from-video:134",
+        "predecessor": "extract-moves-from-video:134",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 134201,
+        "prompt_sha256": "bdc5c28d23bbf471d070a454d51e8b611fad4f89092d6d6c6cf7a42814e8c71e",
+        "original_offered_s": 0,
+        "offered_s": 31.391226644666563
+      },
+      {
+        "id": "extract-moves-from-video:153",
+        "session_id": "extract-moves-from-video:153",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 149415,
+        "prompt_sha256": "4541cbbcc4ca3c522ba3debf2cc12327b326874220d63ba3f4f6b774cbe1a621",
+        "original_offered_s": 0,
+        "offered_s": 25.126152141584335
+      },
+      {
+        "id": "extract-moves-from-video:154",
+        "session_id": "extract-moves-from-video:153",
+        "predecessor": "extract-moves-from-video:153",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 150238,
+        "prompt_sha256": "29b6d4e61f3f4d2820652c6b800c6c4db06b7afb8a6250fcd13dc93d5a8e2511",
+        "original_offered_s": 0,
+        "offered_s": 31.137953493600214
+      },
+      {
+        "id": "financial-document-processor:63",
+        "session_id": "financial-document-processor:63",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 73554,
+        "prompt_sha256": "22a11ed51aa24b0640f56fc5fa0919db86f5eef2b64d1f609c5c051ccc8e93aa",
+        "original_offered_s": 0,
+        "offered_s": 26.29146308943263
+      },
+      {
+        "id": "financial-document-processor:64",
+        "session_id": "financial-document-processor:63",
+        "predecessor": "financial-document-processor:63",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 73874,
+        "prompt_sha256": "126e94773736fe36b023a41c638ddeb90332d96b51939d86ec4c3a36ec9a08c5",
+        "original_offered_s": 0,
+        "offered_s": 33.45336132783933
+      },
+      {
+        "id": "financial-document-processor:66",
+        "session_id": "financial-document-processor:66",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 74620,
+        "prompt_sha256": "69a5ff2f0fc044bb208f44afd7e2c598c6a6ab30d33b0e2344fd79fc1072424d",
+        "original_offered_s": 0,
+        "offered_s": 26.341249579609002
+      },
+      {
+        "id": "financial-document-processor:67",
+        "session_id": "financial-document-processor:66",
+        "predecessor": "financial-document-processor:66",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 74851,
+        "prompt_sha256": "782f807930a9bb95aaf0abfe0f0c7b66de1547640a9081b37927bbf96b7124cf",
+        "original_offered_s": 0,
+        "offered_s": 33.003163707583674
+      },
+      {
+        "id": "financial-document-processor:69",
+        "session_id": "financial-document-processor:69",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 75428,
+        "prompt_sha256": "a2796e99ef17a6f029222eb8b5f3de892a631097e6faeea3cc482e641e65fede",
+        "original_offered_s": 0,
+        "offered_s": 2.032961418796258
+      },
+      {
+        "id": "financial-document-processor:70",
+        "session_id": "financial-document-processor:69",
+        "predecessor": "financial-document-processor:69",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 75880,
+        "prompt_sha256": "58874c4b7ada59ed8e607e14140600c13c24d9c852befcb38783a3e6cc90da5a",
+        "original_offered_s": 0,
+        "offered_s": 32.95295279605418
+      },
+      {
+        "id": "financial-document-processor:72",
+        "session_id": "financial-document-processor:72",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 76698,
+        "prompt_sha256": "de43f58c7c9279caab94cfc12deb748bb38a21377a6ae95437eb107a1790b36a",
+        "original_offered_s": 0,
+        "offered_s": 25.84082670723892
+      },
+      {
+        "id": "financial-document-processor:73",
+        "session_id": "financial-document-processor:72",
+        "predecessor": "financial-document-processor:72",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 77039,
+        "prompt_sha256": "bdee72d89200e872cb3cd515678d71a14cf71a25137dc1f61263c49d4404af1e",
+        "original_offered_s": 0,
+        "offered_s": 32.85272084833566
+      },
+      {
+        "id": "financial-document-processor:75",
+        "session_id": "financial-document-processor:75",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 77688,
+        "prompt_sha256": "5593d5e0c99317911a136297933fbc2f2770aeb198f16a3b9608b8b6e5405fd6",
+        "original_offered_s": 0,
+        "offered_s": 2.168508066437314
+      },
+      {
+        "id": "financial-document-processor:76",
+        "session_id": "financial-document-processor:75",
+        "predecessor": "financial-document-processor:75",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 77876,
+        "prompt_sha256": "06931d2639064309d14ae4ef2b87b6246cd991b7d23d2af30ecec7118affcadf",
+        "original_offered_s": 0,
+        "offered_s": 32.25254831161181
+      },
+      {
+        "id": "financial-document-processor:79",
+        "session_id": "financial-document-processor:79",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 78798,
+        "prompt_sha256": "8493210d877adbfee32b0cbcd777e18b20b5381d4852098c3b853cb6231e935d",
+        "original_offered_s": 0,
+        "offered_s": 25.740394940708157
+      },
+      {
+        "id": "financial-document-processor:80",
+        "session_id": "financial-document-processor:79",
+        "predecessor": "financial-document-processor:79",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 79004,
+        "prompt_sha256": "c3997e86a069118a572b233a9d9288e145705e286bf2eede0d10c0a5bcd24a54",
+        "original_offered_s": 0,
+        "offered_s": 31.852314065402314
+      },
+      {
+        "id": "financial-document-processor:81",
+        "session_id": "financial-document-processor:81",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 79329,
+        "prompt_sha256": "3339fb49814db1867520af84330b22129f88e1d306b1ab801451e40ec77ecda3",
+        "original_offered_s": 0,
+        "offered_s": 2.2361667405292414
+      },
+      {
+        "id": "financial-document-processor:82",
+        "session_id": "financial-document-processor:81",
+        "predecessor": "financial-document-processor:81",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 79660,
+        "prompt_sha256": "9a59eb1e6340338e906fc148b9a8f036e5f7c58f0dfc3f9c73ce416f093a6b1d",
+        "original_offered_s": 0,
+        "offered_s": 31.352179603680952
+      },
+      {
+        "id": "financial-document-processor:83",
+        "session_id": "financial-document-processor:83",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 80680,
+        "prompt_sha256": "d24359f68b344947147fcc02d9aba0ceba225eddd3d6a9000988c0b90bcb57dc",
+        "original_offered_s": 0,
+        "offered_s": 25.0
+      },
+      {
+        "id": "financial-document-processor:84",
+        "session_id": "financial-document-processor:83",
+        "predecessor": "financial-document-processor:83",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 80824,
+        "prompt_sha256": "b3599f48e889903d511e47fdc99e2611ee5a7f8fdd9b6a48f7f5dd8dd811a71d",
+        "original_offered_s": 0,
+        "offered_s": 31.301930017542638
+      },
+      {
+        "id": "make-mips-interpreter:50",
+        "session_id": "make-mips-interpreter:50",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 73367,
+        "prompt_sha256": "90c92aa517004144e847170d661c5acbcaf54276c30213e4af4d9b3bb0cdd9d4",
+        "original_offered_s": 0,
+        "offered_s": 1.625715823504219
+      },
+      {
+        "id": "make-mips-interpreter:51",
+        "session_id": "make-mips-interpreter:50",
+        "predecessor": "make-mips-interpreter:50",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 73771,
+        "prompt_sha256": "d06573c18384b802281c7a0b95e8269c3dd13191a70f63f419dc8fe118e71bd1",
+        "original_offered_s": 0,
+        "offered_s": 33.60371784377465
+      },
+      {
+        "id": "make-mips-interpreter:56",
+        "session_id": "make-mips-interpreter:56",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 91129,
+        "prompt_sha256": "d96b4ada0ed2e2690f56bd14d50e9a5860ec4691a9cf2dbbed09785c3b7929ae",
+        "original_offered_s": 0,
+        "offered_s": 1.6900978987933528
+      },
+      {
+        "id": "make-mips-interpreter:57",
+        "session_id": "make-mips-interpreter:56",
+        "predecessor": "make-mips-interpreter:56",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 91391,
+        "prompt_sha256": "e6ee37b3359ee14d8368ef89639a15c86b5cc903e6d8f1b48e6049d671a4010b",
+        "original_offered_s": 0,
+        "offered_s": 33.2001220545311
+      },
+      {
+        "id": "make-mips-interpreter:60",
+        "session_id": "make-mips-interpreter:60",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 93798,
+        "prompt_sha256": "90f22ef98735ec3476df8f319ea26d42628941046d9c9c8c818c2b64811d57a7",
+        "original_offered_s": 0,
+        "offered_s": 25.587661585247854
+      },
+      {
+        "id": "make-mips-interpreter:61",
+        "session_id": "make-mips-interpreter:60",
+        "predecessor": "make-mips-interpreter:60",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 94575,
+        "prompt_sha256": "0d96e11734e0c1122a3b1e070f1d81fc3419336c395a90f427d3850c56996db2",
+        "original_offered_s": 0,
+        "offered_s": 32.899465685459454
+      },
+      {
+        "id": "make-mips-interpreter:63",
+        "session_id": "make-mips-interpreter:63",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 96195,
+        "prompt_sha256": "6f6ef487b9c95f14b0bd066b4c030771070b83594658f3c0181216a5b3795645",
+        "original_offered_s": 0,
+        "offered_s": 26.38717055762399
+      },
+      {
+        "id": "make-mips-interpreter:64",
+        "session_id": "make-mips-interpreter:63",
+        "predecessor": "make-mips-interpreter:63",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 97791,
+        "prompt_sha256": "2ae13b7de7ce66270bd46a853e5905ca947f4be32dbeeeca274e9edc10ce9dd7",
+        "original_offered_s": 0,
+        "offered_s": 32.59883055244562
+      },
+      {
+        "id": "make-mips-interpreter:67",
+        "session_id": "make-mips-interpreter:67",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 101192,
+        "prompt_sha256": "f9bb115381b5fb7b3668689524a32970fa27da49a09ee2f297358d5902607aed",
+        "original_offered_s": 0,
+        "offered_s": 1.8240713792715093
+      },
+      {
+        "id": "make-mips-interpreter:68",
+        "session_id": "make-mips-interpreter:67",
+        "predecessor": "make-mips-interpreter:67",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 103350,
+        "prompt_sha256": "92f0262831dfa05d145e7c1bc2eae672a9ee2131c8e0e2acf73d1ad8e1d7b812",
+        "original_offered_s": 0,
+        "offered_s": 32.49776919925964
+      },
+      {
+        "id": "make-mips-interpreter:69",
+        "session_id": "make-mips-interpreter:69",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 104242,
+        "prompt_sha256": "eeb924a753f3f0ba5a5c9f9fdfea579d8d1668d656ab8c02e69467db7887ffa6",
+        "original_offered_s": 0,
+        "offered_s": 25.535620625206697
+      },
+      {
+        "id": "make-mips-interpreter:70",
+        "session_id": "make-mips-interpreter:69",
+        "predecessor": "make-mips-interpreter:69",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 104919,
+        "prompt_sha256": "2ff56f4dd7e77eb448f9453b17f7cf8bab32b574f6ef8134957297d6604f9347",
+        "original_offered_s": 0,
+        "offered_s": 32.44744576160733
+      },
+      {
+        "id": "make-mips-interpreter:80",
+        "session_id": "make-mips-interpreter:80",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 121506,
+        "prompt_sha256": "0bfdecdd689b0296c984caeef53babbb0b2ef14ea9e2e8e81a2d6187d5404b89",
+        "original_offered_s": 0,
+        "offered_s": 1.9561558999152655
+      },
+      {
+        "id": "make-mips-interpreter:81",
+        "session_id": "make-mips-interpreter:80",
+        "predecessor": "make-mips-interpreter:80",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 121678,
+        "prompt_sha256": "70242c4cb20125207bd7000fc9ccbcd9b0aa71d3b405932fb7f9d72c21a9adce",
+        "original_offered_s": 0,
+        "offered_s": 32.0441996427934
+      },
+      {
+        "id": "make-mips-interpreter:82",
+        "session_id": "make-mips-interpreter:82",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 121925,
+        "prompt_sha256": "9dd993c50502ba69c7ca773edac471ba88d0731f3671c42da5bcb1056d5808e8",
+        "original_offered_s": 0,
+        "offered_s": 25.382183331905242
+      },
+      {
+        "id": "make-mips-interpreter:83",
+        "session_id": "make-mips-interpreter:82",
+        "predecessor": "make-mips-interpreter:82",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 122183,
+        "prompt_sha256": "a85302e5995e19e7083ae1148f8a155c5220dc5151339de4f2eb39e888095178",
+        "original_offered_s": 0,
+        "offered_s": 32.34409151378373
+      },
+      {
+        "id": "make-mips-interpreter:87",
+        "session_id": "make-mips-interpreter:87",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 131436,
+        "prompt_sha256": "378fa6f79bf2c9d5f6221ac7937babc8c4cebb93017e77170d97351d40a74537",
+        "original_offered_s": 0,
+        "offered_s": 26.430235160944935
+      },
+      {
+        "id": "make-mips-interpreter:88",
+        "session_id": "make-mips-interpreter:87",
+        "predecessor": "make-mips-interpreter:87",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 132252,
+        "prompt_sha256": "6e060de0609276c9c0f8b8ba20b6eb4fbdbcfa651b7e8327d2e701ac319774a1",
+        "original_offered_s": 0,
+        "offered_s": 31.89203051689743
+      },
+      {
+        "id": "make-mips-interpreter:90",
+        "session_id": "make-mips-interpreter:90",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 134097,
+        "prompt_sha256": "4b4f4aeca05b1c48e3d179550d16a75dd0882170e93ba8b8e8b1f19861b5ef82",
+        "original_offered_s": 0,
+        "offered_s": 26.479701761139832
+      },
+      {
+        "id": "make-mips-interpreter:91",
+        "session_id": "make-mips-interpreter:90",
+        "predecessor": "make-mips-interpreter:90",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 134626,
+        "prompt_sha256": "f1628885971ab963d469ecb05482ccb359a070b8f9416522f4e9ff6c84e6aff6",
+        "original_offered_s": 0,
+        "offered_s": 31.691549232876564
+      },
+      {
+        "id": "make-mips-interpreter:94",
+        "session_id": "make-mips-interpreter:94",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 137294,
+        "prompt_sha256": "fb96ebdf770d85fd789ae3405e7f3110e0978e8b4e6a82887952756576cb7696",
+        "original_offered_s": 0,
+        "offered_s": 25.67903265043349
+      },
+      {
+        "id": "make-mips-interpreter:95",
+        "session_id": "make-mips-interpreter:94",
+        "predecessor": "make-mips-interpreter:94",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 138708,
+        "prompt_sha256": "675f5c788801a7dce9f2fe02ef05e8a7b381b98c219f09086cd220726df3a409",
+        "original_offered_s": 0,
+        "offered_s": 31.49068904761709
+      },
+      {
+        "id": "make-mips-interpreter:96",
+        "session_id": "make-mips-interpreter:96",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 139261,
+        "prompt_sha256": "4c29d411faff5445763fb4f1c0b65897ad41b29c37a4065574243ec0f173ed91",
+        "original_offered_s": 0,
+        "offered_s": 2.0884922052539094
+      },
+      {
+        "id": "make-mips-interpreter:97",
+        "session_id": "make-mips-interpreter:96",
+        "predecessor": "make-mips-interpreter:96",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 140680,
+        "prompt_sha256": "ba375ec1c61c65ddb5ade9cb05a00ea41f0059168055a2bda932f3d86e0ee271",
+        "original_offered_s": 0,
+        "offered_s": 31.440305849199724
+      },
+      {
+        "id": "make-mips-interpreter:98",
+        "session_id": "make-mips-interpreter:98",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 142119,
+        "prompt_sha256": "40350e397cecbff2f3f13ef83bc22113db6703f8e088fe9faea303736f0c8ce9",
+        "original_offered_s": 0,
+        "offered_s": 25.32808262415766
+      },
+      {
+        "id": "make-mips-interpreter:99",
+        "session_id": "make-mips-interpreter:98",
+        "predecessor": "make-mips-interpreter:98",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 142324,
+        "prompt_sha256": "e30ecf818b70f0b38daed3de465e81e6d5fe17423065e2766af74f02cb1ef04d",
+        "original_offered_s": 0,
+        "offered_s": 31.0
+      }
+    ],
+    "stable_checkpoint_calibration": {
+      "reference_input_trace_sha256": {
+        "2026-11-22-r67-terminal-source-restore-checkpoint-scale": "09e76a5c66fada6bd9842e3149c576bf2eba7a904012a6ce2c31c823aeb49a5e",
+        "2026-11-22-r68-terminal-source-restore-short-eos": "bc487bece2eb89ddbb695b52981a0bed6a8d4f3c47b806042082cc7ca5f2b34b",
+        "2026-11-22-r69-terminal-source-restore-short-guard": "77f44ceabf862d97fc6e49f7de27ceea369108271d13867f0c39079f3be5b4a5",
+        "2026-11-22-r70-terminal-source-restore-short-earlier": "3e57e2f27c29832cffbddd871a1a0af8d47aabcb21908fbb4385fd47facd4089",
+        "2026-11-22-r71-terminal-source-restore-short-pruned": "71b0e3936dd6a598619a91858d705792ca3a5b4859c58f506742e650fcbfbb72"
+      },
+      "max_natural_observed_tokens_by_role": {
+        "root": 600,
+        "successor": 600
+      },
+      "reference_projected_GET_bytes": {
+        "sum_of_phase_minima": 146495733760,
+        "sum_of_phase_maxima": 147024445440
+      }
+    },
+    "root_batch_calibration": {
+      "first_roots": [
+        "caffe-cifar-10:64",
+        "extract-moves-from-video:60",
+        "extract-moves-from-video:62",
+        "caffe-cifar-10:71",
+        "extract-moves-from-video:64",
+        "caffe-cifar-10:76",
+        "extract-moves-from-video:68",
+        "caffe-cifar-10:81",
+        "extract-moves-from-video:74",
+        "extract-moves-from-video:134",
+        "caffe-cifar-10:86",
+        "caffe-cifar-10:91",
+        "make-mips-interpreter:50",
+        "make-mips-interpreter:56",
+        "caffe-cifar-10:95",
+        "make-mips-interpreter:67",
+        "caffe-cifar-10:101",
+        "make-mips-interpreter:80",
+        "financial-document-processor:69",
+        "make-mips-interpreter:96",
+        "financial-document-processor:75",
+        "financial-document-processor:81"
+      ],
+      "later_roots": [
+        "financial-document-processor:83",
+        "extract-moves-from-video:153",
+        "caffe-cifar-10:103",
+        "caffe-cifar-10:97",
+        "caffe-cifar-10:93",
+        "make-mips-interpreter:98",
+        "make-mips-interpreter:82",
+        "caffe-cifar-10:88",
+        "caffe-cifar-10:83",
+        "make-mips-interpreter:69",
+        "make-mips-interpreter:60",
+        "extract-moves-from-video:93",
+        "make-mips-interpreter:94",
+        "financial-document-processor:79",
+        "caffe-cifar-10:78",
+        "financial-document-processor:72",
+        "extract-moves-from-video:72",
+        "extract-moves-from-video:66",
+        "caffe-cifar-10:73",
+        "extract-moves-from-video:102",
+        "caffe-cifar-10:67",
+        "extract-moves-from-video:109",
+        "caffe-cifar-10:57",
+        "extract-moves-from-video:58",
+        "financial-document-processor:63",
+        "financial-document-processor:66",
+        "make-mips-interpreter:63",
+        "make-mips-interpreter:87",
+        "make-mips-interpreter:90"
+      ],
+      "checkpoint_matches": {
+        "caffe-cifar-10": [
+          {
+            "earlier_root": "caffe-cifar-10:64",
+            "later_root": "caffe-cifar-10:67",
+            "checkpoint_blocks": 77,
+            "potential_GET_bytes": 3294003200
+          },
+          {
+            "earlier_root": "caffe-cifar-10:71",
+            "later_root": "caffe-cifar-10:73",
+            "checkpoint_blocks": 87,
+            "potential_GET_bytes": 3713433600
+          },
+          {
+            "earlier_root": "caffe-cifar-10:76",
+            "later_root": "caffe-cifar-10:78",
+            "checkpoint_blocks": 97,
+            "potential_GET_bytes": 4132864000
+          },
+          {
+            "earlier_root": "caffe-cifar-10:81",
+            "later_root": "caffe-cifar-10:83",
+            "checkpoint_blocks": 103,
+            "potential_GET_bytes": 4384522240
+          },
+          {
+            "earlier_root": "caffe-cifar-10:86",
+            "later_root": "caffe-cifar-10:88",
+            "checkpoint_blocks": 106,
+            "potential_GET_bytes": 4510351360
+          },
+          {
+            "earlier_root": "caffe-cifar-10:91",
+            "later_root": "caffe-cifar-10:93",
+            "checkpoint_blocks": 109,
+            "potential_GET_bytes": 4636180480
+          },
+          {
+            "earlier_root": "caffe-cifar-10:95",
+            "later_root": "caffe-cifar-10:97",
+            "checkpoint_blocks": 111,
+            "potential_GET_bytes": 4720066560
+          },
+          {
+            "earlier_root": "caffe-cifar-10:101",
+            "later_root": "caffe-cifar-10:103",
+            "checkpoint_blocks": 114,
+            "potential_GET_bytes": 4845895680
+          }
+        ],
+        "extract-moves-from-video": [
+          {
+            "earlier_root": "extract-moves-from-video:60",
+            "later_root": "extract-moves-from-video:109",
+            "checkpoint_blocks": 66,
+            "potential_GET_bytes": 2832629760
+          },
+          {
+            "earlier_root": "extract-moves-from-video:62",
+            "later_root": "extract-moves-from-video:102",
+            "checkpoint_blocks": 68,
+            "potential_GET_bytes": 2916515840
+          },
+          {
+            "earlier_root": "extract-moves-from-video:64",
+            "later_root": "extract-moves-from-video:66",
+            "checkpoint_blocks": 69,
+            "potential_GET_bytes": 2958458880
+          },
+          {
+            "earlier_root": "extract-moves-from-video:68",
+            "later_root": "extract-moves-from-video:72",
+            "checkpoint_blocks": 72,
+            "potential_GET_bytes": 3084288000
+          },
+          {
+            "earlier_root": "extract-moves-from-video:74",
+            "later_root": "extract-moves-from-video:93",
+            "checkpoint_blocks": 77,
+            "potential_GET_bytes": 3294003200
+          },
+          {
+            "earlier_root": "extract-moves-from-video:134",
+            "later_root": "extract-moves-from-video:153",
+            "checkpoint_blocks": 130,
+            "potential_GET_bytes": 5516984320
+          }
+        ],
+        "financial-document-processor": [
+          {
+            "earlier_root": "financial-document-processor:69",
+            "later_root": "financial-document-processor:72",
+            "checkpoint_blocks": 73,
+            "potential_GET_bytes": 3126231040
+          },
+          {
+            "earlier_root": "financial-document-processor:75",
+            "later_root": "financial-document-processor:79",
+            "checkpoint_blocks": 75,
+            "potential_GET_bytes": 3210117120
+          },
+          {
+            "earlier_root": "financial-document-processor:81",
+            "later_root": "financial-document-processor:83",
+            "checkpoint_blocks": 77,
+            "potential_GET_bytes": 3294003200
+          }
+        ],
+        "make-mips-interpreter": [
+          {
+            "earlier_root": "make-mips-interpreter:50",
+            "later_root": "make-mips-interpreter:94",
+            "checkpoint_blocks": 71,
+            "potential_GET_bytes": 3042344960
+          },
+          {
+            "earlier_root": "make-mips-interpreter:56",
+            "later_root": "make-mips-interpreter:60",
+            "checkpoint_blocks": 88,
+            "potential_GET_bytes": 3755376640
+          },
+          {
+            "earlier_root": "make-mips-interpreter:67",
+            "later_root": "make-mips-interpreter:69",
+            "checkpoint_blocks": 98,
+            "potential_GET_bytes": 4174807040
+          },
+          {
+            "earlier_root": "make-mips-interpreter:80",
+            "later_root": "make-mips-interpreter:82",
+            "checkpoint_blocks": 118,
+            "potential_GET_bytes": 5013667840
+          },
+          {
+            "earlier_root": "make-mips-interpreter:96",
+            "later_root": "make-mips-interpreter:98",
+            "checkpoint_blocks": 135,
+            "potential_GET_bytes": 5726699520
+          }
+        ]
+      },
+      "first_root_cold_token_upper_by_task": {
+        "caffe-cifar-10": 121397,
+        "extract-moves-from-video": 135944,
+        "financial-document-processor": 80893,
+        "make-mips-interpreter": 152695
+      },
+      "projected_first_root_footprint_by_P": {
+        "P0": {
+          "caffe-cifar-10": 121397,
+          "financial-document-processor": 80893
+        },
+        "P1": {
+          "extract-moves-from-video": 135944,
+          "make-mips-interpreter": 152695
+        }
+      },
+      "moved_to_later_roots_for_prefill_balance": "financial-document-processor:63",
+      "later_root_offer_start_s": 25.0,
+      "successor_offer_start_s": 31.0,
+      "later_root_full_GET_by_first_role": [
+        43093196800,
+        43090247680
+      ],
+      "successor_full_GET_by_two_phase_choices": [
+        103931248640,
+        103405486080,
+        103447429120,
+        103889305600
+      ],
+      "assumptions": "One potential full remote read per distinct original checkpoint. Earlier requests must publish this state before the later root needs it. Native service and APC may change the measured amount."
+    }
+  },
+  "settings": {
+    "model": "Qwen3.5-35B-A3B",
+    "attention_TP": 4,
+    "expert_parallel": true,
+    "DP": 1,
+    "serving_observer": false,
+    "D_egress_ports": 8,
+    "D_pool_GiB": 128,
+    "P_pool_GiB": 0,
+    "engines": {
+      "P": {
+        "devices": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "enable_prefix_caching": true,
+        "max_num_seqs": 16,
+        "max_num_batched_tokens": 4096,
+        "gpu_memory_utilization": 0.8,
+        "compilation_config": {
+          "cudagraph_capture_sizes": [
+            1,
+            2,
+            4,
+            8,
+            16,
+            1024,
+            2048,
+            3072,
+            4096
+          ]
+        }
+      },
+      "D": {
+        "devices": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "enable_prefix_caching": true,
+        "max_num_seqs": 16,
+        "max_num_batched_tokens": 4096,
+        "gpu_memory_utilization": 0.8,
+        "compilation_config": {
+          "cudagraph_mode": "FULL_DECODE_ONLY",
+          "cudagraph_capture_sizes": [
+            1,
+            2,
+            4,
+            8,
+            16
+          ]
+        },
+        "recompute_scheduler_enable": true
+      }
+    }
+  },
+  "shaping": "D egress only across eight equal port limits; all eight P ports read-only at original 200000 Mbps",
+  "software": {
+    "P": {
+      "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+      "ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd",
+      "mooncake": "0.3.11.post1"
+    },
+    "D": {
+      "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+      "ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd",
+      "mooncake": "0.3.11.post1"
+    },
+    "model_hashes": {
+      "config.json": "5e4d7f74fec2f360eb9cfbfcd6ec0c4c76e684d3a11caaed259d9fd9bfbc7944",
+      "tokenizer.json": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+      "model.safetensors.index.json": "d8d0b7ca4e61ae107e3e87a3ff21136b3ac7c789e64bb24267227ca804e04205"
+    }
+  },
+  "deployment_audit": {
+    "P": {
+      "intended_argv_devices_and_store_verified": true,
+      "observers_enabled": false,
+      "eager_false_log_count": 2,
+      "graph_mode_logged": true,
+      "software": {
+        "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+        "ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd",
+        "mooncake": "0.3.11.post1"
+      },
+      "native_scheduler": null
+    },
+    "D": {
+      "intended_argv_devices_and_store_verified": true,
+      "observers_enabled": false,
+      "eager_false_log_count": 2,
+      "graph_mode_logged": true,
+      "software": {
+        "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+        "ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd",
+        "mooncake": "0.3.11.post1"
+      },
+      "native_scheduler": "vllm_ascend.core.recompute_scheduler.AsyncRecomputeScheduler"
+    }
+  },
+  "bundle_sha256": {
+    "P": "e9bcf46e9c696286fa6d67d39d7e545027bffb7d416c8bfb2a1bc8350db53788",
+    "D": "8ad0b6860cd9236e1dcec8cf7ca6f8e488eb0241ce3d290c8c9bfc5596207e83"
+  },
+  "P_clock_tracking": {
+    "b1-cap100": "Reference ID    : CA760151 (time.neu.edu.cn)\nStratum         : 2\nRef time (UTC)  : Sun Nov 22 01:38:10 2026\nSystem time     : 0.000490148 seconds slow of NTP time\nLast offset     : +0.000031913 seconds\nRMS offset      : 0.000323213 seconds\nFrequency       : 11.698 ppm slow\nResidual freq   : +0.001 ppm\nSkew            : 0.111 ppm\nRoot delay      : 0.039000187 seconds\nRoot dispersion : 0.001577872 seconds\nUpdate interval : 1032.2 seconds\nLeap status     : Normal\n",
+    "b1-cap200": "Reference ID    : CA760151 (time.neu.edu.cn)\nStratum         : 2\nRef time (UTC)  : Sun Nov 22 01:38:10 2026\nSystem time     : 0.000469287 seconds slow of NTP time\nLast offset     : +0.000031913 seconds\nRMS offset      : 0.000323213 seconds\nFrequency       : 11.698 ppm slow\nResidual freq   : +0.001 ppm\nSkew            : 0.111 ppm\nRoot delay      : 0.039000187 seconds\nRoot dispersion : 0.001792455 seconds\nUpdate interval : 1032.2 seconds\nLeap status     : Normal\n",
+    "b2-cap200": "Reference ID    : CA760151 (time.neu.edu.cn)\nStratum         : 2\nRef time (UTC)  : Sun Nov 22 01:55:32 2026\nSystem time     : 0.000619191 seconds slow of NTP time\nLast offset     : -0.000177501 seconds\nRMS offset      : 0.000311722 seconds\nFrequency       : 11.707 ppm slow\nResidual freq   : -0.003 ppm\nSkew            : 0.108 ppm\nRoot delay      : 0.039000187 seconds\nRoot dispersion : 0.001043650 seconds\nUpdate interval : 1042.8 seconds\nLeap status     : Normal\n",
+    "b2-cap100": "Reference ID    : CA760151 (time.neu.edu.cn)\nStratum         : 2\nRef time (UTC)  : Sun Nov 22 01:55:32 2026\nSystem time     : 0.000603153 seconds slow of NTP time\nLast offset     : -0.000177501 seconds\nRMS offset      : 0.000311722 seconds\nFrequency       : 11.707 ppm slow\nResidual freq   : -0.003 ppm\nSkew            : 0.108 ppm\nRoot delay      : 0.039000187 seconds\nRoot dispersion : 0.001189612 seconds\nUpdate interval : 1042.8 seconds\nLeap status     : Normal\n"
+  },
+  "artifacts": {
+    "r72-events.jsonl.gz": {
+      "sha256": "6f8304bc7e56d8795466f9ba9e030676943ed827b24c4fb11f63dc7960a818f1",
+      "bytes": 364815
+    },
+    "summary.json": {
+      "sha256": "9bb66dd4fdfafd20ff5228cd5acca078d80fa212caf7bf9f4ced84c09537e14d",
+      "bytes": 79071
+    },
+    "root-wave-attribution.json": {
+      "sha256": "798abe6d08faaf5d32da3f46f94b80c12de001293ad87e19ac01bef525d21d6e",
+      "bytes": 68582
+    }
+  },
+  "controller_sha256": {
+    "P": {
+      "node_guard.py": "97705fed4333e552798184f9f386d02604baa55a9276efb4067dfae11c4c52c4"
+    },
+    "D": {
+      "node_guard.py": "97705fed4333e552798184f9f386d02604baa55a9276efb4067dfae11c4c52c4",
+      "control.py": "7d30a1d28b3d52d9d8c515a951092a58af8ffab720b5a76a6abc5133ff116ffa",
+      "run_pair.py": "36a58dd0062e60607d70a2bbd0557cc279b331927726dcb577d38e40473c3db1",
+      "replay.py": "a0e387948eda28c5927aff8e38906024d970f9362fd7ddeeb78b51a34737565d"
+    }
+  },
+  "release": {
+    "P": {
+      "stage": "finished",
+      "npu_idle": true,
+      "port_configuration_Mbps": [
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000
+      ]
+    },
+    "D": {
+      "stage": "finished",
+      "npu_idle": true,
+      "port_configuration_Mbps": [
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000
+      ]
+    }
+  }
+}

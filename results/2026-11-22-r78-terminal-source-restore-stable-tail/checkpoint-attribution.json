@@ -1,0 +1,5081 @@
+{
+  "workload_sha256": "31e95dec511916f2d9d774fd4cdd142c654f0884e30fe91d3e29f8f4b08ef65c",
+  "trace_sha256": "485b9745af532f9f83700c43461d85247ec888e11aa0f069f7b250919f8e1e92",
+  "arms": {
+    "b1-cap100": {
+      "success": 90,
+      "finish_reasons": {
+        "stop": 90
+      },
+      "output_tokens": 24248,
+      "duration_s": 74.89442766297725,
+      "throughput_tokens_s": 323.76240471607974,
+      "D_TX_GB": 201.24668102824745,
+      "D_hot_summary_s": {
+        "any_port": 12.779420362999993,
+        "aggregate": 8.44733302400001
+      },
+      "first_successor_P_start_s": 44.55262168098125,
+      "last_successor_P_end_s": 65.2485101709899,
+      "D_port_TX_GB_in_successor_P_window": [
+        24.285683719409917,
+        26.471246823431272,
+        27.659889169021643,
+        21.176432486917715,
+        24.380612159373587,
+        26.16595460903741,
+        25.62735573385562,
+        24.767286256392183
+      ],
+      "root_output_tokens": 11687,
+      "successor_output_tokens": 12561,
+      "ready_successors_near_plan": 45,
+      "root_P_span_s": [
+        0.174417320988141,
+        32.92657927397522
+      ],
+      "successors_last_ready_s": 45.58116782647629,
+      "successor_median_P_HTTP_s": 14.24871582799824,
+      "successor_first_tokens_at_offsets": {
+        "5": 2,
+        "10": 13,
+        "20": 38,
+        "40": 45,
+        "60": 45
+      },
+      "D_sampled_hot_and_no_work_s": {
+        "D0": 4.044756204999999,
+        "D1": 6.174752045999995
+      },
+      "D_sampled_occupancy_during_successor_recovery": {
+        "D0": {
+          "sample_coverage_s": 20.748510170989903,
+          "estimated_mean_running": 2.8608084232439723,
+          "estimated_mean_waiting": 0.2435544707243424,
+          "hot_sample_coverage_s": 12.779420362999993,
+          "estimated_hot_mean_running": 2.4871882807791525
+        },
+        "D1": {
+          "sample_coverage_s": 20.748510170989903,
+          "estimated_mean_running": 2.585673788812521,
+          "estimated_mean_waiting": 0.0,
+          "hot_sample_coverage_s": 12.779420362999993,
+          "estimated_hot_mean_running": 2.3184744768114496
+        }
+      },
+      "P_sources_tokens": {
+        "local_compute": 738746.0,
+        "local_cache_hit": 4776960.0,
+        "external_kv_transfer": 4772864.0
+      },
+      "D_sources_tokens": {
+        "local_compute": 90.0,
+        "local_cache_hit": 8882176.0,
+        "external_kv_transfer": 1406394.0
+      },
+      "store_counter_delta": {
+        "master_successful_evictions_total": 0.0,
+        "master_evicted_key_count": 0.0,
+        "master_evicted_size_bytes": 0.0,
+        "master_put_start_alloc_failures_total": 0.0,
+        "master_batch_put_start_failures_total": 0.0,
+        "master_batch_exist_key_failures_total": 0.0
+      },
+      "largest_outputs": [
+        [
+          615,
+          "make-doom-for-mips:100"
+        ],
+        [
+          592,
+          "make-mips-interpreter:68"
+        ],
+        [
+          576,
+          "caffe-cifar-10:62"
+        ],
+        [
+          538,
+          "regex-chess:100"
+        ],
+        [
+          537,
+          "regex-chess:59"
+        ]
+      ],
+      "last_five": [
+        {
+          "id": "regex-chess:40",
+          "session_id": "regex-chess:39",
+          "predecessor": "regex-chess:39",
+          "offered_s": 45.44591076484669,
+          "tool_gap_s": 0,
+          "ready_s": 45.44591076484669,
+          "dispatch_s": 45.44653914999799,
+          "P_start_s": 45.46690327298711,
+          "P_end_s": 65.1510294629843,
+          "D_start_s": 65.16918096199515,
+          "first_s": 65.53087342900108,
+          "end_s": 74.89442766297725,
+          "P": "P0",
+          "D": "D0",
+          "output_tokens": 484,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 19.38624065005419,
+          "phases_s": {
+            "ready_to_P": 0.020992508140423638,
+            "P_HTTP": 19.684126189997187,
+            "P_return_to_D": 0.018151499010855332,
+            "D_to_first": 0.3616924670059234,
+            "first_to_end": 9.363554233976174
+          }
+        },
+        {
+          "id": "regex-chess:55",
+          "session_id": "regex-chess:54",
+          "predecessor": "regex-chess:54",
+          "offered_s": 45.265536086969696,
+          "tool_gap_s": 0,
+          "ready_s": 45.265536086969696,
+          "dispatch_s": 45.26668939299998,
+          "P_start_s": 45.292460861994186,
+          "P_end_s": 64.17538017997867,
+          "D_start_s": 64.19897316399147,
+          "first_s": 64.54880538297584,
+          "end_s": 74.54677564799204,
+          "P": "P0",
+          "D": "D0",
+          "output_tokens": 501,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 19.995940530032385,
+          "phases_s": {
+            "ready_to_P": 0.02692477502449009,
+            "P_HTTP": 18.882919317984488,
+            "P_return_to_D": 0.02359298401279375,
+            "D_to_first": 0.3498322189843748,
+            "first_to_end": 9.997970265016193
+          }
+        },
+        {
+          "id": "regex-chess:59",
+          "session_id": "regex-chess:58",
+          "predecessor": "regex-chess:58",
+          "offered_s": 45.15427756323282,
+          "tool_gap_s": 0,
+          "ready_s": 45.15427756323282,
+          "dispatch_s": 45.1555082059931,
+          "P_start_s": 45.18166437698528,
+          "P_end_s": 62.76690424399567,
+          "D_start_s": 62.78999021498021,
+          "first_s": 63.121748285979265,
+          "end_s": 74.15479303398752,
+          "P": "P0",
+          "D": "D0",
+          "output_tokens": 537,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 20.584038708970617,
+          "phases_s": {
+            "ready_to_P": 0.027386813752464434,
+            "P_HTTP": 17.585239867010387,
+            "P_return_to_D": 0.023085970984539017,
+            "D_to_first": 0.33175807099905796,
+            "first_to_end": 11.033044748008251
+          }
+        },
+        {
+          "id": "make-mips-interpreter:68",
+          "session_id": "make-mips-interpreter:67",
+          "predecessor": "make-mips-interpreter:67",
+          "offered_s": 45.28886541422169,
+          "tool_gap_s": 0,
+          "ready_s": 45.28886541422169,
+          "dispatch_s": 45.28990416499437,
+          "P_start_s": 45.314486955991015,
+          "P_end_s": 61.0498309499817,
+          "D_start_s": 61.071053419000236,
+          "first_s": 61.414217733981786,
+          "end_s": 74.01320660699275,
+          "P": "P1",
+          "D": "D1",
+          "output_tokens": 592,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 21.318086079544784,
+          "phases_s": {
+            "ready_to_P": 0.025621541769325518,
+            "P_HTTP": 15.735343993990682,
+            "P_return_to_D": 0.021222469018539414,
+            "D_to_first": 0.34316431498155,
+            "first_to_end": 12.598988873010967
+          }
+        },
+        {
+          "id": "regex-chess:44",
+          "session_id": "regex-chess:43",
+          "predecessor": "regex-chess:43",
+          "offered_s": 45.35603889379293,
+          "tool_gap_s": 0,
+          "ready_s": 45.35603889379293,
+          "dispatch_s": 45.35655645097722,
+          "P_start_s": 45.380342716991436,
+          "P_end_s": 64.17248443097924,
+          "D_start_s": 64.19154678599443,
+          "first_s": 64.59286068097572,
+          "end_s": 73.97869171097409,
+          "P": "P0",
+          "D": "D1",
+          "output_tokens": 451,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 20.857402288885268,
+          "phases_s": {
+            "ready_to_P": 0.024303823198508212,
+            "P_HTTP": 18.792141713987803,
+            "P_return_to_D": 0.019062355015194044,
+            "D_to_first": 0.40131389498128556,
+            "first_to_end": 9.385831029998371
+          }
+        }
+      ],
+      "source_tasks": {
+        "caffe-cifar-10": {
+          "root_routes": {
+            "P0": 15
+          },
+          "successor_routes": {
+            "P0": 1,
+            "P1": 14
+          },
+          "cross_P_successors": 14,
+          "route_conditioned_full_GET_bytes": 60712222720,
+          "last_root_end_s": 21.67540184900281,
+          "last_successor_end_s": 73.31774757697713
+        },
+        "make-doom-for-mips": {
+          "root_routes": {
+            "P1": 7
+          },
+          "successor_routes": {
+            "P0": 7
+          },
+          "cross_P_successors": 7,
+          "route_conditioned_full_GET_bytes": 32453263360,
+          "last_root_end_s": 25.46091714699287,
+          "last_successor_end_s": 71.41880348199629
+        },
+        "make-mips-interpreter": {
+          "root_routes": {
+            "P0": 10
+          },
+          "successor_routes": {
+            "P1": 10
+          },
+          "cross_P_successors": 10,
+          "route_conditioned_full_GET_bytes": 45984317440,
+          "last_root_end_s": 32.11556728699361,
+          "last_successor_end_s": 74.01320660699275
+        },
+        "regex-chess": {
+          "root_routes": {
+            "P1": 13
+          },
+          "successor_routes": {
+            "P0": 13
+          },
+          "cross_P_successors": 13,
+          "route_conditioned_full_GET_bytes": 69455872000,
+          "last_root_end_s": 40.74680319998879,
+          "last_successor_end_s": 74.89442766297725
+        }
+      }
+    },
+    "b1-cap200": {
+      "success": 90,
+      "finish_reasons": {
+        "stop": 90
+      },
+      "output_tokens": 24900,
+      "duration_s": 69.79876180298743,
+      "throughput_tokens_s": 356.7398526392522,
+      "D_TX_GB": 201.24919422488355,
+      "D_hot_summary_s": {
+        "any_port": 4.942878730000004,
+        "aggregate": 1.997124982999999
+      },
+      "first_successor_P_start_s": 44.5524032000103,
+      "last_successor_P_end_s": 57.12893849599641,
+      "D_port_TX_GB_in_successor_P_window": [
+        23.16881809287626,
+        27.590150452557644,
+        27.71830451325677,
+        23.6670811191653,
+        23.882873262383562,
+        24.810927740814318,
+        22.480456116337653,
+        24.418167211250775
+      ],
+      "root_output_tokens": 12269,
+      "successor_output_tokens": 12631,
+      "ready_successors_near_plan": 45,
+      "root_P_span_s": [
+        0.1907654879905749,
+        29.16032725200057
+      ],
+      "successors_last_ready_s": 45.58116782647629,
+      "successor_median_P_HTTP_s": 7.953911310993135,
+      "successor_first_tokens_at_offsets": {
+        "5": 5,
+        "10": 29,
+        "20": 45,
+        "40": 45,
+        "60": 45
+      },
+      "D_sampled_hot_and_no_work_s": {
+        "D0": 2.0408708480000044,
+        "D1": 2.0384017720000003
+      },
+      "D_sampled_occupancy_during_successor_recovery": {
+        "D0": {
+          "sample_coverage_s": 12.628938495996408,
+          "estimated_mean_running": 3.050220923009192,
+          "estimated_mean_waiting": 0.0,
+          "hot_sample_coverage_s": 4.942878730000004,
+          "estimated_hot_mean_running": 0.587108857108479
+        },
+        "D1": {
+          "sample_coverage_s": 12.628938495996408,
+          "estimated_mean_running": 3.0522778265333765,
+          "estimated_mean_waiting": 0.0,
+          "hot_sample_coverage_s": 4.942878730000004,
+          "estimated_hot_mean_running": 0.5876083789768448
+        }
+      },
+      "P_sources_tokens": {
+        "local_compute": 738746.0,
+        "local_cache_hit": 4776960.0,
+        "external_kv_transfer": 4772864.0
+      },
+      "D_sources_tokens": {
+        "local_compute": 90.0,
+        "local_cache_hit": 8971264.0,
+        "external_kv_transfer": 1317306.0
+      },
+      "store_counter_delta": {
+        "master_successful_evictions_total": 0.0,
+        "master_evicted_key_count": 0.0,
+        "master_evicted_size_bytes": 0.0,
+        "master_put_start_alloc_failures_total": 0.0,
+        "master_batch_put_start_failures_total": 0.0,
+        "master_batch_exist_key_failures_total": 0.0
+      },
+      "largest_outputs": [
+        [
+          710,
+          "regex-chess:54"
+        ],
+        [
+          700,
+          "regex-chess:99"
+        ],
+        [
+          690,
+          "regex-chess:67"
+        ],
+        [
+          662,
+          "make-doom-for-mips:100"
+        ],
+        [
+          550,
+          "caffe-cifar-10:62"
+        ]
+      ],
+      "last_five": [
+        {
+          "id": "regex-chess:67",
+          "session_id": "regex-chess:66",
+          "predecessor": "regex-chess:66",
+          "offered_s": 44.97551397761963,
+          "tool_gap_s": 0,
+          "ready_s": 44.97551397761963,
+          "dispatch_s": 44.97632758299005,
+          "P_start_s": 45.00939920998644,
+          "P_end_s": 54.00668602800579,
+          "D_start_s": 54.0337344550062,
+          "first_s": 54.45146768799168,
+          "end_s": 69.79876180298743,
+          "P": "P0",
+          "D": "D1",
+          "output_tokens": 690,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 22.274737467337804,
+          "phases_s": {
+            "ready_to_P": 0.03388523236681351,
+            "P_HTTP": 8.997286818019347,
+            "P_return_to_D": 0.027048427000408992,
+            "D_to_first": 0.4177332329854835,
+            "first_to_end": 15.347294114995748
+          }
+        },
+        {
+          "id": "regex-chess:55",
+          "session_id": "regex-chess:54",
+          "predecessor": "regex-chess:54",
+          "offered_s": 45.265536086969696,
+          "tool_gap_s": 0,
+          "ready_s": 45.265536086969696,
+          "dispatch_s": 45.26653790200362,
+          "P_start_s": 45.29554932200699,
+          "P_end_s": 56.48188964300789,
+          "D_start_s": 56.503961866983445,
+          "first_s": 56.880859483004315,
+          "end_s": 68.94490526599111,
+          "P": "P0",
+          "D": "D1",
+          "output_tokens": 544,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 22.21739554877863,
+          "phases_s": {
+            "ready_to_P": 0.030013235037294805,
+            "P_HTTP": 11.186340321000898,
+            "P_return_to_D": 0.02207222397555597,
+            "D_to_first": 0.37689761602086946,
+            "first_to_end": 12.064045782986796
+          }
+        },
+        {
+          "id": "regex-chess:40",
+          "session_id": "regex-chess:39",
+          "predecessor": "regex-chess:39",
+          "offered_s": 45.44591076484669,
+          "tool_gap_s": 0,
+          "ready_s": 45.44591076484669,
+          "dispatch_s": 45.4467394509993,
+          "P_start_s": 45.47142350298236,
+          "P_end_s": 57.090987247996964,
+          "D_start_s": 57.12319146899972,
+          "first_s": 57.5006582379865,
+          "end_s": 67.61211277599796,
+          "P": "P0",
+          "D": "D1",
+          "output_tokens": 430,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 23.569824097928805,
+          "phases_s": {
+            "ready_to_P": 0.02551273813567434,
+            "P_HTTP": 11.619563745014602,
+            "P_return_to_D": 0.03220422100275755,
+            "D_to_first": 0.37746676898677833,
+            "first_to_end": 10.111454538011458
+          }
+        },
+        {
+          "id": "regex-chess:44",
+          "session_id": "regex-chess:43",
+          "predecessor": "regex-chess:43",
+          "offered_s": 45.35603889379293,
+          "tool_gap_s": 0,
+          "ready_s": 45.35603889379293,
+          "dispatch_s": 45.357150244992226,
+          "P_start_s": 45.380337317008525,
+          "P_end_s": 56.48261623698636,
+          "D_start_s": 56.503133841993986,
+          "first_s": 56.84140924498206,
+          "end_s": 67.4342119419889,
+          "P": "P0",
+          "D": "D1",
+          "output_tokens": 440,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 24.129391109355,
+          "phases_s": {
+            "ready_to_P": 0.02429842321559761,
+            "P_HTTP": 11.102278919977834,
+            "P_return_to_D": 0.020517605007626116,
+            "D_to_first": 0.33827540298807435,
+            "first_to_end": 10.592802697006846
+          }
+        },
+        {
+          "id": "regex-chess:99",
+          "session_id": "regex-chess:98",
+          "predecessor": "regex-chess:98",
+          "offered_s": 44.699051109911025,
+          "tool_gap_s": 0,
+          "ready_s": 44.699051109911025,
+          "dispatch_s": 44.70020271700923,
+          "P_start_s": 44.74821518099634,
+          "P_end_s": 49.27485788799822,
+          "D_start_s": 49.310975923988735,
+          "first_s": 49.991583397990325,
+          "end_s": 67.26390467799501,
+          "P": "P0",
+          "D": "D1",
+          "output_tokens": 700,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 24.710044749649054,
+          "phases_s": {
+            "ready_to_P": 0.04916407108531473,
+            "P_HTTP": 4.5266427070018835,
+            "P_return_to_D": 0.036118035990512,
+            "D_to_first": 0.6806074740015902,
+            "first_to_end": 17.27232128000469
+          }
+        }
+      ],
+      "source_tasks": {
+        "caffe-cifar-10": {
+          "root_routes": {
+            "P0": 15
+          },
+          "successor_routes": {
+            "P0": 1,
+            "P1": 14
+          },
+          "cross_P_successors": 14,
+          "route_conditioned_full_GET_bytes": 60712222720,
+          "last_root_end_s": 16.466713389003417,
+          "last_successor_end_s": 67.0612365519919
+        },
+        "make-doom-for-mips": {
+          "root_routes": {
+            "P1": 7
+          },
+          "successor_routes": {
+            "P0": 7
+          },
+          "cross_P_successors": 7,
+          "route_conditioned_full_GET_bytes": 32453263360,
+          "last_root_end_s": 22.38591068799724,
+          "last_successor_end_s": 64.90083562699147
+        },
+        "make-mips-interpreter": {
+          "root_routes": {
+            "P0": 10
+          },
+          "successor_routes": {
+            "P1": 10
+          },
+          "cross_P_successors": 10,
+          "route_conditioned_full_GET_bytes": 45984317440,
+          "last_root_end_s": 27.430507143988507,
+          "last_successor_end_s": 62.77021410598536
+        },
+        "regex-chess": {
+          "root_routes": {
+            "P1": 13
+          },
+          "successor_routes": {
+            "P0": 13
+          },
+          "cross_P_successors": 13,
+          "route_conditioned_full_GET_bytes": 69455872000,
+          "last_root_end_s": 37.599012814986054,
+          "last_successor_end_s": 69.79876180298743
+        }
+      }
+    },
+    "b2-cap200": {
+      "success": 90,
+      "finish_reasons": {
+        "stop": 90
+      },
+      "output_tokens": 23252,
+      "duration_s": 68.03188368101837,
+      "throughput_tokens_s": 341.7809230304696,
+      "D_TX_GB": 154.5418565816559,
+      "D_hot_summary_s": {
+        "any_port": 4.794591486999998,
+        "aggregate": 1.6323909019999974
+      },
+      "first_successor_P_start_s": 44.55397268102388,
+      "last_successor_P_end_s": 55.133629124000436,
+      "D_port_TX_GB_in_successor_P_window": [
+        16.914118937206307,
+        21.32061233697814,
+        20.7106246824627,
+        17.724085933614436,
+        19.348075356045683,
+        17.442442548782928,
+        20.97152599601712,
+        20.05502518340945
+      ],
+      "root_output_tokens": 11517,
+      "successor_output_tokens": 11735,
+      "ready_successors_near_plan": 45,
+      "root_P_span_s": [
+        0.1815889160207007,
+        29.37759254401317
+      ],
+      "successors_last_ready_s": 45.58116782647629,
+      "successor_median_P_HTTP_s": 7.588119533000281,
+      "successor_first_tokens_at_offsets": {
+        "5": 4,
+        "10": 37,
+        "20": 45,
+        "40": 45,
+        "60": 45
+      },
+      "D_sampled_hot_and_no_work_s": {
+        "D0": 1.956038821,
+        "D1": 1.9582231559999954
+      },
+      "D_sampled_occupancy_during_successor_recovery": {
+        "D0": {
+          "sample_coverage_s": 10.633629124000436,
+          "estimated_mean_running": 2.7100768142119134,
+          "estimated_mean_waiting": 0.0,
+          "hot_sample_coverage_s": 4.794591486999998,
+          "estimated_hot_mean_running": 1.365088478053909
+        },
+        "D1": {
+          "sample_coverage_s": 10.633629124000436,
+          "estimated_mean_running": 3.0428807347586497,
+          "estimated_mean_waiting": 0.0,
+          "hot_sample_coverage_s": 4.794591486999998,
+          "estimated_hot_mean_running": 1.500255655875844
+        }
+      },
+      "P_sources_tokens": {
+        "local_compute": 738746.0,
+        "local_cache_hit": 5879808.0,
+        "external_kv_transfer": 3670016.0
+      },
+      "D_sources_tokens": {
+        "local_compute": 90.0,
+        "local_cache_hit": 8975360.0,
+        "external_kv_transfer": 1313210.0
+      },
+      "store_counter_delta": {
+        "master_successful_evictions_total": 0.0,
+        "master_evicted_key_count": 0.0,
+        "master_evicted_size_bytes": 0.0,
+        "master_put_start_alloc_failures_total": 0.0,
+        "master_batch_put_start_failures_total": 0.0,
+        "master_batch_exist_key_failures_total": 0.0
+      },
+      "largest_outputs": [
+        [
+          610,
+          "regex-chess:55"
+        ],
+        [
+          592,
+          "caffe-cifar-10:62"
+        ],
+        [
+          582,
+          "make-doom-for-mips:100"
+        ],
+        [
+          543,
+          "regex-chess:100"
+        ],
+        [
+          537,
+          "regex-chess:59"
+        ]
+      ],
+      "last_five": [
+        {
+          "id": "regex-chess:55",
+          "session_id": "regex-chess:54",
+          "predecessor": "regex-chess:54",
+          "offered_s": 45.265536086969696,
+          "tool_gap_s": 0,
+          "ready_s": 45.265536086969696,
+          "dispatch_s": 45.265968592022546,
+          "P_start_s": 45.31055620301049,
+          "P_end_s": 54.39463712699944,
+          "D_start_s": 54.41781175901997,
+          "first_s": 54.78258067101706,
+          "end_s": 68.03188368101837,
+          "P": "P0",
+          "D": "D0",
+          "output_tokens": 610,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 21.755834170773912,
+          "phases_s": {
+            "ready_to_P": 0.0450201160407957,
+            "P_HTTP": 9.08408092398895,
+            "P_return_to_D": 0.023174632020527497,
+            "D_to_first": 0.36476891199708916,
+            "first_to_end": 13.249303010001313
+          }
+        },
+        {
+          "id": "regex-chess:59",
+          "session_id": "regex-chess:58",
+          "predecessor": "regex-chess:58",
+          "offered_s": 45.15427756323282,
+          "tool_gap_s": 0,
+          "ready_s": 45.15427756323282,
+          "dispatch_s": 45.15483154600952,
+          "P_start_s": 45.183006139995996,
+          "P_end_s": 54.06050623502233,
+          "D_start_s": 54.085062605008716,
+          "first_s": 54.499661693000235,
+          "end_s": 66.8962977140036,
+          "P": "P0",
+          "D": "D0",
+          "output_tokens": 537,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 23.128052277991344,
+          "phases_s": {
+            "ready_to_P": 0.028728576763178637,
+            "P_HTTP": 8.877500095026335,
+            "P_return_to_D": 0.024556369986385107,
+            "D_to_first": 0.4145990879915189,
+            "first_to_end": 12.39663602100336
+          }
+        },
+        {
+          "id": "regex-chess:44",
+          "session_id": "regex-chess:43",
+          "predecessor": "regex-chess:43",
+          "offered_s": 45.35603889379293,
+          "tool_gap_s": 0,
+          "ready_s": 45.35603889379293,
+          "dispatch_s": 45.3567778050201,
+          "P_start_s": 45.378259655000875,
+          "P_end_s": 52.966379188001156,
+          "D_start_s": 52.98647908002022,
+          "first_s": 53.297112449014094,
+          "end_s": 64.96907549601747,
+          "P": "P1",
+          "D": "D0",
+          "output_tokens": 440,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 26.58761514123775,
+          "phases_s": {
+            "ready_to_P": 0.02222076120794725,
+            "P_HTTP": 7.588119533000281,
+            "P_return_to_D": 0.02009989201906137,
+            "D_to_first": 0.3106333689938765,
+            "first_to_end": 11.671963047003374
+          }
+        },
+        {
+          "id": "regex-chess:57",
+          "session_id": "regex-chess:56",
+          "predecessor": "regex-chess:56",
+          "offered_s": 45.19877693537823,
+          "tool_gap_s": 0,
+          "ready_s": 45.19877693537823,
+          "dispatch_s": 45.1991966360074,
+          "P_start_s": 45.22424590901937,
+          "P_end_s": 54.05859951200546,
+          "D_start_s": 54.08530905700172,
+          "first_s": 54.46811280702241,
+          "end_s": 64.87117584599764,
+          "P": "P0",
+          "D": "D0",
+          "output_tokens": 398,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 26.204189015050964,
+          "phases_s": {
+            "ready_to_P": 0.02546897364114642,
+            "P_HTTP": 8.834353602986084,
+            "P_return_to_D": 0.026709544996265322,
+            "D_to_first": 0.3828037500206847,
+            "first_to_end": 10.403063038975233
+          }
+        },
+        {
+          "id": "regex-chess:71",
+          "session_id": "regex-chess:70",
+          "predecessor": "regex-chess:70",
+          "offered_s": 44.885907682206536,
+          "tool_gap_s": 0,
+          "ready_s": 44.885907682206536,
+          "dispatch_s": 44.88617975101806,
+          "P_start_s": 44.91873168401071,
+          "P_end_s": 52.582176459021866,
+          "D_start_s": 52.609222815022804,
+          "first_s": 53.0900732660084,
+          "end_s": 64.6515046620043,
+          "P": "P0",
+          "D": "D1",
+          "output_tokens": 512,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 22.62511036398414,
+          "phases_s": {
+            "ready_to_P": 0.03282400180417255,
+            "P_HTTP": 7.663444775011158,
+            "P_return_to_D": 0.02704635600093752,
+            "D_to_first": 0.4808504509855993,
+            "first_to_end": 11.561431395995896
+          }
+        }
+      ],
+      "source_tasks": {
+        "caffe-cifar-10": {
+          "root_routes": {
+            "P0": 15
+          },
+          "successor_routes": {
+            "P1": 12,
+            "P0": 3
+          },
+          "cross_P_successors": 12,
+          "route_conditioned_full_GET_bytes": 53746728960,
+          "last_root_end_s": 17.137053723010467,
+          "last_successor_end_s": 64.19986984200659
+        },
+        "make-doom-for-mips": {
+          "root_routes": {
+            "P1": 7
+          },
+          "successor_routes": {
+            "P1": 2,
+            "P0": 5
+          },
+          "cross_P_successors": 5,
+          "route_conditioned_full_GET_bytes": 25236111360,
+          "last_root_end_s": 20.35824995301664,
+          "last_successor_end_s": 63.95940424100263
+        },
+        "make-mips-interpreter": {
+          "root_routes": {
+            "P0": 10
+          },
+          "successor_routes": {
+            "P0": 4,
+            "P1": 6
+          },
+          "cross_P_successors": 6,
+          "route_conditioned_full_GET_bytes": 31466127360,
+          "last_root_end_s": 26.701995637995424,
+          "last_successor_end_s": 63.620422606996726
+        },
+        "regex-chess": {
+          "root_routes": {
+            "P1": 13
+          },
+          "successor_routes": {
+            "P1": 4,
+            "P0": 9
+          },
+          "cross_P_successors": 9,
+          "route_conditioned_full_GET_bytes": 55231283200,
+          "last_root_end_s": 37.411557909013936,
+          "last_successor_end_s": 68.03188368101837
+        }
+      }
+    },
+    "b2-cap100": {
+      "success": 90,
+      "finish_reasons": {
+        "stop": 90
+      },
+      "output_tokens": 24012,
+      "duration_s": 78.72454315298819,
+      "throughput_tokens_s": 305.01288465195194,
+      "D_TX_GB": 201.24752837815234,
+      "D_hot_summary_s": {
+        "any_port": 13.510018306999996,
+        "aggregate": 4.305862233999996
+      },
+      "first_successor_P_start_s": 44.55664905899903,
+      "last_successor_P_end_s": 66.62513124299585,
+      "D_port_TX_GB_in_successor_P_window": [
+        26.96721321414456,
+        22.700073245733993,
+        24.432665811403,
+        23.080128043340157,
+        25.554779523977857,
+        30.00366669630907,
+        22.994169069599817,
+        24.541612715488707
+      ],
+      "root_output_tokens": 11574,
+      "successor_output_tokens": 12438,
+      "ready_successors_near_plan": 45,
+      "root_P_span_s": [
+        0.26884984600474127,
+        29.429927176999627
+      ],
+      "successors_last_ready_s": 45.58116782647629,
+      "successor_median_P_HTTP_s": 15.607774925010744,
+      "successor_first_tokens_at_offsets": {
+        "5": 2,
+        "10": 11,
+        "20": 29,
+        "40": 45,
+        "60": 45
+      },
+      "D_sampled_hot_and_no_work_s": {
+        "D0": 1.5879586169999982,
+        "D1": 5.222068732999993
+      },
+      "D_sampled_occupancy_during_successor_recovery": {
+        "D0": {
+          "sample_coverage_s": 22.12513124299585,
+          "estimated_mean_running": 2.476748619036577,
+          "estimated_mean_waiting": 0.0,
+          "hot_sample_coverage_s": 13.510018306999996,
+          "estimated_hot_mean_running": 1.9263644832066489
+        },
+        "D1": {
+          "sample_coverage_s": 22.12513124299585,
+          "estimated_mean_running": 2.232337537235665,
+          "estimated_mean_waiting": 0.0,
+          "hot_sample_coverage_s": 13.510018306999996,
+          "estimated_hot_mean_running": 1.726749336595997
+        }
+      },
+      "P_sources_tokens": {
+        "local_compute": 738746.0,
+        "local_cache_hit": 4776960.0,
+        "external_kv_transfer": 4772864.0
+      },
+      "D_sources_tokens": {
+        "local_compute": 90.0,
+        "local_cache_hit": 8963072.0,
+        "external_kv_transfer": 1325498.0
+      },
+      "store_counter_delta": {
+        "master_successful_evictions_total": 0.0,
+        "master_evicted_key_count": 0.0,
+        "master_evicted_size_bytes": 0.0,
+        "master_put_start_alloc_failures_total": 0.0,
+        "master_batch_put_start_failures_total": 0.0,
+        "master_batch_exist_key_failures_total": 0.0
+      },
+      "largest_outputs": [
+        [
+          666,
+          "make-doom-for-mips:100"
+        ],
+        [
+          633,
+          "regex-chess:34"
+        ],
+        [
+          624,
+          "regex-chess:99"
+        ],
+        [
+          622,
+          "regex-chess:55"
+        ],
+        [
+          608,
+          "regex-chess:67"
+        ]
+      ],
+      "last_five": [
+        {
+          "id": "regex-chess:34",
+          "session_id": "regex-chess:33",
+          "predecessor": "regex-chess:33",
+          "offered_s": 45.49179043078284,
+          "tool_gap_s": 0,
+          "ready_s": 45.49179043078284,
+          "dispatch_s": 45.49229107098654,
+          "P_start_s": 45.5121327599918,
+          "P_end_s": 66.55953053498524,
+          "D_start_s": 66.57825856699492,
+          "first_s": 66.87056528599351,
+          "end_s": 78.72454315298819,
+          "P": "P0",
+          "D": "D1",
+          "output_tokens": 633,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 18.756294093346018,
+          "phases_s": {
+            "ready_to_P": 0.020342329208958176,
+            "P_HTTP": 21.047397774993442,
+            "P_return_to_D": 0.0187280320096761,
+            "D_to_first": 0.2923067189985886,
+            "first_to_end": 11.853977866994683
+          }
+        },
+        {
+          "id": "regex-chess:55",
+          "session_id": "regex-chess:54",
+          "predecessor": "regex-chess:54",
+          "offered_s": 45.265536086969696,
+          "tool_gap_s": 0,
+          "ready_s": 45.265536086969696,
+          "dispatch_s": 45.26636413499364,
+          "P_start_s": 45.29325156100094,
+          "P_end_s": 65.59877135898569,
+          "D_start_s": 65.62193323098472,
+          "first_s": 66.02466466100304,
+          "end_s": 78.07332682897686,
+          "P": "P0",
+          "D": "D1",
+          "output_tokens": 622,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 19.4020324766084,
+          "phases_s": {
+            "ready_to_P": 0.027715474031246856,
+            "P_HTTP": 20.305519797984743,
+            "P_return_to_D": 0.02316187199903652,
+            "D_to_first": 0.4027314300183207,
+            "first_to_end": 12.048662167973816
+          }
+        },
+        {
+          "id": "regex-chess:44",
+          "session_id": "regex-chess:43",
+          "predecessor": "regex-chess:43",
+          "offered_s": 45.35603889379293,
+          "tool_gap_s": 0,
+          "ready_s": 45.35603889379293,
+          "dispatch_s": 45.35711531798006,
+          "P_start_s": 45.38362423097715,
+          "P_end_s": 65.5549311429786,
+          "D_start_s": 65.57619199200417,
+          "first_s": 65.9949574469938,
+          "end_s": 75.63924325999687,
+          "P": "P0",
+          "D": "D1",
+          "output_tokens": 455,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 21.242920292958328,
+          "phases_s": {
+            "ready_to_P": 0.027585337184220293,
+            "P_HTTP": 20.171306912001455,
+            "P_return_to_D": 0.02126084902556613,
+            "D_to_first": 0.41876545498962514,
+            "first_to_end": 9.64428581300308
+          }
+        },
+        {
+          "id": "regex-chess:59",
+          "session_id": "regex-chess:58",
+          "predecessor": "regex-chess:58",
+          "offered_s": 45.15427756323282,
+          "tool_gap_s": 0,
+          "ready_s": 45.15427756323282,
+          "dispatch_s": 45.15533901998424,
+          "P_start_s": 45.19814824897912,
+          "P_end_s": 64.35921377298655,
+          "D_start_s": 64.38510704197688,
+          "first_s": 64.74248208600329,
+          "end_s": 75.1141438909981,
+          "P": "P0",
+          "D": "D1",
+          "output_tokens": 477,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 21.789205472678155,
+          "phases_s": {
+            "ready_to_P": 0.04387068574630604,
+            "P_HTTP": 19.161065524007427,
+            "P_return_to_D": 0.025893268990330398,
+            "D_to_first": 0.35737504402641207,
+            "first_to_end": 10.371661804994801
+          }
+        },
+        {
+          "id": "regex-chess:40",
+          "session_id": "regex-chess:39",
+          "predecessor": "regex-chess:39",
+          "offered_s": 45.44591076484669,
+          "tool_gap_s": 0,
+          "ready_s": 45.44591076484669,
+          "dispatch_s": 45.44693004398141,
+          "P_start_s": 45.469697762979195,
+          "P_end_s": 66.51920875097858,
+          "D_start_s": 66.53810939498362,
+          "first_s": 66.90209136198973,
+          "end_s": 74.64404543998535,
+          "P": "P0",
+          "D": "D0",
+          "output_tokens": 422,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 18.389439615191485,
+          "phases_s": {
+            "ready_to_P": 0.02378699813250762,
+            "P_HTTP": 21.049510987999383,
+            "P_return_to_D": 0.018900644005043432,
+            "D_to_first": 0.3639819670061115,
+            "first_to_end": 7.741954077995615
+          }
+        }
+      ],
+      "source_tasks": {
+        "caffe-cifar-10": {
+          "root_routes": {
+            "P0": 15
+          },
+          "successor_routes": {
+            "P0": 1,
+            "P1": 14
+          },
+          "cross_P_successors": 14,
+          "route_conditioned_full_GET_bytes": 60712222720,
+          "last_root_end_s": 15.773525067983428,
+          "last_successor_end_s": 74.08263498300221
+        },
+        "make-doom-for-mips": {
+          "root_routes": {
+            "P1": 7
+          },
+          "successor_routes": {
+            "P0": 7
+          },
+          "cross_P_successors": 7,
+          "route_conditioned_full_GET_bytes": 32453263360,
+          "last_root_end_s": 22.233048178983154,
+          "last_successor_end_s": 70.83670087199425
+        },
+        "make-mips-interpreter": {
+          "root_routes": {
+            "P0": 10
+          },
+          "successor_routes": {
+            "P1": 10
+          },
+          "cross_P_successors": 10,
+          "route_conditioned_full_GET_bytes": 45984317440,
+          "last_root_end_s": 28.867838445003144,
+          "last_successor_end_s": 71.30319919899921
+        },
+        "regex-chess": {
+          "root_routes": {
+            "P1": 13
+          },
+          "successor_routes": {
+            "P0": 13
+          },
+          "cross_P_successors": 13,
+          "route_conditioned_full_GET_bytes": 69455872000,
+          "last_root_end_s": 37.92535834599403,
+          "last_successor_end_s": 78.72454315298819
+        }
+      }
+    }
+  },
+  "contrasts": {
+    "b1": {
+      "same_P": 90,
+      "same_D": 41,
+      "replayed_stage_swap_s": {
+        "ready_to_P": -0.002511916507501155,
+        "P_HTTP": 7.246046607154616,
+        "P_return_to_D": -0.008434800324418271,
+        "D_to_first": 0.028599455996300094,
+        "first_to_end": -2.168033486329174
+      },
+      "observed_low_throughput_loss_fraction": 0.0924411659622465
+    },
+    "b2": {
+      "same_P": 76,
+      "same_D": 49,
+      "replayed_stage_swap_s": {
+        "ready_to_P": -0.012046161350250866,
+        "P_HTTP": 11.566780885167343,
+        "P_return_to_D": 0.0005878873247032362,
+        "D_to_first": -0.007364308316027738,
+        "first_to_end": -0.8552988308559482
+      },
+      "observed_low_throughput_loss_fraction": 0.10757779589482763
+    }
+  },
+  "EOS_length_screen": {
+    "assumption": "Historical cohort selection only, with costs frozen on the parent replay. Removing requests on-host changes queues, routes and EOS.",
+    "thresholds": {
+      "600": {
+        "sessions": 40,
+        "request_ids": [
+          "caffe-cifar-10:100",
+          "caffe-cifar-10:101",
+          "caffe-cifar-10:102",
+          "caffe-cifar-10:103",
+          "caffe-cifar-10:58",
+          "caffe-cifar-10:59",
+          "caffe-cifar-10:60",
+          "caffe-cifar-10:61",
+          "caffe-cifar-10:62",
+          "caffe-cifar-10:63",
+          "caffe-cifar-10:71",
+          "caffe-cifar-10:72",
+          "caffe-cifar-10:78",
+          "caffe-cifar-10:79",
+          "caffe-cifar-10:81",
+          "caffe-cifar-10:82",
+          "caffe-cifar-10:83",
+          "caffe-cifar-10:84",
+          "caffe-cifar-10:86",
+          "caffe-cifar-10:87",
+          "caffe-cifar-10:88",
+          "caffe-cifar-10:89",
+          "caffe-cifar-10:91",
+          "caffe-cifar-10:92",
+          "caffe-cifar-10:93",
+          "caffe-cifar-10:94",
+          "caffe-cifar-10:95",
+          "caffe-cifar-10:96",
+          "caffe-cifar-10:97",
+          "caffe-cifar-10:98",
+          "make-doom-for-mips:102",
+          "make-doom-for-mips:103",
+          "make-doom-for-mips:105",
+          "make-doom-for-mips:106",
+          "make-doom-for-mips:115",
+          "make-doom-for-mips:116",
+          "make-doom-for-mips:120",
+          "make-doom-for-mips:121",
+          "make-doom-for-mips:71",
+          "make-doom-for-mips:72",
+          "make-doom-for-mips:92",
+          "make-doom-for-mips:93",
+          "make-mips-interpreter:50",
+          "make-mips-interpreter:51",
+          "make-mips-interpreter:53",
+          "make-mips-interpreter:54",
+          "make-mips-interpreter:60",
+          "make-mips-interpreter:61",
+          "make-mips-interpreter:67",
+          "make-mips-interpreter:68",
+          "make-mips-interpreter:69",
+          "make-mips-interpreter:70",
+          "make-mips-interpreter:80",
+          "make-mips-interpreter:81",
+          "make-mips-interpreter:82",
+          "make-mips-interpreter:83",
+          "make-mips-interpreter:92",
+          "make-mips-interpreter:93",
+          "make-mips-interpreter:96",
+          "make-mips-interpreter:97",
+          "make-mips-interpreter:98",
+          "make-mips-interpreter:99",
+          "regex-chess:100",
+          "regex-chess:101",
+          "regex-chess:102",
+          "regex-chess:103",
+          "regex-chess:39",
+          "regex-chess:40",
+          "regex-chess:41",
+          "regex-chess:42",
+          "regex-chess:43",
+          "regex-chess:44",
+          "regex-chess:56",
+          "regex-chess:57",
+          "regex-chess:58",
+          "regex-chess:59",
+          "regex-chess:70",
+          "regex-chess:71",
+          "regex-chess:96",
+          "regex-chess:97"
+        ],
+        "cases": {
+          "b1-cap100": {
+            "observed_last_retained_request": "regex-chess:40",
+            "observed_last_retained_end_s": 74.89442766297725,
+            "observed_retained_output_tokens": 20227,
+            "route_conditioned_full_GET_bytes": 183411507200,
+            "retained_observed_graph_without_any_P_HTTP_s": 58.27786261300207
+          },
+          "b1-cap200": {
+            "observed_last_retained_request": "regex-chess:40",
+            "observed_last_retained_end_s": 67.61211277599796,
+            "observed_retained_output_tokens": 19938,
+            "route_conditioned_full_GET_bytes": 183411507200,
+            "retained_observed_graph_without_any_P_HTTP_s": 58.44925211399095
+          },
+          "b2-cap200": {
+            "observed_last_retained_request": "regex-chess:59",
+            "observed_last_retained_end_s": 66.8962977140036,
+            "observed_retained_output_tokens": 19246,
+            "route_conditioned_full_GET_bytes": 143654256640,
+            "retained_observed_graph_without_any_P_HTTP_s": 58.01879761897726
+          },
+          "b2-cap100": {
+            "observed_last_retained_request": "regex-chess:44",
+            "observed_last_retained_end_s": 75.63924325999687,
+            "observed_retained_output_tokens": 19140,
+            "route_conditioned_full_GET_bytes": 183411507200,
+            "retained_observed_graph_without_any_P_HTTP_s": 56.13266421997105
+          }
+        },
+        "reference_release_opportunities": [
+          {
+            "released_at_s": 33,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 152954961920,
+                "ready_sessions": 35,
+                "uncompleted_root_sessions": 5,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  13850.821625
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 163150069760,
+                "ready_sessions": 37,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 163150069760,
+                "ready_sessions": 37,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 163150069760,
+                "ready_sessions": 37,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.82107563764292,
+            "common_lightest_P_when_nonempty": "P0"
+          },
+          {
+            "released_at_s": 34,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 157633085440,
+                "ready_sessions": 36,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 163150069760,
+                "ready_sessions": 37,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 163150069760,
+                "ready_sessions": 37,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 163150069760,
+                "ready_sessions": 37,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8461882145998241,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 35,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 163150069760,
+                "ready_sessions": 37,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 163150069760,
+                "ready_sessions": 37,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 163150069760,
+                "ready_sessions": 37,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 163150069760,
+                "ready_sessions": 37,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8758038698328936,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 36,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 163150069760,
+                "ready_sessions": 37,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 178504171520,
+                "ready_sessions": 39,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 170596433920,
+                "ready_sessions": 38,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 171057807360,
+                "ready_sessions": 38,
+                "uncompleted_root_sessions": 2,
+                "already_generating_root_sessions": 2,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8758038698328936,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 37,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 163150069760,
+                "ready_sessions": 37,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 178504171520,
+                "ready_sessions": 39,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 178504171520,
+                "ready_sessions": 39,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 178504171520,
+                "ready_sessions": 39,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8758038698328936,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 38,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 163150069760,
+                "ready_sessions": 37,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 186286080000,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 186286080000,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 178504171520,
+                "ready_sessions": 39,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8758038698328936,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 39,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 163150069760,
+                "ready_sessions": 37,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 186286080000,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 186286080000,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 186286080000,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8758038698328936,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 40,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 171057807360,
+                "ready_sessions": 38,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 186286080000,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 186286080000,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 186286080000,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.9182532981530342,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 41,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 186286080000,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 186286080000,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 186286080000,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 186286080000,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 1.0,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 42,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 186286080000,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 186286080000,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 186286080000,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 186286080000,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 1.0,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 43,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 186286080000,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 186286080000,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 186286080000,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 186286080000,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 1.0,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 44,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 186286080000,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 186286080000,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 186286080000,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 186286080000,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 1.0,
+            "common_lightest_P_when_nonempty": null
+          }
+        ]
+      },
+      "800": {
+        "sessions": 45,
+        "request_ids": [
+          "caffe-cifar-10:100",
+          "caffe-cifar-10:101",
+          "caffe-cifar-10:102",
+          "caffe-cifar-10:103",
+          "caffe-cifar-10:58",
+          "caffe-cifar-10:59",
+          "caffe-cifar-10:60",
+          "caffe-cifar-10:61",
+          "caffe-cifar-10:62",
+          "caffe-cifar-10:63",
+          "caffe-cifar-10:71",
+          "caffe-cifar-10:72",
+          "caffe-cifar-10:78",
+          "caffe-cifar-10:79",
+          "caffe-cifar-10:81",
+          "caffe-cifar-10:82",
+          "caffe-cifar-10:83",
+          "caffe-cifar-10:84",
+          "caffe-cifar-10:86",
+          "caffe-cifar-10:87",
+          "caffe-cifar-10:88",
+          "caffe-cifar-10:89",
+          "caffe-cifar-10:91",
+          "caffe-cifar-10:92",
+          "caffe-cifar-10:93",
+          "caffe-cifar-10:94",
+          "caffe-cifar-10:95",
+          "caffe-cifar-10:96",
+          "caffe-cifar-10:97",
+          "caffe-cifar-10:98",
+          "make-doom-for-mips:100",
+          "make-doom-for-mips:101",
+          "make-doom-for-mips:102",
+          "make-doom-for-mips:103",
+          "make-doom-for-mips:105",
+          "make-doom-for-mips:106",
+          "make-doom-for-mips:115",
+          "make-doom-for-mips:116",
+          "make-doom-for-mips:120",
+          "make-doom-for-mips:121",
+          "make-doom-for-mips:71",
+          "make-doom-for-mips:72",
+          "make-doom-for-mips:92",
+          "make-doom-for-mips:93",
+          "make-mips-interpreter:50",
+          "make-mips-interpreter:51",
+          "make-mips-interpreter:53",
+          "make-mips-interpreter:54",
+          "make-mips-interpreter:60",
+          "make-mips-interpreter:61",
+          "make-mips-interpreter:67",
+          "make-mips-interpreter:68",
+          "make-mips-interpreter:69",
+          "make-mips-interpreter:70",
+          "make-mips-interpreter:80",
+          "make-mips-interpreter:81",
+          "make-mips-interpreter:82",
+          "make-mips-interpreter:83",
+          "make-mips-interpreter:92",
+          "make-mips-interpreter:93",
+          "make-mips-interpreter:96",
+          "make-mips-interpreter:97",
+          "make-mips-interpreter:98",
+          "make-mips-interpreter:99",
+          "regex-chess:100",
+          "regex-chess:101",
+          "regex-chess:102",
+          "regex-chess:103",
+          "regex-chess:33",
+          "regex-chess:34",
+          "regex-chess:39",
+          "regex-chess:40",
+          "regex-chess:41",
+          "regex-chess:42",
+          "regex-chess:43",
+          "regex-chess:44",
+          "regex-chess:54",
+          "regex-chess:55",
+          "regex-chess:56",
+          "regex-chess:57",
+          "regex-chess:58",
+          "regex-chess:59",
+          "regex-chess:66",
+          "regex-chess:67",
+          "regex-chess:70",
+          "regex-chess:71",
+          "regex-chess:96",
+          "regex-chess:97",
+          "regex-chess:98",
+          "regex-chess:99"
+        ],
+        "cases": {
+          "b1-cap100": {
+            "observed_last_retained_request": "regex-chess:40",
+            "observed_last_retained_end_s": 74.89442766297725,
+            "observed_retained_output_tokens": 24248,
+            "route_conditioned_full_GET_bytes": 208605675520,
+            "retained_observed_graph_without_any_P_HTTP_s": 58.27786261300207
+          },
+          "b1-cap200": {
+            "observed_last_retained_request": "regex-chess:67",
+            "observed_last_retained_end_s": 69.79876180298743,
+            "observed_retained_output_tokens": 24900,
+            "route_conditioned_full_GET_bytes": 208605675520,
+            "retained_observed_graph_without_any_P_HTTP_s": 62.73726197099313
+          },
+          "b2-cap200": {
+            "observed_last_retained_request": "regex-chess:55",
+            "observed_last_retained_end_s": 68.03188368101837,
+            "observed_retained_output_tokens": 23252,
+            "route_conditioned_full_GET_bytes": 165680250880,
+            "retained_observed_graph_without_any_P_HTTP_s": 58.94780275702942
+          },
+          "b2-cap100": {
+            "observed_last_retained_request": "regex-chess:34",
+            "observed_last_retained_end_s": 78.72454315298819,
+            "observed_retained_output_tokens": 24012,
+            "route_conditioned_full_GET_bytes": 208605675520,
+            "retained_observed_graph_without_any_P_HTTP_s": 57.76780703099212
+          }
+        },
+        "reference_release_opportunities": [
+          {
+            "released_at_s": 34,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 175171174400,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 5,
+                "already_generating_root_sessions": 5,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8283098577364106,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 35,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8543973262533381,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 36,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 196042260480,
+                "ready_sessions": 43,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 188134522880,
+                "ready_sessions": 42,
+                "uncompleted_root_sessions": 2,
+                "already_generating_root_sessions": 2,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 196251975680,
+                "ready_sessions": 43,
+                "uncompleted_root_sessions": 2,
+                "already_generating_root_sessions": 2,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8543973262533381,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 37,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 203698339840,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 203698339840,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 203698339840,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8543973262533381,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 38,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 203698339840,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8543973262533381,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 39,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8543973262533381,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 40,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 196251975680,
+                "ready_sessions": 43,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.9279919861974182,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 41,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 1.0,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 42,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 1.0,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 43,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 1.0,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 44,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 1.0,
+            "common_lightest_P_when_nonempty": null
+          }
+        ]
+      },
+      "1000": {
+        "sessions": 45,
+        "request_ids": [
+          "caffe-cifar-10:100",
+          "caffe-cifar-10:101",
+          "caffe-cifar-10:102",
+          "caffe-cifar-10:103",
+          "caffe-cifar-10:58",
+          "caffe-cifar-10:59",
+          "caffe-cifar-10:60",
+          "caffe-cifar-10:61",
+          "caffe-cifar-10:62",
+          "caffe-cifar-10:63",
+          "caffe-cifar-10:71",
+          "caffe-cifar-10:72",
+          "caffe-cifar-10:78",
+          "caffe-cifar-10:79",
+          "caffe-cifar-10:81",
+          "caffe-cifar-10:82",
+          "caffe-cifar-10:83",
+          "caffe-cifar-10:84",
+          "caffe-cifar-10:86",
+          "caffe-cifar-10:87",
+          "caffe-cifar-10:88",
+          "caffe-cifar-10:89",
+          "caffe-cifar-10:91",
+          "caffe-cifar-10:92",
+          "caffe-cifar-10:93",
+          "caffe-cifar-10:94",
+          "caffe-cifar-10:95",
+          "caffe-cifar-10:96",
+          "caffe-cifar-10:97",
+          "caffe-cifar-10:98",
+          "make-doom-for-mips:100",
+          "make-doom-for-mips:101",
+          "make-doom-for-mips:102",
+          "make-doom-for-mips:103",
+          "make-doom-for-mips:105",
+          "make-doom-for-mips:106",
+          "make-doom-for-mips:115",
+          "make-doom-for-mips:116",
+          "make-doom-for-mips:120",
+          "make-doom-for-mips:121",
+          "make-doom-for-mips:71",
+          "make-doom-for-mips:72",
+          "make-doom-for-mips:92",
+          "make-doom-for-mips:93",
+          "make-mips-interpreter:50",
+          "make-mips-interpreter:51",
+          "make-mips-interpreter:53",
+          "make-mips-interpreter:54",
+          "make-mips-interpreter:60",
+          "make-mips-interpreter:61",
+          "make-mips-interpreter:67",
+          "make-mips-interpreter:68",
+          "make-mips-interpreter:69",
+          "make-mips-interpreter:70",
+          "make-mips-interpreter:80",
+          "make-mips-interpreter:81",
+          "make-mips-interpreter:82",
+          "make-mips-interpreter:83",
+          "make-mips-interpreter:92",
+          "make-mips-interpreter:93",
+          "make-mips-interpreter:96",
+          "make-mips-interpreter:97",
+          "make-mips-interpreter:98",
+          "make-mips-interpreter:99",
+          "regex-chess:100",
+          "regex-chess:101",
+          "regex-chess:102",
+          "regex-chess:103",
+          "regex-chess:33",
+          "regex-chess:34",
+          "regex-chess:39",
+          "regex-chess:40",
+          "regex-chess:41",
+          "regex-chess:42",
+          "regex-chess:43",
+          "regex-chess:44",
+          "regex-chess:54",
+          "regex-chess:55",
+          "regex-chess:56",
+          "regex-chess:57",
+          "regex-chess:58",
+          "regex-chess:59",
+          "regex-chess:66",
+          "regex-chess:67",
+          "regex-chess:70",
+          "regex-chess:71",
+          "regex-chess:96",
+          "regex-chess:97",
+          "regex-chess:98",
+          "regex-chess:99"
+        ],
+        "cases": {
+          "b1-cap100": {
+            "observed_last_retained_request": "regex-chess:40",
+            "observed_last_retained_end_s": 74.89442766297725,
+            "observed_retained_output_tokens": 24248,
+            "route_conditioned_full_GET_bytes": 208605675520,
+            "retained_observed_graph_without_any_P_HTTP_s": 58.27786261300207
+          },
+          "b1-cap200": {
+            "observed_last_retained_request": "regex-chess:67",
+            "observed_last_retained_end_s": 69.79876180298743,
+            "observed_retained_output_tokens": 24900,
+            "route_conditioned_full_GET_bytes": 208605675520,
+            "retained_observed_graph_without_any_P_HTTP_s": 62.73726197099313
+          },
+          "b2-cap200": {
+            "observed_last_retained_request": "regex-chess:55",
+            "observed_last_retained_end_s": 68.03188368101837,
+            "observed_retained_output_tokens": 23252,
+            "route_conditioned_full_GET_bytes": 165680250880,
+            "retained_observed_graph_without_any_P_HTTP_s": 58.94780275702942
+          },
+          "b2-cap100": {
+            "observed_last_retained_request": "regex-chess:34",
+            "observed_last_retained_end_s": 78.72454315298819,
+            "observed_retained_output_tokens": 24012,
+            "route_conditioned_full_GET_bytes": 208605675520,
+            "retained_observed_graph_without_any_P_HTTP_s": 57.76780703099212
+          }
+        },
+        "reference_release_opportunities": [
+          {
+            "released_at_s": 34,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 175171174400,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 5,
+                "already_generating_root_sessions": 5,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8283098577364106,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 35,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8543973262533381,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 36,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 196042260480,
+                "ready_sessions": 43,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 188134522880,
+                "ready_sessions": 42,
+                "uncompleted_root_sessions": 2,
+                "already_generating_root_sessions": 2,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 196251975680,
+                "ready_sessions": 43,
+                "uncompleted_root_sessions": 2,
+                "already_generating_root_sessions": 2,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8543973262533381,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 37,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 203698339840,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 203698339840,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 203698339840,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8543973262533381,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 38,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 203698339840,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8543973262533381,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 39,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8543973262533381,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 40,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 196251975680,
+                "ready_sessions": 43,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.9279919861974182,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 41,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 1.0,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 42,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 1.0,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 43,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 1.0,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 44,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 1.0,
+            "common_lightest_P_when_nonempty": null
+          }
+        ]
+      },
+      "1200": {
+        "sessions": 45,
+        "request_ids": [
+          "caffe-cifar-10:100",
+          "caffe-cifar-10:101",
+          "caffe-cifar-10:102",
+          "caffe-cifar-10:103",
+          "caffe-cifar-10:58",
+          "caffe-cifar-10:59",
+          "caffe-cifar-10:60",
+          "caffe-cifar-10:61",
+          "caffe-cifar-10:62",
+          "caffe-cifar-10:63",
+          "caffe-cifar-10:71",
+          "caffe-cifar-10:72",
+          "caffe-cifar-10:78",
+          "caffe-cifar-10:79",
+          "caffe-cifar-10:81",
+          "caffe-cifar-10:82",
+          "caffe-cifar-10:83",
+          "caffe-cifar-10:84",
+          "caffe-cifar-10:86",
+          "caffe-cifar-10:87",
+          "caffe-cifar-10:88",
+          "caffe-cifar-10:89",
+          "caffe-cifar-10:91",
+          "caffe-cifar-10:92",
+          "caffe-cifar-10:93",
+          "caffe-cifar-10:94",
+          "caffe-cifar-10:95",
+          "caffe-cifar-10:96",
+          "caffe-cifar-10:97",
+          "caffe-cifar-10:98",
+          "make-doom-for-mips:100",
+          "make-doom-for-mips:101",
+          "make-doom-for-mips:102",
+          "make-doom-for-mips:103",
+          "make-doom-for-mips:105",
+          "make-doom-for-mips:106",
+          "make-doom-for-mips:115",
+          "make-doom-for-mips:116",
+          "make-doom-for-mips:120",
+          "make-doom-for-mips:121",
+          "make-doom-for-mips:71",
+          "make-doom-for-mips:72",
+          "make-doom-for-mips:92",
+          "make-doom-for-mips:93",
+          "make-mips-interpreter:50",
+          "make-mips-interpreter:51",
+          "make-mips-interpreter:53",
+          "make-mips-interpreter:54",
+          "make-mips-interpreter:60",
+          "make-mips-interpreter:61",
+          "make-mips-interpreter:67",
+          "make-mips-interpreter:68",
+          "make-mips-interpreter:69",
+          "make-mips-interpreter:70",
+          "make-mips-interpreter:80",
+          "make-mips-interpreter:81",
+          "make-mips-interpreter:82",
+          "make-mips-interpreter:83",
+          "make-mips-interpreter:92",
+          "make-mips-interpreter:93",
+          "make-mips-interpreter:96",
+          "make-mips-interpreter:97",
+          "make-mips-interpreter:98",
+          "make-mips-interpreter:99",
+          "regex-chess:100",
+          "regex-chess:101",
+          "regex-chess:102",
+          "regex-chess:103",
+          "regex-chess:33",
+          "regex-chess:34",
+          "regex-chess:39",
+          "regex-chess:40",
+          "regex-chess:41",
+          "regex-chess:42",
+          "regex-chess:43",
+          "regex-chess:44",
+          "regex-chess:54",
+          "regex-chess:55",
+          "regex-chess:56",
+          "regex-chess:57",
+          "regex-chess:58",
+          "regex-chess:59",
+          "regex-chess:66",
+          "regex-chess:67",
+          "regex-chess:70",
+          "regex-chess:71",
+          "regex-chess:96",
+          "regex-chess:97",
+          "regex-chess:98",
+          "regex-chess:99"
+        ],
+        "cases": {
+          "b1-cap100": {
+            "observed_last_retained_request": "regex-chess:40",
+            "observed_last_retained_end_s": 74.89442766297725,
+            "observed_retained_output_tokens": 24248,
+            "route_conditioned_full_GET_bytes": 208605675520,
+            "retained_observed_graph_without_any_P_HTTP_s": 58.27786261300207
+          },
+          "b1-cap200": {
+            "observed_last_retained_request": "regex-chess:67",
+            "observed_last_retained_end_s": 69.79876180298743,
+            "observed_retained_output_tokens": 24900,
+            "route_conditioned_full_GET_bytes": 208605675520,
+            "retained_observed_graph_without_any_P_HTTP_s": 62.73726197099313
+          },
+          "b2-cap200": {
+            "observed_last_retained_request": "regex-chess:55",
+            "observed_last_retained_end_s": 68.03188368101837,
+            "observed_retained_output_tokens": 23252,
+            "route_conditioned_full_GET_bytes": 165680250880,
+            "retained_observed_graph_without_any_P_HTTP_s": 58.94780275702942
+          },
+          "b2-cap100": {
+            "observed_last_retained_request": "regex-chess:34",
+            "observed_last_retained_end_s": 78.72454315298819,
+            "observed_retained_output_tokens": 24012,
+            "route_conditioned_full_GET_bytes": 208605675520,
+            "retained_observed_graph_without_any_P_HTTP_s": 57.76780703099212
+          }
+        },
+        "reference_release_opportunities": [
+          {
+            "released_at_s": 34,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 175171174400,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 5,
+                "already_generating_root_sessions": 5,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8283098577364106,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 35,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8543973262533381,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 36,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 196042260480,
+                "ready_sessions": 43,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 188134522880,
+                "ready_sessions": 42,
+                "uncompleted_root_sessions": 2,
+                "already_generating_root_sessions": 2,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 196251975680,
+                "ready_sessions": 43,
+                "uncompleted_root_sessions": 2,
+                "already_generating_root_sessions": 2,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8543973262533381,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 37,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 203698339840,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 203698339840,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 203698339840,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8543973262533381,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 38,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 203698339840,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8543973262533381,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 39,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8543973262533381,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 40,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 196251975680,
+                "ready_sessions": 43,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.9279919861974182,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 41,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 1.0,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 42,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 1.0,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 43,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 1.0,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 44,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 1.0,
+            "common_lightest_P_when_nonempty": null
+          }
+        ]
+      },
+      "1400": {
+        "sessions": 45,
+        "request_ids": [
+          "caffe-cifar-10:100",
+          "caffe-cifar-10:101",
+          "caffe-cifar-10:102",
+          "caffe-cifar-10:103",
+          "caffe-cifar-10:58",
+          "caffe-cifar-10:59",
+          "caffe-cifar-10:60",
+          "caffe-cifar-10:61",
+          "caffe-cifar-10:62",
+          "caffe-cifar-10:63",
+          "caffe-cifar-10:71",
+          "caffe-cifar-10:72",
+          "caffe-cifar-10:78",
+          "caffe-cifar-10:79",
+          "caffe-cifar-10:81",
+          "caffe-cifar-10:82",
+          "caffe-cifar-10:83",
+          "caffe-cifar-10:84",
+          "caffe-cifar-10:86",
+          "caffe-cifar-10:87",
+          "caffe-cifar-10:88",
+          "caffe-cifar-10:89",
+          "caffe-cifar-10:91",
+          "caffe-cifar-10:92",
+          "caffe-cifar-10:93",
+          "caffe-cifar-10:94",
+          "caffe-cifar-10:95",
+          "caffe-cifar-10:96",
+          "caffe-cifar-10:97",
+          "caffe-cifar-10:98",
+          "make-doom-for-mips:100",
+          "make-doom-for-mips:101",
+          "make-doom-for-mips:102",
+          "make-doom-for-mips:103",
+          "make-doom-for-mips:105",
+          "make-doom-for-mips:106",
+          "make-doom-for-mips:115",
+          "make-doom-for-mips:116",
+          "make-doom-for-mips:120",
+          "make-doom-for-mips:121",
+          "make-doom-for-mips:71",
+          "make-doom-for-mips:72",
+          "make-doom-for-mips:92",
+          "make-doom-for-mips:93",
+          "make-mips-interpreter:50",
+          "make-mips-interpreter:51",
+          "make-mips-interpreter:53",
+          "make-mips-interpreter:54",
+          "make-mips-interpreter:60",
+          "make-mips-interpreter:61",
+          "make-mips-interpreter:67",
+          "make-mips-interpreter:68",
+          "make-mips-interpreter:69",
+          "make-mips-interpreter:70",
+          "make-mips-interpreter:80",
+          "make-mips-interpreter:81",
+          "make-mips-interpreter:82",
+          "make-mips-interpreter:83",
+          "make-mips-interpreter:92",
+          "make-mips-interpreter:93",
+          "make-mips-interpreter:96",
+          "make-mips-interpreter:97",
+          "make-mips-interpreter:98",
+          "make-mips-interpreter:99",
+          "regex-chess:100",
+          "regex-chess:101",
+          "regex-chess:102",
+          "regex-chess:103",
+          "regex-chess:33",
+          "regex-chess:34",
+          "regex-chess:39",
+          "regex-chess:40",
+          "regex-chess:41",
+          "regex-chess:42",
+          "regex-chess:43",
+          "regex-chess:44",
+          "regex-chess:54",
+          "regex-chess:55",
+          "regex-chess:56",
+          "regex-chess:57",
+          "regex-chess:58",
+          "regex-chess:59",
+          "regex-chess:66",
+          "regex-chess:67",
+          "regex-chess:70",
+          "regex-chess:71",
+          "regex-chess:96",
+          "regex-chess:97",
+          "regex-chess:98",
+          "regex-chess:99"
+        ],
+        "cases": {
+          "b1-cap100": {
+            "observed_last_retained_request": "regex-chess:40",
+            "observed_last_retained_end_s": 74.89442766297725,
+            "observed_retained_output_tokens": 24248,
+            "route_conditioned_full_GET_bytes": 208605675520,
+            "retained_observed_graph_without_any_P_HTTP_s": 58.27786261300207
+          },
+          "b1-cap200": {
+            "observed_last_retained_request": "regex-chess:67",
+            "observed_last_retained_end_s": 69.79876180298743,
+            "observed_retained_output_tokens": 24900,
+            "route_conditioned_full_GET_bytes": 208605675520,
+            "retained_observed_graph_without_any_P_HTTP_s": 62.73726197099313
+          },
+          "b2-cap200": {
+            "observed_last_retained_request": "regex-chess:55",
+            "observed_last_retained_end_s": 68.03188368101837,
+            "observed_retained_output_tokens": 23252,
+            "route_conditioned_full_GET_bytes": 165680250880,
+            "retained_observed_graph_without_any_P_HTTP_s": 58.94780275702942
+          },
+          "b2-cap100": {
+            "observed_last_retained_request": "regex-chess:34",
+            "observed_last_retained_end_s": 78.72454315298819,
+            "observed_retained_output_tokens": 24012,
+            "route_conditioned_full_GET_bytes": 208605675520,
+            "retained_observed_graph_without_any_P_HTTP_s": 57.76780703099212
+          }
+        },
+        "reference_release_opportunities": [
+          {
+            "released_at_s": 34,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 175171174400,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 5,
+                "already_generating_root_sessions": 5,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8283098577364106,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 35,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8543973262533381,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 36,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 196042260480,
+                "ready_sessions": 43,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 188134522880,
+                "ready_sessions": 42,
+                "uncompleted_root_sessions": 2,
+                "already_generating_root_sessions": 2,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 196251975680,
+                "ready_sessions": 43,
+                "uncompleted_root_sessions": 2,
+                "already_generating_root_sessions": 2,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8543973262533381,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 37,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 203698339840,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 203698339840,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 203698339840,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8543973262533381,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 38,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 203698339840,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8543973262533381,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 39,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8543973262533381,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 40,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 196251975680,
+                "ready_sessions": 43,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.9279919861974182,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 41,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 1.0,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 42,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 1.0,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 43,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 1.0,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 44,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 1.0,
+            "common_lightest_P_when_nonempty": null
+          }
+        ]
+      },
+      "1600": {
+        "sessions": 45,
+        "request_ids": [
+          "caffe-cifar-10:100",
+          "caffe-cifar-10:101",
+          "caffe-cifar-10:102",
+          "caffe-cifar-10:103",
+          "caffe-cifar-10:58",
+          "caffe-cifar-10:59",
+          "caffe-cifar-10:60",
+          "caffe-cifar-10:61",
+          "caffe-cifar-10:62",
+          "caffe-cifar-10:63",
+          "caffe-cifar-10:71",
+          "caffe-cifar-10:72",
+          "caffe-cifar-10:78",
+          "caffe-cifar-10:79",
+          "caffe-cifar-10:81",
+          "caffe-cifar-10:82",
+          "caffe-cifar-10:83",
+          "caffe-cifar-10:84",
+          "caffe-cifar-10:86",
+          "caffe-cifar-10:87",
+          "caffe-cifar-10:88",
+          "caffe-cifar-10:89",
+          "caffe-cifar-10:91",
+          "caffe-cifar-10:92",
+          "caffe-cifar-10:93",
+          "caffe-cifar-10:94",
+          "caffe-cifar-10:95",
+          "caffe-cifar-10:96",
+          "caffe-cifar-10:97",
+          "caffe-cifar-10:98",
+          "make-doom-for-mips:100",
+          "make-doom-for-mips:101",
+          "make-doom-for-mips:102",
+          "make-doom-for-mips:103",
+          "make-doom-for-mips:105",
+          "make-doom-for-mips:106",
+          "make-doom-for-mips:115",
+          "make-doom-for-mips:116",
+          "make-doom-for-mips:120",
+          "make-doom-for-mips:121",
+          "make-doom-for-mips:71",
+          "make-doom-for-mips:72",
+          "make-doom-for-mips:92",
+          "make-doom-for-mips:93",
+          "make-mips-interpreter:50",
+          "make-mips-interpreter:51",
+          "make-mips-interpreter:53",
+          "make-mips-interpreter:54",
+          "make-mips-interpreter:60",
+          "make-mips-interpreter:61",
+          "make-mips-interpreter:67",
+          "make-mips-interpreter:68",
+          "make-mips-interpreter:69",
+          "make-mips-interpreter:70",
+          "make-mips-interpreter:80",
+          "make-mips-interpreter:81",
+          "make-mips-interpreter:82",
+          "make-mips-interpreter:83",
+          "make-mips-interpreter:92",
+          "make-mips-interpreter:93",
+          "make-mips-interpreter:96",
+          "make-mips-interpreter:97",
+          "make-mips-interpreter:98",
+          "make-mips-interpreter:99",
+          "regex-chess:100",
+          "regex-chess:101",
+          "regex-chess:102",
+          "regex-chess:103",
+          "regex-chess:33",
+          "regex-chess:34",
+          "regex-chess:39",
+          "regex-chess:40",
+          "regex-chess:41",
+          "regex-chess:42",
+          "regex-chess:43",
+          "regex-chess:44",
+          "regex-chess:54",
+          "regex-chess:55",
+          "regex-chess:56",
+          "regex-chess:57",
+          "regex-chess:58",
+          "regex-chess:59",
+          "regex-chess:66",
+          "regex-chess:67",
+          "regex-chess:70",
+          "regex-chess:71",
+          "regex-chess:96",
+          "regex-chess:97",
+          "regex-chess:98",
+          "regex-chess:99"
+        ],
+        "cases": {
+          "b1-cap100": {
+            "observed_last_retained_request": "regex-chess:40",
+            "observed_last_retained_end_s": 74.89442766297725,
+            "observed_retained_output_tokens": 24248,
+            "route_conditioned_full_GET_bytes": 208605675520,
+            "retained_observed_graph_without_any_P_HTTP_s": 58.27786261300207
+          },
+          "b1-cap200": {
+            "observed_last_retained_request": "regex-chess:67",
+            "observed_last_retained_end_s": 69.79876180298743,
+            "observed_retained_output_tokens": 24900,
+            "route_conditioned_full_GET_bytes": 208605675520,
+            "retained_observed_graph_without_any_P_HTTP_s": 62.73726197099313
+          },
+          "b2-cap200": {
+            "observed_last_retained_request": "regex-chess:55",
+            "observed_last_retained_end_s": 68.03188368101837,
+            "observed_retained_output_tokens": 23252,
+            "route_conditioned_full_GET_bytes": 165680250880,
+            "retained_observed_graph_without_any_P_HTTP_s": 58.94780275702942
+          },
+          "b2-cap100": {
+            "observed_last_retained_request": "regex-chess:34",
+            "observed_last_retained_end_s": 78.72454315298819,
+            "observed_retained_output_tokens": 24012,
+            "route_conditioned_full_GET_bytes": 208605675520,
+            "retained_observed_graph_without_any_P_HTTP_s": 57.76780703099212
+          }
+        },
+        "reference_release_opportunities": [
+          {
+            "released_at_s": 34,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 175171174400,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 5,
+                "already_generating_root_sessions": 5,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8283098577364106,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 35,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8543973262533381,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 36,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 196042260480,
+                "ready_sessions": 43,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 188134522880,
+                "ready_sessions": 42,
+                "uncompleted_root_sessions": 2,
+                "already_generating_root_sessions": 2,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 196251975680,
+                "ready_sessions": 43,
+                "uncompleted_root_sessions": 2,
+                "already_generating_root_sessions": 2,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8543973262533381,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 37,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 203698339840,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 203698339840,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 203698339840,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8543973262533381,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 38,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 203698339840,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8543973262533381,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 39,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 180688158720,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 4,
+                "already_generating_root_sessions": 4,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8543973262533381,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 40,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 196251975680,
+                "ready_sessions": 43,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.9279919861974182,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 41,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 1.0,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 42,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 1.0,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 43,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 1.0,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 44,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 211480248320,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 1.0,
+            "common_lightest_P_when_nonempty": null
+          }
+        ]
+      }
+    }
+  }
+}

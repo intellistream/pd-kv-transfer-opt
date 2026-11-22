@@ -1,0 +1,2599 @@
+{
+  "run_id": "2p2d-20261121-r78-restore-tail-d-egress-a1",
+  "baseline_commit": "5d591893ca8c7adc03c797068b44ad43dad27398",
+  "verified_published_tree": "283f3a1bd973d25b10f1fbf0bd852d2fe682a044",
+  "independent_method_pass": false,
+  "case_order": [
+    "b1-cap100",
+    "b1-cap200",
+    "b2-cap200",
+    "b2-cap100"
+  ],
+  "event_trace": "r78-events.jsonl.gz",
+  "workload": {
+    "workload_type": "terminal_source_restore_pairs",
+    "source_repo": "openguardrails/terminal-bench-2.1-deepseek-v4-flash-trajectories",
+    "source_revision": "3f5b93ff1c5ea84b2c94cf479d0c942227191b4a",
+    "source_workload_sha256": "24873461882ce61d0c424062c4751abb69ecdab3e0c8874213138f5025ceaa43",
+    "tokenizer_fingerprint": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+    "parent_requests_sha256": "31e95dec511916f2d9d774fd4cdd142c654f0884e30fe91d3e29f8f4b08ef65c",
+    "requests": 90,
+    "sessions": 45,
+    "last_session_start_s": 3.785844343664012,
+    "pressure_window_s": [
+      44.5,
+      84.5
+    ],
+    "ignore_eos": false,
+    "temperature": 0,
+    "tool_gap_policy": "Use the prior Terminal-Bench replay policy of zero additional tool delay",
+    "max_tokens_policy": "Original Qwen replay budget rule max(8192, source completion tokens), with natural EOS",
+    "route_policy": "upstream native without route override",
+    "arrival_policy": "Keep every original selected adjacent pair. Pick the first successor offer from the four observed predecessor clocks. Compact the planned offers before the proxy begins releasing the earliest child scores.",
+    "selection": {
+      "pairs": [
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:58",
+          "successor": "caffe-cifar-10:59",
+          "checkpoint_blocks": 67,
+          "potential_GET_bytes": 2874572800,
+          "historical_completions": {
+            "caffe-cifar-10:58": 30,
+            "caffe-cifar-10:59": 0
+          },
+          "estimated_output_tokens": {
+            "caffe-cifar-10:58": 185.0,
+            "caffe-cifar-10:59": 2082
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:60",
+          "successor": "caffe-cifar-10:61",
+          "checkpoint_blocks": 69,
+          "potential_GET_bytes": 2958458880,
+          "historical_completions": {
+            "caffe-cifar-10:60": 0,
+            "caffe-cifar-10:61": 0
+          },
+          "estimated_output_tokens": {
+            "caffe-cifar-10:60": 1490,
+            "caffe-cifar-10:61": 3016
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:62",
+          "successor": "caffe-cifar-10:63",
+          "checkpoint_blocks": 74,
+          "potential_GET_bytes": 3168174080,
+          "historical_completions": {
+            "caffe-cifar-10:62": 0,
+            "caffe-cifar-10:63": 0
+          },
+          "estimated_output_tokens": {
+            "caffe-cifar-10:62": 5522,
+            "caffe-cifar-10:63": 1813
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:71",
+          "successor": "caffe-cifar-10:72",
+          "checkpoint_blocks": 87,
+          "potential_GET_bytes": 3713433600,
+          "historical_completions": {
+            "caffe-cifar-10:71": 31,
+            "caffe-cifar-10:72": 31
+          },
+          "estimated_output_tokens": {
+            "caffe-cifar-10:71": 328,
+            "caffe-cifar-10:72": 192
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:78",
+          "successor": "caffe-cifar-10:79",
+          "checkpoint_blocks": 101,
+          "potential_GET_bytes": 4300636160,
+          "historical_completions": {
+            "caffe-cifar-10:78": 31,
+            "caffe-cifar-10:79": 30
+          },
+          "estimated_output_tokens": {
+            "caffe-cifar-10:78": 218,
+            "caffe-cifar-10:79": 264.0
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:81",
+          "successor": "caffe-cifar-10:82",
+          "checkpoint_blocks": 103,
+          "potential_GET_bytes": 4384522240,
+          "historical_completions": {
+            "caffe-cifar-10:81": 31,
+            "caffe-cifar-10:82": 31
+          },
+          "estimated_output_tokens": {
+            "caffe-cifar-10:81": 109,
+            "caffe-cifar-10:82": 220
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:83",
+          "successor": "caffe-cifar-10:84",
+          "checkpoint_blocks": 105,
+          "potential_GET_bytes": 4468408320,
+          "historical_completions": {
+            "caffe-cifar-10:83": 31,
+            "caffe-cifar-10:84": 31
+          },
+          "estimated_output_tokens": {
+            "caffe-cifar-10:83": 102,
+            "caffe-cifar-10:84": 181
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:86",
+          "successor": "caffe-cifar-10:87",
+          "checkpoint_blocks": 106,
+          "potential_GET_bytes": 4510351360,
+          "historical_completions": {
+            "caffe-cifar-10:86": 31,
+            "caffe-cifar-10:87": 31
+          },
+          "estimated_output_tokens": {
+            "caffe-cifar-10:86": 110,
+            "caffe-cifar-10:87": 99
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:88",
+          "successor": "caffe-cifar-10:89",
+          "checkpoint_blocks": 108,
+          "potential_GET_bytes": 4594237440,
+          "historical_completions": {
+            "caffe-cifar-10:88": 31,
+            "caffe-cifar-10:89": 31
+          },
+          "estimated_output_tokens": {
+            "caffe-cifar-10:88": 188,
+            "caffe-cifar-10:89": 105
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:91",
+          "successor": "caffe-cifar-10:92",
+          "checkpoint_blocks": 109,
+          "potential_GET_bytes": 4636180480,
+          "historical_completions": {
+            "caffe-cifar-10:91": 31,
+            "caffe-cifar-10:92": 31
+          },
+          "estimated_output_tokens": {
+            "caffe-cifar-10:91": 103,
+            "caffe-cifar-10:92": 182
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:93",
+          "successor": "caffe-cifar-10:94",
+          "checkpoint_blocks": 110,
+          "potential_GET_bytes": 4678123520,
+          "historical_completions": {
+            "caffe-cifar-10:93": 31,
+            "caffe-cifar-10:94": 31
+          },
+          "estimated_output_tokens": {
+            "caffe-cifar-10:93": 101,
+            "caffe-cifar-10:94": 176
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:95",
+          "successor": "caffe-cifar-10:96",
+          "checkpoint_blocks": 111,
+          "potential_GET_bytes": 4720066560,
+          "historical_completions": {
+            "caffe-cifar-10:95": 31,
+            "caffe-cifar-10:96": 31
+          },
+          "estimated_output_tokens": {
+            "caffe-cifar-10:95": 109,
+            "caffe-cifar-10:96": 108
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:97",
+          "successor": "caffe-cifar-10:98",
+          "checkpoint_blocks": 112,
+          "potential_GET_bytes": 4762009600,
+          "historical_completions": {
+            "caffe-cifar-10:97": 31,
+            "caffe-cifar-10:98": 31
+          },
+          "estimated_output_tokens": {
+            "caffe-cifar-10:97": 104,
+            "caffe-cifar-10:98": 232
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:100",
+          "successor": "caffe-cifar-10:101",
+          "checkpoint_blocks": 114,
+          "potential_GET_bytes": 4845895680,
+          "historical_completions": {
+            "caffe-cifar-10:100": 44,
+            "caffe-cifar-10:101": 75
+          },
+          "estimated_output_tokens": {
+            "caffe-cifar-10:100": 112.0,
+            "caffe-cifar-10:101": 117
+          }
+        },
+        {
+          "task": "caffe-cifar-10",
+          "root": "caffe-cifar-10:102",
+          "successor": "caffe-cifar-10:103",
+          "checkpoint_blocks": 117,
+          "potential_GET_bytes": 4971724800,
+          "historical_completions": {
+            "caffe-cifar-10:102": 83,
+            "caffe-cifar-10:103": 65
+          },
+          "estimated_output_tokens": {
+            "caffe-cifar-10:102": 234,
+            "caffe-cifar-10:103": 111
+          }
+        },
+        {
+          "task": "make-doom-for-mips",
+          "root": "make-doom-for-mips:71",
+          "successor": "make-doom-for-mips:72",
+          "checkpoint_blocks": 68,
+          "potential_GET_bytes": 2916515840,
+          "historical_completions": {
+            "make-doom-for-mips:71": 0,
+            "make-doom-for-mips:72": 8
+          },
+          "estimated_output_tokens": {
+            "make-doom-for-mips:71": 1564,
+            "make-doom-for-mips:72": 208.5
+          }
+        },
+        {
+          "task": "make-doom-for-mips",
+          "root": "make-doom-for-mips:92",
+          "successor": "make-doom-for-mips:93",
+          "checkpoint_blocks": 101,
+          "potential_GET_bytes": 4300636160,
+          "historical_completions": {
+            "make-doom-for-mips:92": 37,
+            "make-doom-for-mips:93": 27
+          },
+          "estimated_output_tokens": {
+            "make-doom-for-mips:92": 163,
+            "make-doom-for-mips:93": 251
+          }
+        },
+        {
+          "task": "make-doom-for-mips",
+          "root": "make-doom-for-mips:100",
+          "successor": "make-doom-for-mips:101",
+          "checkpoint_blocks": 111,
+          "potential_GET_bytes": 4720066560,
+          "historical_completions": {
+            "make-doom-for-mips:100": 8,
+            "make-doom-for-mips:101": 8
+          },
+          "estimated_output_tokens": {
+            "make-doom-for-mips:100": 614.5,
+            "make-doom-for-mips:101": 170.5
+          }
+        },
+        {
+          "task": "make-doom-for-mips",
+          "root": "make-doom-for-mips:102",
+          "successor": "make-doom-for-mips:103",
+          "checkpoint_blocks": 112,
+          "potential_GET_bytes": 4762009600,
+          "historical_completions": {
+            "make-doom-for-mips:102": 0,
+            "make-doom-for-mips:103": 27
+          },
+          "estimated_output_tokens": {
+            "make-doom-for-mips:102": 2725,
+            "make-doom-for-mips:103": 123
+          }
+        },
+        {
+          "task": "make-doom-for-mips",
+          "root": "make-doom-for-mips:105",
+          "successor": "make-doom-for-mips:106",
+          "checkpoint_blocks": 114,
+          "potential_GET_bytes": 4845895680,
+          "historical_completions": {
+            "make-doom-for-mips:105": 0,
+            "make-doom-for-mips:106": 9
+          },
+          "estimated_output_tokens": {
+            "make-doom-for-mips:105": 716,
+            "make-doom-for-mips:106": 187
+          }
+        },
+        {
+          "task": "make-doom-for-mips",
+          "root": "make-doom-for-mips:115",
+          "successor": "make-doom-for-mips:116",
+          "checkpoint_blocks": 125,
+          "potential_GET_bytes": 5307269120,
+          "historical_completions": {
+            "make-doom-for-mips:115": 9,
+            "make-doom-for-mips:116": 9
+          },
+          "estimated_output_tokens": {
+            "make-doom-for-mips:115": 416,
+            "make-doom-for-mips:116": 406
+          }
+        },
+        {
+          "task": "make-doom-for-mips",
+          "root": "make-doom-for-mips:120",
+          "successor": "make-doom-for-mips:121",
+          "checkpoint_blocks": 132,
+          "potential_GET_bytes": 5600870400,
+          "historical_completions": {
+            "make-doom-for-mips:120": 30,
+            "make-doom-for-mips:121": 30
+          },
+          "estimated_output_tokens": {
+            "make-doom-for-mips:120": 377.0,
+            "make-doom-for-mips:121": 259.5
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:50",
+          "successor": "make-mips-interpreter:51",
+          "checkpoint_blocks": 71,
+          "potential_GET_bytes": 3042344960,
+          "historical_completions": {
+            "make-mips-interpreter:50": 30,
+            "make-mips-interpreter:51": 30
+          },
+          "estimated_output_tokens": {
+            "make-mips-interpreter:50": 232.5,
+            "make-mips-interpreter:51": 168.0
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:53",
+          "successor": "make-mips-interpreter:54",
+          "checkpoint_blocks": 80,
+          "potential_GET_bytes": 3419832320,
+          "historical_completions": {
+            "make-mips-interpreter:53": 0,
+            "make-mips-interpreter:54": 0
+          },
+          "estimated_output_tokens": {
+            "make-mips-interpreter:53": 269,
+            "make-mips-interpreter:54": 5374
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:60",
+          "successor": "make-mips-interpreter:61",
+          "checkpoint_blocks": 91,
+          "potential_GET_bytes": 3881205760,
+          "historical_completions": {
+            "make-mips-interpreter:60": 30,
+            "make-mips-interpreter:61": 30
+          },
+          "estimated_output_tokens": {
+            "make-mips-interpreter:60": 306.0,
+            "make-mips-interpreter:61": 269.0
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:67",
+          "successor": "make-mips-interpreter:68",
+          "checkpoint_blocks": 98,
+          "potential_GET_bytes": 4174807040,
+          "historical_completions": {
+            "make-mips-interpreter:67": 30,
+            "make-mips-interpreter:68": 30
+          },
+          "estimated_output_tokens": {
+            "make-mips-interpreter:67": 216.5,
+            "make-mips-interpreter:68": 321.0
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:69",
+          "successor": "make-mips-interpreter:70",
+          "checkpoint_blocks": 101,
+          "potential_GET_bytes": 4300636160,
+          "historical_completions": {
+            "make-mips-interpreter:69": 12,
+            "make-mips-interpreter:70": 12
+          },
+          "estimated_output_tokens": {
+            "make-mips-interpreter:69": 384.0,
+            "make-mips-interpreter:70": 366.0
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:82",
+          "successor": "make-mips-interpreter:83",
+          "checkpoint_blocks": 116,
+          "potential_GET_bytes": 4929781760,
+          "historical_completions": {
+            "make-mips-interpreter:82": 31,
+            "make-mips-interpreter:83": 30
+          },
+          "estimated_output_tokens": {
+            "make-mips-interpreter:82": 97,
+            "make-mips-interpreter:83": 87.0
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:80",
+          "successor": "make-mips-interpreter:81",
+          "checkpoint_blocks": 118,
+          "potential_GET_bytes": 5013667840,
+          "historical_completions": {
+            "make-mips-interpreter:80": 31,
+            "make-mips-interpreter:81": 31
+          },
+          "estimated_output_tokens": {
+            "make-mips-interpreter:80": 335,
+            "make-mips-interpreter:81": 67
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:92",
+          "successor": "make-mips-interpreter:93",
+          "checkpoint_blocks": 133,
+          "potential_GET_bytes": 5642813440,
+          "historical_completions": {
+            "make-mips-interpreter:92": 30,
+            "make-mips-interpreter:93": 0
+          },
+          "estimated_output_tokens": {
+            "make-mips-interpreter:92": 245.5,
+            "make-mips-interpreter:93": 178
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:96",
+          "successor": "make-mips-interpreter:97",
+          "checkpoint_blocks": 135,
+          "potential_GET_bytes": 5726699520,
+          "historical_completions": {
+            "make-mips-interpreter:96": 13,
+            "make-mips-interpreter:97": 23
+          },
+          "estimated_output_tokens": {
+            "make-mips-interpreter:96": 169,
+            "make-mips-interpreter:97": 369
+          }
+        },
+        {
+          "task": "make-mips-interpreter",
+          "root": "make-mips-interpreter:98",
+          "successor": "make-mips-interpreter:99",
+          "checkpoint_blocks": 138,
+          "potential_GET_bytes": 5852528640,
+          "historical_completions": {
+            "make-mips-interpreter:98": 41,
+            "make-mips-interpreter:99": 31
+          },
+          "estimated_output_tokens": {
+            "make-mips-interpreter:98": 150,
+            "make-mips-interpreter:99": 384
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:33",
+          "successor": "regex-chess:34",
+          "checkpoint_blocks": 74,
+          "potential_GET_bytes": 3168174080,
+          "historical_completions": {
+            "regex-chess:33": 0,
+            "regex-chess:34": 0
+          },
+          "estimated_output_tokens": {
+            "regex-chess:33": 2439,
+            "regex-chess:34": 2196
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:39",
+          "successor": "regex-chess:40",
+          "checkpoint_blocks": 80,
+          "potential_GET_bytes": 3419832320,
+          "historical_completions": {
+            "regex-chess:39": 0,
+            "regex-chess:40": 4
+          },
+          "estimated_output_tokens": {
+            "regex-chess:39": 120,
+            "regex-chess:40": 397.5
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:41",
+          "successor": "regex-chess:42",
+          "checkpoint_blocks": 86,
+          "potential_GET_bytes": 3671490560,
+          "historical_completions": {
+            "regex-chess:41": 4,
+            "regex-chess:42": 18
+          },
+          "estimated_output_tokens": {
+            "regex-chess:41": 401.5,
+            "regex-chess:42": 182.0
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:43",
+          "successor": "regex-chess:44",
+          "checkpoint_blocks": 93,
+          "potential_GET_bytes": 3965091840,
+          "historical_completions": {
+            "regex-chess:43": 18,
+            "regex-chess:44": 0
+          },
+          "estimated_output_tokens": {
+            "regex-chess:43": 222.5,
+            "regex-chess:44": 1609
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:54",
+          "successor": "regex-chess:55",
+          "checkpoint_blocks": 104,
+          "potential_GET_bytes": 4426465280,
+          "historical_completions": {
+            "regex-chess:54": 0,
+            "regex-chess:55": 0
+          },
+          "estimated_output_tokens": {
+            "regex-chess:54": 1901,
+            "regex-chess:55": 5935
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:56",
+          "successor": "regex-chess:57",
+          "checkpoint_blocks": 108,
+          "potential_GET_bytes": 4594237440,
+          "historical_completions": {
+            "regex-chess:56": 5,
+            "regex-chess:57": 5
+          },
+          "estimated_output_tokens": {
+            "regex-chess:56": 120,
+            "regex-chess:57": 395
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:58",
+          "successor": "regex-chess:59",
+          "checkpoint_blocks": 110,
+          "potential_GET_bytes": 4678123520,
+          "historical_completions": {
+            "regex-chess:58": 0,
+            "regex-chess:59": 0
+          },
+          "estimated_output_tokens": {
+            "regex-chess:58": 1716,
+            "regex-chess:59": 1897
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:66",
+          "successor": "regex-chess:67",
+          "checkpoint_blocks": 123,
+          "potential_GET_bytes": 5223383040,
+          "historical_completions": {
+            "regex-chess:66": 0,
+            "regex-chess:67": 0
+          },
+          "estimated_output_tokens": {
+            "regex-chess:66": 1673,
+            "regex-chess:67": 3734
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:70",
+          "successor": "regex-chess:71",
+          "checkpoint_blocks": 130,
+          "potential_GET_bytes": 5516984320,
+          "historical_completions": {
+            "regex-chess:70": 0,
+            "regex-chess:71": 0
+          },
+          "estimated_output_tokens": {
+            "regex-chess:70": 661,
+            "regex-chess:71": 1811
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:96",
+          "successor": "regex-chess:97",
+          "checkpoint_blocks": 176,
+          "potential_GET_bytes": 7446364160,
+          "historical_completions": {
+            "regex-chess:96": 0,
+            "regex-chess:97": 4
+          },
+          "estimated_output_tokens": {
+            "regex-chess:96": 2916,
+            "regex-chess:97": 111.5
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:98",
+          "successor": "regex-chess:99",
+          "checkpoint_blocks": 181,
+          "potential_GET_bytes": 7656079360,
+          "historical_completions": {
+            "regex-chess:98": 4,
+            "regex-chess:99": 0
+          },
+          "estimated_output_tokens": {
+            "regex-chess:98": 436.5,
+            "regex-chess:99": 4073
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:100",
+          "successor": "regex-chess:101",
+          "checkpoint_blocks": 184,
+          "potential_GET_bytes": 7781908480,
+          "historical_completions": {
+            "regex-chess:100": 0,
+            "regex-chess:101": 0
+          },
+          "estimated_output_tokens": {
+            "regex-chess:100": 1788,
+            "regex-chess:101": 1547
+          }
+        },
+        {
+          "task": "regex-chess",
+          "root": "regex-chess:102",
+          "successor": "regex-chess:103",
+          "checkpoint_blocks": 187,
+          "potential_GET_bytes": 7907737600,
+          "historical_completions": {
+            "regex-chess:102": 19,
+            "regex-chess:103": 19
+          },
+          "estimated_output_tokens": {
+            "regex-chess:102": 378,
+            "regex-chess:103": 165
+          }
+        }
+      ],
+      "historical_outcomes": {
+        "2026-11-20-r42-natural-sustained": {
+          "trace_sha256": "3e264654c96902ed62bf5105c1ce46db806aa2250e10fdf4b0e3d93f08b1f890",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-20-r43-native-decode-apc": {
+          "trace_sha256": "a169b7c1d53d89ac4bbc8a6d2f5d8ea6daf6a9cfc10c696c33d3a44df4e6d2e8",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-20-r44-native-intensity": {
+          "trace_sha256": "a1b322956b6ef371fabc9325a3174f1f1d1c304ea81b93884440eb1c60b386d0",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200"
+          ]
+        },
+        "2026-11-21-r45-r28-symmetric": {
+          "trace_sha256": "12f1d797a16e23896bf672d21b5636a17609463cd1a80c64a3206ede4b6bb151",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-21-r45-r28-symmetric-a1": {
+          "trace_sha256": "6cf59ce962ac465e52d79171e4da3b8a423f309d22506d51df00f8077efdac30",
+          "cases": [
+            "b1-cap100"
+          ]
+        },
+        "2026-11-21-r46-terminal-handoff-symmetric": {
+          "trace_sha256": "f89c32c34a6b389b6e4ef0bc65f6b803c953fb389bdccd4fb822d94f85338b21",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-21-r48-terminal-handoff-extended-symmetric": {
+          "trace_sha256": "e311c91f4efa1e1e243aa4df7b3f8b7900355ef1158cbd0ae3e77eac6507c7cf",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-21-r51-terminal-r28-link-pressure": {
+          "trace_sha256": "da87c0fc87e7eacfccb4793e2a32ae26f5d2aba7f532c61ba0dd28b2ced12482",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200"
+          ]
+        },
+        "2026-11-22-r51-terminal-r28-link-pressure-reverse": {
+          "trace_sha256": "3efaf4dd595f36c17cecc44877c2d79823285630bb9a9a1c9c67811cd7392fb5",
+          "cases": [
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r52-terminal-stable-eos": {
+          "trace_sha256": "23f25798022c3f3b250d260a19177bb2a6a57c3190a08994db40e41228589643",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r54-terminal-stable-eos-duplex": {
+          "trace_sha256": "afeeb9250ebe4c7bc9a19716e76f7c2d3a1282502c5fc5aec7c3d04fe1a2d88e",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r57-terminal-restore-bursts-d-egress": {
+          "trace_sha256": "d4347e0b92785679f2a1ba4fa860cc9fbeb0fc02bf200b01f7334aabd1478265",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r58-terminal-restore-bursts-dense-d-egress": {
+          "trace_sha256": "f2f1e0de2c6be50dfe36d54fde0ea6749465f278468188cbaf95ffa85dc9e876",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r58-terminal-restore-bursts-methods": {
+          "trace_sha256": "d81d23b30b1e3f732ba32bb7f5084ccf84d8be18aa0928f06be87cca66c609b3",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200"
+          ]
+        },
+        "2026-11-22-r59-terminal-restore-order": {
+          "trace_sha256": "ce28e8dcbc7ac989a05e6ddaef7dd681bf14cb48f6d22233b407d65d7c21883d",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r59-terminal-restore-order-methods": {
+          "trace_sha256": "39f1ba9dec5c765ec0417309e7e2e59b49616b3b8ded74a816058895801ce781",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200"
+          ]
+        },
+        "2026-11-22-r60-terminal-source-restore-pairs": {
+          "trace_sha256": "da361989f663c02a63983512be6727e9a8445ea76da3e2c2a83841130e79f74f",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r61-terminal-source-restore-gap": {
+          "trace_sha256": "ff7ca58f3260e7e073cc79df9a448cbacc9ed65c085b244bd357e2c446d6b773",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r61-terminal-source-restore-gap-methods": {
+          "trace_sha256": "b69b5b21ad528a3ab0345dfcf0d2fd8048f2841b4594001de58640e1628f7678",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200"
+          ]
+        },
+        "2026-11-22-r62-terminal-source-restore-scale": {
+          "trace_sha256": "f8c1c7c8c3d6efab522b9a987801708892204c687f862f165f48382b06fa67b4",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r63-terminal-source-restore-paced": {
+          "trace_sha256": "97d4959861e5c05b85a7df97fe29554981cb29368405ff494e9601eb361ab723",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r64-terminal-source-restore-priority": {
+          "trace_sha256": "bcd5bac0f9e8576bba7967cb98ac2f812590135d133cf74edcddf3c5a486ef85",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r64-terminal-source-restore-priority-methods": {
+          "trace_sha256": "4da5d3c901e979beb272fcc380fd316bcd6dfe13deaadda1843b41076a7be57e",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200"
+          ]
+        },
+        "2026-11-22-r65-terminal-source-restore-overlap": {
+          "trace_sha256": "83e9c143cf962c99d65f0d220ddfb97fcafb287f0b4d67f80fab22b95459e80d",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r66-terminal-source-restore-checkpoints": {
+          "trace_sha256": "f53b421b35028b3e7d6c75228e39d05394eb685328c628efd48f3256129b8cda",
+          "cases": [
+            "b1-cap100"
+          ]
+        },
+        "2026-11-22-r67-terminal-source-restore-checkpoint-scale": {
+          "trace_sha256": "09e76a5c66fada6bd9842e3149c576bf2eba7a904012a6ce2c31c823aeb49a5e",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r68-terminal-source-restore-short-eos": {
+          "trace_sha256": "bc487bece2eb89ddbb695b52981a0bed6a8d4f3c47b806042082cc7ca5f2b34b",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r69-terminal-source-restore-short-guard": {
+          "trace_sha256": "77f44ceabf862d97fc6e49f7de27ceea369108271d13867f0c39079f3be5b4a5",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r69-terminal-source-restore-short-guard-methods": {
+          "trace_sha256": "11f7f6a99169dcd58d532bbf20a9f6d8650cbce25f68922b9f25d5c29ea6d84e",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200"
+          ]
+        },
+        "2026-11-22-r70-terminal-source-restore-short-earlier": {
+          "trace_sha256": "3e57e2f27c29832cffbddd871a1a0af8d47aabcb21908fbb4385fd47facd4089",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r71-terminal-source-restore-short-pruned": {
+          "trace_sha256": "71b0e3936dd6a598619a91858d705792ca3a5b4859c58f506742e650fcbfbb72",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r72-terminal-source-restore-root-batches": {
+          "trace_sha256": "6f8304bc7e56d8795466f9ba9e030676943ed827b24c4fb11f63dc7960a818f1",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        },
+        "2026-11-22-r73-terminal-source-restore-expanded": {
+          "trace_sha256": "457a056addf78417069ada059ff56760cd6cee8f487b07408d3bfc1f84e34ed0",
+          "cases": [
+            "b1-cap100",
+            "b1-cap200",
+            "b2-cap200",
+            "b2-cap100"
+          ]
+        }
+      },
+      "min_observed_outputs": 4,
+      "unseen_requests_are_for_natural_EOS_calibration": false,
+      "max_natural_observed_output": 750,
+      "source_ledger_sha256": "24873461882ce61d0c424062c4751abb69ecdab3e0c8874213138f5025ceaa43",
+      "admission_fit": {
+        "offset_s": 0.006145089003484275,
+        "s_per_byte": 4.996719485769583e-08,
+        "samples": 219,
+        "p95_absolute_residual_ms": 6.015305820199226,
+        "r66_observation_sha256": {
+          "r66-events.jsonl.gz": "f53b421b35028b3e7d6c75228e39d05394eb685328c628efd48f3256129b8cda",
+          "r66-interrupted-events.jsonl.gz": "3359390fbe99e76f873a5482133e19fa4b65a32f9ea9761529c2487be47168e9"
+        }
+      },
+      "shared_root_tokens_upper_by_task": {
+        "caffe-cifar-10": 128055,
+        "make-doom-for-mips": 142866,
+        "make-mips-interpreter": 176358,
+        "regex-chess": 219918
+      },
+      "calibration_purpose": "Measure natural EOS in original windows while testing a larger feasible ready-restore workset; formal bandwidth verdict requires comparable generation work and matched routes.",
+      "source_step_intervals": {
+        "caffe-cifar-10": [
+          57,
+          104
+        ],
+        "make-doom-for-mips": [
+          68,
+          123
+        ],
+        "make-mips-interpreter": [
+          45,
+          99
+        ],
+        "regex-chess": [
+          29,
+          103
+        ]
+      }
+    },
+    "arrival_order_screen": {
+      "full_restore_upper_bytes": 211480248320,
+      "new_order_estimated_GET_bytes": 2874572800,
+      "full_GET_by_relative_successor_first_P": {
+        "same_as_roots": 208605675520,
+        "opposite_to_roots": 2874572800
+      },
+      "projected_root_P": {
+        "caffe-cifar-10:58": "P0",
+        "make-doom-for-mips:71": "P1",
+        "caffe-cifar-10:60": "P0",
+        "make-doom-for-mips:92": "P1",
+        "caffe-cifar-10:62": "P0",
+        "make-doom-for-mips:100": "P1",
+        "caffe-cifar-10:71": "P0",
+        "make-doom-for-mips:102": "P1",
+        "caffe-cifar-10:78": "P0",
+        "caffe-cifar-10:81": "P0",
+        "make-doom-for-mips:105": "P1",
+        "caffe-cifar-10:83": "P0",
+        "make-doom-for-mips:115": "P1",
+        "caffe-cifar-10:86": "P0",
+        "make-doom-for-mips:120": "P1",
+        "caffe-cifar-10:88": "P0",
+        "regex-chess:33": "P1",
+        "caffe-cifar-10:91": "P0",
+        "regex-chess:39": "P1",
+        "caffe-cifar-10:93": "P0",
+        "regex-chess:41": "P1",
+        "regex-chess:43": "P1",
+        "caffe-cifar-10:95": "P0",
+        "regex-chess:54": "P1",
+        "caffe-cifar-10:97": "P0",
+        "regex-chess:56": "P1",
+        "caffe-cifar-10:100": "P0",
+        "regex-chess:58": "P1",
+        "caffe-cifar-10:102": "P0",
+        "regex-chess:66": "P1",
+        "make-mips-interpreter:50": "P0",
+        "make-mips-interpreter:53": "P0",
+        "regex-chess:70": "P1",
+        "make-mips-interpreter:60": "P0",
+        "regex-chess:96": "P1",
+        "make-mips-interpreter:67": "P0",
+        "make-mips-interpreter:69": "P0",
+        "regex-chess:98": "P1",
+        "make-mips-interpreter:82": "P0",
+        "make-mips-interpreter:80": "P0",
+        "regex-chess:100": "P1",
+        "make-mips-interpreter:92": "P0",
+        "regex-chess:102": "P1",
+        "make-mips-interpreter:96": "P0",
+        "make-mips-interpreter:98": "P0"
+      },
+      "projected_successor_P": {
+        "regex-chess:103": "P0",
+        "make-mips-interpreter:99": "P1",
+        "make-mips-interpreter:97": "P1",
+        "regex-chess:101": "P0",
+        "make-mips-interpreter:93": "P1",
+        "regex-chess:99": "P0",
+        "make-mips-interpreter:81": "P1",
+        "caffe-cifar-10:103": "P1",
+        "regex-chess:97": "P0",
+        "make-mips-interpreter:83": "P1",
+        "make-doom-for-mips:121": "P0",
+        "caffe-cifar-10:101": "P1",
+        "caffe-cifar-10:98": "P1",
+        "regex-chess:71": "P0",
+        "caffe-cifar-10:96": "P1",
+        "make-doom-for-mips:116": "P0",
+        "caffe-cifar-10:94": "P1",
+        "regex-chess:67": "P0",
+        "caffe-cifar-10:92": "P1",
+        "make-doom-for-mips:106": "P0",
+        "caffe-cifar-10:89": "P1",
+        "make-doom-for-mips:103": "P0",
+        "caffe-cifar-10:87": "P1",
+        "make-doom-for-mips:101": "P0",
+        "caffe-cifar-10:84": "P1",
+        "regex-chess:59": "P0",
+        "caffe-cifar-10:82": "P1",
+        "regex-chess:57": "P0",
+        "make-mips-interpreter:70": "P1",
+        "caffe-cifar-10:79": "P1",
+        "regex-chess:55": "P0",
+        "make-mips-interpreter:68": "P1",
+        "make-doom-for-mips:93": "P0",
+        "make-mips-interpreter:61": "P1",
+        "regex-chess:44": "P0",
+        "caffe-cifar-10:72": "P1",
+        "regex-chess:42": "P0",
+        "make-mips-interpreter:54": "P1",
+        "regex-chess:40": "P0",
+        "caffe-cifar-10:63": "P1",
+        "regex-chess:34": "P0",
+        "make-mips-interpreter:51": "P1",
+        "make-doom-for-mips:72": "P0",
+        "caffe-cifar-10:61": "P1",
+        "caffe-cifar-10:59": "P0"
+      },
+      "wire_body_bytes": {
+        "caffe-cifar-10:62": 320190,
+        "regex-chess:97": 755159,
+        "regex-chess:100": 784038,
+        "caffe-cifar-10:95": 469339,
+        "caffe-cifar-10:98": 478689,
+        "caffe-cifar-10:72": 384337,
+        "caffe-cifar-10:82": 443458,
+        "caffe-cifar-10:97": 470688,
+        "make-mips-interpreter:92": 550980,
+        "make-mips-interpreter:97": 569065,
+        "caffe-cifar-10:88": 457451,
+        "regex-chess:55": 446304,
+        "caffe-cifar-10:87": 449863,
+        "make-mips-interpreter:99": 575186,
+        "caffe-cifar-10:63": 324985,
+        "regex-chess:71": 558946,
+        "regex-chess:70": 553128,
+        "make-mips-interpreter:53": 336971,
+        "regex-chess:99": 776220,
+        "caffe-cifar-10:59": 293569,
+        "make-doom-for-mips:106": 506439,
+        "make-doom-for-mips:101": 498028,
+        "caffe-cifar-10:83": 444707,
+        "make-mips-interpreter:98": 574267,
+        "make-mips-interpreter:83": 493302,
+        "caffe-cifar-10:78": 429033,
+        "caffe-cifar-10:79": 435354,
+        "make-doom-for-mips:71": 307920,
+        "make-mips-interpreter:60": 382562,
+        "regex-chess:33": 315413,
+        "caffe-cifar-10:60": 302812,
+        "regex-chess:44": 396215,
+        "make-mips-interpreter:69": 423408,
+        "regex-chess:56": 457569,
+        "caffe-cifar-10:103": 492115,
+        "regex-chess:98": 769828,
+        "caffe-cifar-10:93": 464520,
+        "make-doom-for-mips:115": 556571,
+        "caffe-cifar-10:94": 467609,
+        "caffe-cifar-10:100": 481114,
+        "regex-chess:43": 393032,
+        "make-mips-interpreter:50": 299069,
+        "regex-chess:54": 442671,
+        "make-doom-for-mips:93": 458154,
+        "regex-chess:58": 466728,
+        "make-doom-for-mips:121": 596706,
+        "make-mips-interpreter:80": 490393,
+        "caffe-cifar-10:102": 490562,
+        "make-doom-for-mips:103": 504373,
+        "caffe-cifar-10:89": 458743,
+        "regex-chess:39": 342594,
+        "caffe-cifar-10:71": 376804,
+        "caffe-cifar-10:84": 446818,
+        "caffe-cifar-10:92": 463205,
+        "regex-chess:67": 526799,
+        "make-mips-interpreter:81": 491138,
+        "make-mips-interpreter:68": 419700,
+        "regex-chess:41": 364056,
+        "caffe-cifar-10:81": 437574,
+        "regex-chess:96": 747637,
+        "caffe-cifar-10:101": 481811,
+        "caffe-cifar-10:96": 470029,
+        "make-doom-for-mips:120": 585009,
+        "make-doom-for-mips:102": 498710,
+        "make-mips-interpreter:51": 300649,
+        "regex-chess:34": 321135,
+        "regex-chess:40": 358753,
+        "make-mips-interpreter:67": 412032,
+        "make-mips-interpreter:54": 337889,
+        "caffe-cifar-10:91": 460132,
+        "regex-chess:66": 520903,
+        "make-mips-interpreter:93": 553611,
+        "make-mips-interpreter:82": 492199,
+        "make-doom-for-mips:72": 312488,
+        "regex-chess:103": 797256,
+        "make-mips-interpreter:70": 426173,
+        "make-doom-for-mips:100": 494114,
+        "regex-chess:101": 789913,
+        "caffe-cifar-10:58": 290968,
+        "make-doom-for-mips:116": 560974,
+        "regex-chess:59": 471491,
+        "regex-chess:102": 794011,
+        "regex-chess:57": 461497,
+        "make-mips-interpreter:96": 563715,
+        "regex-chess:42": 372413,
+        "make-doom-for-mips:92": 455181,
+        "caffe-cifar-10:86": 449148,
+        "make-mips-interpreter:61": 385748,
+        "caffe-cifar-10:61": 311041,
+        "make-doom-for-mips:105": 505758
+      },
+      "planned_root_order": [
+        "caffe-cifar-10:58",
+        "make-doom-for-mips:71",
+        "caffe-cifar-10:60",
+        "make-doom-for-mips:92",
+        "caffe-cifar-10:62",
+        "make-doom-for-mips:100",
+        "caffe-cifar-10:71",
+        "make-doom-for-mips:102",
+        "caffe-cifar-10:78",
+        "caffe-cifar-10:81",
+        "make-doom-for-mips:105",
+        "caffe-cifar-10:83",
+        "make-doom-for-mips:115",
+        "caffe-cifar-10:86",
+        "make-doom-for-mips:120",
+        "caffe-cifar-10:88",
+        "regex-chess:33",
+        "caffe-cifar-10:91",
+        "regex-chess:39",
+        "caffe-cifar-10:93",
+        "regex-chess:41",
+        "regex-chess:43",
+        "caffe-cifar-10:95",
+        "regex-chess:54",
+        "caffe-cifar-10:97",
+        "regex-chess:56",
+        "caffe-cifar-10:100",
+        "regex-chess:58",
+        "caffe-cifar-10:102",
+        "regex-chess:66",
+        "make-mips-interpreter:50",
+        "make-mips-interpreter:53",
+        "regex-chess:70",
+        "make-mips-interpreter:60",
+        "regex-chess:96",
+        "make-mips-interpreter:67",
+        "make-mips-interpreter:69",
+        "regex-chess:98",
+        "make-mips-interpreter:82",
+        "make-mips-interpreter:80",
+        "regex-chess:100",
+        "make-mips-interpreter:92",
+        "regex-chess:102",
+        "make-mips-interpreter:96",
+        "make-mips-interpreter:98"
+      ],
+      "planned_successor_order": [
+        "regex-chess:103",
+        "make-mips-interpreter:99",
+        "make-mips-interpreter:97",
+        "regex-chess:101",
+        "make-mips-interpreter:93",
+        "regex-chess:99",
+        "make-mips-interpreter:81",
+        "caffe-cifar-10:103",
+        "regex-chess:97",
+        "make-mips-interpreter:83",
+        "make-doom-for-mips:121",
+        "caffe-cifar-10:101",
+        "caffe-cifar-10:98",
+        "regex-chess:71",
+        "caffe-cifar-10:96",
+        "make-doom-for-mips:116",
+        "caffe-cifar-10:94",
+        "regex-chess:67",
+        "caffe-cifar-10:92",
+        "make-doom-for-mips:106",
+        "caffe-cifar-10:89",
+        "make-doom-for-mips:103",
+        "caffe-cifar-10:87",
+        "make-doom-for-mips:101",
+        "caffe-cifar-10:84",
+        "regex-chess:59",
+        "caffe-cifar-10:82",
+        "regex-chess:57",
+        "make-mips-interpreter:70",
+        "caffe-cifar-10:79",
+        "regex-chess:55",
+        "make-mips-interpreter:68",
+        "make-doom-for-mips:93",
+        "make-mips-interpreter:61",
+        "regex-chess:44",
+        "caffe-cifar-10:72",
+        "regex-chess:42",
+        "make-mips-interpreter:54",
+        "regex-chess:40",
+        "caffe-cifar-10:63",
+        "regex-chess:34",
+        "make-mips-interpreter:51",
+        "make-doom-for-mips:72",
+        "caffe-cifar-10:61",
+        "caffe-cifar-10:59"
+      ],
+      "admission_fit": {
+        "offset_s": 0.006145089003484275,
+        "s_per_byte": 4.996719485769583e-08,
+        "samples": 219,
+        "p95_absolute_residual_ms": 6.015305820199226,
+        "r66_observation_sha256": {
+          "r66-events.jsonl.gz": "f53b421b35028b3e7d6c75228e39d05394eb685328c628efd48f3256129b8cda",
+          "r66-interrupted-events.jsonl.gz": "3359390fbe99e76f873a5482133e19fa4b65a32f9ea9761529c2487be47168e9"
+        }
+      },
+      "assumptions": "Potential totals assume complete remote reads after P changes. Existing hybrid checkpoints, early root releases and actual P routing can reduce demand.",
+      "cold_arrival_guard": {
+        "first_gap_s": 0.72,
+        "first_three_remaining_gaps_s": 0.12,
+        "subsequent_gap_s": 0.068,
+        "reason": "Leave room for the first large HTTP request and the initial request-body preparation delays observed in the parent replay."
+      }
+    },
+    "request_sources": [
+      {
+        "id": "caffe-cifar-10:102",
+        "session_id": "caffe-cifar-10:102",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 120201,
+        "prompt_sha256": "8e5edde9f9bbd7f3b04222dca2877cac9f16331d95c8e1a4b0bcfb109436131f",
+        "original_offered_s": 0.0,
+        "offered_s": 2.7020268477095746
+      },
+      {
+        "id": "caffe-cifar-10:103",
+        "session_id": "caffe-cifar-10:102",
+        "predecessor": "caffe-cifar-10:102",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 120551,
+        "prompt_sha256": "dc5b3ccb326fc8811f3e3c6f8c456a2c05825bd3a837b805b38bec9c88c53a4c",
+        "original_offered_s": 0.0,
+        "offered_s": 44.757247039806074
+      },
+      {
+        "id": "caffe-cifar-10:100",
+        "session_id": "caffe-cifar-10:100",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 117535,
+        "prompt_sha256": "f01bc318ce647e89c92662636c5463fddee47f79bf63e9415391229a201786c7",
+        "original_offered_s": 0.0,
+        "offered_s": 2.56649893776659
+      },
+      {
+        "id": "caffe-cifar-10:101",
+        "session_id": "caffe-cifar-10:100",
+        "predecessor": "caffe-cifar-10:100",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 117690,
+        "prompt_sha256": "b2908a5bf45e3b2bc7e834f6911c1ee1f47427cb0cdf248f4988c646e795a5b8",
+        "original_offered_s": 0.0,
+        "offered_s": 44.845761901781884
+      },
+      {
+        "id": "caffe-cifar-10:97",
+        "session_id": "caffe-cifar-10:97",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 114700,
+        "prompt_sha256": "379234b2fdd07765373436872f6ce1a783dcc76bf03064f293f2508351c25be9",
+        "original_offered_s": 0.0,
+        "offered_s": 2.4310198957401763
+      },
+      {
+        "id": "caffe-cifar-10:98",
+        "session_id": "caffe-cifar-10:97",
+        "predecessor": "caffe-cifar-10:97",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 116993,
+        "prompt_sha256": "3a7e035b1067d7cefd8e718b76a2f6f1383db6f280d18bcfbbcf6fd7761f2d40",
+        "original_offered_s": 0.0,
+        "offered_s": 44.86791789936423
+      },
+      {
+        "id": "caffe-cifar-10:95",
+        "session_id": "caffe-cifar-10:95",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 114401,
+        "prompt_sha256": "b18fdea5f77f8d2e5d389d802326284a06f9850beae2097cf6f3f412220630af",
+        "original_offered_s": 0.0,
+        "offered_s": 2.295087301486039
+      },
+      {
+        "id": "caffe-cifar-10:96",
+        "session_id": "caffe-cifar-10:95",
+        "predecessor": "caffe-cifar-10:95",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 114554,
+        "prompt_sha256": "2e6e4994722938d6643b7315655330a34278389dc7e11bd9caf18b7b871a7ec5",
+        "original_offered_s": 0.0,
+        "offered_s": 44.9123506152717
+      },
+      {
+        "id": "caffe-cifar-10:93",
+        "session_id": "caffe-cifar-10:93",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 113166,
+        "prompt_sha256": "52eae0b2bba8f956577b46d6d10cc21d67c0e1b621fe8d5cf9a7d790d11d5a20",
+        "original_offered_s": 0.0,
+        "offered_s": 2.091328093398058
+      },
+      {
+        "id": "caffe-cifar-10:94",
+        "session_id": "caffe-cifar-10:93",
+        "predecessor": "caffe-cifar-10:93",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 114012,
+        "prompt_sha256": "ffd112b93fcfe6e07faeda44ccb69fa1066ac5a7e019a7b8d03ddcb63a446cfa",
+        "original_offered_s": 0.0,
+        "offered_s": 44.95647153588325
+      },
+      {
+        "id": "caffe-cifar-10:91",
+        "session_id": "caffe-cifar-10:91",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 112027,
+        "prompt_sha256": "9644ae8b6ba34c8e41a1fc25f7397bd393cd747dcf5fe5a540e6b03c13ae43f9",
+        "original_offered_s": 0.0,
+        "offered_s": 1.9555473494490936
+      },
+      {
+        "id": "caffe-cifar-10:92",
+        "session_id": "caffe-cifar-10:91",
+        "predecessor": "caffe-cifar-10:91",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 112868,
+        "prompt_sha256": "5591b58b632446556ff55a9fa2d2d103330f06e9dad2016e9c1d5ed559daf6f5",
+        "original_offered_s": 0.0,
+        "offered_s": 45.00069159140941
+      },
+      {
+        "id": "caffe-cifar-10:88",
+        "session_id": "caffe-cifar-10:88",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 111422,
+        "prompt_sha256": "0f038ebd7c5a02392851913f4fb8f5206591adc84d8bf2cd8cbce3a3f2c15510",
+        "original_offered_s": 0.0,
+        "offered_s": 1.8196813114985069
+      },
+      {
+        "id": "caffe-cifar-10:89",
+        "session_id": "caffe-cifar-10:88",
+        "predecessor": "caffe-cifar-10:88",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 111717,
+        "prompt_sha256": "e40e521640dafd5c1a7ca762840c406ca87cbe2c960425795d33158e188616e8",
+        "original_offered_s": 0.0,
+        "offered_s": 45.04491454503286
+      },
+      {
+        "id": "caffe-cifar-10:86",
+        "session_id": "caffe-cifar-10:86",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 109117,
+        "prompt_sha256": "2cfd881e6c225190bdd28a1e2e58593207e8f36656dd73774b6238543852395e",
+        "original_offered_s": 0.0,
+        "offered_s": 1.6840961891174102
+      },
+      {
+        "id": "caffe-cifar-10:87",
+        "session_id": "caffe-cifar-10:86",
+        "predecessor": "caffe-cifar-10:86",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 109274,
+        "prompt_sha256": "2a1edc83c648e724f5a33c97b1b875ee24c5287ca4cdfdb5f5b35eb1f1843079",
+        "original_offered_s": 0.0,
+        "offered_s": 45.0893582537232
+      },
+      {
+        "id": "caffe-cifar-10:83",
+        "session_id": "caffe-cifar-10:83",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 108037,
+        "prompt_sha256": "b06fdae8ec6bcdf901b7ce49a73c5fef46e2430044d1b8eacca1314abd0ed595",
+        "original_offered_s": 0.0,
+        "offered_s": 1.5483180934297731
+      },
+      {
+        "id": "caffe-cifar-10:84",
+        "session_id": "caffe-cifar-10:83",
+        "predecessor": "caffe-cifar-10:83",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 108595,
+        "prompt_sha256": "f30e1427e3ebd8de4864a7d8688792ed1060286035634f0413d58d155c0e013d",
+        "original_offered_s": 0.0,
+        "offered_s": 45.133510403831544
+      },
+      {
+        "id": "caffe-cifar-10:81",
+        "session_id": "caffe-cifar-10:81",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 106099,
+        "prompt_sha256": "3f2cce977da4038c982bff3fd4b426ac88524e322551dd74e175c11840167de8",
+        "original_offered_s": 0.0,
+        "offered_s": 1.412674509430693
+      },
+      {
+        "id": "caffe-cifar-10:82",
+        "session_id": "caffe-cifar-10:81",
+        "predecessor": "caffe-cifar-10:81",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 107754,
+        "prompt_sha256": "1f62e3a0d8d0b2513b503252e0f6cf7848612e467a7eae5fbc8f5d6ca59029f4",
+        "original_offered_s": 0.0,
+        "offered_s": 45.17767829360626
+      },
+      {
+        "id": "caffe-cifar-10:78",
+        "session_id": "caffe-cifar-10:78",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 103837,
+        "prompt_sha256": "d0791d6baeab29bafe2a1e85fe8468d4aed7469544fdaae75289c0287cd414c4",
+        "original_offered_s": 0.0,
+        "offered_s": 1.3451012792419725
+      },
+      {
+        "id": "caffe-cifar-10:79",
+        "session_id": "caffe-cifar-10:78",
+        "predecessor": "caffe-cifar-10:78",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 105605,
+        "prompt_sha256": "4343556f14022f161a96c7f26b2d9577d162a3274eab32d60e0e5054c117f2bc",
+        "original_offered_s": 0.0,
+        "offered_s": 45.24408322775339
+      },
+      {
+        "id": "caffe-cifar-10:71",
+        "session_id": "caffe-cifar-10:71",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 89258,
+        "prompt_sha256": "8276ff8b8d1a5bcc21e59c7f0e87f2eec821c5d8c83adfb4162d7aed89e3697e",
+        "original_offered_s": 0.0,
+        "offered_s": 1.211711015862195
+      },
+      {
+        "id": "caffe-cifar-10:72",
+        "session_id": "caffe-cifar-10:71",
+        "predecessor": "caffe-cifar-10:71",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 91367,
+        "prompt_sha256": "cb7b5c0b408d561fd03d00fed844082680d8a0225a1f5df4bdeeb3bed16cb877",
+        "original_offered_s": 0.0,
+        "offered_s": 45.37863240413345
+      },
+      {
+        "id": "caffe-cifar-10:62",
+        "session_id": "caffe-cifar-10:62",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 75954,
+        "prompt_sha256": "932e2420a96d22b3c5d1b2f7f093d1705b08ec568ba76f700d8d603344659d5f",
+        "original_offered_s": 0.0,
+        "offered_s": 1.0785398586318684
+      },
+      {
+        "id": "caffe-cifar-10:63",
+        "session_id": "caffe-cifar-10:62",
+        "predecessor": "caffe-cifar-10:62",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 77038,
+        "prompt_sha256": "39e17710be30120e5f3fa98514fdebd419a8b667705d7a5d6b95d4d1b39cf197",
+        "original_offered_s": 0.0,
+        "offered_s": 45.46959805708264
+      },
+      {
+        "id": "caffe-cifar-10:60",
+        "session_id": "caffe-cifar-10:60",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 71620,
+        "prompt_sha256": "a77a7b83d6c0249bf6dffe90062ca440f0092316478ae4e2710ac485172f2bfb",
+        "original_offered_s": 0.0,
+        "offered_s": 0.8394081885441054
+      },
+      {
+        "id": "caffe-cifar-10:61",
+        "session_id": "caffe-cifar-10:60",
+        "predecessor": "caffe-cifar-10:60",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 73693,
+        "prompt_sha256": "96d7eb33586dcabe9ad1212b73303b0b6dc464fc6854d295994c627528b8fd8b",
+        "original_offered_s": 0.0,
+        "offered_s": 45.55829479964773
+      },
+      {
+        "id": "caffe-cifar-10:58",
+        "session_id": "caffe-cifar-10:58",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 68681,
+        "prompt_sha256": "54fab3b1e081966249e0e1946da7dd5f26b9ff12d98d09648af2bc5a7d70da57",
+        "original_offered_s": 0.0,
+        "offered_s": 0.0
+      },
+      {
+        "id": "caffe-cifar-10:59",
+        "session_id": "caffe-cifar-10:58",
+        "predecessor": "caffe-cifar-10:58",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 69324,
+        "prompt_sha256": "96dbf809ad3608eb1c54f82101aac474c11c37dc5b200281530d5f944b9de291",
+        "original_offered_s": 0.0,
+        "offered_s": 45.58116782647629
+      },
+      {
+        "id": "make-doom-for-mips:120",
+        "session_id": "make-doom-for-mips:120",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 135593,
+        "prompt_sha256": "74991dcd7ef814b15dfd7939739fafa2d6b6149f0422c00e38b10d7937b041b9",
+        "original_offered_s": 0.0,
+        "offered_s": 1.745307596056849
+      },
+      {
+        "id": "make-doom-for-mips:121",
+        "session_id": "make-doom-for-mips:120",
+        "predecessor": "make-doom-for-mips:120",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 138297,
+        "prompt_sha256": "2c3993c2c1e740b005618bb5f81870dc5ca0be469279b06b4e60d9ed6ab02190",
+        "original_offered_s": 0.0,
+        "offered_s": 44.81802092092871
+      },
+      {
+        "id": "make-doom-for-mips:115",
+        "session_id": "make-doom-for-mips:115",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 128634,
+        "prompt_sha256": "38cb7b528c288e538d681b6e9e923579be3cc044addd3e823bd870d479940a53",
+        "original_offered_s": 0.0,
+        "offered_s": 1.6107285631442119
+      },
+      {
+        "id": "make-doom-for-mips:116",
+        "session_id": "make-doom-for-mips:115",
+        "predecessor": "make-doom-for-mips:115",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 129688,
+        "prompt_sha256": "0b160dda41df0ff5601039db6291511b44ef1f0a03100f9c282386f3ecc1d2fc",
+        "original_offered_s": 0.0,
+        "offered_s": 44.92980634873537
+      },
+      {
+        "id": "make-doom-for-mips:105",
+        "session_id": "make-doom-for-mips:105",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 116911,
+        "prompt_sha256": "7e2a234c147afc211217422f75daab1e3600ec330f0b6c9349691f0d8c648687",
+        "original_offered_s": 0.0,
+        "offered_s": 1.477267546216516
+      },
+      {
+        "id": "make-doom-for-mips:106",
+        "session_id": "make-doom-for-mips:105",
+        "predecessor": "make-doom-for-mips:105",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 117060,
+        "prompt_sha256": "5be03c065bbfac71564fdb76a7832441a3b1f28c3be986a3435a21ae76368a02",
+        "original_offered_s": 0.0,
+        "offered_s": 45.02053130970693
+      },
+      {
+        "id": "make-doom-for-mips:102",
+        "session_id": "make-doom-for-mips:102",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 115295,
+        "prompt_sha256": "22353d6f8bb6db69fe9c58258b16cb5836f063ddc20d55ee6939c26bc54785c5",
+        "original_offered_s": 0.0,
+        "offered_s": 1.2736197150058728
+      },
+      {
+        "id": "make-doom-for-mips:103",
+        "session_id": "make-doom-for-mips:102",
+        "predecessor": "make-doom-for-mips:102",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 116605,
+        "prompt_sha256": "70269875bea874d811050e52f5ead0c7a287118d379f21bc535d39e74b7c9287",
+        "original_offered_s": 0.0,
+        "offered_s": 45.064634541931504
+      },
+      {
+        "id": "make-doom-for-mips:100",
+        "session_id": "make-doom-for-mips:100",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 114222,
+        "prompt_sha256": "260b40d29e31f3d9ede765f5f43988afa9a2e384f762373840fd23c38f4596c4",
+        "original_offered_s": 0.0,
+        "offered_s": 1.1378493642334386
+      },
+      {
+        "id": "make-doom-for-mips:101",
+        "session_id": "make-doom-for-mips:100",
+        "predecessor": "make-doom-for-mips:100",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 115148,
+        "prompt_sha256": "83b3137d13e995522a489f4e49d0f97c5513f50e9c7e35509f8a30691023399e",
+        "original_offered_s": 0.0,
+        "offered_s": 45.108951583782876
+      },
+      {
+        "id": "make-doom-for-mips:92",
+        "session_id": "make-doom-for-mips:92",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 104960,
+        "prompt_sha256": "7be4acd23011fe6a37572e5d4e1055a5cd2a73558268a9c928bbf5c0f96d231f",
+        "original_offered_s": 0.0,
+        "offered_s": 0.9517947370308332
+      },
+      {
+        "id": "make-doom-for-mips:93",
+        "session_id": "make-doom-for-mips:92",
+        "predecessor": "make-doom-for-mips:92",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 105680,
+        "prompt_sha256": "5b668fede7a646d37e55694c3c637f7f3c03a39deb4eb205c027af4e921114c1",
+        "original_offered_s": 0.0,
+        "offered_s": 45.30894397571063
+      },
+      {
+        "id": "make-doom-for-mips:71",
+        "session_id": "make-doom-for-mips:71",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 70323,
+        "prompt_sha256": "e4956c9f27da221294a68faa955f55b02536afdf94f1940ec1e2195423b780b1",
+        "original_offered_s": 0.0,
+        "offered_s": 0.7191529561127723
+      },
+      {
+        "id": "make-doom-for-mips:72",
+        "session_id": "make-doom-for-mips:71",
+        "predecessor": "make-doom-for-mips:71",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 71336,
+        "prompt_sha256": "e0ccdfebc4503cced294f729c7e6053631d27c15741324334689bd77f7090a26",
+        "original_offered_s": 0.0,
+        "offered_s": 45.536222497116775
+      },
+      {
+        "id": "make-mips-interpreter:98",
+        "session_id": "make-mips-interpreter:98",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 142119,
+        "prompt_sha256": "40350e397cecbff2f3f13ef83bc22113db6703f8e088fe9faea303736f0c8ce9",
+        "original_offered_s": 0.0,
+        "offered_s": 3.785844343664012
+      },
+      {
+        "id": "make-mips-interpreter:99",
+        "session_id": "make-mips-interpreter:98",
+        "predecessor": "make-mips-interpreter:98",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 142324,
+        "prompt_sha256": "e30ecf818b70f0b38daed3de465e81e6d5fe17423065e2766af74f02cb1ef04d",
+        "original_offered_s": 0.0,
+        "offered_s": 44.62109621496205
+      },
+      {
+        "id": "make-mips-interpreter:96",
+        "session_id": "make-mips-interpreter:96",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 139261,
+        "prompt_sha256": "4c29d411faff5445763fb4f1c0b65897ad41b29c37a4065574243ec0f173ed91",
+        "original_offered_s": 0.0,
+        "offered_s": 3.7183715975041505
+      },
+      {
+        "id": "make-mips-interpreter:97",
+        "session_id": "make-mips-interpreter:96",
+        "predecessor": "make-mips-interpreter:96",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 140680,
+        "prompt_sha256": "ba375ec1c61c65ddb5ade9cb05a00ea41f0059168055a2bda932f3d86e0ee271",
+        "original_offered_s": 0.0,
+        "offered_s": 44.64340206416177
+      },
+      {
+        "id": "make-mips-interpreter:92",
+        "session_id": "make-mips-interpreter:92",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 136286,
+        "prompt_sha256": "e1f538aba4fe3e03b60575c1a98b8e1b8a7598fb8d1813ef060f016ba62953ae",
+        "original_offered_s": 0.0,
+        "offered_s": 3.583007929730663
+      },
+      {
+        "id": "make-mips-interpreter:93",
+        "session_id": "make-mips-interpreter:92",
+        "predecessor": "make-mips-interpreter:92",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 136905,
+        "prompt_sha256": "d10ed59032356b0f0d2b03b05bc654479495e583818ea30ea76182fea4f7a0e9",
+        "original_offered_s": 0.0,
+        "offered_s": 44.6881742571911
+      },
+      {
+        "id": "make-mips-interpreter:82",
+        "session_id": "make-mips-interpreter:82",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 121925,
+        "prompt_sha256": "9dd993c50502ba69c7ca773edac471ba88d0731f3671c42da5bcb1056d5808e8",
+        "original_offered_s": 0.0,
+        "offered_s": 3.381945051411593
+      },
+      {
+        "id": "make-mips-interpreter:83",
+        "session_id": "make-mips-interpreter:82",
+        "predecessor": "make-mips-interpreter:82",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 122183,
+        "prompt_sha256": "a85302e5995e19e7083ae1148f8a155c5220dc5151339de4f2eb39e888095178",
+        "original_offered_s": 0.0,
+        "offered_s": 44.801187728745774
+      },
+      {
+        "id": "make-mips-interpreter:80",
+        "session_id": "make-mips-interpreter:80",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 121506,
+        "prompt_sha256": "0bfdecdd689b0296c984caeef53babbb0b2ef14ea9e2e8e81a2d6187d5404b89",
+        "original_offered_s": 0.0,
+        "offered_s": 3.450035292165506
+      },
+      {
+        "id": "make-mips-interpreter:81",
+        "session_id": "make-mips-interpreter:80",
+        "predecessor": "make-mips-interpreter:80",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 121678,
+        "prompt_sha256": "70242c4cb20125207bd7000fc9ccbcd9b0aa71d3b405932fb7f9d72c21a9adce",
+        "original_offered_s": 0.0,
+        "offered_s": 44.735295857755446
+      },
+      {
+        "id": "make-mips-interpreter:69",
+        "session_id": "make-mips-interpreter:69",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 104242,
+        "prompt_sha256": "eeb924a753f3f0ba5a5c9f9fdfea579d8d1668d656ab8c02e69467db7887ffa6",
+        "original_offered_s": 0.0,
+        "offered_s": 3.249382344713049
+      },
+      {
+        "id": "make-mips-interpreter:70",
+        "session_id": "make-mips-interpreter:69",
+        "predecessor": "make-mips-interpreter:69",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 104919,
+        "prompt_sha256": "2ff56f4dd7e77eb448f9453b17f7cf8bab32b574f6ef8134957297d6604f9347",
+        "original_offered_s": 0.0,
+        "offered_s": 45.22254197656938
+      },
+      {
+        "id": "make-mips-interpreter:67",
+        "session_id": "make-mips-interpreter:67",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 101192,
+        "prompt_sha256": "f9bb115381b5fb7b3668689524a32970fa27da49a09ee2f297358d5902607aed",
+        "original_offered_s": 0.0,
+        "offered_s": 3.1819507715217497
+      },
+      {
+        "id": "make-mips-interpreter:68",
+        "session_id": "make-mips-interpreter:67",
+        "predecessor": "make-mips-interpreter:67",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 103350,
+        "prompt_sha256": "92f0262831dfa05d145e7c1bc2eae672a9ee2131c8e0e2acf73d1ad8e1d7b812",
+        "original_offered_s": 0.0,
+        "offered_s": 45.28886541422169
+      },
+      {
+        "id": "make-mips-interpreter:60",
+        "session_id": "make-mips-interpreter:60",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 93798,
+        "prompt_sha256": "90f22ef98735ec3476df8f319ea26d42628941046d9c9c8c818c2b64811d57a7",
+        "original_offered_s": 0.0,
+        "offered_s": 3.047423304754206
+      },
+      {
+        "id": "make-mips-interpreter:61",
+        "session_id": "make-mips-interpreter:60",
+        "predecessor": "make-mips-interpreter:60",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 94575,
+        "prompt_sha256": "0d96e11734e0c1122a3b1e070f1d81fc3419336c395a90f427d3850c56996db2",
+        "original_offered_s": 0.0,
+        "offered_s": 45.3345619004215
+      },
+      {
+        "id": "make-mips-interpreter:53",
+        "session_id": "make-mips-interpreter:53",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 82694,
+        "prompt_sha256": "7092a0f4000ec8c53ad38522b4fc527185d770d3e29e95c34d9efd38b96787b4",
+        "original_offered_s": 0.0,
+        "offered_s": 2.913701359134963
+      },
+      {
+        "id": "make-mips-interpreter:54",
+        "session_id": "make-mips-interpreter:53",
+        "predecessor": "make-mips-interpreter:53",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 82899,
+        "prompt_sha256": "adbd54b170c94eef1d34a366ac61f3df60a81aa6adf619b45ba727b84d44ed13",
+        "original_offered_s": 0.0,
+        "offered_s": 45.424953280400196
+      },
+      {
+        "id": "make-mips-interpreter:50",
+        "session_id": "make-mips-interpreter:50",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 73367,
+        "prompt_sha256": "90c92aa517004144e847170d661c5acbcaf54276c30213e4af4d9b3bb0cdd9d4",
+        "original_offered_s": 0.0,
+        "offered_s": 2.8475952157544593
+      },
+      {
+        "id": "make-mips-interpreter:51",
+        "session_id": "make-mips-interpreter:50",
+        "predecessor": "make-mips-interpreter:50",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 73771,
+        "prompt_sha256": "d06573c18384b802281c7a0b95e8269c3dd13191a70f63f419dc8fe118e71bd1",
+        "original_offered_s": 0.0,
+        "offered_s": 45.5148140587367
+      },
+      {
+        "id": "regex-chess:102",
+        "session_id": "regex-chess:102",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 191554,
+        "prompt_sha256": "ebdb972360b4e2d9c8757ef181af2786005e4c6acd9e3b687ce574bb6c410a41",
+        "original_offered_s": 0.0,
+        "offered_s": 3.6388643523972024
+      },
+      {
+        "id": "regex-chess:103",
+        "session_id": "regex-chess:102",
+        "predecessor": "regex-chess:102",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 192315,
+        "prompt_sha256": "64f595104f3190e31635f19b0568543de87e6744e11c9907ba9f6c1ccf620dde",
+        "original_offered_s": 0.0,
+        "offered_s": 44.5
+      },
+      {
+        "id": "regex-chess:100",
+        "session_id": "regex-chess:100",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 189170,
+        "prompt_sha256": "dd1e9f67f87445bd91ff3704ae5476b2374e9c39b9aac95dc9d31c39956451c3",
+        "original_offered_s": 0.0,
+        "offered_s": 3.5033626752315183
+      },
+      {
+        "id": "regex-chess:101",
+        "session_id": "regex-chess:100",
+        "predecessor": "regex-chess:100",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 190596,
+        "prompt_sha256": "effe2b0481d761fdbab62385bb9326089ab06bee29cc1a42ac75652da7692aa4",
+        "original_offered_s": 0.0,
+        "offered_s": 44.65436690911184
+      },
+      {
+        "id": "regex-chess:98",
+        "session_id": "regex-chess:98",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 185843,
+        "prompt_sha256": "b22af2253c6639a012e4531f69f3b4512506082b2a2d34df419466954b5618e4",
+        "original_offered_s": 0.0,
+        "offered_s": 3.300072709070446
+      },
+      {
+        "id": "regex-chess:99",
+        "session_id": "regex-chess:98",
+        "predecessor": "regex-chess:98",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 187395,
+        "prompt_sha256": "3a18e5c2dc43a8ff3329924f103da7d4e915a69b7e66ea6ae7fcaba74d702123",
+        "original_offered_s": 0.0,
+        "offered_s": 44.699051109911025
+      },
+      {
+        "id": "regex-chess:96",
+        "session_id": "regex-chess:96",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 180373,
+        "prompt_sha256": "01091a80c96eb60c1a8fff6dc61e07eb3af92cb75b950fbb48c8dcd632d511bb",
+        "original_offered_s": 0.0,
+        "offered_s": 3.097181531091533
+      },
+      {
+        "id": "regex-chess:97",
+        "session_id": "regex-chess:96",
+        "predecessor": "regex-chess:96",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 182135,
+        "prompt_sha256": "40015639dd811c0bfad2d92be1d4e85f08c89efd295cc64bc078deca434e3eb0",
+        "original_offered_s": 0.0,
+        "offered_s": 44.766103469001926
+      },
+      {
+        "id": "regex-chess:70",
+        "session_id": "regex-chess:70",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 134082,
+        "prompt_sha256": "ed406c69617e8b84d597a72ca39a57171b96ae213a104bef79147abe46f66fbd",
+        "original_offered_s": 0.0,
+        "offered_s": 2.9709006001961082
+      },
+      {
+        "id": "regex-chess:71",
+        "session_id": "regex-chess:70",
+        "predecessor": "regex-chess:70",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 135518,
+        "prompt_sha256": "554bd38aa4a21397212a9ebec44b8ad6d2bacd8acac71793257e8f60be5c4d50",
+        "original_offered_s": 0.0,
+        "offered_s": 44.885907682206536
+      },
+      {
+        "id": "regex-chess:66",
+        "session_id": "regex-chess:66",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 126275,
+        "prompt_sha256": "8aefe4c93123b399e163d9cb38b00d0dabd9cc784e23cc6bc5408b8a1278b967",
+        "original_offered_s": 0.0,
+        "offered_s": 2.7685107930503974
+      },
+      {
+        "id": "regex-chess:67",
+        "session_id": "regex-chess:66",
+        "predecessor": "regex-chess:66",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 127757,
+        "prompt_sha256": "e2b3d9d0a4f76227e34464caa93bd282047c1a4984d64f8a9a56b18027047290",
+        "original_offered_s": 0.0,
+        "offered_s": 44.97551397761963
+      },
+      {
+        "id": "regex-chess:58",
+        "session_id": "regex-chess:58",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 112988,
+        "prompt_sha256": "843857c92e2fe6a2b29cb2b19de7d69dbb22721115453397012db23e98ca69e7",
+        "original_offered_s": 0.0,
+        "offered_s": 2.635217765831813
+      },
+      {
+        "id": "regex-chess:59",
+        "session_id": "regex-chess:58",
+        "predecessor": "regex-chess:58",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 114184,
+        "prompt_sha256": "0b86b25bb72d0ebfc66e4d14f0096a1d6b04fe375657de013518de69312e9493",
+        "original_offered_s": 0.0,
+        "offered_s": 45.15427756323282
+      },
+      {
+        "id": "regex-chess:56",
+        "session_id": "regex-chess:56",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 110810,
+        "prompt_sha256": "bc5c50fc9037c579705173bdc51dc3916a99221b1c46da337f6aeb08e7d417f6",
+        "original_offered_s": 0.0,
+        "offered_s": 2.499675415369514
+      },
+      {
+        "id": "regex-chess:57",
+        "session_id": "regex-chess:56",
+        "predecessor": "regex-chess:56",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 111682,
+        "prompt_sha256": "0a3dc7bb0006f39126064172fa95c88c777b74a43b02958765d4c8bb45fc98ef",
+        "original_offered_s": 0.0,
+        "offered_s": 45.19877693537823
+      },
+      {
+        "id": "regex-chess:54",
+        "session_id": "regex-chess:54",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 107267,
+        "prompt_sha256": "fb9d35397aa4d227cfced44a8666c2140a370f025989f16bb94b6896526bce34",
+        "original_offered_s": 0.0,
+        "offered_s": 2.364419826638504
+      },
+      {
+        "id": "regex-chess:55",
+        "session_id": "regex-chess:54",
+        "predecessor": "regex-chess:54",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 108104,
+        "prompt_sha256": "99773f5836a6c854dbee5bbd0fa636e7ac3630e26626ee8c5e93b87152dd7184",
+        "original_offered_s": 0.0,
+        "offered_s": 45.265536086969696
+      },
+      {
+        "id": "regex-chess:43",
+        "session_id": "regex-chess:43",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 95644,
+        "prompt_sha256": "e0b3669d2557b69b4c2873e8e29b39c9df458b188cfc28b83003b596f29d09e6",
+        "original_offered_s": 0.0,
+        "offered_s": 2.230900148224045
+      },
+      {
+        "id": "regex-chess:44",
+        "session_id": "regex-chess:43",
+        "predecessor": "regex-chess:43",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 96383,
+        "prompt_sha256": "62e6c94104fc36f5a6f8b81b92ad3d5adb697c6ed7e50eb7746cb06a42f26229",
+        "original_offered_s": 0.0,
+        "offered_s": 45.35603889379293
+      },
+      {
+        "id": "regex-chess:41",
+        "session_id": "regex-chess:41",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 88172,
+        "prompt_sha256": "74315503bd4c128aa30c2108739ed928481e0af99d81b7734920431c13e157a4",
+        "original_offered_s": 0.0,
+        "offered_s": 2.164347997662242
+      },
+      {
+        "id": "regex-chess:42",
+        "session_id": "regex-chess:41",
+        "predecessor": "regex-chess:41",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 90345,
+        "prompt_sha256": "497ab8f9aeba38e44b003ad8be4a6831da65bc935b3d5cc278ae448ac6e6983e",
+        "original_offered_s": 0.0,
+        "offered_s": 45.40122821296493
+      },
+      {
+        "id": "regex-chess:39",
+        "session_id": "regex-chess:39",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 82687,
+        "prompt_sha256": "9950f208135d0404040749ed7d62a344c59818a1c8ac1c5555866bf095b64144",
+        "original_offered_s": 0.0,
+        "offered_s": 2.0294203935982775
+      },
+      {
+        "id": "regex-chess:40",
+        "session_id": "regex-chess:39",
+        "predecessor": "regex-chess:39",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 86920,
+        "prompt_sha256": "9f486ee66705a85343d73fae20543b13c4e914e8df723e7ca59e80fa42cb6b70",
+        "original_offered_s": 0.0,
+        "offered_s": 45.44591076484669
+      },
+      {
+        "id": "regex-chess:33",
+        "session_id": "regex-chess:33",
+        "predecessor": null,
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 76301,
+        "prompt_sha256": "0c74ab69e9e4c110f7d976e05a4f5ee0b71aa6ca18645779470d062a7ff4cc52",
+        "original_offered_s": 0.0,
+        "offered_s": 1.8947785519217044
+      },
+      {
+        "id": "regex-chess:34",
+        "session_id": "regex-chess:33",
+        "predecessor": "regex-chess:33",
+        "tool_gap_s": 0,
+        "max_tokens": 8192,
+        "prompt_tokens": 77644,
+        "prompt_sha256": "516264975e0b2a34df17976d330b370cad98bc3e4516d4905a220be770748068",
+        "original_offered_s": 0.0,
+        "offered_s": 45.49179043078284
+      }
+    ],
+    "expanded_checkpoint_calibration": {
+      "estimated_GET_under_empty_native_proxy_bytes": 208605675520,
+      "projected_cold_root_prefix_by_P": {
+        "P0": {
+          "caffe-cifar-10": 128055,
+          "make-mips-interpreter": 176358
+        },
+        "P1": {
+          "make-doom-for-mips": 142866,
+          "regex-chess": 219918
+        }
+      },
+      "actual_running_P_reservations_may_change_assignment": true
+    },
+    "surviving_window_readiness": {
+      "timed_reference_trace_sha256": "587483e962ed049e9b60d5830e307541e1abfc92786feaacd45000574ed636a4",
+      "excluded_tail_requests": [
+        "make-doom-for-mips:75",
+        "regex-chess:29",
+        "regex-chess:69"
+      ],
+      "removed_roots_for_cold_assignment_balance": [
+        "caffe-cifar-10:73",
+        "caffe-cifar-10:76"
+      ],
+      "all_removed_original_request_ids": [
+        "caffe-cifar-10:73",
+        "caffe-cifar-10:74",
+        "caffe-cifar-10:76",
+        "caffe-cifar-10:77",
+        "make-doom-for-mips:74",
+        "make-doom-for-mips:75",
+        "regex-chess:29",
+        "regex-chess:30",
+        "regex-chess:68",
+        "regex-chess:69"
+      ],
+      "same_clock_required_offer_by_case": {
+        "b1-cap100": {
+          "seconds": 43.596001153906116,
+          "root": "regex-chess:100"
+        },
+        "b1-cap200": {
+          "seconds": 39.023551408877836,
+          "root": "regex-chess:100"
+        },
+        "b2-cap200": {
+          "seconds": 38.39817784689484,
+          "root": "regex-chess:100"
+        },
+        "b2-cap100": {
+          "seconds": 39.15733419490397,
+          "root": "regex-chess:100"
+        }
+      },
+      "observed_first_child_credit_after_old_offer_s": {
+        "b1-cap100": 1.2453880470129661,
+        "b1-cap200": 1.714572948985733,
+        "b2-cap200": 1.64729800898931,
+        "b2-cap100": 2.325158533989452
+      },
+      "guard_s": 0.55,
+      "first_child_gap_s": 0.11,
+      "gap_between_following_child_offers_s": 0.022,
+      "first_child_offer_s": 44.5,
+      "offer_span_s": 1.0811678264762883
+    }
+  },
+  "settings": {
+    "model": "Qwen3.5-35B-A3B",
+    "attention_TP": 4,
+    "expert_parallel": true,
+    "DP": 1,
+    "serving_observer": false,
+    "D_egress_ports": 8,
+    "D_pool_GiB": 128,
+    "P_pool_GiB": 0,
+    "engines": {
+      "P": {
+        "devices": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "enable_prefix_caching": true,
+        "max_num_seqs": 16,
+        "max_num_batched_tokens": 4096,
+        "gpu_memory_utilization": 0.8,
+        "compilation_config": {
+          "cudagraph_capture_sizes": [
+            1,
+            2,
+            4,
+            8,
+            16,
+            1024,
+            2048,
+            3072,
+            4096
+          ]
+        }
+      },
+      "D": {
+        "devices": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "enable_prefix_caching": true,
+        "max_num_seqs": 16,
+        "max_num_batched_tokens": 4096,
+        "gpu_memory_utilization": 0.8,
+        "compilation_config": {
+          "cudagraph_mode": "FULL_DECODE_ONLY",
+          "cudagraph_capture_sizes": [
+            1,
+            2,
+            4,
+            8,
+            16
+          ]
+        },
+        "recompute_scheduler_enable": true
+      }
+    }
+  },
+  "shaping": "D egress only across eight equal port limits; all eight P ports read-only at original 200000 Mbps",
+  "software": {
+    "P": {
+      "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+      "ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd",
+      "mooncake": "0.3.11.post1"
+    },
+    "D": {
+      "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+      "ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd",
+      "mooncake": "0.3.11.post1"
+    },
+    "model_hashes": {
+      "config.json": "5e4d7f74fec2f360eb9cfbfcd6ec0c4c76e684d3a11caaed259d9fd9bfbc7944",
+      "tokenizer.json": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+      "model.safetensors.index.json": "d8d0b7ca4e61ae107e3e87a3ff21136b3ac7c789e64bb24267227ca804e04205"
+    }
+  },
+  "deployment_audit": {
+    "P": {
+      "intended_argv_devices_and_store_verified": true,
+      "observers_enabled": false,
+      "eager_false_log_count": 2,
+      "graph_mode_logged": true,
+      "software": {
+        "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+        "ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd",
+        "mooncake": "0.3.11.post1"
+      },
+      "native_scheduler": null
+    },
+    "D": {
+      "intended_argv_devices_and_store_verified": true,
+      "observers_enabled": false,
+      "eager_false_log_count": 2,
+      "graph_mode_logged": true,
+      "software": {
+        "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+        "ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd",
+        "mooncake": "0.3.11.post1"
+      },
+      "native_scheduler": "vllm_ascend.core.recompute_scheduler.AsyncRecomputeScheduler"
+    }
+  },
+  "bundle_sha256": {
+    "P": "18ffd0bee6c4725c9df53868e298181825a9bbf05daf5feeec79b6ff5ad63764",
+    "D": "532e95f1ffa42a8e2d4d1b44a1b99ce80d2c3d8f1905f90dbea93763244437fd"
+  },
+  "P_clock_tracking": {
+    "b1-cap100": "Reference ID    : CA760151 (time.neu.edu.cn)\nStratum         : 2\nRef time (UTC)  : Sun Nov 22 03:21:44 2026\nSystem time     : 0.000389076 seconds slow of NTP time\nLast offset     : -0.000049814 seconds\nRMS offset      : 0.000242734 seconds\nFrequency       : 11.741 ppm slow\nResidual freq   : -0.001 ppm\nSkew            : 0.056 ppm\nRoot delay      : 0.039092794 seconds\nRoot dispersion : 0.000583144 seconds\nUpdate interval : 1030.4 seconds\nLeap status     : Normal\n",
+    "b1-cap200": "Reference ID    : CA760151 (time.neu.edu.cn)\nStratum         : 2\nRef time (UTC)  : Sun Nov 22 03:21:44 2026\nSystem time     : 0.000382987 seconds slow of NTP time\nLast offset     : -0.000049814 seconds\nRMS offset      : 0.000242734 seconds\nFrequency       : 11.741 ppm slow\nResidual freq   : -0.001 ppm\nSkew            : 0.056 ppm\nRoot delay      : 0.039092794 seconds\nRoot dispersion : 0.000711143 seconds\nUpdate interval : 1030.4 seconds\nLeap status     : Normal\n",
+    "b2-cap200": "Reference ID    : CA760151 (time.neu.edu.cn)\nStratum         : 2\nRef time (UTC)  : Sun Nov 22 03:21:44 2026\nSystem time     : 0.000376533 seconds slow of NTP time\nLast offset     : -0.000049814 seconds\nRMS offset      : 0.000242734 seconds\nFrequency       : 11.741 ppm slow\nResidual freq   : -0.001 ppm\nSkew            : 0.056 ppm\nRoot delay      : 0.039092794 seconds\nRoot dispersion : 0.000846806 seconds\nUpdate interval : 1030.4 seconds\nLeap status     : Normal\n",
+    "b2-cap100": "Reference ID    : CA760151 (time.neu.edu.cn)\nStratum         : 2\nRef time (UTC)  : Sun Nov 22 03:21:44 2026\nSystem time     : 0.000370422 seconds slow of NTP time\nLast offset     : -0.000049814 seconds\nRMS offset      : 0.000242734 seconds\nFrequency       : 11.741 ppm slow\nResidual freq   : -0.001 ppm\nSkew            : 0.056 ppm\nRoot delay      : 0.039092794 seconds\nRoot dispersion : 0.000975259 seconds\nUpdate interval : 1030.4 seconds\nLeap status     : Normal\n"
+  },
+  "artifacts": {
+    "r78-events.jsonl.gz": {
+      "sha256": "485b9745af532f9f83700c43461d85247ec888e11aa0f069f7b250919f8e1e92",
+      "bytes": 283707
+    },
+    "summary.json": {
+      "sha256": "6d17d25b533dcd7f41249aa0ea40a0782244e9aa95218db7ae8e91d984b01956",
+      "bytes": 75236
+    },
+    "checkpoint-attribution.json": {
+      "sha256": "bac4ddbb589a107d6d47439e5a4fa420fa5cb972805a96b8f9b7943b618415a9",
+      "bytes": 170934
+    },
+    "ingress-order.json": {
+      "sha256": "c2fe44d8ef6f076f7f7da02bf85b757fead240feb792e8c9b79018485e97ed08",
+      "bytes": 11869
+    },
+    "decode-service-evidence.json": {
+      "sha256": "d48d25012a3b2121b6e905140fe7e86673f6325d53ce438835de066a6e19dfe1",
+      "bytes": 10887
+    },
+    "decode-batch-replay.json": {
+      "sha256": "f30ecde1b57e23a096ab22b185e5a69f3de20a50d9732f30f8623fe7e36af291",
+      "bytes": 3136
+    },
+    "rdma-service-sensitivity.json": {
+      "sha256": "234a5ee5267467af1c4733a5bf2a9f7d06640f35bf01252dad472f5452721c2a",
+      "bytes": 16788
+    },
+    "rdma-flow-control-counters.json": {
+      "sha256": "4a689f7b55fe0d93d2d548926baf5323cdba9d13de68a5f4cef17a03119b34d0",
+      "bytes": 29853
+    }
+  },
+  "controller_sha256": {
+    "P": {
+      "node_guard.py": "97705fed4333e552798184f9f386d02604baa55a9276efb4067dfae11c4c52c4"
+    },
+    "D": {
+      "node_guard.py": "97705fed4333e552798184f9f386d02604baa55a9276efb4067dfae11c4c52c4",
+      "control.py": "7d30a1d28b3d52d9d8c515a951092a58af8ffab720b5a76a6abc5133ff116ffa",
+      "run_pair.py": "36a58dd0062e60607d70a2bbd0557cc279b331927726dcb577d38e40473c3db1",
+      "replay.py": "a0e387948eda28c5927aff8e38906024d970f9362fd7ddeeb78b51a34737565d"
+    }
+  },
+  "release": {
+    "P": {
+      "stage": "finished",
+      "npu_idle": true,
+      "port_configuration_Mbps": [
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000
+      ]
+    },
+    "D": {
+      "stage": "finished",
+      "npu_idle": true,
+      "port_configuration_Mbps": [
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000,
+        200000
+      ]
+    }
+  }
+}

@@ -1,0 +1,3008 @@
+{
+  "workload_sha256": "d0aa4e5b0f4ac4a03ceb03906a425e7321702f9714f9bf63df763bfdb37e2349",
+  "trace_sha256": "457a056addf78417069ada059ff56760cd6cee8f487b07408d3bfc1f84e34ed0",
+  "arms": {
+    "b1-cap100": {
+      "success": 96,
+      "finish_reasons": {
+        "stop": 96
+      },
+      "output_tokens": 23152,
+      "duration_s": 56.08809409401147,
+      "throughput_tokens_s": 412.7792247886694,
+      "D_TX_GB": 81.13445449754725,
+      "D_hot_summary_s": {
+        "any_port": 4.970027784000003,
+        "aggregate": 2.089908899000001
+      },
+      "first_successor_P_start_s": 33.03340835199924,
+      "last_successor_P_end_s": 44.216470090002986,
+      "D_port_TX_GB_in_successor_P_window": [
+        8.531883137597719,
+        8.753815623438175,
+        8.824250708255528,
+        9.408636716468274,
+        12.722504926984415,
+        9.81319281857176,
+        9.773876903698993,
+        10.320960751748295
+      ],
+      "root_output_tokens": 11300,
+      "successor_output_tokens": 11852,
+      "ready_successors_near_plan": 47,
+      "root_P_span_s": [
+        0.17877440399024636,
+        28.907560238993028
+      ],
+      "successors_last_ready_s": 35.40771784377464,
+      "successor_median_P_HTTP_s": 6.927691225006129,
+      "successor_first_tokens_at_offsets": {
+        "5": 7,
+        "10": 35,
+        "20": 48,
+        "40": 48,
+        "60": 48
+      },
+      "D_sampled_hot_and_no_work_s": {
+        "D0": 0,
+        "D1": 0
+      },
+      "D_sampled_occupancy_during_successor_recovery": {
+        "D0": {
+          "sample_coverage_s": 11.216470090002986,
+          "estimated_mean_running": 3.103973046479791,
+          "estimated_mean_waiting": 0.0,
+          "hot_sample_coverage_s": 4.970027784000003,
+          "estimated_hot_mean_running": 3.361600093018154
+        },
+        "D1": {
+          "sample_coverage_s": 11.216470090002986,
+          "estimated_mean_running": 2.196543466907813,
+          "estimated_mean_waiting": 0.6871452915370057,
+          "hot_sample_coverage_s": 4.970027784000003,
+          "estimated_hot_mean_running": 2.5388070900973476
+        }
+      },
+      "P_sources_tokens": {
+        "local_compute": 605261.0,
+        "local_cache_hit": 7418880.0,
+        "external_kv_transfer": 1922048.0
+      },
+      "D_sources_tokens": {
+        "local_compute": 96.0,
+        "local_cache_hit": 8891392.0,
+        "external_kv_transfer": 1054797.0
+      },
+      "store_counter_delta": {
+        "master_successful_evictions_total": 0.0,
+        "master_evicted_key_count": 0.0,
+        "master_evicted_size_bytes": 0.0,
+        "master_put_start_alloc_failures_total": 0.0,
+        "master_batch_put_start_failures_total": 0.0,
+        "master_batch_exist_key_failures_total": 0.0
+      },
+      "largest_outputs": [
+        [
+          757,
+          "make-doom-for-mips:111"
+        ],
+        [
+          629,
+          "make-doom-for-mips:96"
+        ],
+        [
+          606,
+          "make-doom-for-mips:100"
+        ],
+        [
+          585,
+          "make-mips-interpreter:57"
+        ],
+        [
+          569,
+          "financial-document-processor:60"
+        ]
+      ],
+      "last_five": [
+        {
+          "id": "make-mips-interpreter:57",
+          "session_id": "make-mips-interpreter:56",
+          "predecessor": "make-mips-interpreter:56",
+          "offered_s": 35.3061220545311,
+          "tool_gap_s": 0,
+          "ready_s": 35.3061220545311,
+          "dispatch_s": 35.30698425701121,
+          "P_start_s": 35.32967706400086,
+          "P_end_s": 44.161372150992975,
+          "D_start_s": 44.1821219259873,
+          "first_s": 45.207775038987165,
+          "end_s": 56.08809409401147,
+          "P": "P0",
+          "D": "D0",
+          "output_tokens": 585,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 18.63068331339778,
+          "phases_s": {
+            "ready_to_P": 0.02355500946976008,
+            "P_HTTP": 8.831695086992113,
+            "P_return_to_D": 0.020749774994328618,
+            "D_to_first": 1.025653112999862,
+            "first_to_end": 10.880319055024302
+          }
+        },
+        {
+          "id": "make-doom-for-mips:96",
+          "session_id": "make-doom-for-mips:95",
+          "predecessor": "make-doom-for-mips:95",
+          "offered_s": 34.517179899222114,
+          "tool_gap_s": 0,
+          "ready_s": 34.517179899222114,
+          "dispatch_s": 34.51743981198524,
+          "P_start_s": 34.5438433639938,
+          "P_end_s": 41.73752014699858,
+          "D_start_s": 41.83183253198513,
+          "first_s": 42.40743770299014,
+          "end_s": 55.85575764099485,
+          "P": "P1",
+          "D": "D1",
+          "output_tokens": 629,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 21.414522194275026,
+          "phases_s": {
+            "ready_to_P": 0.026663464771687018,
+            "P_HTTP": 7.193676783004776,
+            "P_return_to_D": 0.09431238498655148,
+            "D_to_first": 0.5756051710050087,
+            "first_to_end": 13.448319938004715
+          }
+        },
+        {
+          "id": "make-mips-interpreter:64",
+          "session_id": "make-mips-interpreter:63",
+          "predecessor": "make-mips-interpreter:63",
+          "offered_s": 35.10883055244562,
+          "tool_gap_s": 0,
+          "ready_s": 35.10883055244562,
+          "dispatch_s": 35.10933403900708,
+          "P_start_s": 35.132322279008804,
+          "P_end_s": 44.06818674399983,
+          "D_start_s": 44.11068563099252,
+          "first_s": 44.61380541900871,
+          "end_s": 54.88099071898614,
+          "P": "P0",
+          "D": "D1",
+          "output_tokens": 486,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 21.169454226757583,
+          "phases_s": {
+            "ready_to_P": 0.023491726563186432,
+            "P_HTTP": 8.935864464991027,
+            "P_return_to_D": 0.04249888699268922,
+            "D_to_first": 0.5031197880161926,
+            "first_to_end": 10.267185299977427
+          }
+        },
+        {
+          "id": "make-doom-for-mips:87",
+          "session_id": "make-doom-for-mips:86",
+          "predecessor": "make-doom-for-mips:86",
+          "offered_s": 34.960051220636736,
+          "tool_gap_s": 0,
+          "ready_s": 34.960051220636736,
+          "dispatch_s": 34.96083856100449,
+          "P_start_s": 34.98457525600679,
+          "P_end_s": 44.0309663109947,
+          "D_start_s": 44.05371007899521,
+          "first_s": 44.44907151599182,
+          "end_s": 54.09565460198792,
+          "P": "P1",
+          "D": "D0",
+          "output_tokens": 474,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 20.39446741225391,
+          "phases_s": {
+            "ready_to_P": 0.02452403537005665,
+            "P_HTTP": 9.046391054987907,
+            "P_return_to_D": 0.02274376800050959,
+            "D_to_first": 0.395361436996609,
+            "first_to_end": 9.646583085996099
+          }
+        },
+        {
+          "id": "make-mips-interpreter:68",
+          "session_id": "make-mips-interpreter:67",
+          "predecessor": "make-mips-interpreter:67",
+          "offered_s": 34.862769199259645,
+          "tool_gap_s": 0,
+          "ready_s": 34.862769199259645,
+          "dispatch_s": 34.863558217009995,
+          "P_start_s": 34.92497713700868,
+          "P_end_s": 44.076780080009485,
+          "D_start_s": 44.105800308985636,
+          "first_s": 45.033660924993455,
+          "end_s": 52.9673550100124,
+          "P": "P1",
+          "D": "D0",
+          "output_tokens": 381,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 20.878142328997217,
+          "phases_s": {
+            "ready_to_P": 0.062207937749036546,
+            "P_HTTP": 9.151802943000803,
+            "P_return_to_D": 0.029020228976150975,
+            "D_to_first": 0.9278606160078198,
+            "first_to_end": 7.933694085018942
+          }
+        }
+      ],
+      "source_tasks": {
+        "caffe-cifar-10": {
+          "root_routes": {
+            "P0": 17
+          },
+          "successor_routes": {
+            "P1": 8,
+            "P0": 9
+          },
+          "cross_P_successors": 8,
+          "route_conditioned_full_GET_bytes": 34572861440,
+          "last_root_end_s": 19.75097578499117,
+          "last_successor_end_s": 52.19986102898838
+        },
+        "financial-document-processor": {
+          "root_routes": {
+            "P0": 9
+          },
+          "successor_routes": {
+            "P0": 7,
+            "P1": 2
+          },
+          "cross_P_successors": 2,
+          "route_conditioned_full_GET_bytes": 6000803840,
+          "last_root_end_s": 31.558045438985573,
+          "last_successor_end_s": 52.796177534997696
+        },
+        "make-doom-for-mips": {
+          "root_routes": {
+            "P1": 10
+          },
+          "successor_routes": {
+            "P1": 7,
+            "P0": 3
+          },
+          "cross_P_successors": 3,
+          "route_conditioned_full_GET_bytes": 15208775680,
+          "last_root_end_s": 31.001615512999706,
+          "last_successor_end_s": 55.85575764099485
+        },
+        "make-mips-interpreter": {
+          "root_routes": {
+            "P1": 12
+          },
+          "successor_routes": {
+            "P0": 6,
+            "P1": 6
+          },
+          "cross_P_successors": 6,
+          "route_conditioned_full_GET_bytes": 28110684160,
+          "last_root_end_s": 33.68834287999198,
+          "last_successor_end_s": 56.08809409401147
+        }
+      }
+    },
+    "b1-cap200": {
+      "success": 96,
+      "finish_reasons": {
+        "stop": 96
+      },
+      "output_tokens": 23071,
+      "duration_s": 55.56978100701235,
+      "throughput_tokens_s": 415.1716919145078,
+      "D_TX_GB": 157.97150889400686,
+      "D_hot_summary_s": {
+        "any_port": 4.199421859999994,
+        "aggregate": 1.172047556999999
+      },
+      "first_successor_P_start_s": 33.035858828021446,
+      "last_successor_P_end_s": 43.15472188201966,
+      "D_port_TX_GB_in_successor_P_window": [
+        19.796181679325862,
+        22.401935890165785,
+        18.397063640303912,
+        20.94830499917964,
+        22.35084920478917,
+        15.570971243855388,
+        17.672207697415107,
+        20.802260655418376
+      ],
+      "root_output_tokens": 10986,
+      "successor_output_tokens": 12085,
+      "ready_successors_near_plan": 48,
+      "root_P_span_s": [
+        0.4819402400171384,
+        25.053396235016407
+      ],
+      "successors_last_ready_s": 35.40771784377464,
+      "successor_median_P_HTTP_s": 6.481033674514038,
+      "successor_first_tokens_at_offsets": {
+        "5": 12,
+        "10": 41,
+        "20": 48,
+        "40": 48,
+        "60": 48
+      },
+      "D_sampled_hot_and_no_work_s": {
+        "D0": 2.095549095999999,
+        "D1": 2.3293173589982104
+      },
+      "D_sampled_occupancy_during_successor_recovery": {
+        "D0": {
+          "sample_coverage_s": 10.154721882019658,
+          "estimated_mean_running": 3.9702329813254438,
+          "estimated_mean_waiting": 0.0,
+          "hot_sample_coverage_s": 4.199421859999994,
+          "estimated_hot_mean_running": 2.762704251861782
+        },
+        "D1": {
+          "sample_coverage_s": 10.154721882019658,
+          "estimated_mean_running": 3.7756864761583637,
+          "estimated_mean_waiting": 0.0,
+          "hot_sample_coverage_s": 4.199421859999994,
+          "estimated_hot_mean_running": 2.1928451729599794
+        }
+      },
+      "P_sources_tokens": {
+        "local_compute": 605261.0,
+        "local_cache_hit": 5599232.0,
+        "external_kv_transfer": 3741696.0
+      },
+      "D_sources_tokens": {
+        "local_compute": 96.0,
+        "local_cache_hit": 8889344.0,
+        "external_kv_transfer": 1056845.0
+      },
+      "store_counter_delta": {
+        "master_successful_evictions_total": 0.0,
+        "master_evicted_key_count": 0.0,
+        "master_evicted_size_bytes": 0.0,
+        "master_put_start_alloc_failures_total": 0.0,
+        "master_batch_put_start_failures_total": 0.0,
+        "master_batch_exist_key_failures_total": 0.0
+      },
+      "largest_outputs": [
+        [
+          662,
+          "make-doom-for-mips:100"
+        ],
+        [
+          595,
+          "make-doom-for-mips:96"
+        ],
+        [
+          591,
+          "make-doom-for-mips:98"
+        ],
+        [
+          548,
+          "make-doom-for-mips:87"
+        ],
+        [
+          544,
+          "make-doom-for-mips:97"
+        ]
+      ],
+      "last_five": [
+        {
+          "id": "make-doom-for-mips:87",
+          "session_id": "make-doom-for-mips:86",
+          "predecessor": "make-doom-for-mips:86",
+          "offered_s": 34.960051220636736,
+          "tool_gap_s": 0,
+          "ready_s": 34.960051220636736,
+          "dispatch_s": 34.961040582013084,
+          "P_start_s": 34.98590003402205,
+          "P_end_s": 42.97297206701478,
+          "D_start_s": 42.99621222901624,
+          "first_s": 44.703238012007205,
+          "end_s": 55.56978100701235,
+          "P": "P0",
+          "D": "D0",
+          "output_tokens": 548,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 19.865709314451824,
+          "phases_s": {
+            "ready_to_P": 0.025848813385316305,
+            "P_HTTP": 7.987072032992728,
+            "P_return_to_D": 0.023240162001457065,
+            "D_to_first": 1.7070257829909679,
+            "first_to_end": 10.866542995005148
+          }
+        },
+        {
+          "id": "make-doom-for-mips:98",
+          "session_id": "make-doom-for-mips:97",
+          "predecessor": "make-doom-for-mips:97",
+          "offered_s": 34.4186864731729,
+          "tool_gap_s": 0,
+          "ready_s": 34.4186864731729,
+          "dispatch_s": 34.41981961601414,
+          "P_start_s": 34.44866020401241,
+          "P_end_s": 41.141245762002654,
+          "D_start_s": 41.17240089501138,
+          "first_s": 41.77169240999501,
+          "end_s": 54.78941360200406,
+          "P": "P0",
+          "D": "D0",
+          "output_tokens": 591,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 22.063934223744152,
+          "phases_s": {
+            "ready_to_P": 0.029973730839515156,
+            "P_HTTP": 6.692585557990242,
+            "P_return_to_D": 0.03115513300872408,
+            "D_to_first": 0.5992915149836335,
+            "first_to_end": 13.017721192009049
+          }
+        },
+        {
+          "id": "make-doom-for-mips:96",
+          "session_id": "make-doom-for-mips:95",
+          "predecessor": "make-doom-for-mips:95",
+          "offered_s": 34.517179899222114,
+          "tool_gap_s": 0,
+          "ready_s": 34.517179899222114,
+          "dispatch_s": 34.51829811799689,
+          "P_start_s": 34.543092719017295,
+          "P_end_s": 42.18831578499521,
+          "D_start_s": 42.213012246007565,
+          "first_s": 42.59876592899673,
+          "end_s": 53.75020789101836,
+          "P": "P0",
+          "D": "D1",
+          "output_tokens": 595,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 18.773471316534742,
+          "phases_s": {
+            "ready_to_P": 0.025912819795181008,
+            "P_HTTP": 7.645223065977916,
+            "P_return_to_D": 0.02469646101235412,
+            "D_to_first": 0.38575368298916146,
+            "first_to_end": 11.151441962021636
+          }
+        },
+        {
+          "id": "make-mips-interpreter:57",
+          "session_id": "make-mips-interpreter:56",
+          "predecessor": "make-mips-interpreter:56",
+          "offered_s": 35.3061220545311,
+          "tool_gap_s": 0,
+          "ready_s": 35.3061220545311,
+          "dispatch_s": 35.30708080701879,
+          "P_start_s": 35.336699000006774,
+          "P_end_s": 42.381576134008355,
+          "D_start_s": 42.401187782001216,
+          "first_s": 43.94769088900648,
+          "end_s": 53.084651644021505,
+          "P": "P1",
+          "D": "D0",
+          "output_tokens": 402,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 22.785438291808042,
+          "phases_s": {
+            "ready_to_P": 0.0305769454756728,
+            "P_HTTP": 7.044877134001581,
+            "P_return_to_D": 0.019611647992860526,
+            "D_to_first": 1.5465031070052646,
+            "first_to_end": 9.136960755015025
+          }
+        },
+        {
+          "id": "financial-document-processor:82",
+          "session_id": "financial-document-processor:81",
+          "predecessor": "financial-document-processor:81",
+          "offered_s": 34.57317960368095,
+          "tool_gap_s": 0,
+          "ready_s": 34.57317960368095,
+          "dispatch_s": 34.57346296700416,
+          "P_start_s": 34.59258761201636,
+          "P_end_s": 41.24015881700325,
+          "D_start_s": 41.256942545995116,
+          "first_s": 41.91354660401703,
+          "end_s": 52.352622484002495,
+          "P": "P0",
+          "D": "D0",
+          "output_tokens": 430,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 24.333510209756334,
+          "phases_s": {
+            "ready_to_P": 0.019408008335410898,
+            "P_HTTP": 6.647571204986889,
+            "P_return_to_D": 0.016783728991867974,
+            "D_to_first": 0.6566040580219124,
+            "first_to_end": 10.439075879985467
+          }
+        }
+      ],
+      "source_tasks": {
+        "caffe-cifar-10": {
+          "root_routes": {
+            "P0": 17
+          },
+          "successor_routes": {
+            "P1": 16,
+            "P0": 1
+          },
+          "cross_P_successors": 16,
+          "route_conditioned_full_GET_bytes": 69271552000,
+          "last_root_end_s": 14.931571791996248,
+          "last_successor_end_s": 51.33702881701174
+        },
+        "financial-document-processor": {
+          "root_routes": {
+            "P0": 9
+          },
+          "successor_routes": {
+            "P1": 7,
+            "P0": 2
+          },
+          "cross_P_successors": 7,
+          "route_conditioned_full_GET_bytes": 22135275520,
+          "last_root_end_s": 25.946436674013967,
+          "last_successor_end_s": 52.352622484002495
+        },
+        "make-doom-for-mips": {
+          "root_routes": {
+            "P1": 10
+          },
+          "successor_routes": {
+            "P0": 10
+          },
+          "cross_P_successors": 10,
+          "route_conditioned_full_GET_bytes": 47662039040,
+          "last_root_end_s": 24.485804757016012,
+          "last_successor_end_s": 55.56978100701235
+        },
+        "make-mips-interpreter": {
+          "root_routes": {
+            "P1": 12
+          },
+          "successor_routes": {
+            "P0": 9,
+            "P1": 3
+          },
+          "cross_P_successors": 9,
+          "route_conditioned_full_GET_bytes": 43990548480,
+          "last_root_end_s": 30.44620534402202,
+          "last_successor_end_s": 53.084651644021505
+        }
+      }
+    },
+    "b2-cap200": {
+      "success": 96,
+      "finish_reasons": {
+        "stop": 96
+      },
+      "output_tokens": 22986,
+      "duration_s": 56.17087695401278,
+      "throughput_tokens_s": 409.21561575082205,
+      "D_TX_GB": 144.3864631056448,
+      "D_hot_summary_s": {
+        "any_port": 2.9247666380000084,
+        "aggregate": 1.1657599910000016
+      },
+      "first_successor_P_start_s": 33.03630307101412,
+      "last_successor_P_end_s": 42.80899705900811,
+      "D_port_TX_GB_in_successor_P_window": [
+        16.97196575038458,
+        20.88764236834801,
+        17.260969929817865,
+        16.026432924937765,
+        17.039558981357633,
+        17.921971525291784,
+        15.401847495689887,
+        21.990371116712087
+      ],
+      "root_output_tokens": 10749,
+      "successor_output_tokens": 12237,
+      "ready_successors_near_plan": 48,
+      "root_P_span_s": [
+        0.35530290502356365,
+        25.124440558021888
+      ],
+      "successors_last_ready_s": 35.40771784377464,
+      "successor_median_P_HTTP_s": 6.356508478507749,
+      "successor_first_tokens_at_offsets": {
+        "5": 12,
+        "10": 40,
+        "20": 48,
+        "40": 48,
+        "60": 48
+      },
+      "D_sampled_hot_and_no_work_s": {
+        "D0": 1.1322985330000037,
+        "D1": 1.1289248710000095
+      },
+      "D_sampled_occupancy_during_successor_recovery": {
+        "D0": {
+          "sample_coverage_s": 9.808997059008107,
+          "estimated_mean_running": 3.2315335223654142,
+          "estimated_mean_waiting": 0.0,
+          "hot_sample_coverage_s": 2.9247666380000084,
+          "estimated_hot_mean_running": 1.8385755106297128
+        },
+        "D1": {
+          "sample_coverage_s": 9.808997059008107,
+          "estimated_mean_running": 3.5806331576619983,
+          "estimated_mean_waiting": 0.0,
+          "hot_sample_coverage_s": 2.9247666380000084,
+          "estimated_hot_mean_running": 2.456047937165647
+        }
+      },
+      "P_sources_tokens": {
+        "local_compute": 605261.0,
+        "local_cache_hit": 5919744.0,
+        "external_kv_transfer": 3421184.0
+      },
+      "D_sources_tokens": {
+        "local_compute": 96.0,
+        "local_cache_hit": 8885248.0,
+        "external_kv_transfer": 1060941.0
+      },
+      "store_counter_delta": {
+        "master_successful_evictions_total": 0.0,
+        "master_evicted_key_count": 0.0,
+        "master_evicted_size_bytes": 0.0,
+        "master_put_start_alloc_failures_total": 0.0,
+        "master_batch_put_start_failures_total": 0.0,
+        "master_batch_exist_key_failures_total": 0.0
+      },
+      "largest_outputs": [
+        [
+          765,
+          "make-doom-for-mips:112"
+        ],
+        [
+          589,
+          "make-doom-for-mips:100"
+        ],
+        [
+          579,
+          "make-doom-for-mips:98"
+        ],
+        [
+          561,
+          "make-doom-for-mips:96"
+        ],
+        [
+          554,
+          "make-doom-for-mips:95"
+        ]
+      ],
+      "last_five": [
+        {
+          "id": "make-doom-for-mips:112",
+          "session_id": "make-doom-for-mips:111",
+          "predecessor": "make-doom-for-mips:111",
+          "offered_s": 33.778817007073805,
+          "tool_gap_s": 0,
+          "ready_s": 33.778817007073805,
+          "dispatch_s": 33.77951017400483,
+          "P_start_s": 33.80794524902012,
+          "P_end_s": 40.462449398997705,
+          "D_start_s": 40.48831014800817,
+          "first_s": 41.008029484015424,
+          "end_s": 56.17087695401278,
+          "P": "P0",
+          "D": "D1",
+          "output_tokens": 765,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 19.84665899214314,
+          "phases_s": {
+            "ready_to_P": 0.029128241946317246,
+            "P_HTTP": 6.654504149977583,
+            "P_return_to_D": 0.025860749010462314,
+            "D_to_first": 0.5197193360072561,
+            "first_to_end": 15.16284746999736
+          }
+        },
+        {
+          "id": "make-doom-for-mips:96",
+          "session_id": "make-doom-for-mips:95",
+          "predecessor": "make-doom-for-mips:95",
+          "offered_s": 34.517179899222114,
+          "tool_gap_s": 0,
+          "ready_s": 34.517179899222114,
+          "dispatch_s": 34.51865973000531,
+          "P_start_s": 34.54463878902607,
+          "P_end_s": 41.62162184200133,
+          "D_start_s": 41.64656476501841,
+          "first_s": 42.06361867202213,
+          "end_s": 53.93453421202139,
+          "P": "P0",
+          "D": "D0",
+          "output_tokens": 561,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 21.19806346428439,
+          "phases_s": {
+            "ready_to_P": 0.027458889803952502,
+            "P_HTTP": 7.076983052975265,
+            "P_return_to_D": 0.02494292301707901,
+            "D_to_first": 0.41705390700371936,
+            "first_to_end": 11.87091553999926
+          }
+        },
+        {
+          "id": "make-doom-for-mips:98",
+          "session_id": "make-doom-for-mips:97",
+          "predecessor": "make-doom-for-mips:97",
+          "offered_s": 34.4186864731729,
+          "tool_gap_s": 0,
+          "ready_s": 34.4186864731729,
+          "dispatch_s": 34.419847276003566,
+          "P_start_s": 34.44793760901666,
+          "P_end_s": 40.80163851901307,
+          "D_start_s": 40.82472389002214,
+          "first_s": 41.2900896120118,
+          "end_s": 53.79437369899824,
+          "P": "P0",
+          "D": "D0",
+          "output_tokens": 579,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 21.633709493056134,
+          "phases_s": {
+            "ready_to_P": 0.02925113584376504,
+            "P_HTTP": 6.353700909996405,
+            "P_return_to_D": 0.02308537100907415,
+            "D_to_first": 0.46536572198965587,
+            "first_to_end": 12.504284086986445
+          }
+        },
+        {
+          "id": "financial-document-processor:82",
+          "session_id": "financial-document-processor:81",
+          "predecessor": "financial-document-processor:81",
+          "offered_s": 34.57317960368095,
+          "tool_gap_s": 0,
+          "ready_s": 34.57317960368095,
+          "dispatch_s": 34.57392536001862,
+          "P_start_s": 34.60157014001743,
+          "P_end_s": 41.2061265950033,
+          "D_start_s": 41.222865643998375,
+          "first_s": 41.51998993000598,
+          "end_s": 51.71369555100682,
+          "P": "P1",
+          "D": "D1",
+          "output_tokens": 411,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 24.862696636587426,
+          "phases_s": {
+            "ready_to_P": 0.02839053633648092,
+            "P_HTTP": 6.604556454985868,
+            "P_return_to_D": 0.01673904899507761,
+            "D_to_first": 0.29712428600760177,
+            "first_to_end": 10.193705621000845
+          }
+        },
+        {
+          "id": "make-mips-interpreter:70",
+          "session_id": "make-mips-interpreter:69",
+          "predecessor": "make-mips-interpreter:69",
+          "offered_s": 34.66644576160733,
+          "tool_gap_s": 0,
+          "ready_s": 34.66644576160733,
+          "dispatch_s": 34.66728402802255,
+          "P_start_s": 34.692009949008934,
+          "P_end_s": 42.380288695014315,
+          "D_start_s": 42.41572637599893,
+          "first_s": 44.03111915200134,
+          "end_s": 51.65600214499864,
+          "P": "P0",
+          "D": "D1",
+          "output_tokens": 326,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 23.46117843999169,
+          "phases_s": {
+            "ready_to_P": 0.025564187401606375,
+            "P_HTTP": 7.6882787460053805,
+            "P_return_to_D": 0.03543768098461442,
+            "D_to_first": 1.615392776002409,
+            "first_to_end": 7.6248829929973
+          }
+        }
+      ],
+      "source_tasks": {
+        "caffe-cifar-10": {
+          "root_routes": {
+            "P0": 17
+          },
+          "successor_routes": {
+            "P1": 16,
+            "P0": 1
+          },
+          "cross_P_successors": 16,
+          "route_conditioned_full_GET_bytes": 69271552000,
+          "last_root_end_s": 15.102346515021054,
+          "last_successor_end_s": 50.80945641902508
+        },
+        "financial-document-processor": {
+          "root_routes": {
+            "P0": 9
+          },
+          "successor_routes": {
+            "P0": 4,
+            "P1": 5
+          },
+          "cross_P_successors": 5,
+          "route_conditioned_full_GET_bytes": 16050585600,
+          "last_root_end_s": 26.742255560006015,
+          "last_successor_end_s": 51.71369555100682
+        },
+        "make-doom-for-mips": {
+          "root_routes": {
+            "P1": 10
+          },
+          "successor_routes": {
+            "P0": 10
+          },
+          "cross_P_successors": 10,
+          "route_conditioned_full_GET_bytes": 47662039040,
+          "last_root_end_s": 22.584261366020655,
+          "last_successor_end_s": 56.17087695401278
+        },
+        "make-mips-interpreter": {
+          "root_routes": {
+            "P1": 12
+          },
+          "successor_routes": {
+            "P0": 8,
+            "P1": 4
+          },
+          "cross_P_successors": 8,
+          "route_conditioned_full_GET_bytes": 40109342720,
+          "last_root_end_s": 31.484837452007923,
+          "last_successor_end_s": 51.65600214499864
+        }
+      }
+    },
+    "b2-cap100": {
+      "success": 96,
+      "finish_reasons": {
+        "stop": 96
+      },
+      "output_tokens": 23369,
+      "duration_s": 59.35103592599626,
+      "throughput_tokens_s": 393.7420743445555,
+      "D_TX_GB": 148.15362948441893,
+      "D_hot_summary_s": {
+        "any_port": 10.195519746999999,
+        "aggregate": 5.886423648999987
+      },
+      "first_successor_P_start_s": 33.035657686996274,
+      "last_successor_P_end_s": 48.30334783002036,
+      "D_port_TX_GB_in_successor_P_window": [
+        18.583002091433404,
+        18.24841086671527,
+        17.105064832291784,
+        19.88551330586306,
+        16.878387743890144,
+        19.751172077768455,
+        17.251509502427332,
+        17.777402703379337
+      ],
+      "root_output_tokens": 11130,
+      "successor_output_tokens": 12239,
+      "ready_successors_near_plan": 48,
+      "root_P_span_s": [
+        0.1638799179927446,
+        25.20554151700344
+      ],
+      "successors_last_ready_s": 35.40771784377464,
+      "successor_median_P_HTTP_s": 10.949828897515545,
+      "successor_first_tokens_at_offsets": {
+        "5": 7,
+        "10": 16,
+        "20": 48,
+        "40": 48,
+        "60": 48
+      },
+      "D_sampled_hot_and_no_work_s": {
+        "D0": 1.9093940509999996,
+        "D1": 1.917663945000001
+      },
+      "D_sampled_occupancy_during_successor_recovery": {
+        "D0": {
+          "sample_coverage_s": 15.303347830020357,
+          "estimated_mean_running": 3.0660419741653264,
+          "estimated_mean_waiting": 0.1863979149337242,
+          "hot_sample_coverage_s": 10.195519746999999,
+          "estimated_hot_mean_running": 3.4157803032252456
+        },
+        "D1": {
+          "sample_coverage_s": 15.303347830020357,
+          "estimated_mean_running": 2.578061774471754,
+          "estimated_mean_waiting": 0.27329856437024797,
+          "hot_sample_coverage_s": 10.195519746999999,
+          "estimated_hot_mean_running": 2.8998284030216754
+        }
+      },
+      "P_sources_tokens": {
+        "local_compute": 605261.0,
+        "local_cache_hit": 5830656.0,
+        "external_kv_transfer": 3510272.0
+      },
+      "D_sources_tokens": {
+        "local_compute": 96.0,
+        "local_cache_hit": 8894464.0,
+        "external_kv_transfer": 1051725.0
+      },
+      "store_counter_delta": {
+        "master_successful_evictions_total": 0.0,
+        "master_evicted_key_count": 0.0,
+        "master_evicted_size_bytes": 0.0,
+        "master_put_start_alloc_failures_total": 0.0,
+        "master_batch_put_start_failures_total": 0.0,
+        "master_batch_exist_key_failures_total": 0.0
+      },
+      "largest_outputs": [
+        [
+          969,
+          "caffe-cifar-10:104"
+        ],
+        [
+          683,
+          "make-doom-for-mips:111"
+        ],
+        [
+          633,
+          "make-doom-for-mips:96"
+        ],
+        [
+          623,
+          "make-doom-for-mips:100"
+        ],
+        [
+          577,
+          "make-doom-for-mips:98"
+        ]
+      ],
+      "last_five": [
+        {
+          "id": "make-doom-for-mips:96",
+          "session_id": "make-doom-for-mips:95",
+          "predecessor": "make-doom-for-mips:95",
+          "offered_s": 34.517179899222114,
+          "tool_gap_s": 0,
+          "ready_s": 34.517179899222114,
+          "dispatch_s": 34.5180861169938,
+          "P_start_s": 34.547728859994095,
+          "P_end_s": 46.98480342901894,
+          "D_start_s": 47.03003006300423,
+          "first_s": 47.48566101200413,
+          "end_s": 59.35103592599626,
+          "P": "P0",
+          "D": "D1",
+          "output_tokens": 633,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 18.774327395557165,
+          "phases_s": {
+            "ready_to_P": 0.03054896077198066,
+            "P_HTTP": 12.437074569024844,
+            "P_return_to_D": 0.04522663398529403,
+            "D_to_first": 0.45563094899989665,
+            "first_to_end": 11.865374913992127
+          }
+        },
+        {
+          "id": "make-doom-for-mips:98",
+          "session_id": "make-doom-for-mips:97",
+          "predecessor": "make-doom-for-mips:97",
+          "offered_s": 34.4186864731729,
+          "tool_gap_s": 0,
+          "ready_s": 34.4186864731729,
+          "dispatch_s": 34.419410453992896,
+          "P_start_s": 34.450431575998664,
+          "P_end_s": 46.011508357012644,
+          "D_start_s": 46.03618477701093,
+          "first_s": 46.37501984499977,
+          "end_s": 57.99059662100626,
+          "P": "P0",
+          "D": "D1",
+          "output_tokens": 577,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 20.165931902789048,
+          "phases_s": {
+            "ready_to_P": 0.03174510282576648,
+            "P_HTTP": 11.56107678101398,
+            "P_return_to_D": 0.024676419998286292,
+            "D_to_first": 0.338835067988839,
+            "first_to_end": 11.615576776006492
+          }
+        },
+        {
+          "id": "make-mips-interpreter:57",
+          "session_id": "make-mips-interpreter:56",
+          "predecessor": "make-mips-interpreter:56",
+          "offered_s": 35.3061220545311,
+          "tool_gap_s": 0,
+          "ready_s": 35.3061220545311,
+          "dispatch_s": 35.30703839700436,
+          "P_start_s": 35.330015387007734,
+          "P_end_s": 48.30334783002036,
+          "D_start_s": 48.34683545300504,
+          "first_s": 48.667818185000215,
+          "end_s": 56.684931454015896,
+          "P": "P0",
+          "D": "D0",
+          "output_tokens": 372,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 21.60946972780507,
+          "phases_s": {
+            "ready_to_P": 0.023893332476632168,
+            "P_HTTP": 12.973332443012623,
+            "P_return_to_D": 0.043487622984685004,
+            "D_to_first": 0.3209827319951728,
+            "first_to_end": 8.017113269015681
+          }
+        },
+        {
+          "id": "make-doom-for-mips:87",
+          "session_id": "make-doom-for-mips:86",
+          "predecessor": "make-doom-for-mips:86",
+          "offered_s": 34.960051220636736,
+          "tool_gap_s": 0,
+          "ready_s": 34.960051220636736,
+          "dispatch_s": 34.96107089301222,
+          "P_start_s": 34.98938555800123,
+          "P_end_s": 47.383500866009854,
+          "D_start_s": 47.405484240007354,
+          "first_s": 47.79888133300119,
+          "end_s": 55.96105323699885,
+          "P": "P1",
+          "D": "D1",
+          "output_tokens": 379,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 21.593047365073172,
+          "phases_s": {
+            "ready_to_P": 0.029334337364495866,
+            "P_HTTP": 12.394115308008622,
+            "P_return_to_D": 0.021983373997500166,
+            "D_to_first": 0.39339709299383685,
+            "first_to_end": 8.16217190399766
+          }
+        },
+        {
+          "id": "make-mips-interpreter:68",
+          "session_id": "make-mips-interpreter:67",
+          "predecessor": "make-mips-interpreter:67",
+          "offered_s": 34.862769199259645,
+          "tool_gap_s": 0,
+          "ready_s": 34.862769199259645,
+          "dispatch_s": 34.86366660799831,
+          "P_start_s": 34.89189539200743,
+          "P_end_s": 48.28174048900837,
+          "D_start_s": 48.32461308900383,
+          "first_s": 49.0322182890086,
+          "end_s": 55.95366319900495,
+          "P": "P0",
+          "D": "D0",
+          "output_tokens": 311,
+          "finish_reason": "stop",
+          "effective_TPOT_ms": 22.327241645149527,
+          "phases_s": {
+            "ready_to_P": 0.029126192747781943,
+            "P_HTTP": 13.389845097000943,
+            "P_return_to_D": 0.042872599995462224,
+            "D_to_first": 0.7076052000047639,
+            "first_to_end": 6.921444909996353
+          }
+        }
+      ],
+      "source_tasks": {
+        "caffe-cifar-10": {
+          "root_routes": {
+            "P0": 17
+          },
+          "successor_routes": {
+            "P1": 17
+          },
+          "cross_P_successors": 17,
+          "route_conditioned_full_GET_bytes": 72104181760,
+          "last_root_end_s": 14.118717246019514,
+          "last_successor_end_s": 55.429088831006084
+        },
+        "financial-document-processor": {
+          "root_routes": {
+            "P0": 9
+          },
+          "successor_routes": {
+            "P1": 5,
+            "P0": 4
+          },
+          "cross_P_successors": 5,
+          "route_conditioned_full_GET_bytes": 16134471680,
+          "last_root_end_s": 25.91724918401451,
+          "last_successor_end_s": 55.70520985001349
+        },
+        "make-doom-for-mips": {
+          "root_routes": {
+            "P1": 10
+          },
+          "successor_routes": {
+            "P0": 9,
+            "P1": 1
+          },
+          "cross_P_successors": 9,
+          "route_conditioned_full_GET_bytes": 43613061120,
+          "last_root_end_s": 25.008742295001866,
+          "last_successor_end_s": 59.35103592599626
+        },
+        "make-mips-interpreter": {
+          "root_routes": {
+            "P1": 12
+          },
+          "successor_routes": {
+            "P0": 9,
+            "P1": 3
+          },
+          "cross_P_successors": 9,
+          "route_conditioned_full_GET_bytes": 44997181440,
+          "last_root_end_s": 32.142168885009596,
+          "last_successor_end_s": 56.684931454015896
+        }
+      }
+    }
+  },
+  "contrasts": {
+    "b1": {
+      "same_P": 65,
+      "same_D": 57,
+      "replayed_stage_swap_s": {
+        "ready_to_P": -0.0013901688459251693,
+        "P_HTTP": 0.4911175995972977,
+        "P_return_to_D": 0.011143023912154604,
+        "D_to_first": -0.6785125927441793,
+        "first_to_end": 0.6959552250797667
+      },
+      "observed_low_throughput_loss_fraction": 0.005762596950687704
+    },
+    "b2": {
+      "same_P": 87,
+      "same_D": 50,
+      "replayed_stage_swap_s": {
+        "ready_to_P": 0.008615431977280725,
+        "P_HTTP": 4.947329058520458,
+        "P_return_to_D": 0.01877780165038227,
+        "D_to_first": 0.02337435931743433,
+        "first_to_end": -1.8179376794820807
+      },
+      "observed_low_throughput_loss_fraction": 0.03781268556400508
+    }
+  },
+  "EOS_length_screen": {
+    "assumption": "Historical cohort selection only, with costs frozen on the parent replay. Removing requests on-host changes queues, routes and EOS.",
+    "thresholds": {
+      "600": {
+        "sessions": 44,
+        "request_ids": [
+          "caffe-cifar-10:101",
+          "caffe-cifar-10:102",
+          "caffe-cifar-10:57",
+          "caffe-cifar-10:58",
+          "caffe-cifar-10:64",
+          "caffe-cifar-10:65",
+          "caffe-cifar-10:67",
+          "caffe-cifar-10:68",
+          "caffe-cifar-10:71",
+          "caffe-cifar-10:72",
+          "caffe-cifar-10:73",
+          "caffe-cifar-10:74",
+          "caffe-cifar-10:76",
+          "caffe-cifar-10:77",
+          "caffe-cifar-10:78",
+          "caffe-cifar-10:79",
+          "caffe-cifar-10:81",
+          "caffe-cifar-10:82",
+          "caffe-cifar-10:83",
+          "caffe-cifar-10:84",
+          "caffe-cifar-10:86",
+          "caffe-cifar-10:87",
+          "caffe-cifar-10:88",
+          "caffe-cifar-10:89",
+          "caffe-cifar-10:91",
+          "caffe-cifar-10:92",
+          "caffe-cifar-10:93",
+          "caffe-cifar-10:94",
+          "caffe-cifar-10:95",
+          "caffe-cifar-10:96",
+          "caffe-cifar-10:97",
+          "caffe-cifar-10:98",
+          "financial-document-processor:60",
+          "financial-document-processor:61",
+          "financial-document-processor:63",
+          "financial-document-processor:64",
+          "financial-document-processor:66",
+          "financial-document-processor:67",
+          "financial-document-processor:69",
+          "financial-document-processor:70",
+          "financial-document-processor:72",
+          "financial-document-processor:73",
+          "financial-document-processor:75",
+          "financial-document-processor:76",
+          "financial-document-processor:79",
+          "financial-document-processor:80",
+          "financial-document-processor:81",
+          "financial-document-processor:82",
+          "financial-document-processor:83",
+          "financial-document-processor:84",
+          "make-doom-for-mips:103",
+          "make-doom-for-mips:104",
+          "make-doom-for-mips:106",
+          "make-doom-for-mips:107",
+          "make-doom-for-mips:115",
+          "make-doom-for-mips:116",
+          "make-doom-for-mips:120",
+          "make-doom-for-mips:121",
+          "make-doom-for-mips:86",
+          "make-doom-for-mips:87",
+          "make-doom-for-mips:92",
+          "make-doom-for-mips:93",
+          "make-doom-for-mips:97",
+          "make-doom-for-mips:98",
+          "make-mips-interpreter:50",
+          "make-mips-interpreter:51",
+          "make-mips-interpreter:56",
+          "make-mips-interpreter:57",
+          "make-mips-interpreter:60",
+          "make-mips-interpreter:61",
+          "make-mips-interpreter:63",
+          "make-mips-interpreter:64",
+          "make-mips-interpreter:67",
+          "make-mips-interpreter:68",
+          "make-mips-interpreter:69",
+          "make-mips-interpreter:70",
+          "make-mips-interpreter:80",
+          "make-mips-interpreter:81",
+          "make-mips-interpreter:82",
+          "make-mips-interpreter:83",
+          "make-mips-interpreter:91",
+          "make-mips-interpreter:92",
+          "make-mips-interpreter:94",
+          "make-mips-interpreter:95",
+          "make-mips-interpreter:96",
+          "make-mips-interpreter:97",
+          "make-mips-interpreter:98",
+          "make-mips-interpreter:99"
+        ],
+        "cases": {
+          "b1-cap100": {
+            "observed_last_retained_request": "make-mips-interpreter:57",
+            "observed_last_retained_end_s": 56.08809409401147,
+            "observed_retained_output_tokens": 19874,
+            "route_conditioned_full_GET_bytes": 73823846400,
+            "retained_observed_graph_without_any_P_HTTP_s": 47.256399007019354
+          },
+          "b1-cap200": {
+            "observed_last_retained_request": "make-doom-for-mips:87",
+            "observed_last_retained_end_s": 55.56978100701235,
+            "observed_retained_output_tokens": 19888,
+            "route_conditioned_full_GET_bytes": 163885547520,
+            "retained_observed_graph_without_any_P_HTTP_s": 48.09682804401382
+          },
+          "b2-cap200": {
+            "observed_last_retained_request": "make-doom-for-mips:98",
+            "observed_last_retained_end_s": 53.79437369899824,
+            "observed_retained_output_tokens": 19498,
+            "route_conditioned_full_GET_bytes": 153919651840,
+            "retained_observed_graph_without_any_P_HTTP_s": 47.44067278900184
+          },
+          "b2-cap100": {
+            "observed_last_retained_request": "make-doom-for-mips:98",
+            "observed_last_retained_end_s": 57.99059662100626,
+            "observed_retained_output_tokens": 19510,
+            "route_conditioned_full_GET_bytes": 157675028480,
+            "retained_observed_graph_without_any_P_HTTP_s": 46.42951983999228
+          }
+        },
+        "reference_release_opportunities": [
+          {
+            "released_at_s": 30,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 149854126080,
+                "ready_sessions": 37,
+                "uncompleted_root_sessions": 7,
+                "already_generating_root_sessions": 7,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 173706117120,
+                "ready_sessions": 42,
+                "uncompleted_root_sessions": 2,
+                "already_generating_root_sessions": 2,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 179265044480,
+                "ready_sessions": 43,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 173706117120,
+                "ready_sessions": 42,
+                "uncompleted_root_sessions": 2,
+                "already_generating_root_sessions": 2,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8102421592354656,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 31,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 149854126080,
+                "ready_sessions": 37,
+                "uncompleted_root_sessions": 7,
+                "already_generating_root_sessions": 7,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 184949800960,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 179265044480,
+                "ready_sessions": 43,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 179265044480,
+                "ready_sessions": 43,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8102421592354656,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 32,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 162965749760,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 184949800960,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 184949800960,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 179265044480,
+                "ready_sessions": 43,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8811350372593556,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 33,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 168692449280,
+                "ready_sessions": 41,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 184949800960,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 184949800960,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 184949800960,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.9120985716361162,
+            "common_lightest_P_when_nonempty": null
+          }
+        ]
+      },
+      "800": {
+        "sessions": 47,
+        "request_ids": [
+          "caffe-cifar-10:101",
+          "caffe-cifar-10:102",
+          "caffe-cifar-10:57",
+          "caffe-cifar-10:58",
+          "caffe-cifar-10:64",
+          "caffe-cifar-10:65",
+          "caffe-cifar-10:67",
+          "caffe-cifar-10:68",
+          "caffe-cifar-10:71",
+          "caffe-cifar-10:72",
+          "caffe-cifar-10:73",
+          "caffe-cifar-10:74",
+          "caffe-cifar-10:76",
+          "caffe-cifar-10:77",
+          "caffe-cifar-10:78",
+          "caffe-cifar-10:79",
+          "caffe-cifar-10:81",
+          "caffe-cifar-10:82",
+          "caffe-cifar-10:83",
+          "caffe-cifar-10:84",
+          "caffe-cifar-10:86",
+          "caffe-cifar-10:87",
+          "caffe-cifar-10:88",
+          "caffe-cifar-10:89",
+          "caffe-cifar-10:91",
+          "caffe-cifar-10:92",
+          "caffe-cifar-10:93",
+          "caffe-cifar-10:94",
+          "caffe-cifar-10:95",
+          "caffe-cifar-10:96",
+          "caffe-cifar-10:97",
+          "caffe-cifar-10:98",
+          "financial-document-processor:60",
+          "financial-document-processor:61",
+          "financial-document-processor:63",
+          "financial-document-processor:64",
+          "financial-document-processor:66",
+          "financial-document-processor:67",
+          "financial-document-processor:69",
+          "financial-document-processor:70",
+          "financial-document-processor:72",
+          "financial-document-processor:73",
+          "financial-document-processor:75",
+          "financial-document-processor:76",
+          "financial-document-processor:79",
+          "financial-document-processor:80",
+          "financial-document-processor:81",
+          "financial-document-processor:82",
+          "financial-document-processor:83",
+          "financial-document-processor:84",
+          "make-doom-for-mips:100",
+          "make-doom-for-mips:101",
+          "make-doom-for-mips:103",
+          "make-doom-for-mips:104",
+          "make-doom-for-mips:106",
+          "make-doom-for-mips:107",
+          "make-doom-for-mips:111",
+          "make-doom-for-mips:112",
+          "make-doom-for-mips:115",
+          "make-doom-for-mips:116",
+          "make-doom-for-mips:120",
+          "make-doom-for-mips:121",
+          "make-doom-for-mips:86",
+          "make-doom-for-mips:87",
+          "make-doom-for-mips:92",
+          "make-doom-for-mips:93",
+          "make-doom-for-mips:95",
+          "make-doom-for-mips:96",
+          "make-doom-for-mips:97",
+          "make-doom-for-mips:98",
+          "make-mips-interpreter:50",
+          "make-mips-interpreter:51",
+          "make-mips-interpreter:56",
+          "make-mips-interpreter:57",
+          "make-mips-interpreter:60",
+          "make-mips-interpreter:61",
+          "make-mips-interpreter:63",
+          "make-mips-interpreter:64",
+          "make-mips-interpreter:67",
+          "make-mips-interpreter:68",
+          "make-mips-interpreter:69",
+          "make-mips-interpreter:70",
+          "make-mips-interpreter:80",
+          "make-mips-interpreter:81",
+          "make-mips-interpreter:82",
+          "make-mips-interpreter:83",
+          "make-mips-interpreter:91",
+          "make-mips-interpreter:92",
+          "make-mips-interpreter:94",
+          "make-mips-interpreter:95",
+          "make-mips-interpreter:96",
+          "make-mips-interpreter:97",
+          "make-mips-interpreter:98",
+          "make-mips-interpreter:99"
+        ],
+        "cases": {
+          "b1-cap100": {
+            "observed_last_retained_request": "make-mips-interpreter:57",
+            "observed_last_retained_end_s": 56.08809409401147,
+            "observed_retained_output_tokens": 22629,
+            "route_conditioned_full_GET_bytes": 78921400320,
+            "retained_observed_graph_without_any_P_HTTP_s": 48.66208085799008
+          },
+          "b1-cap200": {
+            "observed_last_retained_request": "make-doom-for-mips:87",
+            "observed_last_retained_end_s": 55.56978100701235,
+            "observed_retained_output_tokens": 22477,
+            "route_conditioned_full_GET_bytes": 178087690240,
+            "retained_observed_graph_without_any_P_HTTP_s": 48.09682804401382
+          },
+          "b2-cap200": {
+            "observed_last_retained_request": "make-doom-for-mips:112",
+            "observed_last_retained_end_s": 56.17087695401278,
+            "observed_retained_output_tokens": 22471,
+            "route_conditioned_full_GET_bytes": 168121794560,
+            "retained_observed_graph_without_any_P_HTTP_s": 49.5163728040352
+          },
+          "b2-cap100": {
+            "observed_last_retained_request": "make-doom-for-mips:96",
+            "observed_last_retained_end_s": 59.35103592599626,
+            "observed_retained_output_tokens": 22289,
+            "route_conditioned_full_GET_bytes": 171877171200,
+            "retained_observed_graph_without_any_P_HTTP_s": 46.91396135697141
+          }
+        },
+        "reference_release_opportunities": [
+          {
+            "released_at_s": 32,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 177167892480,
+                "ready_sessions": 43,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 199151943680,
+                "ready_sessions": 47,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 199151943680,
+                "ready_sessions": 47,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 193467187200,
+                "ready_sessions": 46,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8896116663800968,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 33,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 182894592000,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 199151943680,
+                "ready_sessions": 47,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 199151943680,
+                "ready_sessions": 47,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 199151943680,
+                "ready_sessions": 47,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.9183670950953784,
+            "common_lightest_P_when_nonempty": null
+          }
+        ]
+      },
+      "1000": {
+        "sessions": 48,
+        "request_ids": [
+          "caffe-cifar-10:101",
+          "caffe-cifar-10:102",
+          "caffe-cifar-10:103",
+          "caffe-cifar-10:104",
+          "caffe-cifar-10:57",
+          "caffe-cifar-10:58",
+          "caffe-cifar-10:64",
+          "caffe-cifar-10:65",
+          "caffe-cifar-10:67",
+          "caffe-cifar-10:68",
+          "caffe-cifar-10:71",
+          "caffe-cifar-10:72",
+          "caffe-cifar-10:73",
+          "caffe-cifar-10:74",
+          "caffe-cifar-10:76",
+          "caffe-cifar-10:77",
+          "caffe-cifar-10:78",
+          "caffe-cifar-10:79",
+          "caffe-cifar-10:81",
+          "caffe-cifar-10:82",
+          "caffe-cifar-10:83",
+          "caffe-cifar-10:84",
+          "caffe-cifar-10:86",
+          "caffe-cifar-10:87",
+          "caffe-cifar-10:88",
+          "caffe-cifar-10:89",
+          "caffe-cifar-10:91",
+          "caffe-cifar-10:92",
+          "caffe-cifar-10:93",
+          "caffe-cifar-10:94",
+          "caffe-cifar-10:95",
+          "caffe-cifar-10:96",
+          "caffe-cifar-10:97",
+          "caffe-cifar-10:98",
+          "financial-document-processor:60",
+          "financial-document-processor:61",
+          "financial-document-processor:63",
+          "financial-document-processor:64",
+          "financial-document-processor:66",
+          "financial-document-processor:67",
+          "financial-document-processor:69",
+          "financial-document-processor:70",
+          "financial-document-processor:72",
+          "financial-document-processor:73",
+          "financial-document-processor:75",
+          "financial-document-processor:76",
+          "financial-document-processor:79",
+          "financial-document-processor:80",
+          "financial-document-processor:81",
+          "financial-document-processor:82",
+          "financial-document-processor:83",
+          "financial-document-processor:84",
+          "make-doom-for-mips:100",
+          "make-doom-for-mips:101",
+          "make-doom-for-mips:103",
+          "make-doom-for-mips:104",
+          "make-doom-for-mips:106",
+          "make-doom-for-mips:107",
+          "make-doom-for-mips:111",
+          "make-doom-for-mips:112",
+          "make-doom-for-mips:115",
+          "make-doom-for-mips:116",
+          "make-doom-for-mips:120",
+          "make-doom-for-mips:121",
+          "make-doom-for-mips:86",
+          "make-doom-for-mips:87",
+          "make-doom-for-mips:92",
+          "make-doom-for-mips:93",
+          "make-doom-for-mips:95",
+          "make-doom-for-mips:96",
+          "make-doom-for-mips:97",
+          "make-doom-for-mips:98",
+          "make-mips-interpreter:50",
+          "make-mips-interpreter:51",
+          "make-mips-interpreter:56",
+          "make-mips-interpreter:57",
+          "make-mips-interpreter:60",
+          "make-mips-interpreter:61",
+          "make-mips-interpreter:63",
+          "make-mips-interpreter:64",
+          "make-mips-interpreter:67",
+          "make-mips-interpreter:68",
+          "make-mips-interpreter:69",
+          "make-mips-interpreter:70",
+          "make-mips-interpreter:80",
+          "make-mips-interpreter:81",
+          "make-mips-interpreter:82",
+          "make-mips-interpreter:83",
+          "make-mips-interpreter:91",
+          "make-mips-interpreter:92",
+          "make-mips-interpreter:94",
+          "make-mips-interpreter:95",
+          "make-mips-interpreter:96",
+          "make-mips-interpreter:97",
+          "make-mips-interpreter:98",
+          "make-mips-interpreter:99"
+        ],
+        "cases": {
+          "b1-cap100": {
+            "observed_last_retained_request": "make-mips-interpreter:57",
+            "observed_last_retained_end_s": 56.08809409401147,
+            "observed_retained_output_tokens": 23152,
+            "route_conditioned_full_GET_bytes": 83893125120,
+            "retained_observed_graph_without_any_P_HTTP_s": 48.66208085799008
+          },
+          "b1-cap200": {
+            "observed_last_retained_request": "make-doom-for-mips:87",
+            "observed_last_retained_end_s": 55.56978100701235,
+            "observed_retained_output_tokens": 23071,
+            "route_conditioned_full_GET_bytes": 183059415040,
+            "retained_observed_graph_without_any_P_HTTP_s": 48.09682804401382
+          },
+          "b2-cap200": {
+            "observed_last_retained_request": "make-doom-for-mips:112",
+            "observed_last_retained_end_s": 56.17087695401278,
+            "observed_retained_output_tokens": 22986,
+            "route_conditioned_full_GET_bytes": 173093519360,
+            "retained_observed_graph_without_any_P_HTTP_s": 49.5163728040352
+          },
+          "b2-cap100": {
+            "observed_last_retained_request": "make-doom-for-mips:96",
+            "observed_last_retained_end_s": 59.35103592599626,
+            "observed_retained_output_tokens": 23369,
+            "route_conditioned_full_GET_bytes": 176848896000,
+            "retained_observed_graph_without_any_P_HTTP_s": 52.96777865302283
+          }
+        },
+        "reference_release_opportunities": [
+          {
+            "released_at_s": 30,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 163930439680,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 8,
+                "already_generating_root_sessions": 8,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 192879984640,
+                "ready_sessions": 46,
+                "uncompleted_root_sessions": 2,
+                "already_generating_root_sessions": 2,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 198438912000,
+                "ready_sessions": 47,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 192879984640,
+                "ready_sessions": 46,
+                "uncompleted_root_sessions": 2,
+                "already_generating_root_sessions": 2,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8030937367562638,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 31,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 163930439680,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 8,
+                "already_generating_root_sessions": 8,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 204123668480,
+                "ready_sessions": 48,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 198438912000,
+                "ready_sessions": 47,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 198438912000,
+                "ready_sessions": 47,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8030937367562638,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 32,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 182139617280,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 204123668480,
+                "ready_sessions": 48,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 204123668480,
+                "ready_sessions": 48,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 198438912000,
+                "ready_sessions": 47,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8923003326184391,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 33,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 187866316800,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 204123668480,
+                "ready_sessions": 48,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 204123668480,
+                "ready_sessions": 48,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 204123668480,
+                "ready_sessions": 48,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.9203553816122363,
+            "common_lightest_P_when_nonempty": null
+          }
+        ]
+      },
+      "1200": {
+        "sessions": 48,
+        "request_ids": [
+          "caffe-cifar-10:101",
+          "caffe-cifar-10:102",
+          "caffe-cifar-10:103",
+          "caffe-cifar-10:104",
+          "caffe-cifar-10:57",
+          "caffe-cifar-10:58",
+          "caffe-cifar-10:64",
+          "caffe-cifar-10:65",
+          "caffe-cifar-10:67",
+          "caffe-cifar-10:68",
+          "caffe-cifar-10:71",
+          "caffe-cifar-10:72",
+          "caffe-cifar-10:73",
+          "caffe-cifar-10:74",
+          "caffe-cifar-10:76",
+          "caffe-cifar-10:77",
+          "caffe-cifar-10:78",
+          "caffe-cifar-10:79",
+          "caffe-cifar-10:81",
+          "caffe-cifar-10:82",
+          "caffe-cifar-10:83",
+          "caffe-cifar-10:84",
+          "caffe-cifar-10:86",
+          "caffe-cifar-10:87",
+          "caffe-cifar-10:88",
+          "caffe-cifar-10:89",
+          "caffe-cifar-10:91",
+          "caffe-cifar-10:92",
+          "caffe-cifar-10:93",
+          "caffe-cifar-10:94",
+          "caffe-cifar-10:95",
+          "caffe-cifar-10:96",
+          "caffe-cifar-10:97",
+          "caffe-cifar-10:98",
+          "financial-document-processor:60",
+          "financial-document-processor:61",
+          "financial-document-processor:63",
+          "financial-document-processor:64",
+          "financial-document-processor:66",
+          "financial-document-processor:67",
+          "financial-document-processor:69",
+          "financial-document-processor:70",
+          "financial-document-processor:72",
+          "financial-document-processor:73",
+          "financial-document-processor:75",
+          "financial-document-processor:76",
+          "financial-document-processor:79",
+          "financial-document-processor:80",
+          "financial-document-processor:81",
+          "financial-document-processor:82",
+          "financial-document-processor:83",
+          "financial-document-processor:84",
+          "make-doom-for-mips:100",
+          "make-doom-for-mips:101",
+          "make-doom-for-mips:103",
+          "make-doom-for-mips:104",
+          "make-doom-for-mips:106",
+          "make-doom-for-mips:107",
+          "make-doom-for-mips:111",
+          "make-doom-for-mips:112",
+          "make-doom-for-mips:115",
+          "make-doom-for-mips:116",
+          "make-doom-for-mips:120",
+          "make-doom-for-mips:121",
+          "make-doom-for-mips:86",
+          "make-doom-for-mips:87",
+          "make-doom-for-mips:92",
+          "make-doom-for-mips:93",
+          "make-doom-for-mips:95",
+          "make-doom-for-mips:96",
+          "make-doom-for-mips:97",
+          "make-doom-for-mips:98",
+          "make-mips-interpreter:50",
+          "make-mips-interpreter:51",
+          "make-mips-interpreter:56",
+          "make-mips-interpreter:57",
+          "make-mips-interpreter:60",
+          "make-mips-interpreter:61",
+          "make-mips-interpreter:63",
+          "make-mips-interpreter:64",
+          "make-mips-interpreter:67",
+          "make-mips-interpreter:68",
+          "make-mips-interpreter:69",
+          "make-mips-interpreter:70",
+          "make-mips-interpreter:80",
+          "make-mips-interpreter:81",
+          "make-mips-interpreter:82",
+          "make-mips-interpreter:83",
+          "make-mips-interpreter:91",
+          "make-mips-interpreter:92",
+          "make-mips-interpreter:94",
+          "make-mips-interpreter:95",
+          "make-mips-interpreter:96",
+          "make-mips-interpreter:97",
+          "make-mips-interpreter:98",
+          "make-mips-interpreter:99"
+        ],
+        "cases": {
+          "b1-cap100": {
+            "observed_last_retained_request": "make-mips-interpreter:57",
+            "observed_last_retained_end_s": 56.08809409401147,
+            "observed_retained_output_tokens": 23152,
+            "route_conditioned_full_GET_bytes": 83893125120,
+            "retained_observed_graph_without_any_P_HTTP_s": 48.66208085799008
+          },
+          "b1-cap200": {
+            "observed_last_retained_request": "make-doom-for-mips:87",
+            "observed_last_retained_end_s": 55.56978100701235,
+            "observed_retained_output_tokens": 23071,
+            "route_conditioned_full_GET_bytes": 183059415040,
+            "retained_observed_graph_without_any_P_HTTP_s": 48.09682804401382
+          },
+          "b2-cap200": {
+            "observed_last_retained_request": "make-doom-for-mips:112",
+            "observed_last_retained_end_s": 56.17087695401278,
+            "observed_retained_output_tokens": 22986,
+            "route_conditioned_full_GET_bytes": 173093519360,
+            "retained_observed_graph_without_any_P_HTTP_s": 49.5163728040352
+          },
+          "b2-cap100": {
+            "observed_last_retained_request": "make-doom-for-mips:96",
+            "observed_last_retained_end_s": 59.35103592599626,
+            "observed_retained_output_tokens": 23369,
+            "route_conditioned_full_GET_bytes": 176848896000,
+            "retained_observed_graph_without_any_P_HTTP_s": 52.96777865302283
+          }
+        },
+        "reference_release_opportunities": [
+          {
+            "released_at_s": 30,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 163930439680,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 8,
+                "already_generating_root_sessions": 8,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 192879984640,
+                "ready_sessions": 46,
+                "uncompleted_root_sessions": 2,
+                "already_generating_root_sessions": 2,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 198438912000,
+                "ready_sessions": 47,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 192879984640,
+                "ready_sessions": 46,
+                "uncompleted_root_sessions": 2,
+                "already_generating_root_sessions": 2,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8030937367562638,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 31,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 163930439680,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 8,
+                "already_generating_root_sessions": 8,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 204123668480,
+                "ready_sessions": 48,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 198438912000,
+                "ready_sessions": 47,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 198438912000,
+                "ready_sessions": 47,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8030937367562638,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 32,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 182139617280,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 204123668480,
+                "ready_sessions": 48,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 204123668480,
+                "ready_sessions": 48,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 198438912000,
+                "ready_sessions": 47,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8923003326184391,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 33,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 187866316800,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 204123668480,
+                "ready_sessions": 48,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 204123668480,
+                "ready_sessions": 48,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 204123668480,
+                "ready_sessions": 48,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.9203553816122363,
+            "common_lightest_P_when_nonempty": null
+          }
+        ]
+      },
+      "1400": {
+        "sessions": 48,
+        "request_ids": [
+          "caffe-cifar-10:101",
+          "caffe-cifar-10:102",
+          "caffe-cifar-10:103",
+          "caffe-cifar-10:104",
+          "caffe-cifar-10:57",
+          "caffe-cifar-10:58",
+          "caffe-cifar-10:64",
+          "caffe-cifar-10:65",
+          "caffe-cifar-10:67",
+          "caffe-cifar-10:68",
+          "caffe-cifar-10:71",
+          "caffe-cifar-10:72",
+          "caffe-cifar-10:73",
+          "caffe-cifar-10:74",
+          "caffe-cifar-10:76",
+          "caffe-cifar-10:77",
+          "caffe-cifar-10:78",
+          "caffe-cifar-10:79",
+          "caffe-cifar-10:81",
+          "caffe-cifar-10:82",
+          "caffe-cifar-10:83",
+          "caffe-cifar-10:84",
+          "caffe-cifar-10:86",
+          "caffe-cifar-10:87",
+          "caffe-cifar-10:88",
+          "caffe-cifar-10:89",
+          "caffe-cifar-10:91",
+          "caffe-cifar-10:92",
+          "caffe-cifar-10:93",
+          "caffe-cifar-10:94",
+          "caffe-cifar-10:95",
+          "caffe-cifar-10:96",
+          "caffe-cifar-10:97",
+          "caffe-cifar-10:98",
+          "financial-document-processor:60",
+          "financial-document-processor:61",
+          "financial-document-processor:63",
+          "financial-document-processor:64",
+          "financial-document-processor:66",
+          "financial-document-processor:67",
+          "financial-document-processor:69",
+          "financial-document-processor:70",
+          "financial-document-processor:72",
+          "financial-document-processor:73",
+          "financial-document-processor:75",
+          "financial-document-processor:76",
+          "financial-document-processor:79",
+          "financial-document-processor:80",
+          "financial-document-processor:81",
+          "financial-document-processor:82",
+          "financial-document-processor:83",
+          "financial-document-processor:84",
+          "make-doom-for-mips:100",
+          "make-doom-for-mips:101",
+          "make-doom-for-mips:103",
+          "make-doom-for-mips:104",
+          "make-doom-for-mips:106",
+          "make-doom-for-mips:107",
+          "make-doom-for-mips:111",
+          "make-doom-for-mips:112",
+          "make-doom-for-mips:115",
+          "make-doom-for-mips:116",
+          "make-doom-for-mips:120",
+          "make-doom-for-mips:121",
+          "make-doom-for-mips:86",
+          "make-doom-for-mips:87",
+          "make-doom-for-mips:92",
+          "make-doom-for-mips:93",
+          "make-doom-for-mips:95",
+          "make-doom-for-mips:96",
+          "make-doom-for-mips:97",
+          "make-doom-for-mips:98",
+          "make-mips-interpreter:50",
+          "make-mips-interpreter:51",
+          "make-mips-interpreter:56",
+          "make-mips-interpreter:57",
+          "make-mips-interpreter:60",
+          "make-mips-interpreter:61",
+          "make-mips-interpreter:63",
+          "make-mips-interpreter:64",
+          "make-mips-interpreter:67",
+          "make-mips-interpreter:68",
+          "make-mips-interpreter:69",
+          "make-mips-interpreter:70",
+          "make-mips-interpreter:80",
+          "make-mips-interpreter:81",
+          "make-mips-interpreter:82",
+          "make-mips-interpreter:83",
+          "make-mips-interpreter:91",
+          "make-mips-interpreter:92",
+          "make-mips-interpreter:94",
+          "make-mips-interpreter:95",
+          "make-mips-interpreter:96",
+          "make-mips-interpreter:97",
+          "make-mips-interpreter:98",
+          "make-mips-interpreter:99"
+        ],
+        "cases": {
+          "b1-cap100": {
+            "observed_last_retained_request": "make-mips-interpreter:57",
+            "observed_last_retained_end_s": 56.08809409401147,
+            "observed_retained_output_tokens": 23152,
+            "route_conditioned_full_GET_bytes": 83893125120,
+            "retained_observed_graph_without_any_P_HTTP_s": 48.66208085799008
+          },
+          "b1-cap200": {
+            "observed_last_retained_request": "make-doom-for-mips:87",
+            "observed_last_retained_end_s": 55.56978100701235,
+            "observed_retained_output_tokens": 23071,
+            "route_conditioned_full_GET_bytes": 183059415040,
+            "retained_observed_graph_without_any_P_HTTP_s": 48.09682804401382
+          },
+          "b2-cap200": {
+            "observed_last_retained_request": "make-doom-for-mips:112",
+            "observed_last_retained_end_s": 56.17087695401278,
+            "observed_retained_output_tokens": 22986,
+            "route_conditioned_full_GET_bytes": 173093519360,
+            "retained_observed_graph_without_any_P_HTTP_s": 49.5163728040352
+          },
+          "b2-cap100": {
+            "observed_last_retained_request": "make-doom-for-mips:96",
+            "observed_last_retained_end_s": 59.35103592599626,
+            "observed_retained_output_tokens": 23369,
+            "route_conditioned_full_GET_bytes": 176848896000,
+            "retained_observed_graph_without_any_P_HTTP_s": 52.96777865302283
+          }
+        },
+        "reference_release_opportunities": [
+          {
+            "released_at_s": 30,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 163930439680,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 8,
+                "already_generating_root_sessions": 8,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 192879984640,
+                "ready_sessions": 46,
+                "uncompleted_root_sessions": 2,
+                "already_generating_root_sessions": 2,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 198438912000,
+                "ready_sessions": 47,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 192879984640,
+                "ready_sessions": 46,
+                "uncompleted_root_sessions": 2,
+                "already_generating_root_sessions": 2,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8030937367562638,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 31,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 163930439680,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 8,
+                "already_generating_root_sessions": 8,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 204123668480,
+                "ready_sessions": 48,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 198438912000,
+                "ready_sessions": 47,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 198438912000,
+                "ready_sessions": 47,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8030937367562638,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 32,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 182139617280,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 204123668480,
+                "ready_sessions": 48,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 204123668480,
+                "ready_sessions": 48,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 198438912000,
+                "ready_sessions": 47,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8923003326184391,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 33,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 187866316800,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 204123668480,
+                "ready_sessions": 48,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 204123668480,
+                "ready_sessions": 48,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 204123668480,
+                "ready_sessions": 48,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.9203553816122363,
+            "common_lightest_P_when_nonempty": null
+          }
+        ]
+      },
+      "1600": {
+        "sessions": 48,
+        "request_ids": [
+          "caffe-cifar-10:101",
+          "caffe-cifar-10:102",
+          "caffe-cifar-10:103",
+          "caffe-cifar-10:104",
+          "caffe-cifar-10:57",
+          "caffe-cifar-10:58",
+          "caffe-cifar-10:64",
+          "caffe-cifar-10:65",
+          "caffe-cifar-10:67",
+          "caffe-cifar-10:68",
+          "caffe-cifar-10:71",
+          "caffe-cifar-10:72",
+          "caffe-cifar-10:73",
+          "caffe-cifar-10:74",
+          "caffe-cifar-10:76",
+          "caffe-cifar-10:77",
+          "caffe-cifar-10:78",
+          "caffe-cifar-10:79",
+          "caffe-cifar-10:81",
+          "caffe-cifar-10:82",
+          "caffe-cifar-10:83",
+          "caffe-cifar-10:84",
+          "caffe-cifar-10:86",
+          "caffe-cifar-10:87",
+          "caffe-cifar-10:88",
+          "caffe-cifar-10:89",
+          "caffe-cifar-10:91",
+          "caffe-cifar-10:92",
+          "caffe-cifar-10:93",
+          "caffe-cifar-10:94",
+          "caffe-cifar-10:95",
+          "caffe-cifar-10:96",
+          "caffe-cifar-10:97",
+          "caffe-cifar-10:98",
+          "financial-document-processor:60",
+          "financial-document-processor:61",
+          "financial-document-processor:63",
+          "financial-document-processor:64",
+          "financial-document-processor:66",
+          "financial-document-processor:67",
+          "financial-document-processor:69",
+          "financial-document-processor:70",
+          "financial-document-processor:72",
+          "financial-document-processor:73",
+          "financial-document-processor:75",
+          "financial-document-processor:76",
+          "financial-document-processor:79",
+          "financial-document-processor:80",
+          "financial-document-processor:81",
+          "financial-document-processor:82",
+          "financial-document-processor:83",
+          "financial-document-processor:84",
+          "make-doom-for-mips:100",
+          "make-doom-for-mips:101",
+          "make-doom-for-mips:103",
+          "make-doom-for-mips:104",
+          "make-doom-for-mips:106",
+          "make-doom-for-mips:107",
+          "make-doom-for-mips:111",
+          "make-doom-for-mips:112",
+          "make-doom-for-mips:115",
+          "make-doom-for-mips:116",
+          "make-doom-for-mips:120",
+          "make-doom-for-mips:121",
+          "make-doom-for-mips:86",
+          "make-doom-for-mips:87",
+          "make-doom-for-mips:92",
+          "make-doom-for-mips:93",
+          "make-doom-for-mips:95",
+          "make-doom-for-mips:96",
+          "make-doom-for-mips:97",
+          "make-doom-for-mips:98",
+          "make-mips-interpreter:50",
+          "make-mips-interpreter:51",
+          "make-mips-interpreter:56",
+          "make-mips-interpreter:57",
+          "make-mips-interpreter:60",
+          "make-mips-interpreter:61",
+          "make-mips-interpreter:63",
+          "make-mips-interpreter:64",
+          "make-mips-interpreter:67",
+          "make-mips-interpreter:68",
+          "make-mips-interpreter:69",
+          "make-mips-interpreter:70",
+          "make-mips-interpreter:80",
+          "make-mips-interpreter:81",
+          "make-mips-interpreter:82",
+          "make-mips-interpreter:83",
+          "make-mips-interpreter:91",
+          "make-mips-interpreter:92",
+          "make-mips-interpreter:94",
+          "make-mips-interpreter:95",
+          "make-mips-interpreter:96",
+          "make-mips-interpreter:97",
+          "make-mips-interpreter:98",
+          "make-mips-interpreter:99"
+        ],
+        "cases": {
+          "b1-cap100": {
+            "observed_last_retained_request": "make-mips-interpreter:57",
+            "observed_last_retained_end_s": 56.08809409401147,
+            "observed_retained_output_tokens": 23152,
+            "route_conditioned_full_GET_bytes": 83893125120,
+            "retained_observed_graph_without_any_P_HTTP_s": 48.66208085799008
+          },
+          "b1-cap200": {
+            "observed_last_retained_request": "make-doom-for-mips:87",
+            "observed_last_retained_end_s": 55.56978100701235,
+            "observed_retained_output_tokens": 23071,
+            "route_conditioned_full_GET_bytes": 183059415040,
+            "retained_observed_graph_without_any_P_HTTP_s": 48.09682804401382
+          },
+          "b2-cap200": {
+            "observed_last_retained_request": "make-doom-for-mips:112",
+            "observed_last_retained_end_s": 56.17087695401278,
+            "observed_retained_output_tokens": 22986,
+            "route_conditioned_full_GET_bytes": 173093519360,
+            "retained_observed_graph_without_any_P_HTTP_s": 49.5163728040352
+          },
+          "b2-cap100": {
+            "observed_last_retained_request": "make-doom-for-mips:96",
+            "observed_last_retained_end_s": 59.35103592599626,
+            "observed_retained_output_tokens": 23369,
+            "route_conditioned_full_GET_bytes": 176848896000,
+            "retained_observed_graph_without_any_P_HTTP_s": 52.96777865302283
+          }
+        },
+        "reference_release_opportunities": [
+          {
+            "released_at_s": 30,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 163930439680,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 8,
+                "already_generating_root_sessions": 8,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 192879984640,
+                "ready_sessions": 46,
+                "uncompleted_root_sessions": 2,
+                "already_generating_root_sessions": 2,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 198438912000,
+                "ready_sessions": 47,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 192879984640,
+                "ready_sessions": 46,
+                "uncompleted_root_sessions": 2,
+                "already_generating_root_sessions": 2,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8030937367562638,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 31,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 163930439680,
+                "ready_sessions": 40,
+                "uncompleted_root_sessions": 8,
+                "already_generating_root_sessions": 8,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 204123668480,
+                "ready_sessions": 48,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 198438912000,
+                "ready_sessions": 47,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 198438912000,
+                "ready_sessions": 47,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8030937367562638,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 32,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 182139617280,
+                "ready_sessions": 44,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 204123668480,
+                "ready_sessions": 48,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 204123668480,
+                "ready_sessions": 48,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 198438912000,
+                "ready_sessions": 47,
+                "uncompleted_root_sessions": 1,
+                "already_generating_root_sessions": 1,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.8923003326184391,
+            "common_lightest_P_when_nonempty": null
+          },
+          {
+            "released_at_s": 33,
+            "per_arm": {
+              "b1-cap100": {
+                "ready_potential_bytes": 187866316800,
+                "ready_sessions": 45,
+                "uncompleted_root_sessions": 3,
+                "already_generating_root_sessions": 3,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b1-cap200": {
+                "ready_potential_bytes": 204123668480,
+                "ready_sessions": 48,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap200": {
+                "ready_potential_bytes": 204123668480,
+                "ready_sessions": 48,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              },
+              "b2-cap100": {
+                "ready_potential_bytes": 204123668480,
+                "ready_sessions": 48,
+                "uncompleted_root_sessions": 0,
+                "already_generating_root_sessions": 0,
+                "reference_credit_by_P": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "minimum_ready_potential_fraction": 0.9203553816122363,
+            "common_lightest_P_when_nonempty": null
+          }
+        ]
+      }
+    }
+  }
+}
