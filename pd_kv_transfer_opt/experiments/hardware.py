@@ -1,4 +1,4 @@
-"""Read and set the installed 910B D-side hardware shaper."""
+"""Read and set the installed hardware shaper on the local 910B host."""
 
 import re
 import subprocess

@@ -4,6 +4,8 @@
 
 ## 冻结工作量与带宽矩阵
 
+表中的 100 和 200 Gbps 都是**每端的聚合出站限额**。两台机器同时使用同一档，P 和 D 各八口。原始输入、预热和到达表的指纹由矩阵引用。 [执行矩阵](../configs/basin-windows-v1/matrix.json)
+
 每臂从清洁缓存开始，32 个初始窗口各预热一条源调用，正式阶段继续各自后五条。24 个新基础窗口各六条调用，根到达窗口为第 0–360 秒。突发根到达窗口为第 60–150 秒。正式阶段至少观察到第 600 秒并排空。分别分析 **150–360 秒**的持续基础流与第 360 秒后的排空。首轮冻结 seed 216，另一个种子用于 CPU 敏感性。给定根到达数后用均匀时刻生成条件泊松到达，使用约 4 会话/分钟作为名义基础率。论文按部署标定的半过载率需另行实测。 [Basin §3.3 残余会话](https://arxiv.org/html/2611.02543v1#S3.SS3) · [§7.1 实验方法](https://arxiv.org/html/2611.02543v1#S7.SS1)
 
 | 条件 | 额外窗口 | 预热 / 正式计划调用 | 带宽先后 | 状态 |
@@ -21,7 +23,7 @@
 
 ## 独立复算和瓶颈判断
 
-原提交的 96 个条件已逐行核对工作量、TPS 口径和基础流完整性，代表性 12 臂独立复算到提交结果。以下为 seed 216、r43 拟合 1、已知 Qwen EOS 优先且未知项使用源长度的 CPU 结果。每格按 100 / 200 Gbps 排列。 [96 条提交记录](../results/2026-11-23-basin-window-review/submitted/simulation-receipt.json) · [独立复算及敏感性](../results/2026-11-23-basin-window-review/independent-replay.json)
+原提交的 96 个条件已逐行核对工作量、TPS 口径和基础流完整性，代表性 12 臂独立复算到提交结果。以下历史 CPU 结果只调了 D 出站，使用 seed 216、r43 拟合 1、已知 Qwen EOS 优先且未知项使用源长度。每格按 D 端 100 / 200 Gbps 排列。双向限速的影响由新实机配对测定。 [96 条提交记录](../results/2026-11-23-basin-window-review/submitted/simulation-receipt.json) · [独立复算及敏感性](../results/2026-11-23-basin-window-review/independent-replay.json)
 
 | 条件 | 正式输出 token | 含排空秒数 | 总 TPS | 共同基础 TPS |
 | --- | ---: | ---: | ---: | ---: |
@@ -69,9 +71,9 @@ python -m pd_kv_transfer_opt.workloads.basin_burst_inputs \
 
 ## 上机、计量和归档
 
-首轮只在两台机器确认可用后启动。核对实际 P0/P1、D0/D1 的 `state.json`、版本与 Master 注册，P/D 各八个 8 GiB segment。两侧继续 TP4/EP4/DP1、双 APC、D 原生重算、自然 EOS、原生路由和原图策略。每臂用相同清洁初态及预热，记录实际预热输出和 Store/APC 状态。D 八口以现有 `Shaper` 设置 12.5/25 Gbps，先保存原档、逐口读回目标值、结束后恢复原值并读回。P 维持站点原档。 [部署](decode-apc-baseline.md) · [带宽工具](../pd_kv_transfer_opt/experiments/hardware.py)
+首轮只在两台机器确认可用后启动。核对实际 P0/P1、D0/D1 的 `state.json`、版本与 Master 注册，P/D 各八个 8 GiB segment。两侧继续 TP4/EP4/DP1、双 APC、D 原生重算、自然 EOS、原生路由和原图策略。每臂用相同清洁初态及预热，记录实际预热输出和 Store/APC 状态。用现有 `Shaper` 在 P、D 主机各保存八口原值，按当轮档位为每口设置 12.5 或 25 Gbps。等两端读回都匹配再开始。结束或任一侧设置失败时，两端恢复已保存的各自原值并读回，保存各端恢复回执。 [部署](decode-apc-baseline.md) · [带宽工具](../pd_kv_transfer_opt/experiments/hardware.py)
 
-唯一负载执行入口沿用 `basin_burst_validation`，每臂显式传 `--arm`。计时前传 `--shaping-readback` 保存实际 D 端回执，包含 `aggregate_Gbps` 或 `requested_aggregate_Gbps` 及 `readback` 的 0–7 八口。每口的 `configured_Mbps` 和 `current_Mbps` 都须匹配档位。读回原件和指纹写入本轮目录。带宽设置与恢复仍由 D 端 `Shaper` 执行，设置、负载与异常退出都纳入同一恢复流程。冻结输入和源 ZIP 位于 Git 忽略目录 `data/basin-windows-v1`。原交接代码、源账本、长度代理、tokenizer 和来源 SHA 在 `archive.json` 备案。 [入口代码](../pd_kv_transfer_opt/experiments/basin_burst_validation.py) · [外部依赖和指纹](../results/2026-11-23-basin-window-review/archive.json)
+唯一负载执行入口沿用 `basin_burst_validation`，每臂显式传 `--arm`。将 P 和 D 主机各自用 `Shaper.read()` 取得的八口读回写入两个 JSON。每个文件用 `role` 标识 P 或 D，用 `aggregate_Gbps` 标注该主机目标档位，用 `readback` 保存端口 0–7 的记录。执行入口核对两端角色和档位，每口的 `configured_Mbps` 和 `current_Mbps` 都须匹配。两份原件和 SHA 写入本轮目录，manifest 记录 `symmetric-egress/v1`。冻结输入和源 ZIP 位于 Git 忽略目录 `data/basin-windows-v1`。原交接代码、源账本、长度代理、tokenizer 和来源 SHA 在 `archive.json` 备案。 [入口代码](../pd_kv_transfer_opt/experiments/basin_burst_validation.py) · [外部依赖和指纹](../results/2026-11-23-basin-window-review/archive.json)
 
 ```bash
 python -m pd_kv_transfer_opt.experiments.basin_burst_validation \
@@ -82,7 +84,7 @@ python -m pd_kv_transfer_opt.experiments.basin_burst_validation \
   --plan "$BASIN_PLAN" --workload data/basin-windows-v1/inputs.jsonl.gz \
   --arm "$BASIN_ARM" --endpoint "$NATIVE_PROXY" --model "$SERVED_MODEL" \
   --run-id "$ARM_ID" --output "$FRESH_RUN_DIR" --cap "$VERIFIED_CAP" \
-  --shaping-readback "$D_CAP_READBACK" --timeout 600
+  --p-shaping-readback "$P_CAP_READBACK" --d-shaping-readback "$D_CAP_READBACK" --timeout 600
 
 python -m pd_kv_transfer_opt.simulator.basin_window_review \
   --known-eos data/basin-windows-v1/provenance/terminal-known-native-eos-through-r78.json \
@@ -92,6 +94,6 @@ python -m pd_kv_transfer_opt.simulator.basin_window_review \
 
 每个条件每档单跑一轮，记录实际输出 token、结束原因、成功/取消/失败数、首条计划投放至最后完成的含排空时长和整轮 TPS。用本轮采集的端口计数、服务端队列数据、TTFT 及 `common_base` 做归因。单次配对测得的小差异只记录观测幅度。
 
-端口独立采 TX/RX。已有读源事件按同机、D→P、P→D 及来源未知记录 Store GET 字节，同时记 P→D 交接。D 八口出站含其它流量和协议开销。保存客户端、代理和引擎的时钟锚点与请求 ID 对照，以及初始化、段注册、逐口读回和恢复回执。 [事件口径](data.md)
+两端逐口采集 TX/RX 和上限占用。已有读源事件按同机、D→P、P→D 及来源未知记录 Store GET 字节，同时记 P→D 交接。端口计数含其它流量和协议开销。保存客户端、代理和引擎的时钟锚点与请求 ID 对照，以及初始化、段注册、两端读回和恢复回执。 [事件口径](data.md)
 
-前十轮 CPU 负载估算 **4.52–4.94 小时**，完整 12 轮约 **5.38–5.87 小时**，均含每轮预热和排空。实机按首对的加载、缓存复位、真实 EOS 和尾部耗时校准。当前状态为等待可用 NPU。 [排期预算](terminal-throughput-plan.md#机时预算)
+历史单限 D 的 CPU 负载估算为前十轮 **4.52–4.94 小时**、完整 12 轮 **5.38–5.87 小时**，均含每轮预热和排空。双向限速下按首对的加载、缓存复位、真实 EOS 和尾部耗时校准。当前状态为等待可用 NPU。 [排期预算](terminal-throughput-plan.md#机时预算)

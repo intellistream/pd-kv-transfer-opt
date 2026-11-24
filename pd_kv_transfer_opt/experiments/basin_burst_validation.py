@@ -15,6 +15,10 @@ import time
 from pd_kv_transfer_opt.common import clock_anchor, new_directory, read_json, sha256, write_json
 from pd_kv_transfer_opt.experiments.analyze import summarize
 from pd_kv_transfer_opt.experiments.basin_validation import split_arm
+from pd_kv_transfer_opt.experiments.hardware import PORTS
+
+
+SYMMETRIC_EGRESS_PROTOCOL = "symmetric-egress/v1"
 
 
 async def stream_call(row, args, origin, emit):
@@ -163,20 +167,23 @@ def load_arm(plan, workload, arm):
     return split_arm(plan, inputs, arm)
 
 
-def verified_shaping(path, cap):
+def verified_shaping(path, cap, *, role=None):
     raw = path.read_bytes()
     receipt = json.loads(raw)
+    label = role or "D"
     if not isinstance(receipt, dict):
-        raise ValueError("The D shaping receipt must be a JSON object")
+        raise ValueError(f"The {label} shaping receipt must be a JSON object")
+    if role is not None and receipt.get("role") != role:
+        raise ValueError(f"The {role} shaping receipt must identify role {role}")
     actual = receipt.get("readback", {})
-    expected = cap * 125
+    expected = cap * 1000 // len(PORTS)
     if (receipt.get("aggregate_Gbps", receipt.get("requested_aggregate_Gbps")) != cap
             or not isinstance(actual, dict)
-            or set(actual) != set(map(str, range(8)))
+            or set(actual) != {str(port) for port in PORTS}
             or any(not isinstance(row, dict) or row.get("configured_Mbps") != expected
                    or row.get("current_Mbps") != expected
                    for row in actual.values())):
-        raise ValueError("Expected a matching hardware readback for all eight D egress ports")
+        raise ValueError(f"Expected a matching {cap} Gbps hardware readback for all eight {label} egress ports")
     return raw
 
 
@@ -249,8 +256,10 @@ def main():
     parser.add_argument("--model")
     parser.add_argument("--run-id")
     parser.add_argument("--output", type=Path)
-    parser.add_argument("--cap", type=int, choices=(100, 200))
-    parser.add_argument("--shaping-readback", type=Path, help="Verified D egress readback for a timed validation arm")
+    parser.add_argument("--cap", type=int, choices=(100, 200), help="Aggregate egress cap in Gbps per shaped host")
+    parser.add_argument("--p-shaping-readback", type=Path, help="P egress readback for a Basin window arm")
+    parser.add_argument("--d-shaping-readback", "--shaping-readback", type=Path,
+                        help="D egress readback for a timed validation arm")
     parser.add_argument("--workers", type=int, default=128)
     parser.add_argument("--timeout", type=float, default=600.)
     parser.add_argument("--short-reference", type=Path, help="Optional target healthy-run receipt; required before claiming paper-equivalent short duration")
@@ -261,9 +270,15 @@ def main():
         parser.error("Actual runs require endpoint/model/run-id/output and externally read-back cap label")
     plan = read_json(args.plan)
     window_validation = plan["experiment_profile"] in ("compact-final-light", "compact-final-fivefold", "compact-final-short")
-    if (args.shaping_readback or (window_validation and not args.verify_only)) and not (args.cap and args.shaping_readback):
-        parser.error("Basin window timing requires --cap and the matching --shaping-readback")
-    shaping = verified_shaping(args.shaping_readback, args.cap) if args.shaping_readback else None
+    symmetric = window_validation or args.p_shaping_readback is not None
+    readback_paths = {"P": args.p_shaping_readback, "D": args.d_shaping_readback}
+    has_readback = any(readback_paths.values())
+    if has_readback and args.cap is None:
+        parser.error("Cap readback verification requires --cap")
+    if symmetric and (has_readback or not args.verify_only) and not all(readback_paths.values()):
+        parser.error("Symmetric Basin window timing requires --p-shaping-readback and --d-shaping-readback")
+    shaping = {role: verified_shaping(path, args.cap, role=role if symmetric else None)
+               for role, path in readback_paths.items() if path is not None}
     if args.arm is None:
         args.arm = plan.get("smoke_execution", {}).get("default_arm")
     if args.arm is None:
@@ -283,7 +298,10 @@ def main():
                "scope": "basin_windows_v1" if window_validation else ("smoke" if "smoke_execution" in plan else "validation"),
                "smoke_execution": plan.get("smoke_execution"),
                "arm": args.arm, "run_id": args.run_id, "D_cap_label_Gbps": args.cap,
-               "D_shaping_readback_sha256": hashlib.sha256(shaping).hexdigest() if shaping else None,
+               "P_cap_label_Gbps": args.cap if symmetric else None,
+               "shaping_protocol": SYMMETRIC_EGRESS_PROTOCOL if symmetric else None,
+               **{f"{role}_shaping_readback_sha256": hashlib.sha256(shaping[role]).hexdigest() if role in shaping else None
+                  for role in readback_paths},
                "plan_sha256": sha256(args.plan), "workload_sha256": sha256(args.workload),
                "warmup_requests": len(prime), "measured_requests": len(measured),
                "measured_sessions": len({q["session_id"] for q in measured}),
@@ -299,8 +317,8 @@ def main():
         return
     args.output = new_directory(args.output)
     write_json(args.output / "manifest.json", receipt)
-    if shaping:
-        (args.output / "D-shaping-readback.json").write_bytes(shaping)
+    for role, raw in shaping.items():
+        (args.output / f"{role}-shaping-readback.json").write_bytes(raw)
     asyncio.run(run_arm(plan, prime, measured, args))
 
 

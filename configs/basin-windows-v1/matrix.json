@@ -1,5 +1,5 @@
 {
-  "schema": "basin-window-execution-matrix/v1",
+  "schema": "basin-window-execution-matrix/v2",
   "status": "awaiting_npu",
   "scope": "Independent native-load validation for transient congestion and recovery",
   "entrypoint": "pd_kv_transfer_opt.experiments.basin_burst_validation",
@@ -23,10 +23,16 @@
     {"plan": "short", "arm": "burst-terminate", "cap_order_Gbps": [200, 100], "priming_calls": 32, "formal_calls": 400,
      "qualification": "Native proxy cancellation, engine acknowledgement, and KV/slot release on a short diagnostic"}
   ],
-  "shaping": {"D_egress_ports": 8, "per_port_Mbps": {"100": 12500, "200": 25000}, "P_egress": "original"},
+  "shaping": {
+    "protocol": "symmetric-egress/v1",
+    "cap_scope": "aggregate_egress_per_host",
+    "egress_ports_by_role": {"P": 8, "D": 8},
+    "per_port_Mbps": {"100": 12500, "200": 25000}
+  },
   "shared_steady": {"plan": "light", "arm": "steady", "per_cap": true,
                     "requires_comparable_initial_cache_and_deployment": true},
   "expected_runs": {"unconditional_nontermination": 10, "including_qualified_termination": 12},
+  "model_hours_reference": "Historical CPU replay with D-only shaping; scheduling estimate for these workloads.",
   "model_hours_before_setup_or_profiling": {
     "nontermination": [4.516, 4.944], "all_conditions": [5.381, 5.867]
   }

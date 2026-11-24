@@ -19,7 +19,9 @@
 
 两侧用 `serve --dry-run` 核对生成的 `store_config` 和 `store_pool_layout`，实机以对应的 `state.json` 和 Master 的 `segment_total_capacity_bytes` 为证据。先确认 P/D 各八个 8 GiB 的已注册 segment，再用少量自然请求核对实际缓存复用和来源。遇到跨实例复用时一并记录 APC 命中、对象所在 segment 及实际选中的读源。启动状态记录传入 worker 的 `HCCL_RDMA_TIMEOUT` 环境值，缺省时有效值待实机确认。Master 驱逐水位和驱逐比例沿用固定版行为，当前未采到实际值。
 
-## 原生带宽对照
+## r43 历史带宽对照
+
+以下为 r43 的单限 D 对照口径。当前 Basin 实机在 P、D 两端使用相同的每端聚合限额。 [Basin 实验计划](terminal-throughput-plan.md)
 
 四臂共享 [r42 原始回放清单](../configs/workload-r42-natural-sustained.json)。该清单包含同一数据版本的 48 个长会话、254 个请求，根投放至 92.5 秒，保留原始提示指纹、到达、前驱和输出预算。复用哈希一致的物化输入。自然 EOS 和原生路由按当前运行产生。每臂从排空引擎、空 Store、隔离的 P/D APC 命名域及初始代理开始。
 

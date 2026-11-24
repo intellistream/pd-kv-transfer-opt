@@ -7,7 +7,7 @@
 - 优先用已发布的 r14 事件重算，核对同一请求在客户端、代理、调度器、worker、原生 API 和设备事件里的关联。避免重复计入有包含关系的阶段。
 - 实机主路线为两台 8 卡 910B2 上的官方 vLLM、vLLM-Ascend 与 Mooncake NPU wheel。Attention TP4 和 expert EP4 共用每实例四张卡。高命中诊断关闭 P 本地 APC，原会话另有启用 APC 的对照。
 - 当前部署 baseline 沿用 r43 的 vLLM + vLLM-Ascend + Mooncake、双侧 APC、D 原生重算调度器、自然 EOS、原生路由与上游 HTTP keepalive，使用 `two-sided-8gib-local-first/v1` 的 Store 布局。P/D 每个模型 rank 各贡献 8 GiB，每侧八个模型 rank，主机各 64 GiB，总计 128 GiB。两侧开启 `preferred_segment` 和 `prefer_alloc_in_same_node`，本地 staging 为 32 MiB。容量和布局变更需用户明确授权。新实验统一用维护仓库的生成器和模板，通过两侧 `state.json` 校验布局身份。历史单侧池生成器与 r14/r43 归档用于历史复现。 [当前基线](docs/decode-apc-baseline.md) · [r43 历史归档](docs/r43-native-decode-apc.md)
-- 本次实机范围为 Basin 长上下文窗口 v1。共享 steady 后先排十个自然完成的 100/200 Gbps 臂。短会话终止组启动前做一次原生取消及资源释放检查，通过后加两个终止臂。 [独立评审](docs/basin-windows-v1-review.md) · [执行矩阵](configs/basin-windows-v1/matrix.json)
+- 本次实机范围为 Basin 长上下文窗口 v1。P、D 两端各八口出站使用同一档，每端聚合 100 或 200 Gbps，两端分别留读回与恢复回执。共享 steady 后先排十个自然完成臂。短会话终止组通过一次原生取消及资源释放检查后加两个终止臂。 [独立评审](docs/basin-windows-v1-review.md) · [执行矩阵](configs/basin-windows-v1/matrix.json)
 - 历史 r28/r42 的 D APC 关闭。r39 固定逐请求输出长度和实际去向，用于归因。同头单读、同步打包、提前接纳和流水各用自己的实验名称。[历史基线和归因对照](docs/cross-run-throughput.md)
 - r28 计量复核通过，约两成差距保留为实际生成工作和排空漂移的历史观测。带宽复现以两档真实负载可比、跨复测吞吐差稳定、回读压力传到 D 供给或最终完工为准。[原始证据](docs/cross-run-throughput.md#r28-的差距在同负载复测中怎样变化) · [传输主导的实测对照](docs/simulator.md#传输主导和解码主导的实测对照)
 - 首轮在原生执行路径上单独验证主方案。同头单读与 P 侧同步打包在首轮关闭。主方案独立取得可复现的可观吞吐收益后，再做原生、仅主方案、仅工程组件和组合的消融。工程组件对已启用主方案的执行给出正增量时保留。
