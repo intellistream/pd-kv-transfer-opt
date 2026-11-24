@@ -1,6 +1,6 @@
 # r43 原生 200 Gbps 的四 rank Decode profiling
 
-沿用 r43 的 Terminal-Bench 48 个会话、254 条请求和原始投放计划。新一轮使用两台各 8 卡 910B2、P/D 各 64 GiB Store 的当前基线。保留双侧 APC、D 原生重算调度器、自然 EOS、原生路由和 D `FULL_DECODE_ONLY`。D 出站使用八口各 25 Gbps 的实际读回。profiling 单独运行，正式实验按首条计划投放到最后请求完成的输出 token/s 验收。 [当前原生部署](decode-apc-baseline.md) · [r43 历史归档](r43-native-decode-apc.md)
+沿用 r43 的 Terminal-Bench 48 个会话、254 条请求和原始投放计划。新一轮使用两台各 8 卡 910B2、P/D 各 64 GiB Store 的当前基线。保留双侧 APC、D 原生重算调度器、自然 EOS、原生路由和 D `FULL_DECODE_ONLY`。profiling 单独运行，P、D 出站各限 200 Gbps，两端分别读回八口各 25 Gbps。正式实验按首条计划投放到最后请求完成的输出 token/s 验收。 [双向限速与正式对照](terminal-throughput-plan.md#r43-常规长会话) · [r43 历史归档](r43-native-decode-apc.md)
 
 ## 运行入口
 
@@ -21,7 +21,7 @@ python -B -m pd_kv_transfer_opt.experiments.serve --config "$R43_SITE" --role D 
   --decode-native-profiler --profile-decode-steps --decode-step-stride 4
 ~~~
 
-在 D 主机上随原诊断负载启动采集控制器。使用该臂的实际端口读回和物化请求的相同清单。控制器可先用 `--dry-run` 检查配置。正式采集在 D0 和 D1 分别等待出现批宽 1–4 和 9–16，连续采样确认仍有生成后触发约一秒短窗。默认在第 93 秒后采窄批，以覆盖更多排空段。一次只开一个窗口，初次窗口未覆盖的实例和批宽可在另一个独立方法轮单独采。触发时的运行数只用来筛窗，最终宽度以四 rank 对上的实际派发为准。
+核对并归档 P、D 两份读回后，在 D 主机上随同一份物化负载启动采集控制器。`--shaping` 传入 D 的实际读回，可先用 `--dry-run` 检查控制器配置。正式采集在 D0 和 D1 分别等待出现批宽 1–4 和 9–16，连续采样确认仍有生成后触发约一秒短窗。默认在第 93 秒后采窄批，以覆盖更多排空段。一次只开一个窗口，初次窗口未覆盖的实例和批宽可在另一个独立方法轮单独采。触发时的运行数只用来筛窗，最终宽度以四 rank 对上的实际派发为准。
 
 ~~~bash
 python -B -m pd_kv_transfer_opt.profiling.r43_decode_capture --config "$R43_SITE" \

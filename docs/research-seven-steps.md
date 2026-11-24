@@ -4,13 +4,13 @@
 
 ## 1. What is the problem?
 
-2026-11-23。**当前问题是，原生 Terminal-Bench 长会话中哪项可干预的服务拖慢整轮排空，以及怎样在保留原停止规则的条件下提高总吞吐。** 主场景用 r43 的 48 会话、254 请求、92.5 秒根投放，D 出站 200 Gbps，P 维持原档。已有结果把 D 首 token 后的会话链列为首查对象，具体步进资源仍待相同配置的 profiling。旧 100 Gbps 的方向筛选保留为历史证据，r69 的最后一轮带宽验证继续使用 100/200 与更高参考。 [主场景、路线与最终带宽验证](terminal-throughput-plan.md)
+**当前问题是，原生 Terminal-Bench 长会话中哪项可干预的服务拖慢整轮排空，以及怎样在保留原停止规则的条件下提高总吞吐。** r43 的常规长会话使用 48 会话、254 请求、92.5 秒根投放。历史结果把 D 首 token 后的会话链列为首查对象，具体步进资源待当前双侧池配置的四 rank profiling。Basin、r69 和 r43 的新带宽对照均用双向 100/200 Gbps。 [主场景与带宽对照](terminal-throughput-plan.md)
 
-在多轮 P/D 分离推理中，P 对本地 APC 后缺失的历史状态可以远端读取，也可以从已有合法 Hybrid 前缀继续算。远端同步读取占用 D 出站端口与 P worker，P 完工后的交接受 D 页和运行槽约束。r14 证实高恢复短输出的带宽瓶颈，r27c 暴露持续回读后的 D 准入等待。r28 的原自然长会话中，约两成的带宽档吞吐差主要由实际生成量和排空尾部解释。r33 进一步定位冷首轮在 P 的长等待和最终 D 生成尾部。 [状态与可见性](problem-model.md#kv-对象物理字节与可见性) · [r28 仿真边界](critical-path-attribution.md#r28-原生长会话的完工路径) · [r33 阶段归因](critical-path-attribution.md#r33-原生-100-gbps-从-p-http-到-d-排空)
+在多轮 P/D 分离推理中，P 对本地 APC 后缺失的历史状态可以从共享 Store 读取，也可以从已有合法 Hybrid 前缀继续算。跨机同步读取占用对象所在主机的出站端口，发起读取的 worker 等待数据。P 完工后的交接受 D 页和运行槽约束。r14 证实高恢复短输出的带宽瓶颈，r27c 暴露持续回读后的 D 准入等待。r28 的原自然长会话中，约两成的带宽档吞吐差主要由实际生成量和排空尾部解释。r33 进一步定位冷首轮在 P 的长等待和最终 D 生成尾部。 [状态与可见性](problem-model.md#kv-对象物理字节与可见性) · [r28 仿真边界](critical-path-attribution.md#r28-原生长会话的完工路径) · [r33 阶段归因](critical-path-attribution.md#r33-原生-100-gbps-从-p-http-到-d-排空)
 
 第一次机制对照固定 P/D 路由、合法前缀、TP/EP 和生成语义，以原生交接为控制。读与重算、同头打包和流水是可选执行路径或工程组件。所有策略按 APC 后实际缺页核算，并以 D 实际就绪和整轮完工解释收益。
 
-当前部署 baseline 采用 r43 的官方 vLLM + vLLM-Ascend + Mooncake 原生路径，启用双侧 APC、D 原生重算调度、自然 EOS 及原生路由。历史 r28 和 r42 的 D APC 关闭。r39 固定逐请求输出长度和实例去向，用于归因。带宽对照在同一执行路径和同一工作负载内配对。[当前配置](r43-native-decode-apc.md) · [跨轮归因](cross-run-throughput.md)
+当前部署 baseline 采用 r43 的官方 vLLM + vLLM-Ascend + Mooncake 原生路径，启用双侧 APC、D 原生重算调度、自然 EOS 及原生路由。历史 r28 和 r42 的 D APC 关闭。r39 固定逐请求输出长度和实例去向，用于归因。带宽对照在同一执行路径和同一工作负载内配对。[当前配置](decode-apc-baseline.md) · [跨轮归因](cross-run-throughput.md)
 
 ## 2. Why does it matter?
 
@@ -52,7 +52,7 @@ r19 在同数据集中选择实际远端读量高、首次换 P 的 10 条真实
 
 ## 4. What is the key idea?
 
-r43 的 200 档用于分析 D 的每有效 token 服务怎样影响长会话前驱链。历史诊断准备和候选见四 rank 分析。本次实机验证 Basin 的突发拥塞与恢复。 [r43 四 rank 分析](r43-decode-profiling.md) · [当前实验计划](terminal-throughput-plan.md)
+r43 的 200 档用于分析 D 的每有效 token 服务怎样影响长会话前驱链。历史诊断准备和候选见四 rank 分析。实机先完成 r43 和 r69 的带宽对照，再用 Basin 验证突发拥塞与恢复。 [r43 四 rank 分析](r43-decode-profiling.md) · [上机顺序](terminal-throughput-plan.md#上机顺序)
 
 当前结论以整轮归因为准。r14 的高回读短输出诊断已证实 D 出站限速能通过同步 GET 影响总吞吐。r39 固定自然长会话的逐请求实际输出和去向后，升档使同字节 GET 更快，含排空吞吐正反序分别变化 +0.91% 和 −1.21%。同组会话的 D 生成工作与 P 冷首轮积压决定了完工。[瓶颈验证与对照](bottleneck-verification.md)
 

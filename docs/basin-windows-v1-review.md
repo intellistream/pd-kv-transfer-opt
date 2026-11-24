@@ -1,6 +1,6 @@
 # Basin 长上下文窗口负载评审
 
-**修改后通过。** 本次 NPU 计划执行 Basin 窗口 v1，检验负载变化和拥塞恢复。先跑 10 轮自然完成。原生取消和资源释放通过一次现场短测后，再加两轮短会话终止。r69 和 r43 作为历史实测参考。 [执行矩阵](../configs/basin-windows-v1/matrix.json) · [准备与机时](terminal-throughput-plan.md#机时预算)
+**修改后通过。** Basin 窗口 v1 在 r43 和 r69 的双向限速正式对照完成后执行，检验负载变化和拥塞恢复。先跑 10 轮自然完成。原生取消和资源释放通过一次现场短测后，再加两轮短会话终止。 [上机顺序](terminal-throughput-plan.md#上机顺序) · [执行矩阵](../configs/basin-windows-v1/matrix.json) · [准备与机时](terminal-throughput-plan.md#机时预算)
 
 ## 冻结工作量与带宽矩阵
 

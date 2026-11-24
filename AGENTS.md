@@ -3,11 +3,12 @@
 本文件随项目进展更新。实验目标、已验证结果和后续假设分别见 [结果](docs/results.md) 与 [模拟器](docs/simulator.md)。
 
 - 按 [研究七步法](docs/research-seven-steps.md) 维护问题、证据、现有方法局限、唯一 key idea、设计、对照及结论。得到反例时更新主张和实验优先级。把机制代理、支持范围和同平台实测分开记录。
-- r69/r78 的 100/200 Gbps 和 r43 的 254 条常规长会话请求提供历史实测参考。按 P 与 D 的阶段时序解释供给和最后完工链。当前使用本地 CPU 和已归档 trace，Basin 实机计划等待 NPU。 [NPU 实测数据](results/2026-11-24-native-npu-reference/README.md) · [主实验计划](docs/terminal-throughput-plan.md)
+- r69/r78 的 100/200 Gbps 和 r43 的 254 条常规长会话请求提供历史实测参考。按 P 与 D 的阶段时序解释供给和最后完工链。当前使用本地 CPU 和已归档 trace，实机计划等待 NPU。 [NPU 实测数据](results/2026-11-24-native-npu-reference/README.md) · [主实验计划](docs/terminal-throughput-plan.md)
 - 优先用已发布的 r14 事件重算，核对同一请求在客户端、代理、调度器、worker、原生 API 和设备事件里的关联。避免重复计入有包含关系的阶段。
 - 实机主路线为两台 8 卡 910B2 上的官方 vLLM、vLLM-Ascend 与 Mooncake NPU wheel。Attention TP4 和 expert EP4 共用每实例四张卡。高命中诊断关闭 P 本地 APC，原会话另有启用 APC 的对照。
 - 当前部署 baseline 沿用 r43 的 vLLM + vLLM-Ascend + Mooncake、双侧 APC、D 原生重算调度器、自然 EOS、原生路由与上游 HTTP keepalive，使用 `two-sided-8gib-local-first/v1` 的 Store 布局。P/D 每个模型 rank 各贡献 8 GiB，每侧八个模型 rank，主机各 64 GiB，总计 128 GiB。两侧开启 `preferred_segment` 和 `prefer_alloc_in_same_node`，本地 staging 为 32 MiB。容量和布局变更需用户明确授权。新实验统一用维护仓库的生成器和模板，通过两侧 `state.json` 校验布局身份。历史单侧池生成器与 r14/r43 归档用于历史复现。 [当前基线](docs/decode-apc-baseline.md) · [r43 历史归档](docs/r43-native-decode-apc.md)
-- 本次实机范围为 Basin 长上下文窗口 v1。P、D 两端各八口出站使用同一档，每端聚合 100 或 200 Gbps，两端分别留读回与恢复回执。共享 steady 后先排十个自然完成臂。短会话终止组通过一次原生取消及资源释放检查后加两个终止臂。 [独立评审](docs/basin-windows-v1-review.md) · [执行矩阵](configs/basin-windows-v1/matrix.json)
+- Basin 窗口 v1、r69 集中回读和 r43 常规长会话均按双向限速执行。P、D 两端各八口出站使用同一档，每端聚合 100 或 200 Gbps，两端分别留读回与恢复回执。r69 的 400 Gbps 余量诊断也使用双向限速。 [主实验计划](docs/terminal-throughput-plan.md)
+- 下一次上机依次完成 r43 和 r69 各四轮正式对照，再执行 Basin 窗口 v1。Basin 各条件共用每档的 `steady`，先跑十个自然完成臂。短会话终止组通过一次原生取消及资源释放检查后加两个终止臂。独立 profiling 和可选 400 Gbps 余量诊断另排在 Basin 批次后。 [上机顺序](docs/terminal-throughput-plan.md#上机顺序) · [Basin 执行矩阵](configs/basin-windows-v1/matrix.json)
 - 历史 r28/r42 的 D APC 关闭。r39 固定逐请求输出长度和实际去向，用于归因。同头单读、同步打包、提前接纳和流水各用自己的实验名称。[历史基线和归因对照](docs/cross-run-throughput.md)
 - r28 计量复核通过，约两成差距保留为实际生成工作和排空漂移的历史观测。带宽复现以两档真实负载可比、跨复测吞吐差稳定、回读压力传到 D 供给或最终完工为准。[原始证据](docs/cross-run-throughput.md#r28-的差距在同负载复测中怎样变化) · [传输主导的实测对照](docs/simulator.md#传输主导和解码主导的实测对照)
 - 首轮在原生执行路径上单独验证主方案。同头单读与 P 侧同步打包在首轮关闭。主方案独立取得可复现的可观吞吐收益后，再做原生、仅主方案、仅工程组件和组合的消融。工程组件对已启用主方案的执行给出正增量时保留。
