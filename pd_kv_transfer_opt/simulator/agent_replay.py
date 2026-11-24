@@ -19,6 +19,7 @@ from pd_kv_transfer_opt.workloads.freeinference import Session
 
 GB = 10**9
 EPS = 1e-8
+# One D-side pool with no P-side Store placement, as in the historical calibration.
 STORE_BYTES = 128 * 2**30
 
 
@@ -52,6 +53,13 @@ class Service:
     put_setup_s: float = .01
     put_GB_s_per_P: float = 37.5
     release_suffix_first: bool = False
+    prefill_chunk_overhead_s: float = 0.0
+    decode_start_s: float = 0.0
+    store_high_watermark: float = 1.0
+    store_eviction_ratio: float = 0.0
+    store_resident_scale: float = 1.0
+    publish_decode_kv: bool = False
+    reserve_decode_output: bool = True
 
 
 @dataclass(slots=True)
@@ -96,6 +104,7 @@ class Decode:
     waiting: deque = field(default_factory=deque)
     preparing: int = 0
     active: list = field(default_factory=list)
+    put_free_s: float = 0.0
 
 
 @dataclass
@@ -120,12 +129,16 @@ class Replay:
                   for _ in range(2)]
         self.load_p = [0.0, 0.0]
         self.load_d = [0.0, 0.0]
-        self.store = Store(service.store_bytes)
+        self.store = Store(service.store_bytes, high_watermark=service.store_high_watermark,
+                           eviction_ratio=service.store_eviction_ratio, resident_scale=service.store_resident_scale)
         self.gets = {}
         self.requests = {}
         self.events, self.serial = [], count()
         self.tx_epochs, self.supply_epochs = [], []
         self.put_GB = 0.0
+        self.d_put_GB = 0.0
+        self.generated_page_ids = count(1 + max((key for s in sessions for turn in s.turns for key in turn.pages),
+                                                default=0)) if service.publish_decode_kv else None
         self.now = 0.0
         self.done = 0
         self.expected_count = sum(len(s.turns) for s in sessions)
@@ -221,8 +234,10 @@ class Replay:
         self.gets[role] = GetBatch(loads, sum(job.row["GET_bytes"] for job, *_ in loads) / GB)
 
     def get_finish(self, role):
+        self.complete_get(role, self.gets.pop(role))
+
+    def complete_get(self, role, batch):
         target = self.p[role]
-        batch = self.gets.pop(role)
         for job, attention, states, pins in batch.rows:
             if attention:
                 job.row["GET_done_s"] = self.now
@@ -233,7 +248,7 @@ class Replay:
     def compute(self, role):
         target = self.p[role]
         slots = self.service.chunk_tokens
-        updates, duration = [], 0.0
+        updates, duration = [], self.service.prefill_chunk_overhead_s
         for job in target.active:
             count = min(slots, job.remaining)
             warm_suffix = ((job.row["P_local_pages"] or job.row["P_external_pages"])
@@ -269,16 +284,18 @@ class Replay:
                 self.d_route(job)
 
     def put(self, role, keys):
+        self.put_GB += self.put_from(self.p[role], keys)
+
+    def put_from(self, target, keys):
         # Existing object keys only refresh residency. Data sent by another
         # producer before this submission commits may still be sent twice.
-        new_GB = sum(self.store.size(key) for key in keys if key not in self.store.objects) / GB
         if not keys:
-            return
-        target = self.p[role]
+            return 0.0
+        new_GB = sum(self.store.size(key) for key in keys if key not in self.store.objects) / GB
         target.put_free_s = (max(target.put_free_s, self.now) + self.service.put_setup_s
                              + new_GB / self.service.put_GB_s_per_P)
-        self.put_GB += new_GB
         self.defer(target.put_free_s, self.store.publish, keys)
+        return new_GB
 
     def d_route(self, job):
         role = int(self.load_d[1] + EPS < self.load_d[0])
@@ -295,7 +312,8 @@ class Replay:
             job = target.waiting[0]
             pages = job.lookup_pages
             local = target.cache.prefix(pages)
-            lease = target.cache.reserve(pages[:local], job.turn.prompt + job.turn.output)
+            tokens = job.turn.prompt + (job.turn.output if self.service.reserve_decode_output else 0)
+            lease = target.cache.reserve(pages[:local], tokens)
             if lease is None:
                 break
             target.waiting.popleft()
@@ -311,11 +329,20 @@ class Replay:
 
     def d_ready(self, role, job):
         target = self.d[role]
-        target.preparing -= 1
         job.row["D_KV_ready_s"] = self.now
         pages = job.turn.pages[job.row["D_local_pages"]:]
         target.cache.publish(job.d_lease, pages, pages)
         self.p[job.row["P"]].cache.release(job.p_lease)
+        if self.service.publish_decode_kv:
+            self.d_put_GB += self.put_from(target, (*pages, *(-key for key in pages)))
+        if self.service.decode_start_s:
+            self.defer(self.now + self.service.decode_start_s, self.d_start_generation, role, job)
+        else:
+            self.d_start_generation(role, job)
+
+    def d_start_generation(self, role, job):
+        target = self.d[role]
+        target.preparing -= 1
         job.remaining = float(job.turn.output)
         target.active.append(job)
 
@@ -328,6 +355,14 @@ class Replay:
                     self.on_first_decode_token(job)
                 if job.remaining <= EPS:
                     target.active.remove(job)
+                    if self.service.publish_decode_kv:
+                        # Replayed successor prompts are frozen source histories.
+                        # The generated pages occupy capacity using private keys.
+                        full = (job.turn.prompt + job.turn.output - 1) // PAGE
+                        pages = tuple(next(self.generated_page_ids) for _ in range(full - len(job.turn.pages)))
+                        if self.service.reserve_decode_output:
+                            target.cache.publish(job.d_lease, pages, pages)
+                        self.d_put_GB += self.put_from(target, (*pages, *(-key for key in pages)))
                     target.cache.release(job.d_lease)
                     self.load_d[role] -= job.body
                     job.row["EOS_s"] = self.now

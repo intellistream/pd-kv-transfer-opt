@@ -2,19 +2,17 @@
 
 ## 运行域
 
-r14 使用两台各八卡的 910B2、CANN 9.1、Python 3.12、vLLM 0.23.0、vLLM-Ascend 0.23.0.post1 和 `mooncake-transfer-engine-npu==0.3.11.post1`。运行源固定在 [vLLM 0fc695f](https://github.com/vllm-project/vllm/tree/0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665) 和 [vLLM-Ascend 5cb98ca](https://github.com/vllm-project/vllm-ascend/tree/5cb98caaadeff42b5b62b996e34bb2aaa29d20fd)。硬件启动使用兼容的 Ascend 环境、NPU 设备、配套驱动、可用的 NPU RoCE 网络和已经安装的 wheel。模型为 Qwen3.5-35B-A3B BF16，两侧使用一致的模型和分词器。依赖和权重预先装入运行环境；CPU 复核可独立执行。
+r14 使用两台各八卡的 910B2、CANN 9.1、Python 3.12、vLLM 0.23.0、vLLM-Ascend 0.23.0.post1 和 `mooncake-transfer-engine-npu==0.3.11.post1`。当前基线沿用固定版环境，两侧使用 Qwen3.5-35B-A3B BF16 和相同分词器。硬件启动需要兼容的 Ascend 驱动、可用的 NPU RoCE 网络及预装的依赖和权重。CPU 复核可独立执行。[vLLM 0fc695f](https://github.com/vllm-project/vllm/tree/0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665) · [vLLM-Ascend 5cb98ca](https://github.com/vllm-project/vllm-ascend/tree/5cb98caaadeff42b5b62b996e34bb2aaa29d20fd)
 
-每个角色两个 vLLM 实例，每实例四卡，attention TP4、expert EP4、DP1。P 使用平台默认图模式，捕获尺寸扩至 4096。D 使用 `FULL_DECODE_ONLY`。两侧分块预算 4096，最大上下文 262,144，`mamba-cache-mode=align`。r14 关闭两侧本地 APC。D 侧八个 worker 每个贡献 16 GiB 池容量，P 贡献零，D 保存 KV。P 使用同步 GET。原生 P→D 交接和跨机 Store 恢复分别经过 `MooncakeConnectorV1` 和 `AscendStoreConnector`，两者用 `MultiConnector` 组合。
+每个角色两个 vLLM 实例，每实例四卡，Attention TP4、Expert EP4、DP1。P 使用平台默认图模式，捕获尺寸扩至 4096。D 使用 `FULL_DECODE_ONLY`。两侧分块预算 4096，最大上下文 262,144，`mamba-cache-mode=align`。`MultiConnector` 组合 `MooncakeConnectorV1` 的 P→D 交接和 `AscendStoreConnector` 的同步 Store 恢复。
 
-复制 [配置示例](../configs/ascend-2p2d.example.json) 到 `configs/ascend.local.json` 后设置两侧地址、模型路径和 CPU 亲和性。示例是开启 P APC 的实验室 2P2D 配置，D APC 保留已有兼容配置。`max_num_seqs`、`max_num_batched_tokens`、`gpu_memory_utilization` 和 `compilation_config` 可按角色配置。对照现场时使用目标部署的实际参数。省略 `enable_prefix_caching` 时由引擎版本决定。每个实例使用自己的 API 端口号作为本地 Store lookup IPC 标识。先用 `serve --dry-run` 检查两侧生成命令，运行后用 `state.json` 和启动日志核对。[部署代表性复查](experiment-audit.md)
-
-r43 的 [双侧 APC 配置](decode-apc-baseline.md) 在相同实验室拓扑使用 D 侧原生重算调度器。回放、带宽及有效缓存命中按该轮清单核对。
+将双侧 APC 模板复制到 `configs/ascend.local.json`，设置两侧地址、模型路径和 CPU 亲和性。默认布局为 P/D 每个模型 worker 各 8 GiB，每侧各 64 GiB，保留双侧就近分配和每个 worker 的 32 MiB 本地 staging。每个实例使用自己的 API 端口号作为本地 Store lookup IPC 标识。先用 `serve --dry-run` 核对四个实例，启动后对照两侧 `state.json` 与 Master 的实际注册。[当前双侧 APC 基线](decode-apc-baseline.md) · [配置模板](../configs/ascend-2p2d-decode-apc.example.json)
 
 常规回放的 `proxy` 默认使用上游调度并保留上游 HTTP 连接复用。`--routing fixture --route-fixture` 用于重放已记录路由，`--no-upstream-keepalive` 用于复现关闭复用的诊断。`serve --observe` 开启逐方法事件与按需 CANN 入口。整轮吞吐计时可用默认启动模式，详细 profiling 用同配置的独立轮。
 
 ## r14 硬限速诊断复现
 
-将示例另存为 `configs/ascend-r14.local.json`，把 P、D 的 `enable_prefix_caching` 都设为 `false`。从仓库根目录预览命令，再在对应主机分别移除 `--dry-run` 启动。
+历史 r14 关闭两侧 APC，使用 P 贡献 0、D 每个模型 worker 贡献 16 GiB 的单侧池。原样复现应在归档匹配的代码版本上运行。当前代码可使用同一诊断协议验证双侧池，结果记录该布局身份。按所选版本将示例另存为 `configs/ascend-r14.local.json`，把 P、D 的 `enable_prefix_caching` 都设为 `false`。从仓库根目录预览命令，再在对应主机分别移除 `--dry-run` 启动。[历史 r14 清单](../results/2026-11-18-r14/manifest.json)
 
 ```bash
 python -m pd_kv_transfer_opt.experiments.serve --config configs/ascend-r14.local.json --role P --run-id r14-repro --run-dir runs/r14-P --observe --dry-run

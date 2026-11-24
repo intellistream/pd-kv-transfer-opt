@@ -159,6 +159,9 @@ def report(replay, *, detailed=True):
         "D_HBM_evicted_pages": [replica.cache.evictions for replica in replay.d]}
     result = {"requests": len(rows), "output_tokens": output, "finish_s": replay.now,
               "throughput_tokens_s": output / replay.now, "GET_GB": volume, "GET_MB_per_output": volume * 1000 / output,
+              "store_model": {"layout_id": "historical-d-only",
+                              "capacity_bytes_by_role": {"P": 0, "D": replay.service.store_bytes},
+                              "GET_path": "D_to_P", "two_sided_layout_calibrated": False},
               "D_to_P_GB_by_port": per_port, "cache": cache, "stage": stage_profile(replay)}
     if not detailed:
         return result

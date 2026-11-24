@@ -1,6 +1,6 @@
 # P/D KV Transfer Optimization
 
-研究 Prefill/Decode 分离推理中的整轮吞吐，配套原生实机对照、分阶段 profiling 和 CPU 模拟。当前主场景使用双侧 APC 的原生 2P2D、Terminal-Bench 长会话和 200 Gbps D 出站，优先定位长会话上的 D 有效 token 步进。 [主实验路线](docs/terminal-throughput-plan.md)
+研究 Prefill/Decode 分离推理中的 KV 传输与整轮吞吐，配套原生实机对照、分阶段 profiling 和 CPU 模拟。用双侧 APC 的原生 2P2D 和 Terminal-Bench，研究跨机回读、交接和计算重叠怎样影响 D 供给及最后完工。 [NPU 实验计划](docs/terminal-throughput-plan.md) · [关键实测数据](results/2026-11-24-native-npu-reference/README.md)
 
 r69 的原生长会话在 100 Gbps 实测含排空吞吐比 200 Gbps 低 8.11%/9.34%。关闭 P APC、固定短输出的 r14 提供同步传输主导时的硬限速诊断。两种负载和归因证据见实验报告。 [部署与负载边界](docs/experiment-audit.md) · [实验报告](docs/results.md)
 

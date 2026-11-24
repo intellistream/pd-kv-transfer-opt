@@ -6,7 +6,7 @@
 |---|---|
 | 发送上限 | 单向实验取 D 八口的硬件 egress 上限之和，双向实验对 P、D 的八口分别求和，单位十进制 Gbps |
 | 实际发送 | 发送端逐口 MAC TX octet 差值除以采样时间，包含网络开销 |
-| GET 有效字节 | 原生 Store API 提交的描述符载荷，P→D 交接另记 |
+| Store GET 载荷 | 原生 Store API 提交的描述符字节，P→D 交接另记 |
 | 整轮输出吞吐 | 全部正式请求的实际输出 token 除以首条计划投放至最后完成的时长，包含排空 |
 | TTFT | 客户端 ready 到首个含内容或 token IDs 的响应时刻 |
 | P GET 区间 | 同一 rank 的批量 GET 墙钟区间并集 |
@@ -27,6 +27,8 @@
 有效的正、负结果保留可重算证据。确认失败或无效的轮次保留失败阶段、原因、关键配置和收尾回执。实验节点上仅清理已结束且归属明确的自身轮次残留，优先使用回收站移出 Windows 上待清理的生成数据。仍有明确诊断用途的不完整采集保留所需事件，并记录用途和覆盖范围。
 
 ## 事件口径
+
+双侧池同时记录 `store_pool_layout`、Store GET 描述符载荷和端口实测流量。取得对象实际访问的 segment 时，按该 segment 所在主机和 GET 发起主机把成功载荷分为同机、D→P、P→D 和来源未知。仅有逻辑键、分配偏好或批量 GET 耗时时，字节保留在来源未知。P→D 的 MooncakeConnectorV1 交接单列。用逐口 MAC TX/RX 核对链路压力，且保留端口字节包含协议开销和其他流量的计量口径。
 
 r19 的请求标识是 `arm~natural-<source-id>`。代理保留符号路由 `P0/P1/D0/D1`，用于核对请求实际去向。`p_port_snapshot` 是 P 侧计时窗口两端的八口快照，`cap_port_sample` 是 D 侧该窗口内的多次采样。D MAC TX 与 P MAC RX 用于交叉核对恢复方向。D RX、P TX 和 `native_transfer_submit` 用于核对反向交接。采样间隔以逐端口的 monotonic 时间差为准，PFC 帧计数不提供暂停总时长。GET 活跃时间按各 rank GET 区间并集计算，按实例和全局范围分别记录。[r19 重算](results.md#r19-apc-开启的高远端恢复-ab)
 

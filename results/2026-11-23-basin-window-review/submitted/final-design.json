@@ -1,0 +1,659 @@
+{
+  "schema": "final-three-basin-workloads/v1",
+  "decision": "All three compact workload designs pass the declared theoretical and CPU-model mechanism checks. Ready for user review; no main-chat dispatch.",
+  "deployment_unchanged": {
+    "store_layout": "two-sided-8gib-local-first/v1",
+    "P_GiB_per_rank": 8,
+    "D_GiB_per_rank": 8,
+    "P_host_GiB": 64,
+    "D_host_GiB": 64,
+    "P_APC": true,
+    "D_APC": true,
+    "P_instances": 2,
+    "D_instances": 2,
+    "TP": 4,
+    "EP": 4,
+    "DP": 1,
+    "routing": "native",
+    "EOS": "natural",
+    "D_egress_caps_Gbps": [
+      100,
+      200
+    ]
+  },
+  "shared_design": {
+    "initial_midtrajectory_windows": 32,
+    "initial_priming_calls": 32,
+    "base_new_sessions": 24,
+    "base_sessions_per_minute": 4,
+    "base_offer_window_s": [
+      0,
+      360
+    ],
+    "surge_window_s": [
+      60,
+      150
+    ],
+    "minimum_observation_s": 600,
+    "drain_all_remaining_requests": true,
+    "base_and_initial_calls_per_window": 6,
+    "strong_burst_calls_per_window": 6,
+    "short_burst_calls_per_window": 4,
+    "arrival_model": "Fixed-count conditional Poisson paths with nested extra sets of 2/6/24 sessions.",
+    "natural_EOS": true,
+    "prompt_truncation_or_padding": false,
+    "cache_initialization": "Every arm starts from a fresh empty modeled cache, then executes the same 32-call priming plan; residual cache from a previous arm is never reused."
+  },
+  "group_profiles": {
+    "light": {
+      "sessions": 62,
+      "calls": 372,
+      "prompt_p50_tokens": 23306.0,
+      "prompt_p90_tokens": 77038,
+      "adjacent_reuse_fraction": 0.9153330480125745,
+      "initial_sessions": 32,
+      "priming_calls": 32,
+      "new_base_sessions": 24,
+      "burst_sessions_max": 6,
+      "base_calls_formal": 304
+    },
+    "fivefold": {
+      "sessions": 80,
+      "calls": 480,
+      "prompt_p50_tokens": 26896.5,
+      "prompt_p90_tokens": 79337,
+      "adjacent_reuse_fraction": 0.9295549389417518,
+      "initial_sessions": 32,
+      "priming_calls": 32,
+      "new_base_sessions": 24,
+      "burst_sessions_max": 24,
+      "base_calls_formal": 304
+    },
+    "short": {
+      "sessions": 80,
+      "calls": 432,
+      "prompt_p50_tokens": 25173.0,
+      "prompt_p90_tokens": 78346,
+      "adjacent_reuse_fraction": 0.9240861444309838,
+      "initial_sessions": 32,
+      "priming_calls": 32,
+      "new_base_sessions": 24,
+      "burst_sessions_max": 24,
+      "base_calls_formal": 304
+    }
+  },
+  "groups_and_conditions": [
+    {
+      "group": "light",
+      "arm": "steady",
+      "formal_calls_planned": 304,
+      "priming_calls": 32,
+      "calls_with_priming": 336,
+      "model_minutes_including_prime_and_observe": [
+        25.793364954859268,
+        28.33464152147879
+      ],
+      "model_generated_output_tokens": [
+        852642,
+        1020540
+      ],
+      "model_whole_TPS": [
+        660.6479803280739,
+        757.3971355092633
+      ],
+      "model_remote_GET_GB": [
+        22.42330624,
+        35.22379776
+      ],
+      "model_base_TTFT_p50_s": [
+        0.7526380349648889,
+        2.2411335143951714
+      ],
+      "planned_hardware_runs": 2,
+      "bandwidth_caps_Gbps": [
+        100,
+        200
+      ]
+    },
+    {
+      "group": "light",
+      "arm": "plus33",
+      "formal_calls_planned": 316,
+      "priming_calls": 32,
+      "calls_with_priming": 348,
+      "model_minutes_including_prime_and_observe": [
+        26.22355501856325,
+        28.68940365583585
+      ],
+      "model_generated_output_tokens": [
+        872986,
+        1047071
+      ],
+      "model_whole_TPS": [
+        664.8623686719939,
+        782.7507126818064
+      ],
+      "model_remote_GET_GB": [
+        22.2175232,
+        32.98131968
+      ],
+      "model_base_TTFT_p50_s": [
+        0.7718335466973674,
+        5.582155819719162
+      ],
+      "planned_hardware_runs": 2,
+      "bandwidth_caps_Gbps": [
+        100,
+        200
+      ]
+    },
+    {
+      "group": "light",
+      "arm": "plus100",
+      "formal_calls_planned": 340,
+      "priming_calls": 32,
+      "calls_with_priming": 372,
+      "model_minutes_including_prime_and_observe": [
+        26.267704318462382,
+        28.91382126098213
+      ],
+      "model_generated_output_tokens": [
+        898024,
+        1075877
+      ],
+      "model_whole_TPS": [
+        671.7905489075506,
+        791.5209569158715
+      ],
+      "model_remote_GET_GB": [
+        21.16108288,
+        41.28997376
+      ],
+      "model_base_TTFT_p50_s": [
+        1.0164345881826193,
+        8.81155388614377
+      ],
+      "planned_hardware_runs": 2,
+      "bandwidth_caps_Gbps": [
+        100,
+        200
+      ]
+    },
+    {
+      "group": "fivefold",
+      "arm": "burst-drain",
+      "formal_calls_planned": 448,
+      "priming_calls": 32,
+      "calls_with_priming": 480,
+      "model_minutes_including_prime_and_observe": [
+        28.614552311197066,
+        32.25618500690743
+      ],
+      "model_generated_output_tokens": [
+        1107810,
+        1331666
+      ],
+      "model_whole_TPS": [
+        770.2046511107653,
+        849.9448414260959
+      ],
+      "model_remote_GET_GB": [
+        26.69756416,
+        45.92910336
+      ],
+      "model_base_TTFT_p50_s": [
+        12.843315358476403,
+        51.43166787453248
+      ],
+      "planned_hardware_runs": 2,
+      "bandwidth_caps_Gbps": [
+        100,
+        200
+      ]
+    },
+    {
+      "group": "short",
+      "arm": "burst-drain",
+      "formal_calls_planned": 400,
+      "priming_calls": 32,
+      "calls_with_priming": 432,
+      "model_minutes_including_prime_and_observe": [
+        27.814378267732106,
+        31.068352448582957
+      ],
+      "model_generated_output_tokens": [
+        1033932,
+        1235794
+      ],
+      "model_whole_TPS": [
+        733.1243282473347,
+        826.9000589322501
+      ],
+      "model_remote_GET_GB": [
+        24.67545088,
+        41.62453504
+      ],
+      "model_base_TTFT_p50_s": [
+        5.678788951464526,
+        37.793148526108254
+      ],
+      "planned_hardware_runs": 2,
+      "bandwidth_caps_Gbps": [
+        100,
+        200
+      ]
+    },
+    {
+      "group": "short",
+      "arm": "burst-terminate",
+      "formal_calls_planned": 400,
+      "priming_calls": 32,
+      "calls_with_priming": 432,
+      "model_minutes_including_prime_and_observe": [
+        25.674816140783168,
+        28.163551076844808
+      ],
+      "model_generated_output_tokens": [
+        867110,
+        1032284
+      ],
+      "model_whole_TPS": [
+        677.9021296681257,
+        768.6592414267059
+      ],
+      "model_remote_GET_GB": [
+        14.03650048,
+        31.997952
+      ],
+      "model_base_TTFT_p50_s": [
+        0.7976584823071402,
+        5.265468078840783
+      ],
+      "planned_hardware_runs": 2,
+      "bandwidth_caps_Gbps": [
+        100,
+        200
+      ]
+    }
+  ],
+  "unique_conditions_per_bandwidth": 6,
+  "bandwidth_caps_Gbps": [
+    100,
+    200
+  ],
+  "total_planned_runs": 12,
+  "shared_control": "One no-surge control per bandwidth reused by all groups; group definitions include no-surge explicitly but it is not run three times.",
+  "model_total_hours_for_12_runs": [
+    5.3813204430555475,
+    5.866732541934755
+  ],
+  "practical_budget_hours_excluding_model_loading": [
+    6.0,
+    7.5
+  ],
+  "validation": {
+    "simulation_cases": 96,
+    "parameter_combinations_per_bandwidth": 8,
+    "mechanism_combinations_passed": 16,
+    "token_hashes_verified": 480,
+    "adjacent_LCPs_verified": 400,
+    "shared_control_verified": true,
+    "abort_stage_checks": 8,
+    "existing_loader_all_groups_passed": true,
+    "mechanism_checks": [
+      {
+        "context": [
+          216,
+          "1",
+          "source",
+          100
+        ],
+        "checks": {
+          "base_has_no_P_HBM_eviction": true,
+          "strong_has_P_HBM_eviction": true,
+          "strong_has_remote_Store_GET": true,
+          "strong_delays_base_more_than_weak": true,
+          "short_drain_delays_base_more_than_stop": true,
+          "short_stop_finishes_common_base_earlier": true,
+          "short_stop_preserves_every_base_output_token": true,
+          "short_stop_really_cancels_work": true,
+          "short_drain_has_P_eviction": true
+        },
+        "base_TTFT_stop_over_drain_ratio": 0.10317025199605359,
+        "base_finish_reduction_s": 148.0227289936904
+      },
+      {
+        "context": [
+          216,
+          "1",
+          "source",
+          200
+        ],
+        "checks": {
+          "base_has_no_P_HBM_eviction": true,
+          "strong_has_P_HBM_eviction": true,
+          "strong_has_remote_Store_GET": true,
+          "strong_delays_base_more_than_weak": true,
+          "short_drain_delays_base_more_than_stop": true,
+          "short_stop_finishes_common_base_earlier": true,
+          "short_stop_preserves_every_base_output_token": true,
+          "short_stop_really_cancels_work": true,
+          "short_drain_has_P_eviction": true
+        },
+        "base_TTFT_stop_over_drain_ratio": 0.10317025199605376,
+        "base_finish_reduction_s": 148.02328133982337
+      },
+      {
+        "context": [
+          216,
+          "1",
+          "known-or-source",
+          100
+        ],
+        "checks": {
+          "base_has_no_P_HBM_eviction": true,
+          "strong_has_P_HBM_eviction": true,
+          "strong_has_remote_Store_GET": true,
+          "strong_delays_base_more_than_weak": true,
+          "short_drain_delays_base_more_than_stop": true,
+          "short_stop_finishes_common_base_earlier": true,
+          "short_stop_preserves_every_base_output_token": true,
+          "short_stop_really_cancels_work": true,
+          "short_drain_has_P_eviction": true
+        },
+        "base_TTFT_stop_over_drain_ratio": 0.09258932669124116,
+        "base_finish_reduction_s": 135.76003531795754
+      },
+      {
+        "context": [
+          216,
+          "1",
+          "known-or-source",
+          200
+        ],
+        "checks": {
+          "base_has_no_P_HBM_eviction": true,
+          "strong_has_P_HBM_eviction": true,
+          "strong_has_remote_Store_GET": true,
+          "strong_delays_base_more_than_weak": true,
+          "short_drain_delays_base_more_than_stop": true,
+          "short_stop_finishes_common_base_earlier": true,
+          "short_stop_preserves_every_base_output_token": true,
+          "short_stop_really_cancels_work": true,
+          "short_drain_has_P_eviction": true
+        },
+        "base_TTFT_stop_over_drain_ratio": 0.08382927416011238,
+        "base_finish_reduction_s": 92.94516365311597
+      },
+      {
+        "context": [
+          216,
+          "2",
+          "source",
+          100
+        ],
+        "checks": {
+          "base_has_no_P_HBM_eviction": true,
+          "strong_has_P_HBM_eviction": true,
+          "strong_has_remote_Store_GET": true,
+          "strong_delays_base_more_than_weak": true,
+          "short_drain_delays_base_more_than_stop": true,
+          "short_stop_finishes_common_base_earlier": true,
+          "short_stop_preserves_every_base_output_token": true,
+          "short_stop_really_cancels_work": true,
+          "short_drain_has_P_eviction": true
+        },
+        "base_TTFT_stop_over_drain_ratio": 0.07179543953324295,
+        "base_finish_reduction_s": 155.20956710226596
+      },
+      {
+        "context": [
+          216,
+          "2",
+          "source",
+          200
+        ],
+        "checks": {
+          "base_has_no_P_HBM_eviction": true,
+          "strong_has_P_HBM_eviction": true,
+          "strong_has_remote_Store_GET": true,
+          "strong_delays_base_more_than_weak": true,
+          "short_drain_delays_base_more_than_stop": true,
+          "short_stop_finishes_common_base_earlier": true,
+          "short_stop_preserves_every_base_output_token": true,
+          "short_stop_really_cancels_work": true,
+          "short_drain_has_P_eviction": true
+        },
+        "base_TTFT_stop_over_drain_ratio": 0.09367152644383406,
+        "base_finish_reduction_s": 149.12005145535932
+      },
+      {
+        "context": [
+          216,
+          "2",
+          "known-or-source",
+          100
+        ],
+        "checks": {
+          "base_has_no_P_HBM_eviction": true,
+          "strong_has_P_HBM_eviction": true,
+          "strong_has_remote_Store_GET": true,
+          "strong_delays_base_more_than_weak": true,
+          "short_drain_delays_base_more_than_stop": true,
+          "short_stop_finishes_common_base_earlier": true,
+          "short_stop_preserves_every_base_output_token": true,
+          "short_stop_really_cancels_work": true,
+          "short_drain_has_P_eviction": true
+        },
+        "base_TTFT_stop_over_drain_ratio": 0.13395629737684422,
+        "base_finish_reduction_s": 97.96533437673042
+      },
+      {
+        "context": [
+          216,
+          "2",
+          "known-or-source",
+          200
+        ],
+        "checks": {
+          "base_has_no_P_HBM_eviction": true,
+          "strong_has_P_HBM_eviction": true,
+          "strong_has_remote_Store_GET": true,
+          "strong_delays_base_more_than_weak": true,
+          "short_drain_delays_base_more_than_stop": true,
+          "short_stop_finishes_common_base_earlier": true,
+          "short_stop_preserves_every_base_output_token": true,
+          "short_stop_really_cancels_work": true,
+          "short_drain_has_P_eviction": true
+        },
+        "base_TTFT_stop_over_drain_ratio": 0.11152085273788506,
+        "base_finish_reduction_s": 87.02839994210808
+      },
+      {
+        "context": [
+          397,
+          "1",
+          "source",
+          100
+        ],
+        "checks": {
+          "base_has_no_P_HBM_eviction": true,
+          "strong_has_P_HBM_eviction": true,
+          "strong_has_remote_Store_GET": true,
+          "strong_delays_base_more_than_weak": true,
+          "short_drain_delays_base_more_than_stop": true,
+          "short_stop_finishes_common_base_earlier": true,
+          "short_stop_preserves_every_base_output_token": true,
+          "short_stop_really_cancels_work": true,
+          "short_drain_has_P_eviction": true
+        },
+        "base_TTFT_stop_over_drain_ratio": 0.14490605258981218,
+        "base_finish_reduction_s": 150.11984670687457
+      },
+      {
+        "context": [
+          397,
+          "1",
+          "source",
+          200
+        ],
+        "checks": {
+          "base_has_no_P_HBM_eviction": true,
+          "strong_has_P_HBM_eviction": true,
+          "strong_has_remote_Store_GET": true,
+          "strong_delays_base_more_than_weak": true,
+          "short_drain_delays_base_more_than_stop": true,
+          "short_stop_finishes_common_base_earlier": true,
+          "short_stop_preserves_every_base_output_token": true,
+          "short_stop_really_cancels_work": true,
+          "short_drain_has_P_eviction": true
+        },
+        "base_TTFT_stop_over_drain_ratio": 0.2426091208807247,
+        "base_finish_reduction_s": 130.86146600202414
+      },
+      {
+        "context": [
+          397,
+          "1",
+          "known-or-source",
+          100
+        ],
+        "checks": {
+          "base_has_no_P_HBM_eviction": true,
+          "strong_has_P_HBM_eviction": true,
+          "strong_has_remote_Store_GET": true,
+          "strong_delays_base_more_than_weak": true,
+          "short_drain_delays_base_more_than_stop": true,
+          "short_stop_finishes_common_base_earlier": true,
+          "short_stop_preserves_every_base_output_token": true,
+          "short_stop_really_cancels_work": true,
+          "short_drain_has_P_eviction": true
+        },
+        "base_TTFT_stop_over_drain_ratio": 0.04995676306648705,
+        "base_finish_reduction_s": 119.18023899542641
+      },
+      {
+        "context": [
+          397,
+          "1",
+          "known-or-source",
+          200
+        ],
+        "checks": {
+          "base_has_no_P_HBM_eviction": true,
+          "strong_has_P_HBM_eviction": true,
+          "strong_has_remote_Store_GET": true,
+          "strong_delays_base_more_than_weak": true,
+          "short_drain_delays_base_more_than_stop": true,
+          "short_stop_finishes_common_base_earlier": true,
+          "short_stop_preserves_every_base_output_token": true,
+          "short_stop_really_cancels_work": true,
+          "short_drain_has_P_eviction": true
+        },
+        "base_TTFT_stop_over_drain_ratio": 0.1443210399111706,
+        "base_finish_reduction_s": 97.10589547635391
+      },
+      {
+        "context": [
+          397,
+          "2",
+          "source",
+          100
+        ],
+        "checks": {
+          "base_has_no_P_HBM_eviction": true,
+          "strong_has_P_HBM_eviction": true,
+          "strong_has_remote_Store_GET": true,
+          "strong_delays_base_more_than_weak": true,
+          "short_drain_delays_base_more_than_stop": true,
+          "short_stop_finishes_common_base_earlier": true,
+          "short_stop_preserves_every_base_output_token": true,
+          "short_stop_really_cancels_work": true,
+          "short_drain_has_P_eviction": true
+        },
+        "base_TTFT_stop_over_drain_ratio": 0.08619456891390924,
+        "base_finish_reduction_s": 203.14807820157125
+      },
+      {
+        "context": [
+          397,
+          "2",
+          "source",
+          200
+        ],
+        "checks": {
+          "base_has_no_P_HBM_eviction": true,
+          "strong_has_P_HBM_eviction": true,
+          "strong_has_remote_Store_GET": true,
+          "strong_delays_base_more_than_weak": true,
+          "short_drain_delays_base_more_than_stop": true,
+          "short_stop_finishes_common_base_earlier": true,
+          "short_stop_preserves_every_base_output_token": true,
+          "short_stop_really_cancels_work": true,
+          "short_drain_has_P_eviction": true
+        },
+        "base_TTFT_stop_over_drain_ratio": 0.08611494283074002,
+        "base_finish_reduction_s": 203.14812106619524
+      },
+      {
+        "context": [
+          397,
+          "2",
+          "known-or-source",
+          100
+        ],
+        "checks": {
+          "base_has_no_P_HBM_eviction": true,
+          "strong_has_P_HBM_eviction": true,
+          "strong_has_remote_Store_GET": true,
+          "strong_delays_base_more_than_weak": true,
+          "short_drain_delays_base_more_than_stop": true,
+          "short_stop_finishes_common_base_earlier": true,
+          "short_stop_preserves_every_base_output_token": true,
+          "short_stop_really_cancels_work": true,
+          "short_drain_has_P_eviction": true
+        },
+        "base_TTFT_stop_over_drain_ratio": 0.09979083174791883,
+        "base_finish_reduction_s": 127.72879796427742
+      },
+      {
+        "context": [
+          397,
+          "2",
+          "known-or-source",
+          200
+        ],
+        "checks": {
+          "base_has_no_P_HBM_eviction": true,
+          "strong_has_P_HBM_eviction": true,
+          "strong_has_remote_Store_GET": true,
+          "strong_delays_base_more_than_weak": true,
+          "short_drain_delays_base_more_than_stop": true,
+          "short_stop_finishes_common_base_earlier": true,
+          "short_stop_preserves_every_base_output_token": true,
+          "short_stop_really_cancels_work": true,
+          "short_drain_has_P_eviction": true
+        },
+        "base_TTFT_stop_over_drain_ratio": 0.12714371205558378,
+        "base_finish_reduction_s": 113.77173631001847
+      }
+    ]
+  },
+  "scope": "Tests transient rise, a larger burst with cache eviction, and residual-session removal under the fixed 2P2D deployment. It is not a claim of reproducing the paper hour-long metastability or of positive RDMA throughput gains. Cancelled-arm TPS in the model includes modeled emitted partial tokens; actual execution must use observed partial counts or leave TPS unavailable.",
+  "coordination": "User confirmation is still required before notifying the main agent; no notification has been sent.",
+  "artifacts_sha256": {
+    "prepare.py": "3acdb043a950c905b755ccb2196e73a689021d9b94b1be46aaba983346968bf1",
+    "replay.py": "b3d4480249f29d15324a2553098de0febcc2dd3df889a292f5f199e579ce3fa1",
+    "plan.py": "8a1faed24e84c499ae97bf2450b2db01cb6ab0fd288b52e8ee40da1cbb86a4cd",
+    "validate.py": "d9ed4f52139cc43e429c6ef19ccab5405abcb45929569bc8ac47fdabdf14f488",
+    "qualify.py": "50be02894ccfdf1b7121ba667931eb090d7e9058e338aaf0c0a76c7d3c8344cf",
+    "catalog-final.json": "86eeded5c21228dadad32f7b2317b5a8c459e1fb00d83766c286efe55aaa2070",
+    "basin-light-final.json": "0c05825ec0b746b3aef6b6aa4a0cea26d6db92c91ea102a14f859d05e0cc1543",
+    "basin-fivefold-final.json": "5c22b2d0b77535bb143cd33d62f2e2465ea272c299683cd155626372ff79bf94",
+    "basin-short-final.json": "876af2a4f51226ac918c1d1bcacb741f528fa74d2ffc7c97ba30d59da91e821a",
+    "simulation-receipt.json": "a7022c10100d13230d38175b78ffcb0a6f8e804a5d8351e334447accf3a9ed7c",
+    "healthy-short-reference.json": "ef0aea2b29d881449ef5bdfeca74c39e563530c6c5be609ec376400d23f52944",
+    "input-receipt.json": "944f1286ce9bb90cdbf6bd9c3a17d7eb141a8e5569f931f01ac4d296e51c2229",
+    "loader-receipt.json": "b7eea6b9630e1488d594eeb64356b58468d96ec927acedd6451d465f4ff5cd10"
+  }
+}

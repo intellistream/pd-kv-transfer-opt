@@ -1,4 +1,5 @@
 """Observe the installed proxy and optionally replay its recorded routes."""
+import asyncio
 import contextvars
 import hashlib
 import importlib.util
@@ -116,6 +117,9 @@ async def prefill(client,endpoint,req_data,request_id,*args,**kwargs):
              remote_port=kv.get('remote_port'),remote_block_counts=descriptors(kv.get('remote_block_ids')),
              handoff_scalar_fields={k:v for k,v in kv.items() if isinstance(v,(str,int,float,bool)) or v is None})
         return response
+    except asyncio.CancelledError:
+        emit("prefill_upstream_cancelled", id=cid, proxy_request_id=request_id)
+        raise
     except Exception as exc:
         emit('prefill_error',id=cid,proxy_request_id=request_id,error_type=type(exc).__name__,error=str(exc)[:1000])
         raise
@@ -129,6 +133,9 @@ async def decode(client,endpoint,req_data,request_id,*args,**kwargs):
             if count==0:emit('decode_first_chunk',id=cid,proxy_request_id=request_id)
             count+=1
             yield chunk
+    except (asyncio.CancelledError, GeneratorExit):
+        emit("decode_upstream_closed", id=cid, proxy_request_id=request_id, chunks=count)
+        raise
     except Exception as exc:
         emit('decode_error',id=cid,proxy_request_id=request_id,error_type=type(exc).__name__,error=str(exc)[:1000])
         raise

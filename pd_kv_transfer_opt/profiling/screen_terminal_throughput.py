@@ -23,7 +23,7 @@ ARCHIVES = {
 }
 
 
-def decode_windows(telemetry, requests, origin):
+def sampled_decode_windows(telemetry, requests, origin):
     """Use client boundaries and stable sampled D width to bound observable windows."""
     points = defaultdict(list)
     for sample in telemetry:
@@ -34,8 +34,6 @@ def decode_windows(telemetry, requests, origin):
                 readings = (gauge(values, field) for field in
                             ("num_requests_running", "num_requests_waiting", "generation_tokens_total"))
                 points[role].append((engine["monotonic_ns"] / NS - origin, *readings))
-    per_request = defaultdict(Counter)
-    pace = defaultdict(list)
     for role, samples in points.items():
         cohort = {key: row for key, row in requests.items() if row["D"] == role}
         for (a, width, waiting, tokens), (b, next_width, next_wait, next_tokens) in pairwise(samples):
@@ -46,10 +44,21 @@ def decode_windows(telemetry, requests, origin):
             active = [key for key, row in cohort.items() if row["D_start_s"] < b and row["end_s"] > a]
             if len(active) != width or any(cohort[key]["first_s"] > a or cohort[key]["end_s"] < b for key in active):
                 continue
-            tag = ("1" if width == 1 else "2–4" if width <= 4 else "5–8" if width <= 8 else "9–16")
-            for key in active:
-                per_request[key][tag] += b - a
-            pace[tag].append(1000 * (b - a) * width / (next_tokens - tokens))
+            yield width, active, b - a, next_tokens - tokens
+
+
+def width_band(width):
+    return "1" if width == 1 else "2–4" if width <= 4 else "5–8" if width <= 8 else "9–16"
+
+
+def decode_windows(telemetry, requests, origin):
+    per_request = defaultdict(Counter)
+    pace = defaultdict(list)
+    for width, active, span, tokens in sampled_decode_windows(telemetry, requests, origin):
+        tag = width_band(width)
+        for key in active:
+            per_request[key][tag] += span
+        pace[tag].append(1000 * span * width / tokens)
     return per_request, {tag: {"intervals": len(ms), "median_effective_step_ms": median(ms)}
                          for tag, ms in pace.items()}
 

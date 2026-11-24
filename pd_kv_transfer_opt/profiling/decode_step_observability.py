@@ -3,6 +3,7 @@
 from collections import deque
 from functools import wraps
 import logging
+import os
 import sys
 from time import monotonic_ns
 
@@ -15,9 +16,9 @@ RUNNER = "vllm_ascend.worker.model_runner_v1"
 STRIDE = 16
 
 
-def sampled_rows(output):
+def sampled_rows(output, stride=STRIDE):
     offsets = output.scheduled_cached_reqs.num_computed_tokens
-    if (offsets and offsets[0] % STRIDE == 0 and output.total_num_scheduled_tokens
+    if (offsets and offsets[0] % stride == 0 and output.total_num_scheduled_tokens
             == len(output.num_scheduled_tokens)):
         return chunk_rows(output)
     return None
@@ -26,6 +27,7 @@ def sampled_rows(output):
 def observe_engine(module):
     cls = module.EngineCore
     initial = cls.__init__
+    stride = int(os.environ.get("PDKV_DECODE_STEP_STRIDE", STRIDE))
 
     @wraps(initial)
     def init(self, *args, **kwargs):
@@ -42,7 +44,7 @@ def observe_engine(module):
             output = schedule()
             end = monotonic_ns()
             if output.total_num_scheduled_tokens:
-                if rows := sampled_rows(output):
+                if rows := sampled_rows(output, stride):
                     emit("d_step_dispatch", batch=batch_key(rows), rows=rows, schedule_begin_ns=begin,
                          dispatch_ns=end, previous_dispatch_ns=previous_dispatch,
                          running=len(scheduler.running), waiting=len(scheduler.waiting))
@@ -51,7 +53,7 @@ def observe_engine(module):
 
         @wraps(update)
         def publish(output, model_result):
-            rows = sampled_rows(output)
+            rows = sampled_rows(output, stride)
             begin = monotonic_ns()
             result = update(output, model_result)
             if rows:
@@ -61,7 +63,7 @@ def observe_engine(module):
         scheduler.schedule = dispatch
         scheduler.update_from_output = publish
         emit("d_step_attached", batch_queue_size=self.batch_queue_size, async_scheduling=self.async_scheduling,
-             step_sample_stride=STRIDE)
+             step_sample_stride=stride)
 
     cls.__init__ = init
 
@@ -72,6 +74,7 @@ def observe_runner(module):
     forward = cls._model_forward
     sample = cls.sample_tokens
     replay = module.torch.npu.NPUGraph.replay
+    stride = int(os.environ.get("PDKV_DECODE_STEP_STRIDE", STRIDE))
     pending = deque()
     previous_enter = None
     active = None
@@ -110,9 +113,12 @@ def observe_runner(module):
 
     @wraps(replay)
     def graph_replay(self):
-        result = replay(self)
-        if active is not None:
-            active[0]["graph_replays"] += 1
+        if active is None:
+            return replay(self)
+        fields, _ = active
+        with span("decode_graph_" + fields["batch"]):
+            result = replay(self)
+        fields["graph_replays"] += 1
         return result
 
     @wraps(execute)
@@ -124,7 +130,7 @@ def observe_runner(module):
             return execute(self, output, *args, **kwargs)
         enter = monotonic_ns()
         prior, previous_enter = previous_enter, enter
-        if not (rows := sampled_rows(output)):
+        if not (rows := sampled_rows(output, stride)):
             return execute(self, output, *args, **kwargs)
         fields = {"batch": batch_key(rows), "rank": self.device.index, "worker_enter_ns": enter,
                   "previous_worker_enter_ns": prior, "graph_replays": 0}

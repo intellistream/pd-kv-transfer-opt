@@ -226,7 +226,44 @@ def attach_decode(scheduler):
     emit("d_pool_attached")
 
 
-def install(module):
+def attach_abort(scheduler, *, observe_source=False):
+    """Observe the terminal transition and eventual block release for native aborts."""
+    finish = scheduler._free_request
+    free = scheduler._free_blocks
+    retained = set()
+
+    @wraps(finish)
+    def finish_request(request, *args, **kwargs):
+        key = request.request_id
+        aborted = request.status.name == "FINISHED_ABORTED"
+        if aborted:
+            transfer = request.kv_transfer_params or {}
+            emit("engine_abort_accepted", request_id=key, p_request_id=transfer.get("remote_request_id"),
+                 output_tokens=request.num_output_tokens)
+        result = finish(request, *args, **kwargs)
+        if aborted:
+            emit("engine_abort_finish_result", request_id=key, blocks_still_held=key in scheduler.requests)
+        elif observe_source and result and result.get("do_remote_prefill") and key in scheduler.requests:
+            retained.add(key)
+            emit("engine_source_kv_held", request_id=key)
+        return result
+
+    @wraps(free)
+    def free_blocks(request):
+        result = free(request)
+        key = request.request_id
+        if key in retained:
+            retained.remove(key)
+            emit("engine_source_kv_release", request_id=key)
+        if request.status.name == "FINISHED_ABORTED":
+            emit("engine_abort_kv_release", request_id=key)
+        return result
+
+    scheduler._free_request = finish_request
+    scheduler._free_blocks = free_blocks
+
+
+def install(module, *, lifetimes=True, aborts=False):
     cls = module.EngineCore
     initial = cls.__init__
     if getattr(initial, "_pd_kv_lifetime_observed", False):
@@ -235,45 +272,53 @@ def install(module):
     @wraps(initial)
     def init(self, *args, **kwargs):
         initial(self, *args, **kwargs)
-        if os.environ["ISSUE23_ROLE"] == "P":
-            attach_prefill(self.scheduler)
-        else:
-            attach_decode(self.scheduler)
+        if lifetimes:
+            if os.environ["ISSUE23_ROLE"] == "P":
+                attach_prefill(self.scheduler)
+            else:
+                attach_decode(self.scheduler)
+        if aborts:
+            attach_abort(self.scheduler, observe_source=os.environ["ISSUE23_ROLE"] == "P")
 
     init._pd_kv_lifetime_observed = True
     cls.__init__ = init
 
 
 class Loader:
-    def __init__(self, original):
+    def __init__(self, original, options):
         self.original = original
+        self.options = options
 
     def create_module(self, spec):
         return self.original.create_module(spec)
 
     def exec_module(self, module):
         self.original.exec_module(module)
-        install(module)
+        install(module, **self.options)
 
 
 class Finder:
+    def __init__(self, options):
+        self.options = options
+
     def find_spec(self, fullname, path=None, target=None):
         if fullname != ENGINE:
             return None
         for finder in sys.meta_path[sys.meta_path.index(self) + 1:]:
             spec = finder.find_spec(fullname, path, target)
             if spec is not None and spec.loader is not None:
-                spec.loader = Loader(spec.loader)
+                spec.loader = Loader(spec.loader, self.options)
                 return spec
         return None
 
 
 class InstallFilter:
-    def __init__(self):
+    def __init__(self, lifetimes=True, aborts=False):
         if not any(isinstance(finder, Finder) for finder in sys.meta_path):
-            sys.meta_path.insert(0, Finder())
+            options = {"lifetimes": lifetimes, "aborts": aborts}
+            sys.meta_path.insert(0, Finder(options))
             if ENGINE in sys.modules:
-                install(sys.modules[ENGINE])
+                install(sys.modules[ENGINE], **options)
 
     def filter(self, _record):
         return True

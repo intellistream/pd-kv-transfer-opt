@@ -17,7 +17,7 @@ from pd_kv_transfer_opt.profiling.analyze_multiwave import aligned_tx_intervals,
 from pd_kv_transfer_opt.profiling.check_trace import audit
 from pd_kv_transfer_opt.common import read_json, read_jsonl
 from pd_kv_transfer_opt.experiments.compare import compare
-from pd_kv_transfer_opt.experiments.serve import model_commands, read_deployment
+from pd_kv_transfer_opt.experiments.serve import model_commands, read_deployment, store_pool_layout
 from pd_kv_transfer_opt.simulator.geometry import geometry
 from pd_kv_transfer_opt.experiments.loadgen import drive, request_one, validate_workload
 from pd_kv_transfer_opt.simulator.lifecycle import Registry
@@ -54,6 +54,25 @@ class MultiwaveProfilingTests(unittest.TestCase):
 
 
 class DeploymentTests(unittest.TestCase):
+    def test_both_roles_contribute_eight_gib_per_worker(self):
+        config = read_deployment(ROOT / "configs" / "ascend-2p2d-decode-apc.example.json")
+        layout = store_pool_layout(config)
+        self.assertEqual(layout["model_workers_by_role"], {"P": 8, "D": 8})
+        self.assertEqual(layout["capacity_bytes_by_role"], {"P": 64 * 1024**3, "D": 64 * 1024**3})
+        self.assertEqual(layout["total_capacity_bytes"], 128 * 1024**3)
+        for role in ("P", "D"):
+            store, _ = model_commands(config, role, ROOT / "runs")
+            self.assertEqual(store["global_segment_size"], 8 * 1024**3)
+            self.assertEqual(store["local_buffer_size"], 32 * 1024**2)
+            self.assertIs(store["preferred_segment"], True)
+            self.assertIs(store["prefer_alloc_in_same_node"], True)
+
+        for old_size in (0, 16 * 1024**3):
+            with self.subTest(old_size=old_size):
+                stale = dict(config, store_pool=dict(config["store_pool"], global_segment_size=old_size))
+                with self.assertRaisesRegex(ValueError, "store_pool must match"):
+                    model_commands(stale, "D", ROOT / "runs")
+
     def test_deployment_uses_separate_lookup_ids_and_opt_in_profiling(self):
         config = read_deployment(ROOT / "configs" / "ascend-2p2d.example.json")
         for role in ("P", "D"):

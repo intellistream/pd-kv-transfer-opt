@@ -3,12 +3,13 @@
 本文件随项目进展更新。实验目标、已验证结果和后续假设分别见 [结果](docs/results.md) 与 [模拟器](docs/simulator.md)。
 
 - 按 [研究七步法](docs/research-seven-steps.md) 维护问题、证据、现有方法局限、唯一 key idea、设计、对照及结论。得到反例时更新主张和实验优先级。把机制代理、支持范围和同平台实测分开记录。
-- 当前主场景为 r43 原生双侧 APC 的 Terminal-Bench 48 会话、254 请求、92.5 秒根投放，D 出站 200 Gbps，P 保留原档。用本地 CPU 和归档 trace 优先查 D 有效 token 步进及长会话前驱链，也量 P 冷首轮。实机任务暂停。[主场景、归档证据与验证计划](docs/terminal-throughput-plan.md)
-- 短尾集中恢复的 r69/r78 和 68 窗 CPU 配对留作 RDMA 证据及校准，范围随引用给出。 [冻结对照与验证](docs/simulator.md#按本地-apc-覆盖复筛自然窗口)
+- r69/r78 的 100/200 Gbps 用于带宽敏感性与回归对照。r43 的 48 个会话、254 条请求、92.5 秒根投放用于常规长会话对照。按 P 与 D 的阶段时序解释供给和最后完工链。当前使用本地 CPU 和已归档 trace，实机计划等待 NPU。 [NPU 实测数据](results/2026-11-24-native-npu-reference/README.md) · [主实验计划](docs/terminal-throughput-plan.md)
 - 优先用已发布的 r14 事件重算，核对同一请求在客户端、代理、调度器、worker、原生 API 和设备事件里的关联。避免重复计入有包含关系的阶段。
 - 实机主路线为两台 8 卡 910B2 上的官方 vLLM、vLLM-Ascend 与 Mooncake NPU wheel。Attention TP4 和 expert EP4 共用每实例四张卡。高命中诊断关闭 P 本地 APC，原会话另有启用 APC 的对照。
-- 当前部署 baseline 为 [r43 双侧 APC 配置](docs/r43-native-decode-apc.md)。在 r28 的官方 vLLM + vLLM-Ascend + Mooncake 原生路径上开启 D 本地 APC 和固定版本的 D 原生重算调度器。保留自然 EOS 和原生路由。历史 r28/r42 的 D APC 关闭。r39 固定逐请求输出长度和实际去向，用于归因。同头单读、同步打包、提前接纳和流水各用自己的实验名称。[配置的已核对远端版本](https://github.com/intellistream/pd-kv-transfer-opt/commit/5d591893ca8c7adc03c797068b44ad43dad27398) · [历史基线和归因对照](docs/cross-run-throughput.md)
-- 最后一轮 RDMA 因果验证用 r69 原生负载做 100/200 正反序，并用更高档核对 200 的余量。新优化先在主 200 档配对验证，达到可复现的整轮收益后补 100 档压力回归。[带宽与吞吐验证](docs/terminal-throughput-plan.md#最后一轮-rdma-收益验证)
+- 当前部署 baseline 沿用 r43 的 vLLM + vLLM-Ascend + Mooncake、双侧 APC、D 原生重算调度器、自然 EOS、原生路由与上游 HTTP keepalive，使用 `two-sided-8gib-local-first/v1` 的 Store 布局。P/D 每个模型 rank 各贡献 8 GiB，每侧八个模型 rank，主机各 64 GiB，总计 128 GiB。两侧开启 `preferred_segment` 和 `prefer_alloc_in_same_node`，本地 staging 为 32 MiB。容量和布局变更需用户明确授权。新实验统一用维护仓库的生成器和模板，通过两侧 `state.json` 校验布局身份。历史单侧池生成器与 r14/r43 归档用于历史复现。 [当前基线](docs/decode-apc-baseline.md) · [r43 历史归档](docs/r43-native-decode-apc.md)
+- Basin 长上下文窗口 v1 等待 NPU，作为独立的拥塞与恢复验证。共享 steady 后，先排十个自然完成的 100/200 Gbps 臂，另有两个终止臂等待原生取消及资源释放验证。RDMA 主机制优先用 r69 在当前双侧池下重建基线。几十次调用的旧短测用于功能回归。 [独立评审](docs/basin-windows-v1-review.md) · [执行矩阵](configs/basin-windows-v1/matrix.json)
+- 历史 r28/r42 的 D APC 关闭。r39 固定逐请求输出长度和实际去向，用于归因。同头单读、同步打包、提前接纳和流水各用自己的实验名称。[历史基线和归因对照](docs/cross-run-throughput.md)
+- RDMA 因果验证用 r69 原生负载做 100/200 正反序，并用更高档核对 200 的余量。网络候选在 100 档量关键 GET、P 交付和含排空收益，在同负载 200 档配对核对全局成本和性能回归。[带宽与吞吐验证](docs/terminal-throughput-plan.md#最后一轮-rdma-收益验证)
 - r28 计量复核通过，约两成差距保留为实际生成工作和排空漂移的历史观测。带宽复现以两档真实负载可比、跨复测吞吐差稳定、回读压力传到 D 供给或最终完工为准。[原始证据](docs/cross-run-throughput.md#r28-的差距在同负载复测中怎样变化) · [传输主导的实测对照](docs/simulator.md#传输主导和解码主导的实测对照)
 - 首轮在原生执行路径上单独验证主方案。同头单读与 P 侧同步打包在首轮关闭。主方案独立取得可复现的可观吞吐收益后，再做原生、仅主方案、仅工程组件和组合的消融。工程组件对已启用主方案的执行给出正增量时保留。
 - 主服务负载使用同一固定版本的 Terminal-Bench 自然长会话和目标部署的采样与停止策略，按实际交接与 GET 字节、P 实算量、D 输出量和 Store 工作集筛选。根到达变化要核对真实释放的后继及命中构成。保留前驱依赖和双侧本地 APC。两臂用相同会话起点、工具间隔、路由策略及缓存配置。固定逐请求输出长度、预热已知目标、强制路由、关闭 APC 或增加后台竞争流量的实验均注明相应诊断条件。[负载筛选](docs/restore-workload-screen.md) · [代表性复查](docs/experiment-audit.md)
@@ -16,6 +17,6 @@
 - 每次数据分析先列出实际对照的含排空吞吐、输出 token 数、完工时长及相对变化。只有一臂时列出其吞吐和缺失的对应对照。有条件回放时同时列实测基准和模型吞吐。存在 EOS、路由或观测差异时明确记录，局部加速和带宽效应分别给出实测依据。
 - 对照保持输入计划、路由策略、生成参数、并行配置和版本一致。按实际启动参数记录 P/D APC、Store 布局、图策略、运行槽、分块预算、显存预留和观测模式。正式吞吐与 profiler 采样分开。记录成功数、实际输出长度、端口限速读回、有效载荷、端口计数和恢复回执。
 - 硬件命令只在授权实验节点运行，先检查所属角色和原始端口配置。修改驱动上限使用有读回和恢复逻辑的 suite。
-- 区分观测条件回放与基于模拟状态决策。队列、可见性与命中由因果事件产生。保留测量和模型的适用范围。
+- 区分观测条件回放与基于模拟状态决策。队列、可见性与命中由因果事件产生。历史 CPU 回放按 D 单侧 Store 校准。双侧池实测按对象实际来源区分同机和跨机 GET，未观测到来源的载荷单列，端口实际 TX/RX 独立计量。保留测量和模型的适用范围。
 - 发布短摘要、源数据引用、哈希和必要的清洗事件。每批实验启动前复查上一批遗留数据，每轮收尾核对完整归档后清理过期临时文件、重复导出和失败轮残留。失败轮保留简短诊断和收尾回执，有效的负结果保留为对照证据。机器配置、凭据、原始 prompt、权重和全量设备捕获存放在 Git 之外。[数据清理口径](docs/data.md#归档与清理)
 - 修改后执行相关 CPU 复核。入口和路径见 [README](README.md)。

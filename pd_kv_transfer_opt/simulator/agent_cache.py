@@ -88,8 +88,11 @@ class LocalCache:
 class Store:
     """Size-aware LRU of unique head objects and independent aligned state objects."""
 
-    def __init__(self, capacity):
+    def __init__(self, capacity, *, high_watermark=1.0, eviction_ratio=0.0, resident_scale=1.0):
         self.capacity = capacity
+        self.high_watermark = int(capacity * high_watermark)
+        self.eviction_batch = int(capacity * eviction_ratio)
+        self.resident_scale = resident_scale
         self.objects = OrderedDict()
         self.pins = Counter()
         self.ever_published = set()
@@ -125,14 +128,17 @@ class Store:
             if key in self.objects:
                 self.objects.move_to_end(key)
                 continue
-            size = self.size(key)
+            size = ceil(self.size(key) * self.resident_scale)
             self.ever_published.add(key)
-            while self.used + size > self.capacity:
+            target = self.capacity
+            if self.used + size > self.high_watermark:
+                target = max(size, self.high_watermark - self.eviction_batch)
+            while self.used + size > target:
                 victim = next((item for item in self.objects if item not in self.pins), None)
                 if victim is None:
                     break
                 del self.objects[victim]
-                freed = self.size(victim)
+                freed = ceil(self.size(victim) * self.resident_scale)
                 self.used -= freed
                 self.eviction_bytes += freed
                 self.evicted += 1

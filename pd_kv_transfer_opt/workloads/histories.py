@@ -1,5 +1,9 @@
 """Project visible ATIF history for serving benchmarks."""
 
+from datetime import datetime
+from pathlib import PurePosixPath
+
+
 def request_histories(steps, history_mode="reasoning"):
     """Project observed messages/calls/results without inventing missing content."""
     if history_mode not in ("reasoning", "visible"):
@@ -48,3 +52,36 @@ def request_histories(steps, history_mode="reasoning"):
             messages.append({"role": source, "content": step["message"]})
         else:
             raise ValueError(f"Unsupported ATIF source: {source}")
+
+
+def recover_tool_intervals(session, trace, trial):
+    """Estimate response-to-next-call waits from Harbor's ATIF and API clocks."""
+    task = session["task"]
+    metadata = trial["agent_result"]["metadata"]
+    steps = [step for step in trace["steps"] if step["source"] == "agent"]
+    times = metadata["api_request_times_msec"]
+    source_task = PurePosixPath(trial["config"]["task"]["path"]).name.removeprefix("terminal-bench__")
+    if (source_task != task or metadata["summarization_count"] or not steps or len(times) != len(steps)
+            or trial["agent_info"]["name"] not in ("terminus2", "terminus-2")
+            or any(ms <= 0 for ms in times)):
+        raise ValueError(f"API durations cannot be joined one-to-one in {task}")
+    step_ends = [datetime.fromisoformat(step["timestamp"]) for step in steps]
+    first_agent_index = trace["steps"].index(steps[0])
+    positions = {step["step_id"]: i for i, step in enumerate(steps)}
+    intervals = {}
+    for parent, child in zip(session["turns"], session["turns"][1:]):
+        i, next_i = positions[parent["step_id"]], positions[child["step_id"]]
+        if next_i != i + 1 or (i == 0 and first_agent_index == 0):
+            raise ValueError(f"Missing surrounding steps for tool clock of {parent['id']}")
+        prior = (step_ends[i - 1] if i else
+                 datetime.fromisoformat(trace["steps"][first_agent_index - 1]["timestamp"]))
+        elapsed_ms = (step_ends[i] - prior).total_seconds() * 1000
+        estimated = elapsed_ms - times[i]
+        if estimated < 0:
+            raise ValueError(f"Negative step residual for {parent['id']}")
+        nominal_wait_ms = sum(float(c.get("arguments", {}).get("duration", 0)) * 1000
+                              for c in steps[i].get("tool_calls", ()))
+        intervals[child["id"]] = {"parent": parent["id"], "gap_ms": round(estimated),
+                                   "step_elapsed_ms": elapsed_ms, "same_step_API_ms": times[i],
+                                   "parent_configured_tool_wait_ms": nominal_wait_ms}
+    return {"task": task, "source_agent_calls": len(steps), "intervals_by_child": intervals}

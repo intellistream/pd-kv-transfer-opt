@@ -62,11 +62,18 @@ def fit_decode(observations):
             "median_fit_error_ms": 1000 * median(abs(s - intercept - slope * (n - 1)) for n, s in observations)}
 
 
-def simulate_decode(requests, service, *, prefill_http_s=None, slots=16, include_requests=False, native_scores=None):
+def simulate_decode(requests, service, *, prefill_http_s=None, slots=16, include_requests=False, native_scores=None,
+                    step_savings_s=None):
     if not requests or slots < 1:
         raise ValueError("Decode replay needs a nonempty request trace and at least one slot per D")
     if native_scores is not None and (native_scores.keys() != requests.keys() or any(n <= 0 for n in native_scores.values())):
         raise ValueError("Native decode routing needs a positive proxy score for each request")
+    step_periods = {width: service["first_sequence_period_s"] + service["additional_sequence_period_s"] * (width - 1)
+                    for width in range(1, slots + 1)}
+    for width, saving in (step_savings_s or {}).items():
+        if width not in step_periods or not 0 <= saving < step_periods[width]:
+            raise ValueError("Decode step savings must leave a positive period at a supported width")
+        step_periods[width] -= saving
     placements = {name: row["D"] for name, row in requests.items()} if native_scores is None else {}
     decode_load = dict.fromkeys(DECODE_ROLES, 0)
     records, children = {}, defaultdict(list)
@@ -135,8 +142,7 @@ def simulate_decode(requests, service, *, prefill_http_s=None, slots=16, include
                     remaining[key] = float(tokens)
                 else:
                     complete(key, clock)
-        periods = {role: service["first_sequence_period_s"] + service["additional_sequence_period_s"] * (len(rows) - 1)
-                   for role, rows in active.items() if rows}
+        periods = {role: step_periods[len(rows)] for role, rows in active.items() if rows}
         candidates = [clock + min(active[role].values()) * period for role, period in periods.items()]
         if timed:
             candidates.append(timed[0][0])

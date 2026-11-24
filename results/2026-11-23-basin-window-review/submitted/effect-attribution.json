@@ -1,0 +1,89 @@
+{
+  "scope": "Representative CPU replay only: seed216, service-fit1, historical-Qwen median lengths where known and source lengths elsewhere, D-egress100Gbps. Stage means partition TTFT exactly; they are not device measurements.",
+  "cases": [
+    {
+      "group": "light",
+      "arm": "steady",
+      "base_calls": 304,
+      "base_TTFT_mean_s": 2.3278205323633507,
+      "base_TTFT_median_s": 0.7782453124893891,
+      "base_TTFT_mean_stage_s": {
+        "client_ingress": 0.01575590750144329,
+        "P_queue": 0.1603858242791879,
+        "P_engine_including_GET": 0.4771070942429377,
+        "D_ingress": 0.07296999300160678,
+        "D_queue": 1.3494480387865202,
+        "P_to_D_handoff": 0.06129308346377047,
+        "decode_to_first_token": 0.19086059108788458
+      },
+      "all_formal_remote_GET_GB": 27.92865792,
+      "base_remote_GET_GB": 27.92865792,
+      "formal_seconds": 1235.7387366304329,
+      "output_tokens": 852642,
+      "TPS": 689.9856537029445
+    },
+    {
+      "group": "fivefold",
+      "arm": "burst-drain",
+      "base_calls": 304,
+      "base_TTFT_mean_s": 27.84269659669552,
+      "base_TTFT_median_s": 15.351614519896138,
+      "base_TTFT_mean_stage_s": {
+        "client_ingress": 0.01575590750144329,
+        "P_queue": 0.25154779533800675,
+        "P_engine_including_GET": 0.5488383176700277,
+        "D_ingress": 0.07296999300160678,
+        "D_queue": 26.700032010022397,
+        "P_to_D_handoff": 0.06167230174129636,
+        "decode_to_first_token": 0.19188027142074354
+      },
+      "all_formal_remote_GET_GB": 31.69763328,
+      "base_remote_GET_GB": 16.55799808,
+      "formal_seconds": 1413.2893071824678,
+      "output_tokens": 1107810,
+      "TPS": 783.8522476396067
+    },
+    {
+      "group": "short",
+      "arm": "burst-drain",
+      "base_calls": 304,
+      "base_TTFT_mean_s": 24.230922224921727,
+      "base_TTFT_median_s": 9.249955206479967,
+      "base_TTFT_mean_stage_s": {
+        "client_ingress": 0.01575590750144329,
+        "P_queue": 0.25827356633279075,
+        "P_engine_including_GET": 0.5313960477325473,
+        "D_ingress": 0.07296999300160678,
+        "D_queue": 23.099641884814854,
+        "P_to_D_handoff": 0.06132320828020297,
+        "decode_to_first_token": 0.19156161725828225
+      },
+      "all_formal_remote_GET_GB": 39.04749568,
+      "base_remote_GET_GB": 18.45428224,
+      "formal_seconds": 1364.3858431038245,
+      "output_tokens": 1033932,
+      "TPS": 757.8002991059485
+    },
+    {
+      "group": "short",
+      "arm": "burst-terminate",
+      "base_calls": 304,
+      "base_TTFT_mean_s": 4.512517562242539,
+      "base_TTFT_median_s": 0.8564471244921208,
+      "base_TTFT_mean_stage_s": {
+        "client_ingress": 0.01575590750144329,
+        "P_queue": 0.2574426239947847,
+        "P_engine_including_GET": 0.5005274599649002,
+        "D_ingress": 0.07296999300160678,
+        "D_queue": 3.413685556497129,
+        "P_to_D_handoff": 0.06127181888745963,
+        "decode_to_first_token": 0.19086420239521543
+      },
+      "all_formal_remote_GET_GB": 18.53915136,
+      "base_remote_GET_GB": 16.37564416,
+      "formal_seconds": 1228.625807785867,
+      "output_tokens": 867110,
+      "TPS": 705.7559710247643
+    }
+  ]
+}

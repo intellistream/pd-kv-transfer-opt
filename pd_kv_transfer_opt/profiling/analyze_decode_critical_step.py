@@ -21,6 +21,9 @@ DEVICE_GRAPH = "MODEL_EXECUTE"
 REDUCE = "AscendCL@hcom_allReduce_"
 STREAM_SYNC = "AscendCL@aclrtSynchronizeStreamWithTimeout"
 EVENT_SYNC = "AscendCL@aclrtSynchronizeEvent"
+HOST_DEVICE_SYNC = "AscendCL@aclrtSynchronizeDeviceWithTimeout"
+GRAPH_SCOPE = "issue23::decode_graph_"
+FORWARD_SCOPE = "issue23::decode_forward_"
 FIELDS = ("compute", "copy", "device_event_wait", "uncovered")
 
 
@@ -69,7 +72,7 @@ def load_kernels(path):
     return data, dict(cores)
 
 
-def load_runtime(path):
+def load_runtime(path, *, with_batch_tags=False):
     data = defaultdict(list)
     payload = json.loads(path.read_bytes())
     events = payload["traceEvents"] if isinstance(payload, dict) else payload
@@ -77,9 +80,16 @@ def load_runtime(path):
                 and row.get("args", {}).get("name") == "Ascend Hardware"}
     watched = {GRAPH, DEVICE_GRAPH, REDUCE, EVENT_SYNC, STREAM_SYNC, "EVENT_WAIT", "MEMCPY_ASYNC"}
     for row in events:
-        if row["ph"] != "X" or row["name"] not in watched:
+        if row["ph"] != "X":
             continue
         name = row["name"]
+        if with_batch_tags and name.startswith((GRAPH_SCOPE, FORWARD_SCOPE)):
+            prefix = GRAPH_SCOPE if name.startswith(GRAPH_SCOPE) else FORWARD_SCOPE
+            begin = time_ns(row["ts"])
+            data[prefix].append((begin, begin + time_ns(row["dur"]), row["tid"], name[len(prefix):]))
+            continue
+        if name not in watched and not (with_batch_tags and name == HOST_DEVICE_SYNC):
+            continue
         if name in ("EVENT_WAIT", "MEMCPY_ASYNC", DEVICE_GRAPH) and row["pid"] not in hardware:
             continue
         start = time_ns(row["ts"])
@@ -87,13 +97,23 @@ def load_runtime(path):
     return {name: sorted(rows) for name, rows in data.items()}
 
 
-def load(path):
+def tagged_submit(events, previous_end, first, second):
+    """Prefer the matching device graph when host submission runs ahead."""
+    device_ids = {connection for start, _, _, connection in events.get(DEVICE_GRAPH, ())
+                  if previous_end < start <= second and connection is not None}
+    matched = [row for row in events.get(GRAPH, ()) if row[3] in device_ids and row[0] <= second]
+    return matched or [row for row in events.get(GRAPH, ()) if first < row[0] <= second]
+
+
+def load(path, *, with_batch_tags=False):
     names = ("kernel_details.csv", "communication.json", "trace_view.json")
     kernel_path, comm_path, trace_path = (path / k for k in names)
     kernels, cores = load_kernels(kernel_path)
     communication, widths = cycles(comm_path)
-    events = load_runtime(trace_path)
+    events = load_runtime(trace_path, with_batch_tags=with_batch_tags)
     gather = sorted(kernels["gather"], key=lambda row: row[1])
+    if with_batch_tags and (not gather or len(communication) < 2 or len(communication[0][1]) < 2):
+        raise ValueError(f"No complete Decode collective sequence in {path}")
     ends = [row[1] for row in gather]
     steps = []
     for (previous_end, _), (end, ops) in zip(communication, communication[1:]):
@@ -103,15 +123,25 @@ def load(path):
             raise ValueError(f"Unmatched logits AllGather in {path.name}")
         ops = [*ops, (near[0], end-near[0], 0.0)]
         first, second = ops[0][0], ops[1][0]
-        graph = [row for row in events.get(GRAPH, []) if first < row[0] <= second]
+        graph = (tagged_submit(events, previous_end, first, second) if with_batch_tags
+                 else [row for row in events.get(GRAPH, []) if first < row[0] <= second])
         eager = [row for row in events.get(REDUCE, []) if previous_end < row[0] <= first]
         submit = graph[0] if len(graph) == 1 else None
         sampler = [row for row in kernels["argmax"] if previous_end <= row[1] <= first]
-        steps.append({"allgather_end_ns": end, "previous_allgather_end_ns": previous_end,
-                      "ops": ops, "sample_end_ns": sampler[-1][1] if sampler else None,
-                      "eager_submit_ns": eager[0][0] if len(eager) == 1 else None,
-                      "graph_submit_ns": submit[0] if submit else None,
-                      "graph_tid": submit[2] if submit else None})
+        step = {"allgather_end_ns": end, "previous_allgather_end_ns": previous_end,
+                "ops": ops, "sample_end_ns": sampler[-1][1] if sampler else None,
+                "eager_submit_ns": eager[0][0] if len(eager) == 1 else None,
+                "graph_submit_ns": submit[0] if submit else None, "graph_tid": submit[2] if submit else None}
+        if with_batch_tags and submit is not None:
+            for prefix in (GRAPH_SCOPE, FORWARD_SCOPE):
+                matches = {tag for begin, finish, _, tag in events.get(prefix, ())
+                           if begin <= submit[0] <= finish}
+                if len(matches) == 1:
+                    step["batch"], = matches
+                    break
+                if matches:
+                    break
+        steps.append(step)
     graph_tids = {row[2] for row in events.get(DEVICE_GRAPH, [])}
     timelines = {"compute": Coverage(kernels["compute"])}
     timelines["copy"] = Coverage((a, b) for a, b, *_ in events.get("MEMCPY_ASYNC", []))
@@ -142,7 +172,7 @@ def projection(previous, phases, key, fraction):
     return (completed-zero)/MS
 
 
-def compute_rows(joined, timelines, events):
+def compute_rows(joined, timelines, events, *, include_boundaries=False, resource_costs=None):
     for batch in joined:
         window_start = max(s["previous_allgather_end_ns"] for s in batch)
         period = max(s["allgather_end_ns"] for s in batch)-window_start
@@ -150,6 +180,8 @@ def compute_rows(joined, timelines, events):
         origin = list(prev)
         totals = Counter()
         phases = []
+        boundaries = []
+        extra_components = set()
         marked = defaultdict(list)
         for i, group in enumerate(zip(*(s["ops"] for s in batch), strict=True)):
             arrivals = [entry[0] for entry in group]
@@ -160,9 +192,16 @@ def compute_rows(joined, timelines, events):
             if any(a<b for a,b in zip(arrivals,prev,strict=True)) or arrive < gate:
                 raise ValueError("Unexpected overlap across TP reduction boundaries")
             costs = [parts(timeline,a,b) for timeline,a,b in zip(timelines,prev,arrivals,strict=True)]
+            if resource_costs is not None:
+                for rank, (a, b) in enumerate(zip(prev, arrivals, strict=True)):
+                    extras = resource_costs(rank, batch[rank], i, a, b)
+                    costs[rank].update(extras)
+                    extra_components.update(extras)
             serial = parts(timelines[latest],gate,arrive)
             totals.update(serial)
             totals["collective_after_last"] += done-arrive
+            if include_boundaries:
+                boundaries.append((gate, arrive, done, latest))
             if i <= 1:
                 marker = "eager_submit_ns" if i == 0 else "graph_submit_ns"
                 label = "first" if i == 0 else "second"
@@ -200,9 +239,11 @@ def compute_rows(joined, timelines, events):
         result["allgather_anchor_spread_ms"] = (max(origin)-min(origin))/MS
         for key, values in marked.items():
             result[key] = values[0]
-        for key in ("compute", "collective_after_last", "submission_gap"):
+        for key in ("compute", "collective_after_last", "submission_gap", *sorted(extra_components)):
             for fraction in (0.1, 0.2, 0.3):
                 result[f"save_{key}_{fraction:g}_ms"] = period/MS-projection(origin,phases,key,fraction)
+        if include_boundaries:
+            result["collective_boundaries_ns"] = boundaries
         yield result
 
 

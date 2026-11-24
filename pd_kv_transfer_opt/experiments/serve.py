@@ -16,6 +16,30 @@ from pd_kv_transfer_opt.common import read_json, write_json
 
 ROLES = ("P", "D")
 PROFILE_CONFIG = {"profiler": "torch", "torch_profiler_with_stack": False, "torch_profiler_with_memory": False}
+STORE_POOL_LAYOUT_ID = "two-sided-8gib-local-first/v1"
+STORE_POOL_OPTIONS = {
+    "global_segment_size": 8 * 1024**3,
+    "local_buffer_size": 32 * 1024**2,
+    "preferred_segment": True,
+    "prefer_alloc_in_same_node": True,
+}
+
+
+def store_pool_options(config):
+    options = config.get("store_pool", STORE_POOL_OPTIONS)
+    if (not isinstance(options, dict) or options.keys() != STORE_POOL_OPTIONS.keys()
+            or any(type(options[key]) is not type(value) or options[key] != value
+                   for key, value in STORE_POOL_OPTIONS.items())):
+        raise ValueError(f"store_pool must match {STORE_POOL_LAYOUT_ID}: {STORE_POOL_OPTIONS}")
+    return options.copy()
+
+
+def store_pool_layout(config):
+    options = store_pool_options(config)
+    workers = {role: sum(map(len, config[role]["devices"])) for role in ROLES}
+    capacity = {role: count * options["global_segment_size"] for role, count in workers.items()}
+    return {"id": STORE_POOL_LAYOUT_ID, "model_workers_by_role": workers,
+            "capacity_bytes_by_role": capacity, "total_capacity_bytes": sum(capacity.values())}
 
 
 def read_deployment(path):
@@ -24,6 +48,8 @@ def read_deployment(path):
         raise ValueError("The two roles require different hosts.")
     for role in ROLES:
         item = config[role]
+        if "store_pool" in item or STORE_POOL_OPTIONS.keys() & item.keys():
+            raise ValueError("Use the common top-level store_pool on both roles.")
         if "enable_prefix_caching" in item and type(item["enable_prefix_caching"]) is not bool:
             raise ValueError(f"{role}.enable_prefix_caching must be a boolean when specified.")
         recompute = item.get("recompute_scheduler_enable", False)
@@ -38,6 +64,7 @@ def read_deployment(path):
             ports += [config["mooncake_rpc_port"], config["mooncake_metrics_port"], config["proxy_port"]]
         if len(item["api_ports"]) != 2 or len(item["kv_ports"]) != 2 or len(set(ports)) != len(ports):
             raise ValueError(f"Invalid or conflicting {role} ports.")
+    config["store_pool"] = store_pool_options(config)
     return config
 
 
@@ -46,16 +73,18 @@ def endpoints(config):
             for role in ROLES for idx, port in enumerate(config[role]["api_ports"])}
 
 
+def mooncake_store_config(config):
+    return {"metadata_server": "P2PHANDSHAKE", "protocol": "ascend", "device_name": "",
+            "master_server_address": f"{config['D']['host']}:{config['mooncake_rpc_port']}",
+            **store_pool_options(config)}
+
+
 def model_commands(config, role, run_dir, *, observe=False, profile_decode_steps=False,
                    decode_language_model_only=False, decode_native_profiler=False):
     local = config[role]
     producer = role == "P"
     kv_role = "kv_producer" if producer else "kv_consumer"
-    store = {"metadata_server": "P2PHANDSHAKE", "protocol": "ascend", "device_name": "",
-             "master_server_address": f"{config['D']['host']}:{config['mooncake_rpc_port']}",
-             "global_segment_size": 0 if producer else 16 * 1024**3,
-             "local_buffer_size": 32 * 1024**2, "preferred_segment": not producer,
-             "prefer_alloc_in_same_node": not producer}
+    store = mooncake_store_config(config)
     graph = local.get("compilation_config", {
         "cudagraph_capture_sizes": [1, 2, 4, 8, 16, 1024, 2048, 3072, 4096],
     } if producer else {
@@ -106,6 +135,8 @@ def model_commands(config, role, run_dir, *, observe=False, profile_decode_steps
 
 
 def launch(config, role, run_dir, run_id, state, store):
+    if store != mooncake_store_config(config):
+        raise ValueError("The worker Store configuration differs from the validated deployment.")
     from vllm.logger import DEFAULT_LOGGING_CONFIG
 
     logs = run_dir / "logs"
@@ -118,11 +149,13 @@ def launch(config, role, run_dir, run_id, state, store):
         for handler in logging["handlers"].values():
             handler.setdefault("filters", []).append("rdma_observations")
         logging.setdefault("filters", {})["rdma_observations"] = {"()": name}
-    if state.get("page_observations_enabled", False):
+    if state.get("page_observations_enabled", False) or state.get("abort_observations_enabled", False):
         for handler in logging["handlers"].values():
             handler.setdefault("filters", []).append("kv_page_observations")
         logging.setdefault("filters", {})["kv_page_observations"] = {
             "()": "pd_kv_transfer_opt.profiling.kv_lifetime_observability.InstallFilter",
+            "lifetimes": state.get("page_observations_enabled", False),
+            "aborts": state.get("abort_observations_enabled", False),
         }
     if state.get("prefill_admission_observations", False):
         for handler in logging["handlers"].values():
@@ -151,10 +184,13 @@ def launch(config, role, run_dir, run_id, state, store):
                ISSUE23_RUN_ID=run_id, ISSUE23_P_GRAPH_REPLAY_OBSERVABILITY="1" if state["observations_enabled"] else "0",
                ISSUE23_BATCH_GET_CONCURRENCY="1",
                VLLM_LOGGING_CONFIG_PATH=str(run_dir / "logging.json"), MOONCAKE_CONFIG_PATH=str(run_dir / "store.json"))
+    state["inherited_HCCL_RDMA_TIMEOUT"] = env.get("HCCL_RDMA_TIMEOUT")
     if mode_file is not None:
         env["ISSUE23_SAME_HEAD_MODE"] = mode_file
     if state.get("prefill_admission_observations", False):
         env["ISSUE23_P_ADMISSION_OBSERVABILITY"] = "1"
+    if state.get("decode_step_observations", False):
+        env["PDKV_DECODE_STEP_STRIDE"] = str(state.get("decode_step_stride", 16))
     repo = str(Path(__file__).resolve().parents[2])
     env["PYTHONPATH"] = os.pathsep.join(item for item in (repo, env.get("PYTHONPATH")) if item)
     children = []
@@ -241,10 +277,14 @@ def main():
     parser.add_argument("--observe", action="store_true", help="Enable method and NPU event observations for profiling runs.")
     parser.add_argument("--profile-kv-lifetime", action="store_true",
                         help="Observe scheduler page demand and connector-owned page lifetimes.")
+    parser.add_argument("--observe-abort", action="store_true",
+                        help="Record scheduler abort and block-release events without device profiling.")
     parser.add_argument("--profile-prefill-admission", action="store_true",
                         help="Join P HTTP processing and EngineCore input events with --observe.")
     parser.add_argument("--profile-decode-steps", action="store_true",
-                        help="Sample D scheduling, graph and device step boundaries with --observe.")
+                        help="Sample D steps with --decode-native-profiler or --observe.")
+    parser.add_argument("--decode-step-stride", type=int, default=16,
+                        help="Decode offset interval for sampled step markers.")
     parser.add_argument("--decode-language-model-only", action="store_true",
                         help="Run the native D language-only input path for text token prompts.")
     parser.add_argument("--decode-native-profiler", action="store_true",
@@ -258,8 +298,10 @@ def main():
     config = read_deployment(args.config)
     run_dir = args.run_dir.resolve()
     observe = args.observe or args.same_head_kv
-    if args.profile_decode_steps and (args.role != "D" or not args.observe):
-        parser.error("--profile-decode-steps requires --observe on D")
+    if args.profile_decode_steps and (args.role != "D" or not (args.observe or args.decode_native_profiler)):
+        parser.error("--profile-decode-steps requires --decode-native-profiler or --observe on D")
+    if args.decode_step_stride < 1 or (args.decode_step_stride != 16 and not args.profile_decode_steps):
+        parser.error("--decode-step-stride must be positive and requires --profile-decode-steps")
     if args.role != "D" and (args.decode_language_model_only or args.decode_native_profiler):
         parser.error("Decode input-path and native profiler options require --role D")
     store, commands = model_commands(config, args.role, run_dir, observe=observe,
@@ -267,16 +309,20 @@ def main():
                                     decode_language_model_only=args.decode_language_model_only,
                                     decode_native_profiler=args.decode_native_profiler)
     state = {"run_id": args.run_id, "role": args.role, "instances": commands, "store_config": store,
+             "store_pool_layout": store_pool_layout(config),
              "observations_enabled": observe, "decode_language_model_only": args.decode_language_model_only,
              "decode_native_profiler": args.decode_native_profiler}
     if args.profile_kv_lifetime:
         state["page_observations_enabled"] = True
+    if args.observe_abort:
+        state["abort_observations_enabled"] = True
     if args.profile_prefill_admission:
         if args.role != "P" or not args.observe:
             parser.error("--profile-prefill-admission requires --observe on P")
         state["prefill_admission_observations"] = True
     if args.profile_decode_steps:
         state["decode_step_observations"] = True
+        state["decode_step_stride"] = args.decode_step_stride
     if args.adxl_observer is not None:
         if args.role != "P" or not args.observe or not args.adxl_observer.is_file():
             parser.error("--adxl-observer requires an existing library and --observe on P")

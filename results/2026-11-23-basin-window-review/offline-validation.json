@@ -1,0 +1,102 @@
+{
+  "schema": "basin-window-v1-offline-validation/v1",
+  "status": "awaiting_npu",
+  "hardware_or_service_calls": 0,
+  "matrix_sha256": "061272b062bb82f7f1d092bf9526c744c165909afcf20a1acee155f0e67be86c",
+  "deployment_template_sha256": "5d096d1667b8512b428bb4263aa6ca8809053f1d5f3e7dd832aa76b41d0c4895",
+  "byte_verified_archive_entries": 21,
+  "deployment_dry_run": {
+    "P": {
+      "instances": [
+        "P0",
+        "P1"
+      ],
+      "store_geometry": {
+        "id": "two-sided-8gib-local-first/v1",
+        "model_workers_by_role": {
+          "P": 8,
+          "D": 8
+        },
+        "capacity_bytes_by_role": {
+          "P": 68719476736,
+          "D": 68719476736
+        },
+        "total_capacity_bytes": 137438953472
+      }
+    },
+    "D": {
+      "instances": [
+        "D0",
+        "D1"
+      ],
+      "store_geometry": {
+        "id": "two-sided-8gib-local-first/v1",
+        "model_workers_by_role": {
+          "P": 8,
+          "D": 8
+        },
+        "capacity_bytes_by_role": {
+          "P": 68719476736,
+          "D": 68719476736
+        },
+        "total_capacity_bytes": 137438953472
+      }
+    }
+  },
+  "validated_cli_arms": [
+    {
+      "experiment_profile": "compact-final-light",
+      "arm": "steady",
+      "warmup_requests": 32,
+      "measured_requests": 304,
+      "measured_sessions": 56,
+      "termination_s": null
+    },
+    {
+      "experiment_profile": "compact-final-fivefold",
+      "arm": "burst-drain",
+      "warmup_requests": 32,
+      "measured_requests": 448,
+      "measured_sessions": 80,
+      "termination_s": null
+    },
+    {
+      "experiment_profile": "compact-final-light",
+      "arm": "plus33",
+      "warmup_requests": 32,
+      "measured_requests": 316,
+      "measured_sessions": 58,
+      "termination_s": null
+    },
+    {
+      "experiment_profile": "compact-final-light",
+      "arm": "plus100",
+      "warmup_requests": 32,
+      "measured_requests": 340,
+      "measured_sessions": 62,
+      "termination_s": null
+    },
+    {
+      "experiment_profile": "compact-final-short",
+      "arm": "burst-drain",
+      "warmup_requests": 32,
+      "measured_requests": 400,
+      "measured_sessions": 80,
+      "termination_s": null
+    },
+    {
+      "experiment_profile": "compact-final-short",
+      "arm": "burst-terminate",
+      "warmup_requests": 32,
+      "measured_requests": 400,
+      "measured_sessions": 80,
+      "termination_s": 150.0
+    }
+  ],
+  "submitted_cases": 96,
+  "independently_reproduced": 12,
+  "independent_model_cases": 68,
+  "model_abort_boundary_cases": 9,
+  "native_abort_qualified": false,
+  "independent_replay_sha256": "a5390e8862653a2abc46eace2e5a4ad048eb072d0e8d2fa8268497baf0a854af"
+}

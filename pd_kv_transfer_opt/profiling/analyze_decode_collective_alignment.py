@@ -39,6 +39,8 @@ def cycles(path):
             steps.append((start + duration, pending))
             pending = []
     widths = Counter(len(group) for _, group in steps)
+    if not widths:
+        raise ValueError(f"No AllGather boundaries in {path}")
     width = widths.most_common(1)[0][0]
     return [(anchor, group) for anchor, group in steps if len(group) == width], dict(widths)
 

@@ -1,0 +1,33 @@
+{
+  "schema": "basin-window-execution-matrix/v1",
+  "status": "awaiting_npu",
+  "scope": "Independent native-load validation for transient congestion and recovery",
+  "entrypoint": "pd_kv_transfer_opt.experiments.basin_burst_validation",
+  "deployment": "configs/ascend-2p2d-decode-apc.example.json",
+  "required_store_layout": "two-sided-8gib-local-first/v1",
+  "workload": {
+    "path": "data/basin-windows-v1/inputs.jsonl.gz",
+    "sha256": "1ec58cea40cc695a26812c009fdae3ff475ca05ed2c58f13cf7372987b6868ac"
+  },
+  "plans": {
+    "light": {"path": "configs/basin-windows-v1/light.json", "sha256": "0c05825ec0b746b3aef6b6aa4a0cea26d6db92c91ea102a14f859d05e0cc1543"},
+    "fivefold": {"path": "configs/basin-windows-v1/fivefold.json", "sha256": "5c22b2d0b77535bb143cd33d62f2e2465ea272c299683cd155626372ff79bf94"},
+    "short": {"path": "configs/basin-windows-v1/short.json", "sha256": "876af2a4f51226ac918c1d1bcacb741f528fa74d2ffc7c97ba30d59da91e821a"}
+  },
+  "conditions": [
+    {"plan": "light", "arm": "steady", "cap_order_Gbps": [100, 200], "priming_calls": 32, "formal_calls": 304},
+    {"plan": "fivefold", "arm": "burst-drain", "cap_order_Gbps": [200, 100], "priming_calls": 32, "formal_calls": 448},
+    {"plan": "light", "arm": "plus33", "cap_order_Gbps": [100, 200], "priming_calls": 32, "formal_calls": 316},
+    {"plan": "light", "arm": "plus100", "cap_order_Gbps": [200, 100], "priming_calls": 32, "formal_calls": 340},
+    {"plan": "short", "arm": "burst-drain", "cap_order_Gbps": [100, 200], "priming_calls": 32, "formal_calls": 400},
+    {"plan": "short", "arm": "burst-terminate", "cap_order_Gbps": [200, 100], "priming_calls": 32, "formal_calls": 400,
+     "qualification": "Native proxy cancellation, engine acknowledgement, and KV/slot release on a short diagnostic"}
+  ],
+  "shaping": {"D_egress_ports": 8, "per_port_Mbps": {"100": 12500, "200": 25000}, "P_egress": "original"},
+  "shared_steady": {"plan": "light", "arm": "steady", "per_cap": true,
+                    "requires_comparable_initial_cache_and_deployment": true},
+  "expected_runs": {"unconditional_nontermination": 10, "including_qualified_termination": 12},
+  "model_hours_before_setup_or_profiling": {
+    "nontermination": [4.516, 4.944], "all_conditions": [5.381, 5.867]
+  }
+}

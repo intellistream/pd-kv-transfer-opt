@@ -1,0 +1,629 @@
+{
+  "r34_event_sha256": "72cfd502b905ed484284e692594a04eb7693fab525c36c719c142fd0b178aa28",
+  "native_step_join": {
+    "sampled_dispatches": 2788,
+    "sampled_results": 2788,
+    "worker_events": 11152,
+    "four_rank_joins": 2788,
+    "all_four_with_device_timing": 2788,
+    "unmatched_results": 0,
+    "unmatched_worker_batches": 0,
+    "timing_unavailable_events": 0
+  },
+  "r34_baseline": {
+    "output_tokens": 167284,
+    "duration_s": 484.6801442038268,
+    "throughput_tokens_s": 345.1430845692961
+  },
+  "r34_pure_FULL_bands": {
+    "1-4": {
+      "steps": 1949,
+      "modes": {
+        "FULL": 1949
+      },
+      "padded_tokens": {
+        "1": 1083,
+        "2": 374,
+        "4": 492
+      },
+      "graph_replayed_all_ranks": 1949,
+      "stage_cost_ms": {
+        "RPC_dispatch_to_rank0_enter_ms": {
+          "n": 1949,
+          "mean": 6.204624874807593,
+          "p50": 5.535426,
+          "p95": 9.775624,
+          "max": 90.547242
+        },
+        "dispatch_to_update_ms": {
+          "n": 1949,
+          "mean": 30.785524999486917,
+          "p50": 29.977526,
+          "p95": 36.551689,
+          "max": 178.850269
+        },
+        "engine_dispatch_gap_ms": {
+          "n": 1949,
+          "mean": 15.039378860954336,
+          "p50": 14.649576,
+          "p95": 18.834813,
+          "max": 42.209546
+        },
+        "engine_update_ms": {
+          "n": 1949,
+          "mean": 0.10775296459722934,
+          "p50": 0.101171,
+          "p95": 0.145971,
+          "max": 3.04289
+        },
+        "forward_entry_spread_across_ranks_ms": {
+          "n": 1949,
+          "mean": 0.926455723447922,
+          "p50": 0.738705,
+          "p95": 2.182704,
+          "max": 15.664422
+        },
+        "rank0_after_forward_stream_ms": {
+          "n": 1949,
+          "mean": 0.29444030778967095,
+          "p50": 0.2844400107860565,
+          "p95": 0.32684001326560974,
+          "max": 0.34077998995780945
+        },
+        "rank0_forward_device_ms": {
+          "n": 1949,
+          "mean": 13.480654001113633,
+          "p50": 12.511039733886719,
+          "p95": 16.29513931274414,
+          "max": 164.59982299804688
+        },
+        "rank0_forward_host_ms": {
+          "n": 1949,
+          "mean": 5.621265100564392,
+          "p50": 5.052363,
+          "p95": 8.950998,
+          "max": 155.198874
+        },
+        "rank0_input_prepare_ms": {
+          "n": 1949,
+          "mean": 8.09894592508979,
+          "p50": 7.983562,
+          "p95": 8.898068,
+          "max": 17.771546
+        },
+        "rank0_sample_host_ms": {
+          "n": 1949,
+          "mean": 1.103451498717291,
+          "p50": 1.087097,
+          "p95": 1.211177,
+          "max": 5.491806
+        },
+        "rank0_sample_return_to_engine_result_ms": {
+          "n": 1949,
+          "mean": 8.799203580810673,
+          "p50": 8.214984,
+          "p95": 11.677406,
+          "max": 104.696834
+        },
+        "rank0_worker_gap_ms": {
+          "n": 1949,
+          "mean": 15.291193238070806,
+          "p50": 14.698786,
+          "p95": 18.940594,
+          "max": 100.360996
+        },
+        "scheduler_compute_ms": {
+          "n": 1949,
+          "mean": 0.23894105130836327,
+          "p50": 0.199471,
+          "p95": 0.395543,
+          "max": 1.624561
+        },
+        "slowest_rank_forward_device_ms": {
+          "n": 1949,
+          "mean": 13.529146541871432,
+          "p50": 12.53085994720459,
+          "p95": 16.299480438232422,
+          "max": 164.64915466308594
+        },
+        "worker_entry_spread_across_ranks_ms": {
+          "n": 1949,
+          "mean": 0.5096709610056439,
+          "p50": 0.364622,
+          "p95": 1.278628,
+          "max": 16.578189
+        }
+      }
+    },
+    "9-16": {
+      "steps": 325,
+      "modes": {
+        "FULL": 325
+      },
+      "padded_tokens": {
+        "16": 325
+      },
+      "graph_replayed_all_ranks": 325,
+      "stage_cost_ms": {
+        "RPC_dispatch_to_rank0_enter_ms": {
+          "n": 325,
+          "mean": 5.672588356923077,
+          "p50": 4.743441,
+          "p95": 5.890589,
+          "max": 83.892298
+        },
+        "dispatch_to_update_ms": {
+          "n": 325,
+          "mean": 54.70878100307692,
+          "p50": 52.691904,
+          "p95": 59.416609,
+          "max": 326.524654
+        },
+        "engine_dispatch_gap_ms": {
+          "n": 325,
+          "mean": 26.79593192923077,
+          "p50": 26.505603,
+          "p95": 28.565366,
+          "max": 47.112908
+        },
+        "engine_update_ms": {
+          "n": 325,
+          "mean": 0.29007336,
+          "p50": 0.225201,
+          "p95": 0.325133,
+          "max": 6.18512
+        },
+        "forward_entry_spread_across_ranks_ms": {
+          "n": 325,
+          "mean": 1.8429433046153847,
+          "p50": 0.935726,
+          "p95": 2.976149,
+          "max": 215.171027
+        },
+        "rank0_after_forward_stream_ms": {
+          "n": 325,
+          "mean": 0.3796819689640632,
+          "p50": 0.37996000051498413,
+          "p95": 0.40887999534606934,
+          "max": 0.447519987821579
+        },
+        "rank0_forward_device_ms": {
+          "n": 325,
+          "mean": 26.77888894888071,
+          "p50": 26.06329917907715,
+          "p95": 28.37272071838379,
+          "max": 160.92071533203125
+        },
+        "rank0_forward_host_ms": {
+          "n": 325,
+          "mean": 16.79648420923077,
+          "p50": 15.863644,
+          "p95": 18.059168,
+          "max": 208.853205
+        },
+        "rank0_input_prepare_ms": {
+          "n": 325,
+          "mean": 8.833791978461539,
+          "p50": 8.609056,
+          "p95": 9.912765,
+          "max": 15.648083
+        },
+        "rank0_sample_host_ms": {
+          "n": 325,
+          "mean": 1.2587761723076922,
+          "p50": 1.235398,
+          "p95": 1.352729,
+          "max": 5.314505
+        },
+        "rank0_sample_return_to_engine_result_ms": {
+          "n": 325,
+          "mean": 20.90679747076923,
+          "p50": 20.617994,
+          "p95": 23.030501,
+          "max": 54.126593
+        },
+        "rank0_worker_gap_ms": {
+          "n": 325,
+          "mean": 27.123062753846153,
+          "p50": 26.583224,
+          "p95": 28.435766,
+          "max": 77.617177
+        },
+        "scheduler_compute_ms": {
+          "n": 325,
+          "mean": 0.9075771230769231,
+          "p50": 0.891586,
+          "p95": 1.125298,
+          "max": 3.05631
+        },
+        "slowest_rank_forward_device_ms": {
+          "n": 325,
+          "mean": 26.780186685415416,
+          "p50": 26.06329917907715,
+          "p95": 28.37272071838379,
+          "max": 160.92071533203125
+        },
+        "worker_entry_spread_across_ranks_ms": {
+          "n": 325,
+          "mean": 1.3397787938461538,
+          "p50": 0.393563,
+          "p95": 1.55924,
+          "max": 214.958975
+        }
+      }
+    }
+  },
+  "r34_outside_CANN": {
+    "1-4": {
+      "steps": 1943,
+      "modes": {
+        "FULL": 1943
+      },
+      "padded_tokens": {
+        "1": 1080,
+        "2": 374,
+        "4": 489
+      },
+      "graph_replayed_all_ranks": 1943,
+      "stage_cost_ms": {
+        "RPC_dispatch_to_rank0_enter_ms": {
+          "n": 1943,
+          "mean": 6.196167931549151,
+          "p50": 5.530816,
+          "p95": 9.760434,
+          "max": 90.547242
+        },
+        "dispatch_to_update_ms": {
+          "n": 1943,
+          "mean": 30.766680991765313,
+          "p50": 29.970005,
+          "p95": 36.465508,
+          "max": 178.850269
+        },
+        "engine_dispatch_gap_ms": {
+          "n": 1943,
+          "mean": 15.028546208955223,
+          "p50": 14.634176,
+          "p95": 18.823873,
+          "max": 42.209546
+        },
+        "engine_update_ms": {
+          "n": 1943,
+          "mean": 0.10765693926917139,
+          "p50": 0.101041,
+          "p95": 0.145891,
+          "max": 3.04289
+        },
+        "forward_entry_spread_across_ranks_ms": {
+          "n": 1943,
+          "mean": 0.9251617766340711,
+          "p50": 0.738065,
+          "p95": 2.168134,
+          "max": 15.664422
+        },
+        "rank0_after_forward_stream_ms": {
+          "n": 1943,
+          "mean": 0.29439268135803603,
+          "p50": 0.28439998626708984,
+          "p95": 0.3267599940299988,
+          "max": 0.34077998995780945
+        },
+        "rank0_forward_device_ms": {
+          "n": 1943,
+          "mean": 13.474261569044238,
+          "p50": 12.511039733886719,
+          "p95": 16.292499542236328,
+          "max": 164.59982299804688
+        },
+        "rank0_forward_host_ms": {
+          "n": 1943,
+          "mean": 5.62317233350489,
+          "p50": 5.052363,
+          "p95": 8.950998,
+          "max": 155.198874
+        },
+        "rank0_input_prepare_ms": {
+          "n": 1943,
+          "mean": 8.091226526505404,
+          "p50": 7.983123,
+          "p95": 8.876398,
+          "max": 17.771546
+        },
+        "rank0_sample_host_ms": {
+          "n": 1943,
+          "mean": 1.1015952985074626,
+          "p50": 1.086988,
+          "p95": 1.208668,
+          "max": 5.491806
+        },
+        "rank0_sample_return_to_engine_result_ms": {
+          "n": 1943,
+          "mean": 8.797324883685024,
+          "p50": 8.214984,
+          "p95": 11.671956,
+          "max": 104.696834
+        },
+        "rank0_worker_gap_ms": {
+          "n": 1943,
+          "mean": 15.282822715903242,
+          "p50": 14.692266,
+          "p95": 18.905593,
+          "max": 100.360996
+        },
+        "scheduler_compute_ms": {
+          "n": 1943,
+          "mean": 0.2387623921770458,
+          "p50": 0.199471,
+          "p95": 0.394583,
+          "max": 1.624561
+        },
+        "slowest_rank_forward_device_ms": {
+          "n": 1943,
+          "mean": 13.522291214393698,
+          "p50": 12.53085994720459,
+          "p95": 16.29513931274414,
+          "max": 164.64915466308594
+        },
+        "worker_entry_spread_across_ranks_ms": {
+          "n": 1943,
+          "mean": 0.5084447596500258,
+          "p50": 0.363862,
+          "p95": 1.268358,
+          "max": 16.578189
+        }
+      }
+    },
+    "9-16": {
+      "steps": 325,
+      "modes": {
+        "FULL": 325
+      },
+      "padded_tokens": {
+        "16": 325
+      },
+      "graph_replayed_all_ranks": 325,
+      "stage_cost_ms": {
+        "RPC_dispatch_to_rank0_enter_ms": {
+          "n": 325,
+          "mean": 5.672588356923077,
+          "p50": 4.743441,
+          "p95": 5.890589,
+          "max": 83.892298
+        },
+        "dispatch_to_update_ms": {
+          "n": 325,
+          "mean": 54.70878100307692,
+          "p50": 52.691904,
+          "p95": 59.416609,
+          "max": 326.524654
+        },
+        "engine_dispatch_gap_ms": {
+          "n": 325,
+          "mean": 26.79593192923077,
+          "p50": 26.505603,
+          "p95": 28.565366,
+          "max": 47.112908
+        },
+        "engine_update_ms": {
+          "n": 325,
+          "mean": 0.29007336,
+          "p50": 0.225201,
+          "p95": 0.325133,
+          "max": 6.18512
+        },
+        "forward_entry_spread_across_ranks_ms": {
+          "n": 325,
+          "mean": 1.8429433046153847,
+          "p50": 0.935726,
+          "p95": 2.976149,
+          "max": 215.171027
+        },
+        "rank0_after_forward_stream_ms": {
+          "n": 325,
+          "mean": 0.3796819689640632,
+          "p50": 0.37996000051498413,
+          "p95": 0.40887999534606934,
+          "max": 0.447519987821579
+        },
+        "rank0_forward_device_ms": {
+          "n": 325,
+          "mean": 26.77888894888071,
+          "p50": 26.06329917907715,
+          "p95": 28.37272071838379,
+          "max": 160.92071533203125
+        },
+        "rank0_forward_host_ms": {
+          "n": 325,
+          "mean": 16.79648420923077,
+          "p50": 15.863644,
+          "p95": 18.059168,
+          "max": 208.853205
+        },
+        "rank0_input_prepare_ms": {
+          "n": 325,
+          "mean": 8.833791978461539,
+          "p50": 8.609056,
+          "p95": 9.912765,
+          "max": 15.648083
+        },
+        "rank0_sample_host_ms": {
+          "n": 325,
+          "mean": 1.2587761723076922,
+          "p50": 1.235398,
+          "p95": 1.352729,
+          "max": 5.314505
+        },
+        "rank0_sample_return_to_engine_result_ms": {
+          "n": 325,
+          "mean": 20.90679747076923,
+          "p50": 20.617994,
+          "p95": 23.030501,
+          "max": 54.126593
+        },
+        "rank0_worker_gap_ms": {
+          "n": 325,
+          "mean": 27.123062753846153,
+          "p50": 26.583224,
+          "p95": 28.435766,
+          "max": 77.617177
+        },
+        "scheduler_compute_ms": {
+          "n": 325,
+          "mean": 0.9075771230769231,
+          "p50": 0.891586,
+          "p95": 1.125298,
+          "max": 3.05631
+        },
+        "slowest_rank_forward_device_ms": {
+          "n": 325,
+          "mean": 26.780186685415416,
+          "p50": 26.06329917907715,
+          "p95": 28.37272071838379,
+          "max": 160.92071533203125
+        },
+        "worker_entry_spread_across_ranks_ms": {
+          "n": 325,
+          "mean": 1.3397787938461538,
+          "p50": 0.393563,
+          "p95": 1.55924,
+          "max": 214.958975
+        }
+      }
+    }
+  },
+  "r34_rank0_kernel_screen": {
+    "cann_summary_sha256": "992867fcd6e9cb2630ba30d9de5842d19a0fc19f01f6f154551cd8397b6a6039",
+    "windows": [
+      {
+        "role": "D0",
+        "window": "multi",
+        "allgathers": 45,
+        "rank0_family_union_ms_per_allgather": {
+          "attention": 2.3767597777777776,
+          "collective": 3.132172622222222,
+          "matrix_multiply": 5.627293555555555,
+          "moe_routing_or_selection": 0.9449883555555556,
+          "other": 5.174661022222223,
+          "recurrent_or_convolution": 1.0776252444444445
+        }
+      },
+      {
+        "role": "D0",
+        "window": "solo",
+        "allgathers": 48,
+        "rank0_family_union_ms_per_allgather": {
+          "attention": 0.80800275,
+          "collective": 3.3434351249999996,
+          "matrix_multiply": 3.429657125,
+          "moe_routing_or_selection": 0.6826439166666667,
+          "other": 3.53486375,
+          "recurrent_or_convolution": 0.53626425
+        }
+      },
+      {
+        "role": "D1",
+        "window": "multi",
+        "allgathers": 43,
+        "rank0_family_union_ms_per_allgather": {
+          "attention": 3.5988367441860465,
+          "collective": 2.8364046511627907,
+          "matrix_multiply": 4.157608372093024,
+          "moe_routing_or_selection": 0.8038227906976744,
+          "other": 4.754100930232559,
+          "recurrent_or_convolution": 0.8306037209302326
+        }
+      }
+    ]
+  },
+  "r34_and_r37_critical_steps": {
+    "r34": {
+      "breakdown_sha256": "a80db0f946c65734702ae0d25aad8bab64a1499c4568da6e03f3b6b43ced979c",
+      "aligned_steps": 47,
+      "anchored_native_stage_ms": {
+        "compute": 9.011090765957446,
+        "collective": 1.946232255319149,
+        "host_runtime_ceiling": 1.5768702553191503,
+        "other": 1.0572807234042543
+      },
+      "shares": {
+        "compute": 0.6629958432733232,
+        "collective": 0.14319508357365426,
+        "host_runtime_ceiling": 0.11601907602657006,
+        "other": 0.07778999712645253
+      },
+      "captured_period_ms_p50": 17.389538,
+      "old_capture_20pct_saving_ms_p50": {
+        "compute": 1.8077460000000016,
+        "collective": 0.389879999999998,
+        "host_runtime_ceiling": 0.985826000000003
+      },
+      "HCCL_first_two_after_last_ms": {
+        "n": 47,
+        "mean": 0.05996927659574468,
+        "p50": 0.060598,
+        "p95": 0.078942,
+        "max": 0.080192
+      },
+      "explicit_host_sync_first_two_ms": {
+        "n": 47,
+        "mean": 0.038842638297872344,
+        "p50": 0.01728,
+        "p95": 0.14773,
+        "max": 0.55864
+      },
+      "device_copy_ms": {
+        "n": 47,
+        "mean": 0.16491855319148935,
+        "p50": 0.165124,
+        "p95": 0.1714,
+        "max": 0.17486
+      },
+      "PMU_kernel_classification": null
+    },
+    "r37": {
+      "breakdown_sha256": "4615c5f2e5c4b61de9175944b6694820b238811256350c43c7a1b5996e46f548",
+      "aligned_steps": 43,
+      "anchored_native_stage_ms": {
+        "compute": 8.724182325581396,
+        "collective": 1.893320511627907,
+        "host_runtime_ceiling": 1.8139778604651156,
+        "other": 1.1599933023255815
+      },
+      "shares": {
+        "compute": 0.6418864006642249,
+        "collective": 0.13930207361084657,
+        "host_runtime_ceiling": 0.1334643954338665,
+        "other": 0.08534713029106199
+      },
+      "captured_period_ms_p50": 15.1928,
+      "old_capture_20pct_saving_ms_p50": {
+        "compute": 1.7541860000000007,
+        "collective": 0.38045999999999935,
+        "host_runtime_ceiling": 0.5155119999999993
+      },
+      "HCCL_first_two_after_last_ms": {
+        "n": 43,
+        "mean": 0.04781218604651163,
+        "p50": 0.044382,
+        "p95": 0.063486,
+        "max": 0.068438
+      },
+      "explicit_host_sync_first_two_ms": {
+        "n": 42,
+        "mean": 0.02104804761904762,
+        "p50": 0.01632,
+        "p95": 0.048292,
+        "max": 0.071378
+      },
+      "device_copy_ms": {
+        "n": 43,
+        "mean": 0.16451893023255815,
+        "p50": 0.164642,
+        "p95": 0.169742,
+        "max": 0.17075
+      },
+      "PMU_kernel_classification": null
+    }
+  },
+  "scope": "Replay uses the r34 native event ledger and the two verified derived four-rank breakdowns. The archived raw per-rank CANN output and device PMU columns are unavailable here."
+}
