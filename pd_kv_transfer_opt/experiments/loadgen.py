@@ -59,7 +59,8 @@ def request_one(row: dict, endpoint: str, model: str, origin: float, timeout: fl
     record = {"type": "request_end", "id": key, "session_id": row.get("session_id"),
               "predecessor": row.get("predecessor"), "offered_s": row["offered_s"],
               "ready_s": row["ready_s"], "dispatch_s": time.monotonic() - origin,
-              "first_s": None, "completion_tokens": None, "streamed_token_ids": 0,
+              "response_headers_s": None, "first_s": None, "last_token_s": None, "done_s": None,
+              "completion_tokens": None, "streamed_token_ids": 0,
               "all_content_chunks_have_token_ids": True, "finish_reason": None,
               "done_signal": False, "status": "error"}
     payload = {"model": model, "prompt": row["prompt"], "max_tokens": row["max_tokens"],
@@ -75,12 +76,14 @@ def request_one(row: dict, endpoint: str, model: str, origin: float, timeout: fl
                   headers={"Content-Type": "application/json", "X-Request-Id": key})
     try:
         with urllib.request.urlopen(request, timeout=timeout) as response:
+            record["response_headers_s"] = time.monotonic() - origin
             record["http_status"] = response.status
             record["server_request_id"] = response.headers.get("X-Request-Id")
             for data in sse_data(response):
                 at = time.monotonic() - origin
                 if data == "[DONE]":
                     record["done_signal"] = True
+                    record["done_s"] = at
                     break
                 frame = json.loads(data)
                 if frame.get("error"):
@@ -96,6 +99,7 @@ def request_one(row: dict, endpoint: str, model: str, origin: float, timeout: fl
                     has_ids = isinstance(token_ids, list) and len(token_ids) > 0
                     content = bool(choice.get("text")) or has_ids
                     if content:
+                        record["last_token_s"] = at
                         if record["first_s"] is None:
                             record["first_s"] = at
                         count = len(token_ids) if has_ids else None
@@ -121,8 +125,14 @@ async def drive(rows, endpoint, model, workers, timeout, return_token_ids, ignor
     semaphore = asyncio.Semaphore(workers)
     tasks = {}
 
+    async def wait_until(offset):
+        remaining = origin + offset - time.monotonic()
+        while remaining > 0:
+            await asyncio.sleep(remaining)
+            remaining = origin + offset - time.monotonic()
+
     async def one(row):
-        await asyncio.sleep(max(0, origin + row["offered_s"] - time.monotonic()))
+        await wait_until(row["offered_s"])
         predecessor = row.get("predecessor")
         ready = row["offered_s"]
         if predecessor is not None:
@@ -134,7 +144,7 @@ async def drive(rows, endpoint, model, workers, timeout, return_token_ids, ignor
                 emit(record)
                 return record
             ready = max(ready, previous["end_s"] + row.get("tool_gap_s", 0))
-            await asyncio.sleep(max(0, origin + ready - time.monotonic()))
+            await wait_until(ready)
         async with semaphore:
             record = await asyncio.to_thread(request_one, {**row, "ready_s": ready}, endpoint,
                           model, origin, timeout, return_token_ids, ignore_eos, emit)

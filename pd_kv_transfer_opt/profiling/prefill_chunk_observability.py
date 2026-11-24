@@ -1,4 +1,4 @@
-"""Low-overhead P-only scheduler, worker and NPU forward timestamps."""
+"""Low-overhead scheduler, worker and NPU forward timestamps."""
 from collections import deque
 import functools
 import hashlib
@@ -22,7 +22,7 @@ def batch_key(rows):
     return hashlib.blake2b(repr(rows).encode(), digest_size=12).hexdigest()
 
 
-def observe_scheduler(scheduler):
+def observe_scheduler(scheduler, event_prefix='p_chunk'):
     original_add = scheduler.add_request
     original_schedule = scheduler.schedule
     original_update = scheduler.update_from_output
@@ -33,7 +33,7 @@ def observe_scheduler(scheduler):
         new = request.request_id not in scheduler.requests
         result = original_add(request)
         if new:
-            emit('p_chunk_arrival', request_id=request.request_id, arrival_ns=arrival,
+            emit(f'{event_prefix}_arrival', request_id=request.request_id, arrival_ns=arrival,
                  prompt_tokens=request.num_prompt_tokens)
         return result
 
@@ -44,7 +44,7 @@ def observe_scheduler(scheduler):
         dispatch = time.monotonic_ns()
         if output.total_num_scheduled_tokens:
             rows = chunk_rows(output)
-            emit('p_chunk_dispatch', batch=batch_key(rows), rows=rows, begin_ns=begin,
+            emit(f'{event_prefix}_dispatch', batch=batch_key(rows), rows=rows, begin_ns=begin,
                  dispatch_ns=dispatch, running=len(scheduler.running), waiting=len(scheduler.waiting),
                  budget=scheduler.max_num_scheduled_tokens, total=output.total_num_scheduled_tokens,
                  preempted=sorted(output.preempted_req_ids or ()))
@@ -55,29 +55,29 @@ def observe_scheduler(scheduler):
         ready = time.monotonic_ns()
         if scheduler_output.total_num_scheduled_tokens:
             rows = chunk_rows(scheduler_output)
-            emit('p_chunk_ready', batch=batch_key(rows), ready_ns=ready, rows=rows)
+            emit(f'{event_prefix}_ready', batch=batch_key(rows), ready_ns=ready, rows=rows)
         return original_update(scheduler_output, model_runner_output)
 
     scheduler.add_request = add
     scheduler.schedule = schedule
     scheduler.update_from_output = update
-    emit('p_chunk_scheduler_attached', schedule_module=original_schedule.__module__,
+    emit(f'{event_prefix}_scheduler_attached', schedule_module=original_schedule.__module__,
          scheduler_class=type(scheduler).__name__)
 
 
-def observe_engine(module):
+def observe_engine(module, event_prefix='p_chunk'):
     cls = module.EngineCore
     original_init = cls.__init__
 
     @functools.wraps(original_init)
     def init(self, *args, **kwargs):
         original_init(self, *args, **kwargs)
-        observe_scheduler(self.scheduler)
+        observe_scheduler(self.scheduler, event_prefix)
 
     cls.__init__ = init
 
 
-def observe_runner(module):
+def observe_runner(module, event_prefix='p_chunk'):
     cls = module.NPUModelRunner
     original_execute = cls.execute_model
     original_forward = cls._model_forward
@@ -85,7 +85,9 @@ def observe_runner(module):
     pending = deque()
     active = None
     timing_available = True
-    observe_graph = os.environ.get('ISSUE23_P_GRAPH_REPLAY_OBSERVABILITY') == '1'
+    graph_setting = ('ISSUE23_D_GRAPH_REPLAY_OBSERVABILITY' if event_prefix == 'd_step'
+                     else 'ISSUE23_P_GRAPH_REPLAY_OBSERVABILITY')
+    observe_graph = os.environ.get(graph_setting) == '1'
     replay_calls = 0
     if observe_graph:
         graph_class = module.torch.npu.NPUGraph
@@ -105,13 +107,13 @@ def observe_runner(module):
         nonlocal timing_available
         timing_available = False
         pending.clear()
-        emit('p_chunk_timing_unavailable', error=type(error).__name__, message=str(error)[:300])
+        emit(f'{event_prefix}_timing_unavailable', error=type(error).__name__, message=str(error)[:300])
 
     def flush():
         try:
             while pending and pending[0][1].query():
                 first, last, key, entered, begin, submitted = pending.popleft()
-                emit('p_chunk_device', batch=key, worker_enter_ns=entered, forward_enter_ns=begin,
+                emit(f'{event_prefix}_device', batch=key, worker_enter_ns=entered, forward_enter_ns=begin,
                      forward_cpu_return_ns=submitted, forward_device_ms=first.elapsed_time(last))
         except (RuntimeError, AttributeError) as error:
             disable_timing(error)
@@ -149,7 +151,7 @@ def observe_runner(module):
         result = original_forward(self, *args, **kwargs)
         submitted = time.monotonic_ns()
         if observe_graph:
-            emit('p_chunk_graph', batch=key, runtime_mode=graph_mode, padded_tokens=int(padded_tokens),
+            emit(f'{event_prefix}_graph', batch=key, runtime_mode=graph_mode, padded_tokens=int(padded_tokens),
                  aclgraph_replays=replay_calls - replay_before)
         if first is not None:
             try:
@@ -159,7 +161,7 @@ def observe_runner(module):
             except (RuntimeError, AttributeError) as error:
                 disable_timing(error)
         if first is None or not timing_available:
-            emit('p_chunk_device', batch=key, worker_enter_ns=entered, forward_enter_ns=begin,
+            emit(f'{event_prefix}_device', batch=key, worker_enter_ns=entered, forward_enter_ns=begin,
                  forward_cpu_return_ns=submitted, forward_device_ms=None)
         return result
 
@@ -195,9 +197,10 @@ class Loader:
 
 def install(module):
     if not getattr(module, '_issue23_prefill_chunks', False):
-        TARGETS[module.__name__](module)
+        event_prefix = 'd_step' if os.environ.get('ISSUE23_ROLE') == 'D' else 'p_chunk'
+        TARGETS[module.__name__](module, event_prefix)
         module._issue23_prefill_chunks = True
-        emit('p_chunk_observer_installed', module=module.__name__)
+        emit(f'{event_prefix}_observer_installed', module=module.__name__)
 
 
 class Finder(importlib.abc.MetaPathFinder):
@@ -216,7 +219,9 @@ class InstallFilter(NativeInstallFilter):
     def __init__(self, *args, **kwargs):
         global _installed
         super().__init__(*args, **kwargs)
-        if os.environ.get('ISSUE23_ROLE') != 'P' or _installed:
+        role = os.environ.get('ISSUE23_ROLE')
+        enabled = role == 'P' or (role == 'D' and os.environ.get('ISSUE23_D_STEP_OBSERVABILITY') == '1')
+        if not enabled or _installed:
             return
         sys.meta_path.insert(0, Finder())
         for name in TARGETS:

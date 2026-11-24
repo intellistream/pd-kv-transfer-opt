@@ -10,6 +10,8 @@ Qwen3.5-35B-A3B BF16，两台 8 卡 910B2，2P2D，每实例 Attention TP4、Exp
 
 ## 100/200 Gbps 原生吞吐
 
+[客户端输出速率图](../results/2026-11-20-r43-native-decode-apc/figures/r43-token-rate.png) 每 10 秒计算平均速率。[平滑版](../results/2026-11-20-r43-native-decode-apc/figures/r43-token-rate-smoothed.png) 对归档的每秒计数加权，图例采用原始整轮吞吐。两图均使用正式四轮、标出新会话投放窗口和实际完工时刻。 [源文件与绘图参数](../results/2026-11-20-r43-native-decode-apc/figures/manifest.json)
+
 | 实际顺序 | D 出站上限 | 实际输出 token | 含排空秒数 | 总吞吐（token/s） | 25–92.5 秒 D 出站（Gbps） | D 本地 APC 命中 token |
 |---|---:|---:|---:|---:|---:|---:|
 | 正序第一臂 | 100 Gbps | 222,715 | 544.99 | **408.66** | 6.83 | 10,990,592 |

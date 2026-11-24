@@ -7,7 +7,9 @@ from pathlib import Path
 import tempfile
 import threading
 import time
+from types import SimpleNamespace
 import unittest
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -15,6 +17,7 @@ from pd_kv_transfer_opt.experiments.analyze import summarize
 from pd_kv_transfer_opt.experiments.build_matrix import build
 from pd_kv_transfer_opt.profiling.analyze_multiwave import aligned_tx_intervals, cap_pressure, supply_time
 from pd_kv_transfer_opt.profiling.check_trace import audit
+from pd_kv_transfer_opt.profiling.prefill_chunk_observability import observe_runner, observe_scheduler
 from pd_kv_transfer_opt.common import read_json, read_jsonl
 from pd_kv_transfer_opt.experiments.compare import compare
 from pd_kv_transfer_opt.experiments.serve import model_commands, read_deployment, store_pool_layout
@@ -218,6 +221,60 @@ class AccountingTests(unittest.TestCase):
         self.assertEqual(result["output_tokens_per_s"], 3)
         self.assertIsNone(summarize([last], manifest)["finite_cohort"]["output_tokens_per_s"])
 
+    def test_decode_step_events_join_scheduler_and_device(self):
+        output = SimpleNamespace(
+            scheduled_new_reqs=[],
+            scheduled_cached_reqs=SimpleNamespace(req_ids=["decode"], num_computed_tokens=[32]),
+            num_scheduled_tokens={"decode": 1},
+            total_num_scheduled_tokens=1,
+            preempted_req_ids=None,
+        )
+        scheduler = SimpleNamespace(
+            add_request=lambda request: None, schedule=lambda: output, update_from_output=lambda *args: None,
+            requests={}, running=["decode"], waiting=[], max_num_scheduled_tokens=4096,
+        )
+
+        class Event:
+            def __init__(self, *, enable_timing):
+                self.enable_timing = enable_timing
+
+            def record(self):
+                pass
+
+            def query(self):
+                return True
+
+            def elapsed_time(self, _last):
+                return 2.5
+
+        class Runner:
+            device = SimpleNamespace(index=0)
+
+            def execute_model(self, _output):
+                return self._model_forward()
+
+            def _model_forward(self):
+                return "forward"
+
+            def sample_tokens(self):
+                return "tokens"
+
+        module = SimpleNamespace(NPUModelRunner=Runner, torch=SimpleNamespace(npu=SimpleNamespace(Event=Event)))
+        with patch("pd_kv_transfer_opt.profiling.prefill_chunk_observability.emit") as emit:
+            observe_scheduler(scheduler, "d_step")
+            observe_runner(module, "d_step")
+            runner = Runner()
+            self.assertIs(scheduler.schedule(), output)
+            self.assertEqual(runner.execute_model(output), "forward")
+            self.assertEqual(runner.sample_tokens(), "tokens")
+            scheduler.update_from_output(output, None)
+        events = {call.args[0]: call.kwargs for call in emit.call_args_list}
+        dispatch, device, ready = (events[f"d_step_{kind}"] for kind in ("dispatch", "device", "ready"))
+        self.assertEqual(dispatch["rows"], [("decode", 32, 1)])
+        self.assertEqual(dispatch["batch"], device["batch"])
+        self.assertEqual(device["batch"], ready["batch"])
+        self.assertEqual(device["forward_device_ms"], 2.5)
+
     def test_window_boundaries_and_unknown_token_counts(self):
         manifest = {"run_id": "unit", "window_start": 0, "seconds": 1, "selected_requests": 1}
         end = {"type": "request_end", "id": "a", "status": "ok", "offered_s": 0,
@@ -228,12 +285,16 @@ class AccountingTests(unittest.TestCase):
         result = summarize(rows, manifest)
         self.assertEqual(result["window"]["client_delivered_tokens_s"], 2)
         self.assertEqual(result["window"]["completed_request_tokens_s_boundary_biased"], 0)
+        self.assertEqual(result["finite_cohort"]["completed_output_tokens_s"], 1.5)
         slo = summarize(rows, manifest, 3, 3)["window"]
         self.assertEqual(slo["slo_goodput_requests_s"], 0)
         self.assertEqual(slo["offered_cohort_slo_attainment"], 1)
         rows[0]["n_tokens"] = None
         end["all_content_chunks_have_token_ids"] = False
         self.assertIsNone(summarize(rows, manifest)["window"]["client_delivered_tokens_s"])
+        self.assertEqual(summarize(rows, manifest)["finite_cohort"]["completed_output_tokens"], 3)
+        end["completion_tokens"] = None
+        self.assertIsNone(summarize(rows, manifest)["finite_cohort"]["completed_output_tokens_s"])
 
     def test_trace_pairing_and_drops(self):
         temporary_root = ROOT / "runs" / "test-tmp"

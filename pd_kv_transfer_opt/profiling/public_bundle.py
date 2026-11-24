@@ -64,6 +64,12 @@ EVENT_KEYS = {
     "p_admission_drain_mode": "mode",
     "p_admission_drain_ready": "response_queues poll_ms",
     "p_admission_drain_unavailable": "reason",
+    "d_step_arrival": "request_id arrival_ns prompt_tokens",
+    "d_step_dispatch": "batch rows begin_ns schedule_begin_ns dispatch_ns previous_dispatch_ns running waiting "
+                       "budget total preempted",
+    "d_step_ready": "batch rows ready_ns",
+    "d_step_graph": "batch runtime_mode padded_tokens aclgraph_replays",
+    "d_step_device": "batch worker_enter_ns forward_enter_ns forward_cpu_return_ns forward_device_ms",
     "same_head_pair_ready": "tp_rank peer_rank",
     "same_head_local_copy": "request_ids tp_rank payload_bytes elapsed_ns device_elapsed_ms pair_wait_ns operations verify method "
                             "batch request_id call_ordinal copy_begin_ns copy_end_ns",

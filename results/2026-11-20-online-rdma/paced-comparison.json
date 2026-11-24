@@ -1,0 +1,841 @@
+{
+  "run_id": "online-rdma-20261120-paced",
+  "selection": {
+    "selected": "020",
+    "available": [
+      "020",
+      "035",
+      "050"
+    ],
+    "first_turn_P_queue_p95_cutoff_ms": 5000,
+    "rule": "highest tested rate with modest first-turn P queues, otherwise use lowest"
+  },
+  "contrasts": {
+    "fixed": {
+      "order": [
+        "fixed-020-stock",
+        "fixed-020-cap100gbps",
+        "fixed-020-cap10gbps"
+      ],
+      "pending": [
+        "fixed-020-restored"
+      ],
+      "baseline_runs": 1,
+      "stock_mean_output_tokens_s": 408.8754471997386,
+      "matched_same_bytes_and_route_ms": {
+        "get": {
+          "fixed-020-stock": {
+            "n": 1,
+            "p50": 32.999866,
+            "p95": 32.999866,
+            "p99": 32.999866
+          },
+          "fixed-020-cap100gbps": {
+            "n": 1,
+            "p50": 40.465435,
+            "p95": 40.465435,
+            "p99": 40.465435
+          },
+          "fixed-020-cap10gbps": {
+            "n": 1,
+            "p50": 841.084664,
+            "p95": 841.084664,
+            "p99": 841.084664
+          }
+        },
+        "P_to_D": {
+          "fixed-020-stock": {
+            "n": 16,
+            "p50": 31.594546,
+            "p95": 305.78179500000005,
+            "p99": 305.78179500000005
+          },
+          "fixed-020-cap100gbps": {
+            "n": 16,
+            "p50": 60.023672,
+            "p95": 374.134038,
+            "p99": 374.134038
+          },
+          "fixed-020-cap10gbps": {
+            "n": 16,
+            "p50": 576.053448,
+            "p95": 2061.047976,
+            "p99": 2061.047976
+          }
+        }
+      },
+      "throughput_change_percent_vs_stock_mean": {
+        "fixed-020-cap100gbps": 0.8568453259644393,
+        "fixed-020-cap10gbps": -5.593078349960113
+      },
+      "shaping_receipts_verified": {
+        "fixed-020-cap100gbps-P-shaping-receipt.jsonl": {
+          "verified": true,
+          "sha256": "8aab5773741e859978303fb9ec714a758a027e18dc7ef994ecb1ed0368097a34"
+        },
+        "fixed-020-cap100gbps-D-shaping-receipt.jsonl": {
+          "verified": true,
+          "sha256": "c19cf8438536260bbb1eaf7a799bef02081288fb01790f13c6c92db6db364c03"
+        },
+        "fixed-020-cap10gbps-P-shaping-receipt.jsonl": {
+          "verified": true,
+          "sha256": "ab33daa1a4bbfd7929bdbb07e30cf4cb9958add3b54b1c30328d6429517996cf"
+        },
+        "fixed-020-cap10gbps-D-shaping-receipt.jsonl": {
+          "verified": true,
+          "sha256": "3645da23eba7efd037e2773efcb41bed7b254f7a9f30198043539bc8664705ee"
+        }
+      }
+    },
+    "poisson": {
+      "pending": [
+        "poisson-020-stock",
+        "poisson-020-cap100gbps",
+        "poisson-020-cap10gbps",
+        "poisson-020-restored"
+      ]
+    }
+  },
+  "cases": {
+    "fixed-020-cap100gbps": {
+      "case": "fixed-020-cap100gbps",
+      "schedule": "fixed-020-schedule.json",
+      "kind": "fixed",
+      "seed": null,
+      "sessions_per_second": 0.2,
+      "offered_span_s": 145.0,
+      "dispatch_span_s": 144.91581438799767,
+      "sessions": 30,
+      "requests_ok": 170,
+      "output_tokens": 87291,
+      "release_to_drain_s": 211.67670022099992,
+      "output_tokens_s": 412.37887735808573,
+      "TTFT_s": {
+        "n": 170,
+        "p50_s": 1.3217247430002317,
+        "p90_s": 4.929023213000619,
+        "p95_s": 10.138835615998687,
+        "p99_s": 17.800660537999647
+      },
+      "first_turn_TTFT_ms": {
+        "n": 30,
+        "p50": 4030.7843560003676,
+        "p95": 17800.660537999647,
+        "p99": 17914.735221998853
+      },
+      "first_turn_P_queue_ms": {
+        "n": 30,
+        "p50": 9.292559,
+        "p95": 21.562913,
+        "p99": 4190.854366
+      },
+      "successor_TTFT_ms": {
+        "n": 140,
+        "p50": 1060.7684530004917,
+        "p95": 6824.861913999484,
+        "p99": 13771.715561997553
+      },
+      "client_TPOT_ms": {
+        "n": 170,
+        "mean": 19.258087758721537,
+        "p50": 19.614886151006978,
+        "p95": 22.76260721144589,
+        "max": 42.152392935792015,
+        "p99": 28.240367616195776
+      },
+      "D_first_proxy_chunk_ms": {
+        "n": 170,
+        "mean": 431.8178788,
+        "p50": 318.87550250000004,
+        "p95": 887.656814,
+        "max": 2214.890763,
+        "p99": 2155.595247
+      },
+      "GET": {
+        "get_calls": 264,
+        "get_payload_bytes": 110575288320,
+        "get_ms": {
+          "n": 264,
+          "mean": 25.062176742424242,
+          "p50": 11.7761835,
+          "p95": 101.662365,
+          "max": 123.354639
+        },
+        "active_union_s": 1.940772811
+      },
+      "P_to_D": {
+        "payload_bytes": 557044531200,
+        "slowest_rank_ms": {
+          "n": 170,
+          "mean": 76.41313765882353,
+          "p50": 59.9996265,
+          "p95": 178.656614,
+          "max": 474.728073,
+          "p99": 374.134038
+        }
+      },
+      "cache": {
+        "cold": 30,
+        "remote": 33,
+        "local": 74,
+        "both": 33
+      },
+      "routes": {
+        "P0->D0": 46,
+        "P1->D0": 50,
+        "P0->D1": 37,
+        "P1->D1": 37
+      },
+      "steps": {
+        "P": {
+          "arrivals": 170,
+          "steps": 800,
+          "steps_with_ready": 800,
+          "steps_with_device": 798,
+          "pairing_errors": 0
+        },
+        "D": {
+          "arrivals": 170,
+          "steps": 22161,
+          "steps_with_ready": 22161,
+          "steps_with_device": 22159,
+          "pairing_errors": 0
+        }
+      },
+      "ports_tx_peak_Gbps": {
+        "P": 74.48580845546206,
+        "D": 50.73801828664689
+      },
+      "port_cap_Gbps": 100,
+      "telemetry": {
+        "P": {
+          "metrics_points": 55,
+          "populated_series_by_source": {
+            "P0": 55,
+            "P1": 55
+          },
+          "port_samples_inside": 106
+        },
+        "D": {
+          "metrics_points": 55,
+          "populated_series_by_source": {
+            "D0": 55,
+            "D1": 55,
+            "master": 55
+          },
+          "port_samples_inside": 106
+        }
+      },
+      "sha256": {
+        "fixed-020-schedule.json": "bf4e02ea0edd09761a0f8141ed2a5bcdb32cbf3993a94ccc565b75536f6fa1de",
+        "requests-joined.json": "230a5a23736dfdc57b0b7107c58399625818f3ab5e4274c5a522d5e7f8b3cf86",
+        "client.jsonl": "324a4884bc7bac461a38b4395f0cfb8b3e8ef1ea31a2ecb45288f64a4b16f485",
+        "P-steps.jsonl.gz": "6b9b5c9b2d83a6c44a0a4134283a82534fa86d7c33653008002279d7508c711b",
+        "D-steps.jsonl.gz": "636dd6b1486393bd60916eb055a9c31447dacf02b898ca090ea0efa17d9030e0",
+        "flows.jsonl.gz": "1ea4187d0a952088f3107dd2f02926ac65e10f6315bace27fe7b856256c27871",
+        "fixed-020-cap100gbps-P-ports.jsonl": "ac6e878c3f94c238b983f2a33d83567822010501ed03ef3f76669b8afc318d44",
+        "fixed-020-cap100gbps-P-metrics.jsonl": "539ea541c3aa851072784c17a3002e3848351d4bf1a85773a87e2e033b282ed9",
+        "fixed-020-cap100gbps-P-host.jsonl": "be5d858f75548df209436cc4085f285a0e5b502136eef427a9fc8ca72e507cf4",
+        "fixed-020-cap100gbps-D-ports.jsonl": "02be22264f4bfebb43be099e6da494d00d1a1c65769d1b8546aba645f569aeb3",
+        "fixed-020-cap100gbps-D-metrics.jsonl": "fb5e4e61aab3b6b26bbb9ad94a574594c5572f1f6df6d5a6903f149bc1d2034f",
+        "fixed-020-cap100gbps-D-host.jsonl": "1606b24b18798dd04c464825b69a7efaf09d9e63ef55457b530e245b3eaf8f92"
+      },
+      "archive_sha256": {
+        "P": "c27c7cff1b1842145843f74f485faf3edb54e22b0b55a0d4b493009064471383",
+        "D": "430ada6528bdec268421dbddcabbbe7634cac3f6846c1b987e3331014baa9ee5"
+      }
+    },
+    "fixed-020-cap10gbps": {
+      "case": "fixed-020-cap10gbps",
+      "schedule": "fixed-020-schedule.json",
+      "kind": "fixed",
+      "seed": null,
+      "sessions_per_second": 0.2,
+      "offered_span_s": 145.0,
+      "dispatch_span_s": 144.91697327499787,
+      "sessions": 30,
+      "requests_ok": 170,
+      "output_tokens": 87291,
+      "release_to_drain_s": 226.13854831999924,
+      "output_tokens_s": 386.0067230841074,
+      "TTFT_s": {
+        "n": 170,
+        "p50_s": 2.7980651340003533,
+        "p90_s": 7.336322070001188,
+        "p95_s": 12.738092617000802,
+        "p99_s": 24.906071026001882
+      },
+      "first_turn_TTFT_ms": {
+        "n": 30,
+        "p50": 5794.378377999237,
+        "p95": 24906.071026001882,
+        "p99": 25092.151171000296
+      },
+      "first_turn_P_queue_ms": {
+        "n": 30,
+        "p50": 9.483021,
+        "p95": 5973.465767,
+        "p99": 10612.06724
+      },
+      "successor_TTFT_ms": {
+        "n": 140,
+        "p50": 2381.905498998094,
+        "p95": 8318.243816000177,
+        "p99": 13092.5256920018
+      },
+      "client_TPOT_ms": {
+        "n": 170,
+        "mean": 19.45104605161672,
+        "p50": 19.97388453477511,
+        "p95": 23.026434364830227,
+        "max": 31.06039002940473,
+        "p99": 29.327045908249026
+      },
+      "D_first_proxy_chunk_ms": {
+        "n": 170,
+        "mean": 1303.544350847059,
+        "p50": 956.1135125000001,
+        "p95": 2746.361667,
+        "max": 5388.727304,
+        "p99": 3955.907267
+      },
+      "GET": {
+        "get_calls": 208,
+        "get_payload_bytes": 96000409600,
+        "get_ms": {
+          "n": 208,
+          "mean": 314.16286591826923,
+          "p50": 196.02145000000002,
+          "p95": 1303.224363,
+          "max": 1943.106303
+        },
+        "active_union_s": 14.494265707
+      },
+      "P_to_D": {
+        "payload_bytes": 557044531200,
+        "slowest_rank_ms": {
+          "n": 170,
+          "mean": 801.2019316352942,
+          "p50": 613.9507504999999,
+          "p95": 1901.044142,
+          "max": 2655.212672,
+          "p99": 2487.9114210000002
+        }
+      },
+      "cache": {
+        "cold": 30,
+        "remote": 30,
+        "local": 88,
+        "both": 22
+      },
+      "routes": {
+        "P0->D0": 40,
+        "P1->D0": 38,
+        "P0->D1": 40,
+        "P1->D1": 52
+      },
+      "steps": {
+        "P": {
+          "arrivals": 170,
+          "steps": 781,
+          "steps_with_ready": 781,
+          "steps_with_device": 779,
+          "pairing_errors": 0
+        },
+        "D": {
+          "arrivals": 170,
+          "steps": 22999,
+          "steps_with_ready": 22999,
+          "steps_with_device": 22997,
+          "pairing_errors": 0
+        }
+      },
+      "ports_tx_peak_Gbps": {
+        "P": 77.8017729325926,
+        "D": 35.97350675059796
+      },
+      "port_cap_Gbps": 10,
+      "telemetry": {
+        "P": {
+          "metrics_points": 58,
+          "populated_series_by_source": {
+            "P0": 58,
+            "P1": 58
+          },
+          "port_samples_inside": 112
+        },
+        "D": {
+          "metrics_points": 58,
+          "populated_series_by_source": {
+            "D0": 58,
+            "D1": 58,
+            "master": 58
+          },
+          "port_samples_inside": 113
+        }
+      },
+      "sha256": {
+        "fixed-020-schedule.json": "bf4e02ea0edd09761a0f8141ed2a5bcdb32cbf3993a94ccc565b75536f6fa1de",
+        "requests-joined.json": "436da4d7851230f5d2bc4ce849fb9578c299df44b461c77da906fbf546213949",
+        "client.jsonl": "50b792e002a26f59f7e38722867114ec3fdef4283e37109b34fb423814d43252",
+        "P-steps.jsonl.gz": "3646664a5a27ed2f0fbb1d700d2a4f6df4615acdc595767e69e9fbdcd7925d7f",
+        "D-steps.jsonl.gz": "3bbf6fcf9cde0cdfbb73b852c16af676a79734274e62c15dc2518790b0096f68",
+        "flows.jsonl.gz": "dda9ed570809d67610c827136db79d87cfe5f3ce8143e72ff377e9275a759961",
+        "fixed-020-cap10gbps-P-ports.jsonl": "69a26504145ab284814ca47b93e073f78e121e6beb0fa09001d6dae13ff98093",
+        "fixed-020-cap10gbps-P-metrics.jsonl": "dee24a227973e16c1132838a30f8d9e8cedb1d4123d7b3cedbb1e0fc6727e373",
+        "fixed-020-cap10gbps-P-host.jsonl": "31001f8d549039666cb5f5a0c933107c4ada5912f05fa867e923e7d96e21f79b",
+        "fixed-020-cap10gbps-D-ports.jsonl": "b53d571d77aea9e4c102047bc61434cf0a36a6a5f3a1fb5f469a8669a70cd157",
+        "fixed-020-cap10gbps-D-metrics.jsonl": "f2602edba43f3569eeec958ab67a042ec51be2bea33edaab43e7596cd3ada996",
+        "fixed-020-cap10gbps-D-host.jsonl": "f241cab5ada477ae3352742320574091a9a1356b25ffd4ba47c0e6ca9cbb2b90"
+      },
+      "archive_sha256": {
+        "P": "529f7873b19564159e3f97512a9f7e1c28e8c75c20ee946371d0bc3a69337177",
+        "D": "1bdc460038d797d4e4862b31b01834c53a47080d1a2c0f4727bd73cb75abfedb"
+      }
+    },
+    "fixed-020-stock": {
+      "case": "fixed-020-stock",
+      "schedule": "fixed-020-schedule.json",
+      "kind": "fixed",
+      "seed": null,
+      "sessions_per_second": 0.2,
+      "offered_span_s": 145.0,
+      "dispatch_span_s": 144.89167896099934,
+      "sessions": 30,
+      "requests_ok": 170,
+      "output_tokens": 87291,
+      "release_to_drain_s": 213.4904421329993,
+      "output_tokens_s": 408.8754471997386,
+      "TTFT_s": {
+        "n": 170,
+        "p50_s": 1.356299389999549,
+        "p90_s": 6.362059674000193,
+        "p95_s": 9.603938457999902,
+        "p99_s": 18.380543221999687
+      },
+      "first_turn_TTFT_ms": {
+        "n": 30,
+        "p50": 4596.829071999309,
+        "p95": 18380.543221999687,
+        "p99": 24452.8013500003
+      },
+      "first_turn_P_queue_ms": {
+        "n": 30,
+        "p50": 9.164757,
+        "p95": 3685.871603,
+        "p99": 9225.46558
+      },
+      "successor_TTFT_ms": {
+        "n": 140,
+        "p50": 1158.7850420000905,
+        "p95": 6362.059674000193,
+        "p99": 9603.938457999902
+      },
+      "client_TPOT_ms": {
+        "n": 170,
+        "mean": 19.91272976022202,
+        "p50": 20.056401594222244,
+        "p95": 26.37131873750036,
+        "max": 50.220457117628776,
+        "p99": 37.105912052382855
+      },
+      "D_first_proxy_chunk_ms": {
+        "n": 170,
+        "mean": 478.82376067058823,
+        "p50": 293.75240699999995,
+        "p95": 1041.227425,
+        "max": 8934.082367,
+        "p99": 3741.139142
+      },
+      "GET": {
+        "get_calls": 276,
+        "get_payload_bytes": 98814689280,
+        "get_ms": {
+          "n": 276,
+          "mean": 19.39222072826087,
+          "p50": 5.0991345,
+          "p95": 77.246495,
+          "max": 108.317849
+        },
+        "active_union_s": 1.604929125
+      },
+      "P_to_D": {
+        "payload_bytes": 557044531200,
+        "slowest_rank_ms": {
+          "n": 170,
+          "mean": 42.51760651764706,
+          "p50": 32.198815,
+          "p95": 104.94853499999999,
+          "max": 305.78179500000005,
+          "p99": 252.988771
+        }
+      },
+      "cache": {
+        "cold": 30,
+        "remote": 31,
+        "local": 71,
+        "both": 38
+      },
+      "routes": {
+        "P0->D0": 38,
+        "P1->D0": 42,
+        "P0->D1": 44,
+        "P1->D1": 46
+      },
+      "steps": {
+        "P": {
+          "arrivals": 170,
+          "steps": 802,
+          "steps_with_ready": 802,
+          "steps_with_device": 800,
+          "pairing_errors": 0
+        },
+        "D": {
+          "arrivals": 170,
+          "steps": 21311,
+          "steps_with_ready": 21311,
+          "steps_with_device": 21309,
+          "pairing_errors": 0
+        }
+      },
+      "ports_tx_peak_Gbps": {
+        "P": 74.66084530583197,
+        "D": 31.613718903539546
+      },
+      "port_cap_Gbps": 200,
+      "telemetry": {
+        "P": {
+          "metrics_points": 55,
+          "populated_series_by_source": {
+            "P0": 55,
+            "P1": 55
+          },
+          "port_samples_inside": 107
+        },
+        "D": {
+          "metrics_points": 55,
+          "populated_series_by_source": {
+            "D0": 55,
+            "D1": 55,
+            "master": 55
+          },
+          "port_samples_inside": 107
+        }
+      },
+      "sha256": {
+        "fixed-020-schedule.json": "bf4e02ea0edd09761a0f8141ed2a5bcdb32cbf3993a94ccc565b75536f6fa1de",
+        "requests-joined.json": "3d5d082971c902dbd2dc1b2c73b96d6f18a338ab4ef0a9e810b3227fcb29fff3",
+        "client.jsonl": "8e2794c0bf7ba8ac3235336ad32888eb2cd874b4dd0da090f8cfbe355266a6c0",
+        "P-steps.jsonl.gz": "e4fd390e7adeada46f07edebe36c990f153431d87a2713c2e1618061cfa65697",
+        "D-steps.jsonl.gz": "cb8f7e4e100e6e423d121e5f0c8c116e8ceff909594dfe3db77337e3fc850944",
+        "flows.jsonl.gz": "a14c470bbc414c4882cd4dd9f02a1d8e6cb1581c5d953ccce6cb998ab0923910",
+        "fixed-020-stock-P-ports.jsonl": "dfcf2b7b4678edd4db15db417fd3113622ae81bccdb2f81e17952c92cda660ce",
+        "fixed-020-stock-P-metrics.jsonl": "bd89e67e47a8675b1db17a2a8cf158b06616dc9ba4d6e379f26ab706662bdc1b",
+        "fixed-020-stock-P-host.jsonl": "931fc3c3b50b6311ed7108651ad06a24fa2b97b50a3cc1fc3f0f4ddbd22c6994",
+        "fixed-020-stock-D-ports.jsonl": "4b47e47f74e78ad8bf36266ed9c0c42da32e4fbe8d3d04a33effbada58d35a0d",
+        "fixed-020-stock-D-metrics.jsonl": "1ce8ec6dce4c7587d87335e4b2f453ab6a7e83512a171338fc1a097fed14d2f0",
+        "fixed-020-stock-D-host.jsonl": "f89caa5d86c614b8be255a09d9c758efae3a0969d8be329388233eb98e8f5117"
+      },
+      "archive_sha256": {
+        "P": "696e6b49fb16e2648045f37ba5f6f4124099d76bf563dd1afd080abf503fb417",
+        "D": "147047b5f76f434f01944e6c7c52d21d7e1281c431db77469b9e2c2d6e2c3963"
+      }
+    },
+    "fixed-035-stock": {
+      "case": "fixed-035-stock",
+      "schedule": "fixed-035-schedule.json",
+      "kind": "fixed",
+      "seed": null,
+      "sessions_per_second": 0.35,
+      "offered_span_s": 82.85714285714286,
+      "dispatch_span_s": 82.75436902600086,
+      "sessions": 30,
+      "requests_ok": 170,
+      "output_tokens": 87291,
+      "release_to_drain_s": 193.4639107059993,
+      "output_tokens_s": 451.2004315505296,
+      "TTFT_s": {
+        "n": 170,
+        "p50_s": 1.738880376000452,
+        "p90_s": 10.622617947571468,
+        "p95_s": 13.956160191999516,
+        "p99_s": 20.959963392000645
+      },
+      "first_turn_TTFT_ms": {
+        "n": 30,
+        "p50": 5602.911910998955,
+        "p95": 17061.19478628482,
+        "p99": 28004.74678171356
+      },
+      "first_turn_P_queue_ms": {
+        "n": 30,
+        "p50": 14.706942,
+        "p95": 8319.945009,
+        "p99": 9569.204808
+      },
+      "successor_TTFT_ms": {
+        "n": 140,
+        "p50": 1485.638153999389,
+        "p95": 11270.8881080016,
+        "p99": 15289.763748998666
+      },
+      "client_TPOT_ms": {
+        "n": 170,
+        "mean": 24.17791575224037,
+        "p50": 25.107269603672904,
+        "p95": 31.249263051032642,
+        "max": 44.61256784042176,
+        "p99": 38.78322116127991
+      },
+      "D_first_proxy_chunk_ms": {
+        "n": 170,
+        "mean": 619.1145619058824,
+        "p50": 390.235014,
+        "p95": 2146.183168,
+        "max": 3529.006638,
+        "p99": 3336.560536
+      },
+      "GET": {
+        "get_calls": 224,
+        "get_payload_bytes": 90302054400,
+        "get_ms": {
+          "n": 224,
+          "mean": 20.776321299107142,
+          "p50": 16.68841,
+          "p95": 66.956024,
+          "max": 101.017804
+        },
+        "active_union_s": 1.378616606
+      },
+      "P_to_D": {
+        "payload_bytes": 557044531200,
+        "slowest_rank_ms": {
+          "n": 170,
+          "mean": 42.7677167882353,
+          "p50": 32.246446,
+          "p95": 105.588443,
+          "max": 275.86722000000003,
+          "p99": 271.409931
+        }
+      },
+      "cache": {
+        "cold": 31,
+        "remote": 29,
+        "both": 27,
+        "local": 83
+      },
+      "routes": {
+        "P0->D1": 36,
+        "P0->D0": 28,
+        "P1->D0": 59,
+        "P1->D1": 47
+      },
+      "steps": {
+        "P": {
+          "arrivals": 170,
+          "steps": 785,
+          "steps_with_ready": 785,
+          "steps_with_device": 783,
+          "pairing_errors": 0
+        },
+        "D": {
+          "arrivals": 170,
+          "steps": 16881,
+          "steps_with_ready": 16881,
+          "steps_with_device": 16879,
+          "pairing_errors": 0
+        }
+      },
+      "ports_tx_peak_Gbps": {
+        "P": 109.208572545126,
+        "D": 43.22928113620488
+      },
+      "port_cap_Gbps": 200,
+      "telemetry": {
+        "P": {
+          "metrics_points": 50,
+          "populated_series_by_source": {
+            "P0": 50,
+            "P1": 50
+          },
+          "port_samples_inside": 97
+        },
+        "D": {
+          "metrics_points": 50,
+          "populated_series_by_source": {
+            "D0": 50,
+            "D1": 50,
+            "master": 50
+          },
+          "port_samples_inside": 96
+        }
+      },
+      "sha256": {
+        "fixed-035-schedule.json": "2fc827ac2e53e0aed9fccc56d4b5cc448d678b35cadbb928d5e1d0d48de76cf0",
+        "requests-joined.json": "171dfff6bcd416513da93837ba7bc0c11fc889ce3f6ce7fffd455025e8029cda",
+        "client.jsonl": "a91bb92df2d893046d97f61382cd1e96461252872641e7d809fba70b870dce4e",
+        "P-steps.jsonl.gz": "ad7746a177d8a0e20896f7762b45a071e36f787444d503ddbf8e2566b4764444",
+        "D-steps.jsonl.gz": "2ce1d6ea98fde78fa3e5142fef25c9c8ed921d4b6c6e669ef3b69a9436fd3614",
+        "flows.jsonl.gz": "749c4e94579e60d3c4ea4e2ed02d2be2ff10cdace9d0f86581ece41d5577063f",
+        "fixed-035-stock-P-ports.jsonl": "b1a01413f3df6d64f4fbdf5044ae8eb577bc3e8c0d84d6ff665bee777489fc11",
+        "fixed-035-stock-P-metrics.jsonl": "124d534ca9aaa3da67f9cf3dd60b92d85b2c611ed61c0224aad0d293f7cfb896",
+        "fixed-035-stock-P-host.jsonl": "8b9b0000049c03a606cfc7c872bd0aff37e0a69254651f328ed2fc527950cdbc",
+        "fixed-035-stock-D-ports.jsonl": "ec556644487b1584a923344a4e2a8aba6f302baf798529e573dc682de608749b",
+        "fixed-035-stock-D-metrics.jsonl": "9606dbc09e3cb1d5ba6024b6434dc4e1300ee39de0ddcabddf532e0660103e72",
+        "fixed-035-stock-D-host.jsonl": "e8a87006965ff5d356ba6d3e9f9cdf09699e25b7a9178ba04d6d7c7499b44dab"
+      },
+      "archive_sha256": {
+        "P": "e854a605d166c04af75fcac5857a943b69154013391f085c777ffdc7bf68e699",
+        "D": "aa0dee1bea49cb324ee8e8cf487dcb4ceb523db1b120f5f36a45a251e105310b"
+      }
+    },
+    "fixed-050-stock": {
+      "case": "fixed-050-stock",
+      "schedule": "fixed-050-schedule.json",
+      "kind": "fixed",
+      "seed": null,
+      "sessions_per_second": 0.5,
+      "offered_span_s": 58.0,
+      "dispatch_span_s": 57.89322921300118,
+      "sessions": 30,
+      "requests_ok": 170,
+      "output_tokens": 87291,
+      "release_to_drain_s": 179.07605172700096,
+      "output_tokens_s": 487.4521141055419,
+      "TTFT_s": {
+        "n": 170,
+        "p50_s": 1.8436819329999707,
+        "p90_s": 14.067289078000613,
+        "p95_s": 18.97070961999998,
+        "p99_s": 27.859314900000754
+      },
+      "first_turn_TTFT_ms": {
+        "n": 30,
+        "p50": 10916.01175300093,
+        "p95": 25761.681224999847,
+        "p99": 30331.41946899923
+      },
+      "first_turn_P_queue_ms": {
+        "n": 30,
+        "p50": 5898.059818,
+        "p95": 19413.041715,
+        "p99": 21889.700406
+      },
+      "successor_TTFT_ms": {
+        "n": 140,
+        "p50": 1589.781855000183,
+        "p95": 14117.61759699948,
+        "p99": 19959.38880199901
+      },
+      "client_TPOT_ms": {
+        "n": 170,
+        "mean": 23.70830080571601,
+        "p50": 24.838038804611628,
+        "p95": 28.907506921797694,
+        "max": 37.75709142028854,
+        "p99": 33.91059587254537
+      },
+      "D_first_proxy_chunk_ms": {
+        "n": 170,
+        "mean": 451.6598399352941,
+        "p50": 348.75142600000004,
+        "p95": 996.815295,
+        "max": 2286.443843,
+        "p99": 1778.732919
+      },
+      "GET": {
+        "get_calls": 216,
+        "get_payload_bytes": 86272573440,
+        "get_ms": {
+          "n": 216,
+          "mean": 21.16144939351852,
+          "p50": 15.077407000000001,
+          "p95": 71.051914,
+          "max": 105.540829
+        },
+        "active_union_s": 1.389561903
+      },
+      "P_to_D": {
+        "payload_bytes": 557044531200,
+        "slowest_rank_ms": {
+          "n": 170,
+          "mean": 43.73815677647059,
+          "p50": 31.762932499999998,
+          "p95": 105.326607,
+          "max": 284.48478700000004,
+          "p99": 252.334987
+        }
+      },
+      "cache": {
+        "cold": 32,
+        "remote": 29,
+        "local": 84,
+        "both": 25
+      },
+      "routes": {
+        "P0->D1": 45,
+        "P0->D0": 51,
+        "P1->D0": 24,
+        "P1->D1": 50
+      },
+      "steps": {
+        "P": {
+          "arrivals": 170,
+          "steps": 782,
+          "steps_with_ready": 782,
+          "steps_with_device": 780,
+          "pairing_errors": 0
+        },
+        "D": {
+          "arrivals": 170,
+          "steps": 16322,
+          "steps_with_ready": 16322,
+          "steps_with_device": 16320,
+          "pairing_errors": 0
+        }
+      },
+      "ports_tx_peak_Gbps": {
+        "P": 142.21534486575075,
+        "D": 35.38098986567865
+      },
+      "port_cap_Gbps": 200,
+      "telemetry": {
+        "P": {
+          "metrics_points": 48,
+          "populated_series_by_source": {
+            "P0": 48,
+            "P1": 48
+          },
+          "port_samples_inside": 90
+        },
+        "D": {
+          "metrics_points": 48,
+          "populated_series_by_source": {
+            "D0": 48,
+            "D1": 48,
+            "master": 48
+          },
+          "port_samples_inside": 90
+        }
+      },
+      "sha256": {
+        "fixed-050-schedule.json": "da820a9db417f313c03b6bd7382124848339f23168744c450baf20aef748b2e6",
+        "requests-joined.json": "7df0deeaad4c5072ab3e19a574dfb3b32b89f3c035403612d9bc7862e47f293d",
+        "client.jsonl": "64a7de50f59990347bdb7596ff812b611af82a7dd836a79361334cd14e503498",
+        "P-steps.jsonl.gz": "c60eb2076faabbce003497a657fc34310cdbb6c58d40ddc28491404b5dd7c4d9",
+        "D-steps.jsonl.gz": "5eeb9fff040b19764ef3e92cdf067847477950ac71f1954bffd2745d6bf30185",
+        "flows.jsonl.gz": "daf374820869651acd7351766d40f7e3952d599a53ee13e52fa058fbde04b60b",
+        "fixed-050-stock-P-ports.jsonl": "fcf34cd08cb5915dfc880c91866e87f57eaf1a68cf7cfab9af19ce0da1dcbfe7",
+        "fixed-050-stock-P-metrics.jsonl": "84bcae577fa08d2bfddd8044552a7eb61c9f119c1a0dfb34526f740c02fc47e0",
+        "fixed-050-stock-P-host.jsonl": "add3d44a52c0a599f232bea833d9311174035867f13729b8297024afbf165e65",
+        "fixed-050-stock-D-ports.jsonl": "3676f9e91602722c36eeaa2877e0e845d6e21bfcdd638abe879c362bfe5aa9e7",
+        "fixed-050-stock-D-metrics.jsonl": "c9f65083612082457d17625ac16b2834afc1cb7e59af1bc33025c4fd39509253",
+        "fixed-050-stock-D-host.jsonl": "3fdf0ff6d4580fdc4d5c25f7ae690ef8bee2930c4a99de764448d1a35103afe8"
+      },
+      "archive_sha256": {
+        "P": "ac375f7bb512de241a32d2f0540396714a5231b72a3fdd3f115670c40cc96fe6",
+        "D": "52b2ba09b692ca73b677b28c50b949265c4767476a29ca5d10325801e443f7f4"
+      }
+    }
+  }
+}

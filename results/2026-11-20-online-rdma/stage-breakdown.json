@@ -1,0 +1,908 @@
+{
+  "stock-native": {
+    "ttft_ms": {
+      "n": 170,
+      "mean": 10500.856965333294,
+      "p50": 1340.8326565004245,
+      "p95": 41214.74320754021,
+      "p99": 64616.58054600048
+    },
+    "groups_ms": {
+      "client_and_proxy": {
+        "n": 170,
+        "mean": 48.22410531568556,
+        "p50": 39.29023399015357,
+        "p95": 114.21926916901708,
+        "p99": 118.88777300031346
+      },
+      "P_outside_scheduler_window": {
+        "n": 170,
+        "mean": 252.95001697647058,
+        "p50": 212.14368999999948,
+        "p95": 543.5108890000001,
+        "p99": 614.8605799999964
+      },
+      "P_queue": {
+        "n": 170,
+        "mean": 8259.003910505882,
+        "p50": 8.877734499999999,
+        "p95": 38998.636202,
+        "p99": 45671.121325
+      },
+      "P_first_dispatch_to_last_result": {
+        "n": 170,
+        "mean": 1525.1736027941176,
+        "p50": 534.8135540000001,
+        "p95": 4575.407946,
+        "p99": 16105.506711
+      },
+      "D_before_first_transfer_submit": {
+        "n": 170,
+        "mean": 112.11017295882353,
+        "p50": 86.729447,
+        "p95": 214.412016,
+        "p99": 333.317209
+      },
+      "D_handoff_all_ranks_window": {
+        "n": 170,
+        "mean": 44.84286811176471,
+        "p50": 33.830382,
+        "p95": 105.633718,
+        "p99": 264.287157
+      },
+      "D_after_handoff_until_first_token": {
+        "n": 170,
+        "mean": 258.55228867062425,
+        "p50": 184.9020215002591,
+        "p95": 440.3925669997652,
+        "p99": 1727.707319999903
+      }
+    },
+    "stages_ms": {
+      "client_ready_to_proxy_send_P": {
+        "n": 170,
+        "mean": 30.34836431568556,
+        "p50": 24.0605245002206,
+        "p95": 69.79868800106573,
+        "p99": 76.41617000031346
+      },
+      "P_outside_scheduler_window": {
+        "n": 170,
+        "mean": 252.95001697647058,
+        "p50": 212.14368999999948,
+        "p95": 543.5108890000001,
+        "p99": 614.8605799999964
+      },
+      "P_queue": {
+        "n": 170,
+        "mean": 8259.003910505882,
+        "p50": 8.877734499999999,
+        "p95": 38998.636202,
+        "p99": 45671.121325
+      },
+      "P_first_dispatch_to_last_result": {
+        "n": 170,
+        "mean": 1525.1736027941176,
+        "p50": 534.8135540000001,
+        "p95": 4575.407946,
+        "p99": 16105.506711
+      },
+      "proxy_P_to_D": {
+        "n": 170,
+        "mean": 17.875741,
+        "p50": 14.108526000000001,
+        "p95": 44.287765,
+        "p99": 49.535068
+      },
+      "D_before_first_transfer_submit": {
+        "n": 170,
+        "mean": 112.11017295882353,
+        "p50": 86.729447,
+        "p95": 214.412016,
+        "p99": 333.317209
+      },
+      "D_handoff_all_ranks_window": {
+        "n": 170,
+        "mean": 44.84286811176471,
+        "p50": 33.830382,
+        "p95": 105.633718,
+        "p99": 264.287157
+      },
+      "D_handoff_end_to_first_dispatch": {
+        "n": 170,
+        "mean": 31.35578451764706,
+        "p50": 29.4994095,
+        "p95": 47.459564,
+        "p99": 67.776545
+      },
+      "D_first_dispatch_to_result": {
+        "n": 170,
+        "mean": 121.27493342352942,
+        "p50": 70.67847850000001,
+        "p95": 286.345028,
+        "p99": 1405.979104
+      },
+      "D_result_to_client_first_token": {
+        "n": 170,
+        "mean": 105.92157072944775,
+        "p50": 81.08264050009129,
+        "p95": 256.0789439995747,
+        "p99": 342.5005589995939
+      }
+    },
+    "detail_ms": {
+      "D_request_to_first_enqueue_ms": {
+        "n": 170,
+        "mean": 109.38131267647059,
+        "p50": 84.720674,
+        "p95": 197.415247,
+        "p99": 331.717159
+      },
+      "D_first_enqueue_to_first_submit_ms": {
+        "n": 170,
+        "mean": 2.728860282352941,
+        "p50": 1.842222,
+        "p95": 5.868128,
+        "p99": 20.527882
+      },
+      "D_first_step_rank0_forward_ms": {
+        "n": 170,
+        "mean": 22.73544241400326,
+        "p50": 23.59671974182129,
+        "p95": 29.597999572753906,
+        "p99": 40.528099060058594
+      },
+      "own_get_slowest_rank_ms": {
+        "n": 45,
+        "mean": 27.040938977777778,
+        "p50": 19.840684,
+        "p95": 101.519757,
+        "p99": 105.793757
+      },
+      "P_step_rank0_forward_ms": {
+        "n": 847,
+        "mean": 211.2727720222338,
+        "p50": 195.1195526123047,
+        "p95": 316.0611267089844,
+        "p99": 415.5072326660156
+      },
+      "D_step_rank0_forward_ms": {
+        "n": 18248,
+        "mean": 16.978080329953553,
+        "p50": 15.404260158538818,
+        "p95": 26.452699661254883,
+        "p99": 27.19179916381836
+      }
+    },
+    "after_first_ms": {
+      "n": 170,
+      "mean": 11770.153947746985,
+      "p50": 10311.664909499996,
+      "p95": 27560.047883998777,
+      "p99": 29376.18570199993
+    },
+    "per_output_token_ms": {
+      "n": 170,
+      "mean": 23.388938099650026,
+      "p50": 24.10780866526929,
+      "p95": 29.98243618135425,
+      "p99": 34.04333006579021
+    },
+    "max_time_accounting_error_ms": 1.7716956790536642e-09,
+    "largest_groups_on_slowest_9": {
+      "P_queue": 9
+    },
+    "slowest": [
+      {
+        "id": "natural-regex-chess:105",
+        "stages_ms": {
+          "client_ready_to_proxy_send_P": 67.13215004039645,
+          "P_outside_scheduler_window": 556.5083529999993,
+          "P_queue": 45671.121325,
+          "P_first_dispatch_to_last_result": 16105.506711,
+          "proxy_P_to_D": 39.649744,
+          "D_before_first_transfer_submit": 186.88808,
+          "D_handoff_all_ranks_window": 91.484337,
+          "D_handoff_end_to_first_dispatch": 23.526491,
+          "D_first_dispatch_to_result": 1769.419298,
+          "D_result_to_client_first_token": 353.11055600134773
+        },
+        "ttft_ms": 64864.347045040784,
+        "predecessor": null,
+        "local_tokens": 0,
+        "external_tokens": 0,
+        "P": "P1",
+        "D": "D0",
+        "own_get_slowest_rank_ms": null,
+        "client_TPOT_ms": 28.610510260071454,
+        "first_to_last_output_ms": 15621.338601999014,
+        "groups_ms": {
+          "client_and_proxy": 106.78189404039645,
+          "P_outside_scheduler_window": 556.5083529999993,
+          "P_queue": 45671.121325,
+          "P_first_dispatch_to_last_result": 16105.506711,
+          "D_before_first_transfer_submit": 186.88808,
+          "D_handoff_all_ranks_window": 91.484337,
+          "D_after_handoff_until_first_token": 2146.056345001348
+        }
+      },
+      {
+        "id": "natural-make-mips-interpreter:88",
+        "stages_ms": {
+          "client_ready_to_proxy_send_P": 45.42494199893884,
+          "P_outside_scheduler_window": 614.8605799999964,
+          "P_queue": 58890.412599,
+          "P_first_dispatch_to_last_result": 2095.449738,
+          "proxy_P_to_D": 28.135881,
+          "D_before_first_transfer_submit": 1310.936994,
+          "D_handoff_all_ranks_window": 69.898969,
+          "D_handoff_end_to_first_dispatch": 33.801477,
+          "D_first_dispatch_to_result": 1356.715849,
+          "D_result_to_client_first_token": 170.94351700099827
+        },
+        "ttft_ms": 64616.58054600048,
+        "predecessor": "natural-make-mips-interpreter:87",
+        "local_tokens": 0,
+        "external_tokens": 120832,
+        "P": "P1",
+        "D": "D0",
+        "own_get_slowest_rank_ms": 67.404994,
+        "client_TPOT_ms": 26.54873005471498,
+        "first_to_last_output_ms": 14070.82692899894,
+        "groups_ms": {
+          "client_and_proxy": 73.56082299893885,
+          "P_outside_scheduler_window": 614.8605799999964,
+          "P_queue": 58890.412599,
+          "P_first_dispatch_to_last_result": 2095.449738,
+          "D_before_first_transfer_submit": 1310.936994,
+          "D_handoff_all_ranks_window": 69.898969,
+          "D_after_handoff_until_first_token": 1561.4608430009982
+        }
+      },
+      {
+        "id": "natural-count-dataset-tokens:44",
+        "stages_ms": {
+          "client_ready_to_proxy_send_P": 25.480197565309023,
+          "P_outside_scheduler_window": 411.139416,
+          "P_queue": 44070.286267,
+          "P_first_dispatch_to_last_result": 4385.481458,
+          "proxy_P_to_D": 15.164717,
+          "D_before_first_transfer_submit": 78.277022,
+          "D_handoff_all_ranks_window": 34.047859,
+          "D_handoff_end_to_first_dispatch": 38.309566,
+          "D_first_dispatch_to_result": 120.905476,
+          "D_result_to_client_first_token": 92.9164160016517
+        },
+        "ttft_ms": 49272.008394565484,
+        "predecessor": null,
+        "local_tokens": 0,
+        "external_tokens": 0,
+        "P": "P1",
+        "D": "D0",
+        "own_get_slowest_rank_ms": null,
+        "client_TPOT_ms": 21.620284234436497,
+        "first_to_last_output_ms": 10420.977000998391,
+        "groups_ms": {
+          "client_and_proxy": 40.64491456530902,
+          "P_outside_scheduler_window": 411.139416,
+          "P_queue": 44070.286267,
+          "P_first_dispatch_to_last_result": 4385.481458,
+          "D_before_first_transfer_submit": 78.277022,
+          "D_handoff_all_ranks_window": 34.047859,
+          "D_after_handoff_until_first_token": 252.13145800165168
+        }
+      }
+    ],
+    "source_sha256": {
+      "requests-joined.json": "e9c614125da1cccf49a6cdbef3404f928593939e7e932eac5ae49f8f72a0ff04",
+      "flows.jsonl.gz": "71b2c46414633684986553a93e26d7e72ce4edc3137411ca3938dce4a02b0459",
+      "D-steps.jsonl.gz": "8a1b8db4d2ebdd6e87119d4e1b18e2150bc2907015e89f50c4e6fd8909a808ef",
+      "P-steps.jsonl.gz": "2fed032037d64b6682ba343050615cf275679ee587bf81936d8beba3349f778e",
+      "online-rdma-20261120a-stock-native-D.tar.gz": "ae234298ad5e01ff7528678beec21f8b46558245e34294af5268ec02e708314f"
+    }
+  },
+  "cap80-host-native": {
+    "ttft_ms": {
+      "n": 170,
+      "mean": 14529.303110280172,
+      "p50": 4959.435764999398,
+      "p95": 48324.56320109507,
+      "p99": 70926.78221956751
+    },
+    "groups_ms": {
+      "client_and_proxy": {
+        "n": 170,
+        "mean": 50.30899630963004,
+        "p50": 40.19471801321256,
+        "p95": 118.19164499958593,
+        "p99": 122.55590199950012
+      },
+      "P_outside_scheduler_window": {
+        "n": 170,
+        "mean": 322.2087544117647,
+        "p50": 298.4187115000001,
+        "p95": 681.7096550000003,
+        "p99": 946.1754359999977
+      },
+      "P_queue": {
+        "n": 170,
+        "mean": 10233.490733141176,
+        "p50": 26.0998115,
+        "p95": 43285.903637,
+        "p99": 63861.839218
+      },
+      "P_first_dispatch_to_last_result": {
+        "n": 170,
+        "mean": 2159.660880888235,
+        "p50": 1029.741829,
+        "p95": 9491.331774,
+        "p99": 16500.917521
+      },
+      "D_before_first_transfer_submit": {
+        "n": 170,
+        "mean": 509.1709235411765,
+        "p50": 144.0601765,
+        "p95": 2121.447314,
+        "p99": 3487.224223
+      },
+      "D_handoff_all_ranks_window": {
+        "n": 170,
+        "mean": 923.1716373,
+        "p50": 689.5630375000001,
+        "p95": 2280.16442,
+        "p99": 2744.697183
+      },
+      "D_after_handoff_until_first_token": {
+        "n": 170,
+        "mean": 331.29118468822674,
+        "p50": 211.5114120009456,
+        "p95": 960.4323479997712,
+        "p99": 2589.796171000522
+      }
+    },
+    "stages_ms": {
+      "client_ready_to_proxy_send_P": {
+        "n": 170,
+        "mean": 32.75199255668887,
+        "p50": 25.24279128220406,
+        "p95": 77.09122716905911,
+        "p99": 90.9529880005766
+      },
+      "P_outside_scheduler_window": {
+        "n": 170,
+        "mean": 322.2087544117647,
+        "p50": 298.4187115000001,
+        "p95": 681.7096550000003,
+        "p99": 946.1754359999977
+      },
+      "P_queue": {
+        "n": 170,
+        "mean": 10233.490733141176,
+        "p50": 26.0998115,
+        "p95": 43285.903637,
+        "p99": 63861.839218
+      },
+      "P_first_dispatch_to_last_result": {
+        "n": 170,
+        "mean": 2159.660880888235,
+        "p50": 1029.741829,
+        "p95": 9491.331774,
+        "p99": 16500.917521
+      },
+      "proxy_P_to_D": {
+        "n": 170,
+        "mean": 17.557003752941178,
+        "p50": 13.724253000000001,
+        "p95": 42.400484,
+        "p99": 45.387753
+      },
+      "D_before_first_transfer_submit": {
+        "n": 170,
+        "mean": 509.1709235411765,
+        "p50": 144.0601765,
+        "p95": 2121.447314,
+        "p99": 3487.224223
+      },
+      "D_handoff_all_ranks_window": {
+        "n": 170,
+        "mean": 923.1716373,
+        "p50": 689.5630375000001,
+        "p95": 2280.16442,
+        "p99": 2744.697183
+      },
+      "D_handoff_end_to_first_dispatch": {
+        "n": 170,
+        "mean": 47.28681547058824,
+        "p50": 30.9100705,
+        "p95": 46.964134,
+        "p99": 747.14404
+      },
+      "D_first_dispatch_to_result": {
+        "n": 170,
+        "mean": 172.29137738235295,
+        "p50": 83.90838199999999,
+        "p95": 506.933597,
+        "p99": 2324.453897
+      },
+      "D_result_to_client_first_token": {
+        "n": 170,
+        "mean": 111.71299183528554,
+        "p50": 81.82099350067989,
+        "p95": 252.599762998803,
+        "p99": 341.7475490014906
+      }
+    },
+    "detail_ms": {
+      "D_request_to_first_enqueue_ms": {
+        "n": 170,
+        "mean": 130.49347218235295,
+        "p50": 83.74327650000001,
+        "p95": 196.810652,
+        "p99": 1055.867575
+      },
+      "D_first_enqueue_to_first_submit_ms": {
+        "n": 170,
+        "mean": 378.67745135882353,
+        "p50": 2.7345075000000003,
+        "p95": 2011.728325,
+        "p99": 3411.671955
+      },
+      "D_first_step_rank0_forward_ms": {
+        "n": 170,
+        "mean": 21.77738338919247,
+        "p50": 21.403260231018066,
+        "p95": 27.820539474487305,
+        "p99": 42.31275939941406
+      },
+      "own_get_slowest_rank_ms": {
+        "n": 51,
+        "mean": 290.36092817647057,
+        "p50": 206.993862,
+        "p95": 1059.329782,
+        "p99": 1171.744782
+      },
+      "P_step_rank0_forward_ms": {
+        "n": 926,
+        "mean": 218.091784747064,
+        "p50": 201.23616790771484,
+        "p95": 346.95330810546875,
+        "p99": 420.60540771484375
+      },
+      "D_step_rank0_forward_ms": {
+        "n": 18091,
+        "mean": 17.432440294910247,
+        "p50": 16.773839950561523,
+        "p95": 24.861019134521484,
+        "p99": 25.843219757080078
+      }
+    },
+    "after_first_ms": {
+      "n": 170,
+      "mean": 11353.21045018245,
+      "p50": 10127.697340499253,
+      "p95": 23866.966977999255,
+      "p99": 25960.34794099978
+    },
+    "per_output_token_ms": {
+      "n": 170,
+      "mean": 22.601003324713407,
+      "p50": 23.31297980254199,
+      "p95": 26.752045209088298,
+      "p99": 33.9488323578485
+    },
+    "max_time_accounting_error_ms": 1.670514393481426e-09,
+    "largest_groups_on_slowest_9": {
+      "P_queue": 9
+    },
+    "slowest": [
+      {
+        "id": "natural-regex-chess:105",
+        "stages_ms": {
+          "client_ready_to_proxy_send_P": 70.52987903940402,
+          "P_outside_scheduler_window": 452.7979529999975,
+          "P_queue": 49447.1782,
+          "P_first_dispatch_to_last_result": 16499.661097,
+          "proxy_P_to_D": 40.946955,
+          "D_before_first_transfer_submit": 179.697212,
+          "D_handoff_all_ranks_window": 1855.061672,
+          "D_handoff_end_to_first_dispatch": 35.378248,
+          "D_first_dispatch_to_result": 2324.453897,
+          "D_result_to_client_first_token": 229.9640260005221
+        },
+        "ttft_ms": 71135.6691390394,
+        "predecessor": null,
+        "local_tokens": 0,
+        "external_tokens": 0,
+        "P": "P1",
+        "D": "D1",
+        "own_get_slowest_rank_ms": null,
+        "client_TPOT_ms": 25.174190505495996,
+        "first_to_last_output_ms": 13745.108016000813,
+        "groups_ms": {
+          "client_and_proxy": 111.47683403940403,
+          "P_outside_scheduler_window": 452.7979529999975,
+          "P_queue": 49447.1782,
+          "P_first_dispatch_to_last_result": 16499.661097,
+          "D_before_first_transfer_submit": 179.697212,
+          "D_handoff_all_ranks_window": 1855.061672,
+          "D_after_handoff_until_first_token": 2589.796171000522
+        }
+      },
+      {
+        "id": "natural-video-processing:27",
+        "stages_ms": {
+          "client_ready_to_proxy_send_P": 32.34874256826918,
+          "P_outside_scheduler_window": 193.8524780000016,
+          "P_queue": 63861.839218,
+          "P_first_dispatch_to_last_result": 5412.902664,
+          "proxy_P_to_D": 13.361076,
+          "D_before_first_transfer_submit": 83.851332,
+          "D_handoff_all_ranks_window": 872.579491,
+          "D_handoff_end_to_first_dispatch": 28.756396,
+          "D_first_dispatch_to_result": 325.992687,
+          "D_result_to_client_first_token": 101.29813499870706
+        },
+        "ttft_ms": 70926.78221956751,
+        "predecessor": null,
+        "local_tokens": 0,
+        "external_tokens": 0,
+        "P": "P1",
+        "D": "D1",
+        "own_get_slowest_rank_ms": null,
+        "client_TPOT_ms": 22.539625258933224,
+        "first_to_last_output_ms": 2524.438029000521,
+        "groups_ms": {
+          "client_and_proxy": 45.709818568269185,
+          "P_outside_scheduler_window": 193.8524780000016,
+          "P_queue": 63861.839218,
+          "P_first_dispatch_to_last_result": 5412.902664,
+          "D_before_first_transfer_submit": 83.851332,
+          "D_handoff_all_ranks_window": 872.579491,
+          "D_after_handoff_until_first_token": 456.047217998707
+        }
+      },
+      {
+        "id": "natural-financial-document-processor:60",
+        "stages_ms": {
+          "client_ready_to_proxy_send_P": 27.930930001335735,
+          "P_outside_scheduler_window": 418.6414390000002,
+          "P_queue": 65298.618323,
+          "P_first_dispatch_to_last_result": 1189.009374,
+          "proxy_P_to_D": 16.331925,
+          "D_before_first_transfer_submit": 179.213409,
+          "D_handoff_all_ranks_window": 897.536092,
+          "D_handoff_end_to_first_dispatch": 38.386638,
+          "D_first_dispatch_to_result": 462.433919,
+          "D_result_to_client_first_token": 126.47458799917993
+        },
+        "ttft_ms": 68654.57663699999,
+        "predecessor": "natural-financial-document-processor:59",
+        "local_tokens": 65536,
+        "external_tokens": 0,
+        "P": "P1",
+        "D": "D0",
+        "own_get_slowest_rank_ms": null,
+        "client_TPOT_ms": 25.0487583433484,
+        "first_to_last_output_ms": 11672.721388000355,
+        "groups_ms": {
+          "client_and_proxy": 44.26285500133574,
+          "P_outside_scheduler_window": 418.6414390000002,
+          "P_queue": 65298.618323,
+          "P_first_dispatch_to_last_result": 1189.009374,
+          "D_before_first_transfer_submit": 179.213409,
+          "D_handoff_all_ranks_window": 897.536092,
+          "D_after_handoff_until_first_token": 627.2951449991799
+        }
+      }
+    ],
+    "source_sha256": {
+      "requests-joined.json": "6d09efc9cbfce6a041840b5b9b422e99ca03471dca6005f03b9d592fe0a7f108",
+      "flows.jsonl.gz": "028b6a3d34f8192d237e44842ec3064a50f0d12514c606e9583f588979d320ff",
+      "D-steps.jsonl.gz": "0b2ff310244fe0f873e8657ed39551c6784154325dd53820deb765957bc0745a",
+      "P-steps.jsonl.gz": "ba25782893c4f295427f258a33ceacdb26368535421986504aad7c931a27820a",
+      "online-rdma-20261120a-cap80-host-native-D.tar.gz": "8209ed1c445597106b3deffc6f955a646ab94c451be0f9522f35a1ae3b36e2a8"
+    }
+  },
+  "stock-restored-native": {
+    "ttft_ms": {
+      "n": 170,
+      "mean": 10286.082213921525,
+      "p50": 1571.1677419994885,
+      "p95": 42198.65945354138,
+      "p99": 62594.591436040144
+    },
+    "groups_ms": {
+      "client_and_proxy": {
+        "n": 170,
+        "mean": 50.693636221580135,
+        "p50": 40.71429800011755,
+        "p95": 116.42731200022459,
+        "p99": 137.33334799885955
+      },
+      "P_outside_scheduler_window": {
+        "n": 170,
+        "mean": 243.42544811764722,
+        "p50": 234.82668900000004,
+        "p95": 475.048896,
+        "p99": 681.7500799999962
+      },
+      "P_queue": {
+        "n": 170,
+        "mean": 7804.493780452941,
+        "p50": 9.751246,
+        "p95": 39040.417915,
+        "p99": 54167.202379
+      },
+      "P_first_dispatch_to_last_result": {
+        "n": 170,
+        "mean": 1590.7449785764707,
+        "p50": 562.334209,
+        "p95": 8860.720957,
+        "p99": 15542.348884
+      },
+      "D_before_first_transfer_submit": {
+        "n": 170,
+        "mean": 147.89103662941176,
+        "p50": 85.56943799999999,
+        "p95": 451.817861,
+        "p99": 1365.330477
+      },
+      "D_handoff_all_ranks_window": {
+        "n": 170,
+        "mean": 46.18771836470588,
+        "p50": 34.623459,
+        "p95": 108.17001,
+        "p99": 253.559639
+      },
+      "D_after_handoff_until_first_token": {
+        "n": 170,
+        "mean": 402.64561555879345,
+        "p50": 220.94353749915751,
+        "p95": 1476.1267329991015,
+        "p99": 3352.9859250005547
+      }
+    },
+    "stages_ms": {
+      "client_ready_to_proxy_send_P": {
+        "n": 170,
+        "mean": 31.815369503933074,
+        "p50": 25.15669773763907,
+        "p95": 73.09384200022458,
+        "p99": 77.91596399851184
+      },
+      "P_outside_scheduler_window": {
+        "n": 170,
+        "mean": 243.42544811764722,
+        "p50": 234.82668900000004,
+        "p95": 475.048896,
+        "p99": 681.7500799999962
+      },
+      "P_queue": {
+        "n": 170,
+        "mean": 7804.493780452941,
+        "p50": 9.751246,
+        "p95": 39040.417915,
+        "p99": 54167.202379
+      },
+      "P_first_dispatch_to_last_result": {
+        "n": 170,
+        "mean": 1590.7449785764707,
+        "p50": 562.334209,
+        "p95": 8860.720957,
+        "p99": 15542.348884
+      },
+      "proxy_P_to_D": {
+        "n": 170,
+        "mean": 18.878266717647058,
+        "p50": 14.881246,
+        "p95": 43.967544,
+        "p99": 65.683345
+      },
+      "D_before_first_transfer_submit": {
+        "n": 170,
+        "mean": 147.89103662941176,
+        "p50": 85.56943799999999,
+        "p95": 451.817861,
+        "p99": 1365.330477
+      },
+      "D_handoff_all_ranks_window": {
+        "n": 170,
+        "mean": 46.18771836470588,
+        "p50": 34.623459,
+        "p95": 108.17001,
+        "p99": 253.559639
+      },
+      "D_handoff_end_to_first_dispatch": {
+        "n": 170,
+        "mean": 39.83152302941176,
+        "p50": 31.4569885,
+        "p95": 50.840178,
+        "p99": 591.534434
+      },
+      "D_first_dispatch_to_result": {
+        "n": 170,
+        "mean": 254.61847627058825,
+        "p50": 83.8966325,
+        "p95": 1406.297711,
+        "p99": 3257.129476
+      },
+      "D_result_to_client_first_token": {
+        "n": 170,
+        "mean": 108.19561625879342,
+        "p50": 81.70913350006347,
+        "p95": 258.7309230002247,
+        "p99": 356.24249300127224
+      }
+    },
+    "detail_ms": {
+      "D_request_to_first_enqueue_ms": {
+        "n": 170,
+        "mean": 144.3899443764706,
+        "p50": 82.8564455,
+        "p95": 450.509833,
+        "p99": 1359.022376
+      },
+      "D_first_enqueue_to_first_submit_ms": {
+        "n": 170,
+        "mean": 3.5010922529411763,
+        "p50": 1.913948,
+        "p95": 18.779931,
+        "p99": 25.894968
+      },
+      "D_first_step_rank0_forward_ms": {
+        "n": 170,
+        "mean": 23.383557409398698,
+        "p50": 24.266499519348145,
+        "p95": 37.42771911621094,
+        "p99": 46.03927993774414
+      },
+      "own_get_slowest_rank_ms": {
+        "n": 50,
+        "mean": 21.41289264,
+        "p50": 6.7103605,
+        "p95": 76.478301,
+        "p99": 110.710689
+      },
+      "P_step_rank0_forward_ms": {
+        "n": 891,
+        "mean": 214.04199196486897,
+        "p50": 196.9529266357422,
+        "p95": 337.8573913574219,
+        "p99": 415.0616455078125
+      },
+      "D_step_rank0_forward_ms": {
+        "n": 16897,
+        "mean": 17.589747543185958,
+        "p50": 15.994600296020508,
+        "p95": 25.735200881958008,
+        "p99": 26.916179656982422
+      }
+    },
+    "after_first_ms": {
+      "n": 170,
+      "mean": 12288.574277594189,
+      "p50": 11051.990365000165,
+      "p95": 27016.608289000942,
+      "p99": 28797.028949000378
+    },
+    "per_output_token_ms": {
+      "n": 170,
+      "mean": 24.566763752613294,
+      "p50": 25.770000541830846,
+      "p95": 30.817551932103264,
+      "p99": 37.294185311111505
+    },
+    "max_time_accounting_error_ms": 1.5814975995454006e-09,
+    "largest_groups_on_slowest_9": {
+      "P_queue": 9
+    },
+    "slowest": [
+      {
+        "id": "natural-video-processing:27",
+        "stages_ms": {
+          "client_ready_to_proxy_send_P": 24.32009156856784,
+          "P_outside_scheduler_window": 207.8802730000025,
+          "P_queue": 57373.619587,
+          "P_first_dispatch_to_last_result": 4815.088742,
+          "proxy_P_to_D": 14.551124,
+          "D_before_first_transfer_submit": 88.883775,
+          "D_handoff_all_ranks_window": 35.393419,
+          "D_handoff_end_to_first_dispatch": 40.3311,
+          "D_first_dispatch_to_result": 493.186829,
+          "D_result_to_client_first_token": 99.35777199974282
+        },
+        "ttft_ms": 63192.61271256849,
+        "predecessor": null,
+        "local_tokens": 0,
+        "external_tokens": 0,
+        "P": "P1",
+        "D": "D0",
+        "own_get_slowest_rank_ms": null,
+        "client_TPOT_ms": 24.952902196430063,
+        "first_to_last_output_ms": 2794.725046000167,
+        "groups_ms": {
+          "client_and_proxy": 38.87121556856784,
+          "P_outside_scheduler_window": 207.8802730000025,
+          "P_queue": 57373.619587,
+          "P_first_dispatch_to_last_result": 4815.088742,
+          "D_before_first_transfer_submit": 88.883775,
+          "D_handoff_all_ranks_window": 35.393419,
+          "D_after_handoff_until_first_token": 632.8757009997428
+        }
+      },
+      {
+        "id": "natural-regex-chess:105",
+        "stages_ms": {
+          "client_ready_to_proxy_send_P": 66.91490604031577,
+          "P_outside_scheduler_window": 681.7500799999962,
+          "P_queue": 44015.696806,
+          "P_first_dispatch_to_last_result": 15542.348884,
+          "proxy_P_to_D": 42.221053,
+          "D_before_first_transfer_submit": 221.644493,
+          "D_handoff_all_ranks_window": 94.589651,
+          "D_handoff_end_to_first_dispatch": 30.040904,
+          "D_first_dispatch_to_result": 1678.943664,
+          "D_result_to_client_first_token": 220.4409950001619
+        },
+        "ttft_ms": 62594.591436040144,
+        "predecessor": null,
+        "local_tokens": 0,
+        "external_tokens": 0,
+        "P": "P1",
+        "D": "D0",
+        "own_get_slowest_rank_ms": null,
+        "client_TPOT_ms": 25.748468520147078,
+        "first_to_last_output_ms": 14058.663812000304,
+        "groups_ms": {
+          "client_and_proxy": 109.13595904031577,
+          "P_outside_scheduler_window": 681.7500799999962,
+          "P_queue": 44015.696806,
+          "P_first_dispatch_to_last_result": 15542.348884,
+          "D_before_first_transfer_submit": 221.644493,
+          "D_handoff_all_ranks_window": 94.589651,
+          "D_after_handoff_until_first_token": 1929.425563000162
+        }
+      },
+      {
+        "id": "natural-financial-document-processor:60",
+        "stages_ms": {
+          "client_ready_to_proxy_send_P": 27.431298000408116,
+          "P_outside_scheduler_window": 198.68041299999436,
+          "P_queue": 54167.202379,
+          "P_first_dispatch_to_last_result": 992.103679,
+          "proxy_P_to_D": 19.996259,
+          "D_before_first_transfer_submit": 225.713869,
+          "D_handoff_all_ranks_window": 41.296217,
+          "D_handoff_end_to_first_dispatch": 35.836562,
+          "D_first_dispatch_to_result": 79.693875,
+          "D_result_to_client_first_token": 93.0458320004883
+        },
+        "ttft_ms": 55881.000383000355,
+        "predecessor": "natural-financial-document-processor:59",
+        "local_tokens": 65536,
+        "external_tokens": 0,
+        "P": "P1",
+        "D": "D0",
+        "own_get_slowest_rank_ms": null,
+        "client_TPOT_ms": 25.129071309013035,
+        "first_to_last_output_ms": 11710.147230000075,
+        "groups_ms": {
+          "client_and_proxy": 47.427557000408115,
+          "P_outside_scheduler_window": 198.68041299999436,
+          "P_queue": 54167.202379,
+          "P_first_dispatch_to_last_result": 992.103679,
+          "D_before_first_transfer_submit": 225.713869,
+          "D_handoff_all_ranks_window": 41.296217,
+          "D_after_handoff_until_first_token": 208.5762690004883
+        }
+      }
+    ],
+    "source_sha256": {
+      "requests-joined.json": "7b466b62d8f786d82662d94b8643292e9b46226611bf8e1f2c2e5d48b1ac32ce",
+      "flows.jsonl.gz": "ace1d0258839d95fd91d4577691dc202750baf865bf278cb2f6e3f11320d4e4d",
+      "D-steps.jsonl.gz": "e8da691ed86cca1eeb5cc1616051e21369cd60d980e16273b0348017df03899d",
+      "P-steps.jsonl.gz": "a728ce1b95d7bf4e250d1ee2e1733eec830bc002a566037f9a4db5e7e34e337d",
+      "online-rdma-20261120a-stock-restored-native-D.tar.gz": "dfe03796bb531d18be0de1748593a698f4407e192056e8b73091a93b76f4ad8d"
+    }
+  }
+}

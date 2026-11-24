@@ -50,6 +50,11 @@ def summarize(rows: list[dict], manifest: dict, ttft_slo_s=None, e2e_slo_s=None)
     if offer_to_last_end is not None and offer_to_last_end <= 0:
         errors.append("Non-positive finite cohort duration")
     cohort_tokens = sum(row["completion_tokens"] for row in successful) if not errors else None
+    release_to_drain = duration - min((row["offered_s"] for row in ends), default=0.0)
+    completion_counts = [row.get("completion_tokens") for row in successful]
+    completed_tokens = (sum(completion_counts)
+                        if all(type(count) is int and count >= 0 for count in completion_counts)
+                        else None)
     offered_cohort = [row for row in ends if start <= row["offered_s"] < stop]
     ready_cohort = [row for row in successful if start <= row["ready_s"] < stop]
     passed = completed_passed = None
@@ -84,6 +89,12 @@ def summarize(rows: list[dict], manifest: dict, ttft_slo_s=None, e2e_slo_s=None)
                               "first_offered_s": first_offered, "offer_to_last_end_s": offer_to_last_end,
                               "output_tokens": cohort_tokens,
                               "output_tokens_per_s": cohort_tokens / offer_to_last_end if cohort_tokens is not None else None,
+                              "release_to_drain_s": release_to_drain,
+                              "completed_output_tokens": completed_tokens,
+                              "completed_output_tokens_s": (
+                                  completed_tokens / release_to_drain
+                                  if completed_tokens is not None and release_to_drain > 0 else None
+                              ),
                               "completed_requests_per_drain_s": len(successful) / duration if duration else None},
             "note": "Client TTFT includes client queue. Unknown token counts stay null. p99 is nearest-rank."}
 
