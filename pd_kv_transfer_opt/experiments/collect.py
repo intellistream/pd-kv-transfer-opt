@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 import platform
 import re
+import signal
 import socket
 import subprocess
 import time
@@ -126,12 +127,13 @@ def fetch_metrics(url: str) -> dict:
 def sample(output: Path, seconds: float, interval: float, metrics: dict[str, str],
            metrics_every: float, npu_every: float, pids: list[int],
            hccn_devices: list[int] | None = None, hccn_every: float = 5,
-           hccn_tool: str = "/usr/local/Ascend/driver/tools/hccn_tool", hccn_sudo: bool = False) -> None:
+           hccn_tool: str = "/usr/local/Ascend/driver/tools/hccn_tool", hccn_sudo: bool = False,
+           should_stop=None) -> None:
     origin = time.monotonic()
     due_metrics = due_npu = due_hccn = origin
     sample_no = 0
     with gzip.open(output / "host-samples.jsonl.gz", "xt", encoding="utf-8") as stream:
-        while time.monotonic() - origin < seconds:
+        while time.monotonic() - origin < seconds and (should_stop is None or not should_stop()):
             start = time.monotonic()
             row = {"type": "host_sample", "sample_no": sample_no, "anchor": clock_anchor(),
                    "elapsed_s": start - origin, "counters": counters(),
@@ -190,8 +192,18 @@ def main() -> None:
     output = new_directory(args.output)
     inventory(output, args.nic, args.hccn_device, args.hccn_tool, args.hccn_sudo)
     if args.seconds:
-        sample(output, args.seconds, args.interval, metrics, args.metrics_every, args.npu_every, args.pid,
-               args.hccn_device, args.hccn_every, args.hccn_tool, args.hccn_sudo)
+        stopped = False
+
+        def stop(_signum, _frame):
+            nonlocal stopped
+            stopped = True
+
+        previous = signal.signal(signal.SIGTERM, stop)
+        try:
+            sample(output, args.seconds, args.interval, metrics, args.metrics_every, args.npu_every, args.pid,
+                   args.hccn_device, args.hccn_every, args.hccn_tool, args.hccn_sudo, lambda: stopped)
+        finally:
+            signal.signal(signal.SIGTERM, previous)
 
 
 if __name__ == "__main__":

@@ -104,7 +104,7 @@ def capture_one(role, endpoint, run_dir, receipt, seconds):
         raise RuntimeError(f"Four worker profiles or profiler shutdown could not be verified on {role}")
 
 
-def collect(run_dir, capture_plan, output, *, seconds, narrow_after_s, deadline_s):
+def collect(run_dir, capture_plan, output, *, seconds, narrow_after_s, deadline_s, done_file=None):
     run_id = validate_state(run_dir, capture_plan)
     output.parent.mkdir(parents=True, exist_ok=True)
     if output.exists():
@@ -121,6 +121,8 @@ def collect(run_dir, capture_plan, output, *, seconds, narrow_after_s, deadline_
     begin = time.monotonic()
     try:
         while pending and time.monotonic() - begin < deadline_s:
+            if done_file is not None and done_file.is_file():
+                break
             for role in roles:
                 if not any(target[0] == role for target in pending):
                     continue
@@ -165,6 +167,7 @@ def main():
     parser.add_argument("--shaping", type=Path, required=True)
     parser.add_argument("--run-dir", type=Path, required=True)
     parser.add_argument("--output", type=Path)
+    parser.add_argument("--done-file", type=Path, help="Optional client completion marker to stop waiting for windows")
     parser.add_argument("--roles", nargs="+", choices=("D0", "D1"), default=("D0", "D1"))
     parser.add_argument("--stride", type=int, default=4)
     parser.add_argument("--window-s", type=float, default=1.0)
@@ -185,7 +188,7 @@ def main():
         if args.output is None:
             parser.error("--output is required for capture")
         collect(run_dir, capture_plan, args.output, seconds=args.window_s, narrow_after_s=args.narrow_after_s,
-                deadline_s=args.deadline_s)
+                deadline_s=args.deadline_s, done_file=args.done_file)
 
 
 if __name__ == "__main__":

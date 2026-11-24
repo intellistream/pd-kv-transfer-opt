@@ -54,7 +54,7 @@ def validate_workload(rows: list[dict]) -> None:
 
 
 def request_one(row: dict, endpoint: str, model: str, origin: float, timeout: float,
-                return_token_ids: bool, ignore_eos: bool, emit) -> dict:
+                return_token_ids: bool, ignore_eos: bool, emit, *, compact_json: bool = False) -> dict:
     key = row["id"]
     record = {"type": "request_end", "id": key, "session_id": row.get("session_id"),
               "predecessor": row.get("predecessor"), "offered_s": row["offered_s"],
@@ -71,8 +71,9 @@ def request_one(row: dict, endpoint: str, model: str, origin: float, timeout: fl
         payload["ignore_eos"] = True
     if cache_salt := row.get("cache_salt"):
         payload["cache_salt"] = cache_salt
+    body = json.dumps(payload, ensure_ascii=False, separators=(",", ":")) if compact_json else json.dumps(payload)
     request = urllib.request.Request(endpoint.rstrip("/") + "/v1/completions",
-                  data=json.dumps(payload).encode(), method="POST",
+                  data=body.encode(), method="POST",
                   headers={"Content-Type": "application/json", "X-Request-Id": key})
     try:
         with urllib.request.urlopen(request, timeout=timeout) as response:
@@ -119,7 +120,7 @@ def request_one(row: dict, endpoint: str, model: str, origin: float, timeout: fl
     return record
 
 
-async def drive(rows, endpoint, model, workers, timeout, return_token_ids, ignore_eos, emit):
+async def drive(rows, endpoint, model, workers, timeout, return_token_ids, ignore_eos, emit, *, compact_json=False):
     origin = time.monotonic()
     emit({"type": "client_origin", "monotonic_s": origin, "anchor": clock_anchor()})
     semaphore = asyncio.Semaphore(workers)
@@ -147,7 +148,7 @@ async def drive(rows, endpoint, model, workers, timeout, return_token_ids, ignor
             await wait_until(ready)
         async with semaphore:
             record = await asyncio.to_thread(request_one, {**row, "ready_s": ready}, endpoint,
-                          model, origin, timeout, return_token_ids, ignore_eos, emit)
+                          model, origin, timeout, return_token_ids, ignore_eos, emit, compact_json=compact_json)
         emit(record)
         return record
 
@@ -169,6 +170,7 @@ def main() -> None:
     parser.add_argument("--window-start", type=float, default=60)
     parser.add_argument("--seconds", type=float, default=600)
     parser.add_argument("--return-token-ids", action="store_true")
+    parser.add_argument("--compact-json", action="store_true", help="Match the native proxy replay request-body encoding")
     parser.add_argument("--ignore-eos", action="store_true", help="Fixed-length diagnostic workloads only")
     parser.add_argument("--tokenizer-fingerprint", default=None)
     args = parser.parse_args()
@@ -197,7 +199,7 @@ def main() -> None:
             loop = asyncio.get_running_loop()
             loop.set_default_executor(ThreadPoolExecutor(max_workers=args.workers))
             return await drive(rows, args.endpoint, args.model, args.workers, args.timeout,
-                               args.return_token_ids, args.ignore_eos, emit)
+                               args.return_token_ids, args.ignore_eos, emit, compact_json=args.compact_json)
         duration = asyncio.run(run())
     write_json(output / "client-end.json", {"anchor": clock_anchor(), "drain_included_s": duration})
 

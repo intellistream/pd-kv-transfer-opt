@@ -79,6 +79,14 @@ def mooncake_store_config(config):
             **store_pool_options(config)}
 
 
+def store_environment(store, run_dir):
+    # The pinned backend reads the two overrides before the generated JSON.
+    return {"MOONCAKE_CONFIG_PATH": str(run_dir / "store.json"),
+            "MOONCAKE_MASTER": store["master_server_address"],
+            "MOONCAKE_GLOBAL_SEGMENT_SIZE": str(store["global_segment_size"]),
+            "ASCEND_ENABLE_USE_FABRIC_MEM": "0"}
+
+
 def model_commands(config, role, run_dir, *, observe=False, profile_decode_steps=False,
                    decode_language_model_only=False, decode_native_profiler=False):
     local = config[role]
@@ -149,6 +157,12 @@ def launch(config, role, run_dir, run_id, state, store):
         for handler in logging["handlers"].values():
             handler.setdefault("filters", []).append("rdma_observations")
         logging.setdefault("filters", {})["rdma_observations"] = {"()": name}
+    elif state.get("kv_io_observations_enabled", False):
+        for handler in logging["handlers"].values():
+            handler.setdefault("filters", []).append("kv_io_observations")
+        logging.setdefault("filters", {})["kv_io_observations"] = {
+            "()": "pd_kv_transfer_opt.profiling.scoped_native_observability.InstallFilter",
+        }
     if state.get("page_observations_enabled", False) or state.get("abort_observations_enabled", False):
         for handler in logging["handlers"].values():
             handler.setdefault("filters", []).append("kv_page_observations")
@@ -183,8 +197,10 @@ def launch(config, role, run_dir, run_id, state, store):
                ACL_OP_INIT_MODE="1", MC_TRANSFER_TIMEOUT="30", ISSUE23_ROLE=role,
                ISSUE23_RUN_ID=run_id, ISSUE23_P_GRAPH_REPLAY_OBSERVABILITY="1" if state["observations_enabled"] else "0",
                ISSUE23_BATCH_GET_CONCURRENCY="1",
-               VLLM_LOGGING_CONFIG_PATH=str(run_dir / "logging.json"), MOONCAKE_CONFIG_PATH=str(run_dir / "store.json"))
+               VLLM_LOGGING_CONFIG_PATH=str(run_dir / "logging.json"), **store_environment(store, run_dir))
     state["inherited_HCCL_RDMA_TIMEOUT"] = env.get("HCCL_RDMA_TIMEOUT")
+    state["communication_environment"] = {name: env.get(name) for name in (
+        "HCCL_INTRA_ROCE_ENABLE", "HCCL_INTRA_PCIE_ENABLE", "HCCL_INTER_HCCS_DISABLE", "HCCL_RDMA_TIMEOUT")}
     if mode_file is not None:
         env["ISSUE23_SAME_HEAD_MODE"] = mode_file
     if state.get("prefill_admission_observations", False):
@@ -275,6 +291,7 @@ def main():
     parser.add_argument("--run-dir", type=Path, required=True)
     parser.add_argument("--run-id", required=True)
     parser.add_argument("--observe", action="store_true", help="Enable method and NPU event observations for profiling runs.")
+    parser.add_argument("--observe-kv-io", action="store_true", help="Record Store I/O and KV handoffs without device profiling.")
     parser.add_argument("--profile-kv-lifetime", action="store_true",
                         help="Observe scheduler page demand and connector-owned page lifetimes.")
     parser.add_argument("--observe-abort", action="store_true",
@@ -310,10 +327,13 @@ def main():
                                     decode_native_profiler=args.decode_native_profiler)
     state = {"run_id": args.run_id, "role": args.role, "instances": commands, "store_config": store,
              "store_pool_layout": store_pool_layout(config),
+             "store_environment": store_environment(store, run_dir),
              "observations_enabled": observe, "decode_language_model_only": args.decode_language_model_only,
              "decode_native_profiler": args.decode_native_profiler}
     if args.profile_kv_lifetime:
         state["page_observations_enabled"] = True
+    if args.observe_kv_io:
+        state["kv_io_observations_enabled"] = True
     if args.observe_abort:
         state["abort_observations_enabled"] = True
     if args.profile_prefill_admission:

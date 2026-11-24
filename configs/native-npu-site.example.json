@@ -1,0 +1,23 @@
+{
+  "deployment": "configs/ascend-2p2d-decode-apc.example.json",
+  "source_workspace": "/vllm-workspace",
+  "upstream_proxy": "/vllm-workspace/vllm-ascend/examples/disaggregated_prefill_v1/load_balance_proxy_server_example.py",
+  "hosts": {
+    "P": {
+      "ssh": "ascend-112",
+      "host_repo": "issue23-910b-20261117/source/pd-kv-transfer-opt-native-suite",
+      "runtime_repo": "/workspace/issue23/source/pd-kv-transfer-opt-native-suite",
+      "runtime_prefix": ["sudo", "-n", "docker", "exec", "-i", "prefill-container"],
+      "hccn_tool": "/usr/local/Ascend/driver/tools/hccn_tool",
+      "hccn_sudo": true
+    },
+    "D": {
+      "ssh": "ascend-180",
+      "host_repo": "issue23-910b-20261117/source/pd-kv-transfer-opt-native-suite",
+      "runtime_repo": "/workspace/issue23/source/pd-kv-transfer-opt-native-suite",
+      "runtime_prefix": ["sudo", "-n", "docker", "exec", "-i", "decode-container"],
+      "hccn_tool": "/usr/local/Ascend/driver/tools/hccn_tool",
+      "hccn_sudo": true
+    }
+  }
+}

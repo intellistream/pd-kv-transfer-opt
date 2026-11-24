@@ -16,14 +16,12 @@ from pd_kv_transfer_opt.workloads.histories import request_histories
 from pd_kv_transfer_opt.workloads.materialize import token_digest
 
 
-def materialize(catalog, source_archive, tokenizer_dir, output):
+def prompt_encoder(tokenizer_dir, expected_sha256):
     from jinja2.exceptions import TemplateError
     from jinja2.sandbox import ImmutableSandboxedEnvironment
     from tokenizers import Tokenizer
 
-    if output.exists():
-        raise FileExistsError(output)
-    if sha256(tokenizer_dir / "tokenizer.json") != catalog["tokenizer_sha256"]:
+    if sha256(tokenizer_dir / "tokenizer.json") != expected_sha256:
         raise ValueError("Wrong tokenizer file")
     environment = ImmutableSandboxedEnvironment(trim_blocks=True, lstrip_blocks=True)
 
@@ -35,6 +33,18 @@ def materialize(catalog, source_archive, tokenizer_dir, output):
     template_path = tokenizer_dir / "chat_template.jinja"
     template = environment.from_string(template_path.read_text(encoding="utf-8"))
     tokenizer = Tokenizer.from_file(str(tokenizer_dir / "tokenizer.json"))
+
+    def encode(messages):
+        rendered = template.render(messages=messages, add_generation_prompt=True, enable_thinking=True)
+        return tokenizer.encode(rendered, add_special_tokens=False).ids
+
+    return encode
+
+
+def materialize(catalog, source_archive, tokenizer_dir, output):
+    if output.exists():
+        raise FileExistsError(output)
+    encode = prompt_encoder(tokenizer_dir, catalog["tokenizer_sha256"])
     expected = defaultdict(dict)
     for row in catalog["requests"]:
         expected[row["task"]][row["step_id"]] = row
@@ -59,8 +69,7 @@ def materialize(catalog, source_archive, tokenizer_dir, output):
                     if step not in calls:
                         continue
                     row = calls[step]
-                    rendered = template.render(messages=messages, add_generation_prompt=True, enable_thinking=True)
-                    tokens = tokenizer.encode(rendered, add_special_tokens=False).ids
+                    tokens = encode(messages)
                     if len(tokens) != row["prompt_tokens"] or token_digest(tokens) != row["token_ids_uint32le_sha256"]:
                         raise ValueError(f"Tokenized prompt differs from canonical receipt: {row['id']}")
                     if previous is not None:
@@ -85,7 +94,7 @@ def materialize(catalog, source_archive, tokenizer_dir, output):
     return {"schema": "basin-burst-input-receipt/v1", "requests": len(verified), "adjacent_prefixes": followers,
             "output_sha256": sha256(output), "output_bytes": output.stat().st_size,
             "source_archive_sha256": sha256(source_archive), "tokenizer_sha256": catalog["tokenizer_sha256"],
-            "chat_template_sha256": sha256(template_path),
+            "chat_template_sha256": sha256(tokenizer_dir / "chat_template.jinja"),
             "method": "Local tokenizers + canonical Jinja template, checked against every previously audited prompt hash and LCP; no truncation or padding"}
 
 
