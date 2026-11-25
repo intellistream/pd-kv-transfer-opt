@@ -1,0 +1,249 @@
+{
+  "schema": "native-2p2d-npu-archive/v1",
+  "repository_commit_at_execution": "29bad7a11909eef4cf16b8f3b714c0a7da97a2d8",
+  "dates_Asia_Shanghai": [
+    "2026-11-24",
+    "2026-11-25"
+  ],
+  "experiment_plan": "docs/terminal-throughput-plan.md",
+  "execution_runbook": "docs/native-npu-run.md",
+  "versioned_file_sha256": {
+    "docs/terminal-throughput-plan.md": "1554a3a3a2a995c4d3e4a30b267c084eafc8f4a3fb6a78bc82708a629b9b273b",
+    "docs/native-npu-run.md": "230b29d06b515dec8bb02a459f3808d92203559dad2486959117276e78681ebd",
+    "configs/basin-windows-v1/matrix.json": "cf42666abe66bcbbcf302ea749eeb228495ed7df5fbfae2ba530ba939c61042b",
+    "configs/basin-windows-v1/catalog.json": "86eeded5c21228dadad32f7b2317b5a8c459e1fb00d83766c286efe55aaa2070",
+    "configs/ascend-2p2d-decode-apc.example.json": "5d096d1667b8512b428bb4263aa6ca8809053f1d5f3e7dd832aa76b41d0c4895",
+    "configs/workload-r42-natural-sustained.json": "15f343e3a4dd554b2252a62a140b65462291dff82705cf29b7aa9aa6eb7fc195",
+    "results/2026-11-22-terminal-source-restore-short-guard/workload.json": "aa685a10eb347a7c54e43d16fc084dd965bbfe5e5626ca8f25afa0516fc1d6ed",
+    "configs/basin-windows-v1/light.json": "0c05825ec0b746b3aef6b6aa4a0cea26d6db92c91ea102a14f859d05e0cc1543",
+    "configs/basin-windows-v1/fivefold.json": "5c22b2d0b77535bb143cd33d62f2e2465ea272c299683cd155626372ff79bf94",
+    "configs/basin-windows-v1/short.json": "876af2a4f51226ac918c1d1bcacb741f528fa74d2ffc7c97ba30d59da91e821a"
+  },
+  "dataset": {
+    "source_repo": "openguardrails/terminal-bench-2.1-deepseek-v4-flash-trajectories",
+    "source_revision": "3f5b93ff1c5ea84b2c94cf479d0c942227191b4a",
+    "tokenizer_sha256": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+    "r43_r69_source_archive_sha256": "2501af3e7a9d40f17f5839ba82b6a93578708007b0639aeb351d1afa4acca71e"
+  },
+  "deployment": {
+    "accelerator": "Ascend 910B2",
+    "hosts": 2,
+    "ranks_per_host": 8,
+    "layout": "2P2D",
+    "replica_attention_tp": 4,
+    "replica_expert_ep": 4,
+    "replica_dp": 1,
+    "model": "Qwen3.5-35B-A3B",
+    "precision": "BF16",
+    "vllm_commit_prefix": "0fc695fc",
+    "vllm_ascend_commit_prefix": "5cb98caa",
+    "mooncake_npu": "0.3.11.post1",
+    "local_apc": {
+      "P": true,
+      "D": true
+    },
+    "D_native_recompute_scheduler": true,
+    "ignore_eos": false,
+    "temperature": 0,
+    "routing": "native",
+    "store_layout": "two-sided-8gib-local-first/v1",
+    "store_GiB_per_model_rank": 8,
+    "store_GiB_per_host": 64,
+    "store_GiB_total": 128,
+    "shaping_protocol": "symmetric-egress/v1",
+    "egress_ports": {
+      "P": 8,
+      "D": 8
+    },
+    "per_port_Mbps_by_host_cap": {
+      "100": 12500,
+      "200": 25000
+    }
+  },
+  "formal_runs": {
+    "completed": 18,
+    "r43": 4,
+    "r69": 4,
+    "basin_natural_completion": 10,
+    "requests": 5056,
+    "output_tokens": 4102932,
+    "port_rows": 288,
+    "denominator": "Time from first planned offer to the last completion, including drain and excluding priming",
+    "reconciled": [
+      "Unique formal request identifiers per arm",
+      "Per-request output tokens and finish reasons",
+      "Throughput numerator, denominator and last completion",
+      "Eight port rows per role and arm",
+      "P and D source archive fingerprints for each arm"
+    ],
+    "r43_port_readback_and_restore": {
+      "r43-b1-cap100": {
+        "P": {
+          "readback_Mbps": [
+            12500
+          ],
+          "restored": true,
+          "archive": true
+        },
+        "D": {
+          "readback_Mbps": [
+            12500
+          ],
+          "restored": true,
+          "archive": true
+        }
+      },
+      "r43-b1-cap200": {
+        "P": {
+          "readback_Mbps": [
+            25000
+          ],
+          "restored": true,
+          "archive": true
+        },
+        "D": {
+          "readback_Mbps": [
+            25000
+          ],
+          "restored": true,
+          "archive": true
+        }
+      },
+      "r43-b2-cap200": {
+        "P": {
+          "readback_Mbps": [
+            25000
+          ],
+          "restored": true,
+          "archive": true
+        },
+        "D": {
+          "readback_Mbps": [
+            25000
+          ],
+          "restored": true,
+          "archive": true
+        }
+      },
+      "r43-b2-cap100": {
+        "P": {
+          "readback_Mbps": [
+            12500
+          ],
+          "restored": true,
+          "archive": true
+        },
+        "D": {
+          "readback_Mbps": [
+            12500
+          ],
+          "restored": true,
+          "archive": true
+        }
+      }
+    },
+    "basin_archived_and_port_limits_restored": {
+      "basin-light-steady-100": true,
+      "basin-light-steady-200": true,
+      "basin-fivefold-burst-drain-200": true,
+      "basin-fivefold-burst-drain-100": true,
+      "basin-light-plus33-100": true,
+      "basin-light-plus33-200": true,
+      "basin-light-plus100-200": true,
+      "basin-light-plus100-100": true,
+      "basin-short-burst-drain-100": true,
+      "basin-short-burst-drain-200": true
+    }
+  },
+  "diagnostics": {
+    "r43_profile": {
+      "cap_Gbps_per_host": 200,
+      "windows": 4,
+      "rank_archives": 16,
+      "four_rank_cann_steps_matched": 0
+    },
+    "basin_cancellation": {
+      "cap_Gbps_per_host": 200,
+      "covered_stages": [
+        "decode_generation"
+      ],
+      "missing_stages": [
+        "decode_kv_wait",
+        "prefill"
+      ],
+      "formal_termination_arms": 0
+    }
+  },
+  "source_role_archive_sha256": {
+    "r43-b1-cap100/P.tar.gz": "ab3d952fe4009fa3a8b1655d91df74bfca89f5e6e67c0b1fb0562a4cd29683c1",
+    "r43-b1-cap100/D.tar.gz": "d63db223773229ab41bed2b32411e0fd27f22a568794af0bafd1fac06a9a9d94",
+    "r43-b1-cap200/P.tar.gz": "299491836d1b61c2139d3c33edd0e4f037cf8a6814b453871d49af2da8673acd",
+    "r43-b1-cap200/D.tar.gz": "f0f4cc825ce9c6aae082a010a2238e6de6d858efda8f001c00ab9b5741216e63",
+    "r43-b2-cap200/P.tar.gz": "06e1a24156b23c517c2bc1f3924809e1798c1436847da325aa84204d7bb23bde",
+    "r43-b2-cap200/D.tar.gz": "65f8162f4bb19f5f77b882b277a765740a194b5521a2a914a83f31b3f9222e9d",
+    "r43-b2-cap100/P.tar.gz": "40b8d21a8be7803d34062307777c74975db4f367102461def965b1a70103f343",
+    "r43-b2-cap100/D.tar.gz": "3c74a9676e88ebf99ada80ab19a84fde1233a07fb562e3989a3fb1bcf2ab44fc",
+    "r69-b1-cap100/P.tar.gz": "64566333ec551d12e8ef3ea5311762099a18337bb079fbda218fc24e5fb26473",
+    "r69-b1-cap100/D.tar.gz": "66af30212db53f5335655725412fb7c2acc82ac889deb4095e17448727d68405",
+    "r69-b1-cap200/P.tar.gz": "282eb105f2737438da97a2a98ed7d23e6fe610b044f73fb6352bef5404636aa3",
+    "r69-b1-cap200/D.tar.gz": "75b3e46975e6e0278eb17b9129fee4a6ee26fbc3d15a60b0c739ab7f41e638ad",
+    "r69-b2-cap200/P.tar.gz": "3a9312b1212f90f83ba35bd91447fd2f725dfba0903683dff77fe77a889686c0",
+    "r69-b2-cap200/D.tar.gz": "378a32c7161e9c943adee8915e86a1f91779dfd5ad009a9e1e101514c81df19e",
+    "r69-b2-cap100/P.tar.gz": "fd12ab1383735ec0e6f32e25b8cb1b6cb23eda97bed06d09e843ce2bb2bde1b4",
+    "r69-b2-cap100/D.tar.gz": "b6362a55b5c95c9e1ec86399d79434e13d1281b1a8f4c4b828a7988dfaf53695",
+    "basin-light-steady-100/P.tar.gz": "66078e5a1d71d1dad04b1b9c108ee710bc2e31fe9baf0e484e6e9d0c754402d0",
+    "basin-light-steady-100/D.tar.gz": "71c225858fa9934f0294d523a22f0c740ce155be3efd1c3105ed7c1b0887515f",
+    "basin-light-steady-200/P.tar.gz": "a3be355d205a93ad89bc01117122d832ba14a30717a1fec9e4404d7a3c18b0ee",
+    "basin-light-steady-200/D.tar.gz": "c5871aa564d5b30003459dc0af0ca585d305301e3a02d03046f1629074740048",
+    "basin-fivefold-burst-drain-200/P.tar.gz": "450568aee2d4e4e4bbe3372188fb026b4c011c40801300fc720974e8246db561",
+    "basin-fivefold-burst-drain-200/D.tar.gz": "97e0196bdece0fb486d12c96d6d38bfe43d4b671480eb47345939756ba9602bb",
+    "basin-fivefold-burst-drain-100/P.tar.gz": "8e98b3718ad575dc65a60ef16f45eef53f86ef368302d0e2c43dcaeba3a8e584",
+    "basin-fivefold-burst-drain-100/D.tar.gz": "bbc43f4aa62cd92734edb2f2eb3c277d0e521cd4d913cea7f85ec19b10b1b915",
+    "basin-light-plus33-100/P.tar.gz": "29dc7a20b5cded415247ccbf7641a7c3916f4025f566badecfce816d07a88ce3",
+    "basin-light-plus33-100/D.tar.gz": "d79a8dbda9971a9603ec6c742666a3acf5a5c8ca5792ca68ac0510078ea7ac7f",
+    "basin-light-plus33-200/P.tar.gz": "76bda084bf4920c1ef2a430159717b02fd21c02b59b42aaeca6f2e991101fcb0",
+    "basin-light-plus33-200/D.tar.gz": "2f730af050637a56182db3e543261fd454cc9ad3e73110b9abdf01a1e6b791f7",
+    "basin-light-plus100-200/P.tar.gz": "a139935e75079ed035511f795eef07a900f9b06bba0c7d7a830e822d0f79359f",
+    "basin-light-plus100-200/D.tar.gz": "e956fe29f2c6d1a7edcaf9ac4323d3937f04cdb17dce4bc31e0ffabfcbcd9823",
+    "basin-light-plus100-100/P.tar.gz": "991709821b04aed05bd7c87a722a4a5c5eac7624adff1ac224ff7562ab5aba91",
+    "basin-light-plus100-100/D.tar.gz": "8a7666731d2f124dde0b05f6eb57d7c15c16c55e27a30b7895dba46e65ae1772",
+    "basin-short-burst-drain-100/P.tar.gz": "7052d04787db1689eeab3b15bc380f238ca8b8aa63c19a499c62c7664ef9d808",
+    "basin-short-burst-drain-100/D.tar.gz": "98ca1e03345d073f3191b8e19d4f658455ffed4ed77b0c4f876118544538c658",
+    "basin-short-burst-drain-200/P.tar.gz": "1385964165afb4aa1f4c9589f8cf9651685c5e8ff4a08344134957ab6c93c66f",
+    "basin-short-burst-drain-200/D.tar.gz": "124f9a33a93c83c66011d7eb68fa829b24bc24c76022bd7d013185f78a14a679"
+  },
+  "source_analysis_sha256": {
+    "coder-native-20261125-cancel-check/verified-cancellation.json": "a661f4b46de3779192a3de3a1f191f6c13afa128d1a2e4e57b636ca3bded4888",
+    "coder-native-20261125-r43-profile/four-rank-offline-breakdown.json": "0570b029b03b644591ba39f5b99676b88125661f5803c37c939fba783c3dd29a",
+    "coder-native-20261125-r43-profile/native-steps-verified.json": "fd7ee2c77d3499b272ae76fe43a418f347b9971d423b20b5c88e9106226bbd19",
+    "coder-native-20261125-r43-profile/verified-profile-capture.json": "0ecddb76399bf6181b67bbef0772eae68a5684d885d8e44475f29d6fd1c43078",
+    "coder-native-20261125-r69-basin/cohort-phase-comparisons.json": "6ee8895a63aba145280d76c1db9b2cc0f65e7fe212177fdada57a6ef1f2b385e",
+    "coder-native-20261125-r69-basin/fabric-by-burst-window.json": "2ba0a53ce39bca68f2f1df09dc444fd7946682bc4655015c87ab4696584fe1e5",
+    "coder-native-20261125-r69-basin/native-2p2d-findings.md": "076cf81ce6b8924ae3f686aefab9ff368f69652249ea9ab5ef66425451ad92a3",
+    "coder-native-20261125-r69-basin/paired-tail-audit.json": "6e7a99336ad76517e332286342d1e319ff1cce7ac08f285186d063a9b287c85b",
+    "coder-native-20261125-r69-basin/port-summary.csv": "eb1c8cbe395e13043e5889e2eb0b9c56546e02696aff6af0c9e52f06e32fb9d1",
+    "coder-native-20261125-r69-basin/r69-prefill-allocation-audit.json": "39beef6dfe23445b00a95bacbfed9c9f876cb182ec22dcae1b78eff4b2a22a1c",
+    "coder-native-20261125-r69-basin/request-phases.csv": "d486a915ab4e796a4028c2dd86cda1e95ccc7f7c26af52febd70e5052d166518",
+    "coder-native-20261125-r69-basin/trace-analysis.json": "f394844c63a8dec7120a9239979b9a2a7bddfe52207cff2a9c9bd7c2181f7788",
+    "coder-native-20261125-r69-basin/verified-basin-summary.json": "35dc1ac700ff7e15025e27a9b97d707c324131ba01ccd5c3431c0eeb81b4ba16",
+    "coder-r43-20261124-srv/port-summary.csv": "9cfe7ada0964a63348611ed9083d38bfce891704904636635869e59f5fe953c5",
+    "coder-r43-20261124-srv/request-phases.csv": "9b9a77a0b491d0ab519ba7725f8933177b72ecdd280b4bcb1f8bbbd371206c7b",
+    "coder-r43-20261124-srv/trace-analysis.json": "0485352c71e96ed435989577bcdcc29d6cc53d9279a1c8be899dcef079eaf5db",
+    "coder-r43-20261124-srv/verified-summary.json": "52547e8bee994a245fd75318c048ce99f780db2a965bd47d7877577fbbfee698"
+  },
+  "files_sha256": {
+    "cohort-phase-comparisons.json": "af7d6aadefbc93e067682780b3a16a045607860d93248e1346daecbfeba2725f",
+    "diagnostics/basin-cancellation.json": "cdbaa4d6be6da705b42c189920e75d2c84c6867fd778693b13847341bf20b427",
+    "diagnostics/r43-four-rank-breakdown.json": "22f45d23d3c8b18291996a4d8732de7fe3ffeb6f54ac29ed016d32f857d44848",
+    "diagnostics/r43-native-steps.json": "a9b6d75eb34db62b992e3543bb064c9867bd79d2cd1f50c701a7121d7273f2e4",
+    "diagnostics/r43-profile-capture.json": "337dbd39c16a92c084a45a0e3b0426ee126b79a4a754e533f0a2cee4aeee7f3e",
+    "fabric-by-burst-window.json": "9d75761abc4faa2e35d28b8f48207c585f031f6e70c29f036f1a1a65c8df6fe3",
+    "paired-tail-audit.json": "a70e9f11b62b3723d4608d2dd2566a395b24d9e308dafa8990c3d29780575833",
+    "port-summary.csv": "fd88731788c26e6632b8d7b57a675101abae3a9698dd8be417ea91ef3fa1f663",
+    "r69-prefill-allocation-audit.json": "2eef917970c990787719053aff6503db92410f8863c4ffcf968e01bf5e9b95de",
+    "README.md": "e92753ddded8d69736b1a0b74c25c0f7fbb7740ccf2acaf2b31ec8cc47ad3986",
+    "request-phases.csv.gz": "3661dec2b82d2dbf9c0152b6adbba15a7f94db40712958d64b19571852a7adc7",
+    "throughput.csv": "69a029abd4817d6d6ca24f6f3a4201fef2f9eeac4496c7802f56e229c0b19310",
+    "trace-analysis.json": "ba77e2f5f3c27cb69814be0febe72cd6b6b190e7882c70bc2209299d07798a22"
+  }
+}

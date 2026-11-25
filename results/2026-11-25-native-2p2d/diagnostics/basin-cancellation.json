@@ -1,0 +1,133 @@
+{
+  "time": "2026-11-25T06:25:05+08:00",
+  "run_id": "coder-native-20261125-cancel-check-basin-cancel-check-200",
+  "warmup": {
+    "ok": 4
+  },
+  "counts": {
+    "ok": 15,
+    "cancelled_inflight": 2,
+    "session_terminated": 10
+  },
+  "shutdown": {
+    "type": "burst_termination",
+    "scheduled_s": 20.0,
+    "actual_s": 20.00049573701108,
+    "sessions": [
+      "git-leak-recovery",
+      "vulnerable-secret"
+    ],
+    "server_abort_verified": false
+  },
+  "control_accounting_complete": true,
+  "proxy_before": {
+    "status": "ok",
+    "prefill_instances": 2,
+    "decode_instances": 2,
+    "request_num": 0
+  },
+  "proxy_after": {
+    "status": "ok",
+    "prefill_instances": 2,
+    "decode_instances": 2,
+    "request_num": 0
+  },
+  "proxy_idle": true,
+  "final_engine_slots": {
+    "P0": {
+      "vllm:num_requests_running": 0.0,
+      "vllm:num_requests_waiting": 0.0
+    },
+    "P1": {
+      "vllm:num_requests_running": 0.0,
+      "vllm:num_requests_waiting": 0.0
+    },
+    "D0": {
+      "vllm:num_requests_running": 0.0,
+      "vllm:num_requests_waiting": 0.0
+    },
+    "D1": {
+      "vllm:num_requests_running": 0.0,
+      "vllm:num_requests_waiting": 0.0
+    }
+  },
+  "limits_restored": {
+    "P": true,
+    "D": true
+  },
+  "inflight": [
+    {
+      "id": "git-leak-recovery:3",
+      "phase": "decode_generation",
+      "upstream_closed": true,
+      "engine_accepted": true,
+      "engine_freed_kv": true,
+      "P_source_freed": true,
+      "verified": true,
+      "events": {
+        "P": [
+          "engine_source_kv_held",
+          "engine_source_kv_release"
+        ],
+        "D": [
+          "d_paged_receive_allocated",
+          "d_paged_receive_arrival",
+          "d_paged_receive_ready",
+          "engine_abort_accepted",
+          "engine_abort_finish_result",
+          "engine_abort_kv_release"
+        ]
+      },
+      "proxy_events": [
+        "proxy_arrival",
+        "prefill_begin",
+        "prefill_end",
+        "decode_begin",
+        "decode_first_chunk",
+        "decode_upstream_closed",
+        "decode_end"
+      ]
+    },
+    {
+      "id": "vulnerable-secret:2",
+      "phase": "decode_generation",
+      "upstream_closed": true,
+      "engine_accepted": true,
+      "engine_freed_kv": true,
+      "P_source_freed": true,
+      "verified": true,
+      "events": {
+        "P": [
+          "engine_source_kv_held",
+          "engine_source_kv_release"
+        ],
+        "D": [
+          "d_paged_receive_allocated",
+          "d_paged_receive_arrival",
+          "d_paged_receive_ready",
+          "engine_abort_accepted",
+          "engine_abort_finish_result",
+          "engine_abort_kv_release"
+        ]
+      },
+      "proxy_events": [
+        "proxy_arrival",
+        "prefill_begin",
+        "prefill_end",
+        "decode_begin",
+        "decode_first_chunk",
+        "decode_upstream_closed",
+        "decode_end"
+      ]
+    }
+  ],
+  "covered_stages": [
+    "decode_generation"
+  ],
+  "missing_stages": [
+    "decode_kv_wait",
+    "prefill"
+  ],
+  "server_abort_and_resource_release_verified": false,
+  "complete_output_tokens_per_s": null
+}
