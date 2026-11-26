@@ -39,9 +39,9 @@
 | 缓存和交接 | 双侧本地 APC 和 Store 就近分配。四卡方案每模型 rank 注册 16 GiB，八卡方案每 rank 注册 8 GiB。两种配置都是 P、D 各 64 GiB。实际复用由运行状态决定，P→D 走原生 Mooncake Pull。 |
 | 限速和轮次 | 先跑 100-1，排空并重建相同初态后跑 100-2。每轮两台机器的实验 RDMA 端口均按每机发送合计 100 Gbps、接收合计 100 Gbps 配置，并分别读回。 |
 
-固定版本、实例分组和现场核对步骤见 [原生 2P2D 上机执行](native-npu-run.md)。P 的 8K 预算沿用短测取值。
+固定版本、实例分组和现场核对步骤见 [原生 2P2D 上机执行](native-npu-run.md)。P 的 8K 预算和对应图捕获尺寸沿用短测取值。单 P 短测中，两种冷长输入的 Prefill 用时分别缩短了 16.5% 和 13.9%。 [短测设计和结果](../results/2026-11-26-prefill-budget/README.md)
 
-本次站点部署配置中，设置 `P.max_num_batched_tokens=8192`、`P.enable_matmul_allreduce=true`、`D.enable_matmul_allreduce=false`。启动器把各角色的开关传入 vLLM 的 `--additional-config`，在 `state.json` 的实例启动参数中留档。MatmulAllReduce 将支持的行并行线性层的矩阵乘和 TP 组内归约融合。完成就绪和配置核对后直接跑两轮主实验，从主实验采集 P 的实际等待和计算耗时。 [固定版配置](https://github.com/vllm-project/vllm-ascend/blob/5cb98caaadeff42b5b62b996e34bb2aaa29d20fd/vllm_ascend/ascend_config.py#L167-L172) · [固定版融合算子](https://github.com/vllm-project/vllm-ascend/blob/5cb98caaadeff42b5b62b996e34bb2aaa29d20fd/vllm_ascend/ops/linear_op.py#L420-L438)
+本次站点部署配置中，设置 `P.max_num_batched_tokens=8192`，在 P 的 `cudagraph_capture_sizes` 中包含 8192，并设置 `P.enable_matmul_allreduce=true`、`D.enable_matmul_allreduce=false`。启动器把各角色的开关传入 vLLM 的 `--additional-config`，在 `state.json` 的实例启动参数中留档。MatmulAllReduce 将支持的行并行线性层的矩阵乘和 TP 组内归约融合。完成就绪和配置核对后直接跑两轮主实验，从主实验采集 P 的实际等待和计算耗时。 [固定版配置](https://github.com/vllm-project/vllm-ascend/blob/5cb98caaadeff42b5b62b996e34bb2aaa29d20fd/vllm_ascend/ascend_config.py#L167-L172) · [固定版融合算子](https://github.com/vllm-project/vllm-ascend/blob/5cb98caaadeff42b5b62b996e34bb2aaa29d20fd/vllm_ascend/ops/linear_op.py#L420-L438)
 
 ### 四卡部署
 
