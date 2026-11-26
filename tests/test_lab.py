@@ -57,6 +57,27 @@ class MultiwaveProfilingTests(unittest.TestCase):
 
 
 class DeploymentTests(unittest.TestCase):
+    def test_four_card_deployment_passes_tp2_and_sixteen_gib_to_workers(self):
+        config = read_deployment(ROOT / "configs" / "ascend-2p2d-tp2.example.json")
+        layout = store_pool_layout(config)
+        self.assertEqual(layout["id"], "two-sided-16gib-local-first/v1")
+        self.assertEqual(layout["model_workers_by_role"], {"P": 4, "D": 4})
+        self.assertEqual(layout["capacity_bytes_by_role"], {"P": 64 * 1024**3, "D": 64 * 1024**3})
+        self.assertEqual(layout["total_capacity_bytes"], 128 * 1024**3)
+        for role in ("P", "D"):
+            store, commands = model_commands(config, role, ROOT / "runs")
+            self.assertEqual(store["global_segment_size"], 16 * 1024**3)
+            self.assertEqual(len(commands), 2)
+            for command in commands:
+                self.assertEqual(len(command["devices"]), 2)
+                argv = command["argv"]
+                self.assertEqual(argv[argv.index("--tensor-parallel-size") + 1], "2")
+                self.assertIn("--enable-expert-parallel", argv)
+                transfer = json.loads(argv[argv.index("--kv-transfer-config") + 1])
+                handoff = transfer["kv_connector_extra_config"]["connectors"][0]["kv_connector_extra_config"]
+                self.assertEqual(handoff, {"prefill": {"dp_size": 1, "tp_size": 2},
+                                           "decode": {"dp_size": 1, "tp_size": 2}})
+
     def test_both_roles_contribute_eight_gib_per_worker(self):
         config = read_deployment(ROOT / "configs" / "ascend-2p2d-decode-apc.example.json")
         layout = store_pool_layout(config)

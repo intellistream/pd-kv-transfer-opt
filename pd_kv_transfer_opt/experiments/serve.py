@@ -16,9 +16,8 @@ from pd_kv_transfer_opt.common import read_json, write_json
 
 ROLES = ("P", "D")
 PROFILE_CONFIG = {"profiler": "torch", "torch_profiler_with_stack": False, "torch_profiler_with_memory": False}
-STORE_POOL_LAYOUT_ID = "two-sided-8gib-local-first/v1"
-STORE_POOL_OPTIONS = {
-    "global_segment_size": 8 * 1024**3,
+STORE_RANK_GIB_BY_TP = {2: 16, 4: 8}
+STORE_LOCAL_OPTIONS = {
     "local_buffer_size": 32 * 1024**2,
     "preferred_segment": True,
     "prefer_alloc_in_same_node": True,
@@ -26,19 +25,23 @@ STORE_POOL_OPTIONS = {
 
 
 def store_pool_options(config):
-    options = config.get("store_pool", STORE_POOL_OPTIONS)
-    if (not isinstance(options, dict) or options.keys() != STORE_POOL_OPTIONS.keys()
+    tp_size = len(config["P"]["devices"][0])
+    rank_gib = STORE_RANK_GIB_BY_TP[tp_size]
+    expected = {"global_segment_size": rank_gib * 1024**3, **STORE_LOCAL_OPTIONS}
+    options = config.get("store_pool", expected)
+    if (not isinstance(options, dict) or options.keys() != expected.keys()
             or any(type(options[key]) is not type(value) or options[key] != value
-                   for key, value in STORE_POOL_OPTIONS.items())):
-        raise ValueError(f"store_pool must match {STORE_POOL_LAYOUT_ID}: {STORE_POOL_OPTIONS}")
+                   for key, value in expected.items())):
+        raise ValueError(f"store_pool must match the TP{tp_size} layout: {expected}")
     return options.copy()
 
 
 def store_pool_layout(config):
     options = store_pool_options(config)
     workers = {role: sum(map(len, config[role]["devices"])) for role in ROLES}
-    capacity = {role: count * options["global_segment_size"] for role, count in workers.items()}
-    return {"id": STORE_POOL_LAYOUT_ID, "model_workers_by_role": workers,
+    segment_size = options["global_segment_size"]
+    capacity = {role: count * segment_size for role, count in workers.items()}
+    return {"id": f"two-sided-{segment_size // 1024**3}gib-local-first/v1", "model_workers_by_role": workers,
             "capacity_bytes_by_role": capacity, "total_capacity_bytes": sum(capacity.values())}
 
 
@@ -48,22 +51,28 @@ def read_deployment(path):
         raise ValueError("The two roles require different hosts.")
     for role in ROLES:
         item = config[role]
-        if "store_pool" in item or STORE_POOL_OPTIONS.keys() & item.keys():
+        if {"store_pool", "global_segment_size", *STORE_LOCAL_OPTIONS} & item.keys():
             raise ValueError("Use the common top-level store_pool on both roles.")
-        if "enable_prefix_caching" in item and type(item["enable_prefix_caching"]) is not bool:
-            raise ValueError(f"{role}.enable_prefix_caching must be a boolean when specified.")
+        for key in ("enable_prefix_caching", "enable_matmul_allreduce"):
+            if key in item and type(item[key]) is not bool:
+                raise ValueError(f"{role}.{key} must be a boolean when specified.")
         recompute = item.get("recompute_scheduler_enable", False)
         if type(recompute) is not bool or (recompute and role != "D"):
             raise ValueError("recompute_scheduler_enable must be a boolean and may only be enabled on D.")
-        if sorted(device for group in item["devices"] for device in group) != list(range(8)):
-            raise ValueError(f"{role} must use each device 0–7 exactly once.")
-        if [len(group) for group in item["devices"]] != [4, 4]:
-            raise ValueError("TP4/EP4 requires four devices per instance.")
+        groups = item["devices"]
+        sizes = [len(group) for group in groups]
+        if sizes not in ([2, 2], [4, 4]):
+            raise ValueError(f"{role} requires two equally sized TP2 or TP4 device groups.")
+        devices = [device for group in groups for device in group]
+        if any(type(device) is not int or not 0 <= device < 8 for device in devices) or len(set(devices)) != len(devices):
+            raise ValueError(f"{role} requires distinct device IDs in the range 0–7.")
         ports = item["api_ports"] + item["kv_ports"]
         if role == "D":
             ports += [config["mooncake_rpc_port"], config["mooncake_metrics_port"], config["proxy_port"]]
         if len(item["api_ports"]) != 2 or len(item["kv_ports"]) != 2 or len(set(ports)) != len(ports):
             raise ValueError(f"Invalid or conflicting {role} ports.")
+    if len(config["P"]["devices"][0]) != len(config["D"]["devices"][0]):
+        raise ValueError("P and D must use the same TP size.")
     config["store_pool"] = store_pool_options(config)
     return config
 
@@ -90,6 +99,7 @@ def store_environment(store, run_dir):
 def model_commands(config, role, run_dir, *, observe=False, profile_decode_steps=False,
                    decode_language_model_only=False, decode_native_profiler=False):
     local = config[role]
+    tp_size = len(local["devices"][0])
     producer = role == "P"
     kv_role = "kv_producer" if producer else "kv_consumer"
     store = mooncake_store_config(config)
@@ -99,15 +109,16 @@ def model_commands(config, role, run_dir, *, observe=False, profile_decode_steps
         "cudagraph_capture_sizes": [1, 2, 4, 8, 16], "cudagraph_mode": "FULL_DECODE_ONLY",
     })
     additional_config = {"enable_cpu_binding": False}
-    if "recompute_scheduler_enable" in local:
-        additional_config["recompute_scheduler_enable"] = local["recompute_scheduler_enable"]
+    for key in ("recompute_scheduler_enable", "enable_matmul_allreduce"):
+        if key in local:
+            additional_config[key] = local[key]
     commands = []
     for idx, (api_port, kv_port, devices) in enumerate(zip(local["api_ports"], local["kv_ports"], local["devices"], strict=True)):
         label = f"{role}{idx}"
         pd = {"kv_connector": "MooncakeConnectorV1", "kv_role": kv_role, "kv_buffer_device": "npu",
               "kv_port": kv_port, "kv_parallel_size": 1, "kv_rank": 0 if producer else 1,
-              "kv_connector_extra_config": {"prefill": {"dp_size": 1, "tp_size": 4},
-                                            "decode": {"dp_size": 1, "tp_size": 4}}}
+              "kv_connector_extra_config": {"prefill": {"dp_size": 1, "tp_size": tp_size},
+                                            "decode": {"dp_size": 1, "tp_size": tp_size}}}
         # The lookup socket is local IPC, but independently launched instances on a host need different IDs.
         extra = {"backend": "mooncake", "lookup_rpc_port": str(api_port), "load_async": False}
         if not producer:
@@ -117,7 +128,7 @@ def model_commands(config, role, run_dir, *, observe=False, profile_decode_steps
                     "kv_connector_extra_config": {"connectors": [pd, pool]}}
         argv = ["vllm", "serve", local["model_path"], "--host", local["host"], "--port", str(api_port),
                 "--api-server-count", str(config["api_server_count"]), "--served-model-name", config["model_name"],
-                "--dtype", "bfloat16", "--tensor-parallel-size", "4", "--data-parallel-size", "1",
+                "--dtype", "bfloat16", "--tensor-parallel-size", str(tp_size), "--data-parallel-size", "1",
                 "--enable-expert-parallel", "--distributed-executor-backend", "mp",
                 "--max-model-len", "262144", "--max-num-seqs", str(local.get("max_num_seqs", 16)),
                 "--max-num-batched-tokens", str(local.get("max_num_batched_tokens", 4096)),
