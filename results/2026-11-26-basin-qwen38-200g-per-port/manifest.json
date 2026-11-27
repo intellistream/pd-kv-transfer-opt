@@ -1,0 +1,745 @@
+{
+  "schema": "basin-native-link-data/v1",
+  "run_id": "basin-qwen38-tp2-native-link-20261126-02",
+  "model": {
+    "model_id": "Qwen/Qwen3.8-27B",
+    "model_revision": "dbdc473dea0d6a9763042881cc33d6058d1742d2",
+    "model_hashes": {
+      "config.json": "191e0af232104ed8b65258cf3fb2b842e288008baca7633c11b82a1ac7203aab",
+      "model.safetensors.index.json": "77042094076611b69791a610065f28b7013b8c621795fa86ddccc8bac7d1b9df",
+      "tokenizer.json": "0997f410c57a1f4e53b09e4be8f4a172d90edd9564368fb0847030937229b9f3",
+      "tokenizer_config.json": "b11349aafa7cdc6a320767cf7ceb29ed82f7eda5d65e8e0819e76f0ce947bf27",
+      "chat_template.jinja": "c3cf9e34abf4f9e36c2d72165aa9c132d3e2a725b6c2586aaa3a8af9d7a81041",
+      "generation_config.json": "e70c136c1b78ddc1fb0905bac8e733a4dc448d4f852a5dd75143fffc70be550e"
+    }
+  },
+  "software": {
+    "P": {
+      "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+      "ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd",
+      "mooncake": "0.3.11.post1"
+    },
+    "D": {
+      "vllm": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+      "ascend": "5cb98caaadeff42b5b62b996e34bb2aaa29d20fd",
+      "mooncake": "0.3.11.post1"
+    }
+  },
+  "workload": {
+    "profile": "Basin windows v1",
+    "dataset": "openguardrails/terminal-bench-2.1-deepseek-v4-flash-trajectories",
+    "dataset_revision": "3f5b93ff1c5ea84b2c94cf479d0c942227191b4a",
+    "matrix_sha256": "755c59af5fa365abc0af4d1ae266a8f0a9b692aeb5248d7d80792d9b1ad053f8",
+    "rendered_tokens_sha256": "a49a2f106ce7f474bf6e43279b5717e73cf610f76b5345b2f10655b2b5b4b5a3",
+    "render": {
+      "requests": 480,
+      "max_prompt_tokens": 91383,
+      "max_prompt_plus_output_budget": 99575
+    },
+    "natural_model_stop": true,
+    "temperature": 0
+  },
+  "deployment": {
+    "accelerator": "Ascend 910B2",
+    "cards_per_host": 4,
+    "layout": "2P2D TP2 DP1",
+    "P_to_D": "MooncakeConnectorV1",
+    "Store": "AscendStoreConnector",
+    "Store_config": {
+      "global_segment_size": 8589934592,
+      "local_buffer_size": 33554432,
+      "preferred_segment": true,
+      "prefer_alloc_in_same_node": true
+    },
+    "serving": {
+      "P": {
+        "TP": 2,
+        "DP": 1,
+        "dtype": "bfloat16",
+        "max_context": 262144,
+        "batch_tokens": 4096,
+        "max_sequences": 16,
+        "memory_utilization": 0.8,
+        "kv_block_size": 128,
+        "compilation": {
+          "cudagraph_capture_sizes": [
+            1,
+            2,
+            4,
+            8,
+            16,
+            1024,
+            2048,
+            3072,
+            4096
+          ]
+        },
+        "generation_config": "auto",
+        "APC": true,
+        "expert_parallel": false,
+        "eager": false,
+        "recompute_scheduler": false,
+        "model_worker_count": 4,
+        "store_capacity_bytes": 34359738368,
+        "event_observation": {
+          "decode_native_profiler": false,
+          "page_observations_enabled": true,
+          "kv_io_observations_enabled": true,
+          "abort_observations_enabled": true
+        },
+        "async_scheduling_cli": null
+      },
+      "D": {
+        "TP": 2,
+        "DP": 1,
+        "dtype": "bfloat16",
+        "max_context": 262144,
+        "batch_tokens": 4096,
+        "max_sequences": 16,
+        "memory_utilization": 0.8,
+        "kv_block_size": 128,
+        "compilation": {
+          "cudagraph_mode": "FULL_DECODE_ONLY",
+          "cudagraph_capture_sizes": [
+            1,
+            2,
+            4,
+            8,
+            16
+          ]
+        },
+        "generation_config": "auto",
+        "APC": true,
+        "expert_parallel": false,
+        "eager": false,
+        "recompute_scheduler": true,
+        "model_worker_count": 4,
+        "store_capacity_bytes": 34359738368,
+        "event_observation": {
+          "decode_native_profiler": false,
+          "page_observations_enabled": true,
+          "kv_io_observations_enabled": true,
+          "abort_observations_enabled": true
+        },
+        "async_scheduling_cli": null
+      }
+    },
+    "routing": "native",
+    "link_protocol": "observed-link-rates/v1",
+    "link_cap_scope": "per_port"
+  },
+  "cases": {
+    "basin-light-steady-native-link": {
+      "arm": "steady",
+      "label": "稳态",
+      "plan_file": "light.json",
+      "plan_sha256": "36f6da99f8a2ca5a2bdf25bf77310ec73741e0e1b96bcdf5470056987465e123",
+      "workload_sha256": "a49a2f106ce7f474bf6e43279b5717e73cf610f76b5345b2f10655b2b5b4b5a3",
+      "readback_Mbps": {
+        "P": {
+          "before": {
+            "0": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "1": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "6": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "7": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            }
+          },
+          "after": {
+            "0": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "1": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "6": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "7": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            }
+          }
+        },
+        "D": {
+          "before": {
+            "3": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "4": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "5": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "6": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            }
+          },
+          "after": {
+            "3": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "4": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "5": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "6": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            }
+          }
+        }
+      },
+      "source_files": {
+        "case.json": "ad2016fbf165042011146c82901dab05005caae829fe1c4c70747334ecb261e5",
+        "deployment.json": "f8f4f415ec07ca8e61b31d27805253c31f975bdda0af35ee55d7fcf9172a8816",
+        "summary.json": "044cfa1db8b701f77ac09d19dd16d132c83388f748d5300d9800ffb3ebc44d3b",
+        "P-link-readback.json": "74d13384758367b3c275d7e40e46ecc6b881c355b6a20ff1c430f9157414f6ed",
+        "P-link-end.json": "cfd49644d182c125deb59ccfe0f9aa0508386251eff2f4e237ab175347782323",
+        "P.tar.gz": "a1baa2f7a0f4ff4f3a660be3a3266934166ebe11bffd9cc0c9217d4ca1200ea8",
+        "D-link-readback.json": "088d4f0a605725509462afd13f6e23c0f9591bbd1b518f27c1e73cf323a4cf7f",
+        "D-link-end.json": "a00b213760b64c25651f51ed7a1f8009a3f626513ebe710927613e5c5513ede7",
+        "D.tar.gz": "78f70eb0f93aa674b5f88baa1b73bc6ba4cf4d48fca1d5a2756db2839f884d6b"
+      }
+    },
+    "basin-light-plus33-native-link": {
+      "arm": "plus33",
+      "label": "+33% 突发",
+      "plan_file": "light.json",
+      "plan_sha256": "36f6da99f8a2ca5a2bdf25bf77310ec73741e0e1b96bcdf5470056987465e123",
+      "workload_sha256": "a49a2f106ce7f474bf6e43279b5717e73cf610f76b5345b2f10655b2b5b4b5a3",
+      "readback_Mbps": {
+        "P": {
+          "before": {
+            "0": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "1": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "6": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "7": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            }
+          },
+          "after": {
+            "0": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "1": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "6": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "7": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            }
+          }
+        },
+        "D": {
+          "before": {
+            "3": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "4": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "5": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "6": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            }
+          },
+          "after": {
+            "3": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "4": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "5": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "6": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            }
+          }
+        }
+      },
+      "source_files": {
+        "case.json": "1564ec348baa76177aeb4021729c4fdc5be3d82fcc168a104c5e33c64554ff34",
+        "deployment.json": "f8f4f415ec07ca8e61b31d27805253c31f975bdda0af35ee55d7fcf9172a8816",
+        "summary.json": "a1ee8949a1f9fb3ccf371d9fb36f7fad80964037175fe6115e6726e3e0798a9d",
+        "P-link-readback.json": "ca802b11aff242163b5833c61020eb6a38b1d13458ef980db2711c8302a2fbc5",
+        "P-link-end.json": "94f46275801ea6914081f89f67b1bb821241135d546c7d9a4642a35680a8fd79",
+        "P.tar.gz": "27eecffcfc7f429963af6c29c9fd59d829b631f0d7ed21059e46afe39294ad29",
+        "D-link-readback.json": "aa6ed5823d68c77ee055159ee3326468df8cb3b66e2f97b13c952f503b782ceb",
+        "D-link-end.json": "f3d2b9dc8199911b638526be055c83ab6d4b5b2bb02b4947cb3b8785ea5de1be",
+        "D.tar.gz": "e3d0265cb0652f16ea64f8bc5d7d41840ed2de2c607d2f494a6a4aa401a24a49"
+      }
+    },
+    "basin-light-plus100-native-link": {
+      "arm": "plus100",
+      "label": "+100% 突发",
+      "plan_file": "light.json",
+      "plan_sha256": "36f6da99f8a2ca5a2bdf25bf77310ec73741e0e1b96bcdf5470056987465e123",
+      "workload_sha256": "a49a2f106ce7f474bf6e43279b5717e73cf610f76b5345b2f10655b2b5b4b5a3",
+      "readback_Mbps": {
+        "P": {
+          "before": {
+            "0": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "1": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "6": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "7": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            }
+          },
+          "after": {
+            "0": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "1": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "6": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "7": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            }
+          }
+        },
+        "D": {
+          "before": {
+            "3": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "4": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "5": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "6": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            }
+          },
+          "after": {
+            "3": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "4": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "5": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "6": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            }
+          }
+        }
+      },
+      "source_files": {
+        "case.json": "c85b4f78500af065bdbda028044781f46308c2c08fbd3adde7ff348a802269b3",
+        "deployment.json": "f8f4f415ec07ca8e61b31d27805253c31f975bdda0af35ee55d7fcf9172a8816",
+        "summary.json": "66798279abc78b8994e65731373b988beb4eaf5e8715b282c5c329eef7d4e45e",
+        "P-link-readback.json": "c1738ffccb5f7dd2abeda52c8017700f599798af2631585fcd6ebefa59fae466",
+        "P-link-end.json": "2baf518e4be4012a182f8d63c5f13cae2db233e02047f09dabdb14475fb232d3",
+        "P.tar.gz": "3bb1b321f5f74e5d4b7608ca875f1de227c99a439c3a0839e5b4ee30ea046210",
+        "D-link-readback.json": "9cb299c124271af9bd53a957b6446c183140ee1837eb6a2d8118133fa562f285",
+        "D-link-end.json": "88c8d349104d99908a1dfdf03b1fb4a6a77a78f8f3ddae7cc65c81666adb43d8",
+        "D.tar.gz": "ef00cbc73c261a248efc692104a2da7e92a82140e0053f00c00da305a2929029"
+      }
+    },
+    "basin-fivefold-burst-drain-native-link": {
+      "arm": "burst-drain",
+      "label": "五倍突发，自然排空",
+      "plan_file": "fivefold.json",
+      "plan_sha256": "93c23ce372da91c634e5c5f64627ccb103c5887e16039d3a03fa3203ed16730d",
+      "workload_sha256": "a49a2f106ce7f474bf6e43279b5717e73cf610f76b5345b2f10655b2b5b4b5a3",
+      "readback_Mbps": {
+        "P": {
+          "before": {
+            "0": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "1": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "6": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "7": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            }
+          },
+          "after": {
+            "0": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "1": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "6": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "7": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            }
+          }
+        },
+        "D": {
+          "before": {
+            "3": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "4": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "5": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "6": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            }
+          },
+          "after": {
+            "3": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "4": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "5": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "6": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            }
+          }
+        }
+      },
+      "source_files": {
+        "case.json": "c8d9b34a4994b858036c56ba840666bed33d3c826e50d5f82187a6f1efcf714b",
+        "deployment.json": "f8f4f415ec07ca8e61b31d27805253c31f975bdda0af35ee55d7fcf9172a8816",
+        "summary.json": "b124495f6e64b975991668424e9ae8f05113e2f781bcbfb08eabc372952f4e10",
+        "P-link-readback.json": "2ae20d01108bfef4c253bf967e25b21a3b7250d2fde0bcf18631275a0b94dc3a",
+        "P-link-end.json": "36649c28974702518891fb86028dcb8f41e18595c4526d8cc70d5f6fc1675e52",
+        "P.tar.gz": "cf275db8ea4db0603dca45839f94462dee21ee8959caac808bc1d23abd0c1401",
+        "D-link-readback.json": "1063fe72032b57e2ee50f54c7d420c9073977f1818cf387fe82cc572d31d1996",
+        "D-link-end.json": "35684174e860e088c01c446df617772f9907ec89de5aec587b5f4774d2fd0f4d",
+        "D.tar.gz": "3b249bb3ec50734a23ed8701bab17afe4f6b526ffdc8693e0d66653b72f446c1"
+      }
+    },
+    "basin-short-burst-drain-native-link": {
+      "arm": "burst-drain",
+      "label": "短会话突发，自然排空",
+      "plan_file": "short.json",
+      "plan_sha256": "8d19b925bc6b5bff0853731ac37a6a188abcc678f521799b042474d68b1fe55a",
+      "workload_sha256": "a49a2f106ce7f474bf6e43279b5717e73cf610f76b5345b2f10655b2b5b4b5a3",
+      "readback_Mbps": {
+        "P": {
+          "before": {
+            "0": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "1": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "6": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "7": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            }
+          },
+          "after": {
+            "0": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "1": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "6": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "7": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            }
+          }
+        },
+        "D": {
+          "before": {
+            "3": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "4": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "5": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "6": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            }
+          },
+          "after": {
+            "3": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "4": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "5": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            },
+            "6": {
+              "configured_Mbps": 200000,
+              "maximum_Mbps": 200000,
+              "current_Mbps": 200000
+            }
+          }
+        }
+      },
+      "source_files": {
+        "case.json": "c3e4be725d8b583f0b56be1fa46939009275fb31ce8ac9e09a9e3b5878dff5b7",
+        "deployment.json": "f8f4f415ec07ca8e61b31d27805253c31f975bdda0af35ee55d7fcf9172a8816",
+        "summary.json": "bca11c8f75ce528963d4c16cb7c5e279c31dc8689eebbf1ef050cb5aeb4aabf5",
+        "P-link-readback.json": "76a5129b06c2cfdea36d0edeee69ba5bced44cd9677cedf137b2469f8bb350d1",
+        "P-link-end.json": "3ccb8ad2cc6162d9b3817fece8086b7b5c83acd14dab4c9baf19a7780f7fb5a0",
+        "P.tar.gz": "ed5bc0a99a4fe7887ce3a765e07191ff896d4d0e6a33567f0b10575e30f6d745",
+        "D-link-readback.json": "1689e43fbacd5402bf32c32ed350e3d443a06e5c6889baab11bbf662b69021fb",
+        "D-link-end.json": "8179c087b82c75615423e34079ab6f60f6f683ceea8f1230f6c831d67c069b01",
+        "D.tar.gz": "a82530e2022a36f05c5fe91c7bfdebe17b5533ca9012426dd0aac04cfe48052b"
+      }
+    }
+  },
+  "row_counts": {
+    "requests": 1808,
+    "attempts": 1869,
+    "ranks": 3738,
+    "ports": 62730,
+    "engines": 11858,
+    "port_summary": 40,
+    "store": 156911,
+    "throughput": 5
+  },
+  "artifacts": {
+    "attempt-phases.csv.gz": {
+      "bytes": 337438,
+      "sha256": "3ba59a4851df94ecef7f19c4eacdafc46b7d6d37ec4f9ef59a57647e99e05956"
+    },
+    "engine-samples.csv.gz": {
+      "bytes": 329957,
+      "sha256": "b30a258902a2f5037bc98fabb8893318ef7ec5076cb77d1bcca834fe7296b329"
+    },
+    "handoff-ranks.csv.gz": {
+      "bytes": 155959,
+      "sha256": "485178075c3a189875234b9156bb02b4f72c3e5103f24c5fd72f8b5415389680"
+    },
+    "port-counters.csv.gz": {
+      "bytes": 1809598,
+      "sha256": "44e5e772c995087c12f5089b7702ba610f70da6baa9374c1ae63a34b7b917126"
+    },
+    "port-summary.csv": {
+      "bytes": 8045,
+      "sha256": "6df3cf5fef969a41d4f8609c01fcb4e039d2ec509095315fe0188c052bc1fb83"
+    },
+    "profile-summary.json": {
+      "bytes": 401410,
+      "sha256": "2db477c4eaf309144137016886750361389cb1ce65f2d3d7f98f40cd0bdab253"
+    },
+    "request-phases.csv.gz": {
+      "bytes": 332582,
+      "sha256": "9389fd12702309d7a653e42e9cab508885d01c2722cacedd3051f21ff24d530b"
+    },
+    "store-calls.csv.gz": {
+      "bytes": 2342449,
+      "sha256": "523a2ab3a0a638356e008e21eef819ffa0379db28e460e7dde4a12f42f7b9a0b"
+    },
+    "throughput.csv": {
+      "bytes": 1324,
+      "sha256": "ad1b74fe9ff2ed171fc2867184adcfd3e5035a6f5c2cabcdbdd3fd0cfe42aa98"
+    },
+    "README.md": {
+      "bytes": 3990,
+      "sha256": "75c9f5af6ca18bc6b1470a251d15e066ed5e9c806f196ce0c3f386f2fc2d1184"
+    }
+  }
+}
