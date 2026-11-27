@@ -1,0 +1,110 @@
+{
+  "schema": "r69-tp2-npu-evidence/v1",
+  "run": "r69-matmul-tp2-20261126-v3",
+  "clock_bounds": {
+    "r69-matmul-allreduce-forward-cap100-native": {
+      "P_to_D_wall_clock_offset_bounds_s": [
+        -0.06707186,
+        0.087772851
+      ]
+    },
+    "r69-matmul-allreduce-forward-cap100-fused": {
+      "P_to_D_wall_clock_offset_bounds_s": [
+        -0.102789192,
+        0.087369135
+      ]
+    },
+    "r69-matmul-allreduce-forward-cap200-native": {
+      "P_to_D_wall_clock_offset_bounds_s": [
+        -0.098432686,
+        0.087278239
+      ]
+    },
+    "r69-matmul-allreduce-forward-cap200-fused": {
+      "P_to_D_wall_clock_offset_bounds_s": [
+        -0.103551539,
+        0.086821567
+      ]
+    },
+    "r69-matmul-allreduce-reverse-cap200-fused": {
+      "P_to_D_wall_clock_offset_bounds_s": [
+        -0.100118063,
+        0.088561938
+      ]
+    },
+    "r69-matmul-allreduce-reverse-cap200-native": {
+      "P_to_D_wall_clock_offset_bounds_s": [
+        -0.097992621,
+        0.090021591
+      ]
+    },
+    "r69-matmul-allreduce-reverse-cap100-fused": {
+      "P_to_D_wall_clock_offset_bounds_s": [
+        -0.090996792,
+        0.096555416
+      ]
+    },
+    "r69-matmul-allreduce-reverse-cap100-native": {
+      "P_to_D_wall_clock_offset_bounds_s": [
+        -0.100572299,
+        0.088427228
+      ]
+    }
+  },
+  "vllm_version": {
+    "P": "0.23.0",
+    "D": "0.23.0"
+  },
+  "runtime_preflight_sha256": {
+    "P": "adb618d8895e78d70662f03756c7d5b5045fe12c91c7e6e98f54b438c1150a71",
+    "D": "b33fe345a3d2204efee130901215616a4571b1eb0e869727ce1c2ad2b9e07de3"
+  },
+  "deployment_settings": {
+    "global_segment_size": 8589934592,
+    "local_buffer_size": 33554432,
+    "preferred_segment": true,
+    "prefer_alloc_in_same_node": true,
+    "P": {
+      "compilation_config": {
+        "cudagraph_capture_sizes": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          1024,
+          2048,
+          3072,
+          4096
+        ]
+      },
+      "enable_prefix_caching": true,
+      "gpu_memory_utilization": 0.8,
+      "max_num_batched_tokens": 4096,
+      "max_num_seqs": 16
+    },
+    "D": {
+      "compilation_config": {
+        "cudagraph_mode": "FULL_DECODE_ONLY",
+        "cudagraph_capture_sizes": [
+          1,
+          2,
+          4,
+          8,
+          16
+        ]
+      },
+      "enable_prefix_caching": true,
+      "gpu_memory_utilization": 0.8,
+      "max_num_batched_tokens": 4096,
+      "max_num_seqs": 16
+    }
+  },
+  "workload_plan": "../2026-11-22-terminal-source-restore-short-guard/workload.json",
+  "counts": {
+    "formal_requests": 848,
+    "formal_rounds": 8,
+    "stream_chunks": 161127,
+    "port_samples": 5206
+  }
+}

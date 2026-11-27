@@ -4,9 +4,17 @@
 
 两台各四卡 910B2 上以 2P2D TP2、双侧 APC 和自然 EOS 完成五轮 Basin v1，共 1,808 条正式请求。五个条件的含排空吞吐为 **328.13–378.91 token/s**，八个实验口前后均读回 **200 Gbps/口**。归档含逐请求与逐次派发阶段、3,738 条交接 rank 路径和逐口计数。 [实测数据与口径](../results/2026-11-26-basin-qwen38-200g-per-port/README.md)
 
+基于这五轮实测补存了 25/12.5 Gbps/口的 CPU 回放，含 D 并发变化、额外交接等待与实际输出量。 [回放数据及适用范围](../results/2026-11-27-basin-qwen38-bandwidth-replay/README.md)
+
+## r69 的 P 侧融合对照
+
+双机各两卡的 1P1D 小样本覆盖原生、仅 P 侧 MatmulAllReduce 和仅 P 侧 FlashComm1，吞吐分别为 **18.27、29.61、26.38 token/s**。双机各四卡的 2P2D TP2 八轮配对覆盖 848 条请求，MatmulAllReduce 的吞吐变化为 **−23.9% 至 +5.8%**，TTFT p99 两降两升。 [1P1D 三臂及逐请求数据](../results/2026-11-26-r69-1p1d-operator-comparison/README.md) · [2P2D 八轮、SSE 和固定输出归因](../results/2026-11-26-r69-tp2-matmul-allreduce/README.md)
+
 ## 双侧就近 Store 的 18 轮原生 2P2D 实测
 
 两台各 8 卡 910B2 上使用双侧 APC、128 GiB 双侧就近 Store、EOS 和原生路由。P、D 两端分别限 100/200 Gbps。r43 正反序的整轮吞吐为 **457.73→403.72** 和 **399.84→357.10 token/s**，r69 为 **196.15→202.91** 和 **193.50→187.25 token/s**。Basin 完成十轮自然排空。逐口采样未发现持续贴限导致 D 缺供，整轮波动主要随实际输出、会话依赖和生成尾部改变。归档含 5,056 条逐请求阶段、288 条逐口统计和两项独立诊断。 [吞吐、时间拆分与数据](../results/2026-11-25-native-2p2d/README.md)
+
+r69 同一批原生实测补存了 424 条 P 首块等待分解与两对 100/200 Gbps 的逐请求对齐数据。 [队列、路由变化和压尾](../results/2026-11-25-r69-native-prefill-queue/README.md)
 
 ## 历史结果与离线复核
 

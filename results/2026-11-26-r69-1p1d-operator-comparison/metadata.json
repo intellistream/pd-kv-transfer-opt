@@ -1,0 +1,169 @@
+{
+  "schema": "r69-1p1d-npu-evidence/v1",
+  "configs": {
+    "native": {
+      "P": {
+        "dtype": "bfloat16",
+        "tensor-parallel-size": "2",
+        "data-parallel-size": "1",
+        "max-model-len": "262144",
+        "max-num-seqs": "16",
+        "max-num-batched-tokens": "4096",
+        "gpu-memory-utilization": "0.8",
+        "mamba-cache-mode": "align",
+        "enable_matmul_allreduce": false,
+        "enable_prefix_caching": true,
+        "store_pool": {
+          "id": "two-sided-8gib-local-first/v1",
+          "model_workers_by_role": {
+            "P": 2,
+            "D": 2
+          },
+          "capacity_bytes_by_role": {
+            "P": 17179869184,
+            "D": 17179869184
+          },
+          "total_capacity_bytes": 34359738368
+        }
+      },
+      "D": {
+        "dtype": "bfloat16",
+        "tensor-parallel-size": "2",
+        "data-parallel-size": "1",
+        "max-model-len": "262144",
+        "max-num-seqs": "16",
+        "max-num-batched-tokens": "4096",
+        "gpu-memory-utilization": "0.8",
+        "mamba-cache-mode": "align",
+        "recompute_scheduler_enable": true,
+        "enable_prefix_caching": true,
+        "store_pool": {
+          "id": "two-sided-8gib-local-first/v1",
+          "model_workers_by_role": {
+            "P": 2,
+            "D": 2
+          },
+          "capacity_bytes_by_role": {
+            "P": 17179869184,
+            "D": 17179869184
+          },
+          "total_capacity_bytes": 34359738368
+        }
+      }
+    },
+    "matmul_allreduce": {
+      "P": {
+        "dtype": "bfloat16",
+        "tensor-parallel-size": "2",
+        "data-parallel-size": "1",
+        "max-model-len": "262144",
+        "max-num-seqs": "16",
+        "max-num-batched-tokens": "4096",
+        "gpu-memory-utilization": "0.8",
+        "mamba-cache-mode": "align",
+        "enable_matmul_allreduce": true,
+        "enable_prefix_caching": true,
+        "store_pool": {
+          "id": "two-sided-8gib-local-first/v1",
+          "model_workers_by_role": {
+            "P": 2,
+            "D": 2
+          },
+          "capacity_bytes_by_role": {
+            "P": 17179869184,
+            "D": 17179869184
+          },
+          "total_capacity_bytes": 34359738368
+        }
+      },
+      "D": {
+        "dtype": "bfloat16",
+        "tensor-parallel-size": "2",
+        "data-parallel-size": "1",
+        "max-model-len": "262144",
+        "max-num-seqs": "16",
+        "max-num-batched-tokens": "4096",
+        "gpu-memory-utilization": "0.8",
+        "mamba-cache-mode": "align",
+        "recompute_scheduler_enable": true,
+        "enable_prefix_caching": true,
+        "store_pool": {
+          "id": "two-sided-8gib-local-first/v1",
+          "model_workers_by_role": {
+            "P": 2,
+            "D": 2
+          },
+          "capacity_bytes_by_role": {
+            "P": 17179869184,
+            "D": 17179869184
+          },
+          "total_capacity_bytes": 34359738368
+        }
+      }
+    },
+    "flashcomm1": {
+      "P": {
+        "dtype": "bfloat16",
+        "tensor-parallel-size": "2",
+        "data-parallel-size": "1",
+        "max-model-len": "262144",
+        "max-num-seqs": "16",
+        "max-num-batched-tokens": "4096",
+        "gpu-memory-utilization": "0.8",
+        "mamba-cache-mode": "align",
+        "enable_matmul_allreduce": false,
+        "enable_flashcomm1": true,
+        "enable_prefix_caching": true,
+        "store_pool": {
+          "id": "two-sided-8gib-local-first/v1",
+          "model_workers_by_role": {
+            "P": 2,
+            "D": 2
+          },
+          "capacity_bytes_by_role": {
+            "P": 17179869184,
+            "D": 17179869184
+          },
+          "total_capacity_bytes": 34359738368
+        }
+      },
+      "D": {
+        "dtype": "bfloat16",
+        "tensor-parallel-size": "2",
+        "data-parallel-size": "1",
+        "max-model-len": "262144",
+        "max-num-seqs": "16",
+        "max-num-batched-tokens": "4096",
+        "gpu-memory-utilization": "0.8",
+        "mamba-cache-mode": "align",
+        "recompute_scheduler_enable": true,
+        "enable_prefix_caching": true,
+        "store_pool": {
+          "id": "two-sided-8gib-local-first/v1",
+          "model_workers_by_role": {
+            "P": 2,
+            "D": 2
+          },
+          "capacity_bytes_by_role": {
+            "P": 17179869184,
+            "D": 17179869184
+          },
+          "total_capacity_bytes": 34359738368
+        }
+      }
+    }
+  },
+  "source_sha256": {
+    "r69-1p1d-v3-native-timing.json": "eab88f02df3e51375a2d92696b00b22b48092500c62160c4711facf947bc6fdf",
+    "r69-1p1d-v3-native-P-ready.json": "3d6469e3e01a57bf9126356d560250b786c031bb26fcae37f695c9efed9726ca",
+    "r69-1p1d-v3-native-D-ready.json": "226f1de8326e6bb21d6a544dc97b683739d8f59d5dc4b185abc68be2fc955b24",
+    "r69-1p1d-v3-fusion-timing.json": "a5014c423973e9c88015fe9b01f3300a869a955e99f407d7d6083836bd9b2fc4",
+    "r69-1p1d-v3-fusion-P-ready.json": "4ddd6e30e6107811d9a715c5dc166197407d69683084a2bbc915de81d541b073",
+    "r69-1p1d-v3-fusion-D-ready.json": "63636265b877c15db05c6121404f2b52d122e314a970aab66b027744bfec8976",
+    "r69-1p1d-v5-flashcomm1-timing.json": "73eba6732b4e599c0b7aec519c66ee1442a24eb6cc608e8560c0fed4ea1359a4",
+    "r69-1p1d-v5-flashcomm1-P-ready.json": "f3fc85f321a19469d9c8268e8331a1b60c774f3044ad50c123f5b1c1f6792d8a",
+    "r69-1p1d-v5-flashcomm1-D-ready.json": "937f9689ba1c6de9ca73cc12be9a336b1300c8ba52740136c39151b20e089363"
+  },
+  "formal_rounds": 3,
+  "formal_requests": 96
+}
