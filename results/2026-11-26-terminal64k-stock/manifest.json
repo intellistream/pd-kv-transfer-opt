@@ -1,0 +1,67 @@
+{
+  "schema": "terminal64k-stock-result/v1",
+  "run_id": "terminal64k-stock-20261126b",
+  "date": "2026-11-26",
+  "source_repository_revision": "1654716",
+  "workload": {
+    "sessions": 10,
+    "requests": 516,
+    "planned_new_sessions_per_s": 0.5,
+    "last_session_offered_s": 27.13055944043753
+  },
+  "deployment": {
+    "model": "Qwen3.5-35B-A3B",
+    "dtype": "bfloat16",
+    "instances_per_role": 2,
+    "cards_per_role": 4,
+    "tensor_parallel": 2,
+    "expert_parallel": 2,
+    "P_max_batched_tokens": 8192,
+    "D_max_batched_tokens": 4096,
+    "P_matmul_allreduce": true,
+    "D_native_recompute_scheduler": true,
+    "local_apc_both_roles": true,
+    "store_gib_per_role": 64,
+    "original_tx_gbps_per_active_port": 200
+  },
+  "counts": {
+    "ok": 486,
+    "error": 1,
+    "dependency_failed": 29
+  },
+  "output_tokens_successful": 483744,
+  "duration_s": 2514.05495299201,
+  "output_tokens_per_s_successful": 192.41584175568235,
+  "complete_workload_output_tokens_per_s": null,
+  "ttft_s_successful": {
+    "n": 486,
+    "p50_s": 0.9356157530733071,
+    "p90_s": 3.583188157260423,
+    "p95_s": 7.860220856983499,
+    "p99_s": 14.046592195457457
+  },
+  "finish_reasons_successful": {
+    "stop": 459,
+    "length": 27
+  },
+  "source_archive": {
+    "storage": "CPU experiment archive",
+    "run_id": "terminal64k-stock-20261126b",
+    "sha256": {
+      "P.tar.gz": "9c07f988dd3e1875252a5b26dabef000b1d9063aae15672bbd66e8c824c0370d",
+      "D.tar.gz": "37b87029cd84e8fef51e70557938152fd5405250a41c3d9268372b44d5ba30fb",
+      "summary.json": "4bee2bf70be32e0d3da25191931412b430cb6c03b8b0ad668d8c7a8ef5a326dc",
+      "analysis.json": "e9f57aa0b758b6f89bcad6eef279c9bb5af25692bc6625d18326ca617a2288ff",
+      "workload.jsonl.gz": "91b88016db96bff786996787ec4c59de8521c80bcfc0856ad77aa627427a8f8f"
+    }
+  },
+  "released_devices_verified": true,
+  "sha256": {
+    "figures/output-throughput-over-time.png": "cbd081f31331f964b2330945e79fe968f06e439065c7dff63be9e1a8858648cd",
+    "figures/ttft-breakdown.png": "a931abe4e9fd1a00bae9260f8a1c935f42d198cdbd5f1555f9da1cd9faeb3c45",
+    "figures/ttft-percentiles.png": "d01862e53aef7e939851e020aba4707ad16c694daa24b9b21cf7354810553571",
+    "README.md": "85e9cfeae82f32dd3a471614475c57bdb56e4e8e8c371f2b064f8de24c58ea44",
+    "request-timings.csv": "a5e708d42011608ebec7047245636decfdf7510485b80ed3bd4d20d563626a75",
+    "session-timings.csv": "018b2adfba548bcdb56f913b8fc7e06e0066c78eb5a97af3fe5e65905c371a97"
+  }
+}
